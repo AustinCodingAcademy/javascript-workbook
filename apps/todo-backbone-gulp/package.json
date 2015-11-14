@@ -1,7 +1,7 @@
 {
-  "name": "frontend-intermediate-workbook",
+  "name": "todo-backbone-gulp",
   "version": "1.0.0",
-  "description": "Workbook for Austin Coding Academy Frontend Intermediate Course",
+  "description": "Building a Todo App with Backbone and Gulp",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AustinCodingAcademy/frontend-intermediate-workbook.git"
@@ -14,11 +14,9 @@
   "dependencies": {
     "backbone": "^1.2.3",
     "browserify": "^12.0.1",
-    "colors": "^1.1.2",
     "gulp": "^3.9.0",
     "gulp-sourcemaps": "^1.6.0",
     "jquery": "^2.1.4",
-    "prompt": "^0.2.14",
     "underscore": "^1.8.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
