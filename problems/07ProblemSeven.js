@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // 10001st prime
 // Problem 7
