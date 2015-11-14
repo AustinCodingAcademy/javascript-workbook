@@ -8,11 +8,10 @@ function returnTrue() {
 }
 
 
-
 // Tests
 
 describe('#returnTrue()', function () {
     it('should return true', function () {
-      assert.equal(lessonZero.returnTrue(), true);
+      assert.equal(returnTrue(), true);
     });
 });

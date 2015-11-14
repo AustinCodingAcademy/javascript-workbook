@@ -54,7 +54,7 @@ describe('#returnFalse()', function () {
 
 describe('#greaterThan()', function () {
     it('should return true if the first argument is greater than the second argument', function () {
-        assert.deepEqual(greaterThan(10, 4), true);
+        assert.equal(greaterThan(10, 4), true);
     });
     it('should return false if the first argument is less than the second argument', function () {
         assert.equal(greaterThan(4, 10), false);
