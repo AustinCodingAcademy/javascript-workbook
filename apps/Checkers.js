@@ -14,5 +14,6 @@ function getPrompt() {
 }
 
 // Put app logic here
+// edit the checkers app
 
 getPrompt();
