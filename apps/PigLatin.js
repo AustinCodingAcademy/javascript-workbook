@@ -54,8 +54,6 @@ function getPrompt() {
     });
 }
 
-getPrompt();
-
 // Tests
 
 if (typeof describe !== 'undefined') {
@@ -78,4 +76,8 @@ if (typeof describe !== 'undefined') {
             assert.equal(pigLatin('RoCkEt'), 'ocketray');
         });
     });
+} else {
+
+    getPrompt();
+
 }
