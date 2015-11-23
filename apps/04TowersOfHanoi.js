@@ -16,24 +16,49 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
-
+function movePiece(startStack, endStack) {
+    // "push" on the finish stack the block that is popped off the startig stack
+    stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
-    // Your code here
+function isLegal(startStack, endStack) {
+    // get the last indicies of your start and end stacks
+    var startStackLastBlockIdx = stacks[startStack].length - 1
+    var endStackLastBlockIdx = stacks[endStack].length - 1
 
+    // this will give us the block at the end of the start stack
+    var movingBlock = stacks[startStack][startStackLastBlockIdx];
+
+    // if the finish stack is empty, this will be undefined, otherwise it will
+    // give us the block at the last index of the finish stack
+    var comparingBlock = stacks[endStack][endStackLastBlockIdx];
+
+    // compare the blocks
+    if (movingBlock < comparingBlock || !comparingBlock) {
+        // if the moving block is less than the block it's going to stack on
+        // or if the finish stack is empty (hence the comparing block would be undefined)
+        // remember '!' in front of a value will give the opposite "truthiness" value
+        return true;
+    }
+
+    // otherwise return false. It is not a legal move
+    console.log("Not a Legal Move");
+    return false;
 }
 
 function checkForWin() {
-    // Your code here
-
+    if (stacks['b'].length === 4 || stacks['c'].length === 4) {
+        console.log('You Won!!!');
+        return true;
+    }
+    return false;
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
-
+    if (isLegal(startStack, endStack)) {
+        movePiece(startStack, endStack);
+    }
+    checkForWin();
 }
 
 function getPrompt() {
