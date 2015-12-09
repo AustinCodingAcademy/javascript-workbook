@@ -5,8 +5,13 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
-    // Your code here
+function Checker(color) {
+    this.color = color;
+    if (this.color === 'white') {
+        this.symbol = String.fromCharCode(0x125CB);
+    } else {
+        this.symbol = String.fromCharCode(0x125CF);
+    }
 }
 
 function Board() {
@@ -49,7 +54,46 @@ function Board() {
         console.log(string);
     }
 
-    // Your code here
+    // Our "bag of checkers", starts out empty
+    this.checkers = [];
+
+    // creates the checkers to put into out "bag" (this.checkers)
+    this.createCheckerInstances = function() {
+
+        // hardcoded positions of the checkers
+        var whitePositions = [
+            [0, 1], [0, 3], [0, 5], [0, 7],
+            [1, 0], [1, 2], [1, 4], [1, 6],
+            [2, 1], [2, 3], [2, 5], [2, 7]
+        ];
+
+        var blackPositions = [
+            [5, 0], [5, 2], [5, 4], [5, 6],
+            [6, 1], [6, 3], [6, 5], [6, 7],
+            [7, 0], [7, 2], [7, 4], [7, 6],
+        ];
+
+        for (var i = 0; i < 12; i++) {
+            var whiteChecker = new Checker('white');
+            this.grid[whitePositions[i][0]][whitePositions[i][1]] = whiteChecker;
+            this.checkers.push( whiteChecker );
+
+            var blackChecker = new Checker('black');
+            this.grid[blackPositions[i][0]][blackPositions[i][1]] = blackChecker;
+            this.checkers.push( blackChecker );
+         }
+    }
+
+    this.selectChecker = function(row, column) {
+        return this.grid[row][column];
+    }
+
+    this.killChecker = function(position) {
+        var checker = this.selectChecker(position[0], position[1]);
+        var checkerIdx = this.checkers.indexOf(checker);
+        this.checkers.splice(checkerIdx, 1);
+        this.grid[position[0]][position[1]] = null;
+    }
 }
 function Game() {
 
@@ -57,7 +101,17 @@ function Game() {
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
+        this.board.createCheckerInstances();
+    }
+
+    this.moveChecker = function(start, end) {
+        var checker = this.board.selectChecker(start[0], start[1]);
+        this.board.grid[start[0]][start[1]] = null;
+        this.board.grid[end[0]][end[1]] = checker;
+        if (Math.abs(start[1] - end[1]) === 2) {
+            var killPos = [(parseInt(start[0]) + parseInt(end[0])) / 2, (parseInt(start[1]) + parseInt(end[1])) / 2];
+            this.board.killChecker(killPos);
+        }
     }
 }
 
