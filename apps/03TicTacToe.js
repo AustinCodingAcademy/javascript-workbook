@@ -45,7 +45,7 @@ function getPrompt() {
     printBoard();
     console.log("It's Player " + playerTurn + "'s turn.");
     prompt.get(['row', 'column'], function (error, result) {
-        ticTacToe(parseInt(result.row, 10), parseInt(result.column, 10));
+        ticTacToe(result['row'], result['column']);
         getPrompt();
     });
 }
