@@ -13,11 +13,12 @@ var board = [
 var playerTurn = 'X';
 
 function printBoard() {
-    console.log(board[0].join(' | '));
-    console.log('---------');
-    console.log(board[1].join(' | '));
-    console.log('---------');
-    console.log(board[2].join(' | '));
+    console.log('   0  1  2');
+    console.log('0 ' + board[0].join(' | '));
+    console.log('  ---------');
+    console.log('1 ' + board[1].join(' | '));
+    console.log('  ---------');
+    console.log('2 ' + board[2].join(' | '));
 }
 
 function horizontalWin() {
