@@ -1,2 +1,2 @@
 ## Project Euler Problems
-Test your solution at https://projecteuler.net/
+Test your solutions at https://projecteuler.net/
