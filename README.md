@@ -11,12 +11,13 @@
 
 ### Push to Github and create a PR
 1. When finished, commit your changes and push to GitHub
-```bash
-git status
-git add LessonZeroTest.js
-git commit -m "Lesson Zero Tests passing!"
-git push origin gh-pages
-```
+  
+  ```bash
+  git status
+  git add LessonZeroTest.js
+  git commit -m "Lesson Zero Tests passing!"
+  git push origin gh-pages
+  ```
 1. Now go to your forked repository on GitHub. A little yellow box should have popped up asking you to make a Pull Request. Click to review.
 
 1. Click "Create Pull Request"
