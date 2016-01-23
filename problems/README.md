@@ -1,2 +1,3 @@
 ![](https://projecteuler.net/themes/default/pe_logo_default.png)
-Test your solutions at https://projecteuler.net/
+
+Sample problems from https://projecteuler.net/ . Make an account and test your solutions!
