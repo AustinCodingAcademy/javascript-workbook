@@ -88,5 +88,50 @@
       "site_admin": false
     },
     "truncated": false
+  },
+  {
+    "url": "api/gists/1e8d13a7a5afa02fa939.json",
+    "forks_url": "api/gists/1e8d13a7a5afa02fa939/forks",
+    "commits_url": "api/gists/1e8d13a7a5afa02fa939/commits",
+    "id": "1e8d13a7a5afa02fa939",
+    "git_pull_url": "https://gist.github.com/1e8d13a7a5afa02fa939.git",
+    "git_push_url": "https://gist.github.com/1e8d13a7a5afa02fa939.git",
+    "html_url": "https://gist.github.com/1e8d13a7a5afa02fa939",
+    "files": {
+      "whatevs.js": {
+        "filename": "whatevs.js",
+        "type": "application/javascript",
+        "language": "JavaScript",
+        "raw_url": "https://gist.githubusercontent.com/mistakevin/1e8d13a7a5afa02fa939/raw/166e7ef13080e98a43a92ef93a132fba8fe61f8b/whatevs.js",
+        "size": 51
+      }
+    },
+    "public": true,
+    "created_at": "2016-01-17T16:40:46Z",
+    "updated_at": "2016-01-17T16:40:46Z",
+    "description": "Some other file or gist :(",
+    "comments": 0,
+    "user": null,
+    "comments_url": "api/gists/1e8d13a7a5afa02fa939/comments.json",
+    "owner": {
+      "login": "mistakevin",
+      "id": 4411115,
+      "avatar_url": "https://avatars.githubusercontent.com/u/4411115?v=3",
+      "gravatar_id": "",
+      "url": "api/users/mistakevin",
+      "html_url": "https://github.com/mistakevin",
+      "followers_url": "api/users/mistakevin/followers",
+      "following_url": "api/users/mistakevin/following{/other_user}",
+      "gists_url": "api/users/mistakevin/gists{/gist_id}",
+      "starred_url": "api/users/mistakevin/starred{/owner}{/repo}",
+      "subscriptions_url": "api/users/mistakevin/subscriptions",
+      "organizations_url": "api/users/mistakevin/orgs",
+      "repos_url": "api/users/mistakevin/repos",
+      "events_url": "api/users/mistakevin/events{/privacy}",
+      "received_events_url": "api/users/mistakevin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "truncated": false
   }
 ]
