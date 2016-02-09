@@ -8,6 +8,40 @@ prompt.start();
 function pigLatin(word) {
 
     // Your code here
+    
+    
+     var firstLetter = word[0];
+     
+ 
+   if(firstLetter == 'a'
+      || firstLetter == 'e'
+      || firstLetter == 'i'
+      || firstLetter == 'o'
+      || firstLetter == 'u'){
+         var pigLatinWord = word + "yay";
+         return pigLatinWord;
+      }
+
+      //Check to see if the first vowel is not true
+      //Returns -1 if the item is not found.
+      var wordVowels = ["a", "e", "i", "o", "u"];
+      for (var i = 0; i < word.length; i++) {
+        if (wordVowels.indexOf(word[i])!== -1) {
+          var firstWord = word.slice(0, i); 
+           var secondWord = word.slice(i); 
+          var pigLatinWord = secondWord + firstWord; 
+          break;
+        }
+      }      
+
+      return (pigLatinWord += "ay").toLowerCase();
+
+
+
+
+
+
+
 
 }
 
