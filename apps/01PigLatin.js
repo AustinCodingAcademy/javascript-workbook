@@ -6,10 +6,16 @@ prompt.start();
 
 
 function pigLatin(word) {
-
-    // Your code here
-
+	word = word.toLowerCase();
+  var index;
+  index = word.search(/[aeiou]/); //searches for vowel//
+  if (index <= 0) {
+    return word + "yay";
+  } else {
+    return word.substring(index, word.length) + word.substring(0, index) + "ay";
+  } /*if vowel is after 1st letter, it will return the new word starting with the 1st vowel (index) and going to the end of the word (word.length). It then adds the letters from the beginning (index 0) up to the 1st vowel (index). It then adds  "ay" */
 }
+console.log(pigLatin('street'));
 
 
 function getPrompt() {
