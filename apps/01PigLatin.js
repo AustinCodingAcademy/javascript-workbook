@@ -6,16 +6,25 @@ prompt.start();
 
 
 function pigLatin(word) {
-
-    // Your code here
-
+    var pigWord;
+    //lowercase
+    word = word.toLowerCase();
+    //regex
+    pigWord = word.search(/[aeiou]/);
+    //vowel
+    if (pigWord <= 0) {
+        return word + "yay";
+    //consonant
+    } else {
+        return word.substring(pigWord, word.length) + word.substring(0, pigWord) + "ay";
+    }
 }
 
 
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
 
-        console.log( pigLatin(result['word']) );
+        console.log(pigLatin(result['word']));
 
         getPrompt();
     });
