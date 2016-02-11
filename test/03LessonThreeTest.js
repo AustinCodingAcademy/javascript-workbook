@@ -5,7 +5,7 @@ var assert = require('assert');
 
 function buildArray(first, second, third) {
     // return array with the items first, second, and third in an array.
-
+    
 }
 
 function returnThirdItem(arr) {
