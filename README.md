@@ -43,3 +43,6 @@ To run a single test on an app, test, or a kata, simply run `mocha apps/01PigLat
 ### Run all tests in the `test/` directory
 Simply run `mocha` in this directory.
 
+Teachers: brennon@austincodeacademy.com
+chen chen@austincodeacademy.com
+ 

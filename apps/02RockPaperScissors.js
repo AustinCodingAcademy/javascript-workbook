@@ -5,11 +5,65 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function rockPaperScissors(hand1, hand2) {
+// var userChoice = prompt("Do you choose rock, paper or scissors?");
+// var computerChoice = Math.random();
+// if (computerChoice < 0.34) {
+//     computerChoice = "rock";
+// } else if(computerChoice <= 0.67) {
+//     computerChoice = "paper";
+// } else {
+//     computerChoice = "scissors";
+// } console.log("Computer: " + computerChoice);
 
-    // Write code here
-
+function rockPaperScissors(hand1, hand2){
+    if(hand1 == hand2){
+        return "It's a tie!";
+    }
+    else if (hand1 === "rock"){
+        if(hand2 == "scissors"){
+            return "Hand one wins!";
+        }
+        else {
+            return "Hand two wins!";
+        }
+    }
+    else if (hand1 === "paper"){
+        if(hand2 === "rock"){
+            return "Hand one wins!";   
+        }
+        else {
+            return "Hand two wins!";
+        }
+    }
+    else if (hand1 === "scissors"){
+        if(hand2 === "rock"){
+            return "Hand one wins!";
+        }
+        else {
+            return "Hand two wins!"; 
+        }
+    }
 }
+
+
+
+// function rockPaperScissors(hand1, hand2) {
+
+//      if(hand2==hand1){
+//         return "It's a tie!";
+//      }
+//      else if( hand1 == "rock" && hand2 == "scissors"){
+//         return "Hand one wins!";
+//      }
+//      else if ( hand1 == "paper" && hand2 =="scissors"){
+//         return "Hand two wins!";
+//      }
+//      else if ( hand1 == "paper" && hand2 == "rock"){
+//         return "Hand two wins!";
+//     }
+//     rockPaperScissors("paper", "rock");
+// };
+
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
