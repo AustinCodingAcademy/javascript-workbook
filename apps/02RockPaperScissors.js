@@ -6,8 +6,9 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
-
-    // Write code here
+    
+    if(hand1 == rock && hand2 == scissors) {
+        return "rock wins
 
 }
 
