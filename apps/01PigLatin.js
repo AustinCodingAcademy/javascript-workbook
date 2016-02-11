@@ -6,27 +6,20 @@ prompt.start();
 
 
 function pigLatin(word) {
-    word = word.toLowerCase();
-    var firstLetter = word[0];
-
-    if (firstLetter == 'a' || 'e' || 'i' || 'o' || 'u') {
-        var pigLatinWord = word + "yay";
-        return pigLatinWord;
+word = word.toLowerCase();
+    var index;
+    index = word.search(/[aeiou]/);
+    if (index <= 0) {
+        return word + "yay";
+    } else {
+        return word.substring(index, word.length) + word.substring(0, index) + "ay";
     }
-    else {
-        var vowelIndex = -1;
-        if((word.indexOf('a') > -1 && word.indexOf('a') < vow$ || vowelIndex === -1) { vowelIndex = wordIndexOf('a');
-    } 
-        if((word.indexOf('e') > -1 && word.indexOf('e') < vow$ || vowelIndex === -1) { vowelIndex = wordIndexOf('e');
-    } 
-        if((word.indexOf('i') > -1 && word.indexOf('i') < vow$ || vowelIndex === -1) { vowelIndex = wordIndexOf('i');
-    } 
-        if((word.indexOf('o') > -1 && word.indexOf('o') < vow$ || vowelIndex === -1) { vowelIndex = wordIndexOf('o');
-    } 
-        if((word.indexOf('u') > -1 && word.indexOf('u') < vow$ || vowelIndex === -1) { vowelIndex = wordIndexOf('u');
-    } 
+
+
+
 
 }
+
 
 
 function getPrompt() {
