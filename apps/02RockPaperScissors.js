@@ -4,11 +4,48 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
+    
+
+function randomInt(low, high) {
+    return Math.floor(Math.random() * (high - low) + low);
+    }
+
+   /* var random = randomInt(1,3);
+    function compHand() {
+        if (random === 1) {return "rock";}
+        if (random === 2) {return "scissors";}
+        if (random > 2) {return "paper";}
+    }
+    */
+    
+
 
 function rockPaperScissors(hand1, hand2) {
 
     //test
-    
+    var random = randomInt(1,4);
+
+   function compHand() {
+        if (random === 1) {return "rock";}
+        if (random === 2) {return "scissors";}
+        if (random === 3) {return "paper";}
+    }
+
+    if (hand1 === "") {
+        hand1 = compHand();
+    }
+    if (hand2 === "") {
+        hand2 = compHand();
+    }
+
+    console.log(hand1);
+    console.log(hand2);
+    //hand1 = hand1.toLowerCase();
+
+    //if (hand1 === "rock" || "paper" || "scissors") {
+    //    return "invalid entry"
+    //}
+
     if(hand1 === hand2) {
         return "It's a tie!";
     }
@@ -21,7 +58,7 @@ function rockPaperScissors(hand1, hand2) {
 }
 
 function getPrompt() {
-    prompt.get(['hand1', 'hand2'], function (error, result) {
+    prompt.get(['hand1','hand2'], function (error, result) {
 
         console.log( rockPaperScissors(result['hand1'], result['hand2']) );
 
