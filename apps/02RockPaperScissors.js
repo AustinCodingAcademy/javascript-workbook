@@ -10,19 +10,8 @@ function randomInt(low, high) {
     return Math.floor(Math.random() * (high - low) + low);
     }
 
-   /* var random = randomInt(1,3);
-    function compHand() {
-        if (random === 1) {return "rock";}
-        if (random === 2) {return "scissors";}
-        if (random > 2) {return "paper";}
-    }
-    */
-    
-
-
 function rockPaperScissors(hand1, hand2) {
 
-    //test
     var random = randomInt(1,4);
 
    function compHand() {
@@ -38,13 +27,12 @@ function rockPaperScissors(hand1, hand2) {
         hand2 = compHand();
     }
 
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
+    
+    //test computer output
     console.log(hand1);
     console.log(hand2);
-    //hand1 = hand1.toLowerCase();
-
-    //if (hand1 === "rock" || "paper" || "scissors") {
-    //    return "invalid entry"
-    //}
 
     if(hand1 === hand2) {
         return "It's a tie!";
