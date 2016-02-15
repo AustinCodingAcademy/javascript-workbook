@@ -18,33 +18,22 @@ function returnFalse() {
 function greaterThan(big, small) {
     // should return true if the first argument is greater than the second argument
     // and return false if the first argument is less than the second argument
-    if (big > small) {
-        return true;
-    } else {
-        return false;
-    }
+        return big>small;
+    
 
 }
 
 function lessThan(small, big) {
     // should return true if the first argument is less than the second argument
     // and return false if the first argument is greater than the second argument
-    if (small < big) {
-        return true;
-    } else {
-        return false;
-    }
+    return small<big;
 
 }
 
 function equalTo(a, b) {
     // should return true if the first argument is equal to the second argument
     // and should return true if the first argument is equal to the second argument
-    if (a === b) {
-        return true;
-    } else {
-        return false;
-    }
+        return a === b;
 
 }
 
@@ -52,11 +41,7 @@ function notEqualTo(a, b) {
     // should return true if the first argument is not equal to the second argument
     // and should return false if the first argument is equal to the second argument
     
-    if (a !== b) {
-        return true;
-    } else {
-        return false;
-    }
+    return a !== b;
 
 }
 
