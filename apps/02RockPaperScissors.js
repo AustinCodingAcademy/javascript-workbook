@@ -4,37 +4,91 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
 function rockPaperScissors(hand1, hand2) {
+
+    function randomInt(low, high){
+      return Math.floor(Math.random() * (high-low) + low);
+    };
+
+    if (hand1 == '' || hand2 == '') {
+      
+      if(hand1 == "") {
+        hand1 = randomInt(1,100);
+        // console.log("Hand 1: " + hand1);
+
+        if(hand1 < 33) {
+          
+          hand1 = "rock";
+          console.log("Hand 1: " + hand1);
+
+        } else if (hand1 <= 66){
+          
+          hand1 = "scissors";
+          console.log("Hand 1: " + hand1);
+
+        } else if(hand1 <= 100){ 
+          
+          hand1 = "paper";
+          console.log("Hand 1: " + hand1);
+
+        }
+      } else if (hand2 == "") {
+        hand2 = randomInt(1,100);
+        // console.log("Hand 2: " + hand2);
+
+        if(hand2 < 33) {
+          
+          hand2 = "rock";
+          console.log("Hand 2: " + hand2);
+
+        } else if (hand2 <= 66){
+          
+          hand2 = "scissors";
+          console.log("Hand 2: " + hand2);
+
+        } else if(hand2 <= 100){
+          
+          hand2 = "paper";
+          console.log("Hand 2: " + hand2);
+
+        }
+      }
+    }
 
     hand1 = hand1.toLowerCase();
     hand2 = hand2.toLowerCase();
 
     if (hand1 === hand2) {
+      
       return "It's a tie!";
-    }
 
-    if (hand1 === 'rock') {
+    } else if (hand1 === 'rock') {
+      
       if (hand2 === 'scissors') {
         return 'Hand one wins!';
       }
       return 'Hand two wins!';
-    }
 
-    if (hand1 === 'paper') {
+    } else if (hand1 === 'paper') {
+      
       if (hand2 === 'scissors') {
         return 'Hand two wins!';
       }
-      return 'Hand two wins!';
-    }
+      return 'Hand one wins!';
 
-    if (hand1 === 'scissors') {
+    } else if (hand1 === 'scissors') {
+      
       if (hand2 === 'rock') {
-        return 'Hand one wins!';
+        return 'Hand two wins!';
       }
       return 'Hand one wins!';
-    }
 
+    } else {
+
+      console.log("Try again...");
+
+    }
+    
 }
 
 function getPrompt() {
