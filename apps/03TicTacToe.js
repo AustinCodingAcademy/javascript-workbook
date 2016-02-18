@@ -4,6 +4,7 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
+
 var board = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
@@ -55,6 +56,7 @@ function diagonalWin() {
 function checkForWin() {
     // Your code here
     if (horizontalWin() || verticalWin() || diagonalWin()){
+        console.log( 'Player ' + playerTurn + ' Won!');
         return true;
     }
 }
@@ -63,42 +65,73 @@ function ticTacToe(row, column) {
     //check if board is empty
 if (board[row][column] == ' ') {
 
+
         // check first row
         if (row == 0 && column == 0){
             board[0][0] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         } else if (row == 0 && column == 1){
             board[0][1] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         } else if (row == 0 && column == 2){
             board[0][2] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         }
         
 		//check second row
 	if (row == 1 && column == 0){
             board[1][0] = playerTurn;
+        if(checkForWin() == true){
+                process.exit();
+            }
         } else if (row == 1 && column == 1){
             board[1][1] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         } else if (row == 1 && column == 2){
             board[1][2] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         }
         
 		//check third row
         if (row == 2 && column == 0){
             board[2][0] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         } else if (row == 2 && column == 1){
             board[2][1] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         } else if (row == 2 && column == 2){
             board[2][2] = playerTurn;
+            if(checkForWin() == true){
+                process.exit();
+            }
         }
-		//run checkForWin() function
-        checkForWin();
+        //checkForWin();
+        
         playerTurn = (playerTurn == 'X') ? 'O':'X';
+      
 
     } 
     else {
 
         console.log("Oops! Try Again.");
-
     }
+   
+    //run checkForWin() function
+       
 }
 
 
