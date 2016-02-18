@@ -1,4 +1,4 @@
-'use strict';
+'use strict ';
 
 var assert = require('assert');
 var prompt = require('prompt');
@@ -11,7 +11,7 @@ function rockPaperScissors(hand1, hand2) {
     hand1 = hand1.toLowerCase();
     hand2 = hand2.toLowerCase();
 
-    function randomInt(low, high) {
+  function randomInt(low, high) {
         return Math.floor(Math.random() * (high - low) + low)
     }
     var randomHand = function () {
@@ -20,10 +20,11 @@ function rockPaperScissors(hand1, hand2) {
             return 'rock';
         } else if (randomNum === 2) {
             return 'paper';
-        } else return 'scissors';
+        } else
+            return 'scissors';
     }
     hand2 = randomHand();
-    console.log(hand2);
+    console.log(hand2);   
 
     if (hand1 === hand2) {
         return "It's a tie!";
@@ -33,7 +34,7 @@ function rockPaperScissors(hand1, hand2) {
         if (hand2 === 'scissors') {
             return "Hand one wins!";
         } {
-            return "Hand two wins";
+            return "Hand two wins!";
         };
     }
 
@@ -53,8 +54,6 @@ function rockPaperScissors(hand1, hand2) {
         };
     }
 
-
-
     function getPrompt() {
         prompt.get(['hand1', 'hand2'], function (error, result) {
 
@@ -63,6 +62,7 @@ function rockPaperScissors(hand1, hand2) {
             getPrompt();
         });
     }
+}
 
     // Tests
 
