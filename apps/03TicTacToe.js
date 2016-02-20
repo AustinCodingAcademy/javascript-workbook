@@ -21,24 +21,122 @@ function printBoard() {
     console.log('2 ' + board[2].join(' | '));
 }
 
+function resetBoard(){
+    
+    board = [
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+    ];
+
+    playerTurn = 'X';
+}
+
 function horizontalWin() {
-    // Your code here
+    
+    if ((board[0][0] === playerTurn && board[0][1] === playerTurn) && board[0][2] === playerTurn || 
+        (board[1][0] === playerTurn && board[1][1] === playerTurn) && board[1][2] === playerTurn || 
+        (board[2][0] === playerTurn && board[2][1] === playerTurn) && board[2][2] === playerTurn) {
+        return true;
+    }
 }
 
 function verticalWin() {
-    // Your code here
+    
+    if ((board[0][0] === playerTurn && board[1][0] === playerTurn) && board[2][0] === playerTurn || 
+        (board[0][1] === playerTurn && board[1][1] === playerTurn) && board[2][1] === playerTurn || 
+        (board[0][2] === playerTurn && board[1][2] === playerTurn) && board[2][2] === playerTurn) {
+        return true;
+    }
 }
 
 function diagonalWin() {
-    // Your code here
+    
+    if ((board[0][0] === playerTurn && board[1][1] === playerTurn) && board[2][2] === playerTurn || 
+        (board[0][2] === playerTurn && board[1][1] === playerTurn) && board[2][0] === playerTurn) {
+        return true;
+    }
 }
 
 function checkForWin() {
-    // Your code here
+
+    if ( horizontalWin() || verticalWin() || diagonalWin() ){
+        console.log("Player " + playerTurn + " Wins!");
+        console.log("Thanks for playing. Bye.");
+        process.exit();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkForDraw() {
+    
+    var emptySpots = 9;
+    
+    for (var i = 0; i < board.length; i++){
+        for (var j = 0; j < board[i].length; j++){
+            if (board[i][j] != " "){
+                emptySpots --;
+            }
+        }
+    }    
+
+    if(emptySpots === 0 && !checkForWin()) {
+        console.log("\nCat's Game! Let's Reset...\n");
+        resetBoard();
+    }
 }
 
 function ticTacToe(row, column) {
-    // Your code here
+    
+    if ((row === "0" || row === "1" || row === "2") && (column === "0" || column === "1" || column === "2")) {
+        
+        if (board[row][column] == ' '){
+
+            //  FIRST ROW  ===========================
+
+            if (row == 0 && column == 0){
+                board[0][0] = playerTurn;
+            } else if (row == 0 && column == 1){
+                board[0][1] = playerTurn;
+            } else if (row == 0 && column == 2){
+                board[0][2] = playerTurn;
+            }
+            
+            //  SECOND ROW  ===========================
+            
+            if (row == 1 && column == 0){
+                board[1][0] = playerTurn;
+            } else if (row == 1 && column == 1){
+                board[1][1] = playerTurn;
+            } else if (row == 1 && column == 2){
+                board[1][2] = playerTurn;
+            }
+
+            //  THIRD ROW  ===========================
+
+            if (row == 2 && column == 0){
+                board[2][0] = playerTurn;
+            } else if (row == 2 && column == 1){
+                board[2][1] = playerTurn;
+            } else if (row == 2 && column == 2){
+                board[2][2] = playerTurn;
+            }
+
+            checkForWin();
+            playerTurn = (playerTurn == 'X') ? 'O':'X';
+
+            checkForDraw();
+
+        } else {
+            console.log("\nPlayer " + board[row][column] + " has already played there.\nTry again.\n\n");
+        }
+
+    } else {
+        console.log("\nInvalid response. Please select 0, 1, or 2.\n");
+    }
+
 }
 
 function getPrompt() {
@@ -49,8 +147,6 @@ function getPrompt() {
         getPrompt();
     });
 }
-
-
 
 // Tests
 
@@ -81,6 +177,7 @@ if (typeof describe !== 'undefined') {
             assert.equal(checkForWin(), true);
         });
     });
+
 } else {
 
     getPrompt();
