@@ -70,11 +70,11 @@ function diagonalWin() {
 function checkForWin() {
     if (horizontalWin() || verticalWin() || diagonalWin()) {
         printBoard();
+        return true;
         console.log('Player ' + playerTurn + ' Won!');
         // console.log('Player ' + playerTurn + ' Won!\n' + '\n' + 'Restarting game..' + '\n');
         // board = clear_board;
         process.exit();
-        return true;
     }
 }
 
