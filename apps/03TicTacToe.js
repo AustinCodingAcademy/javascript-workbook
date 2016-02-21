@@ -4,11 +4,22 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
+
+// 2. Need to keep players from overlapping each other's marks.
+
+// 3. Need to print "It's a tie!" if board fills up."
+
 var board = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
     [' ', ' ', ' ']
 ];
+
+// var clear_board = [
+//     [' ', ' ', ' '],
+//     [' ', ' ', ' '],
+//     [' ', ' ', ' ']
+// ];
 
 var playerTurn = 'X';
 
@@ -58,7 +69,11 @@ function diagonalWin() {
 
 function checkForWin() {
     if (horizontalWin() || verticalWin() || diagonalWin()) {
+        printBoard();
         console.log('Player ' + playerTurn + ' Won!');
+        // console.log('Player ' + playerTurn + ' Won!\n' + '\n' + 'Restarting game..' + '\n');
+        // board = clear_board;
+        process.exit();
         return true;
     }
 }
@@ -70,14 +85,11 @@ function nextPlayer() {
     checkforWin();
 }
 
-
 function ticTacToe(row, column) {
     board[row][column] = playerTurn;
     checkForWin();
     nextPlayer();
 }
-
-
 
 function getPrompt() {
     printBoard();
@@ -87,6 +99,7 @@ function getPrompt() {
         getPrompt();
     });
 }
+
 
 
 // Tests
@@ -120,6 +133,5 @@ if (typeof describe !== 'undefined') {
     });
 } else {
 
-    getPrompt();
-
+        getPrompt();
 }
