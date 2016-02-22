@@ -15,13 +15,8 @@ var board = [
     [' ', ' ', ' ']
 ];
 
-// var clear_board = [
-//     [' ', ' ', ' '],
-//     [' ', ' ', ' '],
-//     [' ', ' ', ' ']
-// ];
-
 var playerTurn = 'X';
+var moveCount = 0;
 
 function printBoard() {
     console.log('   0  1  2');
@@ -70,11 +65,35 @@ function diagonalWin() {
 function checkForWin() {
     if (horizontalWin() || verticalWin() || diagonalWin()) {
         printBoard();
+        console.log('Player ' + playerTurn + ' Won!\n' + 'Restarting game..' + '\n');
+        restartGame();
         return true;
-        console.log('Player ' + playerTurn + ' Won!');
-        // console.log('Player ' + playerTurn + ' Won!\n' + '\n' + 'Restarting game..' + '\n');
-        // board = clear_board;
-        process.exit();
+    }
+}
+
+function restartGame() {
+    if (horizontalWin() || verticalWin() || diagonalWin()) {
+        moveCount = 0;
+        board = [
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+        ];
+        return board;
+    }
+}
+
+function checkForTie() {
+    if (moveCount === 9) {
+            moveCount = 0;
+            printBoard();
+            console.log("It's a tie!\n" + "Restarting game.." + "\n");
+            board = [
+                [' ', ' ', ' '],
+                [' ', ' ', ' '],
+                [' ', ' ', ' ']
+                ];
+        return board;
     }
 }
 
@@ -82,12 +101,21 @@ function checkForWin() {
 function nextPlayer() {
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     return playerTurn;
-    checkforWin();
 }
 
 function ticTacToe(row, column) {
-    board[row][column] = playerTurn;
+    //makes sure input does not overlap previous inputs
+    if (board[row][column] === 'X' || board[row][column] === 'O') {
+        console.log("Invalid entry. Try again..");
+        nextPlayer();
+    }
+    else { 
+        board[row][column] = playerTurn;
+        moveCount++;
+    }
     checkForWin();
+    checkForTie();
+    restartGame();
     nextPlayer();
 }
 
@@ -99,7 +127,6 @@ function getPrompt() {
         getPrompt();
     });
 }
-
 
 
 // Tests
