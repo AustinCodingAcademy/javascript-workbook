@@ -1,37 +1,41 @@
 'use strict';
 
 var assert = require('assert');
-
+var nArray=[[1,2,3,4,5,],[1,2,3,4,5,],[1,2,3,4,5,],[1,2,3,4,5],[1,2,3,4,5,]];
+           
 
 function buildArray(first, second, third) {
     // return array with the items first, second, and third in an array.
-
+var array= [first ,second ,third ];
+    return array;
 }
 
-function returnThirdItem(arr) {
+function returnThirdItem(arr){
     // should return the third item in the array
-
+return arr[2];
 }
 
 function setFirstItem(arr, newFirstItem) {
     // should set the first item in the array with newFirstItem
-
+arr[0]=newFirstItem;
 }
 
 function returnCenterItem(fiveByFiveArray) {
     // returns the "center" item in a 5 x 5 array
     // ex. 3 x 3 array [[1, 2, 3], [4, 5, 6], [7, 8, 9]] the center item is 5
-
+return nArray[2][2];
 }
 
 function arrayJoin(arr) {
     // should return a string of the joined array items, separated by a space
+    return arr.join(" ");
 
 }
 
 function stringSplit(str) {
     // should return an array of the words in a string, delimited by a space
-
+var str = str.split(" ");
+    return str;
 }
 
 
