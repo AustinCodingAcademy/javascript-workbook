@@ -5,9 +5,11 @@ var prompt = require('prompt');
 prompt.start();
 
 
-// 2. Need to keep players from overlapping each other's marks.
+// Needs to keep players from overlapping each other's marks.
 
-// 3. Need to print "It's a tie!" if board fills up."
+// Needs to print "It's a tie!" and restart game if board fills up.
+
+// Needs to restart game if a player wins.
 
 var board = [
     [' ', ' ', ' '],
@@ -26,8 +28,6 @@ function printBoard() {
     console.log('  ---------');
     console.log('2 ' + board[2].join(' | '));
 }
-
-// include 'draw' function
 
 function horizontalWin() {
     if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
@@ -65,14 +65,13 @@ function diagonalWin() {
 function checkForWin() {
     if (horizontalWin() || verticalWin() || diagonalWin()) {
         printBoard();
-        console.log('Player ' + playerTurn + ' Won!\n' + 'Restarting game..' + '\n');
         restartGame();
+        console.log('Player ' + playerTurn + ' Won!\n' + 'Restarting game..' + '\n');
         return true;
     }
 }
 
 function restartGame() {
-    if (horizontalWin() || verticalWin() || diagonalWin()) {
         moveCount = 0;
         board = [
         [' ', ' ', ' '],
@@ -80,20 +79,13 @@ function restartGame() {
         [' ', ' ', ' ']
         ];
         return board;
-    }
 }
 
 function checkForTie() {
     if (moveCount === 9) {
-            moveCount = 0;
-            printBoard();
-            console.log("It's a tie!\n" + "Restarting game.." + "\n");
-            board = [
-                [' ', ' ', ' '],
-                [' ', ' ', ' '],
-                [' ', ' ', ' ']
-                ];
-        return board;
+        printBoard();
+        restartGame();
+        console.log("It's a tie!\n" + "Restarting game.." + "\n");
     }
 }
 
@@ -104,7 +96,7 @@ function nextPlayer() {
 }
 
 function ticTacToe(row, column) {
-    //makes sure input does not overlap previous inputs
+    //makes sure input does not overlap previous inputs.
     if (board[row][column] === 'X' || board[row][column] === 'O') {
         console.log("Invalid entry. Try again..");
         nextPlayer();
@@ -115,7 +107,6 @@ function ticTacToe(row, column) {
     }
     checkForWin();
     checkForTie();
-    restartGame();
     nextPlayer();
 }
 
