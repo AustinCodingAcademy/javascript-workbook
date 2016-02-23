@@ -22,23 +22,107 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    // Your code here
+    if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn || 
+        board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn || 
+        board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+    }
 }
 
 function verticalWin() {
-    // Your code here
+    if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn || 
+        board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn || 
+        board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+    }
 }
 
 function diagonalWin() {
-    // Your code here
+    if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn || 
+        board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+        return true;
+    }
 }
 
 function checkForWin() {
-    // Your code here
+    if (horizontalWin() || verticalWin() || diagonalWin()) {
+        return true
+        console.log('Player' + playerTurn + 'Won!');
+    } else {
+        return false
+    }
+}
+
+function checkForDraw() {
+    
+    var emptySpots = 9;
+    
+    for (var i = 0; i < board.length; i++){
+        for (var j = 0; j < board[i].length; j++){
+            if (board[i][j] != " "){
+                emptySpots --;
+            }
+        }
+    }    
+
+    if(emptySpots === 0 && !checkForWin()) {
+        console.log("\nCat's Game! Let's Reset...\n");
+        resetBoard();
+    }
+}
+
+function isDraw() {
+    if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn && 
+        board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn && 
+        board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+        return true
+        console.log('Its a Draw');
+    } else {
+        return false
+    }
 }
 
 function ticTacToe(row, column) {
-    // Your code here
+    if(board[row][column] == " ") {
+        if(row == 0 && column == 0) {
+            board[0][0] = playerTurn;
+        }
+        if(row == 0 && column == 1) {
+            board[0][1] = playerTurn;
+        }
+        if(row == 0 && column == 2) {
+            board[0][2] = playerTurn;
+        }
+        
+        
+         if(row == 1 && column == 0) {
+            board[1][0] = playerTurn;
+        }
+        if(row == 1 && column == 1) {
+            board[1][1] = playerTurn;
+        }
+        if(row == 1 && column == 2) {
+            board[1][2] = playerTurn;
+        }
+        
+        if(row == 2 && column == 0) {
+            board[2][0] = playerTurn;
+        }
+        if(row == 2 && column == 1) {
+            board[2][1] = playerTurn;
+        }
+        if(row == 2 && column == 2) {
+            board[2][2] = playerTurn;
+        }
+    }
+    
+    if (checkForWin() == true) {
+        console.log("Player" + playerTurn  + "Wins!");
+    } else {
+        console.log(isDraw());
+    }
+    
+    playerTurn = (playerTurn == 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
