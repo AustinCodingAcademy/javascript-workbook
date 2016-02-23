@@ -89,52 +89,46 @@ function checkForDraw() {
 }
 
 function ticTacToe(row, column) {
-    
-    if ((row === "0" || row === "1" || row === "2") && (column === "0" || column === "1" || column === "2")) {
+            
+    if (board[row][column] == ' '){
+
+        //  FIRST ROW  ===========================
+
+        if (row == 0 && column == 0){
+            board[0][0] = playerTurn;
+        } else if (row == 0 && column == 1){
+            board[0][1] = playerTurn;
+        } else if (row == 0 && column == 2){
+            board[0][2] = playerTurn;
+        }
         
-        if (board[row][column] == ' '){
-
-            //  FIRST ROW  ===========================
-
-            if (row == 0 && column == 0){
-                board[0][0] = playerTurn;
-            } else if (row == 0 && column == 1){
-                board[0][1] = playerTurn;
-            } else if (row == 0 && column == 2){
-                board[0][2] = playerTurn;
-            }
-            
-            //  SECOND ROW  ===========================
-            
-            if (row == 1 && column == 0){
-                board[1][0] = playerTurn;
-            } else if (row == 1 && column == 1){
-                board[1][1] = playerTurn;
-            } else if (row == 1 && column == 2){
-                board[1][2] = playerTurn;
-            }
-
-            //  THIRD ROW  ===========================
-
-            if (row == 2 && column == 0){
-                board[2][0] = playerTurn;
-            } else if (row == 2 && column == 1){
-                board[2][1] = playerTurn;
-            } else if (row == 2 && column == 2){
-                board[2][2] = playerTurn;
-            }
-
-            checkForWin();
-            playerTurn = (playerTurn == 'X') ? 'O':'X';
-
-            checkForDraw();
-
-        } else {
-            console.log("\nPlayer " + board[row][column] + " has already played there.\nTry again.\n\n");
+        //  SECOND ROW  ===========================
+        
+        if (row == 1 && column == 0){
+            board[1][0] = playerTurn;
+        } else if (row == 1 && column == 1){
+            board[1][1] = playerTurn;
+        } else if (row == 1 && column == 2){
+            board[1][2] = playerTurn;
         }
 
+        //  THIRD ROW  ===========================
+
+        if (row == 2 && column == 0){
+            board[2][0] = playerTurn;
+        } else if (row == 2 && column == 1){
+            board[2][1] = playerTurn;
+        } else if (row == 2 && column == 2){
+            board[2][2] = playerTurn;
+        }
+
+        checkForWin();
+        checkForDraw();
+
+        playerTurn = (playerTurn == 'X') ? 'O':'X';
+
     } else {
-        console.log("\nInvalid response. Please select 0, 1, or 2.\n");
+        console.log("\nPlayer " + board[row][column] + " has already played there.\nTry again.\n\n");
     }
 
 }
