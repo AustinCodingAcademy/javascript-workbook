@@ -18,6 +18,7 @@ function returnThirdItem(arr) {
 function setFirstItem(arr, newFirstItem) {
     // should set the first item in the array with newFirstItem
     arr[0] = newFirstItem;
+    return arr;
 }
 
 function returnCenterItem(fiveByFiveArray) {
