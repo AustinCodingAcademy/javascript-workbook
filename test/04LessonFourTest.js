@@ -22,7 +22,7 @@ function arrayShift(arr) {
 
 function arrayUnshift(arr, item1, item2, item3) {
     // should add these items onto the front of the array, then return the array
-    arr.unshift(item1);
+    arr.unshift(item1, item2, item3);
     return arr;
 }
 
