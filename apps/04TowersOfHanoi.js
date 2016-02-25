@@ -57,9 +57,19 @@ if (typeof describe !== 'undefined') {
 
     describe('#isLegal()', function () {
         it('should not allow an illegal move', function () {
+            stacks = {
+              a: [4, 3, 2],
+              b: [1],
+              c: []
+            };
             assert.equal(isLegal('a', 'b'), false);
         });
         it('should allow a legal move', function () {
+            stacks = {
+              a: [4, 3, 2, 1],
+              b: [],
+              c: []
+            };
             assert.equal(isLegal('a', 'c'), true);
         });
     });
