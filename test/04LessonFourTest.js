@@ -43,11 +43,14 @@ function createObject() {
 
 function returnValueByKey(object, key) {
     // given an object and a key, return the value assigned to the key
+    return object[key];
 }
 
 function assignKeyValue(object, key, value) {
     // given an object, key, and value, add the key/value pair
     // to the object. return the object
+    object[key] = value;
+    return object;
 }
 
 
