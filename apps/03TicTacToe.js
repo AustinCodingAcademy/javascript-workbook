@@ -4,6 +4,13 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
+
+// Needs to keep players from overlapping each other's marks.
+
+// Needs to print "It's a tie!" and restart game if board fills up.
+
+// Needs to restart game if a player wins.
+
 var board = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
@@ -11,6 +18,7 @@ var board = [
 ];
 
 var playerTurn = 'X';
+var moveCount = 0;
 
 function printBoard() {
     console.log('   0  1  2');
@@ -22,23 +30,84 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    // Your code here
+    if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
+        return true;
+    }
+    if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
+        return true;
+    }
+    if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+    }
 }
 
 function verticalWin() {
-    // Your code here
+    if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+        return true;
+    }
+    if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
+        return true;
+    }
+    if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+    }
 }
 
 function diagonalWin() {
-    // Your code here
+    if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+    }
+    if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+        return true;
+    }
 }
 
 function checkForWin() {
-    // Your code here
+    if (horizontalWin() || verticalWin() || diagonalWin()) {
+        printBoard();
+        restartGame();
+        console.log('Player ' + playerTurn + ' Won!\n' + 'Restarting game..' + '\n');
+        return true;
+    }
+}
+
+function restartGame() {
+        moveCount = 0;
+        board = [
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+        ];
+        return board;
+}
+
+function checkForTie() {
+    if (moveCount === 9) {
+        printBoard();
+        restartGame();
+        console.log("It's a tie!\n" + "Restarting game.." + "\n");
+    }
+}
+
+
+function nextPlayer() {
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    return playerTurn;
 }
 
 function ticTacToe(row, column) {
-    // Your code here
+    //makes sure input does not overlap previous inputs.
+    if (board[row][column] === 'X' || board[row][column] === 'O') {
+        console.log("Invalid entry. Try again..");
+        nextPlayer();
+    }
+    else { 
+        board[row][column] = playerTurn;
+        moveCount++;
+    }
+    checkForWin();
+    checkForTie();
+    nextPlayer();
 }
 
 function getPrompt() {
@@ -49,7 +118,6 @@ function getPrompt() {
         getPrompt();
     });
 }
-
 
 
 // Tests
@@ -83,6 +151,5 @@ if (typeof describe !== 'undefined') {
     });
 } else {
 
-    getPrompt();
-
+        getPrompt();
 }
