@@ -4,16 +4,27 @@ var assert = require('assert');
 
 
 function returnTrue() {
+    return true;
+
     // should return true
 
 }
 
 function returnFalse() {
+    return false;
+
     // should return false
 
 }
 
 function greaterThan(big, small) {
+    if (big > small) {
+        return true;
+    } else if (big < small) {
+        return false;
+    }
+
+
     // should return true if the first argument is greater than the second argument
     // and return false if the first argument is less than the second argument
 
