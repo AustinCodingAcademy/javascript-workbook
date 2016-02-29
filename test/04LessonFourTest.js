@@ -14,11 +14,12 @@ function arrayPush(arr, item1, item2, item3) {
     return arr;
 }
 
-function arrayShift(first, second, third) {
+function arrayShift(arr) {
     // should remove the first item in the array, then return the array
-    var arr=[first, second, third];
+    var arr;
     arr.shift();
     return arr;
+//whoops
 
 }
 
@@ -46,6 +47,7 @@ function returnValueByKey(object, key) {
     var object={
     key };
         return object.key;
+//  mocha returns AssertionError: 'a' == 1 or undefined==1 depending on notation. Not sure what to do with that.
 
 }
 
