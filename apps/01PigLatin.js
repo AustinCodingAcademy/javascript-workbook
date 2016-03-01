@@ -6,10 +6,20 @@ prompt.start();
 
 
 function pigLatin(word) {
+word = word.toLowerCase();
+    var index;
+    index = word.search(/[aeiou]/);
+    if (index <= 0) {
+        return word + "yay";
+    } else {
+        return word.substring(index, word.length) + word.substring(0, index) + "ay";
+    }
 
-    // Your code here
+
+
 
 }
+
 
 
 function getPrompt() {
