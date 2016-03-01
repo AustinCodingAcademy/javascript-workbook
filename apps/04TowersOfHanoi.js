@@ -16,24 +16,39 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
     // Your code here
-
+stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
     // Your code here
-
+var arrayStart = stacks[startStack];
+var arrayEnd = stacks[endStack];
+	
+if (arrayStart[arrayStart.length - 1] < arrayEnd[arrayEnd.length - 1 ]|| arrayEnd.length === 0) {
+	return true;
+} else {
+	return false;
+}
 }
 
 function checkForWin() {
     // Your code here
-
+if (stacks.b.length === 4 || stacks.c.length === 4) {
+	console.log("You win!");
+	return true;
+} else {
+	return false;
+};
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
+isLegal(startStack, endStack);
 
+	movePiece(startStack, endStack);
+	checkForWin();
 }
 
 function getPrompt() {
