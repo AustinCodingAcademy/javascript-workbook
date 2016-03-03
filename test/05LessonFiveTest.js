@@ -4,12 +4,24 @@ var assert = require('assert');
 
 function loopIt() {
     // should return an array with numbers 0 - 99
+    var myArray = [];
 
+    for (var i = 0; i < 100; i++){
+        myArray.push(i);
+    }
+
+    return myArray;
 }
 
 function onlyEvens() {
     // should return an array with all even numbers between 1 - 99
+    var evensArray = [];
 
+    for (var i = 2; i < 100; i += 2){
+        evensArray.push(i);
+    }
+
+    return evensArray;
 }
 
 function fizzBuzz() {
@@ -17,7 +29,22 @@ function fizzBuzz() {
     // divisible by 3 are replaced by the string "fizz", numbers divisible by 5
     // are replaced by the string "buzz", and the numbers divisble by both 3 and
     // 5 are replaced by fizzbuzz
+    
+    var fizzBuzzedArray = [];
 
+    for (var i = 0; i < 100; i++){
+        if (i % 3 === 0 && i % 5 === 0){
+            fizzBuzzedArray.push("fizzbuzz");
+        } else if (i % 5 === 0){
+            fizzBuzzedArray.push("buzz");
+        } else if (i % 3 === 0){
+            fizzBuzzedArray.push("fizz");
+        } else {
+            fizzBuzzedArray.push(i);
+        }
+    }
+
+    return fizzBuzzedArray;
 }
 
 
