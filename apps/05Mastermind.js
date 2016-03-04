@@ -57,6 +57,17 @@ if (typeof describe !== 'undefined') {
             assert.equal(mastermind(solution), 'You guessed it!');
         });
     });
+
+    describe('#generateHint()', function () {
+        it('should generate hints', function () {
+            assert.equal(generateHint('abcd', 'abdc'), '2-2');
+        });
+        it('should generate hints if solution has duplicates', function () {
+            assert.equal(generateHint('abcd', 'aabb'), '1-1');
+        });
+
+    });
+        
 } else {
 
     generateSolution();
