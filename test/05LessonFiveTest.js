@@ -3,31 +3,54 @@
 var assert = require('assert');
 
 function loopIt() {
-    // should return an array with numbers 0 - 99
-
+	// should return an array with numbers 0 - 99
+var array = [];	
+	for (var i = 0; i <= 99; i++) {
+		
+		array.push(i);
+	}
+	return array;
 }
 
 function onlyEvens() {
-    // should return an array with all even numbers between 1 - 99
-
+	// should return an array with all even numbers between 1 - 99
+	var array = [];
+	for (var i = 1; i <= 99; i ++) {
+		if ( i % 2 == 0) {
+			array.push(i);
+		}
+	}
+	return array;
 }
+
+console.log(onlyEvens());
 
 function fizzBuzz() {
-    // should return an array of numbers between 0 - 99 where the numbers
-    // divisible by 3 are replaced by the string "fizz", numbers divisible by 5
-    // are replaced by the string "buzz", and the numbers divisble by both 3 and
-    // 5 are replaced by fizzbuzz
-
+	// should return an array of numbers between 0 - 99 where the numbers
+	// divisible by 3 are replaced by the string "fizz", numbers divisible by 5
+	// are replaced by the string "buzz", and the numbers divisble by both 3 and
+	// 5 are replaced by fizzbuzz
+	var array = [];
+	for (var i = 0; i <= 99; i++) {
+		if (i % 3 == 0 && i % 5 == 0)
+			array.push("fizzbuzz");
+		else if (i % 5 == 0)
+			array.push("buzz");
+		else if (i % 3 == 0)
+			array.push("fizz"); 
+		else
+			array.push(i);
+	}
+	return array;
 }
 
-
-// Tests
+//// Tests
 
 describe('#loopIt', function () {
-    it('should return an array with numbers 0 - 99', function () {
-        var array =  [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 ];
-        assert.deepEqual(loopIt(), array);
-    });
+	it('should return an array with numbers 0 - 99', function () {
+		var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99];
+		assert.deepEqual(loopIt(), array);
+	});
 });
 
 describe('#onlyEvens', function () {
@@ -43,4 +66,3 @@ describe('#fizzBuzz', function () {
         assert.deepEqual(fizzBuzz(), array);
     });
 });
-
