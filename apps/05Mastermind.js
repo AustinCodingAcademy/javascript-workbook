@@ -8,6 +8,7 @@ prompt.start();
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var hint = [];
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
@@ -26,12 +27,36 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    for (var i=0; i < 4; i++) {
+        if(solutionArray[i] === guessArray[i]) {
+            correctLetterLocations++;
+            solutionArray[i] = null;
+        }
+    }
+    var correctLetters = 0;
+    for (var i=0; i < 4; i++) {
+        if (solutionArray[i] === guess[0] || solutionArray[i] === guess[1] || solutionArray[i] === guess[2] || solutionArray[i] === guess[3]) {
+            correctLetters++; 
+            solutionArray[i] = null;
+        }
+    }
+
+    hint = colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
+    return hint;
 }
 
 function mastermind(guess) {
-    // your code here
+    if(solution === guess) {
+        return 'You guessed it!';
+    }
+    else {
+        generateHint(solution, guess);
+    }
+    board.push(hint + guess);
 }
 
 
@@ -57,6 +82,17 @@ if (typeof describe !== 'undefined') {
             assert.equal(mastermind(solution), 'You guessed it!');
         });
     });
+
+    describe('#generateHint()', function () {
+        it('should generate hints', function () {
+            assert.equal(generateHint('abcd', 'abdc'), '2-2');
+        });
+        it('should generate hints if solution has duplicates', function () {
+            assert.equal(generateHint('abcd', 'aabb'), '1-1');
+        });
+
+    });
+
 } else {
 
     generateSolution();
