@@ -22,24 +22,94 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    // Your code here
+    if(board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn){
+        return true;
+    }
+     else if(board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn){
+        return true;
+}
+     else(board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
+        return true;
+    
 }
 
 function verticalWin() {
-    // Your code here
+    if(board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn){
+        return true;
+    } 
+    else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn){
+        return true;
+    }
+     else(board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+        return true;
+    
 }
 
 function diagonalWin() {
-    // Your code here
+    if(board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn)
+        return true;
+    
 }
 
 function checkForWin() {
-    // Your code here
+
+    if (horizontalWin() || verticalWin() || diagonalWin()){
+        return true;
+        console.log("Player" + playerTurn + "Won!")
+    }
+
+    
 }
 
-function ticTacToe(row, column) {
-    // Your code here
+/*function validMove(row, column){
+        
+      if (board[row][column] === "X" || board[row][column] === "O") {
+        //that means it's already taken
+        return false;
+
+      }
+      else {
+        return true; 
+    }
+
+
 }
+*/
+
+
+function ticTacToe(row, column) {
+
+    //top row
+    // if(row === 0 && column === 0)
+    //     board[0][0] = playerTurn;
+    // else if(row === 0 && column === 1)
+    //     board[0][1] === playerTurn;
+    // else if (row === 0 && column === 2)
+    //     board[0][2] === playerTurn;
+    // //mid row
+    // else if(row === 1 && column === 0)
+    //     board[1][0] === playerTurn;
+    // else if(row === 1 && column === 1)
+    //     board[1][1] === playerTurn;
+    // else if (row === 1 && column === 2)
+    //     board[1][2] === playerTurn;
+    // //cornrow
+    // else if(row === 2 && column === 0)
+    //     board[2][0] === playerTurn;
+    // else if(row === 2 && column === 1)
+    //     board[2][1] === playerTurn;
+    // else if (row === 2 && column === 2)
+    //     board[2][2] === playerTurn;
+    board[row][column] = playerTurn;
+
+    
+
+
+
+    
+    playerTurn = (playerTurn === "X") ? "O" : "X";
+}
+
 
 function getPrompt() {
     printBoard();

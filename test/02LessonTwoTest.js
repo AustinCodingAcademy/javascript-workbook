@@ -3,6 +3,7 @@
 var assert = require('assert');
 
 function whichSpecies(character) {
+
     // should return "dog" when character is 'scooby'
     // should return "cat" when character is 'garfield'
     // should return "fish" when character is 'nemo'
@@ -24,8 +25,8 @@ function isEven(number) {
         return true;
     else
         return false;
-}
 
+}
 
 // Tests
 
