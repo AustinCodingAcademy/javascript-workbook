@@ -4,27 +4,38 @@ var assert = require('assert');
 
 function arrayPop(arr) {
     // should remove the last item in the array, then return the arr
+    
+ arr.pop();
+    return arr;
+    
 
 }
 
 function arrayPush(arr, item1, item2, item3) {
     // should add these items onto the end of the array, then return the array
-
+arr.push(item1, item2, item3);
+    return arr;
 }
 
 function arrayShift(arr) {
     // should remove the first item in the array, then return the array
-
+arr.shift();
+    return arr;
+    
 }
 
 function arrayUnshift(arr, item1, item2, item3) {
     // should add these items onto the front of the array, then return the array
-
+arr.unshift(item1, item2, item3);
+return arr;    
 }
 
 function createObject() {
     // should return an object with keys 'first', 'second', 'third' mapped to
     // values 1, 2, 3
+    var createObject = {
+        
+    }
 
 }
 

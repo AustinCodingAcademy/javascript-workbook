@@ -17,7 +17,14 @@ function fizzBuzz() {
     // divisible by 3 are replaced by the string "fizz", numbers divisible by 5
     // are replaced by the string "buzz", and the numbers divisble by both 3 and
     // 5 are replaced by fizzbuzz
-
+    var container = "";
+    if(number % 3 == 0){
+        container = "fuzz";
+    }
+    else if (number % 5 == 0){
+        container = "bizz";
+    }
+else if (number % 3 == fizzBuzz);
 }
 
 
