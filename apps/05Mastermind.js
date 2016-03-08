@@ -8,7 +8,7 @@ prompt.start();
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-
+//solution = 'abcd';
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
         console.log(board[i])
@@ -26,15 +26,53 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+
+   // your code here
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+    
+
+    for (var i = 0; i < solutionArray.length; i++) {
+        if (solutionArray[i] == guessArray[i]) {
+            correctLetterLocations++;
+            solutionArray[i] = null;
+        }
+    }
+    for(var i = 0; i < solutionArray.length; i++){
+        for(var j = 0; j < guessArray.length; j++){
+            if(solutionArray[i] == guessArray[j]){
+                correctLetters++;
+            }
+        }
+    }
+    return correctLetterLocations.toString().red + '-' + correctLetters.toString().white;
 }
+
 
 function mastermind(guess) {
     // your code here
+    if(guess == solution){
+        return 'You guessed it!';
+    }
+    else if(board.length == 10){
+        return 'You ran out of turns! The solution was ' + solution;
+        process.exit();
+    }
+    else{
+        generateHint(solution,guess);
+        test(solution, guess);
+        return 'Guess again!';
+    }
+    
 }
 
-
+function test(solution, guess){
+    var hint = generateHint(solution,guess);
+    board.push(hint + guess);
+}
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
         console.log( mastermind(result['guess']) );
