@@ -3,6 +3,34 @@
 var assert = require('assert');
 
 // Create two classes, Car and Garage
+
+function Car(color) {
+    this.color = color;
+}
+
+function Garage(size) {
+    this.size = size;
+    this.cars = [];
+    this.add = function(car) {
+        if (this.cars.length < this.size) {
+            this.cars.push(car);
+        }
+        else {
+            return "Not enough space!";
+        }
+    }
+    this.remove = function(car) {
+        for (var i=0; i <= this.cars.length; i++) {
+            if (this.cars[i] === car) {
+                this.cars.splice(i, 1);
+            }
+            else {
+                return "That car isn't here!";
+            }
+        }
+    }
+}
+
 // The Car class should take one parameter, color. Set the passed in color to be an attribute of the object
 // The Garage should also take one parameter, size. The size will be an integer, and set it to an attribute
 // Give the Garage object an attribute, this.cars, and set it to an empty array
