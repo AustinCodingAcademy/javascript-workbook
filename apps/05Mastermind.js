@@ -12,7 +12,7 @@ var hint = [];
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+        console.log(board[i]);
     }
 }
 
@@ -31,21 +31,21 @@ function generateHint(solution, guess) {
     var solutionArray = solution.split('');
     var guessArray = guess.split('');
     var correctLetterLocations = 0;
-    for (var i=0; i < 4; i++) {
+    for (var i=0; i <= 3; i++) {
         if(solutionArray[i] === guessArray[i]) {
             correctLetterLocations++;
             solutionArray[i] = null;
         }
     }
     var correctLetters = 0;
-    for (var i=0; i < 4; i++) {
+    for (var i=0; i <= 3; i++) {
         if (solutionArray[i] === guess[0] || solutionArray[i] === guess[1] || solutionArray[i] === guess[2] || solutionArray[i] === guess[3]) {
             correctLetters++; 
             solutionArray[i] = null;
         }
     }
-
     hint = colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
+    console.log(hint);
     return hint;
 }
 
