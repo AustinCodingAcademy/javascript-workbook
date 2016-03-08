@@ -16,23 +16,48 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
+var startStack;
+var endStack;
+var startBlock;
+var endBlock;
+
+function movePiece(startStack, endStack) {
+    
+    
+   
 
 }
 
-function isLegal() {
-    // Your code here
-
+function isLegal(s, e) {
+    startStack = stacks[s];
+    endStack = stacks[e];
+    var startBlock = startStack[startStack.length -1];
+    var endBlock = endStack[endStack.length -1];
+    
+    if (startBlock < endBlock || endStack.length === 0){
+    return true;
+}
+    else {
+    return false;
+}
 }
 
 function checkForWin() {
-    // Your code here
+ if (stacks.b.length == 4 || stacks.c.length == 4 ){
+     console.log("You Won!!!");
+     return true;
+ }
+ 
+ else{
+     return false;
+ }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
+    isLegal();
+    movePiece();
+    checkForWin();
 
 }
 
@@ -73,6 +98,7 @@ if (typeof describe !== 'undefined') {
             assert.equal(isLegal('a', 'c'), true);
         });
     });
+    
     describe('#checkForWin()', function () {
         it('should detect a win', function () {
             stacks = { a: [], b: [4, 3, 2, 1], c: [] }
