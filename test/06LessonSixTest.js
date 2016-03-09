@@ -11,7 +11,35 @@ var assert = require('assert');
 // .remove should also take one argument, car. look for the index of the car in this.cars. If it is found, splice it out of this.cars. If it isn't found, return "That car isn't here!"
 
 // Your code here
+function Car (color) {
+    // body...
+    this.color = color;
+}
+function Garage (size){
+    this.size = size;
+    this.cars = [];
 
+    this.add = function(car){
+        if(this.cars.length < this.size){
+            this.cars.push(car);
+        }
+        else{
+            return "Not enough space!";
+        }
+
+    }
+    this.remove = function(car){
+        for (var i = 0; i < this.cars.length; i++) {
+           if (this.cars[i].color == car.color) {
+               this.cars.splice(car, 1);
+           }
+
+       }
+        
+
+   return "That car isn\'t here!";
+    }
+}
 // Tests
 
 var redCar, blueCar, greenCar, yellowCar, twoCarGarage, threeCarGarage
