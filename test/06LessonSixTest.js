@@ -12,6 +12,34 @@ var assert = require('assert');
 
 // Your code here
 
+function Car(color) {
+    this.color = color;
+}
+
+function Garage(size) {
+    this.size = size;
+
+    this.cars = [];
+
+    this.add = function (car) {
+        if (this.cars.length < size) {
+            this.cars.push(car);
+        } else {
+            return "Not enough space!";
+        }
+    }
+
+    this.remove = function (car) {
+        for (var i = 0; i <= this.cars.length; i++) {
+            if (this.cars[i] === car) {
+                this.cars.splice(i, 1);
+            } else {
+                return "That car isn't here!";
+            }
+        }
+    }
+}
+
 // Tests
 
 var redCar, blueCar, greenCar, yellowCar, twoCarGarage, threeCarGarage
