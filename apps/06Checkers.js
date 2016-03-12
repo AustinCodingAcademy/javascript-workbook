@@ -3,16 +3,21 @@
 var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
-// var color = (color === 'white') ? 'black' : 'white';
 
 function Checker(color) {
  
     if(color === 'white') {
         this.symbol = String.fromCharCode(0x1263A);
+        this.rank = 'white';
     }
-    else {
+    else if (color === 'black') {
         this.symbol = String.fromCharCode(0x1263B);
+        this.rank = 'black';
     }
+    // else if (color === 'king') {
+    //     this.symbol = String.fromCharCode(0x1265B);
+    //     this.rank = 'king';
+    // }
 }
 
 function Board() {
@@ -80,17 +85,16 @@ function Board() {
 
 
     this.killChecker = function(position) {
-        var stringIt = position.toString();
-        var midpoint = stringIt.split("");
-        var kill = this.checkers.indexOf(this.selectChecker(midpoint[0], midpoint[1]));
+        var kill = this.checkers.indexOf(this.selectChecker(position[0], position[1]));
         this.checkers.splice(kill, 1);
-        this.grid[midpoint[0]][midpoint[1]] = null;
-    }  
+        this.grid[position[0]][position[1]] = null;
+    }
 
 }
 function Game() {
 
     this.board = new Board();
+    this.checkerRank = new Checker();
 
     this.start = function() {
         this.board.createGrid();
@@ -98,15 +102,58 @@ function Game() {
     }
 
     this.moveChecker = function(start, end) {
+        var startNum = Number(start);
+        var endNum = Number(end);
         var startSpot = start.split('');
         var endSpot = end.split('');
+        var total = startNum + endNum;
+        var killPosition = (total / 2);
+        var stringIt = killPosition.toString();
+        var midpoint = stringIt.split("");
         var checker = this.board.selectChecker(startSpot[0], startSpot[1]);
-        this.board.grid[startSpot[0]][startSpot[1]] = null;
-        this.board.grid[endSpot[0]][endSpot[1]] = checker;
-        if (startSpot[0] - endSpot[0] === 2 || endSpot[0] - startSpot[0] === 2){
-            var total = Number(start) + Number(end);
-            var killPosition = (total / 2);
-            this.board.killChecker(killPosition);
+        //console.log(checker);
+        if (checker !== null && this.board.grid[endSpot[0]][endSpot[1]] === null) {
+            if (checker['rank'] == 'black') {
+                if (startNum - endNum === 22 || startNum - endNum === 18) {
+                    if (this.board.grid[midpoint[0]][midpoint[1]] !== null) {
+                        this.board.killChecker(midpoint);
+                        this.board.grid[startSpot[0]][startSpot[1]] = null;
+                        this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                    }
+                    else {
+                        console.log('\n' + 'Invalid move! Try again!');
+                    }
+                }
+                else if (startNum - endNum === 11 || startNum - endNum === 9) {
+                    this.board.grid[startSpot[0]][startSpot[1]] = null;
+                    this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                }
+                else {
+                    console.log('\n' + 'Invalid move! Try again!');
+                }
+            }
+            if (checker['rank'] == 'white') {
+                if (endNum - startNum === 22 || endNum - startNum === 18) {
+                    if (this.board.grid[midpoint[0]][midpoint[1]] !== null) {
+                        this.board.killChecker(midpoint);
+                        this.board.grid[startSpot[0]][startSpot[1]] = null;
+                        this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                    }
+                    else {
+                        console.log('\n' + 'Invalid move! Try again!');
+                    }
+                }
+                else if (endNum - startNum === 11 || endNum - startNum === 9) {
+                    this.board.grid[startSpot[0]][startSpot[1]] = null;
+                    this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                }
+                else {
+                    console.log('\n' + 'Invalid move! Try again!');
+                }
+            }
+        }
+        else {
+            console.log('\n' + 'Invalid move! Try again!');
         }
     }
 }
