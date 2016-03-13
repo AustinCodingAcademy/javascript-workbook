@@ -10,14 +10,18 @@ function Checker(color) {
         this.symbol = String.fromCharCode(0x1263A);
         this.rank = 'white';
     }
-    else if (color === 'black') {
+    if (color === 'black') {
         this.symbol = String.fromCharCode(0x1263B);
         this.rank = 'black';
     }
-    // else if (color === 'king') {
-    //     this.symbol = String.fromCharCode(0x1265B);
-    //     this.rank = 'king';
-    // }
+    if (color === 'blackKing') {
+        this.symbol = String.fromCharCode(0x12654);
+        this.rank = 'king';
+    }
+    if (color === 'whiteKing') {
+        this.symbol = String.fromCharCode(0x1265B);
+        this.rank = 'king';
+    }
 }
 
 function Board() {
@@ -90,6 +94,22 @@ function Board() {
         this.grid[position[0]][position[1]] = null;
     }
 
+    this.blackKing = function(position) {
+        var kill = this.checkers.indexOf(this.selectChecker(position[0], position[1]));
+        this.checkers.splice(kill, 1);
+        this.grid[position[0]][position[1]] = null;
+        this.grid[position[0]][position[1]] = new Checker('blackKing');
+        this.checkers.push(this.grid[position[0]][position[1]]);
+    }
+
+    this.whiteKing = function(position) {
+        var kill = this.checkers.indexOf(this.selectChecker(position[0], position[1]));
+        this.checkers.splice(kill, 1);
+        this.grid[position[0]][position[1]] = null;
+        this.grid[position[0]][position[1]] = new Checker('whiteKing');
+        this.checkers.push(this.grid[position[0]][position[1]]);
+    }
+
 }
 function Game() {
 
@@ -111,7 +131,6 @@ function Game() {
         var stringIt = killPosition.toString();
         var midpoint = stringIt.split("");
         var checker = this.board.selectChecker(startSpot[0], startSpot[1]);
-        //console.log(checker);
         if (checker !== null && this.board.grid[endSpot[0]][endSpot[1]] === null) {
             if (checker['rank'] == 'black') {
                 if (startNum - endNum === 22 || startNum - endNum === 18) {
@@ -119,6 +138,9 @@ function Game() {
                         this.board.killChecker(midpoint);
                         this.board.grid[startSpot[0]][startSpot[1]] = null;
                         this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                        if (this.board.grid[endSpot[0]] === this.board.grid[0]) {
+                            this.board.whiteKing(endSpot);
+                        }
                     }
                     else {
                         console.log('\n' + 'Invalid move! Try again!');
@@ -127,6 +149,9 @@ function Game() {
                 else if (startNum - endNum === 11 || startNum - endNum === 9) {
                     this.board.grid[startSpot[0]][startSpot[1]] = null;
                     this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                    if (this.board.grid[endSpot[0]] === this.board.grid[0]) {
+                            this.board.whiteKing(endSpot);
+                    }
                 }
                 else {
                     console.log('\n' + 'Invalid move! Try again!');
@@ -138,12 +163,37 @@ function Game() {
                         this.board.killChecker(midpoint);
                         this.board.grid[startSpot[0]][startSpot[1]] = null;
                         this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                        if (this.board.grid[endSpot[0]] === this.board.grid[7]) {
+                            this.board.blackKing(endSpot);
+                        }
                     }
                     else {
                         console.log('\n' + 'Invalid move! Try again!');
                     }
                 }
                 else if (endNum - startNum === 11 || endNum - startNum === 9) {
+                    this.board.grid[startSpot[0]][startSpot[1]] = null;
+                    this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                    if (this.board.grid[endSpot[0]] === this.board.grid[7]) {
+                        this.board.blackKing(endSpot);
+                    }
+                }
+                else {
+                    console.log('\n' + 'Invalid move! Try again!');
+                }
+            }
+            if (checker['rank'] == 'king') {
+                if (Math.abs(endNum - startNum) === 22 || Math.abs(endNum - startNum) === 18) {
+                    if (this.board.grid[midpoint[0]][midpoint[1]] !== null) {
+                        this.board.killChecker(midpoint);
+                        this.board.grid[startSpot[0]][startSpot[1]] = null;
+                        this.board.grid[endSpot[0]][endSpot[1]] = checker;
+                    }
+                    else {
+                        console.log('\n' + 'Invalid move! Try again!');
+                    }
+                }
+                else if (Math.abs(endNum - startNum) === 11 || Math.abs(endNum - startNum) === 9) {
                     this.board.grid[startSpot[0]][startSpot[1]] = null;
                     this.board.grid[endSpot[0]][endSpot[1]] = checker;
                 }
