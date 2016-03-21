@@ -4,13 +4,18 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
-function Checker() {
-    // Your code here
+function Checker(color) {
+    if (color === "white"){
+        this.symbol = String.fromCharCode(0x125CB);
+    } else {
+        this.symbol = String.fromCharCode(0x125CF);
+    }
 }
 
 function Board() {
+    
     this.grid = [];
+    
     // creates an 8x8 array, filled with null values
     this.createGrid = function() {
         // loop to create the 8 rows
@@ -49,19 +54,105 @@ function Board() {
         console.log(string);
     }
 
-    // Your code here
+    this.checkers = [];
+
+    this.createCheckers = function(){
+
+        // NORMAL GAME
+        var whitePositions = [
+            [0, 1], [0, 3], [0, 5], [0, 7],
+            [1, 0], [1, 2], [1, 4], [1, 6],
+            [2, 1], [2, 3], [2, 5], [2, 7]
+        ];
+
+        var blackPositions = [
+            [5, 0], [5, 2], [5, 4], [5, 6],
+            [6, 1], [6, 3], [6, 5], [6, 7],
+            [7, 0], [7, 2], [7, 4], [7, 6]
+        ];
+
+        // JUMPING PLAYER SCENARIO
+        // var whitePositions = [
+        //     [0, 1], [0, 3], [0, 5], [0, 7],
+        //     [1, 0], [1, 2], [1, 4], [1, 6],
+        //     [3, 2], [2, 3], [2, 5], [2, 7]
+        // ];
+
+        // var blackPositions = [
+        //     [5, 0], [5, 2], [4, 3], [5, 6],
+        //     [6, 1], [6, 3], [6, 5], [6, 7],
+        //     [7, 0], [7, 2], [7, 4], [7, 6]
+        // ];
+
+        for (var i = 0; i < 12; i++){  
+            this.grid[whitePositions[i][0]][whitePositions[i][1]] = new Checker('white');
+            this.grid[blackPositions[i][0]][blackPositions[i][1]] = new Checker('black');
+            this.checkers.push(this.grid[whitePositions[i][0]][whitePositions[i][1]]);
+            this.checkers.push(this.grid[blackPositions[i][0]][blackPositions[i][1]]);
+        }
+
+    }
+
+    this.selectChecker = function(row, column){
+        return this.grid[row][column];
+    }
+
+    this.killChecker = function(position){
+
+        var rowPosition = parseInt(position[0]);
+        var colPosition = parseInt(position[1]);
+        
+        this.grid[rowPosition][colPosition] = null;
+        this.checkers.pop();
+    }
 }
+
 function Game() {
 
     this.board = new Board();
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
+        this.board.createCheckers();
+    }
+
+    this.moveChecker = function(start, end){
+
+        var startRow = parseInt(start[0]);
+        var startCol = parseInt(start[1]);
+        
+        var endRow = parseInt(end[0]);
+        var endCol = parseInt(end[1]);
+
+        var checker = this.board.selectChecker(startRow, startCol);
+
+        if (this.board.grid[endRow][endCol] === null){
+
+            this.board.grid[startRow][startCol] = null;
+            this.board.grid[endRow][endCol] = checker;
+
+            var moveDistance = Math.abs(startRow - endRow);
+
+            if (moveDistance === 2){
+
+                var killPositionX = (startRow + endRow) / 2;
+                var killPositionY = (startCol + endCol) / 2;
+                var killPosition = killPositionX + "" + killPositionY;
+
+                this.board.killChecker(killPosition);
+            }
+        }
+
     }
 }
 
+var whosTurn = "White";
+
 function getPrompt() {
+    
+    console.log("It's " + whosTurn + " turn");
+    whosTurn = (whosTurn === 'White') ? 'Black':'White';
+
     game.board.viewGrid();
     prompt.get(['which piece?', 'to where?'], function (error, result) {
         game.moveChecker(result['which piece?'], result['to where?']);
@@ -71,7 +162,6 @@ function getPrompt() {
 
 var game = new Game();
 game.start();
-
 
 // Tests
 
