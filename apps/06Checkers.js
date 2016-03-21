@@ -5,8 +5,17 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
+function Checker(color) {
     // Your code here
+    //this.color = color;
+   
+        if(color == 'white'){
+            this.symbol = String.fromCharCode(0x125CB);
+        }
+        else{
+            this.symbol = String.fromCharCode(0x125CF);
+        }
+        
 }
 
 function Board() {
@@ -50,16 +59,75 @@ function Board() {
     }
 
     // Your code here
+
+    //repository of checker pieces
+    this.checkers = [];
+
+    //Creating the checker instances
+    this.createCheckers = function(){   
+        var whitePositions = [
+            [0, 1], [0, 3], [0, 5], [0, 7],
+            [1, 0], [1, 2], [1, 4], [1, 6],
+            [2, 1], [2, 3], [2, 5], [2, 7]
+        ];
+        var blackPositions = [
+            [5, 0], [5, 2], [5, 4], [5, 6],
+            [6, 1], [6, 3], [6, 5], [6, 7],
+            [7, 0], [7, 2], [7, 4], [7, 6]
+        ];
+        for (var i = 0; i < 12; i++){  
+            this.grid[whitePositions[i][0]][whitePositions[i][1]] = new Checker('white');
+            this.grid[blackPositions[i][0]][blackPositions[i][1]] = new Checker('black');
+            this.checkers.push(this.grid[whitePositions[i][0]][whitePositions[i][1]]);
+            this.checkers.push(this.grid[blackPositions[i][0]][blackPositions[i][1]]);
+        }
+    }
+
+    //Selecting a particular checker
+    this.selectChecker = function(row, column){
+        return this.grid[row, column];
+    }
+
+    //Killing a checker
+    this.killChecker = function(position){
+        var checker = this.selectChecker(position);
+        this.checkers.pop();
+        this.grid[position[0]][position[1]] = null;
+        //var posArray = position.split('');
+        
+    }
 }
 function Game() {
 
+ 
+    //game board
     this.board = new Board();
 
+    //Starting a game 
     this.start = function() {
         this.board.createGrid();
         // Your code here
+        this.board.createCheckers();
     }
+
+    this.moveChecker = function(start, end){
+        var startArray = start.split('');
+        var endArray = end.split('');
+        var checker = this.board.selectChecker(startArray[0], startArray[1]);
+        this.board.grid[startArray[0]][startArray[1]] = null;
+        this.board.grid[endArray[0]][endArray[1]] = checker;
+
+
+        if (Math.abs(this.board.selectChecker(startArray[0], startArray[1]) - this.board.selectChecker([endArray[0]][endArray[1]])) == 2) {
+
+            var killPosition = ((this.board.selectChecker(startArray[0], startArray[1]) + this.board.selectChecker([endArray[0]][endArray[1]])) / 2);
+            this.board.killChecker(killPosition);
+        }
+    }
+
+    
 }
+
 
 function getPrompt() {
     game.board.viewGrid();
