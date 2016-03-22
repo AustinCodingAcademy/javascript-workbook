@@ -126,7 +126,6 @@ function Game() {
         var x = ((parseInt(startRow)+parseInt(endRow)) / 2);
         var y = ((parseInt(startCol)+parseInt(endCol)) / 2);
         var killPosition = [x,y];
-        console.log(killPosition);
         if(Math.abs(startRow - endRow) == 2){
             this.board.killChecker(killPosition);
         }
