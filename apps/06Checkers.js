@@ -116,11 +116,18 @@ function Game() {
         var checker = this.board.selectChecker(startArray[0], startArray[1]);
         this.board.grid[startArray[0]][startArray[1]] = null;
         this.board.grid[endArray[0]][endArray[1]] = checker;
+       
+        var startRow = startArray[0];
+        var startCol = startArray[1];
 
+        var endRow = endArray[0];
+        var endCol = endArray[1];
 
-        if (Math.abs(this.board.selectChecker(startArray[0], startArray[1]) - this.board.selectChecker([endArray[0]][endArray[1]])) == 2) {
-
-            var killPosition = ((this.board.selectChecker(startArray[0], startArray[1]) + this.board.selectChecker([endArray[0]][endArray[1]])) / 2);
+        var x = ((parseInt(startRow)+parseInt(endRow)) / 2);
+        var y = ((parseInt(startCol)+parseInt(endCol)) / 2);
+        var killPosition = [x,y];
+        console.log(killPosition);
+        if(Math.abs(startRow - endRow) == 2){
             this.board.killChecker(killPosition);
         }
     }
