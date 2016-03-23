@@ -5,12 +5,20 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
-    // Your code here
+function Checker(color) {
+    if (color == "white") {
+        this.symbol = String.fromCharCode(0x125CB);
+    }
+    else {
+        this.symbol = String.fromCharCode(0x125CF);
+    }
+
 }
 
 function Board() {
     this.grid = [];
+    this.checkers = [];
+    
     // creates an 8x8 array, filled with null values
     this.createGrid = function() {
         // loop to create the 8 rows
@@ -48,17 +56,65 @@ function Board() {
         }
         console.log(string);
     }
-
-    // Your code here
+    
+    this.createCheckers = function() {
+        var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+                            [1, 0], [1, 2], [1, 4], [1, 6],
+                            [2, 1], [2, 3], [2, 5], [2, 7]];
+        var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+                            [6, 1], [6, 3], [6, 5], [6, 7],
+                            [7, 0], [7, 2], [7, 4], [7, 6]];
+        
+        for (var i = 0; i <= 11; i++) {
+            var checker = new Checker("white");
+            var row = whitePositions[i][0];
+            var column = whitePositions[i][1];
+            this.grid[row][column]=checker;
+            this.checkers.push(i);
+        }
+        
+        for (var i = 0; i <= 11; i++) {
+            var checker = new Checker("black");
+            var row = blackPositions[i][0];
+            var column = blackPositions[i][1];
+            this.grid[row][column]=checker;
+            this.checkers.push(i);
+        }
 }
+    
+    function killChecker(position) {
+        this.selectChecker = position;
+        this.checkers.indexOf(this.selectChecker);
+         
+    }
+    
+    this.selectChecker = function (row, column) {
+        return this.grid.push(row, column);
+        
+    }
+    this.killChecker = function (position) {
+        this.position = [row][column];
+        this.selectChecker = this.position;
+        
+    }
+}
+
 function Game() {
 
     this.board = new Board();
+   
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
-    }
+        this.board.createCheckers();
+        }
+    
+      
+    this.moveChecker = function (start, end) { 
+        var checker = this.board.selectChecker(start.split('')[0],start.split('')[1]);
+        this.board.grid[start.split('')[0]][start.split('')[1]] = null;
+        this.board.grid[end.split('')[0]][end.split('')[1]] = checker;
+        }
 }
 
 function getPrompt() {
