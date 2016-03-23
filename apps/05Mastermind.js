@@ -6,7 +6,8 @@ var prompt = require('prompt');
 prompt.start();
 
 var board = [];
-var solution = '';
+var solution = 'abcd';
+//guess='efgh';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -23,21 +24,48 @@ function generateSolution() {
 }
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+
+
+    for (var i = 0; i < solutionArray.length; i++) {
+        if (solutionArray[i] === guessArray[i]) {
+            correctLetterLocations++;
+            solutionArray[i] = null;
+        }
+    }
+
+
+    for (var i = 0; i < guessArray.length; i++) {
+        if (solutionArray.indexOf(guessArray[i]) !== -1) {
+            correctLetters++;
+            solutionArray[i] = null;
+        }
+    }
+
+    return correctLetterLocations.toString().red + " - " + correctLetters.toString().white;
+
 }
 
-function mastermind(guess) {
-    // your code here
-}
+
+
+function mastermind() {
+    if (guess.toLowerCase() === solution.toLowerCase()) {
+        return "You guessed it!";
+    }
+};
 
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
-        console.log( mastermind(result['guess']) );
+        console.log(mastermind(result['guess']));
         printBoard();
         getPrompt();
     });
