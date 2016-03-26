@@ -3,6 +3,7 @@
 $(document).ready(function() {
     $("[data-cell]").click(function() {
         $(this).text("X");
+            checkForWin();
     });
 
     //change player turn
