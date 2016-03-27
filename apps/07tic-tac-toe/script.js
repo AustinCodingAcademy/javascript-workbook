@@ -49,6 +49,8 @@ $(document).ready(function() {
     function checkForWin() {
         if (horizontalWin() || verticalWin() || diagonalWin()) {
             $("#announce-winner").text("Player " + playerTurn + " Wins!");
+            //turn off click if winner
+            $( "[data-cell]" ).off();
         }
 
     }
