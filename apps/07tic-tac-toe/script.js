@@ -2,7 +2,8 @@
 //add x to board
 $(document).ready(function() {
     $("[data-cell]").click(function() {
-        $(this).text("X");
+        //turn off click
+        $(this).text("X").off();
             checkForWin();
     });
 
@@ -47,7 +48,7 @@ $(document).ready(function() {
 
     function checkForWin() {
         if (horizontalWin() || verticalWin() || diagonalWin()) {
-            $("#announce-winner").text("Player " + playerTurn + "Wins!");
+            $("#announce-winner").text("Player " + playerTurn + " Wins!");
         }
 
     }
