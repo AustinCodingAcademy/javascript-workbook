@@ -6,6 +6,11 @@ div[data-cell] {
     border: 1px solid #808080;
     font-size: 100px;
     text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+    padding-bottom: 5px;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
 
 .row {
@@ -14,5 +19,14 @@ div[data-cell] {
 
 #announce-winner {
     clear: both;
-    font-size: 50px;
+    font-size: 30px;
+    font-family: "Lucida Console", Monaco, monospace;
+    text-align: left;
+    padding-left: 20px;
+    margin: 20px, 0;
 }
+
+button {
+    margin-bottom: 20px;
+}
+
