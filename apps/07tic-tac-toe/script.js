@@ -4,7 +4,8 @@ $(document).ready(function() {
     $("[data-cell]").click(function() {
         //turn off click
         $(this).text("X").off();
-            checkForWin();
+        $(this).text("O").off();
+        checkForWin();
     });
 
     //change player turn
@@ -24,8 +25,8 @@ $(document).ready(function() {
             return true;
         }
     }
-    
-        function horizontalWin() {
+
+    function horizontalWin() {
         if (
             $('div [data-cell="0"]').text() === playerTurn && $('div [data-cell="3"]').text() === playerTurn && $('div [data-cell="6"]').text() === playerTurn
             || $('div [data-cell="1"]').text() === playerTurn && $('div [data-cell="4"]').text() === playerTurn && $('div [data-cell="7"]').text() === playerTurn
@@ -34,8 +35,8 @@ $(document).ready(function() {
             return true;
         }
     }
-    
-        function diagonalWin() {
+
+    function diagonalWin() {
         if (
             $('div [data-cell="0"]').text() === playerTurn && $('div [data-cell="4"]').text() === playerTurn && $('div [data-cell="8"]').text() === playerTurn
             || $('div [data-cell="2"]').text() === playerTurn && $('div [data-cell="4"]').text() === playerTurn && $('div [data-cell="6"]').text() === playerTurn
@@ -44,14 +45,19 @@ $(document).ready(function() {
         }
     }
 
-
-
     function checkForWin() {
         if (horizontalWin() || verticalWin() || diagonalWin()) {
             $("#announce-winner").text("Player " + playerTurn + " Wins!");
             //turn off click if winner
-            $( "[data-cell]" ).off();
+            $("[data-cell]").off();
+            return true;
         }
-
+        // else {
+        //     $("#announce-winner").text("Draw!");
+        // }
     }
+
+    // function draw() {
+
+    //     }
 });
