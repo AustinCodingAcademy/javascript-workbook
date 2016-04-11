@@ -4,11 +4,65 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
+function randomInt(low, high){
+  return Math.floor(Math.random() * (high-low) + low);
+};
 
 function rockPaperScissors(hand1, hand2) {
 
-    // Write code here
+    if (hand1 == '' || hand2 == '') {
+      
+      if(hand1 == "") {
+  
+        hand1 = randomInt(1,100);
 
+        if(hand1 < 33) {
+          hand1 = "rock";
+        } else if (hand1 <= 66){
+          hand1 = "scissors";
+        } else if(hand1 <= 100){ 
+          hand1 = "paper";
+        }
+
+      } else if (hand2 == "") {
+        
+        hand2 = randomInt(1,100);
+
+        if(hand2 < 33) {
+          hand2 = "rock";
+        } else if (hand2 <= 66){
+          hand2 = "scissors";
+        } else if(hand2 <= 100){
+          hand2 = "paper";
+        }
+
+      }
+    }
+
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
+
+    if (hand1 === hand2) {
+      return "It's a tie!";
+    } else if (hand1 === 'rock') {
+      if (hand2 === 'scissors') {
+        return 'Hand one wins!';
+      }
+      return 'Hand two wins!';
+    } else if (hand1 === 'paper') {
+      if (hand2 === 'scissors') {
+        return 'Hand two wins!';
+      }
+      return 'Hand one wins!';
+    } else if (hand1 === 'scissors') {
+      if (hand2 === 'rock') {
+        return 'Hand two wins!';
+      }
+      return 'Hand one wins!';
+    } else {
+      console.log("Try again...");
+    }
+    
 }
 
 function getPrompt() {

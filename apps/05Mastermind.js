@@ -26,12 +26,52 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+
+    var correctLetterLocations = 0;
+
+    for (var i = 0; i < solutionArray.length; i ++){
+        if(solutionArray[i] === guessArray[i]){
+            correctLetterLocations++;
+            solutionArray[i] = null;
+        }
+    }
+
+    var correctLetters = 0;
+
+    for (var i = 0; i < solutionArray.length; i ++){
+        if (guessArray.indexOf(guessArray[i]) === solutionArray.indexOf(solutionArray[i])){
+            var targetIndex = guessArray.indexOf(solutionArray[i]);
+            if(targetIndex > -1){
+                correctLetters++;
+                solutionArray[targetIndex] = null;
+            }
+        }
+    }
+
+    return correctLetterLocations + " - " + correctLetters;
+
 }
 
 function mastermind(guess) {
-    // your code here
+    
+    solution = 'abcd';
+    
+    if (guess === solution){
+        return 'You guessed it!';
+    } else {
+        var hint = generateHint(solution, guess);
+        board.push(hint);
+        if (board.length === 10) {
+            return 'You ran out of turns! The solution was ' + solution;
+        } else {
+            return 'Guess again.';
+        }
+    }
+
 }
 
 
