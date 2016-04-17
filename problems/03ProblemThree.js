@@ -6,3 +6,10 @@
 
 // What is the largest prime factor of the number 600851475143 ?
 
+function primeNumber (num){
+	if (num % 1 === num && num % num === 1){
+		return true
+	}
+	else
+
+}
