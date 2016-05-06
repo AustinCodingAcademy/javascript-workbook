@@ -1,18 +1,24 @@
 {
   "name": "frontend-intermediate-workbook",
   "version": "1.0.0",
-  "description": "Workbook for Austin Coding Academy Frontend Intermediate Course",
+  "description": "Workbook for Austin Coding Academy Intermediate Course",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AustinCodingAcademy/frontend-intermediate-workbook.git"
+    "url": "git+https://github.com/AustinCodingAcademy/intermediate-workbook.git"
   },
   "author": "Kevin Colten",
-  "bugs": {
-    "url": "https://github.com/AustinCodingAcademy/frontend-intermediate-workbook/issues"
+  "scripts": {
+    "test": "mocha"
   },
-  "homepage": "https://github.com/AustinCodingAcademy/frontend-intermediate-workbook#readme",
+  "bugs": {
+    "url": "https://github.com/AustinCodingAcademy/intermediate-workbook/issues"
+  },
+  "homepage": "https://github.com/AustinCodingAcademy/intermediate-workbook#readme",
   "dependencies": {
     "colors": "^1.1.2",
     "prompt": "^0.2.14"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }

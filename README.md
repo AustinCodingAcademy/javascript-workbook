@@ -1,5 +1,5 @@
 ![](http://static1.squarespace.com/static/538f3fcde4b05c5fecc7a40e/t/538f48a4e4b00d94e8c253b3/1453396632576/?format=400w)
-# Frontend Intermediate Workbook
+# Intermediate Workbook
 
 ## Claiming your workbook
 1. Click the 'Fork' button (choose your account if prompted).
@@ -7,11 +7,11 @@
 1. In your terminal, navigate (using `cd`) into a directory where you want to start keeping your repositories.
 1. Clone your new repository by typing `git clone <forked clone URL>` (without carets "<>", ditto for future examples)
 ![Forking a repository](https://docs.google.com/drawings/d/1tYsLHaLo8JRdp0xC1EZrAo0o9Wvv4S5AD937cokVOBk/pub?w=960&h=720)
-1. Add the base repository as an upstream `git remote add upstream https://github.com/AustinCodingAcademy/frontend-intermediate-workbook.git`
+1. Add the base repository as an upstream `git remote add upstream https://github.com/AustinCodingAcademy/intermediate-workbook.git`
 
 ### Push to Github and create a PR
 1. When finished, commit your changes and push to GitHub
-  
+
   ```bash
   git status
   git add LessonZeroTest.js
@@ -33,13 +33,9 @@
 ## Running Tests
 Tests are a great way to make sure you code works the way you planned it would, and to make sure you don't break something in the future. We will be using them to test our understanding of the lesson.
 
-### Set up
-1. Be sure to have [Node.js](https://nodejs.org/) installed.
-2. Type `sudo npm install -g mocha` in your terminal
 
 ### Run a single test
-To run a single test on an app, test, or a kata, simply run `mocha apps/01PigLatin.js`, etc.
+To run a single test on an app, test, or a kata, simply run `npm test apps/01PigLatin.js`, etc.
 
 ### Run all tests in the `test/` directory
-Simply run `mocha` in this directory.
-
+Simply run `npm test` in the project directory.
