@@ -4,12 +4,52 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
 function pigLatin(word) {
 
-    // Your code here
+  //Attaches "yay" if word begins with vowel:
+  if(word[0] === 'a' || word[0] === 'e' || word[0] === 'i' || word[0] === 'o' || word[0] === 'u' ) {
+      return word + "yay";
+  }
+  //Translates a simple word:
+  var firstLetter = word[0];
+  return word.replace(firstLetter, '') + firstLetter + 'ay';
+  //Auto lowercases word before translation
+  word.toLowerCase()
+  //Translates a complex word:
+  var vowelIndex = -1;
+
+  if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+      vowelIndex = word.indexOf('a');
+  }
+
+    if ( ( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+      vowelIndex = word.indexOf('e');
+  }
+
+  if ( ( word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex ) || vowelIndex === -1 ) {
+      vowelIndex = word.indexOf('i');
+  }
+
+  if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('o');
+  }
+
+  if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('u');
+  }
+
+  if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('y');
+  }
+
+  var firstPart = word.slice(0, vowelIndex);
+  var restWord = word.slice(vowelIndex, word.length);
+  return restWord + firstPart + 'ay';
 
 }
+
+pigLatin("apple");
+pigLatin("bus");
 
 
 function getPrompt() {
