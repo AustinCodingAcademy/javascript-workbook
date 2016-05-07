@@ -34,7 +34,12 @@ function pigLatin(word) {
 
       if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('y');
-} 
+}
+
+// In case of strings that start with a vowel
+      if (vowelIndex === 0) {
+        return word + 'yay'
+      };
 
   // Slice the string
     var firstPart = word.slice(0, vowelIndex);
@@ -42,11 +47,6 @@ function pigLatin(word) {
 
   // Stitch it together and add 'ay'
     return remainder + firstPart + 'ay';
-
-  // In case of strings that start with a vowel
-    if (vowelIndex = 0) {
-      return word + 'yay';
-    }
   };
 
 
