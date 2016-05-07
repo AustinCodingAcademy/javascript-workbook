@@ -22,6 +22,8 @@ function greaterThan(big, small) {
 function lessThan(small, big) {
     // should return true if the first argument is less than the second argument
     // and return false if the first argument is greater than the second argument
+//iii
+
 
 }
 

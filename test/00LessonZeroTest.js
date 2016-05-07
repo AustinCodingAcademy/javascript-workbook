@@ -7,9 +7,10 @@ function returnTrue() {
     return false;
 }
 
+// new comment line in this code
 
 // Tests
-//test update
+//test update - attempt 2
 
 describe('#returnTrue()', function () {
     it('should return true', function () {
