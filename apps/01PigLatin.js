@@ -8,7 +8,7 @@ prompt.start();
 function pigLatin(word) {
 
     // Scrub the input
-    return word.toLowerCase();
+    word = word.toLowerCase();
     // Find the first vowel
     var vowelIndex = -1; // Set it to assume there are no vowels
 
@@ -34,9 +34,7 @@ function pigLatin(word) {
 
       if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('y');
-} else {
-  console.log("This word is invalid! Please try again.");
-};
+} 
 
   // Slice the string
     var firstPart = word.slice(0, vowelIndex);
