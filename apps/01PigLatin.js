@@ -8,7 +8,41 @@ prompt.start();
 function pigLatin(word) {
 
     // Your code here
+    //giving the word tiny letters
+    word = word.toLowerCase();
+    //starting from square -1
+    var vowelIndex = -1;
 
+    //This part hunts for vowels
+    if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+    }
+    if ( ( word.indexOf('i') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+    }
+    if ( ( word.indexOf('e') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+    }
+    if ( ( word.indexOf('o') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+    }
+    if ( ( word.indexOf('u') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+    }
+    if ( ( word.indexOf('y') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+    }
+    //in the event of the word having a vowel first letter, or no vowels
+    if (vowelIndex === 0 || vowelIndex === -1) {
+      return word + "yay";
+    }
+
+    //chopping the word up
+    var firstPart = word.slice(0, vowelIndex);
+    var restWord = word.slice(vowelIndex, word.length);
+
+    //putting it back together
+    return restWord + firstPart + "ay";
 }
 
 
