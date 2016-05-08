@@ -5,18 +5,9 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function pigLatin(word) {
+  function pigLatin(word) {
 
-    // Your code here
-    'use strict';
-
-    var assert = require('assert');
-    var prompt = require('prompt');
-    prompt.start();
-
-    function pigLatin(word) {
-
-    var word = 'crAzy';
+    word = word.toLowerCase();
     var vowelIndex = -1; // Set it to assume there are no vowels
 
     if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
@@ -42,23 +33,16 @@ function pigLatin(word) {
         vowelIndex = word.indexOf('y');
     }
 
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    }
+
     var firstPart = word.slice(0, vowelIndex);
     var restWord = word.slice(vowelIndex, word.length);
 
     return restWord + firstPart + 'ay';
 
-    if (vowelIndex === 0) {
-        return restWord + 'yay';
 
-    function getPrompt() {
-        prompt.get(['word'], function (error, result) {
-
-            console.log( pigLatin(result['word']) );
-
-            getPrompt();
-          });
-    }
-    
 
 }
 
