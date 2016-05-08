@@ -18,19 +18,19 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('a');
     }
     if ( ( word.indexOf('i') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
-    vowelIndex = word.indexOf('a');
+    vowelIndex = word.indexOf('i');
     }
     if ( ( word.indexOf('e') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
-    vowelIndex = word.indexOf('a');
+    vowelIndex = word.indexOf('e');
     }
     if ( ( word.indexOf('o') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
-    vowelIndex = word.indexOf('a');
+    vowelIndex = word.indexOf('o');
     }
     if ( ( word.indexOf('u') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
-    vowelIndex = word.indexOf('a');
+    vowelIndex = word.indexOf('u');
     }
     if ( ( word.indexOf('y') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
-    vowelIndex = word.indexOf('a');
+    vowelIndex = word.indexOf('y');
     }
     //in the event of the word having a vowel first letter, or no vowels
     if (vowelIndex === 0 || vowelIndex === -1) {
