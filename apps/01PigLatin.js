@@ -5,16 +5,8 @@ var prompt = require('prompt');
 prompt.start();
 
 function pigLatin(word) {
+  word = word.toLowerCase();
 
-  //Attaches "yay" if word begins with vowel:
-  if(word[0] === 'a' || word[0] === 'e' || word[0] === 'i' || word[0] === 'o' || word[0] === 'u' ) {
-      return word + "yay";
-  }
-  //Translates a simple word:
-  var firstLetter = word[0];
-  return word.replace(firstLetter, '') + firstLetter + 'ay';
-  //Auto lowercases word before translation
-  word.toLowerCase()
   //Translates a complex word:
   var vowelIndex = -1;
 
@@ -42,6 +34,10 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('y');
   }
 
+  // Does vowelIndex === 0?
+  if (vowelIndex === 0) {
+    return word + 'yay';
+  }
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
   return restWord + firstPart + 'ay';
