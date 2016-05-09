@@ -40,6 +40,10 @@ function pigLatin(word) {
       if (vowelIndex === 0) {
         return word + 'yay'
       };
+  // Strings with no vowels
+  //   if (vowelIndex === -1) {
+  //       return word + 'novowelay'
+  //   };
 
   // Slice the string
     var firstPart = word.slice(0, vowelIndex);
