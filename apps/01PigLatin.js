@@ -6,11 +6,28 @@ prompt.start();
 
 
 function pigLatin(word) {
+    var vowelIndex = 0;
 
-    // Your code here
+    while(!isVowel(word[vowelIndex])) {
+      vowelIndex = vowelIndex+1;
+    }
+
+    if(vowelIndex===0){
+        return (word+'yay').toLowerCase();
+    } else {
+      var consonants = word.slice(0, vowelIndex);
+      var remainder = word.slice(vowelIndex);
+
+      return (remainder+consonants+'ay').toLowerCase();
+    }
 
 }
 
+function isVowel(letter) {
+  if (letter==='a' || letter==='e' || letter==='i' || letter==='o' || letter==='u' ) {
+    return true;
+  }
+}
 
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
