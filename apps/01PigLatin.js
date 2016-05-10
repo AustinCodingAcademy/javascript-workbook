@@ -1,15 +1,93 @@
 'use strict';
-
 var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
 
-function pigLatin(word) {
+function pigLatin(word) 
+{
+    var vowelIndex = 0;
 
-    // Your code here
+//See if the first letter is a vowel.------------------------
+
+    while(!isVowel(vowelIndex)) 
+        { 
+        vowelIndex = vowelIndex + 1; 
+        }
+    if(vowelIndex===0)
+        {
+        return word + 'yay';
+        }    
+            else 
+            {
+            var consonants = word.slice(0, vowelIndex);
+            var remainder = word.slice(vowelIndex);
+            return (remainder+consonants+"ay").toLowerCase();    
+            }
+}
+
+
+
+var firstLetter = word[0];
+
+if(word[0] === 'a' || word[0] === 'e' ||  word[0] === 'i' ||  word[0] === 'o' || word[0] === 'u') 
+    {
+    return word + "ay";
+    }
+
+
+
+return word.replace(firstLetter, '') + firstLetter + 'ay';
 
 }
+
+
+
+
+function isVowel(letter) {
+(letter[0] === 'a' || letter[0] === 'e' ||  letter[0] === 'i' ||  letter[0] === 'o' || letter[0] === 'u')
+    {
+    return true;
+    }
+
+ }
+
+function notVowel(letter) {
+!(letter[0] === 'a' || letter[0] === 'e' ||  letter[0] === 'i' ||  letter[0] === 'o' || letter[0] === 'u')
+    {
+    return true;
+    }
+
+ }
+
+
+
+else (word[1])
+{
+
+}
+
+//--------------DIIFERENT APPROACH------keep looping until it finds.  
+
+var index = 0
+
+var isVowel = (word[0] === 'a' || word[0] === 'e' ||  word[0] === 'i' ||  word[0] === 'o' || word[0] === 'u');
+var notVowel = !(word[0] === 'a' || word[0] === 'e' ||  word[0] === 'i' ||  word[0] === 'o' || word[0] === 'u');
+
+while (word = notVowel)
+    {
+    index+1;    
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 function getPrompt() {
@@ -21,7 +99,8 @@ function getPrompt() {
     });
 }
 
-// Tests
+
+// Tests-------------------------------------------
 
 if (typeof describe !== 'undefined') {
 
@@ -48,3 +127,4 @@ if (typeof describe !== 'undefined') {
     getPrompt();
 
 }
+
