@@ -8,11 +8,11 @@ function whichSpecies(character) {
       return 'dog';
     }
     // should return "cat" when character is 'garfield'
-    if (character === 'garfield') {
+    else if (character === 'garfield') {
       return 'cat';
     }
     // should return "fish" when character is 'nemo'
-    if (character === 'nemo') {
+    else if (character === 'nemo') {
       return 'fish';
     }
     // should return false if character is anything else
