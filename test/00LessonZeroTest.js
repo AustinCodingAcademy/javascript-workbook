@@ -4,13 +4,11 @@ var assert = require('assert');
 
 function returnTrue() {
     // should return true
-    return false;
+    return true;
 }
 
-// new comment line in this code
 
 // Tests
-//test update - attempt 2
 
 describe('#returnTrue()', function () {
     it('should return true', function () {
