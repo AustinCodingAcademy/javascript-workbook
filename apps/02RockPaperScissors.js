@@ -51,6 +51,8 @@ if (hand1 === 'paper'){
 
 }
 
+}
+
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
@@ -81,5 +83,4 @@ if (typeof describe !== 'undefined') {
 
     getPrompt();
 
-}
 }
