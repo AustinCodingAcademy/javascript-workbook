@@ -6,9 +6,35 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
-
     // Write code here
-
+    //Scrubs your data
+      hand1 = hand1.toLowerCase();
+      hand2 = hand2.toLowerCase();
+    //Logic
+      if (hand1 === hand2) {
+        return "It's a tie!";
+      }
+      if (hand1 === 'rock') {
+        if (hand2 === 'scissors') {
+          return 'Rock wins. Hand one wins!';
+        }
+        // If we reach here, player 2 must have dealt paper
+        return 'Hand two wins! = Paper';
+      }
+      if (hand1 === 'paper') {
+        // fill this in using the logic above
+        if (hand2 === 'rock') {
+            return 'Hand 1 wins! = Paper';
+          }
+        return 'Hand 2 wins = Scissors';
+      }
+      if (hand1 === 'scissors') {
+        // fill this in using the logic above
+        if (hand2 === 'paper') {
+          return 'Hand 1 wins = Scissors';
+        }
+        return 'Hand 2 wins = Rock';
+      }
 }
 
 function getPrompt() {
