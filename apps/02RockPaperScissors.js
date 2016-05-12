@@ -10,37 +10,37 @@ function rockPaperScissors(hand1, hand2) {
     var hand1 = hand1.toLowerCase();
     var hand2 = hand2.toLowerCase();
 
-    if (computerChoice <0.34){
-        hand2 = "rock";
-    }else if(computerChoice <=0.67){
-        hand2 = "paper";
-    }else{
-        hand2 = "scissors";
-    }
-
     if (hand1 === hand2) {
       return "It's a tie!";
     }
 
-    else if (hand1 === 'rock') {
+    if (computerChoice <0.34){
+        hand2 = 'rock';
+    }else if(computerChoice <=0.67){
+        hand2 = 'paper';
+    }else{
+        hand2 = 'scissors';
+    }
+
+    if (hand1 === 'rock') {
       if (hand2 === 'scissors') {
-        return 'Hand one wins!';
+        return "Hand one wins!";
       }
       // If we reach here, player 2 must have dealt paper
-      return 'Hand two wins!';
+      return "Hand two wins!";
     }
 
     else if(hand1 === 'paper') {
         if(hand2 === 'rock') {
-            return 'Hand one wins!';
+            return "Hand one wins!";
         }
-        return 'Hand two wins!';
+        return "Hand two wins!";
 
     }
 
     else if(hand1 === 'scissors') {
         if(hand2 === 'rock') {
-            return 'Hand two wins!';
+            return "Hand two wins!";
         }
         return "Hand one wins!";
     }
