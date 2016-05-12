@@ -8,12 +8,9 @@ function pigLatin(word) {
 
 word = word.toLowerCase();
 
-    var vowelIndex = 0;
-
     var vowel = ['a', 'e', 'i', 'o', 'u'];
-    /*if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
-    vowelIndex = word.indexOf('a');
-}
+
+    var vowelIndex = -1;
     if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('a');
 }
@@ -28,32 +25,19 @@ if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex 
 }
 if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('u');
-}*/
+}
 
-//var begin = word.slice(0, vowelIndex);
-//var end = word.slice(vowelIndex, word.length);
+var firstPart = word.slice(0, vowelIndex);
+var restWord = word.slice(vowelIndex, word.length);
 
-    //if (word[0] === 'a' || word[0] === 'e' || word[0] === 'i' || word[0] === 'o' || word[0] === 'u' ) {}
-    /*if (isVowel(word[0])) {
+    //if (word[0] === 'a' || word[0] === 'e' || word[0] === 'i' || word[0] === 'o' || word[0] === 'u' ) {
+    if (vowel.indexOf(word[0]) !== -1) {
         return word + "yay";
     } else {
         return restWord + firstPart + 'ay';
-        vowel.indexOf(letter) !== -1
-    }*/
-    function isVowel(letter) {
-            while(!isVowel(word[vowelIndex])) {
-                vowelIndex ++;
-            }
-            if (vowelIndex === 0) {
-                return (word + "yay").toLowerCase();
-            } else {
-                var begin = word.slice(0, vowelIndex);
-                var end = word.slice(vowelIndex, word.length);
-
-                return (end + begin + 'ay').toLowerCase();
-            }
-        }
+    }
 }
+
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
 
