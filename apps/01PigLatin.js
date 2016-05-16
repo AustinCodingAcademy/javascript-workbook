@@ -12,7 +12,8 @@ prompt.start();function pigLatin(word) {
      //when the while loop stops, the vowelIndex will hold the index of the first vowel in word      //1. i want to "slice" the part of the word from the beginning up until the vowelIndex
      var consonants = word.slice(0, vowelIndex);
      //2. i want to "slice" the word to get the remainder after the first few consonants
-     var remainder = word.slice(vowelIndex);      return remainder+consonants+'ay';    }}function isVowel(letter) {
+     var remainder = word.slice(vowelIndex);      
+    return remainder+consonants+'ay';    }}function isVowel(letter) {
  if (letter==='a' || letter==='e' || letter==='i' || letter==='o' || letter==='u' ) {
    return true;
  }
