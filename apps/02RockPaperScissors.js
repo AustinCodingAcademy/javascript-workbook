@@ -11,11 +11,6 @@ function rockPaperScissors(hand1, hand2) {
 hand1 = hand1.toLowerCase();
 hand2 = hand2.toLowerCase();
 
-// Invalid code!
-// if (hand1 !== 'rock','paper','scissors' || hand2 !== 'rock','paper','scissors') {
-//   return 'Does not compute! Use "rock", "paper", or "scissors" only.';
-// };
-
 // Rock Paper Scissors function
 function runRPS(){
 
