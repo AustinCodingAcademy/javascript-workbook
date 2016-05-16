@@ -4,13 +4,12 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
+var word = 'CRaz';
+var vowelIndex = -1;
 
 function pigLatin(word) {
     // Your code here
-    var word = 'CRaz';
-    var vowelIndex = -1;
-    
+
     if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
         vowelIndex = word.indexOf('a');
     }
@@ -33,13 +32,13 @@ function pigLatin(word) {
     if (vowelIndex >0){
         var firstPart=word.slice(0, vowelIndex);
         var restWord=word.slice(vowelIndex, word.length);
-        console.log(restWord.toLowerCase()+ firstPart.toLowerCase() +'ay');
-    //    word = restWord.toLowerCase()+ firstPart.toLowerCase() +'ay';
+      //  console.log(restWord.toLowerCase()+ firstPart.toLowerCase() +'ay');
+        return = restWord.toLowerCase()+ firstPart.toLowerCase() +'ay';
     //    return (word);
     }
     else {
         console.log(word.toLowerCase()+'ay');
-    //    word = word.toLowerCase()+'ay';
+       return  = word.toLowerCase()+'ay';
     //    return (word);
          }
 }
