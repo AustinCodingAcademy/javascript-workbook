@@ -16,42 +16,47 @@ hand2 = hand2.toLowerCase();
 //   return 'Does not compute! Use "rock", "paper", or "scissors" only.';
 // };
 
+// Rock Paper Scissors function
+function runRPS(){
+
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  }
+  if (hand1 === 'rock'){
+    if (hand2 === 'scissors') {
+      return "Hand one wins!";
+    }
+    return "Hand two wins!";
+  }
+
+  if (hand1 === 'scissors'){
+    if (hand2 === 'paper') {
+      return "Hand one wins!";
+    }
+    return "Hand two wins!";
+  }
+
+  if (hand1 === 'paper'){
+    if (hand2 === 'rock'){
+      return "Hand one wins!";
+    }
+    return "Hand two wins!";
+  }
+
+
+}
+
 // Valid input tester
-if (hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') {
-  return 'Does not compute! Use "rock", "paper", or "scissors" only.';
-} else if (hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors') {
-  return 'Does not compute! Use "rock", "paper", or "scissors" only.';
+if ((hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors') && (hand2 === 'rock' || hand2 === 'paper' || hand2 === 'scissors')) {
+ runRPS();
 } else {
-
+  return "Bad input mammajamma";
+}
+}
 // Remainer of function
-if (hand1 === hand2) {
-  return "It's a tie!";
-}
-if (hand1 === 'rock'){
-  if (hand2 === 'scissors') {
-    return "Hand one wins!";
-  }
-  return "Hand two wins!";
-}
-
-if (hand1 === 'scissors'){
-  if (hand2 === 'paper') {
-    return "Hand one wins!";
-  }
-  return "Hand two wins!";
-}
-
-if (hand1 === 'paper'){
-  if (hand2 === 'rock'){
-    return "Hand one wins!";
-  }
-  return "Hand two wins!";
-}
 
 
-}
 
-}
 
 
 function getPrompt() {
