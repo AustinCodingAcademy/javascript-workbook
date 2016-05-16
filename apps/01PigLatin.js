@@ -5,11 +5,45 @@ var prompt = require('prompt');
 prompt.start();
 
 
+
 function pigLatin(word) {
-
     // Your code here
+    var word = 'CRaz';
+    var vowelIndex = -1;
+    
+    if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('a');
+    }
+    if ( ( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('e');
+    }
+    if ( ( word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('i');
+    }
+    if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('o');
+    }
+    if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('u');
+    }
+    if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('y');
+    }
 
+    if (vowelIndex >0){
+        var firstPart=word.slice(0, vowelIndex);
+        var restWord=word.slice(vowelIndex, word.length);
+        console.log(restWord.toLowerCase()+ firstPart.toLowerCase() +'ay');
+    //    word = restWord.toLowerCase()+ firstPart.toLowerCase() +'ay';
+    //    return (word);
+    }
+    else {
+        console.log(word.toLowerCase()+'ay');
+    //    word = word.toLowerCase()+'ay';
+    //    return (word);
+         }
 }
+
 
 
 function getPrompt() {
