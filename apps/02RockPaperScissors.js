@@ -43,7 +43,7 @@ function runRPS(){
 
 // Valid input tester
 if ((hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors') && (hand2 === 'rock' || hand2 === 'paper' || hand2 === 'scissors')) {
- runRPS();
+return runRPS();
 } else {
   return "Bad input mammajamma";
 }
