@@ -14,19 +14,14 @@ function whichSpecies(character) {
     } else if (character === 'nemo') {
       return 'fish';
     } else {
-      return "false";
+      return false;
     }
   }
 
 function isEven(number) {
     // should return true is number is even (divisible by 2)
-    if (number % 2 === 0) {
-      return true;
-    } else {
-      console.log("I'm Not Even!");
-    }
+    return (number % 2 === 0);
   }
-
 
 // Tests
 

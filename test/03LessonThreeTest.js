@@ -6,7 +6,7 @@ var assert = require('assert');
 function buildArray(first, second, third) {
     // return array with the items first, second, and third in an array.
     var arr = [first, second, third];
-    return orderMe;
+    return arr;
 }
 
 function returnThirdItem(arr) {
@@ -16,7 +16,7 @@ function returnThirdItem(arr) {
 
 function setFirstItem(arr, newFirstItem) {
     // should set the first item in the array with newFirstItem
-    orderMe[0] = newFirstItem;
+    arr[0] = newFirstItem;
     return arr;
 }
 
@@ -28,12 +28,12 @@ function returnCenterItem(fiveByFiveArray) {
 
 function arrayJoin(arr) {
     // should return a string of the joined array items, separated by a space
-    return rr.join('');
+    return arr.join(' ');
 }
 
 function stringSplit(str) {
     // should return an array of the words in a string, delimited by a space
-    return str.split('');
+    return str.split(' ');
 }
 
 
