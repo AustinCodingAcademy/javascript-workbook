@@ -16,14 +16,16 @@ function whichSpecies(character) {
     } else {
       return "false";
     }
+  }
 
 function isEven(number) {
     // should return true is number is even (divisible by 2)
     if (number % 2 === 0) {
-      console.log("I'm Even!");
+      return true;
     } else {
       console.log("I'm Not Even!");
     }
+  }
 
 
 // Tests
