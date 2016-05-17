@@ -7,7 +7,7 @@ prompt.start();
 
 function rockPaperScissors(hand1, hand2) {
 hand1 = hand1.toLowerCase();
-hand2 = randomizeHand();
+hand2 = hand2.toLowerCase();
     // Write code here
       if (hand1 === hand2) {
         return "It's a tie!";
