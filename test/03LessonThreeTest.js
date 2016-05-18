@@ -12,7 +12,6 @@ function buildArray(first, second, third) {
 
 function returnThirdItem(arr) {
     // should return the third item in the array
-    var arr = ['coast', 'venom', 'applejacks'];
     var returnThirdItem = arr[2];
     return returnThirdItem;
 }
