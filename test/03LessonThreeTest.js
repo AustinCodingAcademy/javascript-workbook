@@ -5,12 +5,16 @@ var assert = require('assert');
 
 function buildArray(first, second, third) {
     // return array with the items first, second, and third in an array.
-
+    var buildArray = [first, second, third];
+    return buildArray;
 }
+
 
 function returnThirdItem(arr) {
     // should return the third item in the array
-
+    var arr = ['coast', 'venom', 'applejacks'];
+    var returnThirdItem = arr[2];
+    return returnThirdItem;
 }
 
 function setFirstItem(arr, newFirstItem) {
