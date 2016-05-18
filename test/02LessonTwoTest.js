@@ -2,25 +2,25 @@
 
 var assert = require('assert');
 
-function whichSpecies(character, speciesName) {
+function whichSpecies(character) {
     // should return "dog" when character is 'scooby'
     // should return "cat" when character is 'garfield'
     // should return "fish" when character is 'nemo'
     // should return false if character is anything else
-    var speciesName;
+
     if (character==='scooby') {
-      speciesName = 'dog';
+      return 'dog';
     }
     else if (character==='garfield') {
-      speciesname = 'cat';
+      return 'cat';
     }
     else if (character==='nemo') {
-      speciesname = 'fish';
+      return 'fish';
     }
     else {
       return false;
     }
-    return speciesName;
+    return character;
 }
 
 
