@@ -7,20 +7,12 @@ function whichSpecies(character) {
     // should return "cat" when character is 'garfield'
     // should return "fish" when character is 'nemo'
     // should return false if character is anything else
-    var character;
-    if (character === 'scooby') {
-      whichSpecies() = 'dog';
-    }
-    else if (character === 'garfield') {
-      whichSpecies() = 'cat';
-    }
-    else if (character === 'nemo') {
-      whichSpecies() = 'fish';
+    if (null) {
+      return null;
     }
     else {
       return false;
     }
-    return whichSpecies(character);
 }
 
 
