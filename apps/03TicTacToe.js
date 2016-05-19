@@ -48,11 +48,16 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-    // Places marker
+    // Places mark
     board[row][column] = 'X';
-    //Toggle between players
-    board[row][column] = playerTurn;
-    playerTurn = (board[row][column] === 'O') ? 'X':'O';
+    if (checkForWin()) {
+      console.log('Player ' + playerTurn + ' Won!');
+    }
+    else {
+      //Switches players
+      board[row][column] = playerTurn;
+      playerTurn = (board[row][column] === 'O') ? 'X':'O';
+    }
 }
 
 function getPrompt() {
