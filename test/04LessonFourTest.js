@@ -30,9 +30,9 @@ function createObject() {
     // should return an object with keys 'first', 'second', 'third' mapped to
     // values 1, 2, 3
     var new_obj = {
-      'first': '1',
-      'second': '2',
-      'third': '3'
+      'first':       1,
+      'second':   2,
+      'third':      3
     };
     return new_obj;
 }
@@ -48,6 +48,9 @@ function assignKeyValue(object, key, value) {
     // to the object. return the object
     object [key] = value;
     return object
+
+
+
 }
 
 
