@@ -18,12 +18,13 @@ function printStacks() {
 
 function movePiece() {
     // Your code here
-
+    var poppedItem = stacks[startStack].pop();
+    stacks[endStack].push(poppedItem);
 }
 
 function isLegal() {
     // Your code here
-
+    
 }
 
 function checkForWin() {
