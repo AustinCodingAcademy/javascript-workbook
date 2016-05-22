@@ -3,16 +3,31 @@
 var assert = require('assert');
 
 function whichSpecies(character) {
+    if(character==="scooby"){
+      return "dog";
+      }
+    else if(character === "garfield"){
+      return "cat";
+      }
+    else if(character === "nemo"){
+      return "fish";
+      }
+    else{
+      return false;
+      }
+    }
     // should return "dog" when character is 'scooby'
     // should return "cat" when character is 'garfield'
     // should return "fish" when character is 'nemo'
     // should return false if character is anything else
 
-}
-
 function isEven(number) {
+    if(number % 2 === 0){
+      return true;
+    }else{
+      return false;
+    }
     // should return true is number is even (divisible by 2)
-
 }
 
 
