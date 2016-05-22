@@ -23,12 +23,7 @@ function setFirstItem(arr, newFirstItem) {
 function returnCenterItem(fiveByFiveArray) {
     // returns the "center" item in a 5 x 5 array
     // ex. 3 x 3 array [[1, 2, 3], [4, 5, 6], [7, 8, 9]] the center item is 5
-    var fiveByFiveArray = [[1, 2, 3, 4, 5],
-                           [1, 2, 3, 4, 5],
-                           [1, 2, 3, 4, 5],
-                           [1, 2, 3, 4, 5],
-                           [1, 2, 3, 4, 5]];
-    return fiveByFiveArray[3][2];
+    return fiveByFiveArray[2][2];
 }
 
 function arrayJoin(arr) {
