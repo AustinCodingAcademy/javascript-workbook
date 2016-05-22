@@ -26,7 +26,6 @@ function horizontalWin() {
  return ( (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
           (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
           (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)  );
-          // console.log("horizontalWin");
 }
 
 function verticalWin() {
@@ -49,13 +48,17 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
     // Places mark
-    board[row][column] = 'X';
+    board[row][column] = playerTurn;
     if (checkForWin()) {
       console.log('Player ' + playerTurn + ' Won!');
+      return board = [
+          [' ', ' ', ' '],
+          [' ', ' ', ' '],
+          [' ', ' ', ' ']
+      ];
     }
     else {
       //Switches players
-      board[row][column] = playerTurn;
       playerTurn = (board[row][column] === 'O') ? 'X':'O';
     }
 }
