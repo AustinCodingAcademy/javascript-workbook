@@ -37,8 +37,6 @@ function rockPaperScissors(hand1, hand2) {
     }
 }
 
-// rockPaperScissors(handOne, handTwo);
-
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
