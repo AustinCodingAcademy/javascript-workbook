@@ -55,10 +55,13 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
     // Your code here
-    board[row][column] = playerTurn;
+    board[row][column] = 'X';
 }
 
-var playerTurn = 'X';
+function toggleTurn() {
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+}
+toggleTurn();
 
 
 function getPrompt() {
