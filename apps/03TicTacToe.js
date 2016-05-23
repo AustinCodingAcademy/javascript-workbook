@@ -10,7 +10,6 @@ var board = [
     [' ', ' ', ' ']
 ];
 
-var playerTurn = 'X';
 
 function printBoard() {
     console.log('   0  1  2');
@@ -58,6 +57,8 @@ function ticTacToe(row, column) {
     // Your code here
     board[row][column] = playerTurn;
 }
+
+var playerTurn = 'X';
 
 
 function getPrompt() {
