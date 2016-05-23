@@ -52,7 +52,7 @@ function checkForWin() {
       console.log("'Player ' + playerTurn + ' Won!'");
     }
 }
-
+var playerTurn = "X";
 function ticTacToe(row, column) {
     // Your code here
     board[row][column] = 'X';
