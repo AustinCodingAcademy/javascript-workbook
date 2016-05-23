@@ -18,8 +18,9 @@ function returnThirdItem(arr) {
 
 function setFirstItem(arr, newFirstItem) {
     // should set the first item in the array with newFirstItem
-    var setFirstItem = arr[0];
-    setFirstItem = newFirstItem;
+    var arr;
+    arr[0] = newFirstItem;
+
 }
 
 function returnCenterItem(fiveByFiveArray) {
@@ -30,7 +31,8 @@ function returnCenterItem(fiveByFiveArray) {
 
 function arrayJoin(arr) {
     // should return a string of the joined array items, separated by a space
-
+    var str = arr.join(' ');
+    return str;
 }
 
 function stringSplit(str) {
