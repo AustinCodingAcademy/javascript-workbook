@@ -18,8 +18,6 @@ function returnThirdItem(arr) {
 
 function setFirstItem(arr, newFirstItem) {
     // should set the first item in the array with newFirstItem
-    var arr;
-    arr[0] = newFirstItem;
 
 }
 
@@ -37,7 +35,8 @@ function arrayJoin(arr) {
 
 function stringSplit(str) {
     // should return an array of the words in a string, delimited by a space
-
+    var arr = str.split(' ');
+    return arr
 }
 
 
