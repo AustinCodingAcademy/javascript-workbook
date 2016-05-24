@@ -16,9 +16,9 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
-
+function movePiece(startStack, endStack) {
+    // Will .push into endStack() whatever .pop out of startStack()
+    endStack.push(startStack.pop());
 }
 
 function isLegal() {
@@ -32,8 +32,9 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
-
+    //startStack = key:[], endStack = key:[]
+    //that key will be used to map a value in the stacks object{}
+    return movePiece(stacks[startStack], stacks[endStack]);
 }
 
 function getPrompt() {
