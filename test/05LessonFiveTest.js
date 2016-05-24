@@ -6,9 +6,9 @@ function loopIt() {
     // should return an array with numbers 0 - 99
     var arr = [];
     for (var i = 0; i <= 99; i++) {
-    return arr.push(arr[i]);
-    }
-
+    arr.push(i);
+    };
+    return arr;
 }
 
 function onlyEvens() {
