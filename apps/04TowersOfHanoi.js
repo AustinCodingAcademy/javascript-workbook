@@ -24,7 +24,11 @@ function movePiece() {
 
 function isLegal() {
     // Your code here
-    
+    if (startStack < endStack || endStack === []) {
+      return true;
+    } else {
+      return false;
+    }
 }
 
 function checkForWin() {
