@@ -56,6 +56,8 @@ function towersOfHanoi(startStack, endStack) {
     // stacks.startStack
     if (isLegal(startStack, endStack)) {
         movePiece(startStack, endStack);
+    } else {
+      console.log("You can't do that, try again!");
     }
     checkForWin();
 }
