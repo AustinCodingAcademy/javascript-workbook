@@ -50,17 +50,21 @@ function diagonalWin() {
     }
 }
 
+function checkForWin() {
+    // Your code here
+    if (verticalWin()===true||horizontalWin()===true||diagonalWin()===true) {
+      console.log('Player ' + playerTurn + ' Won!');
+      return true;
+    }
+}
 
 function ticTacToe(row, column) {
     // Your code here
-    board[row][column] = 'X';
+    board[row][column] = playerTurn;
+    checkForWin();
+    togglePlayerTurn();
 }
-function checkForWin() {
-    // Your code here
-    if (verticalWin===true||horizontalWin===true||diagonalWin===true) {
-      console.log("'Player ' + playerTurn + ' Won!'");
-    }
-}
+
 
 
 function getPrompt() {
