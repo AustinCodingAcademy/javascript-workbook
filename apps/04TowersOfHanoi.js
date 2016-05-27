@@ -48,8 +48,9 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
     // Your code here
     if (isLegal(startStack, endStack)) {
-    movePiece(startStack, endStack);
-  }
+        movePiece(startStack, endStack);
+      }
+      checkForWin();
 }
 
 function getPrompt() {
