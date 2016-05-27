@@ -17,24 +17,36 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-    // Will .push into endStack() whatever .pop out of startStack()
-    endStack.push(startStack.pop());
+    stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
-    // Your code here
-
+function isLegal(startStack, endStack) {
+    if (stacks[startStack].length === 0) {
+      return false;
+    }
+    else if (stacks[endStack].length === 0) {
+      return true;
+    }
+    else  {
+      return (stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length - 1])
+    }
 }
 
 function checkForWin() {
-    // Your code here
-
+  if ( (stacks.b.length === 4) || (stacks.c.length === 4) ) {
+      console.log('You Won!');
+      return true;
+     }
+     else {
+       return false;
+     }
 }
 
 function towersOfHanoi(startStack, endStack) {
-    //startStack = key:[], endStack = key:[]
-    //that key will be used to map a value in the stacks object{}
-    return movePiece(stacks[startStack], stacks[endStack]);
+    if (isLegal(startStack, endStack)) {
+          movePiece(startStack, endStack);
+    }
+    return checkForWin();
 }
 
 function getPrompt() {
