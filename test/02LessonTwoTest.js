@@ -25,14 +25,8 @@ function whichSpecies(character) {
 }
 
 function isEven(number) {
-    if(number %2 === 0){
-      return true;
-    }
-    else{
-      return false;
-    }
+    return (number %2 === 0);
     // should return true is number is even (divisible by 2)
-
 }
 
 
