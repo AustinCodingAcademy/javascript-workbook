@@ -20,8 +20,8 @@ function greaterThan(big, small) {
     else {
       return false;
     }
-    var big = 10;
-    var small = 0;
+//    var big = 10;
+//    var small = 0;
     // should return true if the first argument is greater than the second argument
     // and return false if the first argument is less than the second argument
 
@@ -34,8 +34,8 @@ function lessThan(small, big) {
     else {
       return false;
     }
-    var big = 10;
-    var small = 0;
+//    var big = 10;
+//    var small = 0;
     // should return true if the first argument is less than the second argument
     // and return false if the first argument is greater than the second argument
 
