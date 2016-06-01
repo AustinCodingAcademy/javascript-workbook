@@ -25,8 +25,6 @@ function isLegal(startStack, endStack) {
     // Your code here
     var endValIndex = stacks[endStack].length - 1;
     var startValIndex = stacks[startStack].length - 1;
-    var endVal = stacks[endStack][endValIndex];
-    var startVal = stacks[startStack][startValIndex];
 
     if (stacks[startStack].length === 0) {
         return false;
@@ -35,7 +33,7 @@ function isLegal(startStack, endStack) {
         return true;
     }
     else {
-        return (endVal > startVal);
+        return (stacks[endStack][endValIndex] > stacks[startStack][startValIndex]);
     }
 }
 
