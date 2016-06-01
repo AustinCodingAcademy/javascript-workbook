@@ -6,8 +6,11 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
+
   if(hand1===hand2){
-    return "It's a tie!"
+    return "It's a tie!";
   }else if(hand1==="paper" && hand2==="rock"){ //"hand1===paper + hand2===rock"
     return "Hand one wins!";
   }else if (hand1==="paper" && hand2==="scissors"){
@@ -22,6 +25,10 @@ function rockPaperScissors(hand1, hand2) {
         return "Hand one wins!";
   }
 }
+/*
+else if((hand1==='scissors' && hand2==='rock')||(hand1==='paper'&&hand2==='scissors')||(hand==='rock'&&hand2==='paper'){
+    return "Hand two wins!"}
+*/
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
