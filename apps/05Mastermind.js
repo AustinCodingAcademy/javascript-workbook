@@ -26,13 +26,62 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+
+function generateHint(solution, guess) {
+    
+    //Make some arrays out of the solution and guess.
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+
+    for (var i=0; i < solutionArray.length; i++){
+        
+        if (solutionArray[i] === guessArray[i]){
+            correctLetterLocations++;
+            solutionArray[i] = null;
+        }
+    }
+
+
+    for (var i=0; i < solutionArray.length; i++){
+        var targetIndex = solutionArray.indexOf(guessArray[i]);
+    
+        if (targetIndex > -1){
+            correctLetters++;
+            solutionArray[targetIndex] = null;
+        }
+    }
+
+    return correctLetterLocations + "-" + correctLetters;
 }
 
+
+
+
+
 function mastermind(guess) {
-    // your code here
+    
+    var hint = board.push(generateHint(solution, guess));
+
+    solution = "abcd";
+
+    if (guess === solution){
+        return "You guessed it!";
+    }
+
+    if (board.length === 10){
+        return "You ran out of turns! The solution was " + solution;
+    }
+    else {
+        return "Guess again.";
+    }
+
+
+
 }
+
+
 
 
 function getPrompt() {
