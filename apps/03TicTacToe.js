@@ -12,7 +12,7 @@ var board = [
 
 var playerTurn = 'X';
 function togglePlayer() {
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  playerTurn = (playerTurn === 'X' ? 'O' : 'X');
 }
 
 function printBoard() {
