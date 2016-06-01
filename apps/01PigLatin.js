@@ -26,19 +26,6 @@ return (remainder + consonants + 'ay').toLowerCase();
 }
 
 
-/*
-  if(word[0]==='a'|| word[0]==='e'||word[0]==='i'||word[0]==='o'||word[0]==='u')
-    return word + 'yay';
-}
-  pigLatin('apple');
-  pigLatin('car');
-
-*/
-
-
-
-
-
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
 
