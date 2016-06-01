@@ -1,11 +1,13 @@
 div[data-cell] {
-    width: 100px;
-    height: 100px;
-    background-color: #f2f2f2;
+    width: 220px;
+    height: 220px;
     float: left;
-    border: 1px solid #808080;
-    font-size: 100px;
+    /*border: 1px solid #808080;*/
+    font-size: 200px;
     text-align: center;
+    font-family: 'Audiowide', cursive;
+    font-weight: lighter;
+    color: white;
 }
 
 .row {
@@ -15,4 +17,16 @@ div[data-cell] {
 #announce-winner {
     clear: both;
     font-size: 50px;
+    padding-left: 130px;
+    width: 55.2%;
+    font-family: 'Audiowide', cursive;
+    background-color: white;
+}
+
+body {
+    background-image: url(../img/spitzer12years-main.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-left: 300px;
+    background-color: black;
 }
