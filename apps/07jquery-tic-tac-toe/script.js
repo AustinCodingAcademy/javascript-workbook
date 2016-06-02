@@ -1,5 +1,31 @@
 'use strict';
 var playerTurn = 'X';
+
+/*var winCombinations = [
+  ["0","1","2"],
+  ["3","4","5"],
+  ["6","7","8"],
+  ["0","3","6"],
+  ["1","4","7"],
+  ["2","5","8"],
+  ["0","4","8"],
+  ["2","4","6"]
+];
+
+function checkForWin(){
+  for (var i=0; i<winCombinations.length; i++) {
+    if($('[data-cell='+winCombinations[i][0]+']').text()===playerTurn &&
+       $('[data-cell='+winCombinations[i][1]+']').text()===playerTurn &&
+       $('[data-cell='+winCombinations[i][2]+']').text()===playerTurn &&){
+         return true;
+    }
+  }
+}
+*/
+
+
+
+
 function checkForWin() {
   if($('[data-cell="0"]').text()===playerTurn&& $('[data-cell="1"]').text()===playerTurn&& $('[data-cell="2"]').text()===playerTurn) {
        $('#announce-winner').text("Player " + playerTurn + " Wins!")
@@ -35,11 +61,17 @@ function checkForWin() {
    }
 
 
+
+
+
+
 $(document).on('ready', function() {
     // Put app logic in here
 
     $('[data-cell]').click(function() {
-      $(this).text(playerTurn); //place mark
+      if($(this).text()===""){
+        $(this).text(playerTurn);
+      } //place mark
       checkForWin();
       playerTurn=(playerTurn=== 'X') ? 'O' : 'X';
     });
