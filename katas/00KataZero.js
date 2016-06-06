@@ -6,7 +6,7 @@ var assert = require('assert');
 
 function sayHello() {
     // Your code here
-
+    return "Hello!";
 }
 
 
