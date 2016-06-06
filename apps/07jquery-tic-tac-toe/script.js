@@ -11,7 +11,6 @@ var playerTurn = 'X';
   ["0","4","8"],
   ["2","4","6"]
 ];
-
 function checkForWin(){
   for (var i=0; i<winCombinations.length; i++) {
     if($('[data-cell='+winCombinations[i][0]+']').text()===playerTurn &&

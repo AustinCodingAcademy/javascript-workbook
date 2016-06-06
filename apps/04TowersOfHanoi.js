@@ -19,7 +19,7 @@ function printStacks() {
 
 function moveBlock(startStack, endStack) {
     // Your code here
-    var endBlock = startStack.pop;
+    var endBlock = startStack.pop();
     endStack.push(endBlock);
 }
 
@@ -44,6 +44,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
+    var startStackArray = 
     // Your code here
     isLegal();
     moveBlock();
@@ -54,6 +55,7 @@ function getPrompt() {
     printStacks();
     prompt.get(['start stack', 'end stack'], function (error, result) {
         towersOfHanoi(result['start stack'], result['end stack']);
+        //towersOfHanoi('a', 'b')
         getPrompt();
     });
 }
