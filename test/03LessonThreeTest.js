@@ -18,13 +18,14 @@ function returnThirdItem(arr) {
 
 function setFirstItem(arr, newFirstItem) {
     // should set the first item in the array with newFirstItem
-    var setFirst = arr.unshift(newFirstItem);
-    return true;
+    arr[0] = newFirstItem;
+    return arr;
 }
 
 function returnCenterItem(fiveByFiveArray) {
     // returns the "center" item in a 5 x 5 array
     // ex. 3 x 3 array [[1, 2, 3], [4, 5, 6], [7, 8, 9]] the center item is 5
+    return fiveByFiveArray[2][2];
 
 }
 
