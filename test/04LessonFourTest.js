@@ -29,20 +29,25 @@ function arrayUnshift(arr, item1, item2, item3) {
 function createObject() {
     // should return an object with keys 'first', 'second', 'third' mapped to
     // values 1, 2, 3
-    return first: 1
-    return second: 2
-    return third: 3
-
+    var testObject = {
+      'first': 1,
+      'second': 2,
+      'third': 3
+    };
+    return testObject;
 }
 
 function returnValueByKey(object, key) {
     // given an object and a key, return the value assigned to the key
-    return object.key;
+
+    return object[key];
 }
 
 function assignKeyValue(object, key, value) {
     // given an object, key, and value, add the key/value pair
     // to the object. return the object
+    object[key] = value;
+    return object;
 }
 
 
