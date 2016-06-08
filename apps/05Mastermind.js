@@ -47,16 +47,26 @@ function generateHint(solution, guess) {
       }
     }
     return correctLetterLocations + '-' + correctLetters;
+
 }
 
-solution = 'abcd';
+function addColor(hint) {
+    return (colors.red(hint[0]) + '-' + colors.white(hint[2]));
+}
+
 function mastermind(guess) {
+    // Remove this to generate random solution
+    solution = 'abcd';
+
     // your code here
     if(guess === solution) {
       return 'You guessed it!';
     }
     var hint = generateHint(solution, guess);
-    board.push('guess, hint');
+    hint = addColor(hint);
+
+    board.push(guess + ' ' + hint);
+
     if(board.length >= 10) {
       return 'You ran out of turns! The solution was ' + solution;
     }
