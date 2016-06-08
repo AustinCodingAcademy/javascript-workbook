@@ -56,24 +56,24 @@ function addColor(hint) {
     return colors.red(hintNumb[0]) + "-" + colors.white(hintNumb[1]);
 }
 
+function gameOVERMAN(){
+  board = [];
+  solution = '';
+  generateSolution();
+}
+
 function mastermind(guess) {
     // your code here
     // solution = "abcd";
-    function gameOVERMAN(){
-      board = [];
-      solution = '';
-      generateSolution();
-    }
+
 
     if (guess === solution) {
-      gameOVERMAN();
       return "You guessed it!";
     }
     var hint = generateHint(solution, guess);
     hint = addColor(hint);
     board.push(guess + " " + hint);
     if (board.length === 10) {
-      gameOVERMAN();
       return 'You ran out of turns! The solution was ' + solution;
     }
     else {
