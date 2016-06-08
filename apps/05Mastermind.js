@@ -31,25 +31,36 @@ function generateHint(solution, guess) {
     var solutionArray = solution.split('');
     var guessArray = guess.split('');
     var correctLetterLocations = 0;
-    for (var i = 0; i < 4; i++) {
+    var correctLetters = 0;
+    for (var i = 0; i < solutionArray.length; i++) {
       if (solutionArray[i] === guessArray[i]) {
         correctLetterLocations += 1;
         solutionArray[i] = null;
       }
     };
-    var correctLetters = 0;
-    for (var i = 0; i < 4; i++) {
-      
+    for (var i = 0; i < solutionArray.length; i++) {
+      var targetIndex = solutionArray.indexOf(guessArray[i]);
+      if (targetIndex > -1) {
+        correctLetters++;
+        solutionArray[i] = null;
+      }
     }
-
+    return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
 
 }
 
 function mastermind(guess) {
     // your code here
-    solution = 'abcd';
+    // solution = 'abcd';
     if (guess === solution) {
       return 'You guessed it!';
+    }
+    var hint = generateHint(solution, guess);
+    board.push(guess + ' ' + hint);
+    if (board.length === 10) {
+      return 'You ran outta turns sucka! The solution was ' + solution;
+    } else {
+      return 'Guess again, fool.';
     }
 }
 
