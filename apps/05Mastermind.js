@@ -9,6 +9,18 @@ var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+
+//the color function thingymabob.  
+/*
+
+function addColor(hint){
+
+
+
+colors.red(correctLetterLocations) + colors.white(correctLetters);
+}
+*/
+
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
         console.log(board[i])
@@ -53,9 +65,8 @@ function generateHint(solution, guess) {
         }
     }
 
-    return correctLetterLocations + "-" + correctLetters;
+    return guess + " " + correctLetterLocations + "-" + correctLetters;
 }
-
 
 
 
@@ -63,25 +74,32 @@ function generateHint(solution, guess) {
 function mastermind(guess) {
     
     var hint = board.push(generateHint(solution, guess));
+    //hint = addColor(hint);
 
-    solution = "abcd";
 
     if (guess === solution){
+        board = [];
         return "You guessed it!";
     }
 
-    if (board.length === 10){
+
+    if (board.length >= 10){
+        //clear the board.
+        board = [];
+        //generate a new solution.
+        
         return "You ran out of turns! The solution was " + solution;
+
+        
+        
     }
+
     else {
         return "Guess again.";
     }
-
-
-
 }
 
-
+//push the guess and the hint with a space.  
 
 
 function getPrompt() {
@@ -91,6 +109,8 @@ function getPrompt() {
         getPrompt();
     });
 }
+
+
 
 // Tests
 
