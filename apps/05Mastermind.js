@@ -41,11 +41,12 @@ function generateHint(solution, guess) {
     for (var i = 0; i < solutionArray.length; i++) {
       var targetIndex = solutionArray.indexOf(guessArray[i]);
       if (targetIndex > -1) {
-        correctLetters++;
-        solutionArray[i] = null;
+        correctLetters += 1;
+        solutionArray[targetIndex] = null;
       }
     }
-    return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+    // return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+        return correctLetterLocations + '-' + correctLetters;
 
 }
 
