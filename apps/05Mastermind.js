@@ -27,13 +27,52 @@ function getRandomInt(min, max) {
 }
 
 function generateHint() {
-    // your code here
+    // your code here - Spec 2
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+
+    for (var i = 0; i < solutionArray.length; i++){
+      if(solutionArray[i] === guessArray[i]){
+        correctLetterLocations++;
+        solutionArray[i] = null;
+      }
 }
+  //Spec 2.3
+    var correctLetters = 0;
+    for (var i = 0; i < solutionArray.length; i++){
+      var targetIndex = solutionArray.indexOf(guessArray[i]);
+      if(targetIndex > -1){
+        correctLetters++;
+        //it's targetIndex!!!!!!
+        solutionArray[targetIndex] = null;
+      }
+    }
+    //Spec 2.4
+    return (colors.red(correctLetterLocations) + '-' + colors.white(correctLetters));
+}
+
+/*
+solution = 'abcd';
 
 function mastermind(guess) {
-    // your code here
-}
+    // your code here. Spec 3
+    var hint = generateHint(solution, guess);
+    board.push('guess' + 'hint');
 
+    if (guess === solution){
+      return ('You guessed it!');
+    }
+    //Spec 4
+    else if (board.length === 10){
+      return ('You ran out of turns! The solution was ' + solution);
+    }
+    else {
+      return ('Guess again.');
+    }
+
+}
+*/
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
@@ -67,7 +106,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
