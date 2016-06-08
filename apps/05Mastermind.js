@@ -47,7 +47,13 @@ function generateHint(solution, guess) {
         solutionArray[targetIndex] = null;
       }
     }
-    return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
+    // return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
+    return correctLetterLocations + "-" + correctLetters;
+}
+
+function addColor(hint) {
+    var hintNumb = hint.split('-');
+    return colors.red(hintNumb[0]) + "-" + colors.white(hintNumb[1]);
 }
 
 function mastermind(guess) {
@@ -64,6 +70,7 @@ function mastermind(guess) {
       return "You guessed it!";
     }
     var hint = generateHint(solution, guess);
+    hint = addColor(hint);
     board.push(guess + " " + hint);
     if (board.length === 10) {
       gameOVERMAN();
