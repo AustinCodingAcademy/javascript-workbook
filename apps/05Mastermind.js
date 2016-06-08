@@ -54,12 +54,18 @@ function addColor(hint) {
     return (colors.red(hint[0]) + '-' + colors.white(hint[2]));
 }
 
+// function resetBoard() {
+//     board = [];
+//     solution = '';
+// }
+
 function mastermind(guess) {
     // Remove this to generate random solution
     solution = 'abcd';
 
     // your code here
     if(guess === solution) {
+      // resetBoard();
       return 'You guessed it!';
     }
     var hint = generateHint(solution, guess);
@@ -68,10 +74,11 @@ function mastermind(guess) {
     board.push(guess + ' ' + hint);
 
     if(board.length >= 10) {
+      // resetBoard();
       return 'You ran out of turns! The solution was ' + solution;
     }
     else {
-      return 'Guess again.'
+      return 'Guess again.';
     }
 }
 
