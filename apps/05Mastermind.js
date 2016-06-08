@@ -47,18 +47,26 @@ function generateHint(solution, guess) {
         solutionArray[targetIndex] = null;
       }
     }
-    return (colors.red(correctLetterLocations) + "-" + colors.white(correctLetters));
+    return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
 }
 
 function mastermind(guess) {
     // your code here
-    solution = "abcd";
+    // solution = "abcd";
+    function gameOVERMAN(){
+      board = [];
+      solution = '';
+      generateSolution();
+    }
+
     if (guess === solution) {
-      return "You guessed it!"
+      gameOVERMAN();
+      return "You guessed it!";
     }
     var hint = generateHint(solution, guess);
     board.push(guess + " " + hint);
     if (board.length === 10) {
+      gameOVERMAN();
       return 'You ran out of turns! The solution was ' + solution;
     }
     else {
