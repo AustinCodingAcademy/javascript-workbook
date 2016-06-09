@@ -20,6 +20,7 @@ function movePiece(startStack, endStack) {
     // Your code here
     var endBlock = startStack.pop();
     endStack.push(endBlock);
+
 }
 
 function isLegal(start, end) {
@@ -54,6 +55,7 @@ function towersOfHanoi(start, end) {
         return false
     }
 }
+checkForWin();
 
 function getPrompt() {
     printStacks();
