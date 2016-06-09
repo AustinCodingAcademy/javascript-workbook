@@ -68,13 +68,17 @@ function mastermind(guess) {
 
 
     if (guess === solution) {
-      return "You guessed it!";
+      console.log("You guessed it!");
+      gameOVERMAN();
+      return 'Want to play again?'
     }
     var hint = generateHint(solution, guess);
     hint = addColor(hint);
     board.push(guess + " " + hint);
     if (board.length === 10) {
-      return 'You ran out of turns! The solution was ' + solution;
+      console.log('You ran out of turns! The solution was ' + solution);
+      gameOVERMAN();
+      return 'Try again?'
     }
     else {
       return 'Guess again.';
