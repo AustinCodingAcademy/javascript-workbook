@@ -4,8 +4,8 @@ var assert = require('assert');
 
 function loopIt() {
     // should return an array with numbers 0 - 99
-    for (var i = 0; i < 100; i++) {
-      console.log(i);
+  for (var i = 0; i < 100; i++) {
+      console.log("i, ");
     }
 }
 
