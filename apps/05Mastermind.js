@@ -10,16 +10,12 @@ var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 
-//the color function thingymabob.  
-/*
-
+// hint === '1-3', splitHint === ['1', '3']
 function addColor(hint){
-
-
-
-colors.red(correctLetterLocations) + colors.white(correctLetters);
+  var splitHint = hint.split("-");
+  return colors.red(splitHint[0]) + colors.white(splitHint[1]);
 }
-*/
+
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
@@ -65,7 +61,7 @@ function generateHint(solution, guess) {
         }
     }
 
-    return guess + " " + correctLetterLocations + "-" + correctLetters;
+    return correctLetterLocations + "-" + correctLetters;
 }
 
 
@@ -73,8 +69,9 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
     
-    var hint = board.push(generateHint(solution, guess));
-    //hint = addColor(hint);
+    var hint = generateHint(solution, guess);
+    hint = addColor(hint);
+    board.push(hint + " " + guess);
 
 
     if (guess === solution){
