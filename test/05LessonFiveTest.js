@@ -4,7 +4,9 @@ var assert = require('assert');
 
 function loopIt() {
     // should return an array with numbers 0 - 99
-
+    for (var i = 0; i < 100; i++) {
+      console.log(i);
+    }
 }
 
 function onlyEvens() {
@@ -15,7 +17,7 @@ function onlyEvens() {
 function fizzBuzz() {
     // should return an array of numbers between 0 - 99 where the numbers
     // divisible by 3 are replaced by the string "fizz", numbers divisible by 5
-    // are replaced by the string "buzz", and the numbers divisble by both 3 and
+    // are replaced by the string "buzz", and the numbers divisible by both 3 and
     // 5 are replaced by fizzbuzz
 
 }
@@ -43,4 +45,3 @@ describe('#fizzBuzz', function () {
         assert.deepEqual(fizzBuzz(), array);
     });
 });
-

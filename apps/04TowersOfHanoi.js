@@ -55,7 +55,6 @@ function towersOfHanoi(startStack, endStack) {
       moveBlock(startStack, endStack);
       checkForWin();
     }
-
 }
 
 function getPrompt() {
