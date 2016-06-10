@@ -26,7 +26,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
     // your code here - Spec 2
     var solutionArray = solution.split('');
     var guessArray = guess.split('');
@@ -49,22 +49,24 @@ function generateHint() {
       }
     }
     //Spec 2.4
-    return (colors.red(correctLetterLocations) + '-' + colors.white(correctLetters));
+    return (correctLetterLocations + '-' + correctLetters);
+
 }
 
-/*
-solution = 'abcd';
+
+//solution = 'abcd';
 
 function mastermind(guess) {
     // your code here. Spec 3
     var hint = generateHint(solution, guess);
-    board.push('guess' + 'hint');
+    board.push('guess' + ' ' + 'hint');
 
     if (guess === solution){
       return ('You guessed it!');
     }
     //Spec 4
     else if (board.length === 10){
+
       return ('You ran out of turns! The solution was ' + solution);
     }
     else {
@@ -72,7 +74,7 @@ function mastermind(guess) {
     }
 
 }
-*/
+
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
