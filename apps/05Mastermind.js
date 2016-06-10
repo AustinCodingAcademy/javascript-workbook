@@ -43,6 +43,7 @@ function generateHint(solution, guess) {
           //changes the value of a specific letter in the solutionArray array.
           solutionArray[i] = null;
        }
+     }
     //This finds out if your letter is correct.
     //It's basically the equivilent of a white pin on the game.
     //It will correctLetters++ everytime it finds a letter
@@ -70,12 +71,18 @@ function generateHint(solution, guess) {
           solutionArray[targetIndex] = null;
       }
     }
-    return ( colors.red(correctLetterLocations) + "-" + colors.white(correctLetters) );
+    // return ( colors.red(correctLetterLocations) + "-" + colors.white(correctLetters) );
+    return ( (correctLetterLocations) + "-" + (correctLetters) );
+ }
+
+ function pinColor(hint) {
+     var colorsSplit = hint.split('-');
+     return ( colors.red(colorsSplit[0]) + "-" + colors.white(colorsSplit[1]) );
  }
 
 function mastermind(guess) {
     // Remove so that you generate random solution
-    //solution = 'abcd';
+    solution = 'abcd';
 
     if (guess === solution) {
       return 'You guessed it!';
@@ -83,7 +90,8 @@ function mastermind(guess) {
     //not sure if this is correct.
     else if (guess !== solution) {
       var hint = generateHint(solution, guess);
-      board.push( guess + hint );
+      hint = pinColor(hint);
+      board.push( guess + " " + hint );
       return board;
     }
     else if (board.length === 10) {
