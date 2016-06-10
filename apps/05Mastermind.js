@@ -61,8 +61,6 @@ function addColor(hint) {
 function mastermind(guess) {
     // your code here
 
-    solution = 'abcd';
-
     if (guess === solution) {
       return ('You guessed it!');
     }
