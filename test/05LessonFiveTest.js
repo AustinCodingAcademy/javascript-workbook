@@ -8,8 +8,7 @@ function loopIt() {
   for (var i = 0; i < 100; i++) {
       return array.push([i]);
     }
-  return array(i);
-  return false;
+  return array;
 }
 
 function onlyEvens() {
