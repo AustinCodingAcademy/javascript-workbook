@@ -6,7 +6,7 @@ function loopIt() {
     // should return an array with numbers 0 - 99
   var array = [];
   for (var i = 0; i < 100; i++) {
-      return array.push([i]);
+      array.push(i);
     }
   return array;
 }
