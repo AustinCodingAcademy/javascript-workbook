@@ -65,16 +65,17 @@ function gameOVERMAN(){
 function mastermind(guess) {
     // your code here
     // solution = "abcd";
-
-
     if (guess === solution) {
-      console.log("You guessed it!");
       gameOVERMAN();
-      return 'Want to play again?'
+      return 'You guessed it!'
     }
+
     var hint = generateHint(solution, guess);
+
     hint = addColor(hint);
+
     board.push(guess + " " + hint);
+    
     if (board.length === 10) {
       console.log('You ran out of turns! The solution was ' + solution);
       gameOVERMAN();
