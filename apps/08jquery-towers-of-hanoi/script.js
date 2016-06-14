@@ -10,7 +10,11 @@ $(document).ready(function() {
       $block = $(this).children().last().detach();
       }
     else {
-        if($(this).attr('[data-block]') > $block.attr('[data-block]')||$(this).children().length===0) {
+
+        var blockSize = parseInt($block.attr('data-block'));
+        var endSize = parseInt($(this).children().last().attr('data-block'));
+
+        if(endSize > blockSize||$(this).children().length===0) {
           $(this).append($block);
           $block = 0;
         }
