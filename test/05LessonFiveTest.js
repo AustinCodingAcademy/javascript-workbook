@@ -13,6 +13,12 @@ function loopIt() {
 
 function onlyEvens() {
     // should return an array with all even numbers between 1 - 99
+    var array = [];
+    for (var i = 0; i < 100; i++) {
+      array.push(i);
+    }
+    
+    return array;
 
 }
 
