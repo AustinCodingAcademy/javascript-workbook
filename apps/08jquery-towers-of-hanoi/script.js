@@ -21,15 +21,14 @@ $(document).ready(function() {
       }
     checkForWin();
   });
-});
+  function checkForWin() {
+    var stackTwo = $('[data-stack="2"]').children().length;
+    var stackThree = $('[data-stack="3"]').children().length;
 
-function checkForWin() {
-  var stackTwo = $('[data-stack="2"]').children().length;
-  var stackThree = $('[data-stack="3"]').children().length;
-
-  if (stackTwo>3||stackThree>3) {
-    $('div[announce-game-won]').text(function() {
-      return "You won!";
-    });
+    if (stackTwo>3||stackThree>3) {
+      $('div[announce-game-won]').text(function() {
+        return "You won!";
+      });
+    }
   }
-}
+});
