@@ -1,5 +1,4 @@
 'use strict';
-//require assert
 var assert = require('assert');
 
 var jobTypes = {
@@ -9,7 +8,68 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+
+
+
+
+// Your code here 
+
+function crewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+}
+
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+
+  this.enterShip = function (ship){
+    this.ship = ship;
+    this.ship.crew.push(this);
+
+  }
+
+
+//If one crew member matches the ship type.  
+
+
+
+/*
+  this.missionStatement = function(){
+
+    if ( this.ability  ){
+      this.ability : 
+    }
+
+    else {return "Can't perform a mission yet."}
+  
+  }
+*/
+
+
+  }
+
+
+
+
+//a method operates on a .this and uses this only.  
+
+
+
+
+
+
+
+
+
+
+
 
 //tests
 if (typeof describe !== 'undefined'){
