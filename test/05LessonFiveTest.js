@@ -28,17 +28,9 @@ function fizzBuzz() {
     // are replaced by the string "buzz", and the numbers divisible by both 3 and
     // 5 are replaced by fizzbuzz
     var array = [];
-    for (var i = -1; i < 100; i++) {
-      if (i%3===0&&i%5===0) {
-        var i = "fizzbuzz";
+    for (var i = 0; i < 100; i++) {
+        array.push(i);
       }
-      else if (i%3===0) {
-        var i = "fizz";
-      }
-      else if (i%5===0) {
-        var i = "buzz";
-      }
-      array.push(i);
     }
     return array;
 }
