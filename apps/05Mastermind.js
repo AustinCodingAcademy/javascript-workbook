@@ -53,7 +53,7 @@ function generateHint(solution, guess) {
 
 function addColor(hint) {
   var colorArray = hint.split('-');
-  return (colors.red (colorArray[0]) + "-" + colors.white (colorArray[1]));
+  return (colors.red (colorArray[0]) + "-" + colors.white (colorArray[1]));mocha
 }
 
 
