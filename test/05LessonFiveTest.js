@@ -25,19 +25,6 @@ function fizzBuzz() {
     // divisible by 3 are replaced by the string "fizz", numbers divisible by 5
     // are replaced by the string "buzz", and the numbers divisble by both 3 and
     // 5 are replaced by fizzbuzz
-// var array = [];
-//     for(var i = 1 ; <= 100; i++){
-//     		if(i % 3 === 0) && i % 5 === 0{
-//     			return ('FizzBuzz');
-//     		}
-//     		if(i % 5 === 0){
-//     			return ('Buzz');
-//     		}
-//     		if(i % 3 !== 0 && i % 5 !== 0) {
-//     			return (i);
-//     		}
-//     	}
-// };
 
 var array = [];
     for (var i = 0; i <= 99; i++) {
