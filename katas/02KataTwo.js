@@ -3,7 +3,7 @@
 var assert = require('assert');
 
 // Given an array A, find the int that appears an odd number of times.
-// There will always be only one integer that appears an odd number of times.
+// There will always be only one integer that appears an odd number of times. And whatnot
 var counter = 0;
 var oddNum;
 
