@@ -82,7 +82,7 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
     // Remove so that you generate random solution
-    solution = 'abcd';
+    //solution = 'abcd';
 
     if (guess === solution) {
       return 'You guessed it!';
