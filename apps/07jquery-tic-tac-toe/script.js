@@ -30,6 +30,18 @@ for(var i=0; i<winCombo.length; i++) {
 }
 };
 
+function checkForWinWithForEach(){
+  winCombo.forEach(fucntion(currentCombo){
+    if($('[data-cell='+currentCombo[0]+']').text() === playerTurn &&
+       $('[data-cell='+currentCombo[1]+']').text() === playerTurn &&
+       $('[data-cell='+currentCombo[2]+']').text() === playerTurn) {
+         $('#announce-winner').text("Player " + playerTurn + " Wins");
+         $('[data-cell]').each(function(){
+            $(this).empty();
+         });
+  })
+}
+
 
 $(document).on('ready', function() {
     // Put app logic in here

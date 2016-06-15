@@ -8,19 +8,19 @@ var assert = require('assert');
 var counter = 0;
 var oddInterger;
 function findOdd(arr) {
-    // Your code here
-    for (var i = 0; i<=arr.length -1; i++){
-      for (var y = 0; y<=arr.length -1; y++){
-        if (arr[i] === arr[y]){
-          counter = counter + 1;
-        }
+  // Your code here
+  for (var i = 0; i<=arr.length -1; i++){
+    for (var y = 0; y<=arr.length -1; y++){
+      if (arr[i] === arr[y]){
+        counter++;
       }
-      if (counter % 2 != 0){
+    }
+    if (counter % 2 != 0){
       oddInterger = arr[i];
     }
-      counter = 0;
-    }
-    return oddInterger;
+    counter = 0;
+  }
+  return oddInterger;
 }
 
 
