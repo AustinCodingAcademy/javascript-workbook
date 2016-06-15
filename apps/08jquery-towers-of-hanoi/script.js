@@ -30,7 +30,7 @@ $(document).ready(function() {
         block = 0;
       }
       if (checkForWin()) {
-        $('#announce-game-won').text('You Won!');
+        $('#announce-game-won').text('You Won!!');
       }
     }
 
