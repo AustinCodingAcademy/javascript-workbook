@@ -35,6 +35,7 @@ $(document).on('ready', function() {
 
     $('[data-cell]').click(function() {
         //var playerTurn = 'X';
+        
         $(this).text(playerTurn);
         checkForWin()
         togglePlayer();
