@@ -13,13 +13,13 @@ function loopIt() {
 
 function onlyEvens() {
     // should return an array with all even numbers between 1 - 99
-    var array = [];
-    for (var i = 0; i < 100; i++) {
-      array.push(i);
+    var evenArray = [];
+    for (var i = 2; i < 100; i++) {
+      if (i%2===0) {
+        evenArray.push(i);
+      }
     }
-    
-    return array;
-
+    return evenArray;
 }
 
 function fizzBuzz() {
