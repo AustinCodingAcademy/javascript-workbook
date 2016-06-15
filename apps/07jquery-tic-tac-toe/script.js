@@ -21,7 +21,7 @@ function diagonalWin() {
 function checkForWin() {
     if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
 
-        $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+        $('#announce-winner').text('Player ' + playerTurn + ' Wins!!');
         return true;
     }
 }
@@ -35,7 +35,7 @@ $(document).on('ready', function() {
 
     $('[data-cell]').click(function() {
         //var playerTurn = 'X';
-        
+
         $(this).text(playerTurn);
         checkForWin()
         togglePlayer();
