@@ -5,6 +5,7 @@ var colors = require('colors/safe');
 var prompt = require('prompt');
 prompt.start();
 
+// var guess;
 var board = [];
 var solution = 'abcd';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
