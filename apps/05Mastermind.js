@@ -48,6 +48,9 @@ function generateHint(solution, guess) {
       }
 }
 
+var hint = generateHint(solution, guess);
+board.push(guess, hint);
+
 function turns(solution) {
   if (board.length===10) {
     return "You ran out of turns! The solution was  " + solution;
