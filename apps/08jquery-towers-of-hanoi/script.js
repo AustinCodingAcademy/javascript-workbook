@@ -26,9 +26,7 @@ $(document).ready(function() {
     var stackThree = $('[data-stack="3"]').children().length;
 
     if (stackTwo>3||stackThree>3) {
-      $('div[announce-game-won]').text(function() {
-        return "You won!";
-      });
+      $('div[id="announce-game-won"]').text("You won!");
     }
   }
 });

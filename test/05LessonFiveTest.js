@@ -28,15 +28,23 @@ function fizzBuzz() {
     // are replaced by the string "buzz", and the numbers divisible by both 3 and
     // 5 are replaced by fizzbuzz
     var array = [];
-    for (var i = 0; i < 100; i++) {
-        array.push(i);
+    for(var i=0; i<100; i++) {
+      if (i%3===0&&i%5===0) {
+        array.push("fizzbuzz");
+      }
+      else if (i%3===0) {
+        array.push("fizz");
+      }
+      else if (i%5===0) {
+        array.push("buzz");
       }
     }
     return array;
 }
 
-
+fizzBuzz();
 // Tests
+if (typeof describe !== 'undefined') {
 
 describe('#loopIt', function () {
     it('should return an array with numbers 0 - 99', function () {
@@ -58,3 +66,5 @@ describe('#fizzBuzz', function () {
         assert.deepEqual(fizzBuzz(), array);
     });
 });
+
+}
