@@ -8,10 +8,7 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-
-
-
-
+// Your code here 
 // Your code here 
 
 function CrewMember(name, job, specialSkill){
@@ -20,14 +17,12 @@ function CrewMember(name, job, specialSkill){
   this.specialSkill = specialSkill;
   this.ship = null;
 
-
   this.enterShip = function (ship){
     this.ship = ship;
     this.ship.addMember(this);
-
   }
-
 }
+
 
 
 function Ship(name, type, ability) {
@@ -36,42 +31,30 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
 
-
   this.addMember = function(CrewMember){
     this.crew.push(CrewMember);
   }
 
-
-//If one crew member matches the ship type.  
-
+//In Ship class, write a method missionStatement: this method will return "Can't perform a mission yet." if none of the ship's crew has the correct job that matches this ship type; and it will return this ship's ability if there is a crew member that has a correct job that matches the ship type.
 
 
-/*
   this.missionStatement = function(){
 
-    if ( this.ability  ){
-      this.ability : 
-    }
+    
+      for (var i = 0; i < this.crew.length; i++){
+          
+          if ( this.type === jobTypes[this.crew[i].job] ){
+              return this.ability;
+              }
+      }
+              return "Can't perform a mission yet.";
+                
+      
 
-    else {return "Can't perform a mission yet."}
+
   
   }
-*/
-
-
-  }
-
-
-
-
-//a method operates on a .this and uses this only.  
-
-
-
-
-
-
-
+}
 
 
 
