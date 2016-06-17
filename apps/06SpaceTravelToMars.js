@@ -14,11 +14,19 @@ var jobTypes = {
 
 // Your code here 
 
-function crewMember(name, job, specialSkill){
+function CrewMember(name, job, specialSkill){
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
+
+
+  this.enterShip = function (ship){
+    this.ship = ship;
+    this.ship.addMember(this);
+
+  }
+
 }
 
 
@@ -29,10 +37,8 @@ function Ship(name, type, ability) {
   this.crew = [];
 
 
-  this.enterShip = function (ship){
-    this.ship = ship;
-    this.ship.crew.push(this);
-
+  this.addMember = function(CrewMember){
+    this.crew.push(CrewMember);
   }
 
 
