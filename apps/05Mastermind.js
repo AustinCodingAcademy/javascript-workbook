@@ -72,7 +72,7 @@ function generateHint(solution, guess) {
       }
     }
     // return ( colors.red(correctLetterLocations) + "-" + colors.white(correctLetters) );
-    return ( (correctLetterLocations) + "-" + (correctLetters) );
+    //return ( (correctLetterLocations) + "-" + (correctLetters) );
  }
 
  function pinColor(hint) {
@@ -82,12 +82,11 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
     // Remove so that you generate random solution
-    //solution = 'abcd';
+    solution = 'abcd';
 
     if (guess === solution) {
       return 'You guessed it!';
     }
-    //not sure if this is correct.
     else if (guess !== solution) {
       var hint = generateHint(solution, guess);
       hint = pinColor(hint);
