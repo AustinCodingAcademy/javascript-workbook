@@ -16,11 +16,13 @@ function CrewMember (name, job, specialSkill){
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
+}
 
-  this.enterShip = function (ship) {
-    this.ship = ship;
-    this.ship.addcrewMember(this);  //WTF
-  }
+CrewMember.prototype = {};
+
+CrewMember.prototype.enterShip = function (ship) {
+  this.ship = ship;
+  this.ship.addcrewMember(this);  //WTF
 }
 
 //Spec 2
@@ -35,17 +37,12 @@ function Ship (name, type, ability){
   }
   //Spec 4
    this.missionStatement = function (){
-     for (var i = 0; i < this.jobTypes.length; i++){
-       if (this.type[i] === this.jobTypes.pilot){
-          return "Ascend into low orbit";
-       }
-       else if (this.type[i] === this.jobTypes.commander){
-         return  "Interplanetary Space Travel";
-       }
-       else {
-         return "Can't perform a mission yet."
+     for (var i = 0; i < this.crew.length; i++){
+       if (this.type === jobTypes[this.crew[i].job]){
+          return this.ability;
        }
      }
+     return "Can't perform a mission yet."
    }
 }
 
