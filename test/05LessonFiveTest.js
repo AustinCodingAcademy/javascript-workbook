@@ -30,16 +30,13 @@ function fizzBuzz() {
     var array = [];
     for(var i=0; i<100; i++) {
       if (i%3===0&&i%5===0) {
-        i = "fizzbuzz";
-        array.push(i);
+        array.push("fizzbuzz");
       }
       else if (i%3===0) {
-        i = "fizz";
-        array.push(i);
+        array.push("fizz");
       }
       else if (i%5===0) {
-        i = "buzz";
-        array.push(i);
+        array.push("buzz");
       }
     }
     return array;
