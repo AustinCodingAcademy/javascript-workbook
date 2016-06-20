@@ -38,6 +38,9 @@ function fizzBuzz() {
       else if (i%5===0) {
         array.push("buzz");
       }
+      else {
+        array.push(i);
+      }
     }
     return array;
 }
