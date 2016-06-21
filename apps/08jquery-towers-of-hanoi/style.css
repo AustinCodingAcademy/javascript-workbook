@@ -16,22 +16,26 @@
 
 [data-block="25"] {
     height: 25px;
-    background-color: blue;
+    background-color: #e3ff00;
+    border: 2px solid #000;
 }
 
 [data-block="50"] {
     height: 50px;
-    background-color: green;
+    background-color: #cee037;
+    border: 2px solid #000;
 }
 
 [data-block="75"] {
     height: 75px;
-    background-color: red;
+    background-color: #cee037;
+    border: 2px solid #000;
 }
 
 [data-block="100"] {
     height: 100px;
-    background-color: yellow;
+    background-color: #cee037;
+    border: 2px solid #000;
 }
 
 #announce-game-won {
