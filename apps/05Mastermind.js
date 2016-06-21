@@ -51,7 +51,7 @@ function generateHint(solution, guess) {
     var redLetters = colors.red(correctLetterLocations);
     var whiteLetters = colors.white(correctLetters);
     return redLetters + "-" + whiteLetters;
-    // board.push();
+
 }
 
 function mastermind(guess) {
