@@ -5,7 +5,6 @@ var colors = require('colors/safe');
 var prompt = require('prompt');
 prompt.start();
 
-// var guess;
 var board = [];
 var solution = 'abcd';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -17,7 +16,7 @@ function printBoard() {
 }
 
 function generateSolution() {
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i <= 4; i++) {
         var randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
     }
@@ -29,8 +28,8 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
     // your code here
-    var solutionArray = solution.split('');
-    var guessArray = guess.split('');
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
     var correctLetterLocations = 0;
     var correctLetters = 0;
     for (var i=0; i<solutionArray.length; i++) {
@@ -47,29 +46,27 @@ function generateHint(solution, guess) {
           solutionArray[i] = null;
         }
       }
-}
-
-var hint = generateHint(solution, guess);
-board.push(guess, hint);
-
-function turns(solution) {
-  if (board.length===10) {
-    return "You ran out of turns! The solution was  " + solution;
-  }
-  else {
-    return "Guess again.";
-  }
+    colors.red.correctLetterLocations;
+    board.push(guess, hint);
 }
 
 function mastermind(guess) {
-    // your code here
+      // your code here
     if (solution===guess) {
       return 'You guessed it!';
     }
-    else {
-      generateHint();
+    else if (board.length<10) {
+      generateHint(solution, guess);
+      board.push(guess, hint);
     }
-  turns(solution);
+    else {
+      return "You ran out of turns! The solution was  " + solution;
+    }
+    var hint = generateHint(solution, guess);
+    printBoard();
+    turns(solution);
+    generateSolution();
+
 }
 
 
