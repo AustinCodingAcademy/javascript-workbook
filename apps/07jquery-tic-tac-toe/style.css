@@ -12,6 +12,11 @@ div[data-cell] {
     clear: both;
 }
 
+#reset {
+    clear: both;
+    font-size: 50px;
+    margin-left: 125px;
+}
 #announce-winner {
     clear: both;
     font-size: 50px;
