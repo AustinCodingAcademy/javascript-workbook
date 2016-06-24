@@ -13,7 +13,7 @@ $(document).on('ready', function() {
               $('[data-cell = "1"]').text() === playerTurn &&
               $('[data-cell = "2"]').text() === playerTurn ||
               $('[data-cell = "3"]').text() === playerTurn &&
-              $('[data-cell = "4"]') === playerTurn &&
+              $('[data-cell = "4"]').text() === playerTurn &&
               $('[data-cell = "5"]').text() === playerTurn ||
               $('[data-cell = "6"]').text() === playerTurn &&
               $('[data-cell = "7"]').text() === playerTurn &&
