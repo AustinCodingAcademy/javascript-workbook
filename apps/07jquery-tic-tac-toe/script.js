@@ -17,15 +17,17 @@ $(document).on('ready', function() {
 
 
   $('[data-cell]').click(function(){
+    var clickedCell = $(this).text();
 
-    $(this).text(playerTurn);
-
-    if(checkForWin()){
-      $('#announce-winner').text("Player " + playerTurn + " Wins!");
-    } else {
-      updateTurn();
+    if (clickedCell === '' && !checkForWin()){
+      $(this).text(playerTurn);
+      if(checkForWin()){
+        $('#announce-winner').text("Player " + playerTurn + " Wins!");
+      }
+      else {
+        updateTurn();
+      }
     }
-
   })
 
   function updateTurn(){
@@ -33,42 +35,25 @@ $(document).on('ready', function() {
     $('#announce-winner').text("Player " + playerTurn + "'s Turn.");
   }
 
-
   function checkForWin() {
     return (horizontalWin()  || verticalWin() || diagonalWin());
   }
 
   function horizontalWin() {
-    var board = readBoard();
-    return (board[0] === playerTurn && board[1] === playerTurn && board[2] === playerTurn ||
-        board[3] === playerTurn && board[4] === playerTurn && board[5] === playerTurn ||
-        board[6] === playerTurn && board[7] === playerTurn && board[8] === playerTurn);
+    return ($('[data-cell="0"]').text() === playerTurn && $('[data-cell="1"]').text() === playerTurn && $('[data-cell="2"]').text() === playerTurn ||
+        $('[data-cell="3"]').text() === playerTurn && $('[data-cell="4"]').text() === playerTurn && $('[data-cell="5"]').text() === playerTurn ||
+        $('[data-cell="6"]').text() === playerTurn && $('[data-cell="7"]').text() === playerTurn && $('[data-cell="8"]').text() === playerTurn);
   }
 
   function verticalWin() {
-    var board = readBoard();
-    return (board[0] === playerTurn && board[3] === playerTurn && board[6] === playerTurn ||
-        board[1] === playerTurn && board[4] === playerTurn && board[7] === playerTurn ||
-        board[2] === playerTurn && board[5] === playerTurn && board[8] === playerTurn);
+    return ($('[data-cell="0"]').text() === playerTurn && $('[data-cell="3"]').text() === playerTurn && $('[data-cell="6"]').text() === playerTurn ||
+        $('[data-cell="1"]').text() === playerTurn && $('[data-cell="4"]').text() === playerTurn && $('[data-cell="7"]').text() === playerTurn ||
+        $('[data-cell="2"]').text() === playerTurn && $('[data-cell="5"]').text() === playerTurn && $('[data-cell="8"]').text() === playerTurn);
   }
 
   function diagonalWin() {
-    var board = readBoard();
-        (board[0] === playerTurn && board[4] === playerTurn && board[8] === playerTurn ||
-        board[2] === playerTurn && board[4] === playerTurn && board[6] === playerTurn);
-  }
-
-  function readBoard() {
-
-    var cellArr = $('div[data-cell]');
-    var cellValArr = [];
-
-    $.each(cellArr, function(i){
-      var cellVal = $('div[data-cell="' + i + '"]').text();
-      cellValArr.push(cellVal);
-    });
-
-    return cellValArr;
+    return ($('[data-cell="0"]').text() === playerTurn && $('[data-cell="4"]').text() === playerTurn && $('[data-cell="8"]').text() === playerTurn ||
+        $('[data-cell="2"]').text() === playerTurn && $('[data-cell="4"]').text() === playerTurn && $('[data-cell="6"]').text() === playerTurn);
   }
 
 });
