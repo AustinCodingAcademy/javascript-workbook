@@ -28,6 +28,7 @@ function Ship(name, type, ability) {
   this.crew = [];
   this.missionStatement = function() {
     for(var i = 0; i < this.crew.length; i++) {
+      // Grabbing instance of crew member/s job and relating to type
       if(jobTypes[this.crew[i].job] === this.type) {
         return this.ability;
       }

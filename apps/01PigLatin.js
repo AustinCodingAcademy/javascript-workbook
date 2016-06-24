@@ -7,8 +7,10 @@ prompt.start();
 
 function pigLatin(word) {
 
+// making sure all words are in lowercase
   word = word.toLowerCase();
 
+// finding vowels
   var vowelIndex = -1;
   if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
       vowelIndex = word.indexOf('a');
@@ -38,6 +40,7 @@ function pigLatin(word) {
     return word + 'yay';
   }
 
+// putting word into sections
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
   return restWord + firstPart + 'ay';
