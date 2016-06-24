@@ -28,36 +28,39 @@ function generateSolution() {
 
 function generateHint(solution, guess) {
     // your code here
+
     var solutionArray = solution.split("");
     var guessArray = guess.split("");
-    var correctLetterLocation = 0;
+    var correctLetterLocations = 0;
     var correctLetters = 0;
 
     for (var i = 0; i < solutionArray.length; i++) {
       if (solutionArray[i] === guessArray[i]) {
-        correctLetterLocation++;
+        correctLetterLocations++;
         solutionArray[i] = null;
       }
     }
-    var thing = solutionArray.indexOf(guessArray[i]);
+
 
     for(var i = 0; i < solutionArray.length; i++) {
-      if (thing > -1) {
+      var index = guessArray.indexOf(solutionArray[i]);
+      if (index > -1) {
+        console.log(i);
         correctLetters++;
-        solutionArray[thing] = null;
+        solutionArray[i] = null;
       }
     }
-    return correctLetterLocation + " - " + correctLetters;
+    return correctLetterLocations + "-" + correctLetters;
 }
 
 function addColor(hint) {
-   var hintNum = hint.split(" - ");
-   return colors.red(hintNum[0]) + " - " + colors.white(hintNum[1]);
+   var hintNum = hint.split("-");
+   return colors.red(hintNum[0]) + "-" + colors.white(hintNum[1]);
 }
 
 function mastermind(guess) {
     // your code here
-    solution = "abcd";
+
     if (guess === solution) {
       return 'You guessed it!';
     } else if (board.length < 10) {
@@ -106,5 +109,6 @@ if (typeof describe !== 'undefined') {
 } else {
 
     generateSolution();
+    console.log(solution);
     getPrompt();
 }
