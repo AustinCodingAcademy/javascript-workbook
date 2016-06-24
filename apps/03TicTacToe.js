@@ -59,7 +59,8 @@ function ticTacToe(row, column) {
     }
     else {
       //Switches players
-      playerTurn = (board[row][column] === 'O') ? 'X':'O';
+    //  playerTurn = (board[row][column] === 'O') ? 'X':'O';
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     }
 }
 
