@@ -7,10 +7,10 @@ prompt.start();
 
 function Checker(color) {
     // Your code here
-    if (color==='white') {
+    if (color==='White') {
       this.symbol=String.fromCharCode(0x125CB);
     }
-    else if (color==='black') {
+    else if (color==='Black') {
       this.symbol=String.fromCharCode(0x125CF);
     }
     else {
@@ -75,11 +75,9 @@ function Board() {
     for (var i=0; i<24; i++) {
       this.checkers.push(this.createCheckers[i]);
     }
-
     this.selectChecker = function(row, column) {
       return this.grid;
     }
-
 }
 function Game(start, end) {
 
@@ -87,15 +85,18 @@ function Game(start, end) {
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
-    }
+        // Your code
+        }
+        this.selectChecker = function(row, column) {
+          return this.grid;
+        }
+        this.moveChecker = function(start, end) {
+          var checker = this.selectChecker.row;
+          this.grid = null;
+          var checker = this.selectChecker.column;
 
-    this.moveChecker = function(start, end) {
-      var checker = this.selectChecker(start);
-      var checker =  this.selectChecker(end);
+        }
     }
-
-}
 
 function getPrompt() {
     game.board.viewGrid();
