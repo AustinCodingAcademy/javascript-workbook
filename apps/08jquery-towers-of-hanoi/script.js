@@ -29,6 +29,7 @@ $(document).ready(function() {
 
   function checkForWin(){
     $('[data-stack]').each(function(index, '[data-block]') {
+      // how do I define what I am looking for??
       if (index === 3 && (($(this).data("stack") === "2") || ($(this).data("stack") === "3")))
       {
         $('#announce-game-won').text('You Won!');
