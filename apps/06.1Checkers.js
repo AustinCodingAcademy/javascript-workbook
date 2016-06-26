@@ -5,8 +5,17 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
+function Checker(color) {
     // Your code here
+    if (color==='white') {
+      this.symbol=String.fromCharCode(0x125CB);
+    }
+    else if (color==='black') {
+      this.symbol=String.fromCharCode(0x125CF);
+    }
+    else {
+      return false;
+    }
 }
 
 function Board() {
@@ -50,8 +59,29 @@ function Board() {
     }
 
     // Your code here
+    this.checkers = [];
+    this.createCheckers = {
+      White:
+      [[0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]],
+
+      Black:
+      [[5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]]
+    }
+
+    for (var i=0; i<24; i++) {
+      this.checkers.push(this.createCheckers[i]);
+    }
+
+    this.selectChecker = function(row, column) {
+      return this.grid;
+    }
+
 }
-function Game() {
+function Game(start, end) {
 
     this.board = new Board();
 
@@ -59,6 +89,12 @@ function Game() {
         this.board.createGrid();
         // Your code here
     }
+
+    this.moveChecker = function(start, end) {
+      var checker = this.selectChecker(start);
+      var checker =  this.selectChecker(end);
+    }
+
 }
 
 function getPrompt() {
