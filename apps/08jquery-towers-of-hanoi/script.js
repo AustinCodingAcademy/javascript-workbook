@@ -11,15 +11,17 @@ $(document).ready(function() {
       $block = lastChild.detach();
       blockSize1 = parseInt($block.data('block'));
       // console.log($block);
-    } else {
+    }
+    else {
       var targetStack = $(this).children().last();
       if ($(this).children().length > 0) {
         blockSize2 = parseInt(targetStack.data('block'));
         if (blockSize1 < blockSize2) {
-        $(this).append($block);
-        $block = null;
+          $(this).append($block);
+          $block = null;
         }
-       } else {
+       }
+       else {
          $(this).append($block);
          $block = null;
        }
