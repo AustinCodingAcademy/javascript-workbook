@@ -27,9 +27,8 @@ $(document).on('ready', function() {
 
     function checkForWin() {
         // Your code here
-      //  if ( (((horizontalWin()) || (verticalWin()) || (diagonalWin ())) === 'X') || (((horizontalWin()) || (verticalWin()) || (diagonalWin ())) === 'O')  ) {
         if ( (horizontalWin()) || (verticalWin()) || (diagonalWin ()) ) {
-            console.log($('announce-winner').text("Player"+ playerTurn + "Won!"));
+            console.log($('#announce-winner').text("Player "+ playerTurn + " Won!"));
             return true;
           }
         else {
@@ -37,21 +36,23 @@ $(document).on('ready', function() {
         }
     }
 
-    function ticTacToe($('row')) {
-        // Your code here
-        $('[data-cell]').text() = playerTurn;
-        if (playerTurn === 'X'){
-              playerTurn = 'O';
-            }
-            else {
-              playerTurn = 'X';
-            }
-
-        checkForWin();
-
+    //Change Player Turn
+    function changePlayer() {
+      if (playerTurn === 'X'){
+            playerTurn = 'O';
+          }
+          else {
+            playerTurn = 'X';
+          }
     }
 
-    $('[data-cell]').click(function(){
+    //Click Functions
+    $('[data-cell]').click(function() {
       $(this).text(playerTurn);
+
+      changePlayer();
+      checkForWin();
+
     });
-});
+
+  });
