@@ -5,14 +5,12 @@ $(document).ready(function() {
     $('form').submit(function (event) {
       event.preventDefault();
       var todoText = $(this).find('#todo').val();
-      $('#todo-list').append('<li>' + todoText + '</li>' + '<button>' + '</button>');
+      $('#todo-list').append('<li id="todo-listItem">' + todoText + '</li>');
       $('#todo-list').sortable();
       $(this).find('#todo').val('');
     });
-    $('#todo-list').on('click', 'button', function () {
-    $(this).parent().remove();
-
-
+    $('#todo-listItem').on('click', function () {
+      $(this).parent().remove();
     });
 
 });
