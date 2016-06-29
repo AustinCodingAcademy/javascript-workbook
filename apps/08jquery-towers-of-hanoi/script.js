@@ -6,16 +6,16 @@ $(document).ready(function() {
   var blockSize1 = 0;
   var blockSize2 = 0;
   $('[data-stack]').click(function(){
+    var $children = $(this).children();
     if ($block === null) {
-      var lastChild = $(this).children().last();
-      $block = lastChild.detach();
-      blockSize1 = parseInt($block.data('block'));
-      // console.log($block);
+      if ($children.length > 0) {
+        $block = $children.last();
+        $block.detach();
+      }
     } else {
-      var targetStack = $(this).children().last();
-      if ($(this).children().length > 0) {
-        blockSize2 = parseInt(targetStack.data('block'));
-        if (blockSize1 < blockSize2) {
+      var $topBlock = $children.last();
+      if ($children.length > 0) {
+        if (parseInt($block.data('block')) < parseInt($topBlock.data('block'))) {
           $(this).append($block);
           $block = null;
         }
@@ -27,13 +27,21 @@ $(document).ready(function() {
     checkForWin();
   });
 
-  function checkForWin(){
-    $('[data-stack]').each(function(index, '[data-block]') {
-      if (index === 3 && (($(this).data("stack") === "2") || ($(this).data("stack") === "3")))
+  function checkForWin() {
+    $('[data-stack]').each(function() {
+      if (($(this).data('stack') > 1) && ($(this).children().length > 3))
       {
         $('#announce-game-won').text('You Won!');
+      } else {
+        console.log("Eat my nuts!");
       }
     });
   };
+
+  // window.checkForWin = checkForWin;
+
+  function fuckYou() {
+    console.log("Fuck you!");
+  }
 
 });
