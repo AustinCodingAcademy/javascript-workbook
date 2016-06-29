@@ -36,16 +36,8 @@ $(document).ready(function() {
       if (($(this).data('stack') > 1) && ($(this).children().length > 3))
       {
         $('#announce-game-won').text('You Won!');
-      } else {
-        console.log("Eat my nuts!");
-      }
+      } 
     });
   };
-
-  // window.checkForWin = checkForWin;
-
-  function fuckYou() {
-    console.log("Fuck you!");
-  }
 
 });
