@@ -3,9 +3,9 @@
 $(document).ready(function() {
   // Put app logic here
   var $block = null;
-  var blockSize1 = 0;
-  var blockSize2 = 0;
+  var $turnCounter = 0;
   $('[data-stack]').click(function(){
+    $('#announce-game-won').text('');
     var $children = $(this).children();
     if ($block === null) {
       if ($children.length > 0) {
@@ -17,26 +17,23 @@ $(document).ready(function() {
       if ($children.length > 0) {
         if (parseInt($block.data('block')) < parseInt($topBlock.data('block'))) {
           $(this).append($block);
+          $turnCounter ++;
           $block = null;
+        } else {
+          $('#announce-game-won').text('Fuck off!');
         }
        } else {
          $(this).append($block);
+         $turnCounter ++;
          $block = null;
        }
     }
     checkForWin();
+      $('.turnCounter').text($turnCounter);
   });
-
-<<<<<<< HEAD
   function checkForWin() {
     $('[data-stack]').each(function() {
       if (($(this).data('stack') > 1) && ($(this).children().length > 3))
-=======
-  function checkForWin(){
-    $('[data-stack]').each(function(index, '[data-block]') {
-      // how do I define what I am looking for??
-      if (index === 3 && (($(this).data("stack") === "2") || ($(this).data("stack") === "3")))
->>>>>>> 2d5ae993bef8c1ccf036f0d0ec9f681e4eaaad4f
       {
         $('#announce-game-won').text('You Won!');
       } else {
