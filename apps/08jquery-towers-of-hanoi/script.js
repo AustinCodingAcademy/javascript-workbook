@@ -21,7 +21,7 @@ $(document).ready(function() {
   function checkForWin() {
      $('[data-stack]').each(function() {
       if (($(this).data('stack') > 1) && ($(this).children().length === 4)) {
-            $('#announce-game-won').text('You Won!');
+            $('#announce-game-won').text('You Won Pomsky!');
       }
     });
   }
