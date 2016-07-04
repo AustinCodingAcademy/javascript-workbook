@@ -5,7 +5,7 @@ $(document).ready(function() {
     $.ajax('https://reqres-api.herokuapp.com/api/users', {
       success: function(response) {
         response.forEach(function(user){
-          $('div.output').text(user.first_name);
+          $('div.output').append(user.first_name + ' ');
   });
 }
 });
