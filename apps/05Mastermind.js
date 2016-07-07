@@ -48,10 +48,16 @@ function generateHint(solution, guess) {
           solutionArray[i] = null;
         }
       }
-    var redLetters = colors.red(correctLetterLocations);
-    var whiteLetters = colors.white(correctLetters);
-    return redLetters + "-" + whiteLetters;
+    
+    return correctLetterLocations + "-" + correctLetters;
 
+}
+
+function addColor(hint) {
+  var hintArray = hint.split('-');
+  var redLetter = colors.red(hintArray[0]);
+  var whiteLetter = colors.white(hintArray[1]);
+  return redLetter + "-" + whiteLetter;
 }
 
 function mastermind(guess) {
