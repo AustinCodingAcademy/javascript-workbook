@@ -9,8 +9,5 @@ $(document).ready(function() {
       $('#todo-list').sortable();
       $(this).find('#todo').val('');
     });
-    $('#todo-listItem').on('click', function () {
-      $(this).parent().remove();
-    });
 
 });
