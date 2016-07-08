@@ -34,7 +34,7 @@ function Ship(name, type, ability) {
         return this.ability;
       }
     }
-    return "Can't perform a mission yet."
+    return "Can't perform a mission yet.";
   }
 }
 
