@@ -33,6 +33,7 @@ $(document).ready(function() {
     checkForWin();
       $('.turnCounter').text($turnCounter);
   });
+
   function checkForWin() {
     $('[data-stack]').each(function() {
       if (($(this).data('stack') > 1) && ($(this).children().length > 3))
@@ -43,24 +44,29 @@ $(document).ready(function() {
         $turnCounter = 0;
         var $feedback = $('#play-feedback').text();
         $('#best-score').append(' ' + $feedback);
+        $('.resetButton').removeClass('hide');
       }
     });
   };
-// Not finished yet, don't judge me
+
   function playFeedback() {
-    if ($turnCounter > 20) {
-      $('#play-feedback').text('Taking your sweet ass time!');
+    if ($turnCounter === 0) {
+      $('#play-feedback').text("Game on!");
     } else if ($turnCounter < 10) {
       $('#play-feedback').text("Boss level");
     } else if ($turnCounter < 15) {
       $('#play-feedback').text("You're doing OK...");
-    } else {
-      $('#play-feedback').text('Game on! (Basic bitch)');
+    } else if ($turnCounter >= 20)
+    $('#play-feedback').text("Taking your sweet ass time!");
     }
 
-    }
-
-
-
-
+      $('.resetButton').click(function() {
+        $('[data-stack]').each(function() {
+          // if ($(this).children().length > 3) {
+          var $resetBlocks = $(this).children().detach();
+          $('[data-stack="1"]').append($resetBlocks);
+          $('.resetButton').addClass('hide');
+          // }
+      });
+    });
 });

@@ -38,3 +38,11 @@
     font-size: 50px;
     text-align: center;
 }
+
+.appear {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
