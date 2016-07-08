@@ -48,7 +48,7 @@ $(document).on('ready', function() {
 
 		//checkForWin announce
 		if (checkForWin()){
-			$('#announce-winner').text('Player ' + playerTurn + 'Wins!!! OMG OMG OMG!!');
+			$('#announce-winner').text('Player ' + playerTurn + ' Wins!!! OMG OMG OMG!!');
 		}
 
 
