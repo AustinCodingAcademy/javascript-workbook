@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <ul id="info"></ul>
+  <script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+  </script>
+  <script> $.ajax('https://api.github.com/gists/548fec00b5a668fcb261c304338165ea/', {
+    success:function(information){
+      console.log(information);
+      $('#info.').append('<li>'information['url'] + '</li>');
+      $('#info').append('<li>'information['created_at'] + '</li>');
+
+    }
+  });
+  </script>
+</body>
+</html>

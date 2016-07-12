@@ -5,9 +5,14 @@ $(document).ready(function() {
     $('form').submit(function (event) {
       event.preventDefault();
       var todoText = $(this).find('#todo').val();
-      $('#todo-list').append('<li id="todo-listItem">' + todoText + '</li>');
+      $('#todo-list').append('<li>' + '<input type="checkbox" class="todo-listItem">'+'<button type = "button" class="buttonID">' + '</button>' + todoText + '</li>');
       $('#todo-list').sortable();
       $(this).find('#todo').val('');
+
+    });
+
+    $('.buttonID').on('click', function () {
+      $(this).parent().remove();
     });
 
 });
