@@ -7,9 +7,11 @@ $(document).ready(function() {
         users.forEach(function(user) {
           var markUp = "<tr>";
           markUp += "<td>" + user.id + "</td>";
-          markUp += "<td>" + user.firstName + "</td>";
-          markUp += "<td>" + user.lastName + "</td>";
+          markUp += "<td>" + user.first_name + "</td>";
+          markUp += "<td>" + user.last_name + "</td>";
+          markUp += "</tr>";
+          $('tbody').append(markUp);
         })
       }
-    }
+    })
   });
