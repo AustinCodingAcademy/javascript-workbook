@@ -17,7 +17,7 @@ $(document).ready(function() {
             url: url,
             success: function(person) {
               console.log(data);
-              var $details = $('<h3>' + person.first_name + ' ' + person.last_name + '</h3>' + '<h4>' + person.student + '</h4>' + '<p>' + person.phone + '</p>' + '<p>' + person.address + '</p>' + '<img src=\'' + person.avatar + '\'>');
+              var $details = $('<h3>' + person.first_name + ' ' + person.last_name + '</h3>' + '<h4>' + person.occupation + '</h4>' + '<p>' + person.phone + '</p>' + '<p>' + person.address + '</p>' + '<img src=\'' + person.avatar + '\'>');
               $('#details').html($details);
 
             }
