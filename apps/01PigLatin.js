@@ -1,93 +1,87 @@
 'use strict';
+
 var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
 
-function pigLatin(word) 
-{
+function pigLatin(word) {
+
+    //First convert into lowercase.  
+    word = word.toLowerCase();
+
+    //Define the first vowel
+    var vowelIndex = -1; // Set it to assume there are no vowels
+
+    if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+} 
+
+    if ( ( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('e');
+} 
+
+    if ( ( word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('i');
+}
+
+
+
+
+
+
+
+
+
+//
+
+    //1.) Make isVowel to check if its a vowel.   --DONE--
+    //2.) Make a vowelIndex to count where you are.  --DONE--
+    //3.) Words that start with vowels should just have 'ay'
+    //4.) Else keep going until you find a vowel.
+    //5.) Then take the previous consonants and put them on the end + add "ay"
+    //6.) Output should be lower case.  
+
+
+    //1.) isVowel returns true if something is a vowel.
+
+
+
+
+    var isVowel;
+    
+    if (isVowel ===  ('a' || 'e' || 'i' ||  'o' || 'u') ){
+        return true;
+    }
+
+
+
+    //2.) Make a vowelIndex. Then keep making it +1 until a vowel is hit.  
     var vowelIndex = 0;
-
-//See if the first letter is a vowel.------------------------
-
-    while(!isVowel(vowelIndex)) 
-        { 
-        vowelIndex = vowelIndex + 1; 
-        }
-    if(vowelIndex===0)
-        {
-        return word + 'yay';
-        }    
-            else 
-            {
-            var consonants = word.slice(0, vowelIndex);
-            var remainder = word.slice(vowelIndex);
-            return (remainder+consonants+"ay").toLowerCase();    
-            }
-}
-
-
-
-var firstLetter = word[0];
-
-if(word[0] === 'a' || word[0] === 'e' ||  word[0] === 'i' ||  word[0] === 'o' || word[0] === 'u') 
-    {
-    return word + "ay";
+    
+    while (isVowel !== true){
+        vowelIndex + 1;
     }
 
 
 
-return word.replace(firstLetter, '') + firstLetter + 'ay';
+    //3.) Words that start with vowels should just have 'ay'
+    if (isVowel (word[vowelIndex] === true){
+
+    }
+        
+    }
+
+    
+
+
+
+
+
+
+
 
 }
-
-
-
-
-function isVowel(letter) {
-(letter[0] === 'a' || letter[0] === 'e' ||  letter[0] === 'i' ||  letter[0] === 'o' || letter[0] === 'u')
-    {
-    return true;
-    }
-
- }
-
-function notVowel(letter) {
-!(letter[0] === 'a' || letter[0] === 'e' ||  letter[0] === 'i' ||  letter[0] === 'o' || letter[0] === 'u')
-    {
-    return true;
-    }
-
- }
-
-
-
-else (word[1])
-{
-
-}
-
-//--------------DIIFERENT APPROACH------keep looping until it finds.  
-
-var index = 0
-
-var isVowel = (word[0] === 'a' || word[0] === 'e' ||  word[0] === 'i' ||  word[0] === 'o' || word[0] === 'u');
-var notVowel = !(word[0] === 'a' || word[0] === 'e' ||  word[0] === 'i' ||  word[0] === 'o' || word[0] === 'u');
-
-while (word = notVowel)
-    {
-    index+1;    
-    }
-
-
-
-
-
-
-
-
-
-
 
 
 function getPrompt() {
@@ -99,8 +93,7 @@ function getPrompt() {
     });
 }
 
-
-// Tests-------------------------------------------
+// Tests
 
 if (typeof describe !== 'undefined') {
 
@@ -127,4 +120,3 @@ if (typeof describe !== 'undefined') {
     getPrompt();
 
 }
-
