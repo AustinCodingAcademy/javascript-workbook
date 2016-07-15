@@ -4,24 +4,30 @@ $(document).ready(function() {
     
 	$.ajax('https://reqres-api.herokuapp.com/api/users/', {
 		success: function(users) {
-			event.preventDefault();
-			user.forEach(function(users){ 
-  			
-				var str = '<th>' + user.id + '</th><th>' + user.first_name + '</th><th>' + user.last_name + '</th>';
+			users.forEach(function(user){ 
 
-	  			console.log(str);
+				var str = '<tr>' + '<td>' + user.id + '</td><td>' + user.first_name + '</td><td>' + user.last_name + '</td>' + '<td><a href="#" data-id="' + user.id + '">view</a></td>';
+
 	  			$('tbody').append(str);
 
-	  			var url = 'https://reqres-api.herokuapp.com/api/users/' + $(this).data('id', 0);
+  			});
+  			$('a').click(function (event) {
+  				event.preventDefault();
+  				var url = 'https://reqres-api.herokuapp.com/api/users/' + $(this).data('id');
+
 
 	  			$.ajax(url, {
-	  				success: function(user) {
-	  					var str = '<h3>' + user.first_name + ' ' + user.last_name + '</h3>' + 
-	  					'<h4>' + user.occupation + '</h4>' + 
-	  					'<p>' + user.phone + '</p><p>' + user.address + '</p>' + '<img src="' + user.avatar + ">;
+	  				success: function(users) {
+	  					var str = '<h3>' + users.first_name + ' ' + users.last_name +
+	  					'</h3>' + '<h4>' + users.occupation + '</h4>' + '<p>' + 
+	  					users.phone + '</p><p>' + users.address + '</p>' + 
+	  					'<img src="' + users.avatar + '"">' + '</div>';
+
+	  					$('#details').html(str);
 	  				}
-	  			}
-  			}
+	  			});
+  			});
+			
   		}
 	});
 });
