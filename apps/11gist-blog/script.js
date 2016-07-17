@@ -7,7 +7,7 @@ $(document).ready(function() {
 
       posts.forEach(function(post) { //inserts a list of links into #posts.
         if (post.description.indexOf('#post') > -1) { //filters "description"s that begin with '#post'.
-          $('#posts').append('<li> <a href="#" data-url=" '+ post.url +' "> '+ post.description.slice(6) +' </a> ('+ post.updated_at +') </li>');
+          $('#posts').append('<li> <a href="#" data-url=" '+ post.url +' "> '+ post.description.slice(6) +' </a> ('+ Date(post.updated_at).slice(0, 15) +') </li>');
         } // end of if statement
       }); //end of .forEach
 
