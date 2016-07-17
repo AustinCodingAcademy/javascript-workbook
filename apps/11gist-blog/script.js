@@ -7,7 +7,7 @@ $(document).ready(function() {
 
       posts.forEach(function(post) { //inserts a list of links into #posts.
         if (post.description.indexOf('#post') > -1) { //filters "description"s that begin with '#post'.
-          $('#posts').append('<li> <a href="#" data-url=" '+ post.url +' "> '+ post.description.slice(6) +' </a> </li>');
+          $('#posts').append('<li> <a href="#" data-url=" '+ post.url +' "> '+ post.description.slice(6) +' </a> ('+ post.updated_at +') </li>');
         } // end of if statement
       }); //end of .forEach
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
             $.ajax(post.comments_url, { //makes another ajax call using the "comments_url"
               success: function(comments) {
                 comments.forEach(function (comment) { //appends the ["user"]["login"] and "body" in a list in #comments
-                  $('#comments').append('<li> '+ comment['user']['login'] +' </li> <li> '+ comment.body +' </li> <img style="width:100px" src=" '+ comment['user']['avatar_url'] +' "></img>');
+                  $('#comments').append('<li> <img src=" '+ comment['user']['avatar_url'] +' "></img> '+ comment.body + ' -'+ comment['user']['login'] +'</li>');
                 });
               } //end of success: function comments
             }); //end of $.ajax call
