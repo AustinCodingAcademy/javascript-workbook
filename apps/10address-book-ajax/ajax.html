@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+    $.ajax('http://jsonplaceholder.typicode.com/users', {
+      success: function(response) {
+        response.forEach(function(user){
+          console.log(user.name);
+  })
+}
+});
+  </script>
+</body>
+</html>

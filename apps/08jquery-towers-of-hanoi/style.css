@@ -1,3 +1,8 @@
+.hanoiHolder {
+  transform: rotate(-90deg);
+  margin-bottom: 150px;
+}
+
 [data-stack] {
     display: flex;
     justify-content: left;
@@ -37,4 +42,12 @@
 #announce-game-won {
     font-size: 50px;
     text-align: center;
+}
+
+.appear {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
