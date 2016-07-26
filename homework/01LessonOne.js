@@ -17,11 +17,11 @@ var myUndefined;
 //
 // What is the difference between null and undefined?
 
-var myNull;
+var myNull = null;
+//change
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
-
 var myTrue;
 
 // Problem 3:
