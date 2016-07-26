@@ -14,7 +14,7 @@
 
   ```bash
   git status
-  git add LessonZeroTest.js
+  git add test/00LessonZeroTest.js
   git commit -m "Lesson Zero Tests passing!"
   git push origin gh-pages
   ```
