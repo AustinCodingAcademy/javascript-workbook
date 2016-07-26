@@ -10,6 +10,7 @@
 1. Add the base repository as an upstream `git remote add upstream https://github.com/AustinCodingAcademy/intermediate-workbook.git`
 
 ### Push to Github and create a PR
+1. Make the change to the JS function indicated in `test/00LessonZeroTest.js`
 1. When finished, commit your changes and push to GitHub
 
   ```bash
