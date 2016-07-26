@@ -18,6 +18,9 @@ var myUndefined;
 // What is the difference between null and undefined?
 
 var myNull = null;
+//I want to make a change in this file
+  //add and commit and push the change
+    //and see if the pull request automatically updates
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
