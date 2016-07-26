@@ -15,29 +15,32 @@ var myUndefined;
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
-// What is the difference between null and undefined?
+// What is the difference between null and undefined? In JavaScript null is "nothing". It is supposed to be something that doesn't exist.
+// Unfortunately, in JavaScript, the data type of null is an object.
+// undefined variables exist, but don’t have anything assigned to them
+// null variables exist and have null assigned to them
 
-var myNull;
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 17;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "my name is kendra";
 
 // ****
 // Boolean Operators
@@ -46,22 +49,22 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = true;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var trueAndFalse = true;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
