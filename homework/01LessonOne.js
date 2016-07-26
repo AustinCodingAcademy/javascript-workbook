@@ -16,28 +16,28 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
-
-var myNull;
+Null = false and undefined is a non-configurable property.
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 12;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "String goes here.";
 
 // ****
 // Boolean Operators
@@ -46,22 +46,22 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
