@@ -34,6 +34,11 @@ form {
     text-align: center;
     background-color: #fdfdfd;
     width: 100%;
+    overflow: hidden;
+}
+
+#todo-list label {
+  float: left;
 }
 
 #todo-list li span {
@@ -52,10 +57,14 @@ input[type="submit"] {
     width: 20%;
 }
 
-input[type=text] {
+input[type="text"] {
     padding:6px;
     border:1px solid #ccc;
     -webkit-border-radius: 0px;
     border-radius: 0px;
     width: 65%;
+}
+
+input[type="checkbox"] {
+  float: left;
 }

@@ -10,6 +10,49 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(ship) {
+    this.ship = ship;
+    ship.crew.push(this);
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function(crewMember) {
+    for (var i = 0; i < this.crew.length; i++) {
+      var key = this.crew[i].job;
+      var val = jobTypes[key];
+      if (val === this.type) {
+        return this.ability;
+      }
+    }
+    return "Can't perform a mission yet.";
+  }
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+crewMember1.enterShip(mav);
+console.log(crewMember1.ship); //mav
+console.log(mav.crew); //[crewMember1]
+console.log(crewMember1.ship === mav); //true
+console.log(mav.crew.indexOf(crewMember1) === 0); //true
+
+var jobTypes = {
+  pilot: 'MAV',
+  mechanic: 'Repair Ship',
+  commander: 'Main Ship',
+  programmer: 'Any Ship!'
+}
 
 //tests
 if (typeof describe !== 'undefined'){
