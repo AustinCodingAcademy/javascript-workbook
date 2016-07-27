@@ -36,7 +36,7 @@ var myNumber = 5;
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString = 'I will conquer JavaScript';
+var myString = 'I will conquer JavaScript!';
 
 // ****
 // Boolean Operators
