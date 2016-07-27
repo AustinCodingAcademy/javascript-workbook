@@ -1,4 +1,4 @@
-'use strict';
+n'use strict';
 
 var assert = require('assert');
 
@@ -45,8 +45,8 @@ var myString = "Welcome to my world.";
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
-true
+var trueAndTrue = true;
+
 // Problem 7:
 // What is the value of false && true
 
