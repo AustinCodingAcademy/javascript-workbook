@@ -113,7 +113,7 @@ var notNotTrue = true;
 // Truthiness
 // ****
 
-var bob = 'bob';
+var bob = true;
 var emptyString = '';
 
 // Problem 17:
