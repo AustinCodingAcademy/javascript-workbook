@@ -16,6 +16,14 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+  //Null is an object
+    //We use null as a placeholder value for a variable
+      //we will fill in the value later
+      //null is an assignment value that represents no value
+  //Undefined is a typeof (typeof undefined = "undefined")
+    //variable is declared by not defined (not even defined with a placholder such as null)
+      //not yet defined
+
 
 var myNull = null;
 //I want to make a change in this file
@@ -106,9 +114,11 @@ var notNotTrue = true;
 //
 // Write your answer in comments
 //
-// What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
+// What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
+//"and" means that all of the conditions has to be true for the statement to pass
+//"or" means that if any of the condiitons is true, then the statement will pass (not all parts of the conditional have to be true)
 //
 // ****
 
@@ -147,6 +157,15 @@ var notNotUndefined = false;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
+  //The following are Falsy values
+    //false, 0 (zero), "" (emptystring), null, undefined, NaN
+      //therefore Falsy values are useful
+        //if we use the NOT operator in front of them
+          //!Falsy
+            //then we will always get true
+              //so we can run our condiitonal statements based on using these Falsy values
+                //along with the ! Operator
+                  //example: if(!false), if(!0), if(!""), if(!null), if(!undefined), if(!NaN)
 //
 // ****
 
@@ -206,12 +225,18 @@ var stringFourStrictNotEqualsNumberFour = true;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
+  //== means that the 2 variables are approximately equal in value
+    //=== means that the 2 variables are exactly equal in value
 //
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
+//!= means that the 2 values are not approximately equal and that they don't even bare a resemblance to one another
+  //this is a sad outcome if the two are long lost brothers
+    //"4" != 4 is false because the string and number version, in JS
+      //are closely related cousins, so we re-unite them with true
+      //however "4" !== 4 is true because the string and number version are definitely not identically equal (not identical twins)
 // ****
 
 
