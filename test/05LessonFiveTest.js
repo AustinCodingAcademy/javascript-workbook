@@ -4,12 +4,22 @@ var assert = require('assert');
 
 function loopIt() {
     // should return an array with numbers 0 - 99
-
+    var array = [];
+    for (var n = 0; n < 100; n++) {
+        array.push(n);
+    }
+    return array;
 }
 
 function onlyEvens() {
     // should return an array with all even numbers between 1 - 99
-
+    var array = [];
+    for (var n = 2; n < 100; n++) {
+      if (n % 2 === 0) {
+        array.push(n);
+      }
+    }
+    return array;
 }
 
 function fizzBuzz() {
@@ -17,7 +27,22 @@ function fizzBuzz() {
     // divisible by 3 are replaced by the string "fizz", numbers divisible by 5
     // are replaced by the string "buzz", and the numbers divisble by both 3 and
     // 5 are replaced by fizzbuzz
-
+    var array = [];
+    for (var n = 0; n < 100; n++) {
+      if (n % 3 === 0 && n % 5 === 0) {
+        array.push('fizzbuzz');
+      }
+      else if (n % 3 === 0) {
+        array.push('fizz');
+      }
+      else if (n % 5 === 0) {
+        array.push('buzz');
+      }
+      else {
+        array.push(n);
+      }
+    }
+    return array;
 }
 
 
@@ -43,4 +68,3 @@ describe('#fizzBuzz', function () {
         assert.deepEqual(fizzBuzz(), array);
     });
 });
-

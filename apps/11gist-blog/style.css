@@ -1,0 +1,9 @@
+ul {
+  list-style: none;
+}
+img {
+  width: 50px;
+}
+#comments li {
+  border-bottom: 1px solid #000;
+}
