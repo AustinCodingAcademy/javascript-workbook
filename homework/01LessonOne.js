@@ -16,6 +16,7 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+// 'null' acts as a variable assignment without any value, while 'undefined' returns when there is no variable assignment whatsoever.
 
 var myNull = null;
 
@@ -51,52 +52,52 @@ var trueAndTrue = true;
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue = ;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse = ;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue;
+var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse;
+var notFalse = true;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
@@ -106,7 +107,13 @@ var notNotTrue;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
-//
+// The && operator tests to see if all values are 'true', and if any values are 'false', the variable will return 'false'.
+// The || operator, however, tests to see if any values are 'true', and if at least one value is 'true', will return 'true'.
+// For the examples pertaining to this lesson, we are assuming that only two values are being compared.
+// NOTE:
+// When one uses multiple logical operators to test more than two values, operational precedence must be considered, as it makes things a little more complicated.
+// MDN example: the statement 'true && true || false' will return 'false', since || operators have higher operational precedence than && operators,
+// whereas the statement 'true && (true || false)' will return 'true', since (grouped) values have the absolute lowest operational precedence.
 // ****
 
 // ****
@@ -118,23 +125,24 @@ var emptyString = '';
 
 // Problem 17:
 // What is the value of !!bob
+// bob is emotionally positive, !bob would be emotionally negative, then !!bob would be emotionally positive (true)
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -142,8 +150,9 @@ var notNotUndefined;
 // Write your answer in comments
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
-//
 // Your Answer Goes Here:
+// Truthy values translate to 'true' when evaluated as Booleans. All values are "innocent until proven guilty" - truthy until proven falsey. These include Boolean values of true, strings containing at least one character, and any number except 0.
+//Falsey values translate to 'false' when evaluated as Booleans. In Javascript, these include values null, undefined, NaN, Boolean value false, empty strings, and the number 0.
 //
 // ****
 
@@ -153,47 +162,47 @@ var notNotUndefined;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -204,10 +213,13 @@ var stringFourStrictNotEqualsNumberFour;
 //
 // Your Answer Goes Here:
 //
+// Strictly equal (===) operands are only equal if they are of the same type and their contents match. Strings are strictly equal only when they have the same character sequence, same character positioning, and same string length.
+// Abstract equal (==) comparison operators first convert operands to the same type before making any comparison. In other words, if the operands have different value types, they will first be converted to primitives before being compared. This is why a statement like "1 = '1'" will return "false" - the number 1 and the string '1' are both being converted to a primitive Boolean before the statement is tested.
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
+// a Not-Strictly-Equal operator (!==) simply tests the opposite of a Strictly-Equal comparison, while a Not-Abstract-Equal operator (!=) returns the opposite of an Abstract-Equal comparison.
 //
 // ****
 
