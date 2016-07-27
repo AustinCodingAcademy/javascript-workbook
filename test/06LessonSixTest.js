@@ -3,14 +3,61 @@
 var assert = require('assert');
 
 // Create two classes, Car and Garage
-// The Car class should take one parameter, color. Set the passed in color to be an attribute of the object
+// The Car class should take one parameter, color. Set the passed in color to be an attribute of the object.
+
 // The Garage should also take one parameter, size. The size will be an integer, and set it to an attribute
 // Give the Garage object an attribute, this.cars, and set it to an empty array
-// The Garage class should have two methods, .add and .remove
-// .add should take one argument, car. If the length of this.cars is less than this.size, push the car into this.cars, else return "Not enough space!"
-// .remove should also take one argument, car. look for the index of the car in this.cars. If it is found, splice it out of this.cars. If it isn't found, return "That car isn't here!"
 
-// Your code here
+// The Garage class should have two methods, .add and .remove
+
+// .add should take one argument, car. If the length of this.cars is less than this.size, push the car into this.cars, else return "Not enough space!"
+
+// .remove should also take one argument, car. look for the index of the car in this.cars. If it is found, splice it out of this.cars. If it isn't found, return "That car isn't here!"
+//----------------------------------------------------------------------------
+
+
+    function Car(color){
+
+    this.color = color;
+    } 
+
+
+
+    function Garage(size) {
+
+        this.size = size;
+        this.cars = [];    
+
+
+       this.add = function(car){
+
+          if(this.cars.length < this.size){
+            this.cars.push(car);
+            }
+
+          else {return "Not enough space!";
+            }
+        }
+
+
+
+        this.remove = function(car){
+
+            var theCar = this.cars.indexOf(car)
+
+            if (theCar > -1){
+                this.cars.splice(theCar, 1);
+            }
+
+            else{return "That car isn't here!";
+            }
+        }
+
+    }
+
+
+
+
 
 // Tests
 

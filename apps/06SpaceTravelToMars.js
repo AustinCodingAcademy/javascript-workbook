@@ -1,5 +1,4 @@
 'use strict';
-//require assert
 var assert = require('assert');
 
 var jobTypes = {
@@ -9,7 +8,57 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Your code here 
+// Your code here 
+
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+
+  this.enterShip = function (ship){
+    this.ship = ship;
+    this.ship.addMember(this);
+  }
+}
+
+
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+  this.addMember = function(CrewMember){
+    this.crew.push(CrewMember);
+  }
+
+//In Ship class, write a method missionStatement: this method will return "Can't perform a mission yet." if none of the ship's crew has the correct job that matches this ship type; and it will return this ship's ability if there is a crew member that has a correct job that matches the ship type.
+
+
+  this.missionStatement = function(){
+
+    
+      for (var i = 0; i < this.crew.length; i++){
+          
+          if ( this.type === jobTypes[this.crew[i].job] ){
+              return this.ability;
+              }
+      }
+              return "Can't perform a mission yet.";
+                
+      
+
+
+  
+  }
+}
+
+
+
+
 
 //tests
 if (typeof describe !== 'undefined'){
