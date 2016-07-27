@@ -16,7 +16,6 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
-
 var myNull = null;
 
 // Problem 2:
