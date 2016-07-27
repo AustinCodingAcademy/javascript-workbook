@@ -2,40 +2,57 @@
 
 var assert = require('assert');
 
+var arr = ['a','b','c'];
+
 function arrayPop(arr) {
     // should remove the last item in the array, then return the arr
+    arr.pop();
+    return arr;
 
 }
 
 function arrayPush(arr, item1, item2, item3) {
     // should add these items onto the end of the array, then return the array
-
+    arr.push()
+    return arr ;
 }
 
 function arrayShift(arr) {
     // should remove the first item in the array, then return the array
-
+     var shifted = arr.shift
 }
 
 function arrayUnshift(arr, item1, item2, item3) {
     // should add these items onto the front of the array, then return the array
+    var unshifted = arrayUnshift.unshift();
 
 }
 
 function createObject() {
     // should return an object with keys 'first', 'second', 'third' mapped to
     // values 1, 2, 3
+    var object = {
+      first : 1,
+      second : 2,
+      third : 3
+    };
 
 }
 
 function returnValueByKey(object, key) {
     // given an object and a key, return the value assigned to the key
-
+      var key = {
+        'a' : 1,
+        'b' : 2,
+        'c' : 3
+      };
+      console.log(returnValueByKey['b']);
 }
 
 function assignKeyValue(object, key, value) {
     // given an object, key, and value, add the key/value pair
     // to the object. return the object
+
 }
 
 
@@ -89,4 +106,3 @@ describe('#assignKeyValue', function () {
         assert.deepEqual(assignKeyValue({}, 'b', 2), { b: 2 });
     });
 });
-

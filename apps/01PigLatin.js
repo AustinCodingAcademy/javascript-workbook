@@ -4,11 +4,25 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
+function isVowel(letter) {
+  if(letter[0]==='a'|| letter[0]==='e'||letter[0]==='i'||letter[0]==='o'||letter[0]==='u')
+    return true;
+  }
 function pigLatin(word) {
+var vowelIndex = 0;
 
-    // Your code here
+while(!isVowel(word[vowelIndex])){
+  vowelIndex = vowelIndex+1;
+}
 
+if(vowelIndex===0){
+    return (word+'yay').toLowerCase();
+} else {
+  var consonants = word.slice(0,vowelIndex);
+  var remainder = word.slice(vowelIndex);
+
+return (remainder + consonants + 'ay').toLowerCase();
+}
 }
 
 
