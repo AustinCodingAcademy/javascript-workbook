@@ -119,7 +119,7 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob = 'bob';
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
