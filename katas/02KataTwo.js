@@ -3,11 +3,37 @@
 var assert = require('assert');
 
 // Given an array A, find the int that appears an odd number of times.
-// There will always be only one integer that appears an odd number of times.
+// There will always be only one integer that appears an odd number of times. And whatnot
+var counter = 0;
+var oddNum;
 
 function findOdd(arr) {
-    // Your code here
+  for (var i = 0; i<=arr.length -1; i++){
+    for (var x = 0; x<=arr.length -1; x++){
+      if (arr[i] === arr[x]){
+        counter = counter + 1;
+      }
+    }
+    if (counter % 2 != 0){
+      oddNum = arr[i];
+    }
+    counter = 0;
+  }
+  return oddNum;
 }
+		// for(int i = 0; i < array.length; i++){
+		// 	int count = 0;
+		// 	for(int j = 0 ; j < array.length; j++){
+		// 		if(array[i] == array[j]){
+		// 			count++;
+		// 		}
+		// 	}
+		// 	if(count % 2 == 1){
+		// 		System.out.print(array[i] + " ");
+		// 	}
+		// }
+
+    // Your code here
 
 
 // Tests

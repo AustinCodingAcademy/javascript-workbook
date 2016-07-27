@@ -4,17 +4,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Todo</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+
 </head>
 <body>
   <div id="content">
-    <div class="header">TODO</div>
-    <form>
-      <input type="text" id="todo">
+    <div class="header animated fadeInDown site__title">TODO LIST</div>
+    <form class="animated fadeInLeft">
+      <input type="text" id="todo" placeholder="Enter Task">
       <input type="submit" value="Submit">
+
     </form>
-    <ul id="todo-list">
-      <li>Walk the dog</li>
-    </ul>
+    <ol id="todo-list">
+
+      <li class="animated fadeInRight">Get things done!</li>
+
+    </ol>
   </div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

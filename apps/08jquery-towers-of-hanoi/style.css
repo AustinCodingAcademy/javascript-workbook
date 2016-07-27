@@ -5,7 +5,7 @@
     -webkit-align-items: center;
     display: -webkit-flex;
     height: 101px;
-    background-color: aliceblue;
+    background-color: black;
     margin: 25px;
 }
 
@@ -17,6 +17,9 @@
 [data-block="25"] {
     height: 25px;
     background-color: blue;
+    border: solid, 1px;
+    
+    border-radius: 5;
 }
 
 [data-block="50"] {
@@ -34,7 +37,18 @@
     background-color: yellow;
 }
 
+body {
+  background-image: url(/Users/zachpearce/Documents/intermediate-workbook/apps/08jquery-towers-of-hanoi/streets-of-hanoi-modern.jpg);
+}
+
 #announce-game-won {
     font-size: 50px;
     text-align: center;
+}
+
+#rules ,h2 {
+  text-align: center;
+  align-content: center;
+  font-size: 30px;
+
 }
