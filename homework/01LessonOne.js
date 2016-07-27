@@ -15,7 +15,8 @@ var myUndefined;
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
-// What is the difference between null and undefined? *** Null is an object. Undefined means that no variable has been declared.
+// What is the difference between null and undefined?
+// Null is for JavaScript objects, i.e., for something to be null, an object has to exist. Null is basically a placeholder assignment value. Undefined is for JavaScript variables, and means that no value has been declared/defined to a variable.
 
 var myNull = null;
 
@@ -27,17 +28,17 @@ var myTrue = true;
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 3;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "This is my super-awesome string.";
 
 // ****
 // Boolean Operators
@@ -46,57 +47,57 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue;
+var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse;
+var notFalse = true;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
@@ -106,7 +107,11 @@ var notNotTrue;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
+//The "and" and the "or" operators are used to determine the logic between assigned values or variables.
 //
+//The "and" operator tests if the value on the left is "true". If it is, then it tests whether the value on the right is "true". If the value on either side tests as "false", then the operation will return as "false". If both are "true", however, the operation will return as "true". -- In simple terms: "Is this AND this true?" If either one is not true, then the logic tells us that this returns as FALSE.
+//
+//The "or" operator tests whether the value on either side is "true". If one or both of the values are "true", the operation will return as "true". -- In simple terms: "Is this OR this true?" If either one is true, then the logic tells us that this returns as TRUE.
 // ****
 
 // ****
@@ -119,22 +124,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -144,7 +149,9 @@ var notNotUndefined;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
+//Anything with a real, existing value, and if it's an "emotionally positive" value, i.e., has a positive connotation, returns as true. Example: console.log("Kimberly"); returns as true / console.log(5 + 7); returns as true
 //
+//Anything not assigned a real value or that is an "emotionally negative" value, i.e., has a negative connotation, returns as false. Example: The value "null" is an actual assignable value. However, since it is "emotionally negative", it returns as false.
 // ****
 
 // ****
@@ -153,47 +160,47 @@ var notNotUndefined;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -203,12 +210,12 @@ var stringFourStrictNotEqualsNumberFour;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//
+//The "==" operator means "equal to". The "===" operator means equal to in value and equal to in type.
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
+//The "!=" operator means not equal. The "!==" operator means not equal in value or not equal in type. 
 // ****
 
 
