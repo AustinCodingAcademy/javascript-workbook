@@ -16,24 +16,44 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
     // Your code here
-
+    stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
     // Your code here
+    var endValIndex = stacks[endStack].length - 1;
+    var startValIndex = stacks[startStack].length - 1;
 
+    if (stacks[startStack].length === 0) {
+        return false;
+    }
+    else if (stacks[endStack].length === 0) {
+        return true;
+    }
+    else {
+        return (stacks[endStack][endValIndex] > stacks[startStack][startValIndex]);
+    }
 }
 
 function checkForWin() {
     // Your code here
-
+    if (stacks["b"].length === 4 || stacks["c"].length === 4) {
+        console.log("You Won!!!");
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
-
+    if (isLegal(startStack, endStack)) {
+        movePiece(startStack, endStack);
+    }
+    checkForWin();
 }
 
 function getPrompt() {

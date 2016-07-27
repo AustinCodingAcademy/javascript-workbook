@@ -40,22 +40,7 @@ form {
     text-align: right;
 }
 
-
-input[type="submit"] {
-    padding:5px 0;
-    text-align: center;
-    background:#ccc;
-    border: 0 none;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-    font-size: 14px;
-    width: 20%;
-}
-
-input[type=text] {
-    padding:6px;
-    border:1px solid #ccc;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-    width: 65%;
+.click {
+  text-decoration: line-through;
+  transition: all 1s ease;
 }
