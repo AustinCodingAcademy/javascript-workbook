@@ -26,14 +26,64 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+
+    for (var i=0; i < solutionArray.length; i++) {
+      if (solutionArray[i] === guessArray[i]) {
+        correctLetterLocations++;
+        solutionArray[i] = null;
+      }
+    }
+    for (var i=0; i < solutionArray.length; i++) {
+      var targetIndex = solutionArray.indexOf(guessArray[i]);
+      if (targetIndex > -1) {
+        correctLetters++;
+        solutionArray[targetIndex] = null;
+      }
+    }
+     return (correctLetterLocations + "-" + correctLetters);
+    // return (colors.red(correctLetterLocations) + "-" + colors.white(correctLetters));
 }
+
+
+
+function addColor(hint) {
+  var colorArray = hint.split('-');
+  return (colors.red (colorArray[0]) + "-" + colors.white (colorArray[1]));mocha
+}
+
+
 
 function mastermind(guess) {
-    // your code here
+    solution = "abcd";
+    if (guess === solution) {
+      return "You guessed it!"
+    }
+    var hint = generateHint (solution, guess);
+    hint = addColor(hint);
+    board.push(guess + ' ' + hint);
+    if (board.length === 10) {
+      return 'You ran out of turns! The soultion was' + solution;
+    }
+    else {
+      return 'Guess again.';
+    }
 }
 
+
+function getPrompt() {
+    prompt.get(['guess'], function (error, result) {
+        console.log( mastermind(result['guess']) );
+        printBoard();
+        getPrompt();
+    });
+}
+
+// Tests
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
@@ -67,7 +117,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
