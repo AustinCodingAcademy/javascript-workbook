@@ -187,11 +187,11 @@ var negativeThreeGreaterThanOrEqualToTen = false;
 // Problem 28:
 // What is the value of '4' == 4
 var stringFourEqualsNumberFour = true;
-// confused about number 28 as == isn't a operator
+// nevermind it is an operator, see previous commit for why this comment is here.
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour = true;
-
+var stringFourNotEqualsNumberFour = false;
+// confused about 29 here ^
 // Problem 30:
 // What is the value of '4' === 4
 var stringFourStrictEqualsNumberFour = false;
