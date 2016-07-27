@@ -6,6 +6,8 @@ var assert = require('assert');
 // Basic Data Types
 // ****
 
+// *** Gabe Amaya *** //
+
 // Problem 0:
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.
@@ -51,12 +53,12 @@ var trueAndTrue = true;
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue = true;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse = true;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
@@ -71,7 +73,7 @@ var trueOrTrue = true;
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue = false;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
@@ -96,7 +98,7 @@ var notTrue = false;
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
@@ -106,7 +108,7 @@ var notNotTrue;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here: if a variable has && it is "and" which means both have to be true for it to be
-// true:  ||
+// true:  || is "or" and means either one thing has to be true for it to be true.
 //
 // ****
 
@@ -120,22 +122,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -144,7 +146,9 @@ var notNotUndefined;
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: tough question, if a value is equal to another value then it
+// is true. i.e 0 === 0 , 0 is equal to 0.  if it is not then it would be 0 === 1
+// which would be false since a value isn't equal to the other.
 //
 // ****
 
@@ -154,47 +158,47 @@ var notNotUndefined;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
-
+var stringFourEqualsNumberFour = true;
+// confused about number 28 as == isn't a operator
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = true;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -203,12 +207,14 @@ var stringFourStrictNotEqualsNumberFour;
 //
 // What’s the difference between == and ===?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: so == means something is equal to something and === means
+// something is equal to the value of something else
 //
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: != means not equal to something and !== means not equal
+// value to somthing
 //
 // ****
 
