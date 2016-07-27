@@ -22,22 +22,22 @@ var myNull = null;
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 42;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "Nicole";
 
 // ****
 // Boolean Operators
@@ -46,57 +46,57 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue;
+var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse;
+var notFalse = true;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
@@ -105,7 +105,7 @@ var notNotTrue;
 //
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: AND (&&) operators are true if everything in the parentheses are true. OR (||) operators will be true if anything in the parentheses are true. Word up.
 //
 // ****
 
@@ -119,22 +119,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -143,7 +143,7 @@ var notNotUndefined;
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: I don't know what you mean by "emotionally negative" or "emotionally positive"... but from what I can tell, things are truthy when they have a value (any number, true, a string, etc.). Things are falsey when they either are undefined are assigned to have nothing as their value (null, 0, undefined, etc.)
 //
 // ****
 
@@ -153,47 +153,47 @@ var notNotUndefined;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -202,12 +202,12 @@ var stringFourStrictNotEqualsNumberFour;
 //
 // What’s the difference between == and ===?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:== isn't as strict. it will try to convet both sides to the same type. === is strict, and will not convert anything before comparing.
 //
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Same concept as above.  != (not equal to) is less strict than !==. For example, if x=2, x != '2' would be true, while x !== '2' is false. Right?
 //
 // ****
 

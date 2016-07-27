@@ -1,0 +1,524 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'mocha' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'mocha', null ]
+7 verbose cache add spec mocha
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'mocha',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'mocha',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed mocha@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for mocha
+11 info addNameTag [ 'mocha', 'latest' ]
+12 silly mapToRegistry name mocha
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry data Result {
+15 silly mapToRegistry   raw: 'mocha',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'mocha',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npmjs.org/mocha
+17 verbose addNameTag registry:https://registry.npmjs.org/mocha not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/mocha
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 8:43:33 PM
+21 verbose request id d5fc6c20e72d6cec
+22 http request GET https://registry.npmjs.org/mocha
+23 http 200 https://registry.npmjs.org/mocha
+24 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 verbose headers   etag: '"1YUAPMXOUNICCL9LL38JQKCY2"',
+24 verbose headers   'content-type': 'application/json',
+24 verbose headers   'content-encoding': 'gzip',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   'content-length': '53871',
+24 verbose headers   'accept-ranges': 'bytes',
+24 verbose headers   date: 'Tue, 26 Jul 2016 01:43:33 GMT',
+24 verbose headers   via: '1.1 varnish',
+24 verbose headers   age: '18',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'x-served-by': 'cache-ord1723-ORD',
+24 verbose headers   'x-cache': 'HIT',
+24 verbose headers   'x-cache-hits': '1',
+24 verbose headers   'x-timer': 'S1469497413.751527,VS0,VE0',
+24 verbose headers   vary: 'Accept-Encoding' }
+25 silly get cb [ 200,
+25 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+25 silly get     etag: '"1YUAPMXOUNICCL9LL38JQKCY2"',
+25 silly get     'content-type': 'application/json',
+25 silly get     'content-encoding': 'gzip',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     'content-length': '53871',
+25 silly get     'accept-ranges': 'bytes',
+25 silly get     date: 'Tue, 26 Jul 2016 01:43:33 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     age: '18',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-ord1723-ORD',
+25 silly get     'x-cache': 'HIT',
+25 silly get     'x-cache-hits': '1',
+25 silly get     'x-timer': 'S1469497413.751527,VS0,VE0',
+25 silly get     vary: 'Accept-Encoding' } ]
+26 verbose get saving mocha to /Users/nicoledaugereaux/.npm/registry.npmjs.org/mocha/.cache.json
+27 verbose correctMkdir /Users/nicoledaugereaux/.npm correctMkdir not in flight; initializing
+28 verbose makeDirectory /Users/nicoledaugereaux/.npm creation not in flight; initializing
+29 silly makeDirectory /Users/nicoledaugereaux/.npm uid: 501 gid: 20
+30 silly addNameTag next cb for mocha with tag latest
+31 silly addNamed mocha@2.5.3
+32 verbose addNamed "2.5.3" is a plain semver version for mocha
+33 silly mapToRegistry name mocha
+34 silly mapToRegistry using default registry
+35 silly mapToRegistry registry https://registry.npmjs.org/
+36 silly mapToRegistry data Result {
+36 silly mapToRegistry   raw: 'mocha',
+36 silly mapToRegistry   scope: null,
+36 silly mapToRegistry   name: 'mocha',
+36 silly mapToRegistry   rawSpec: '',
+36 silly mapToRegistry   spec: 'latest',
+36 silly mapToRegistry   type: 'tag' }
+37 silly mapToRegistry uri https://registry.npmjs.org/mocha
+38 verbose addRemoteTarball https://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz not in flight; adding
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz',
+39 verbose addRemoteTarball   '161be5bdeb496771eb9b35745050b622b5aefc58' ]
+40 info retry fetch attempt 1 at 8:43:33 PM
+41 info attempt registry request try #1 at 8:43:33 PM
+42 http fetch GET https://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz
+43 http fetch 200 https://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz
+44 silly fetchAndShaCheck shasum 161be5bdeb496771eb9b35745050b622b5aefc58
+45 verbose addTmpTarball /var/folders/hr/1ltx56vd0qv2t0m5qlzx55x80000gn/T/npm-44197-fc3ac2fa/registry.npmjs.org/mocha/-/mocha-2.5.3.tgz not in flight; adding
+46 verbose addTmpTarball already have metadata; skipping unpack for mocha@2.5.3
+47 verbose correctMkdir /Users/nicoledaugereaux/.npm correctMkdir not in flight; initializing
+48 silly cache afterAdd mocha@2.5.3
+49 verbose afterAdd /Users/nicoledaugereaux/.npm/mocha/2.5.3/package/package.json not in flight; writing
+50 verbose correctMkdir /Users/nicoledaugereaux/.npm correctMkdir not in flight; initializing
+51 verbose afterAdd /Users/nicoledaugereaux/.npm/mocha/2.5.3/package/package.json written
+52 silly install resolved [ { name: 'mocha',
+52 silly install resolved     version: '2.5.3',
+52 silly install resolved     description: 'simple, flexible, fun test framework',
+52 silly install resolved     keywords: [ 'mocha', 'test', 'bdd', 'tdd', 'tap' ],
+52 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+52 silly install resolved     contributors:
+52 silly install resolved      [ [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object],
+52 silly install resolved        [Object] ],
+52 silly install resolved     license: 'MIT',
+52 silly install resolved     repository: { type: 'git', url: 'git://github.com/mochajs/mocha.git' },
+52 silly install resolved     bin: { mocha: './bin/mocha', _mocha: './bin/_mocha' },
+52 silly install resolved     engines: { node: '>= 0.8.x' },
+52 silly install resolved     scripts: { test: 'make test' },
+52 silly install resolved     dependencies:
+52 silly install resolved      { commander: '2.3.0',
+52 silly install resolved        debug: '2.2.0',
+52 silly install resolved        diff: '1.4.0',
+52 silly install resolved        'escape-string-regexp': '1.0.2',
+52 silly install resolved        glob: '3.2.11',
+52 silly install resolved        growl: '1.9.2',
+52 silly install resolved        jade: '0.26.3',
+52 silly install resolved        mkdirp: '0.5.1',
+52 silly install resolved        'supports-color': '1.2.0',
+52 silly install resolved        'to-iso-string': '0.0.2' },
+52 silly install resolved     devDependencies:
+52 silly install resolved      { 'browser-stdout': '^1.2.0',
+52 silly install resolved        browserify: '^13.0.0',
+52 silly install resolved        'coffee-script': '~1.8.0',
+52 silly install resolved        eslint: '^1.2.1',
+52 silly install resolved        'expect.js': '^0.3.1',
+52 silly install resolved        karma: '^0.13.22',
+52 silly install resolved        'karma-browserify': '^5.0.5',
+52 silly install resolved        'karma-expect': '^1.1.2',
+52 silly install resolved        'karma-no-mocha': '^2.0.0',
+52 silly install resolved        'karma-phantomjs-launcher': '^0.2.3',
+52 silly install resolved        'karma-sauce-launcher': '^1.0.0',
+52 silly install resolved        'karma-spec-reporter': '0.0.26',
+52 silly install resolved        phantomjs: '1.9.8',
+52 silly install resolved        should: '~8.0.0',
+52 silly install resolved        through2: '~0.6.5',
+52 silly install resolved        watchify: '^3.7.0' },
+52 silly install resolved     files:
+52 silly install resolved      [ 'bin',
+52 silly install resolved        'images',
+52 silly install resolved        'lib',
+52 silly install resolved        'index.js',
+52 silly install resolved        'mocha.css',
+52 silly install resolved        'mocha.js',
+52 silly install resolved        'LICENSE' ],
+52 silly install resolved     browser:
+52 silly install resolved      { debug: './lib/browser/debug.js',
+52 silly install resolved        events: './lib/browser/events.js',
+52 silly install resolved        tty: './lib/browser/tty.js',
+52 silly install resolved        './index.js': './browser-entry.js',
+52 silly install resolved        jade: false,
+52 silly install resolved        fs: false,
+52 silly install resolved        glob: false,
+52 silly install resolved        path: false,
+52 silly install resolved        'supports-color': false },
+52 silly install resolved     licenses: [ [Object] ],
+52 silly install resolved     gitHead: 'e939d8e4379a622e28064ca3a75f3e1bda7e225b',
+52 silly install resolved     bugs: { url: 'https://github.com/mochajs/mocha/issues' },
+52 silly install resolved     homepage: 'https://github.com/mochajs/mocha#readme',
+52 silly install resolved     _id: 'mocha@2.5.3',
+52 silly install resolved     _shasum: '161be5bdeb496771eb9b35745050b622b5aefc58',
+52 silly install resolved     _from: 'mocha@latest',
+52 silly install resolved     _npmVersion: '3.8.6',
+52 silly install resolved     _nodeVersion: '6.0.0',
+52 silly install resolved     _npmUser: { name: 'dasilvacontin', email: 'dasilvacontin@gmail.com' },
+52 silly install resolved     dist:
+52 silly install resolved      { shasum: '161be5bdeb496771eb9b35745050b622b5aefc58',
+52 silly install resolved        tarball: 'https://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz' },
+52 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+52 silly install resolved     _npmOperationalInternal:
+52 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+52 silly install resolved        tmp: 'tmp/mocha-2.5.3.tgz_1464165855561_0.11252999701537192' },
+52 silly install resolved     directories: {},
+52 silly install resolved     _resolved: 'https://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz' } ]
+53 info install mocha@2.5.3 into /usr/local/lib
+54 info installOne mocha@2.5.3
+55 verbose installOne of mocha to /usr/local/lib not in flight; installing
+56 verbose correctMkdir /Users/nicoledaugereaux/.npm/_locks correctMkdir not in flight; initializing
+57 verbose makeDirectory /Users/nicoledaugereaux/.npm/_locks creation not in flight; initializing
+58 silly makeDirectory /Users/nicoledaugereaux/.npm/_locks uid: 501 gid: 20
+59 verbose lock using /Users/nicoledaugereaux/.npm/_locks/mocha-1cb4102bb5230051.lock for /usr/local/lib/node_modules/mocha
+60 silly install write writing mocha 2.5.3 to /usr/local/lib/node_modules/mocha
+61 verbose unbuild lib/node_modules/mocha
+62 silly gentlyRm /usr/local/lib/node_modules/mocha is being purged from base /usr/local
+63 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/mocha
+64 verbose tar unpack /Users/nicoledaugereaux/.npm/mocha/2.5.3/package.tgz
+65 verbose tar unpacking to /usr/local/lib/node_modules/mocha
+66 silly gentlyRm /usr/local/lib/node_modules/mocha is being purged
+67 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/mocha
+68 silly gunzTarPerm modes [ '755', '644' ]
+69 error tar.unpack untar error /Users/nicoledaugereaux/.npm/mocha/2.5.3/package.tgz
+70 verbose unlock done using /Users/nicoledaugereaux/.npm/_locks/mocha-1cb4102bb5230051.lock for /usr/local/lib/node_modules/mocha
+71 verbose fstream_path /usr/local/lib/node_modules/mocha
+72 verbose fstream_type Directory
+73 verbose fstream_class DirWriter
+74 verbose stack Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/mocha'
+74 verbose stack     at Error (native)
+75 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+75 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+75 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+76 verbose cwd /Users/nicoledaugereaux/Desktop/intermediate-workbook
+77 error Darwin 14.5.0
+78 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "mocha"
+79 error node v4.4.7
+80 error npm  v2.15.8
+81 error path /usr/local/lib/node_modules/mocha
+82 error code EACCES
+83 error errno -13
+84 error syscall mkdir
+85 error Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/mocha'
+85 error     at Error (native)
+85 error  { [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/mocha']
+85 error   errno: -13,
+85 error   code: 'EACCES',
+85 error   syscall: 'mkdir',
+85 error   path: '/usr/local/lib/node_modules/mocha',
+85 error   fstream_type: 'Directory',
+85 error   fstream_path: '/usr/local/lib/node_modules/mocha',
+85 error   fstream_class: 'DirWriter',
+85 error   fstream_stack:
+85 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+85 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+85 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+86 error Please try running this command again as root/Administrator.
+87 verbose exit [ -13, true ]
+88 verbose unbuild lib/node_modules/mocha
+89 silly gentlyRm /usr/local/lib/node_modules/mocha is being purged from base /usr/local
+90 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/mocha
