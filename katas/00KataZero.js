@@ -2,13 +2,21 @@
 
 var assert = require('assert');
 
-// You goal is to return a string that says "Hello!"
+
+            
+            
+            // You goal is to return a string that says "Hello!"
 
 function sayHello() {
-    // Your code here
-
+ 
+ return ("Hello!");
 }
+sayHello();
 
+function plusTwo(x, y) {
+return (x+y);
+}
+    
 
 // Tests
 
