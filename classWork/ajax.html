@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <ul id="emails"></ul>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    $.ajax('http://jsonplaceholder.typicode.com/users', {
+    success: function(data) {
+      // for (var i=0; i<data.length; i++){
+      //   $('#emails').append('<li>'+data[i]['email']+'</li>');
+      // }
+      data.forEach(function(user){
+        $('#emails').append('<li>'+user['email']+'</li>')
+      });
+    }
+  });
+  </script>
+</body>
+</html>

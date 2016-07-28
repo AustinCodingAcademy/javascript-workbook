@@ -6,9 +6,17 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
-
-    // Write code here
-
+  hand1=hand1.toLowerCase();
+  hand2=hand2.toLowerCase();
+  if ( (hand1 === "rock" && hand2 === "rock") || (hand1 === "paper" && hand2 === "paper") ||  (hand1 === "scissors" && hand2 === "scissors") ){
+    return "It's a tie!";
+  }
+  else if( (hand1 === "scissors" && hand2 === "rock") || (hand1 === "paper" && hand2 === "scissors") || (hand1 === "rock" && hand2 === "paper") ){
+     return "Hand two wins!";
+  }
+  else if( (hand1 === "scissors" && hand2 === "paper") || (hand1 === "paper" && hand2 === "rock") ||  (hand1 === "rock" && hand2 === "scissors") ){
+     return "Hand one wins!";
+  }
 }
 
 function getPrompt() {

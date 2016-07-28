@@ -9,9 +9,11 @@ var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+
+
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+        console.log(board[i]);
     }
 }
 
@@ -26,20 +28,63 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
     // your code here
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+    for (var i=0; i<solutionArray.length; i++) {
+      if (solutionArray[i]===guessArray[i]) {
+        correctLetterLocations++;
+        solutionArray[i] = null;
+      }
+    }
+    for (var i=0; i<solutionArray.length; i++) {
+        var targetIndex = 0;
+        targetIndex = guessArray.indexOf(solutionArray[i]);
+        if (targetIndex>-1) {
+          correctLetters++;
+          solutionArray[i] = null;
+        }
+      }
+    
+    return correctLetterLocations + "-" + correctLetters;
+
+}
+
+function addColor(hint) {
+  var hintArray = hint.split('-');
+  var redLetter = colors.red(hintArray[0]);
+  var whiteLetter = colors.white(hintArray[1]);
+  return redLetter + "-" + whiteLetter;
 }
 
 function mastermind(guess) {
-    // your code here
+      // your code here
+    if (solution===guess) {
+      return 'You guessed it!';
+      console.log('You guessed it');
+    }
+    else if (board.length<10) {
+      console.log(guess+solution);
+      var hint = generateHint(solution, guess);
+      board.push(guess + hint);
+    }
+    else {
+      return "You ran out of turns! The solution was  " + solution;
+    }
+    printBoard();
 }
 
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
-        console.log( mastermind(result['guess']) );
+        console.log(result['guess']);
+        console.log( mastermind(result['guess']));
         printBoard();
         getPrompt();
+
     });
 }
 
@@ -67,9 +112,10 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
+    console.log(solution);
     getPrompt();
 }
