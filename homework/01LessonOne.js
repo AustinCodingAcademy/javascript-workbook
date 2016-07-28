@@ -38,7 +38,7 @@ var myNumber = 3;
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString = "This is my super-awesome string.";
+var myString = "This is my awesome string.";
 
 // ****
 // Boolean Operators
@@ -215,7 +215,7 @@ var stringFourStrictNotEqualsNumberFour = true;
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//The "!=" operator means not equal. The "!==" operator means not equal in value or not equal in type. 
+//The "!=" operator means not equal. The "!==" operator means not equal in value or not equal in type.
 // ****
 
 
