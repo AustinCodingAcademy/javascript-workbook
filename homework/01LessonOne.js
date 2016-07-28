@@ -224,7 +224,9 @@ var stringFourStrictNotEqualsNumberFour = true;
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
+// So the single equals sign "=" assigns a value   while the double equals sign "==" compares 2 values and tests for equality or truth.
+// By adding the bang "!" to either one of these operators we are putting "not" in front of the operator. Therefore "A != B" would
+// translate to "A does not equal B" and "A !== B" would pose the question "Does A not equal B?" these are two completely different things 
 // ****
 
 
