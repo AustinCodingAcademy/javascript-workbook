@@ -8,7 +8,52 @@ prompt.start();
 function pigLatin(word) {
 
     // Your code here
+    var vowelIndex = -1; // Set it to assume there are no vowels
+    var pigWord = word.toLowerCase();
 
+    if ( ( pigWord.indexOf('a') > -1 && pigWord.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = pigWord.indexOf('a');
+    }
+
+    if ( ( pigWord.indexOf('e') > -1 && pigWord.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = pigWord.indexOf('e');
+    }
+
+    if ( ( pigWord.indexOf('i') > -1 && pigWord.indexOf('i') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = pigWord.indexOf('i');
+    }
+
+    if ( ( pigWord.indexOf('o') > -1 && pigWord.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = pigWord.indexOf('o');
+    }
+
+    if ( ( pigWord.indexOf('u') > -1 && pigWord.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = pigWord.indexOf('u');
+    }
+
+    if ( ( pigWord.indexOf('y') > -1 && pigWord.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = pigWord.indexOf('y');
+    }
+
+    if (vowelIndex > 0) {
+      var firstPart = pigWord.slice(0, vowelIndex);
+      var restWord = pigWord.slice(vowelIndex, pigWord.length);
+
+      return (restWord + firstPart + 'ay');
+      // console.log(restWord + firstPart + 'ay');
+      // console.log(vowelIndex);
+      // console.log(pigWord);
+    } else if (vowelIndex > -1) {
+      return (pigWord + 'yay');
+      // console.log(pigWord + 'yay');
+      // console.log(vowelIndex);
+      // console.log(pigWord);
+    } else {
+      return (pigWord + 'ay');
+      // console.log(pigWord + 'ay');
+      // console.log(vowelIndex);
+      // console.log(pigWord);
+    }
 }
 
 

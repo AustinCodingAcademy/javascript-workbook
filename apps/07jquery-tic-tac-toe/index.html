@@ -6,22 +6,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="row">
-    <div data-cell="0"></div>
-    <div data-cell="1"></div>
-    <div data-cell="2"></div>
-  </div>
-  <div class="row">
-    <div data-cell="3"></div>
-    <div data-cell="4"></div>
-    <div data-cell="5"></div>
-  </div>
-  <div class="row">
-    <div data-cell="6"></div>
-    <div data-cell="7"></div>
-    <div data-cell="8"></div>
-  </div>
-  <div id="announce-winner"></div>
+  <section class="board clearfix">
+    <div class="row clearfix">
+      <div class="clearfix" data-cell="0"></div>
+      <div class="clearfix" data-cell="1"></div>
+      <div class="clearfix" data-cell="2"></div>
+    </div>
+    <div class="row clearfix">
+      <div class="clearfix" data-cell="3"></div>
+      <div class="clearfix" data-cell="4"></div>
+      <div class="clearfix" data-cell="5"></div>
+    </div>
+    <div class="row clearfix">
+      <div class="clearfix" data-cell="6"></div>
+      <div class="clearfix" data-cell="7"></div>
+      <div class="clearfix" data-cell="8"></div>
+    </div>
+  </section>
+  <button id="reset" class="clearfix" type="button">RESET</button>
+  <div id="announce-winner" class="clearfix"></div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="./script.js"></script>
 </body>

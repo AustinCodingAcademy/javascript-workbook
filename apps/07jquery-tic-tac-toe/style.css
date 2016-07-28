@@ -1,3 +1,26 @@
+/*.clearfix::before {
+  content: "";
+  display: table;
+}
+​
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}*/
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
 div[data-cell] {
     width: 100px;
     height: 100px;
@@ -8,11 +31,16 @@ div[data-cell] {
     text-align: center;
 }
 
-.row {
-    clear: both;
+#reset {
+    margin-top: 20px;
+    margin-left: 100px;
+    display: block;
+    font-size: 20px;
+    height: 50px;
+    width: 100px;
 }
 
+
 #announce-winner {
-    clear: both;
     font-size: 50px;
 }
