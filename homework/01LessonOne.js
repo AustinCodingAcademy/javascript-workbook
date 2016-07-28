@@ -106,9 +106,9 @@ var notNotTrue = true;
 //
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
-// Your Answer Goes Here:  'and' signifies that both conditions are required for truthiness while 'or' signifies that only one condition must be met
+// Your Answer Goes Here:
+//        'and' signifies that both conditions are required for truthiness while 'or' signifies that only one condition must be met
 //				use and when you need a var to meet both conditions
-
 // ****
 
 // ****
@@ -116,7 +116,7 @@ var notNotTrue = true;
 // ****
 
 var bob = 'bob';
-var emptyString;
+var emptyString = '';
 
 // Problem 17:
 // What is the value of !!bob
@@ -149,7 +149,8 @@ var notNotUndefined = false;
 //			Truthiness is something that evaluates to true : 1,an object, True
 //			Falsiness is something that evaluates to false, 0 (zero), "" (empty string), null, undefined, and NaN
 // ****
-
+//      Example of Truthiness : 1
+//      example of Falsiness : 0
 // ****
 // Comparison Operators
 // ****
@@ -205,13 +206,14 @@ var stringFourStrictNotEqualsNumberFour = true;
 //
 // What’s the difference between == and ===?
 //
-// Your Answer Goes Here: By using == you check if something is equal to something else. This is not strict. By using === you
+// Your Answer Goes Here:   By using == you check if something is equal to something else. This is not strict. By using === you
 //			By using == you check if something is equal to something else. This is not strict. By using === you
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
+//            != operator mean not equal to. it is the same as !(...==...).. Using only one = as != will convert them to the same type (probably a string) to see if they are they same.
+//            One could argue that === and !== are faster than == and != as there is not need to convert the type or check to see if it needs to convert the type.
 // ****
 
 
