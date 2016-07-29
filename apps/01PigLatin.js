@@ -51,7 +51,6 @@ function pigLatin(word) {
   if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
       vowelIndex = word.indexOf('y');
   }
-//*why do we include "|| vowelIndex === -1" on each of these? Wouldn't it be the same result without it?
 
   // Concept Check
   //
