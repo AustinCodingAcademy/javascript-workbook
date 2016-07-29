@@ -76,7 +76,12 @@ function Board() {
         var position = blackPositions[i];
         this.grid[position[0]][position[1]] = checker;
       }
-    }
+    };
+
+    this.selectChecker = function(row, column){
+      return this.grid[row][column];
+    };
+
 }
 
 function Game() {
@@ -87,6 +92,17 @@ function Game() {
         this.board.createGrid();
         // Your code here
         this.board.createCheckers();
+    }
+
+    //start and end are each two digits that represent rowcolumn
+    this.moveChecker = function(start, end){
+      var startrow = Number(start.charAt(0));
+      var startcol = Number(start.charAt(1));
+      var endrow = Number(end.charAt(0));
+      var endcol = Number(end.charAt(1));
+      var checker = this.board.selectChecker(startrow, startcol);
+      this.board.grid[startrow][startcol] = null;
+      this.board.grid[endrow][endcol] = checker;
     }
 }
 
