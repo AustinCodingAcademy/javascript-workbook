@@ -108,36 +108,38 @@ var notNotTrue = false;
 // Your Answer Goes Here:
 // The "and" operator will result in TRUE, only if both values are TRUE versus "or" operator that not only will result in TRUE when both operators are TURE, but also when any of them are TRUE.
 
-If( a > b && a <= c) { do something}
-This means that if both expressions a>b AND a <= c are TRUE the result will be true and the body of the if statement will be executed.
+//If( a > b && a <= c) {
+   //do something
+}
+//This means that if both expressions a>b AND a <= c are TRUE the result will be true and the body of the if statement will be executed.
 // ****
 
 // ****
 // Truthiness
 // ****
 
-var bob = 'bob';
-var emptyString = '';
+//var bob = 'bob';
+//var emptyString = ('');
 
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob = false;
+//truthy
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString = false;
+//truthy
 
 // Problem 19:
 // What is the value of !null
 
-var notNull = true;
+//falsey
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined = true;
+//falsey
 
 // ****
 // Concept Checkpoint
@@ -157,47 +159,47 @@ var notNotUndefined = true;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour = true;
+//true
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour = false;
+//false
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen = false;
+//false
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen = true;
+//true
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen = true;
+//true
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen = false;
+//false
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen = false;
+//false
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour = false;
+//false
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour = true;
+//true
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour = false;
+//false
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour = true;
+//true
 
 // ****
 // Concept Checkpoint
