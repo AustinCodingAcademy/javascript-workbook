@@ -87,10 +87,17 @@ function pigLatin(word) {
 //prompt.get() displays a message to the user ('word') and then grabs the text that the user inputs and stores it (in result).
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
-
+      if (result['word'].toLowerCase() != "q"){
         console.log( pigLatin(result['word']) );
-
         getPrompt();
+      }
+      else {
+        prompt.get(['Do you want to quit? (y/n)'], function(error, result) {
+          if (result['Do you want to quit? (y/n)'].toLowerCase() != "y"){
+            getPrompt();
+          }
+        })
+      }
     });
 }
 
