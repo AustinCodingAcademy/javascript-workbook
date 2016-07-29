@@ -5,8 +5,14 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
+function Checker(color) {
     // Your code here
+    if (color === 'white'){
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+    else{
+      this.symbol = String.fromCharCode(0x125CF);
+    }
 }
 
 function Board() {
@@ -50,7 +56,29 @@ function Board() {
     }
 
     // Your code here
+    this.createCheckers = function(){
+      //starting positions
+      var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+                            [1, 0], [1, 2], [1, 4], [1, 6],
+                            [2, 1], [2, 3], [2, 5], [2, 7]];
+      var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+                            [6, 1], [6, 3], [6, 5], [6, 7],
+                            [7, 0], [7, 2], [7, 4], [7, 6]];
+      //create white checkers and place at specified positions
+      for (var i = 0; i <= 11; i++){
+        var checker = new Checker("white");
+        var position = whitePositions[i];
+        this.grid[position[0]][position[1]] = checker;
+      }
+      //create black checkers and add to grid
+      for (var i = 0; i <= 11; i++){
+        var checker = new Checker("black");
+        var position = blackPositions[i];
+        this.grid[position[0]][position[1]] = checker;
+      }
+    }
 }
+
 function Game() {
 
     this.board = new Board();
@@ -58,6 +86,7 @@ function Game() {
     this.start = function() {
         this.board.createGrid();
         // Your code here
+        this.board.createCheckers();
     }
 }
 
