@@ -14,7 +14,7 @@ function pigLatin(word) {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
   //
   // Your Answer:
-  //
+  //toLowerCase() will convert the string to all lower case letters, so that we don't have to worry about capitalizataion when we translate the word
   word  = word.toLowerCase();
 
   // Concept Check
@@ -24,7 +24,8 @@ function pigLatin(word) {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
   //
   // Your Answer:
-  //
+  //vowelIndex will be used for the position in the word where the first vowel occurs.
+  //Since -1 will never be a valid position, we can use it to represent "no vowel found"
   var vowelIndex = -1; // Set it to assume there are no vowels
 
   if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
@@ -50,6 +51,7 @@ function pigLatin(word) {
   if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
       vowelIndex = word.indexOf('y');
   }
+//*why do we include "|| vowelIndex === -1" on each of these? Wouldn't it be the same result without it?
 
   // Concept Check
   //
@@ -58,7 +60,10 @@ function pigLatin(word) {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
   //
   // Your Answer:
-  //
+  //slice(startIndex, endIndex) returns a substring of the word that starts with
+  //the character in position startIndex and ends just before the character in position endIndex.
+  //vowelIndex is the position where the first vowel is, so we are slicing the word up into
+  //the vowel free firstPart and the restWord, which starts with the first vowel
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
 
@@ -80,7 +85,7 @@ function pigLatin(word) {
 // What does prompt.get() do for us?
 //
 // Your Answer:
-//
+//prompt.get() displays a message to the user ('word') and then grabs the text that the user inputs and stores it (in result).
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
 
