@@ -6,6 +6,7 @@ prompt.start();
 
 
 function Checker(color) {
+    this.color = color;
     // Your code here
     if (color === 'white'){
       this.symbol = String.fromCharCode(0x125CB);
@@ -111,6 +112,13 @@ function Game() {
       var startcol = Number(start.charAt(1));
       var endrow = Number(end.charAt(0));
       var endcol = Number(end.charAt(1));
+      //check move before proceeding
+      var isLegal = this.isLegalMove([startrow, startcol], [endrow, endcol]);
+      if (!isLegal[0]){
+        console.log("invalid move. " + isLegal[1]);
+        return;
+      };
+
       var checker = this.board.selectChecker(startrow, startcol);
       this.board.grid[startrow][startcol] = null;
       this.board.grid[endrow][endcol] = checker;
@@ -119,7 +127,50 @@ function Game() {
         var killPosition = [(startrow + endrow)/2, (startcol + endcol)/2];
         this.board.killChecker(killPosition);
       }
-    }
+    };
+
+    //start and end are positions in the form [row, column]
+    this.isLegalMove = function(start, end){
+      var myChecker = this.board.selectChecker(start[0], start[1]);
+      //start position must have checker
+      if (myChecker === null){ return false;}
+      //must move diagonally
+      var rowDistance = Math.abs(start[0] - end[0]);
+      var colDistance = Math.abs(start[1] - end[1]);
+      if (rowDistance !== colDistance || rowDistance > 2){
+        return [false, "not diagonal"];
+      }
+      //white must move down
+      if (myChecker.color === "white"){
+        if(start[0] >= end[0]){
+          return [false, "white can't move that way"];
+        };
+      }
+      //black must move up
+      else {
+        if(start[0] <= end[0]){
+          return [false, "black can't move that way"];
+        };
+      };
+
+      //end position must start empty
+      var landing = this.board.selectChecker(end[0], end[1]);
+      if (landing !== null){
+        return [false, "can't land on a checker"];
+      }
+
+      //jumps must have a victim in the middle
+      if (rowDistance === 2){
+        var victim = this.board.selectChecker( (start[0] + end[0]) / 2, (start[1] + end[1]) / 2);
+        if (victim === null){
+          return [false, "can't jump an empty space"];
+        }
+      }
+
+      //no violations found
+      return [true, "valid"];
+    };
+
 }
 
 function getPrompt() {
