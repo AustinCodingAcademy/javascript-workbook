@@ -56,6 +56,8 @@ function Board() {
     }
 
     // Your code here
+    this.checkers = [];
+
     this.createCheckers = function(){
       //starting positions
       var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
@@ -75,11 +77,19 @@ function Board() {
         var checker = new Checker("black");
         var position = blackPositions[i];
         this.grid[position[0]][position[1]] = checker;
+        this.checkers.push(checker);
       }
     };
 
     this.selectChecker = function(row, column){
       return this.grid[row][column];
+    };
+
+    this.killChecker = function(position){
+      var checker = this.selectChecker(position[0], position[1]);
+      var checkerIndex = this.checkers.indexOf(checker);
+      this.checkers.splice(checkerIndex, 1);
+      this.grid[position[0]][position[1]] = null;
     };
 
 }
@@ -103,6 +113,11 @@ function Game() {
       var checker = this.board.selectChecker(startrow, startcol);
       this.board.grid[startrow][startcol] = null;
       this.board.grid[endrow][endcol] = checker;
+      //check for kill
+      if (Math.abs(startrow - endrow) === 2){
+        var killPosition = [(startrow + endrow)/2, (startcol + endcol)/2];
+        this.board.killChecker(killPosition);
+      }
     }
 }
 
