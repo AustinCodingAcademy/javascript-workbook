@@ -90,12 +90,14 @@ function addThree(number1, number2, number3) {
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: set a variable equal to something, add paramters, and return a
+// value if need be.
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: parameter are names listed in a function and arguments
+// are values passed and recieved inside the function.
 //
 // ****
 
@@ -111,6 +113,12 @@ function addThree(number1, number2, number3) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (number % 2 === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // Problem 6:
@@ -120,6 +128,12 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if (number % 3 === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // ****
@@ -135,6 +149,18 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === 'scooby') {
+    return 'dog';
+  }
+  else if (character === 'garfield') {
+    return 'cat';
+  }
+  else if (character === 'nemo') {
+    return 'fish';
+  }
+  else {
+    return false;
+  }
 }
 
 // Problem 8:
@@ -145,6 +171,23 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  if (number % 4 === 0) {
+    return 'divisible by 4';
+  }
+  else if (number % 2 === 0) {
+    return 'divisible by 2';
+  }
+  else if (number % 3 === 0) {
+    return 'divisible by 3';
+  }
+  else if (number % 5 === 0) {
+    return 'divisible by 5';
+  }
+  else {
+    return 'naw son';
+  }
+}
 
 // ****
 // Concept Checkpoint
