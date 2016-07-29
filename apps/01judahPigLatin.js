@@ -28,3 +28,4 @@ function firstPart(word){
 }
 
 console.log(pigLatin('pregghead'));
+console.log(pigLatin('otter'));
