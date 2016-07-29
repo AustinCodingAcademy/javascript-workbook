@@ -71,6 +71,7 @@ function Board() {
         var checker = new Checker("white");
         var position = whitePositions[i];
         this.grid[position[0]][position[1]] = checker;
+        this.checkers.push(checker);
       }
       //create black checkers and add to grid
       for (var i = 0; i <= 11; i++){
