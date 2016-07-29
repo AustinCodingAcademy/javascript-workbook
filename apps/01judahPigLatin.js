@@ -1,5 +1,15 @@
 var vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
 
+
+function pigLatin(word){
+  //want to assign first part to var
+    //so I can add that var to end of word and concatenate
+  var firstPartWord = firstPart(word);
+  var newWord = word.replace(firstPartWord,"") + firstPartWord + "ay";
+  return newWord;
+
+}
+
 function firstPart(word){
   var newWord = word + "firstpart";
   for(i = 0; i < word.length; i++){
@@ -7,18 +17,10 @@ function firstPart(word){
     for(j = 0; j < vowels.length; j++){
       // console.log(vowels[j]);
       if(word[i].toLowerCase() === vowels[j].toLowerCase()){
-        firstPart = word.slice(0,i);
-        return firstPart;
+        return word.slice(0,i);
       }
     }
   }
 }
 
-function pigLatin(word){
-  //want to assign first part to var
-    //so I can add that var to end of word and concatenate
-  return firstPart(word);
-}
-
-
-console.log(pigLatin('tripper'));
+console.log(pigLatin('pfluggerville'));
