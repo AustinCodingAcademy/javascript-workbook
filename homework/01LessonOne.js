@@ -224,30 +224,30 @@ var notNotTrue = false;
 
 describe('Lesson 1 Homework', function () {
 
-  describe('Data Type Problems', function () {
-    describe('Problem 0: undefined variable myUndefined', function () {
+describe('Data Type Problems', function () {
+describe('Problem 0: undefined variable myUndefined', function () {
       it('should be undefined', function () {
-          assert.equal(typeof myUndefined, 'undefined');
-      });
-    });
+       assert.equal(typeof myUndefined, 'undefined');
+});
+});
 //Data type is a group of data with values that have predefined charasteristics (e.g. number, string and pointer).
 //undefined - data without an assign value.
-    describe('Problem 1: null variable myNull', function () {
+   describe('Problem 1: null variable myNull', function () {
       it('should be null', function () {
           assert(myNull === null);
-      });
-    });
+});
+});
 //The variable myNull was given the null value, so myNull === null would be true.
     describe('Problem 2: true variable myTrue', function () {
       it('should be true', function () {
           assert.equal(myTrue, true);
       });
-    });
+   });
 //The variable myTrue was given the True value.  Equal to TRUE.
     describe('Problem 3: false variable myFalse', function () {
       it('should be false', function () {
-          assert.equal(myFalse, false);
-      });
+       assert.equal(myFalse, false);
+     });
     });
 //The variable myFalse was given the False value.  Equal to FalseFALSE.
     describe('Problem 4: number variable myNumber', function () {
