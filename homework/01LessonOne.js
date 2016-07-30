@@ -16,6 +16,7 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+// null values have been defined as null, undefined values have not been given a value at all
 
 var myNull = null;
 
@@ -146,7 +147,7 @@ var notNotUndefined = false;
 // Your Answer Goes Here:
 //
 // ****
-// truthiness is determined by the state of a boolean which depends on the state of the arguments provided, strings with content are considered true
+// truthiness is determined by the state of a boolean which depends on the state of the arguments provided, strings with content are considered true; falsiness is determined if a value has a null, undefined, empty, or simply false value
 // ****
 // Comparison Operators
 // ****
@@ -210,7 +211,7 @@ var stringFourStrictNotEqualsNumberFour = true;
 // Your Answer Goes Here:
 //
 // ****
-// '==' roughly compares values, '===' must have the values exactly the same
+// '==' roughly compares values, '===' must have the values exactly the same; "roughly" meaning that values such as strings and numbers can be compared with the "==" operator and be returned as true, while they would not be with the "===" operator
 // ****
 // Tests
 // ****
