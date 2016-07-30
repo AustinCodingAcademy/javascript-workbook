@@ -26,8 +26,7 @@ function pigLatin(word) {
   // 1)) It's necessary to grasp how the indexOf() method behaves before we can answer this question. The characters in a string are evaluated from left to right, with the last character's index being stated by the .indexOf() method as 'stringName.length() - 1'. Therefore, the .indexOf() method has a default return value of -1. This is because the first index occurence of a given string is [0], and if there is no input whatsoever, then the first index occurence is also considered to be the last index occurence, and so: '[0] - 1 = -1'.
   // 2)) In this 'if' conditional, we have an 'or' comparison operator where setting vowelIndex to -1 is our way of specifying that the 'if' conditional will assume that our input has no vowels. If we use the method .indexOf to determine if there are any occurrences of the specified value - in this case, any vowels - and if the method doesn't find any such occurrences, it will return its default value of -1. In such a case, where 'vowelIndex === -1' evaluates as 'true', then it would render the entire 'or' comparison 'true' as well, thereby accounting for an input which has no vowels.
   //
-    var firstLetter = word[0];
-    return word.replace(firstLetter, '') + firstLetter + 'ay';
+    var vowelIndex = -1;
 
     if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
         vowelIndex = word.indexOf('a');
@@ -53,14 +52,36 @@ function pigLatin(word) {
         vowelIndex = word.indexOf('y');
     }
 
+    // Concept Check
+      //
+      // Why are we using String.prototype.slice() here? What role does vowelIndex play?
+      //
+      // Your Answer: We are using String.prototype.slice() to determine where our function will divide - or 'slice' - a string given as input before rearranging it as Pig Latin.
+      // In the 'firstPart' variable, the first parameter '0' will begin the slice at index [0]. When it reaches a position in the string that has been defined as a vowelIndex, it will stop the slice.
+      // Then, the 'restWord' variable uses the String.prototype.slice() method to divide the rest of the word,  beginning at vowelIndex and ending at the last character (measured as the string length of the word).
+      //
+
     var firstPart = word.slice(0, vowelIndex);
-    var restWord = word.slice(VowelIndex, word.length);
+    var restWord = word.slice(vowelIndex, word.length);
 
     if (vowelIndex === 0) {
-
+      return word + 'yay';
     }
-}
+    else {
+      return restWord + firstPart + 'ay';
+    }
+  }
 
+// Concept Check
+//
+// Make sure you run this app with node in the console before answering this question.
+// Also, read Lesson 1 in the textbook.
+// http://intermediate.austincodingacademy.com/_book/lesson_one.html
+//
+// What does prompt.get() do for us?
+// The prompt.get() function retrieves - 'gets' - a 'word' string input passed to the program, indicated as its first parameter. Then it passes the result of that input to the pigLatin function's parameter, which is itself logged to the console.
+// Your Answer:
+//
 
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
