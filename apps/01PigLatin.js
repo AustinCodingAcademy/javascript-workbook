@@ -15,15 +15,15 @@ function pigLatin(word) {
   //
   // Your Answer:
   //
-  // String.prototype.toLowerCase is a method that returns the value of a called string into lowercase. One of the tests needed to be passed requires that this app should auto lowercase the word before translation.
+  // String.prototype.toLowerCase is a method that returns the value of a called string into lowercase letters. One of the tests needed to be passed requires that this app should auto lowercase the word before translation.
   //
   //
-  // By using .toLowerCase here we ensure that the word will be entirely lower case before any other changes are made. We also limit the number of times we have to search for each vowel.
+  // By using .toLowerCase here we ensure that the word will be entirely lowercase before any other changes are made. We also limit the number of times we have to search for each vowel.
   //
   //
-  // Since 'a' !== 'A' we would normally need search for the uppercase and lowercase strings.
+  // Since 'a' !== 'A' we would normally need to search for the uppercase and lowercase strings.
   //
-  // Since .toLowerCase makes every letter in a string lowercase we only need to search for each vowel one time.
+  // Since .toLowerCase transforms every letter in a string into lowercase we only need to search for each vowel one time.
   //
   //
   word  = word.toLowerCase();
@@ -37,14 +37,14 @@ function pigLatin(word) {
   //
   // Your Answer:
   //
-  // When searching  arrays a return value of -1 indicates that the value being searched for was not found.
+  // An array searc that returns a value of -1 indicates that the value being searched for cannot be found.
   //
   //
-  // Initalizing vowelIndex to -1 gives vowelIndex the value of that would be returned if we did not find a vowel searching with 'indexOf'.
+  // Initalizing vowelIndex to -1 gives the variable vowelIndex the value that would be returned if no vowels was found using indexOf or lastIndexof. No value or a number other than -1 will result in words that do not conform to the beautiful Pig Latin language.
   //
-  // If the search for a vowel completes and returns -1 then a vowel was not found.
+  // If the indexOf search returns -1 then no vowel was found.
   //
-  // -1 helps reveal what is able to be found. If a search is performed and word.IndexOf returns an index > -1 then a vowel had been found.
+  // -1 helps reveal also tells us what IS able to be found. A return value > -1 indicates that a vowel exists in the string.
   //
   //
 
@@ -82,9 +82,9 @@ function pigLatin(word) {
   //
   // Your Answer:
   //
-  // String.prototype.slice() extracts or cuts text from one string and with that text returns a new string. It starts to extract the string from the parameter beginSlice and stops at the index entered for the parameter endSlice.
+  // String.prototype.slice() extracts text from a string and with that text returns a new string. It starts to extract text from the called string from value for parameter beginSlice, and stops at the value entered for the parameter endSlice.
   //
-  // The index for endSlice' is not extracted in the new string. Any index with a value > endSlice are also not included in the new string.
+  // The index for endSlice is not extracted. Any indices > endSlice are also not included in the new string.
   //
   // For example:
   //
@@ -94,11 +94,11 @@ function pigLatin(word) {
   //
   // We use slice() to extract parts of one string into two different new strings so they can be concatenated into 1 new string.
   //
-  // For variable firstPart the vowelIndex entered for the endSlice parameter.
+  // For variable firstPart, the current vowelIndex becomes the value for the endSlice parameter.
   //
-  // We extract from the first letter of word (index 0 and every index before vowelIndex. VowelIndex and no other indices are extracted)
+  // We extract from the first letter of the current string until the vowelIndex (this means we extract index 0 and every index in the string  up to but not including vowelIndex.)
   //
-  // For variable restWord we do as the variable suggests and extract the rest of the word starting with and including the index value of vowelIndex through the rest of the word.
+  // For variable restWord we do as the variable suggests and extract the rest of the word starting from the voweIndex until the last index of the string.
 
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
