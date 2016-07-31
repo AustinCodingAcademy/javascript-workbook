@@ -98,7 +98,7 @@ function pigLatin(word) {
   //
   // We extract from the first letter of the current string until the vowelIndex (this means we extract index 0 and every index in the string  up to but not including vowelIndex.)
   //
-  // For variable restWord we do as the variable suggests and extract the rest of the word starting from the voweIndex until the last index of the string.
+  // For variable restWord we do as the variable suggests and extract the rest of the word starting from the vowelIndex until the last index of the string.
 
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
