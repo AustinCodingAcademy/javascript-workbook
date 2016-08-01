@@ -26,6 +26,11 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 === argument2) {
+    return true;
+  }else{
+    return false;
+  }
 }
 
 // Problem 2:
@@ -53,22 +58,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: In javascript, a function is a block of code designed to perform a particular task. It is defined with the function keyword, followed by a name for the function, followed by parentheses ().
+
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A return value is what the computer “returns” to you when you run the function , such as if you design a function to add two numbers, and then the computer returns the sum of those numbers.
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: To name a function, write “function followed by the name of the function you want to create, for example: function customName(parameter1, parameter2)
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Parameters are used to define a function. Arguments are used to invoke a function.
 //
 // ****
 
@@ -126,7 +132,7 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: In Javascript, conditionals all you to set conditions for when the computer will do something. Such as, on the condition that someone enters their age as 21+, you can program a Liquor company’s website to say the user may enter. But if they enter <20, the website can then tell them they cannot enter. Conditionals are implemented using “if” and “else”... such as, “if” the user enters >=21, display welcome message; “else” display message barring the user’s entry.
 //
 //
 // ****
