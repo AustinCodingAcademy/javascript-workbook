@@ -79,7 +79,7 @@ function pigLatin(word) {
 //
 // What does prompt.get() do for us?
 //
-// Your Answer: To prompt the user for input, we have to use prompt.get. This allows the user to enter a word for us to run the app with.
+// Your Answer: To prompt the user for input, we have to use prompt.get; This allows the user to enter a word for us to run the app with.
 //
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
