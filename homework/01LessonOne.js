@@ -16,6 +16,8 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+// undefined is a value for a variable that has been set but has not been
+//given a value yet. Null is a value. The value of null is nothing.
 
 var myNull = null;
 
@@ -194,11 +196,11 @@ var stringFourNotEqualsNumberFour = true;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -208,12 +210,12 @@ var stringFourStrictNotEqualsNumberFour;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//
+// == is weak equality and === is very strict equality
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here:
-//
+// Your Answer Goes Here: I'm not really sure. But I think != will return the
+//opposite TRUE answer. And !== will return the opposite truthy answer.
 // ****
 
 
