@@ -26,6 +26,9 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 === argument2) {
+    return true;
+  }
 }
 
 // Problem 2:
@@ -40,11 +43,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(number1, number2) {
+  return number1 + number2;
+}
+ var x = add (2 + 4);
+
+ x;
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree (number1, number2, number3) {
+  return number1 + number2 + number3;
+}
+var x = addThree;
+
+x;
 
 // ****
 // Concept Checkpoint
@@ -54,22 +69,22 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+// A function is a block of code designed to perform a particular task. A function is defined with the function key word followed by a name followed by parantheses.
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+// It is a statement to declare that you want to return.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+//  Named functions can contain letters, digits, underscores and dollar signs.
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// A parameter is a variable in a method definition. When a method is called, the arguments are the data you pass into the method's parameters.
 // ****
 
 
@@ -84,7 +99,14 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (isEven % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
+isEven(2);
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -126,7 +148,8 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Conditionals are used to execute a block of code that will generate if the condition is true or execute another block of code that will generate if the condition is false.
+
 //
 //
 // ****
