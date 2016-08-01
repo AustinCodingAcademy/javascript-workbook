@@ -74,22 +74,28 @@ function addThree(number1, number2, number3){
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+//a function is a method that is called
+  //it allows you to call reusable snippets of code
+    //eliminates repetition and drys up code
+      //function is defined by writing 'function funcName(){}'
 //
 // What is a return value?
-//
 // Your Answer Goes Here:
+//The value returned by a function
 //
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+//A function that has a name like funcName(){} as opposed to a nameless function like a callback function(){}
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+//A parameter the same as an argument
+  //it is entered in the parenthesis after a function
+    //in order to pass values into that function
+      //the function takes arguments
 // ****
 
 
@@ -187,7 +193,9 @@ function testNumber(number){
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
+//conditionals ask the computer whether a given statement meets the conditional and is true
+  //if the conditional is met then the code will run
+    //otherwise, the code will not run
 //
 // ****
 
