@@ -107,13 +107,13 @@ var notNotTrue = true;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
-// The && operator tests to see if all values are 'true', and if any values are 'false', the variable will return 'false'.
-// The || operator, however, tests to see if any values are 'true', and if at least one value is 'true', will return 'true'.
+// The && operator tests to see if all values are 'true', and if any values are 'false', the expression will evaluate to 'false'.
+// The || operator, however, tests to see if any values are 'true', and if at least one value is 'true', the expression will evaluate to 'true'.
 // For the examples pertaining to this lesson, we are assuming that only two values are being compared.
 // NOTE:
-// When one uses multiple logical operators to test more than two values, operational precedence must be considered, as it makes things a little more complicated.
-// MDN example: the statement 'true && true || false' will return 'false', since || operators have higher operational precedence than && operators,
-// whereas the statement 'true && (true || false)' will return 'true', since (grouped) values have the absolute lowest operational precedence.
+// When using multiple logical operators to test more than two values, operational precedence must be considered, as it makes things a little more complicated.
+// MDN example: the expression 'true && true || false' will evaluate to 'false', since || operators have higher operational precedence than && operators,
+// whereas the expression 'true && (true || false)' will evaluate to 'true', since (grouped) values have the absolute lowest operational precedence.
 // ****
 
 // ****
@@ -151,8 +151,8 @@ var notNotUndefined = false;
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 // Your Answer Goes Here:
-// Truthy values translate to 'true' when evaluated as Booleans. All values are "innocent until proven guilty" - truthy until proven falsey. These include Boolean values of true, strings containing at least one character, and any number except 0.
-//Falsey values translate to 'false' when evaluated as Booleans. In Javascript, these include values null, undefined, NaN, Boolean value false, empty strings, and the number 0.
+// Truthy values evaluate to 'true' when evaluated as Booleans. All values are "innocent until proven guilty" - truthy until proven falsey. These include Boolean values of true, strings containing at least one character, and any number except 0.
+//Falsey values evaluate to 'false' when evaluated as Booleans. In Javascript, these include values null, undefined, NaN, Boolean value false, empty strings, and the number 0.
 //
 // ****
 
@@ -208,17 +208,17 @@ var stringFourStrictNotEqualsNumberFour = true;
 // Concept Checkpoint
 //
 // Write your answer in comments
+// Your Answer Goes Here:
 //
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
 //
 // Strictly equal (===) operands are only equal if they are of the same type and their contents match. Strings are strictly equal only when they have the same character sequence, same character positioning, and same string length.
-// Abstract equal (==) comparison operators first convert operands to the same type before making any comparison. In other words, if the operands have different value types, they will first be converted to primitives before being compared. This is why a statement like "1 = '1'" will return "false" - the number 1 and the string '1' are both being converted to a primitive Boolean before the statement is tested.
+// Abstract equal (==) comparison operators first convert operands to the same type before making any comparison. In other words, if the operands have different value types, they will first be converted to primitives before being compared. This is why a statement like "1 = '1'" will return "false" - the number 1 and the string '1' are both being converted to a primitive Boolean before the expression is tested.
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here:
 // a Not-Strictly-Equal operator (!==) simply tests the opposite of a Strictly-Equal comparison, while a Not-Abstract-Equal operator (!=) returns the opposite of an Abstract-Equal comparison.
 //
 // ****
