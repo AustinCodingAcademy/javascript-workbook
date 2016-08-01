@@ -79,7 +79,7 @@ function pigLatin(word) {
 //
 // What does prompt.get() do for us?
 //
-// Your Answer: It asks the user to type in a word to get the pig latin version of it.
+// Your Answer: The app asks the user to type in a word to get the pig latin version of it.
 //
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
