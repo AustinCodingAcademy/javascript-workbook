@@ -4,7 +4,7 @@ var assert = require('assert');
 
 // ****
 // Functions
-// ****
+// **** 
 
 // Problem 0:
 // alwaysFalse() is a function that always
