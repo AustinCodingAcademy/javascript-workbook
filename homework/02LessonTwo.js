@@ -176,7 +176,7 @@ function testNumber(number) {
 // Your Answer Goes Here:
 //		  Conditional statements are used to perform different actions based on different conditions. In JavaScript we have the following conditional statements:
 //  		Use if to specify a block of code to be executed, if a specified condition is true
-// 		  Use else to specify a block of code to be executed, if the same condition is false
+// 		  Use else to specify a block of code to be executed, if the same condition is false. If All else fails
 //		  Use else if to specify a new condition to test, if the first condition is false
 //		  Use switch to specify many alternative blocks of code to be executed
 //
