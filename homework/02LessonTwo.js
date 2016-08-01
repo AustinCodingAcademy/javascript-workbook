@@ -4,7 +4,7 @@ var assert = require('assert');
 
 // ****
 // Functions
-// **** 
+// ****
 
 // Problem 0:
 // alwaysFalse() is a function that always
@@ -75,7 +75,7 @@ function addThree(number1, number2, number3){
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here: In javascript, a function is a block of code designed to perform a particular task. It is defined with the function keyword, followed by a name for the function, followed by parentheses ().
+// Your Answer Goes Here: In javascript, a function is a block of code designed to perform a particular task. It's defined with the function keyword, followed by a name for the function, followed by parentheses.
 
 //
 //
@@ -86,12 +86,12 @@ function addThree(number1, number2, number3){
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here: To name a function, write “function followed by the name of the function you want to create, for example: function customName(parameter1, parameter2)
+// Your Answer Goes Here: To name a function, write “function" followed by the name of the function you want to create, for example: function customName(parameter1, parameter2)
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here: Parameters are used to define a function. Arguments are used to invoke a function.
+// Your Answer Goes Here: Parameters are used to define a function. Arguments are used to invoke a function. Parameters are placeholders for the argument which will later be entered when the code is being run.
 //
 // ****
 
