@@ -11,26 +11,28 @@ function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.lowercase();
   hand2 = hand2.lowercase();
 
+  // declare what happens if it is a tie between players
   if (hand1 === hand2) {
     return "It's a tie";
   }
-  else if (hand1 === "rock") && (hand2 === "scissors") {
+  // continue with all other possibilities using the && to shorten the code
+  else if ((hand1 === "rock") && (hand2 === "scissors")) {
     return hand1 + " wins!";
   }
-  else if (hand1 === "rock") && (hand2 === "paper") {
+  else if ((hand1 === "rock") && (hand2 === "paper")) {
     return hand2 + " wins!";
   }
-  else if (hand1 === "paper") && (hand2 === "scissors") {
+  else if ((hand1 === "paper") && (hand2 === "scissors")) {
     return hand2 + " wins!";
   }
-  else if (hand1 === "paper") && (hand2 === "rock") {
+  else if ((hand1 === "paper") && (hand2 === "rock")) {
     return hand1 + " wins!";
   }
-  else if (hand1 === "scissors") && (hand2 === "paper") {
-    return hand2 + " wins!";
-  }
-  else if (hand1 === "scissors") && (hand2 === "rock") {
+  else if ((hand1 === "scissors") && (hand2 === "paper")) {
     return hand1 + " wins!";
+  }
+  else if ((hand1 === "scissors") && (hand2 === "rock")) {
+    return hand2 + " wins!";
   }
   else {
     return "Please input either rock, paper, or scissors";
