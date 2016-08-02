@@ -35,8 +35,11 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
-  if(argument1 <= argument2){
+  if(parameter1 <= parameter2){
 		return true;
+  }else{
+    return false;
+  }
 }
 
 // Problem 3:
@@ -46,6 +49,7 @@ function add(number1, number2) {
 	var result = number1 + number2
 	return result;
 }
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
@@ -63,13 +67,15 @@ function addThree(number1, number2, number3){
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
+// Your Answer Goes Here:
 //    	A function is a JavaScript procedure—a set of statements that performs a task or calculates a value. To use a function, you must define it somewhere in the scope from which you wish to call it.
 //			Functions help us to break up our large problems into smaller, solvable problems. This is called the "Decomposition Method"
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//      JavaScript passes a value from a function back to the code that called it by using the return statement . The value to be returned is specified in the return keyword.
+//     JavaScript passes a value from a function back to the code that called it by using the return statement . The value to be returned is specified in the return keyword.
+//
 //
 // How do you define a named function?
 //
