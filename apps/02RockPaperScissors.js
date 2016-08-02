@@ -17,22 +17,22 @@ function rockPaperScissors(hand1, hand2) {
   }
   // continue with all other possibilities using the && to shorten the code
   else if ((hand1 === "rock") && (hand2 === "scissors")) {
-    return hand1 + " wins!";
+    return "Hand 1 wins!";
   }
   else if ((hand1 === "rock") && (hand2 === "paper")) {
-    return hand2 + " wins!";
+    return "Hand 2 wins!";
   }
   else if ((hand1 === "paper") && (hand2 === "scissors")) {
-    return hand2 + " wins!";
+    return "Hand 2 wins!";
   }
   else if ((hand1 === "paper") && (hand2 === "rock")) {
-    return hand1 + " wins!";
+    return "Hand 1 wins!";
   }
   else if ((hand1 === "scissors") && (hand2 === "paper")) {
-    return hand1 + " wins!";
+    return "Hand 1 wins!";
   }
   else if ((hand1 === "scissors") && (hand2 === "rock")) {
-    return hand2 + " wins!";
+    return "Hand 2 wins!";
   }
   else {
     return "Please input either rock, paper, or scissors";
