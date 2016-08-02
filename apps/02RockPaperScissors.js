@@ -6,47 +6,35 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
-if (hand1 === hand2)  {
-  return "It\'s a tie!"
-}
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
 
-else if (
-  (hand1 === 'rock' && hand2 === 'scissors') ||
-  (hand1 === 'scissors' && hand2 === 'paper') ||
-  (hand1 === 'paper' && hand2 === 'rock')
-) {
-  return "Hand one wins!";
-}
+//var valid = ['rock', 'paper', 'scissors'];
 
+if (hand1 === 'rock' || hand1 === 'scissors' || hand1 === 'paper'
+&&  hand2 === 'rock' || hand2 === 'scissors' || hand2 === 'paper')  {
+
+      if (hand1 === hand2)  {
+        return "It\'s a tie!"
+      }
+
+      else if (
+        (hand1 === 'rock' && hand2 === 'scissors') ||
+        (hand1 === 'scissors' && hand2 === 'paper') ||
+        (hand1 === 'paper' && hand2 === 'rock')
+      ) {
+        return "Hand one wins!";
+      }
+
+      else {
+        return "Hand two wins!";
+      }
+
+
+      }
 else {
-  return "Hand two wins!";
+  return "Please enter a valid input."
 }
-
-    // if (hand1 === hand2) {
-    //   return "It's a tie!";
-    // }
-    //
-    // else if (hand1 === 'rock')  {
-    //   if (hand2 === 'scissors') {
-    //     return "Hand one wins!";
-    //   }
-    // }
-    //
-    // else if (hand1 === 'paper') {
-    //   if (hand2 === 'rock') {
-    //       return "Hand one wins!";
-    //   }
-    // }
-    //
-    // else if (hand1 === 'scissors')
-    //   if (hand2 === 'paper')  {
-    //     return "Hand one wins!";
-    //   }
-    // else {
-    //     return "Hand two wins!";
-    //   }
-    // }
-
 };
 
 function getPrompt() {
@@ -79,3 +67,29 @@ if (typeof describe !== 'undefined') {
     getPrompt();
 
 }
+
+
+// if (hand1 === hand2) {
+//   return "It's a tie!";
+// }
+//
+// else if (hand1 === 'rock')  {
+//   if (hand2 === 'scissors') {
+//     return "Hand one wins!";
+//   }
+// }
+//
+// else if (hand1 === 'paper') {
+//   if (hand2 === 'rock') {
+//       return "Hand one wins!";
+//   }
+// }
+//
+// else if (hand1 === 'scissors')
+//   if (hand2 === 'paper')  {
+//     return "Hand one wins!";
+//   }
+// else {
+//     return "Hand two wins!";
+//   }
+// }
