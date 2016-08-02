@@ -8,8 +8,8 @@ prompt.start();
 function rockPaperScissors(hand1, hand2) {
 
   // set hands to lower case in case the user decides to be 'that guy'
-  hand1 = hand1.lowercase();
-  hand2 = hand2.lowercase();
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
 
   // declare what happens if it is a tie between players
   if (hand1 === hand2) {
