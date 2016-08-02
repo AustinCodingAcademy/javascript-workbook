@@ -6,13 +6,22 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
-    hand1 = hand1.toLowerCase();
-    hand2 = hand2.toLowerCase();
 
-//var valid = ['rock', 'paper', 'scissors'];
+// Input Scrubbing
+    hand1 = hand1.toLowerCase()
+    hand1 = hand1.replace(/\s+/g, '');
+    hand2 = hand2.toLowerCase()
+    hand2 = hand2.replace(/\s+/g, '');
 
-if (hand1 === 'rock' || hand1 === 'scissors' || hand1 === 'paper'
-&&  hand2 === 'rock' || hand2 === 'scissors' || hand2 === 'paper')  {
+    var valid = ['rock','paper','scissors'];
+    if (valid.indexOf(hand1) > -1 &&
+        valid.indexOf(hand2) > -1)  {
+
+// DEPRECATED METHOD:
+// if (hand1 === 'rock' || hand1 === 'scissors' || hand1 === 'paper'
+// &&  hand2 === 'rock' || hand2 === 'scissors' || hand2 === 'paper')  {
+
+// Operations
 
       if (hand1 === hand2)  {
         return "It\'s a tie!"
@@ -33,7 +42,7 @@ if (hand1 === 'rock' || hand1 === 'scissors' || hand1 === 'paper'
 
       }
 else {
-  return "Please enter a valid input."
+  return "Please enter a valid input: Rock, Paper, or Scissors."
 }
 };
 
