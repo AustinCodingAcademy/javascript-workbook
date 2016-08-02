@@ -26,8 +26,7 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
-  if(argument1 === argument2){
-  return true;
+  return argument1 === argument2;
 }
 
 // Problem 2:
@@ -44,7 +43,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 function add(number1, number2) {
-	result = number1 + number2
+	var result = number1 + number2
 	return result;
 }
 // Problem 4:
@@ -52,7 +51,7 @@ function add(number1, number2) {
 // this function will add three numbers
 // you must call your function add() in addThree()
 function addThree(number1, number2, number3){
-	total = add(number1, number2) + number3;
+	var total = add(number1, number2) + number3;
 	return total;
 }
 
@@ -161,8 +160,6 @@ function testNumber(number) {
     return "divisible by 3";
   }else if (number % 5 === 0){
     return "divisible by 5";
-  }else{
-  return false;
   }
 }
 
