@@ -11,38 +11,67 @@ function rockPaperScissors(hand1, hand2) {
     hand1 = hand1.toLowerCase();
     hand2 = hand2.toLowerCase();
 
-    if(hand1 === hand2) {
-      return "It's a tie!";
-    }
-    else if(hand1 === 'rock') {
-        if(hand2 === 'scissors') {
-          return 'Hand one wins!';
-        }
-      else {
-        return 'Hand two wins!';
-      }
-    }
-    else if (hand1 == 'paper') {
-        if(hand2 === 'rock') {
-          return 'Hand one wins!';
-        }
-        else {
-          return 'Hand two wins!';
-        }
-    }
-    else if(hand1 === 'scissors') {
-        if(hand2 === 'paper') {
-          return 'Hand one wins!';
-        }
-        else {
-          return 'Hand two wins!';
-        }
-    }
-    else {
-      return "try again, your inputs don't match";
+    if(hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') {
+      return "invalid entry for hand1 - must be either paper, rock, or scissors";
     }
 
+    if(hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors') {
+      return "invalid entry for hand2 - must be either paper, rock, or scissors";
+    }
+
+    if(hand1 === hand2) {
+     return "It's a tie!";
+   }
+
+    if((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand2 === 'scissors' && hand2 === 'paper')) {
+      return "Hand one wins!";
+    }
+    else {
+      return "Hand two wins!";
+    }
+
+    // if(hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') {
+    //   return "invalid entry for hand1 - must be either paper, rock, or scissors";
+    // }
+    //
+    // if(hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors') {
+    //   return "invalid entry for hand2 - must be either paper, rock, or scissors";
+    // }
+
+    // if(hand1 === hand2) {
+    //   return "It's a tie!";
+    // }
+    // else if(hand1 === 'rock') {
+    //     if(hand2 === 'scissors') {
+    //       return 'Hand one wins!';
+    //     }
+    //   else {
+    //     return 'Hand two wins!';
+    //   }
+    // }
+    // else if (hand1 === 'paper') {
+    //     if(hand2 === 'rock') {
+    //       return 'Hand one wins!';
+    //     }
+    //     else {
+    //       return 'Hand two wins!';
+    //     }
+    // }
+    // else if(hand1 === 'scissors') {
+    //     if(hand2 === 'paper') {
+    //       return 'Hand one wins!';
+    //     }
+    //     else {
+    //       return 'Hand two wins!';
+    //     }
+    // }
+    // else {
+    //   return "try again, your inputs don't match";
+    // }
+
 }
+
+
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
