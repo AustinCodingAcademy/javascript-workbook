@@ -40,7 +40,7 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
-    if (parameter1 <= = parameter2) {
+    if (parameter1 <= parameter2) {
         return true;
     } else {
         return false;
@@ -102,7 +102,7 @@ function addThree(number1, number2, number3) {
 function isEven(number) {
 
     if (number % 2 === 0) {
-        console.log("divisible by 2");
+        return true;
     } else {
         return false;
     }
@@ -117,9 +117,9 @@ function isEven(number) {
 function isDivisibleByThree(number) {
 
     if (number % 3 === 0) {
-        console.log("divisible by 3");
+        return true;
     } else {
-        return = "false"
+        return  false;
     }
 }
 
@@ -136,12 +136,12 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
-    if (character === scooby) {
-        console.log("dog");
-    } else if (character === garfield) {
-        console.log("cat");
-    } else if (character === nemo) {
-        console.log("fish");
+    if (character === "scooby") {
+        return "dog";
+    } else if (character === "garfield") {
+        return "cat";
+    } else if (character === "nemo") {
+        return "fish";
     } else {
         return false;
     }
@@ -156,16 +156,16 @@ function whichSpecies(character) {
 // return the string "divisible by 5" when number % 5 === 0
 function testNumber(number) {
     if (number % 4 === 0) {
-        console.log("divisible by 4");
+        return "divisible by 4";
     }
     if (number % 2 === 0) {
-        console.log("divisible by 2");
+        return "divisible by 2";
     }
     if (number % 3 === 0) {
-        console.log("divisible by 3");
+        return "divisible by 3";
     }
     if (number % 5 === 0) {
-        console.log("divisible by 5");
+        return "divisible by 5";
     }
 }
 
