@@ -59,7 +59,8 @@ function add(number1, number2) {
 // this function will add three numbers
 // you must call your function add() in addThree()
  function addThree (number1, number2, number3) {
-   return number1 + number2 + number3;
+   var x= add(number1, number2)
+   return add(x, number3) 
  }
 
 // ****
@@ -180,7 +181,7 @@ function testNumber(number) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-// Conditionals are ways to go through different answer options to a function to see if they result in different answers. It is a good way to be able to catagorize and/or rule out specific answers that you are looking for. 
+// Conditionals are ways to go through different answer options to a function to see if they result in different answers. It is a good way to be able to catagorize and/or rule out specific answers that you are looking for.
 //
 // ****
 
