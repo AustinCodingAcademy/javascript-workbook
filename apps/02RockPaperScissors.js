@@ -9,6 +9,43 @@ function rockPaperScissors(hand1, hand2) {
 
     // Write code here
 
+    //normalize input
+    hand1 = hand1.toLowerCase().trim();
+    hand2 = hand2.toLowerCase().trim();
+
+    //"else if" not necessary because if condition is satisfied, a return statement is always executed before continuing
+    //ensure input is valid
+    if((hand1 !== "rock" && hand1 !== "paper" && hand1 !== "scissors") ||
+       (hand2 !== "rock" && hand2 !== "paper" && hand2 !== "scissors")){
+      return "invalid input";
+    }
+
+    //check for tie
+    if(hand1 === hand2){
+      return "It's a tie!";
+    }
+
+    //check if hand1 is rock
+    if(hand1 === "rock"){
+      if(hand2 === "paper"){
+        return "hand2 wins!";
+      }
+      return "hand1 wins!";
+    }
+
+    //check if hand1 is paper
+    if(hand1 === "paper"){
+      if(hand2 === "scissors"){
+        return "hand2 wins!";
+      }
+      return "hand1 wins!";
+    }
+
+    //assume hand1 is scissors
+    if(hand2 === "rock"){
+      return "hand2 wins!";
+    }
+    return "hand1 wins!";
 }
 
 function getPrompt() {
