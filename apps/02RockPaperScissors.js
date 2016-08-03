@@ -17,7 +17,7 @@ function rockPaperScissors(hand1, hand2) {
     if (valid.indexOf(hand1) > -1 &&
         valid.indexOf(hand2) > -1)  {
 
-// DEPRECATED METHOD:
+// DEPRECATED INPUT CHECK:
 // if (hand1 === 'rock' || hand1 === 'scissors' || hand1 === 'paper'
 // &&  hand2 === 'rock' || hand2 === 'scissors' || hand2 === 'paper')  {
 
