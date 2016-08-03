@@ -3,18 +3,20 @@
 
 ## Claiming your workbook
 1. Click the 'Fork' button (choose your account if prompted).
-1. Copy the HTTPS clone URL
+1. If you haven't set up your SSH keys yet, follow the instructions helpful [instructions](https://help.github.com/articles/generating-an-ssh-key/)
+1. Copy the SSH clone URL (don't use the default HTTPS URL)
 1. In your terminal, navigate (using `cd`) into a directory where you want to start keeping your repositories.
 1. Clone your new repository by typing `git clone <forked clone URL>` (without carets "<>", ditto for future examples)
 ![Forking a repository](https://docs.google.com/drawings/d/1tYsLHaLo8JRdp0xC1EZrAo0o9Wvv4S5AD937cokVOBk/pub?w=960&h=720)
-1. Add the base repository as an upstream `git remote add upstream https://github.com/AustinCodingAcademy/intermediate-workbook.git`
+1. Add the base repository as an upstream `git remote add upstream git@github.com:AustinCodingAcademy/intermediate-workbook.git`
 
 ### Push to Github and create a PR
+1. Make the change to the JS function indicated in `test/00LessonZeroTest.js`
 1. When finished, commit your changes and push to GitHub
 
   ```bash
   git status
-  git add LessonZeroTest.js
+  git add test/00LessonZeroTest.js
   git commit -m "Lesson Zero Tests passing!"
   git push origin gh-pages
   ```
