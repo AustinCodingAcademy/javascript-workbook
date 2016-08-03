@@ -26,9 +26,7 @@ function pigLatin(word) {
       if (( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex) || vowelIndex === -1) {
          vowelIndex = word.indexOf('u');
       }
-
 }
-
 
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
