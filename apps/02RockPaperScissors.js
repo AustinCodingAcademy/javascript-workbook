@@ -16,8 +16,6 @@ function rockPaperScissors(hand1, hand2) {
   if (hand1 === hand2) {
     return "It's a tie!";
   }
-
-  }
   // continue with all other possibilities using the && to shorten the code
   else if ((hand1 === "rock") && (hand2 === "scissors")) {
     return "Hand one wins!";
