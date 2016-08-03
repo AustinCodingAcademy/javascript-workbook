@@ -158,27 +158,26 @@ function isDivisibleByThree(number) {
 
 function whichSpecies(character) {
 
-  if ( character = 'scooby')
+  if ( character === 'scooby')
   {
 
     return 'dog';
   }
 
-  if ( character = 'garfield')
+  if ( character === 'garfield')
   {
 
     return 'cat';
   }
 
-  if ( character = 'nemo')
+  if ( character === 'nemo')
   {
 
     return 'fish';
   }
 
-  else (character)
 
-    return false;
+      return false;
 
 
 
