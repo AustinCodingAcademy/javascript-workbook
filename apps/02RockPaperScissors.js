@@ -28,24 +28,24 @@ function rockPaperScissors(hand1, hand2) {
     //check if hand1 is rock
     if(hand1 === "rock"){
       if(hand2 === "paper"){
-        return "hand2 wins!";
+        return "Hand two wins!";
       }
-      return "hand1 wins!";
+      return "Hand one wins!";
     }
 
     //check if hand1 is paper
     if(hand1 === "paper"){
       if(hand2 === "scissors"){
-        return "hand2 wins!";
+        return "Hand two wins!";
       }
-      return "hand1 wins!";
+      return "Hand one wins!";
     }
 
     //assume hand1 is scissors
     if(hand2 === "rock"){
-      return "hand2 wins!";
+      return "Hand two wins!";
     }
-    return "hand1 wins!";
+    return "Hand one wins!";
 }
 
 function getPrompt() {
