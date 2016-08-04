@@ -26,7 +26,14 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 = argument2)
+    return true;
+    else {
+      return false;
+    }
+
 }
+equals(1, 1);
 
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
@@ -34,42 +41,74 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+    if (parameter1 <= parameter2)
+    return true;
+    else {
+      return false;
+    }
 }
+
+lessThanOrEqualTo(1, 3);
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+
+function add(number1, number2) {
+  return number1 + number2;
+}
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(number1, number2, number3) {
+  return add(add(number1, number2), number3)
 
+}
 // ****
 // Concept Checkpoint
 //
 // Write your answer in comments
 //
 // What is a function? How do you define a function in Javascript?
+// It is a block of code that executes a particular task.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  A function is defined like so: function_name([parameter])
+//
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
-//
+// Your Answer Goes Here: Return Value is produced by using the return statement
+// Once the code is called and everything in the function has finished running
+// JS passes a value from a function back to the code that is called it by
+// using the return statement.
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  A named funciton is defined within the code. It can
+// be defined anywhere within the code and similarly called upon from anywhere.
+//    function fullname () {
+//      return "Madison" + sirname();
 //
+//      function sirname () {return "Sadler";}
+//   }
+//
+//     fullname()
+//  => 'MadisonSadler'
+// In this ^ example the function 'sirname' was defined after it was called upon
+// in the code. It is still valid and runs correctly
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
+// A parameter is the arbitrary value assigned within a function during its
+// definition 'function_name(return parameter1)'
 //
 // Your Answer Goes Here:
-//
+// An argument is the actual value assigned to the parameter when the function
+// is called upon: function sirname(return "Sadler")
+// The argument in this example is 'Sadler'
 // ****
 
 
@@ -84,7 +123,13 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (number % 2 ===0) {
+    return true;
+    }
+  else { return false}
 }
+
+isEven(200);
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -93,7 +138,13 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if (number % 3 ===0) {
+    return true;
+    }
+  else {return false}
 }
+
+isDivisibleByThree(9003)
 
 // ****
 // Conditionals
@@ -108,7 +159,24 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === 'scooby') {
+  return("dog")
+  }
+  else if (character === 'garfield') {
+  return("cat")
+  }
+  else if (character === 'nemo') {
+    return("fish");
+  }
+  else {
+    return false
+  }
 }
+
+whichSpecies('scooby');
+whichSpecies('garfield');
+whichSpecies('nemo');
+whichSpecies('bob');
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -118,6 +186,26 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+
+  if (number % 4 === 0) {
+    return ('divisible by 4');
+  }
+  else if (number % 2 === 0) {
+    return ('divisible by 2')
+  }
+  else if (number % 3 === 0) {
+    return ('divisible by 3')
+  }
+  else if (number % 5 === 0) {
+    return ('divisible by 5')
+  }
+  else if (number % 4 && 2 && 3 && 5) {
+    return ('7h3 c4k3 15 4 113')
+  }
+}
+
+testNumber(120);
 
 // ****
 // Concept Checkpoint
