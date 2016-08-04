@@ -6,19 +6,53 @@ prompt.start();
 
 
 function rockPaperScissors(hand1, hand2) {
+  var first = hand1.toLowerCase();
+  var second = hand2.toLowerCase();
 
-    // Write code here
+  if (first === second) {
+    return "It's a tie!";
+  }
 
+  if (first === 'rock') {
+    if (second === 'scissors') {
+      return 'Hand one wins!';
+    }
+    else {
+      return 'Hand two wins!';
+    }
+  }
+
+  if (first === 'paper') {
+    if (second === 'scissors') {
+      return 'Hand two wins!';
+    }
+    else {
+      return 'Hand one wins!'
+    }
+  }
+
+  if (first === 'scissors') {
+    if (second === 'paper') {
+      return 'Hand one wins!'
+    }
+    else  {
+      return 'Hand two wins!'
+    }
+
+  }
 }
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
 
+
         console.log( rockPaperScissors(result['hand1'], result['hand2']) );
 
         getPrompt();
+
     });
 }
+
 
 // Tests
 
