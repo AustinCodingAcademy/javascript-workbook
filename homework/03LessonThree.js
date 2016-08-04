@@ -20,16 +20,17 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
+// var firstArgument = 'susan'
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
+  // var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -39,8 +40,14 @@ function returnTheFirstArgument(firstArgument) {
 // Write your answer in comments
 //
 // What is scope?
+
 //
 // Your Answer Goes Here:
+//
+// Scope refers to the degree of accessibility to which
+// particular variables, expressions or statements can be
+// be called. The position in the document any of said variables, expressions or
+// statements are defined affects where they can be called.
 //
 //
 
@@ -57,19 +64,27 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first'
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
+//I initially read into this statement too closely, and as a result misinterpreted it.
+//I read it as stating 'if ternaryResult2 = false, then its value is 'first', else its value is'second'.
+//This led me to conclude that this statement's value is 'first'.
+//However, I consulted the MDN documentation and now understand that the expression
+// to the left of the '?' is itself the condition - simply put
+// the condition of the statement is what the expression on the left *evaluates* to, which
+// in this case would be false. If true, value = 'first', else value = 'second'. Therefore,
+// value = 'second'.
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -79,7 +94,13 @@ var problemSevenAnswer;
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-//
+// The ternary operator - '?' - is a shorthand method for writing conditional statements. It
+// reads from left to right, placing a condition on the left of the
+// '?' which evaluates to 'true' or 'false', followed by
+// expressions on the right which are seperated by ':'. I like to read
+// ternary operations from the middle outward - starting leftward from the '?'
+// (if) and moving to the right. This helps me stay on track with compound
+// statements containing multiple 'else if' expressions.
 //
 
 
@@ -89,18 +110,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = []
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [1, 2, 3, 4, 5]
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-
+nameArray[1] = 'george';
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
@@ -110,10 +131,13 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-
+threeByThreeArray[1][1] = 'five';
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [
+  [0, 1],
+  [2, 3]
+];
 
 // ****
 // Tests
