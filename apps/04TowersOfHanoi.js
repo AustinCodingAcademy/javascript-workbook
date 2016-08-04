@@ -9,6 +9,8 @@ var stacks = {
     b: [],
     c: []
 };
+var start;
+var end;
 
 function printStacks() {
     console.log("a: " + stacks.a);
@@ -16,24 +18,51 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
-
-}
-
-function isLegal() {
-    // Your code here
-
+function movePiece(startStack, endStack) {
+    var move = stacks[startStack].pop();
+    stacks[endStack].push(move);
+};
+//
+function isLegal(startStack, endStack){
+  if (stacks[endStack].length === 0){
+    return true;
+  }else{
+    if (startStack === 'a'){
+      start = stacks.a[stacks.a.length-1];
+ 		}else if(endStack==='a'){
+ 			end = stacks.a[stacks.a.length-1];
+ 		}
+ 		if (startStack === 'b'){
+			start = stacks.b[stacks.b.length-1];
+ 		}else if(endStack==='b'){
+ 			end = stacks.b[stacks.b.length-1];
+ 		}
+ 		if (startStack === 'c'){
+			start = stacks.c[stacks.c.length-1];
+ 		}else if(endStack==='c'){
+ 			end = stacks.c[stacks.c.length-1];
+ 		}
+		if (start<end){
+ 			return true;
+ 		}else if (start>end){
+ 			return false;
+ 		}
+ 	}
 }
 
 function checkForWin() {
-    // Your code here
-
+    if(stacks['b'].length === 4 || stacks['c'].length === 4 ){
+      console.log("You Won!!!");
+      return true;
+    }else{
+      return false;
+    }
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
-
+    if (isLegal === true && checkForWin === false){
+      movePiece(startStack, endStack);
+    }
 }
 
 function getPrompt() {
@@ -50,7 +79,7 @@ if (typeof describe !== 'undefined') {
 
     describe('#towersOfHanoi()', function () {
         it('should be able to move a block', function () {
-            towersOfHanoi('a', 'b');
+            towersOfHanoi('a','b');
             assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
         });
     });
