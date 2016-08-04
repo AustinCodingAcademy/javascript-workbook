@@ -14,7 +14,8 @@ function threeChoices() {
   // else {
   // return 'three';
   // }
- return Math.random() < 0.33 ? 'Rock' : Math.random() < 0.66 ? 'Paper' : 'Scissors';
+ return Math.random() < 0.33 ? 'Rock' :
+       (Math.random() < 0.66 ? 'Paper' : 'Scissors');
 }
 
 console.log(threeChoices());
