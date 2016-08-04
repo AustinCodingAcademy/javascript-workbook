@@ -36,6 +36,7 @@ function getPromptHand1() {
         getPromptHand2(hand1);
       }
       else {
+        console.log('invalid input - please type rock, paper, or scissors');
         getPromptHand1();
       }
   });
@@ -53,6 +54,7 @@ function getPromptHand1() {
           console.log(rockPaperScissors(hand1, hand2));
         }
         else
+          console.log('invalid input - please type rock, paper, or scissors');
           getPromptHand2();
         }
     );
