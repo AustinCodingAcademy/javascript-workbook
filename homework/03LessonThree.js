@@ -33,7 +33,7 @@ function returnTheFirstArgument(firstArgument) {
   return firstArgument;
 }
 
-firstArgument();
+return firstArgument;
 // ****
 // Concept Checkpoint
 //
