@@ -7,10 +7,12 @@ var validValues = ['rock', 'paper', 'scissors'];
 
 
 function rockPaperScissors(hand1, hand2) {
+
   hand1 = hand1.toLowerCase();
   hand2 = hand2.toLowerCase();
   // Write code here
   // ===========================//
+
   if (validVal(hand1) && validVal(hand2)) {
 
     if (hand1 === hand2) {
@@ -24,7 +26,18 @@ function rockPaperScissors(hand1, hand2) {
 
   // ===========================//
   else {
-    return "invalid, try again";
+      var val ="";
+      if (validVal(hand1)===false && validVal(hand2)===false){
+        val=hand1+","+hand2;
+      }
+        else if(validVal(hand1)===false){
+          val="Hand1: "+hand1;
+        }
+
+        else {
+          val="Hand2: "+hand2;
+        }
+    return "invalid value: "+val+", try again";
     //SAY WHICH hand is invalid
     //try again with proper entries
   }
