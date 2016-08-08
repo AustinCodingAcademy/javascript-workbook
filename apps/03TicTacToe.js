@@ -12,6 +12,10 @@ var board = [
 
 var playerTurn = 'X';
 
+function togglePlayer() {
+  playerTurn = (playerTurn === 'X') ? 'X' : 'O';
+}
+
 function printBoard() {
     console.log('   0  1  2');
     console.log('0 ' + board[0].join(' | '));

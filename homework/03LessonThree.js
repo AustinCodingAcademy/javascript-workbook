@@ -34,7 +34,6 @@ function returnTheFirstArgument(firstArgument) {
   var firstArgument = 'bob';
   return firstArgument;
 }
-returnTheFirstArgument();
 
 // ****
 // Concept Checkpoint
@@ -104,7 +103,6 @@ var nameArray = ['bob', 'fred', 'susan'];
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
 nameArray[1] = 'george'
-return nameArray;
 
 // DO NOT MODIFY
 var threeByThreeArray = [
