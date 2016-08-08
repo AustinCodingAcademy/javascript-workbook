@@ -41,7 +41,9 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//
+//        Javascript has two scopes : global and local. A variable outside a function definition is a golbal veriable
+//        A variable that is declard inside a function definition is local.
+//        An item's scope refers to where exactly it is accessible from.
 //
 
 
@@ -57,19 +59,19 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -79,7 +81,8 @@ var problemSevenAnswer;
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-//
+//        The conditional (ternary) operator is the only JavaScript operator that takes three operands. This operator is frequently used as a shortcut for the if statement.
+//        If condition is true, the operator returns the value of the first expression; otherwise, it returns the value of the second expression.
 //
 
 
@@ -89,17 +92,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = ['Aaron', 'Austin', 'Texas', 'JavaScript', 'developer'];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -110,10 +114,11 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+threeByThreeArray[1] = [4, 10, 6]
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [[1,2],[3,4]];
 
 // ****
 // Tests
