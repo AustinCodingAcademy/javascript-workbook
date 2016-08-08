@@ -15,9 +15,12 @@ function rockPaperScissors(hand1, hand2) {
 
   if (validVal(hand1) && validVal(hand2)) {
 
+    //remove outcomes from all possible outcomes
     if (hand1 === hand2) {
       return "it's a tie!";
-    } else if (hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'scissors' && hand2 === 'paper' || hand1 === 'paper' && hand2 === 'rock') {
+    }
+    //remove outcomes from all possible outcomes
+    else if (hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'scissors' && hand2 === 'paper' || hand1 === 'paper' && hand2 === 'rock') {
       return "hand 1 wins!";
     } else {
       return "hand2 wins!";
@@ -27,10 +30,10 @@ function rockPaperScissors(hand1, hand2) {
   // ===========================//
   else {
       var val ="";
-      if (validVal(hand1)===false && validVal(hand2)===false){
+      if ( !validVal(hand1) && !validVal(hand2) ){
         val=hand1+","+hand2;
       }
-        else if(validVal(hand1)===false){
+        else if( !validVal(hand1) ){
           val="Hand1: "+hand1;
         }
 
@@ -44,6 +47,9 @@ function rockPaperScissors(hand1, hand2) {
 }
 
 function validVal(hand) {
+  //return true if hand is present
+    //return false if hand is not present
+      //boolean
   return(validValues.indexOf(hand) > -1);
 }
 
