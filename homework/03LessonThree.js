@@ -20,15 +20,27 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
+<<<<<<< HEAD
 var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
 var valueOfLastName = 'plaid';
+=======
+var valueOfFirstName;
+
+// Problem 2:
+// What is the value of lastName at this point in the file?
+var valueOfLastName;
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
+<<<<<<< HEAD
+=======
+  var firstArgument = 'bob';
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
   return firstArgument;
 }
 
@@ -40,7 +52,11 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
+<<<<<<< HEAD
 // Scope is the realm in which variables can be accessed. i.e variables with local scope(variables declared inside a function) are only available inside their functions. However, variables with global scope(variables declared outside a function) are available everywhere.
+=======
+//
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 //
 
 
@@ -56,6 +72,7 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
+<<<<<<< HEAD
 var problemFourAnswer = 'first';
 
 // Problem 5:
@@ -69,6 +86,21 @@ var problemSixAnswer = 'first';
 // Problem 7:
 // What is the value of ternaryResult4
 var problemSevenAnswer = 'second';
+=======
+var problemFourAnswer;
+
+// Problem 5:
+// What is the value of ternaryResult2
+var problemFiveAnswer;
+
+// Problem 6:
+// What is the value of ternaryResult3
+var problemSixAnswer;
+
+// Problem 7:
+// What is the value of ternaryResult4
+var problemSevenAnswer;
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 
 // ****
 // Concept Checkpoint
@@ -78,7 +110,11 @@ var problemSevenAnswer = 'second';
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
+<<<<<<< HEAD
 // It is an operator that takes in three operands and can be used in the place of a condional statement
+=======
+//
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 //
 
 
@@ -88,18 +124,30 @@ var problemSevenAnswer = 'second';
 
 // Problem 8:
 // Create an empty array
+<<<<<<< HEAD
 var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
 var lengthFiveArray = [1,2,3,4,5];
+=======
+var emptyArray;
+
+// Problem 9:
+// Create an array with 5 elements in it
+var lengthFiveArray;
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+<<<<<<< HEAD
 nameArray[1] = 'george';
+=======
+
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
@@ -109,6 +157,7 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+<<<<<<< HEAD
 threeByThreeArray[1][1] = 25;
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
@@ -116,6 +165,12 @@ var twoByTwoArray= [
   [2,4],
   [4,6]
 ];
+=======
+
+// Problem 12:
+// create a 2 by 2 (2 rows, 2 columns) nested array
+var twoByTwoArray;
+>>>>>>> 3d7c515ad4a72f63cd304227b2f596d024b6346b
 
 // ****
 // Tests
