@@ -35,12 +35,18 @@ function rockPaperScissors (hand1, hand2) {
     }
   }
 
+  function isValidRPSInput(input) {
+    return !(input !== 'rock' && input !== 'paper' && input !== 'scissors');
+  }
+
 
 function getPrompt() {
     prompt.get(['hand1', 'hand2'], function (error, result) {
-
+      if(isValidRPSInput(result['hand1']) && isValidRPSInput(result['hand2'])) {
         console.log( rockPaperScissors(result['hand1'], result['hand2']) );
-
+      } else {
+        //call the input function again
+      }
         getPrompt();
     });
 }
