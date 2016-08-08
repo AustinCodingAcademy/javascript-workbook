@@ -11,7 +11,14 @@ var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+        console.log(board[i]);
+        var hint = generateHint(solution.guess);
+        board.push(hint);
+    }
+    if (board.length === 10) {
+      console.log('The solution was ' + solution)
+    } else {
+      console.log( 'Guess again.')
     }
 }
 
@@ -26,12 +33,32 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+  for (var i = 0; i<= solutionArray; i++) {
+    if (solutionArray[i]===guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+  for (var i = 0;i <= solutionArray; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    if (targetIndex > -1) {
+      correctletters++;
+      solutionArray[i] = null;
+    }
+  }
+  return colors.red(correctLetterLocations)+ ' - ' + colors.white(correctLetters)
 }
 
 function mastermind(guess) {
-    // your code here
+    solution = 'abcd';
+    if (guess === solution)
+    return 'You guessed it!';
 }
 
 
@@ -67,7 +94,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
