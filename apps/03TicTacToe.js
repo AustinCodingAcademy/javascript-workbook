@@ -23,22 +23,41 @@ function printBoard() {
 
 function horizontalWin() {
     // Your code here
+    var resultHor0 = (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn);
+    var resultHor1 = (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn);
+    var resultHor2 = (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn);
+
+    return ( resultHor0 || resultHor1 || resultHor2 );
+
+    return resultHor0;
 }
 
 function verticalWin() {
     // Your code here
+    var resultVer0 = (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn);
+    var resultVer1 = (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn);
+    var resultVer2 = (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn);
+
+    return ( resultVer0 || resultVer1 || resultVer2 );
 }
 
 function diagonalWin() {
     // Your code here
+    var resultDia0 = (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn);
+    var resultDia1 = (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn);
+
+    return ( resultDia0 || resultDia1 );
 }
 
 function checkForWin() {
     // Your code here
+    return (horizontalWin() || verticalWin() || diagonalWin() ) ;
 }
 
 function ticTacToe(row, column) {
     // Your code here
+    board[row][column] = playerTurn;
+    playerTurn = (playerTurn='X') ? 'O' : 'X';
 }
 
 function getPrompt() {
@@ -66,6 +85,7 @@ if (typeof describe !== 'undefined') {
             assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
         });
         it('should check for vertical wins', function () {
+            playerTurn = 'X';
             board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
             assert.equal(verticalWin(), true);
         });
