@@ -200,9 +200,6 @@ function testNumber(number) {
   else if (number % 5 === 0) {
     return ('divisible by 5')
   }
-  else if (number % 4 && 2 && 3 && 5) {
-    return ('7h3 c4k3 15 4 113')
-  }
 }
 
 testNumber(120);
