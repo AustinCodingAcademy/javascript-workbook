@@ -26,9 +26,11 @@ var valueOfFirstName = 'susan';
 // What is the value of lastName at this point in the file?
 var valueOfLastName = 'plaid';
 
+
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
+  //var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -40,6 +42,7 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
+//
 // Scope or visibility refers to the accessibility of a name to an entity
 // and where within the computer program that name can be used to refer to that entity.
 // Within Javascript scope refers to where within the code an item is accessible from.
@@ -50,6 +53,7 @@ function returnTheFirstArgument(firstArgument) {
 // Local varables are deleted once a function is complete (usually the return value)
 // Variables declared outside of functions are automatically given global scope. Global scope variables can be accessed from anywhere within the code.
 // Variables that are created but given no value default to global scope. Even when creatd within a function.
+
 
 // ****
 // Ternary Operator
@@ -96,6 +100,7 @@ var problemSevenAnswer = 'second';
 // A ternary operator will return expr1 as its return value if the condition is true.
 // A ternary operator will retunr expr2 as its return value if the condition is false.
 
+
 // ****
 // Arrays
 // ****
@@ -117,14 +122,15 @@ var myNewArray = nameArray.splice(1,1, 'george')
     console.log(myNewArray);
 
 
-
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9]
 ];
-var myThreebyThreeArray = threeByThreeArray.splice(1, 1, 2);
+
+threeByThreeArray.splice(1, 1, 2);
+
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
 
@@ -134,6 +140,7 @@ var twoByTwoArray = [
     [3, 4],
     [7, 9]
 ];
+
 // ****
 // Tests
 // DO NOT MODIFY CODE BELOW!!!!!
