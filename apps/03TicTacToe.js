@@ -39,6 +39,7 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
     // Your code here
+    board[row][column] === 'playerTurn';
 }
 
 function getPrompt() {
