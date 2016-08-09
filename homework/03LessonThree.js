@@ -28,10 +28,7 @@ var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
-var firstArgument = ''
-
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
