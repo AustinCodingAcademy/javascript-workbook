@@ -83,10 +83,9 @@ var problemSevenAnswer = ""     ? 'first' : 'second';
 //
 // Your Answer Goes Here:
 //
-//The ternary operator (?) is like a toggle. It outputs one result and then
-// another, back and forth. It differs from normal conditional statements because
-// it will always give one or the other answer, independent of any math reasoning
-// or other logic.
+//The ternary operator (?) is another way of doing an if/else statement. It sets
+// out a list of different possible outputs based on a true or false inputs. It 
+// outputs one of the preset things defined by the ternary operoator.
 
 
 // ****
