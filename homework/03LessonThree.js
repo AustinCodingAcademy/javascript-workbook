@@ -20,6 +20,7 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
+
 var valueOfFirstName = 'susan';
 
 // Problem 2:
@@ -40,8 +41,8 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
+
 // The 'scope' of an item refers to where it can be accessed from.
-//
 
 
 // ****
@@ -56,6 +57,7 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
+
 var problemFourAnswer = 'first';
 
 // Problem 5:
@@ -78,8 +80,8 @@ var problemSevenAnswer = 'second';
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
+
 // The ternary operator is used as a shortcut for the 'if' statement. It is shorter than normal conditional statements but serves the same functionality.
-//
 
 
 // ****
@@ -88,6 +90,7 @@ var problemSevenAnswer = 'second';
 
 // Problem 8:
 // Create an empty array
+
 var emptyArray = [ ];
 
 // Problem 9:
@@ -99,7 +102,9 @@ var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+
 nameArray[1] = "george";
+
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
@@ -109,6 +114,7 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+
 threeByThreeArray[1][1] = 'Hello';
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
