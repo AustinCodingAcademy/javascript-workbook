@@ -1,9 +1,10 @@
+//Version 2. Consolidated the logic to test if hand1 or hand2 wins.
+
 'use strict';
 
 var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
-
 
 function rockPaperScissors(hand1, hand2) {
 
@@ -18,50 +19,26 @@ function rockPaperScissors(hand1, hand2) {
     }
     // Now that we know it's not a tie:
     // Spec 2: Who is the winner?
-    // First we'll determine the winner if hand1 is rock.
-    else  if (hand1 === 'rock'){
-      if (hand2 === 'scissors') {
+    // First we'll determine if hand1 is the winner:
+    else  if ( (hand1 === 'rock' && hand2 === 'scissors') ||
+        (hand1 === 'paper' && hand2 === 'rock') ||
+        (hand1 === 'scissors' && hand2 === 'paper')) {
         return "Hand one wins!";
       }
-      // We already know the other hand isn't rock, otherwise it would be
-      // a tie. Therefore, the other hand must be paper.
-      else {
-        return "Hand two wins!";
-      }
-    }
-    // Next, we'll determine the winner if hand1 is paper.
-    else if(hand1 === 'paper') {
-      if (hand2 === 'rock') {
-        return "Hand one wins!";
-      }
-      else {
-        return "Hand two wins!";
-      }
-    }
-    // Next, we'll determine the winner if hand1 is scissors.
-    else if (hand1 === 'scissors'){
-      if (hand2 === 'paper') {
-        return "Hand one wins!";
-      }
-      else {
-        return "Hand two wins!";
-      }
-    }
-    // Finally, if we get to this point, the user must have input something
-    // invalid. We'll let them know.
-    else {
-      return "Hey user. You suck. Your inputs need to be rock, paper or scissors!";
-    }
 
-}
+    // Next, we'll determine if hand2 is the winner:
+    else {
+        return "Hand two wins!";
+      }
+} //end rockPaperScissors
 
 //We need user input for hand1 & hand2
 function getPrompt() {
-    prompt.get(['hand1', 'hand2'], function (error, result) {
+    prompt.get(['Enter a value for hand1'], function (error, result) {
 
-        console.log( rockPaperScissors(result['hand1'], result['hand2']) );
+        console.log( rockPaperScissors(result['hand1'], "paper") );
 
-        getPrompt();
+        //getPrompt();
     });
 }
 

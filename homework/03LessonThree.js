@@ -40,7 +40,7 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//  Scope is the accessibility of an item.
+//  Scope is the accessibility of an item. Local vs Global:
 //
 
 
@@ -112,7 +112,10 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-threeByThreeArray[2,1] = 1;
+console.log("The center value is currently: " + threeByThreeArray[1][1]);
+// threeByThreeArray[2,1] = 1; this was wrong.
+threeByThreeArray[1][1] = 0;
+console.log("Then center value is now: " + threeByThreeArray[1][1]);
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
