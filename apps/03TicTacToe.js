@@ -23,24 +23,24 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
-       (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
-       (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+    if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn ||
+       board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn ||
+       board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
       return true;
     };
 }
 
 function verticalWin() {
-     if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
-        (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
-        (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+     if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn ||
+        board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ||
+        board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
       return true;
     };
 }
 
 function diagonalWin() {
-    if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
-       (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn ||
+       board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
     return true;
   };
 }
@@ -52,8 +52,9 @@ function checkForWin() {
 };
 
 function ticTacToe(row, column) {
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-}
+  board[row][column] = playerTurn
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+};
 
 function getPrompt() {
     printBoard();
