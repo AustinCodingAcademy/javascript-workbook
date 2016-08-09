@@ -13,12 +13,14 @@ var board = [
 var playerTurn = 'X';
 
 function printBoard() {
+    console.log('\n');
     console.log('   0  1  2');
     console.log('0 ' + board[0].join(' | '));
     console.log('  ---------');
     console.log('1 ' + board[1].join(' | '));
     console.log('  ---------');
     console.log('2 ' + board[2].join(' | '));
+    console.log('\n');
 }
 
 function horizontalWin() {
@@ -60,6 +62,17 @@ function verticalWin() {
 
 function diagonalWin() {
     // There are only two diagnols that can be formed. We'll check them both.
+    if ((board[0][0] === playerTurn &&
+        board[1][1] === playerTurn &&
+        board[2][2] === playerTurn) ||
+        (board[0][2] === playerTurn &&
+        board[1][1] === playerTurn &&
+        board[2][0] === playerTurn)) {
+          return true;
+        }
+      else {
+        return false;
+      }
 }
 
 function checkForWin() {
@@ -107,8 +120,9 @@ function getPrompt() {
 }
 
 function validMark(row, column) {
-  //first we'll check if the row & column values are within the board
-  if (row > 2 || column > 2) {
+  //check if the row & column values are within the board
+  if (!(row == '0' || row == '1' || row == '2') ||
+      !(column == '0' || column == '1' || column == '2')) {
     console.log("Invalid row/column selection. Options are 0, 1 or 2.");
     return false;
   }
