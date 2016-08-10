@@ -23,28 +23,36 @@ function printBoard() {
 }
 
 function horizontalWin() {
-   return (board [0][0]=== playerTurn && board[0][1]=== playerTurn && board[0][2]=== playerTurn) || (board[1][0]=== playerTurn && board[1][1]=== playerTurn && board[1][2]=== playerTurn) || (board[2][0]=== playerTurn && board[2][1]=== playerTurn && board[2][2]=== playerTurn);
+  return ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn));
 }
 
 function verticalWin() {
-  return (board[0][0]=== playerTurn && board[1][0]=== playerTurn && board[2][0]=== playerTurn) || (board [0][1]=== playerTurn && board [1][1]=== playerTurn && board[2][1]=== playerTurn) || (board[0][2]=== playerTurn && board [1][2]=== playerTurn && board[2][2]=== playerTurn);
+  return ((board[0][0]=== playerTurn && board[1][0]=== playerTurn && board[2][0]=== playerTurn) || (board [0][1]=== playerTurn && board [1][1]=== playerTurn && board[2][1]=== playerTurn) || (board[0][2]=== playerTurn && board [1][2]=== playerTurn && board[2][2]=== playerTurn));
 }
+
 function diagonalWin() {
-  return (board[0][0]=== playerTurn && board[1][1]=== playerTurn && board[2][2]=== playerTurn) ||  (board[0][2]=== playerTurn && board[1][1]=== playerTurn && board[2][0]=== playerTurn);
+  return ((board[0][0]=== playerTurn && board[1][1]=== playerTurn && board[2][2]=== playerTurn) ||  (board[0][2]=== playerTurn && board[1][1]=== playerTurn && board[2][0]=== playerTurn));
 }
 
 function checkForWin() {
     return (horizontalWin() || verticalWin() || diagonalWin());
-
 }
-//need to add so it runs after every turn. Also need to make sure to add so that people cant put cordinates that have already been placed and need to only be able to put 0,1,2
+
+// function checkCatsGame (){
+//    return ((horizontalWin() === false) && (verticalWin() === false) && (diagonalWin()&& === false);
+// }
+//Once someone wins want the board to reset. Also need to make sure to add so that people cant put cordinates that have already been placed and need to only be able to put 0,1,2
 
 function ticTacToe(row, column) {
   board[row][column]=playerTurn;
-  playerTurn= (playerTurn === 'X')? 'O' : 'X';
-
   if (checkForWin()) {
-    console.log('Player' + playerTurn + 'Won!');
+    console.log ('Player' + playerTurn + 'Won!');
+  }
+  // else if (catsGame()){
+  //     console.log ("It's a Cat's Game");
+  // }
+  else {
+    playerTurn = (playerTurn === 'X')? 'O' : 'X';
   }
 
 }
@@ -54,8 +62,6 @@ function getPrompt() {
     console.log("It's Player " + playerTurn + "'s turn.");
     prompt.get(['row', 'column'], function (error, result) {
         ticTacToe(result['row'], result['column']);
-
-
         getPrompt();
     });
 }
