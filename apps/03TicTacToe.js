@@ -23,47 +23,22 @@ function printBoard() {
 
 function horizontalWin() {
     // Your code here
-    if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
-      return true;
-    }
-    else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
-      return true;
-    }
-    else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
 };
 
 function verticalWin() {
     // Your code here
-    if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
-      return true;
-    }
-    else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
-      return true;
-    }
-    else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
 };
 
 function diagonalWin() {
     // Your code here
-    if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
-      return true;
-    }
-    else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)
 };
 
 function checkForWin() {
