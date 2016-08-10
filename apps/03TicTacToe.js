@@ -1,82 +1,140 @@
+//cleanup code
+//re-write program on whiteboard
+//re-write program in code
+//flesh out program in html/css
+//colt solution
+
 'use strict';
 
 var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
+var validValues = [0,1,2];
+var playerTurn = 'X';
+var counter = 0;
+
 var board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+
+function resetBoard(){
+  board = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
     [' ', ' ', ' ']
-];
+  ];
 
-var playerTurn = 'X';
+  playerTurn = 'X';
+
+}
 
 function printBoard() {
-    console.log('   0  1  2');
-    console.log('0 ' + board[0].join(' | '));
-    console.log('  ---------');
-    console.log('1 ' + board[1].join(' | '));
-    console.log('  ---------');
-    console.log('2 ' + board[2].join(' | '));
+  console.log('   0  1  2');
+  console.log('0 ' + board[0].join(' | '));
+  console.log('  ---------');
+  console.log('1 ' + board[1].join(' | '));
+  console.log('  ---------');
+  console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-    // Your code here
-    if(playerTurn === board[0][0] && playerTurn === board[0][1] && playerTurn === board[0][2] || playerTurn === board[1][0] && playerTurn === board[1][1] && playerTurn === board[1][2] || playerTurn === board[2][0] && playerTurn === board[2][1] && playerTurn === board[2][2]){
-      return true;
-    }
-    else{
-      return false;
-    }
-}
-
-function verticalWin() {
-    // Your code here
-    if(playerTurn === board[0][1] && playerTurn === board[1][1] && playerTurn === board[2][1] || playerTurn === board[0][0] && playerTurn === board[1][0] && playerTurn === board[2][0] || playerTurn === board[0][2] && playerTurn === board[1][2] && playerTurn === board[2][2]){
-      return true;
-    }
-    else{
-      return false;
-    }
-}
-
-function diagonalWin() {
-    // Your code here
-    if(playerTurn === board[0][0] && playerTurn === board[1][1] && playerTurn === board[2][2] || playerTurn === board[2][0] && playerTurn === board[1][1] && playerTurn === board[0][2]){
-      return true;
-    }
-    else{
-      return false;
-    }
-}
-
-function checkForWin() {
-    // Your code here
-    if(verticalWin() || horizontalWin() || diagonalWin() ){
-      console.log(playerTurn + ' is the winner');
-      return true;
-    }
-}
-
-//ticTacToe() will call checkForWin()
-  //checkForWin() will call win functions() based on conditions
 function ticTacToe(row, column) {
-    // Your code here
+
+  //as long as there is space available
+    //let's play the game
+  if (board[row][column] !== "X" && board[row][column] !== "O") {
     board[row][column] = playerTurn;
-    checkForWin();
-    playerTurn = (playerTurn === 'X') ? 'O':'X';
+    counter++;
+
+    //we are playing the game
+      //let us check for a win
+    if (checkForWin()) {
+      printBoard();
+      console.log();
+      console.log(playerTurn + ' wins!' + " " + playerTurn + ' wins! Game Over!');
+      resetBoard();
+    }
+
+    //if there is no win
+      //and we have gone 9 moves
+        //then we have a tie
+    else if(counter === 9){
+      console.log('all spaces filled, it is a tie');
+      printBoard();
+      resetBoard()
+    }
+
+    //otherwise
+      //we have no win
+        //and we haven't gone 9 moves
+          //so let us have a move from the other player
+    else{
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+
+    }
+
+
+  }
+
+  //in the event that a space is filled
+    //please try your move again
+      //after ticTacToe() has executed
+        //getPrompt() will ask you to make your move
+  else {
+    console.log('space filled, choose another');
+  }
+
 
 }
 
 function getPrompt() {
-    printBoard();
-    console.log("It's Player " + playerTurn + "'s turn.");
-    prompt.get(['row', 'column'], function (error, result) {
-        ticTacToe(result['row'], result['column']);
+  console.log("===============================");
+  console.log("It's Player " + playerTurn + "'s turn.");
+  console.log();
+  printBoard();
+  prompt.get(['row', 'column'], function(error, result) {
+    var row = parseInt(result['row']);
+    var column = parseInt(result['column']);
+    //check for validity of row and column player move
+    if(validVal(row) && validVal(column) ){
+        ticTacToe(row, column);
         getPrompt();
-    });
+    }
+    else{
+      console.log('invalid entry, try again');
+      getPrompt();
+    }
+
+  });
+  //prompt.get closes
 }
+//getPrompt() closes
+
+function validVal(row_or_column){
+  return (validValues.indexOf(row_or_column) > -1 && validValues.indexOf(row_or_column) > -1)
+}
+
+
+function checkForWin() {
+  return(horizontalWin() || verticalWin() || diagonalWin());
+}
+
+function horizontalWin() {
+  return(playerTurn === board[0][0] && playerTurn === board[0][1] && playerTurn === board[0][2] || playerTurn === board[1][0] && playerTurn === board[1][1] && playerTurn === board[1][2] || playerTurn === board[2][0] && playerTurn === board[2][1] && playerTurn === board[2][2]);
+}
+
+function verticalWin() {
+  return(playerTurn === board[0][1] && playerTurn === board[1][1] && playerTurn === board[2][1] || playerTurn === board[0][0] && playerTurn === board[1][0] && playerTurn === board[2][0] || playerTurn === board[0][2] && playerTurn === board[1][2] && playerTurn === board[2][2]);
+}
+
+function diagonalWin() {
+  return(playerTurn === board[0][0] && playerTurn === board[1][1] && playerTurn === board[2][2] || playerTurn === board[2][0] && playerTurn === board[1][1] && playerTurn === board[0][2]);
+}
+
+
+
 
 
 
@@ -84,33 +142,53 @@ function getPrompt() {
 
 if (typeof describe !== 'undefined') {
 
-    describe('#ticTacToe()', function () {
-        it('should place mark on the board', function () {
-            ticTacToe(1, 1);
-            assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-        });
-        it('should alternate between players', function () {
-            ticTacToe(0, 0);
-            assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-        });
-        it('should check for vertical wins', function () {
-            board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-            assert.equal(verticalWin(), true);
-        });
-        it('should check for horizontal wins', function () {
-            board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-            assert.equal(horizontalWin(), true);
-        });
-        it('should check for diagonal wins', function () {
-            board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-            assert.equal(diagonalWin(), true);
-        });
-        it('should detect a win', function () {
-            assert.equal(checkForWin(), true);
-        });
+  describe('#ticTacToe()', function() {
+    it('should place mark on the board', function() {
+      ticTacToe(1, 1);
+      assert.deepEqual(board, [
+        [' ', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
+    it('should alternate between players', function() {
+      ticTacToe(0, 0);
+      assert.deepEqual(board, [
+        ['O', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
+    });
+    it('should check for vertical wins', function() {
+      board = [
+        [' ', 'X', ' '],
+        [' ', 'X', ' '],
+        [' ', 'X', ' ']
+      ];
+      assert.equal(verticalWin(), true);
+    });
+    it('should check for horizontal wins', function() {
+      board = [
+        ['X', 'X', 'X'],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+      ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for diagonal wins', function() {
+      board = [
+        ['X', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', 'X']
+      ];
+      assert.equal(diagonalWin(), true);
+    });
+    it('should detect a win', function() {
+      assert.equal(checkForWin(), true);
+    });
+  });
 } else {
 
-    getPrompt();
+  getPrompt();
 
 }
