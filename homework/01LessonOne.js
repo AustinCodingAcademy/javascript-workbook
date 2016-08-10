@@ -130,7 +130,7 @@ var notNotEmptyString = false;
 // Problem 19:
 // What is the value of !null
 
-var notNull = false;
+var notNull = !null;
 
 // Problem 20:
 // What is the value of !!undefined
@@ -144,7 +144,7 @@ var notNotUndefined = false;
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-// Your Answer Goes Here: Truthiness value is a value which evaluates to true and a falsiness value is a value which evaluates false. Examples of truthy ---- if (true), if ({}), if ([]), if (12), if ('coding'). Examples of falsy ----- if (false), if (''), if (NaN), if (0), if (null).
+// Your Answer Goes Here: Truthiness value is a value that translate to true when evaluated in a boolean, all true unless is define false. Examples of truthy ---- if (true), if ({}), if ([]), if (12), if ('coding'). Examples of falsy ----- if (false), if (''), if (NaN), if (0), if (null).
 //
 // ****
 

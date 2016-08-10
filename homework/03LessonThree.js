@@ -28,8 +28,8 @@ var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
-function TheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
+function returnTheFirstArgument(firstArgument) {
+  // var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -78,7 +78,7 @@ var problemSevenAnswer = 'second';
 //
 // What is the ternary operator?   we want to show you another nice shortcut for writing if else statements. How does it differ from normal conditional statements?
 //
-// Your Answer Goes Here: ?: is the ternary operator. It differs from normal coditional statement in that is shorter than the if/else statement. They also differ in that ?: is an expression and if/else is a statement.
+// Your Answer Goes Here: ?: A ternary operator is a shortcut for the if-else statement. It only takes three operands, all in one-line. It differs from normal coditional statement in that is a lot shorter to code than the if/else statement.
 //
 
 

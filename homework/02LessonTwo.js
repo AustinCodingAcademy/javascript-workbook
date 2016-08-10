@@ -26,7 +26,8 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
-   return true;
+   if(argument1 <= argument2);
+      return true;
 }
 
 // Problem 2:
@@ -35,7 +36,7 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
-   return true;
+   return parameter1 <= parameter2;
 
 }
 
@@ -93,8 +94,12 @@ add();
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
-   return number % 2;
-}
+  if (number % 2 === 0) {
+  return true;
+  } else {
+  return false;
+  }
+};
 console.log("2 is even" + isEven(2) == false);
 
 // Problem 6:
@@ -104,8 +109,12 @@ console.log("2 is even" + isEven(2) == false);
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
-   return number % 3;
+   if (number % 3 === 3){
+   return true;
+   } else {
+   return false;
 }
+};
 console.log("3 is divisible by three" + isDivisibleByThree(3) == true);
 
 // ****
@@ -121,14 +130,14 @@ console.log("3 is divisible by three" + isDivisibleByThree(3) == true);
 // should return false if character is anything else
 
 function whichSpecies(character) {
-   if (character = 'scooby') {
-      return "dog";
-}  if (character = 'garfield' ){
-      return "cat";
-}  if (character = 'nemo') {
-      return "fish";
-} else {
-   return false
+   if (character == 'scooby') {
+      return "dog",
+} else if (character == 'garfield' ) {
+      return "cat",
+}  else if (character == 'nemo') {
+      return "fish",
+}  else {
+      return false,
 }
 };
 
