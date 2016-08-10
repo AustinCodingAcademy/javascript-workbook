@@ -41,12 +41,14 @@ function diagonalWin() {
 
 function checkForWin() {
     return horizontalWin() || verticalWin() || diagonalWin();
-    console.log('Player' + playerTurn + 'Won!');
 };
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn
   checkForWin();
+  if (checkForWin()) {
+    console.log('Player ' + playerTurn + ' Won!')
+  }
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 };
 
