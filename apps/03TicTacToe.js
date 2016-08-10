@@ -26,10 +26,10 @@ function horizontalWin() {
     if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
       return true;
     }
-    if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
+    else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
       return true;
     }
-    if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+    else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
       return true;
     }
     else {
@@ -42,10 +42,10 @@ function verticalWin() {
     if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
       return true;
     }
-    if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
+    else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
       return true;
     }
-    if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+    else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
       return true;
     }
     else {
@@ -58,7 +58,7 @@ function diagonalWin() {
     if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
       return true;
     }
-    if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
       return true;
     }
     else {
@@ -68,20 +68,17 @@ function diagonalWin() {
 
 function checkForWin() {
     // Your code here
-    if(horizontalWin || virticalWin || diagonalWin ){
-      console.log('Player ' + playerTurn + ' Won!');
-    }
-    else {
-      return false;
-    }
+    return horizontalWin() || verticalWin() || diagonalWin();
 };
 
 function ticTacToe(row, column) {
     // Your code here
     board[row][column] = playerTurn;
+    if (checkForWin()) {
+      console.log('Player ' + playerTurn + ' Won!');
+    }
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 };
-
 
 function getPrompt() {
     printBoard();
