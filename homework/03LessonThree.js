@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 var assert = require('assert');
 
@@ -60,19 +60,22 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer = true ? 'first' : 'second';
+var problemFourAnswer = 'first'
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer = false ? 'first' : 'second';
+var problemFiveAnswer = 'second'
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer = 4      ? 'first' : 'second';
+var problemSixAnswer = 'first'
+//because 4 is truthy, I recall that is what Paul said in class.
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer = ""     ? 'first' : 'second';
+var problemSevenAnswer = 'second'
+// I can't remember what Paul said in class about this but according to wise
+// old man Google, an empty string is falsey.
 
 // ****
 // Concept Checkpoint
@@ -84,7 +87,7 @@ var problemSevenAnswer = ""     ? 'first' : 'second';
 // Your Answer Goes Here:
 //
 //The ternary operator (?) is another way of doing an if/else statement. It sets
-// out a list of different possible outputs based on a true or false inputs. It 
+// out a list of different possible outputs based on a true or false inputs. It
 // outputs one of the preset things defined by the ternary operoator.
 
 
@@ -105,7 +108,7 @@ var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-nameArray[2] = george;
+nameArray[2] = 'george';
 
 
 // DO NOT MODIFY
