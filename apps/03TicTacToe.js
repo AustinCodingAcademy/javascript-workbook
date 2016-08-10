@@ -34,16 +34,18 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-    var win = (horizontalWin() || verticalWin() || diagonalWin());
-    if (win) {
-        console.log(playerTurn + " " + "is the winner!");
-        return true;
-    }
+    return (horizontalWin() || verticalWin() || diagonalWin());
+
 }
+//need to add so it runs after every turn. Also need to make sure to add so that people cant put cordinates that have already been placed and need to only be able to put 0,1,2
 
 function ticTacToe(row, column) {
   board[row][column]=playerTurn;
   playerTurn= (playerTurn === 'X')? 'O' : 'X';
+
+  if (checkForWin()) {
+    console.log('Player' + playerTurn + 'Won!');
+  }
 
 }
 
@@ -52,6 +54,8 @@ function getPrompt() {
     console.log("It's Player " + playerTurn + "'s turn.");
     prompt.get(['row', 'column'], function (error, result) {
         ticTacToe(result['row'], result['column']);
+
+
         getPrompt();
     });
 }
