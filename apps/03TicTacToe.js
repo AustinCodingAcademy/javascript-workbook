@@ -96,6 +96,7 @@ function ticTacToe(row, column) {
       //playing.
       if (checkForWin()) {
         console.log("Player " + playerTurn + " wins!");
+        printBoard();
       }
       else {
         //If there isn't a winer, we'll switch players & prompt for a new mark.

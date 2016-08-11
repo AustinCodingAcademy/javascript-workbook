@@ -16,33 +16,88 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
+function movePiece(startStack, endStack) {
+    // We want to move a piece from the startStack to the endStack, so we'll
+    // pop it off the startStack and push it on the end stack.
+
+    var piece = stacks[startStack].pop();
+    stacks[endStack].push(piece);
 
 }
 
-function isLegal() {
-    // Your code here
+function isLegal(startStack, endStack) {
+    // The move is only legal if the piece being moved from the starting stack
+    // is smaller than the piece it will be moved on top of in the endStack or
+    // if the piece from the starting stack is being moved to an empty stack.
+    var sVal = stacks[startStack].length - 1;
+    var eVal = stacks[endStack].length -1;
+
+    if((stacks[endStack].length == 0) || (stacks[startStack][sVal] < stacks[endStack][eVal])) {
+      return true;
+    }
+    else {
+      return false;
+    }
 
 }
 
 function checkForWin() {
-    // Your code here
+    // We know we have a win if stack b or stack c have a length of 4, because
+    // we already checked for illegal moves.
+    if (stacks.b.length == 4 || stacks.c.length == 4) {
+      return true;
+    }
+    else {
+      return false;
+    }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
+    // Check for a legal move
+    if(isLegal(startStack, endStack)){
+      // Move the piece from that startStack to the endStack.
+      movePiece(startStack, endStack);
+      // Check for a win after a piece is moved.
+      if(checkForWin()){
+        console.log("You win!");
+      }
+      else {
+        getPrompt();
+      }
+    }
+    else {
+      console.log("That move was illegal. Read the rules & try again.");
+      getPrompt();
+    }
+
 
 }
 
 function getPrompt() {
     printStacks();
     prompt.get(['start stack', 'end stack'], function (error, result) {
+      if (validateChoice(result['start stack'], result['end stack'])) {
         towersOfHanoi(result['start stack'], result['end stack']);
+      }
+      else {
+        console.log("Invalid input. Stack choices are a, b or c");
         getPrompt();
+      }
     });
 }
+
+function validateChoice(startStack, endStack) {
+  //Validate the choice was a, b or c
+  if ((startStack == 'a' || startStack == 'b' || startStack == 'c') &&
+      (endStack == 'a' || endStack == 'b' || endStack == 'c')) {
+        return true;
+      }
+  else {
+        return false;
+      }
+
+}//end validateChoice()
 
 // Tests
 
