@@ -35,7 +35,21 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-    return (horizontalWin() || verticalWin() || diagonalWin());
+  var win = horizontalWin() || verticalWin() || diagonalWin();
+    if (win) {
+      printBoard();
+      console.log ('Player' + playerTurn + 'Won!');
+      clearBoard();
+    }
+ return win;
+}
+function clearBoard(){
+  board= [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+];
+return board;
 }
 
 // function checkCatsGame (){
@@ -44,14 +58,21 @@ function checkForWin() {
 //Once someone wins want the board to reset. Also need to make sure to add so that people cant put cordinates that have already been placed and need to only be able to put 0,1,2
 
 function ticTacToe(row, column) {
-  board[row][column]=playerTurn;
-  if (checkForWin()) {
-    console.log ('Player' + playerTurn + 'Won!');
+
+
+  if(board[row][column] ==='X' || board[row][column] === 'O'){
+    console.log('INVALID');
   }
-  // else if (catsGame()){
-  //     console.log ("It's a Cat's Game");
-  // }
   else {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X')? 'O' : 'X';
+  }
+
+
+  if (checkForWin()) {
+   return true;
+  } else {
     playerTurn = (playerTurn === 'X')? 'O' : 'X';
   }
 
