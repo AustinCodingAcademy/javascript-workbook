@@ -26,7 +26,6 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals( argument1, argument2) {
-  return argument1 === argument2;
 }
 
 // Problem 2:
@@ -54,7 +53,7 @@ console.log (add(2, 4));
 
 
 function addThree(number1, number2, number3) {
-  return number1 + number2 + number3;
+  return add(number1, number2) + number3;
 }
 
 // ****
@@ -70,12 +69,12 @@ function addThree(number1, number2, number3) {
 // What is a return value?
 //
 // Your Answer Goes Here:
-// what the function actually does with the parameters, the solution
+// what the function actually does with the parameters, the solution, then shows the result.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//a function that is named by coder.
+//a function that is named by coder by creating a name and defining its parameters and function.
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
