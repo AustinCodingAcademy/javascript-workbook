@@ -64,10 +64,15 @@ function clearBoard(){
 }
 
 function ticTacToe(row, column) {
-    // Your code here
-    board[row][column] = playerTurn;
-    checkForWin();
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    if (board[row][column] === 'X' || board[row][column] === 'O' ) {
+      console.log('Invalid selection player ' + playerTurn + ' must select an empty space!');
+    }
+    else {
+        board[row][column] = playerTurn;
+        checkForWin();
+        playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    }
+
 };
 
 function getPrompt() {
