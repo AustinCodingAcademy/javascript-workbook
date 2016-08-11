@@ -19,43 +19,61 @@ function printBoard() {
     console.log('1 ' + board[1].join(' | '));
     console.log('  ---------');
     console.log('2 ' + board[2].join(' | '));
-}
+};
 
 function horizontalWin() {
   return (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
   (board [1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
   (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2]=== playerTurn);
 
-}
+};
 
 function verticalWin() {
   return (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
   (board [0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
   (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2]=== playerTurn);
-}
+};
 
 function diagonalWin() {
   return (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
   (board [0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn);
 
-}
+};
 
 function checkForWin() {
-  return (verticalWin() || horizontalWin() || diagonalWin());
-
-
+  if (verticalWin() || horizontalWin() || diagonalWin()){
+  printBoard();
+  console.log ("Player" + " " + playerTurn + " " + "Wins!" );
+  cleanBoard();
 }
+  else {
+    return false;
+  }
+};
+
+
 
 function ticTacToe(row, column) {
-    board[row][column] = playerTurn;
-    if (checkForWin()){
-      console.log("Player" + " " + playerTurn + " " + "Wins!" );
+    if (board[row][column] === 'X' || board[row][column] === 'O') {
+      console.log('You must select an empty space! Please try again.');
     }
     else {
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-  }
-}
+      board[row][column] = playerTurn;
+      checkForWin();
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    }
+    };
 
+
+
+function cleanBoard()  {
+  board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+  ];
+  return board;
+}
 function getPrompt() {
     printBoard();
     console.log("It's Player " + playerTurn + "'s turn.");
@@ -63,7 +81,7 @@ function getPrompt() {
         ticTacToe(result['row'], result['column']);
         getPrompt();
     });
-}
+};
 
 
 
