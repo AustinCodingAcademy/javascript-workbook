@@ -51,9 +51,13 @@ function checkForWin() {
 };
 
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
+  if (board[row][column] === 'O' || board[row][column] === 'X') {
+    console.log("INVALID move!" + "\nGo again!");
+  }
+  else { board[row][column] = playerTurn;
   checkForWin();
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  }
 };
 
 function clearBoard() {
@@ -64,7 +68,7 @@ function clearBoard() {
   ];
   console.log('Restarting game...' + '\nPlayer ' + playerTurn + ' Won!')
   return board;
-}
+};
 
 function getPrompt() {
     printBoard();
