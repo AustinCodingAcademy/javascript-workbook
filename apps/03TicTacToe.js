@@ -43,15 +43,30 @@ function diagonalWin() {
 
 function checkForWin() {
     // Your code here
-    return horizontalWin() || verticalWin() || diagonalWin();
+      if (horizontalWin() || verticalWin() || diagonalWin()) {
+      printBoard();
+      clearBoard();
+      return true;
+    }
+    else {
+      return false;
+    }
 };
+
+function clearBoard(){
+  board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+  ];
+  console.log('Player ' + playerTurn + ' Won!');
+  return board;
+}
 
 function ticTacToe(row, column) {
     // Your code here
     board[row][column] = playerTurn;
-    if (checkForWin()) {
-      console.log('Player ' + playerTurn + ' Won!');
-    }
+    checkForWin();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 };
 
