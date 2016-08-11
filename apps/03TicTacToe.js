@@ -63,16 +63,6 @@ function diagonalWin() {
   }
 }
 
-function checkForWin() {
-  if (horizontalWin() || verticalWin() || diagonalWin()) {
-    cleanBoard();
-    return true;
-  }
-  else {
-      return false;
-  }
-};
-
 function cleanBoard() {
   board = [
    [' ', ' ', ' '],
@@ -81,6 +71,17 @@ function cleanBoard() {
   ];
     return board;
 }
+
+function checkForWin() {
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    printBoard();
+    cleanBoard();
+    return true;
+  }
+  else {
+      return false;
+  }
+};
 
 function ticTacToe(row, column) {
   board [row][column] = playerTurn;
@@ -130,7 +131,7 @@ if (typeof describe !== 'undefined') {
         });
     });
 } else {
-  
+
     getPrompt();
 
 }
