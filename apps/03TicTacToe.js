@@ -2,17 +2,17 @@
 
 var assert = require('assert');
 var prompt = require('prompt');
-prompt.start();
+prompt.start(); //starts the game
 
-var board = [
+var board = [ //board for game, an array called in function printBoard
     [' ', ' ', ' '],
     [' ', ' ', ' '],
     [' ', ' ', ' ']
 ];
 
-var playerTurn = 'X';
+var playerTurn = 'X' //starts the game on the turn X
 
-function printBoard() {
+function printBoard() { //puts numbers next to and on top of board
     console.log('   0  1  2');
     console.log('0 ' + board[0].join(' | '));
     console.log('  ---------');
@@ -21,32 +21,83 @@ function printBoard() {
     console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
+function horizontalWin() { //checks for three Xs or Os in horiz. row
     // Your code here
+    if(
+    (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn)
+    ||
+    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn)
+    ||
+    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
+  ) {
+    return true; //returns that horizontal win is true
+   }
+  else
+  {
+    return false; //returns that horizontal win is false
+  }
 }
 
-function verticalWin() {
-    // Your code here
+function verticalWin() { //checks for Xs and Os in vert. row
+    if(
+    (board [0][0] === playerTurn && board [1][0] === playerTurn && board[2][0] === playerTurn)
+    ||
+    (board [0][1] === playerTurn && board [1][1] === playerTurn && board[2][1] === playerTurn)
+    ||
+    (board [0][2] === playerTurn && board [1][2] === playerTurn && board[2][2] === playerTurn)
+) {
+  return true; //returns that verticalWin is true
+}
+  else
+{
+  return false; //returns that verticalWin is false
+  }
 }
 
-function diagonalWin() {
-    // Your code here
+function diagonalWin() { //checks for three Xs and Os in diag
+    if(
+    (board [0][0] === playerTurn && board [1][1] === playerTurn && board[2][2] === playerTurn)
+    ||
+    (board [0][2] === playerTurn && board [1][1] === playerTurn && board[2][0] === playerTurn)
+  ) {
+    return true; //returns that diagonalWin is true
+  }
+  else
+  {
+    return false; //returns that diagonalWin is false
+  }
 }
 
-function checkForWin() {
-    // Your code here
+function checkForWin() { //checks if horizontalWin et al are true.
+    if(horizontalWin() || verticalWin() || diagonalWin()) {
+      return true;     //if one is true, it returns true.
+    }
+    else {
+      {
+        return false; //otherwise, it returns false.
+      }
+    }
 }
 
 function ticTacToe(row, column) {
-    // Your code here
+    board[row][column] = playerTurn; //takes the row/column input and makes it equal player turn
+    if(checkForWin()) { //if checkForWin is true...
+      printBoard(); //it prints the board...
+      console.log('Player ' + playerTurn + ' Won!');//and says the person won
+    }
+    else { //otherwise it checks for an X and makes it an O, and if it's not an O, makes it an X (below)
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    getPrompt(); //acts person for the next entry, since no one won
+  }
+
 }
 
-function getPrompt() {
-    printBoard();
-    console.log("It's Player " + playerTurn + "'s turn.");
+function getPrompt() { //prompts player
+    printBoard(); //prints board for player to see
+    console.log("It's Player " + playerTurn + "'s turn."); //says whose turn
     prompt.get(['row', 'column'], function (error, result) {
         ticTacToe(result['row'], result['column']);
-        getPrompt();
+
     });
 }
 
