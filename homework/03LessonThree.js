@@ -42,7 +42,7 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//where input is accessible from for a function.
+//where variables is accessible from for a function.
 //
 
 
@@ -80,7 +80,7 @@ var problemSevenAnswer = 'second';
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-// a way to shorten code when dealing with a basic on off function.
+// a way to shorten code when dealing with an on off function. Not always best to use in case someone else needs to know what is happening.
 //
 
 
