@@ -130,7 +130,7 @@ if (typeof describe !== 'undefined') {
         });
     });
 } else {
-
+  
     getPrompt();
 
 }
