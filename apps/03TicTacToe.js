@@ -40,17 +40,31 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-    return horizontalWin() || verticalWin() || diagonalWin();
+    if (horizontalWin() || verticalWin() || diagonalWin()) {
+      printBoard();
+      clearBoard();
+      return true;
+    }
+    else {
+      return false;
+    }
 };
 
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn
+  board[row][column] = playerTurn;
   checkForWin();
-  if (checkForWin()) {
-    console.log('Player ' + playerTurn + ' Won!')
-  }
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 };
+
+function clearBoard() {
+  board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+  ];
+  console.log('Restarting game...' + '\nPlayer ' + playerTurn + ' Won!')
+  return board;
+}
 
 function getPrompt() {
     printBoard();
