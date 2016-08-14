@@ -1,13 +1,3 @@
-//question
-  //scope
-    //how does printBoard() have access to board variable inside of resetBoard()
-      //would think printBoard() would only have access to global 'var board'
-        //such that it would not work to call resetBoard()
-          //and then call printBoard()
-            //and expect printBoard()
-              //to print a fresh board
-                //rather than an old board that has been played on already
-
 'use strict';
 
 var assert = require('assert');
