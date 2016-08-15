@@ -96,17 +96,21 @@ function ticTacToe(row, column) {
     //   getPrompt();
     // }
     // else {
-
-
-    board[row][column] = playerTurn; //takes the row/column input and makes it equal player turn
-    if(checkForWin()) { //if checkForWin is true...
-      printBoard(); //it prints the board...
-      console.log('Player ' + playerTurn + ' Won!');//and says the person won
+    if (board[row][column] === "X" || board[row][column] === "O" ) {
+      console.log("That spot is taken! Try again")
     }
-    else { //otherwise it checks for an X and makes it an O, and if it's not an O, makes it an X (below)
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    getPrompt(); //acts person for the next entry, since no one won
+     else {
+      board[row][column] = playerTurn; //takes the row/column input and makes it equal player turn
+      if(checkForWin()) { //if checkForWin is true...
+        printBoard(); //it prints the board...
+        console.log('Player ' + playerTurn + ' Won!');//and says the person won
+      }
+      else { //otherwise it checks for an X and makes it an O, and if it's not an O, makes it an X (below)
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+      //acts person for the next entry, since no one won
+    }
   }
+  getPrompt();
 // }
 }
 
