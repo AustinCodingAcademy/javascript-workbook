@@ -26,7 +26,7 @@ var numberArrayAfterPush = [1, 2, 3, 4, 5, 6];
 
 // Problem 4:
 // Show what numberArray would look like if we called numberArray.unshift(0)
-var numberArrayAfterUnshift = [0, 1, 2, 3, 4];
+var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
@@ -48,7 +48,7 @@ fruit.push('mango');
 
 // Problem 7:
 // Create an empty object
-var emptyObject = new Object();
+var emptyObject = {};
 
 // Problem 8:
 // Create an object with the following key, value pairs:
@@ -59,6 +59,7 @@ var emptyObject = new Object();
 var problemEightObject = {
   emptyObject: {},
   emptyArray: [],
+  name:'bob',
   number:42
 };
 
