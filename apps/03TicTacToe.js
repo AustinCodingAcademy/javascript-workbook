@@ -56,14 +56,15 @@ function checkForWin() {
 function ticTacToe(row, column) {
     if (board[row][column] === 'X' || board[row][column] === 'O') {
       console.log('You must select an empty space! Please try again.');
+      return true;
     }
     else {
       board[row][column] = playerTurn;
       checkForWin();
       playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     }
-    };
-
+  };
+// My 'should detect a win' test is failing even though the game works and clearly checks and delares a winner...
 
 
 function cleanBoard()  {
