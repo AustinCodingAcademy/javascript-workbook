@@ -12,6 +12,8 @@ var board = [
 
 var playerTurn = 'X';
 
+var count = 0
+
 
 function printBoard() {
     console.log('   0  1  2');
@@ -54,9 +56,14 @@ function ticTacToe(row, column) {
   if (board[row][column] === 'O' || board[row][column] === 'X') {
     console.log("INVALID move!" + "\nGo again!");
   }
-  else { board[row][column] = playerTurn;
+  else if { board[row][column] = playerTurn;
   checkForWin();
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  }
+  else (count === 9){
+    console.log("Cats Game!, board will be reset for a new game.")
+    printBoard();
+    clearBoard();
   }
 };
 
