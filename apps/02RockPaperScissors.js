@@ -12,8 +12,8 @@ function rockPaperScissors(hand1, hand2) {
     var compute_option = Math.floor( Math.random() * 3 );
     // other option, if (Math.random() < .5) ? "Option1" "Option2";
 
-    hand1 = hand1.toLowerCase();
-    hand2 = hand2.toLowerCase();
+    hand1 = hand1.toLowerCase().trim();
+    hand2 = hand2.toLowerCase().trim();
 
     if ( !(options.indexOf(hand1) > -1) ) {
       return "Hand One, Please Enter a correct value: rock, scissors or paper";
@@ -70,6 +70,25 @@ function getPrompt() {
         getPrompt();
     });
 }
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// function getPrompHand1() {
+//   prompt.get(['hand1']), function (error, result) {
+//
+//     var options = ["rock", "scissors", "paper"];
+//
+//     var hand1 = result[hand1];
+//     hand1 = hand1.toLowerCase().trim();
+//
+//     if ( !(options.indexOf(hand1) > -1) ) {
+//       return "Hand One, Please Enter a correct value: rock, scissors or paper";
+//       getPrompHand1();
+//     } else {
+//       console.log( rockPaperScissors(result['hand1'], result['hand2']) );
+//     }
+//
+//   };
+// }
 
 // Tests
 
