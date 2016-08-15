@@ -12,6 +12,17 @@ var board = [ //board for game, an array called in function printBoard
 
 var playerTurn = 'X' //starts the game on the turn X
 
+// function wrongEntry(row, column) {
+//   if (!(row === '0' || row === '1' || row === '2') ||
+//   !(column == '0' || row === '1' || row === '2')){
+//     console.log("Sorry, enter a 0, 1, or 2");
+//     return true;
+//   }
+//   else {
+//     return false;
+//   }
+// }
+
 function printBoard() { //puts numbers next to and on top of board
     console.log('   0  1  2');
     console.log('0 ' + board[0].join(' | '));
@@ -80,6 +91,13 @@ function checkForWin() { //checks if horizontalWin et al are true.
 }
 
 function ticTacToe(row, column) {
+
+    // if(wrongEntry(row,column)) {
+    //   getPrompt();
+    // }
+    // else {
+
+
     board[row][column] = playerTurn; //takes the row/column input and makes it equal player turn
     if(checkForWin()) { //if checkForWin is true...
       printBoard(); //it prints the board...
@@ -89,7 +107,7 @@ function ticTacToe(row, column) {
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     getPrompt(); //acts person for the next entry, since no one won
   }
-
+// }
 }
 
 function getPrompt() { //prompts player
