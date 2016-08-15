@@ -114,7 +114,7 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-threeByThreeArray[1] = [4, 10, 6]
+threeByThreeArray[1][1] = 10;
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
