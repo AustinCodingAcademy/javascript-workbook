@@ -75,11 +75,14 @@ number  : 42
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
 var problemNineObject = {
-  'fav food': 'tacos',
-  city:       'austin'
+  'fav food': 'pizza',
+  city:       'houston'
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
+
+problemNineObject['fav food'] = 'tacos';
+problemNineObject.city = 'austin';
 
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
@@ -90,12 +93,13 @@ var nestedObjects = {
       hometown: 'Omaha'
     },
     'bob roberts': {
-      starring: 'Tim Robbins'
+      starring: 'John Cusack'
     }
   }
 };
 // update the starring property to have the value 'Tim Robbins'
 
+nestedObjects.users['bob roberts'].starring = 'Tim Robbins'; 
 
 // ****
 // Concept Checkpoint
@@ -105,7 +109,7 @@ var nestedObjects = {
 // What is an associative array? What is the difference between an array and an associative array?
 //
 // Your Answer Goes Here:
-// An associative array is a collection of of data called a key, the key has an index that is assigned specific values. Arrays have an index that start at specifically at 0. 
+// An associative array is a collection of of data called a key, the key has an index that is assigned specific values. Arrays have an index that start at specifically at 0.
 //
 
 // ****
