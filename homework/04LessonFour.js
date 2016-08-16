@@ -122,9 +122,9 @@ nestedObjects.users['bob roberts'].starring= 'Tim Robbins';
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
-// Your Answer Goes Here:
-//
-//
+// Your Answer Goes Here: An associative array, aka object is a variable that has objects underneath it
+//that are all closely linked to each other. It is a data set that needs additional descriptors
+//so an array is not appropriate.
 
 // ****
 // Tests
