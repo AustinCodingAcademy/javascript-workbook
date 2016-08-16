@@ -68,24 +68,32 @@ function diagonalWin() {
 
 function checkForWin() {
     // Your code here
-    var win = false;
-    // ???
-    if (horizontalWin()){
+    // ??? ||
+    if (horizontalWin() || verticalWin() || diagonalWin()){
+      console.log(playerTurn + " player wins");
         return true;
-    } else if (verticalWin()){
-        return true;
-    } else if (diagonalWin()){
-        return true;
+    } else {
+        return false;
     }
+    // if (horizontalWin()){
+    //     return true;
+    // } else if (verticalWin()){
+    //     return true;
+    // } else if (diagonalWin()){
+    //     return true;
+    // }
 }
 
 function ticTacToe(row, column) {
     // Your code here
   board[row][column] = playerTurn;
-  if(checkForWin()){
-    printBoard();
-    console.log(playerTurn + "player wins")
-  }
+  checkForWin();//){
+    // printBoard();
+  //  console.log(playerTurn + "player wins")
+  //}
+  //playerTurn
+  // if pt=X ? pt=O: pt=x
+  playerTurn =  playerTurn == 'X' ?  'O' : 'X';
 }
 
 function getPrompt() {
