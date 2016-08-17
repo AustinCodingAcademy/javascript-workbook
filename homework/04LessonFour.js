@@ -31,12 +31,22 @@ var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
-var bravestWarriors = ['Danny', 'Chris', 'Beth', 'Wallow'];
+var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
+
+bravestWarriors.pop('Impossibear');
+bravestWarriors.shift('Catbug');
+
+console.log(bravestWarriors);
 
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
-var fruit = ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango'];
+var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
+
+fruit.push('mango');
+fruit.unshift('banana');
+
+console.log(fruit);
 
 // ****
 // Objects (Associative Arrays)
@@ -52,6 +62,7 @@ var emptyObject = {};
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
+
 var problemEightObject = {
   emptyObject: {},
   emptyArray: [],
@@ -62,11 +73,16 @@ var problemEightObject = {
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
 var problemNineObject = {
-  'fav food': 'tacos',
-  city:       'austin'
+  'fav food': 'pizza',
+  city:       'houston'
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
+
+problemNineObject['fav food'] = 'tacos';
+problemNineObject['city'] = 'austin';
+
+console.log(problemNineObject);
 
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
@@ -77,12 +93,15 @@ var nestedObjects = {
       hometown: 'Omaha'
     },
     'bob roberts': {
-      starring: 'Tim Robbins'
+      starring: 'John Cusack'
     }
   }
 };
 // update the starring property to have the value 'Tim Robbins'
 
+nestedObjects.users['bob roberts'].starring = 'Tim Robbins';
+
+console.log(nestedObjects);
 
 // ****
 // Concept Checkpoint
@@ -91,7 +110,7 @@ var nestedObjects = {
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
-// Your Answer Goes Here: An associative array is a collection of data and is also referred to as an object. The difference between arrays and associative arrays is how they are organized, i.e., arrays have an implicit index starting from 0 and associative arrays have an explicit index known as a key, which has an associated value.
+// Your Answer Goes Here: An Associative Array is a collection of data and is also referred to as an Object. The difference between Arrays and Associative Arrays is how they are organized, i.e., Arrays have an implicit index starting from 0, and Associative Arrays/Objects have an explicit index known as a Key, which has an associated Value.
 //
 //
 
