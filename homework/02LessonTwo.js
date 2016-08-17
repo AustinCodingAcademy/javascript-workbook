@@ -26,8 +26,7 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
-   if(argument1 <= argument2);
-      return true;
+   return argument1 === argument2;
 }
 
 // Problem 2:
@@ -109,7 +108,7 @@ console.log("2 is even" + isEven(2) == false);
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
-   if (number % 3 === 3){
+   if (number % 3 === 0){
    return true;
    } else {
    return false;
@@ -130,14 +129,14 @@ console.log("3 is divisible by three" + isDivisibleByThree(3) == true);
 // should return false if character is anything else
 
 function whichSpecies(character) {
-   if (character == 'scooby') {
-      return "dog",
-} else if (character == 'garfield' ) {
-      return "cat",
-}  else if (character == 'nemo') {
-      return "fish",
+   if (character === 'scooby') {
+      return "dog";
+}  if (character === 'garfield' ) {
+      return "cat";
+}  if (character === 'nemo') {
+      return "fish";
 }  else {
-      return false,
+      return false;
 }
 };
 
@@ -157,7 +156,7 @@ function testNumber(number) {
 }  if (number % 3 === 0) {
       return "divisible by 3";
 }  if (number % 5 === 0) {
-      return "divisible by 5"
+      return "divisible by 5";
 }
 };
 
@@ -284,6 +283,5 @@ describe('Lesson 2 Homework', function () {
           assert.equal(testNumber(5), 'divisible by 5');
       });
     });
-  });
-
+});
 });
