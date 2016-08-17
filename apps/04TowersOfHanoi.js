@@ -1,3 +1,9 @@
+//change quantity of stacks
+  //4-8 discs in each stack
+//log total moves
+//start on a-b-c-
+
+
 'use strict';
 
 var assert = require('assert');
@@ -35,6 +41,7 @@ function isLegal(startStack, endStack) {
     var lastElStartStack = startStackArray[startStackArray.length - 1];
     var endStackArray = stacks[endStack];
     var lastElEndStack = endStackArray[endStackArray.length - 1];
+    console.log(lastElStartStack, lastElEndStack);
 
     if(startStackArray.length === 0){
       return false;
@@ -46,6 +53,7 @@ function isLegal(startStack, endStack) {
 
     if(lastElStartStack < lastElEndStack){
       return true;
+
     }
     else{
       return false;
@@ -58,6 +66,8 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
     // Your code here
     if(stacks["b"].length === 4 || stacks["c"].length === 4){
+      console.log("stacks b length",stacks["b"].length);
+      console.log("stacks c length",stacks["c"].length);
       return true;
     }
     else{
@@ -67,14 +77,32 @@ function checkForWin() {
 
 }
 
+function isValid(startStack, endStack){
+  if(stacks[startStack] === undefined || stacks[endStack] === undefined){
+    return false;
+  }
+}
+
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
-      //if isLega()
-        //then movePiece();
-      //otherwise
-        //enter valid();
-    movePiece(startStack, endStack);
-    checkForWin();
+
+  if(isValid(startStack, endStack)){
+    console.log('valid');
+    if( isLegal(startStack, endStack) ){
+      movePiece(startStack, endStack);
+      if(checkForWin()){
+        console.log('you won');
+      };
+    }
+
+    else{
+      console.log('invalid move. enter valid please');
+    }
+
+  }
+  else{
+    console.log('invalid');
+  }
+
 
 }
 
