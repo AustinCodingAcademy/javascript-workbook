@@ -9,7 +9,28 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.entership : function(){
+    this.ship = this;
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement : function(){
+    //if ships crew doesnt have a job that matches stype of ship
+    //return "Can't perform a mission Yet."
+    //but if it does
+    //return (ships availability)
+  }
+}
 
 //tests
 if (typeof describe !== 'undefined'){
