@@ -22,23 +22,68 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    // Your code here
+  // Your code here
+  for(var row = 0; row < board.length; row++){
+    for(var col = 0; col < board[row].length - 1; col++){
+      if(board[row][col] !== board[row][col+1]){
+        break;
+      }
+      if(col === board[row].length - 2){
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 function verticalWin() {
-    // Your code here
+  // Your code here
+  for(var col = 0; col < board[0].length; col++){
+    for(var row = 0; row < board.length - 1; row++){
+      if(board[row][col] !== board[row + 1][col]){
+        break;
+      }
+      if(row === board.length - 2){
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 function diagonalWin() {
-    // Your code here
+  // Your code here
+  for(var i = 0; i < board.length - 1; i++){
+    if(board[i][i] !== board[i + 1][i + 1]){
+      break;
+    }
+    if(i === board.length - 2){
+      return true;
+    }
+  }
+  for(var i = 0; i < board.length - 1; i++){
+    if(board[board.length - i - 1][board.length - i - 1] !== board[board.length - i - 2][board.length - i - 2]){
+      break;
+    }
+    if(i === board.length - 2){
+      return true;
+    }
+  }
+  return false;
 }
 
 function checkForWin() {
-    // Your code here
+  // Your code here
+  if(horizontalWin() || verticalWin() || diagonalWin()){
+    return true;
+  }
+  return false;
 }
 
 function ticTacToe(row, column) {
-    // Your code here
+  // Your code here
+  board[row][column] = playerTurn;
+  playerTurn = playerTurn === "X" ? "O" : "X";
 }
 
 function getPrompt() {

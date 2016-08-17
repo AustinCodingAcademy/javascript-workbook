@@ -26,6 +26,7 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  return argument1 == argument2;
 }
 
 // Problem 2:
@@ -34,16 +35,23 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  return parameter1 <= parameter2;
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add(number1, number2){
+  return number1 + number2;
+}
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
+function addThree(number1, number2, number3){
+  return add(add(number1, number2), number3);
+}
 
 
 // ****
@@ -54,22 +62,22 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+// a function is a method that has 0 or more inputs and executes commands, returning 0 or more outputs, to define a function, the structure is "function function_name(parameters){}"
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+// a value that is returned when the function is completed
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+// function function_name(parameters){}
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// a parameter is the name of the variable when first defined in the function, arguments are the actual input that is used when the function is actually called
 // ****
 
 
@@ -84,6 +92,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  return number % 2 == 0;
 }
 
 // Problem 6:
@@ -93,6 +102,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  return number % 3 == 0;
 }
 
 // ****
@@ -108,6 +118,16 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  switch(character){
+    case "scooby":
+      return "dog";
+    case "garfield":
+      return "cat";
+    case "nemo":
+      return "fish";
+    default:
+      return false;
+  }
 }
 
 // Problem 8:
@@ -117,6 +137,20 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
+function testNumber(number){
+  if(number % 4 == 0){
+    return "divisible by 4";
+  }
+  else if(number % 2 == 0){
+    return "divisible by 2";
+  }
+  else if(number % 3 == 0){
+    return "divisible by 3";
+  }
+  else if(number % 5 == 0){
+    return "divisible by 5";
+  }
+}
 
 
 // ****
@@ -130,7 +164,7 @@ function whichSpecies(character) {
 //
 //
 // ****
-
+// conditionals are used to determine whether arguments meet certain requirements
 // ****
 // Tests
 // ****
