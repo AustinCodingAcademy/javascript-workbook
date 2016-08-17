@@ -118,9 +118,7 @@ var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-var myNewArray = nameArray.splice(1,1, 'george')
-    console.log(myNewArray);
-
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -129,7 +127,7 @@ var threeByThreeArray = [
   [7, 8, 9]
 ];
 
-threeByThreeArray.splice(1, 1, 2);
+threeByThreeArray[1, 1] = 4
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
