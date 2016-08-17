@@ -51,11 +51,16 @@ function isLegal(startStack, endStack) {
 
 function checkForWin() {
     // Your code here
-
+      if (stack.b.length === 4 || stack.c.length === 4){
+        return true;
+      } else {
+        return false;
+      }
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
+
       movePiece(startStack, endStack);
 }
 
