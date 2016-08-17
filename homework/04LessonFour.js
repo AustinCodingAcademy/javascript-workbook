@@ -58,9 +58,9 @@ var emptyObject = {
 // 3) name:         'bob'
 // 4) number:       42
 var problemEightObject = {
-  emptyObject:  {}
-  emptyArray:   []
-  name:         'bob'
+  emptyObject:  {},
+  emptyArray:   [],
+  name:         'bob',
   number:       42
 };
 
@@ -72,8 +72,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-problemNineObject.'fav food' = 'tacos';
-problemNineObject.city = 'houston';
+problemNineObject['fav food'] = 'tacos';
+problemNineObject.city = 'houston'
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
 var nestedObjects = {
@@ -88,7 +88,7 @@ var nestedObjects = {
   }
 };
 // update the starring property to have the value 'Tim Robbins'
-nestedObjects.users[0] = 'Tim Robbins';
+nestedObjects.users['fred astaire'] = 'Tim Robbins';
 
 // ****
 // Concept Checkpoint
