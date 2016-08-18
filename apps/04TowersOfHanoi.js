@@ -28,40 +28,52 @@ function movePiece(startStack, endStack) {
 function isLegal(startStack, endStack) {
     // Your code here
     var startStackArray = stacks[startStack];
-    var lastElementOfStart = startStackArray[startStackAray.lenghth - 1];
-    var endStack = stacks[endStack];
-    var lastElementofEnd = endStack[endStack.lenghth - 1];
-
-    if (stacks[startStack].lenghth === 0){
-      // Empty stack invalid
+    var endStackArray = stacks[endStack];
+      //var lastElementOfStart = startStackArray[startStackArray.lenghth - 1];
+      //  var lastElementofEnd = endStack[endStack.lenghth - 1];
+    if (stacks[startStack].length === 0){
+      // Start stack is empty - Empty stack invalid
       return false;
     }
-    if (stacks[endStack].lenghth === 0){
 
-      return true;
+    if (startStackArray.length === 0){
+          return false;
+    } else if (endStackArray.length === 0){
+          return true;
+    } else {
+          return startStackArray[startStackArray.length - 1] < endStackArray[endStackArray.length - 1];
     }
+//    if (stacks[endStack].lenghth === 0){
+//      return true;
+//    }
 
-    if(stacks[startStack][stack[startStack].lenghth] < stacks[endStack][stacks][endStack].lenghth - 1){
-        return true;
-    }else{
-      return false;
-    }
+    // if(stacks[startStack][stack[startStack].length] < stacks[endStack][stacks][endStack].length - 1){
+    //     return true;
+    // }else{
+    //   return false;
+    // }
 
 }
 
 function checkForWin() {
     // Your code here
-      if (stack.b.length === 4 || stack.c.length === 4){
-        return true;
+      if (stacks.b.length >= 4 || stacks.c.length >= 4){
+            console.log("YOU WON! WAY TO GO!!");
+          return true;
       } else {
-        return false;
+          return false;
       }
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
-
+    if (isLegal(startStack, endStack) === true){
       movePiece(startStack, endStack);
+      checkForWin();
+        return true;
+    } else{
+        return false;
+    }
 }
 
 function getPrompt() {
