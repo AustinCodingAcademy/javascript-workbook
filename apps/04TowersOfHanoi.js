@@ -10,29 +10,78 @@ var stacks = {
     c: []
 };
 
+var counter = 0
+function add() {
+  counter++;
+}
+
+
 function printStacks() {
     console.log("a: " + stacks.a);
     console.log("b: " + stacks.b);
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
-
+function movePiece(startStack, endStack) {
+  var piece = stacks[startStack].pop();
+  stacks[endStack].push(piece);
 }
 
-function isLegal() {
-    // Your code here
-
+function isLegal(startStack, endStack) {
+    var startStackArray = stacks[startStack];
+    var endStackArray = stacks[endStack];
+    if (startStackArray.length === 0) {
+      return false;
+    }
+    else if (endStackArray.length === 0) {
+      return true;
+    }
+    else {
+      return startStackArray[startStackArray.length - 1] < endStackArray[endStackArray.length - 1];
+    }
 }
 
 function checkForWin() {
-    // Your code here
-
+    if (stacks.b.length === 4 || stacks.c.length === 4 ) {
+      return true;
+    }
+    else {
+      return false;
+    }
 }
 
+
+
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    add()
+    console.log(counter + " turns taken")
+    if (checkForWin()) {
+      printStacks()
+      if (counter < 16) {
+        console.log("Maximum effort!");
+      }
+      else if (counter < 26) {
+        console.log("Almost There!");
+      }
+      else if (counter < 36) {
+        console.log("Come on, you can do better!");
+      }
+      else {
+        console.log("About damn time!")
+      }
+
+    }
+    else {
+      getPrompt();
+    }
+
+  }
+  else {
+    console.log ('Not a legal move!');
+    getPrompt();
+  }
 
 }
 
@@ -40,7 +89,6 @@ function getPrompt() {
     printStacks();
     prompt.get(['start stack', 'end stack'], function (error, result) {
         towersOfHanoi(result['start stack'], result['end stack']);
-        getPrompt();
     });
 }
 
