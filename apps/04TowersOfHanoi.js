@@ -20,7 +20,7 @@ function legalStack(startStack, endStack) {
     }
 }
 
-//NEW STUFF
+//COUNTER
 
 var counter = 0;
 
@@ -28,7 +28,19 @@ function add() {
     counter += 1;
 }
 
-//NEW STUFF ENDS
+//COUNTER ENDS
+
+//CHEAT START
+
+function cheat(startStack, endStack) {
+  if(startStack === "cheat" || endStack === "cheat") {
+  return true;
+}else{
+  return false;
+}
+}
+
+//CHEAT ENDS
 
 function printStacks() {
     console.log("a: " + stacks.a);
@@ -72,6 +84,10 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
+    if(cheat(startStack,endStack)) {
+      console.log("Hey, cheater! Enter the following stacks to win (like a cheater)  \n 1. a, c \n 2. a, b \n 3. c, b \n 4. a, c \n 5. b, c \n 6. b, a \n 7. c, a \n 8. c, b \n 9. a, c \n 10. a, b \n 11. c, b \n 12. a, c \n 13. b, c \n 14. b, a \n 15. c, a \n 16. b, c \n 17. a, b \n 18. a, c \n 19. b, c");
+      getPrompt();
+    } else {
     if (!legalStack(startStack, endStack)) {
         console.log("The stack must be a, b, or c");
         getPrompt();
@@ -89,6 +105,7 @@ function towersOfHanoi(startStack, endStack) {
             getPrompt();
         }
     }
+}
 }
 
 function getPrompt() {
