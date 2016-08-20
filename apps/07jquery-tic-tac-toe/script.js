@@ -1,5 +1,10 @@
 'use strict';
 
 $(document).on('ready', function() {
-    // Put app logic in here
+  .board[.row][0] = playerTurn(){
+    turn = (turn ==='x')? 'x':'o';
+  }
+}
 });
+var turn = 'x';
+playerTurn();
