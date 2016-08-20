@@ -73,7 +73,7 @@ var problemNineObject = {
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
 problemNineObject['fav food'] = 'tacos';
-problemNineObject.city = 'houston'
+problemNineObject.city = 'austin'
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
 var nestedObjects = {
@@ -88,7 +88,7 @@ var nestedObjects = {
   }
 };
 // update the starring property to have the value 'Tim Robbins'
-nestedObjects.users['fred astaire'] = 'Tim Robbins';
+nestedObjects[1][1]['key 1'] = 'Tim Robbins';
 
 // ****
 // Concept Checkpoint
