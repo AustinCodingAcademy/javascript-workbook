@@ -11,6 +11,9 @@ var board = [
 ];
 
 var playerTurn = 'X';
+function playerTurn() {
+  turn = (turn === 'X') ? 'O' : 'X';
+}
 
 function printBoard() {
     console.log('   0  1  2');
