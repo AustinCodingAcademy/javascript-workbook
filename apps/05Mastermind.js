@@ -26,12 +26,22 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+
+
 }
 
 function mastermind(guess) {
-    // your code here
+    solution= 'abcd';
+    if(guess === solution){
+      return 'You guessed if!';
+    }
+    else {
+      return false;
+    }
 }
 
 
@@ -67,7 +77,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
