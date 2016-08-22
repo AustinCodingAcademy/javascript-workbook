@@ -10,43 +10,40 @@ module.exports = {
     .elements('css selector', '[data-cell]', function(cells) {
       assert.equal(cells.value.length, 9);
       cells.value.forEach(function(el, idx) {
-        session.assert.containsText('[data-cell="' + idx + '"]','');
+        session.expect.element('[data-cell="' + idx + '"]').text.to.equal('');
       });
-    })
-    .assert.containsText('#announce-winner', '');
+    });
+    session.expect.element('#announce-winner').text.to.equal('');
   },
   'Check for alternating players starting with X' : function () {
-    session
-    .click('[data-cell="0"]')
-    .assert.containsText('[data-cell="0"]', 'X')
-    .click('[data-cell="1"]')
-    .assert.containsText('[data-cell="1"]', 'O')
-    .assert.containsText('#announce-winner', '');
+    session.click('[data-cell="0"]');
+    session.expect.element('[data-cell="0"]').text.to.equal('X');
+    session.click('[data-cell="1"]');
+    session.expect.element('[data-cell="1"]').text.to.equal('O');
+    session.expect.element('#announce-winner').text.to.equal('');
   },
   'Check for first diagonal X win' : function () {
     [4, 2, 8].forEach(function (cell) {
       session.click('[data-cell="' + cell + '"]');
-    })
-    session.assert.containsText('#announce-winner', 'Player X Won!');
+    });
+    session.expect.element('#announce-winner').text.to.equal('Player X Won!');
   },
   'Check for clear board': function() {
-    session
-    .click('#clear')
-    .elements('css selector', '[data-cell]', function(cells) {
+    session.click('#clear');
+    session.expect.element('#announce-winner').text.to.equal('');
+    session.elements('css selector', '[data-cell]', function(cells) {
       assert.equal(cells.value.length, 9);
       cells.value.forEach(function(el, idx) {
-        session.assert.containsText('[data-cell="' + idx + '"]','');
+        session.expect.element('[data-cell="' + idx + '"]').text.to.equal('');
       });
-    })
-    .assert.containsText('#announce-winner', '');
+    });
   },
   'Check for second diagonal X win' : function () {
-    session
-    .click('#clear');
+    session.click('#clear');
     [2, 1, 4, 5, 6].forEach(function (cell) {
       session.click('[data-cell="' + cell + '"]');
     });
-    session.assert.containsText('#announce-winner', 'Player X Won!')
-    .end();
+    session.expect.element('#announce-winner').text.to.equal('Player X Won!')
+    session.end();
   }
 };
