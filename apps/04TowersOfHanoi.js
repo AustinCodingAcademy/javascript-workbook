@@ -1,7 +1,5 @@
-//change quantity of stacks
-  //4-8 discs in each stack
-//log total moves
-//start on a-b-c-
+//restart game
+//move pieces
 
 
 'use strict';
@@ -11,7 +9,7 @@ var prompt = require('prompt');
 prompt.start();
 
 var stacks = {
-    a: [4, 3, 2, 1],
+    a: [4,3,2,1],
     b: [],
     c: []
 };
@@ -31,6 +29,8 @@ function movePiece(startStack, endStack) {
     stacks[endStack].push(lastEl);
       //add that last element
         //to end stack
+
+        //pieceMoves++
 
 
 }
@@ -91,6 +91,7 @@ function towersOfHanoi(startStack, endStack) {
       movePiece(startStack, endStack);
       if(checkForWin()){
         console.log('you won');
+        //you won with this many moves + movePieces
       };
     }
 
@@ -105,6 +106,7 @@ function towersOfHanoi(startStack, endStack) {
 
 
 }
+
 
 function getPrompt() {
     printStacks();
