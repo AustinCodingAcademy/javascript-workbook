@@ -24,43 +24,15 @@ function printNumberOfTurns(numberOfTurns) {
 
 function movePiece(startStack, endStack) {
 
-    var lengthA = stacks.a.length;
-    var lengthB = stacks.b.length;
-    var lengthC = stacks['c'].length;
+    var lengthStartStack = stacks[startStack].length;
+    var lengthEndStack = stacks[endStack].length;
 
     //adjust the array to move the last number from the start stack and add to the front of the end stack
-    var lastValueA = stacks.a[lengthA - 1];
-    var lastValueB = stacks.b[lengthB - 1];
-    var lastValueC = stacks.c[lengthC - 1];
+    var lastValueStartStack = stacks[startStack][lengthStartStack - 1];
+    var lastValueEndStack = stacks[endStack][lengthEndStack - 1];
 
-    if (startStack === 'a') {
-        stacks.a.pop();
-
-        if (endStack === 'b') {
-            stacks.b.push(lastValueA);
-        } else {
-            stacks.c.push(lastValueA);
-        }
-
-    } else if (startStack === 'b') {
-        stacks.b.pop();
-
-        if (endStack === 'a') {
-            stacks.a.push(lastValueB);
-        } else {
-            stacks.c.push(lastValueB);
-        }
-
-    } else {
-        stacks.c.pop();
-
-        if (endStack === 'a') {
-            stacks.a.push(lastValueC);
-        } else {
-            stacks.b.push(lastValueC);
-        }
-
-    }
+    stacks[startStack].pop();
+    stacks[endStack].push(lastValueStartStack);
 
 }
 
@@ -80,7 +52,6 @@ function isLegal(startStack, endStack) {
     }
 
     // move is legal if the value you are moving to the endStack is LESS than the last value of the startStack
-    console.log('lastValueStartStack = ' + lastValueStartStack + ' and lastValueEndStack = ' + lastValueEndStack)
 
     if (lastValueEndStack === 0) {
         return true;
@@ -115,17 +86,15 @@ function towersOfHanoi(startStack, endStack) {
 
     var isLegalFunction = isLegal(startStack, endStack);
 
-    console.log('Is the move legal? ' + isLegalFunction);
-
-    if (isLegalFunction === true) {
+    if (isLegalFunction) {
 
         movePiece(startStack, endStack);
 
         checkForWin();
 
-        if (checkForWin() === true) {
+        if (checkForWin()) {
             console.log('You won in ' + numberOfTurns + ' turns!');
-            return;
+            process.exit();
         } else {
 
             numberOfTurns++;
