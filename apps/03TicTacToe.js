@@ -32,35 +32,67 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    // Your code here
 
-    if ((board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X') || (board[1][0] === 'X' && board[1][1] === 'X' && board[1][2] === 'X') || (board[2][0] === 'X' && board[2][1] === 'X' && board[2][2] === 'X')) {
-        return true;
-    } else if ((board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O') || (board[1][0] === 'O' && board[1][1] === 'X' && board[1][2] === 'O') || (board[2][0] === 'O' && board[2][1] === 'O' && board[2][2] === 'O')) {
+    //loop through to check each row
+    function row(marker) {
+
+        var i = 0;
+        for (i = 0; i < 3; i++) {
+
+            var boardArray = [];
+
+            boardArray.push(board[i][0]);
+            boardArray.push(board[i][1]);
+            boardArray.push(board[i][2]);
+
+            if (boardArray[0] === marker && boardArray[1] === marker && boardArray[2] === marker) {
+                return true;
+            }
+        }
+    }
+
+    //check each row with the values
+
+    if (row('X') === true || row('O') === true) {
         return true;
     } else {
         return false;
     }
 
-
 }
 
 function verticalWin() {
-    // Your code here
 
-    if ((board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X') || (board[0][1] === 'X' && board[1][1] === 'X' && board[2][1] === 'X') || (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X')) {
-        return true;
-    } else if ((board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === 'O') || (board[0][1] === 'O' && board[1][1] === 'O' && board[2][1] === 'O') || (board[0][2] === 'O' && board[1][2] === 'O' && board[2][2] === 'O')) {
+
+    //loop through to check each column
+    function column(marker) {
+
+        var i = 0;
+        for (i = 0; i < 3; i++) {
+
+            var boardArray = [];
+
+            boardArray.push(board[0][i]);
+            boardArray.push(board[1][i]);
+            boardArray.push(board[2][i]);
+
+            if (boardArray[0] === marker && boardArray[1] === marker && boardArray[2] === marker) {
+                return true;
+            }
+        }
+    }
+
+    //check each column with the values
+
+    if (column('X') === true || column('O') === true) {
         return true;
     } else {
-        //return;
         return false;
     }
 
 }
 
 function diagonalWin() {
-    // Your code here
 
     if ((board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X') || (board[0][2] === 'X' && board[1][1] === 'X' && board[2][0] === 'X')) {
         return true;
@@ -74,7 +106,6 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-    // Your code here
 
     //run the horizontal, vertical, diagonal functions
 
