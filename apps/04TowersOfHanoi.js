@@ -63,7 +63,7 @@ function towersOfHanoi(startStack, endStack) {
         console.log("Maximum effort!");
       }
       else if (counter < 26) {
-        console.log("Almost There!");
+        console.log("You almost got a perfect score!");
       }
       else if (counter < 36) {
         console.log("Come on, you can do better!");
