@@ -14,27 +14,27 @@ function printStacks() {
     console.log("a: " + stacks.a);
     console.log("b: " + stacks.b);
     console.log("c: " + stacks.c);
-}
+};
 
 function movePiece() {
-    // Your code here
-
-}
+startStack = stacks.pop();
+endStack = stacks.push();
+};
 
 function isLegal() {
     // Your code here
 
-}
+};
 
 function checkForWin() {
     // Your code here
 
-}
+};
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
+    movePiece();
 
-}
+};
 
 function getPrompt() {
     printStacks();

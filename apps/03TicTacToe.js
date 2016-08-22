@@ -54,19 +54,19 @@ function diagonalWin() {
 
 function checkForWin() {
   if ((horizontalWin() === true) || (verticalWin() === true) || (diagonalWin() === true)) {
-   console.log ('Player' + playerTurn + 'won!');
+   console.log ('Player ' + playerTurn + 'won!');
  }
  else {
    return false;
  }
 
-};
+}
 
 function ticTacToe(row, column) {
 board[row][column] = playerTurn;
 playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 checkForWin();
-};
+}
 
 function getPrompt() {
     printBoard();
