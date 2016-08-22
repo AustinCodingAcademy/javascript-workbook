@@ -41,11 +41,13 @@ function checkForWin() {
     printStacks();
     console.log('YOU WON!');
     clearStacks();
+    return true;
   }
   else if  (stacks.c.length === 4){
     printStacks();
     console.log('YOU WON!');
     clearStacks();
+    return true;
   }
   else {
     return false;
