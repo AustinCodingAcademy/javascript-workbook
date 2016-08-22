@@ -52,7 +52,7 @@ while (whileLoopCounter < 10) {
 
 // Problem 7:
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
-var whileLoopArrayResult = [];
+var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // DO NOT MODIFY
 var forLoopArray = [];
@@ -63,7 +63,7 @@ for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
 
 // Problem 8:
 // Fill in forLoopArrayResult so that it matches forLoopArray
-var forLoopArrayResult = [];
+var forLoopArrayResult = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 
 // ****
 // Concept Checkpoint
@@ -71,7 +71,7 @@ var forLoopArrayResult = [];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-//
+// Loops are ways to run through a block of code until some type of condition is met, repeating an action a certain number of times (while it may be possible that the number of times is unknown-- in this case, a while loop is frequently used). We usually use them to iterate through code to find something, print something, etc.
 
 // ****
 // Tests
