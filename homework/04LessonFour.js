@@ -32,16 +32,16 @@ var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
-var bravestWarriors = bravestWarriors.shift();
-var bravestWarriors = bravestWarriors.pop();
+bravestWarriors.shift();
+bravestWarriors.pop();
 
 
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-var fruit = fruit.unshift('banana');
-var fruit = fruit.push('mango');
+fruit.unshift('banana');
+fruit.push('mango');
 // ****
 // Objects (Associative Arrays)
 // ****
@@ -57,10 +57,10 @@ var emptyObject = {};
 // 3) name:         'bob'
 // 4) number:       42
 var problemEightObject = {
-	emptyObject : {};
-	emptyArray : [];
-	name : 'bob';
-	number : '42';
+	emptyObject : {},
+	emptyArray : [],
+	name : 'bob',
+	number : 42
 };
 
 // Problem 9:
@@ -99,7 +99,7 @@ nestedObjects['users'] ['bob roberts'] ['starring'] = 'Tim Robbins';
 // What is an associative array? What is the difference between an array and an associative array?
 //
 // Your Answer Goes Here:
-// An associative array is an Object. It is
+// An associative array is an Object. It is an abstract data type composed of a collection of (key, value) pairs, such that each possible key appears at most once in the collection.
 //
 
 // ****
