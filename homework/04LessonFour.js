@@ -105,8 +105,8 @@ nestedObjects['users']['bob roberts']['starring'] = 'Tim Robbins';
 // an asssociative arrray or object, is not structured nor called the same way as an array...
               // var arrTwo = {
               //   'key1': 'value 1',
-              //    arr: [3, 6, 9],  
-            }
+              //    arr: [3, 6, 9],
+          //  }
 //
 
 // ****
