@@ -5,7 +5,7 @@ module.exports = {
   'Check for empty board with 9 cells' : function (browser) {
     session = browser;
     session
-    .url('http://127.0.0.1:8080/apps/07tic-tac-toe/')
+    .url('http://127.0.0.1:8080/apps/07jquery-tic-tac-toe/')
     .waitForElementVisible('body', 1000)
     .elements('css selector', '[data-cell]', function(cells) {
       assert.equal(cells.value.length, 9);
