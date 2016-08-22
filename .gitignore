@@ -1,2 +1,4 @@
 node_modules
-bundle.js*
+tests_output
+selenium-debug.log
+npm-debug.log

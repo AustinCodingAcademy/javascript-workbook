@@ -1,7 +1,7 @@
 {
-  "name": "frontend-intermediate-workbook",
+  "name": "intermediate-workbook",
   "version": "1.0.0",
-  "description": "Workbook for Austin Coding Academy Intermediate Course",
+  "description": "Workbook for Austin Coding Academy JavaScript Course",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AustinCodingAcademy/intermediate-workbook.git"
@@ -19,6 +19,9 @@
     "prompt": "^0.2.14"
   },
   "devDependencies": {
-    "mocha": "^2.4.5"
+    "chromedriver": "^2.23.1",
+    "mocha": "^2.4.5",
+    "nightwatch": "^0.9.7",
+    "selenium-server-standalone-jar": "^2.53.1"
   }
 }
