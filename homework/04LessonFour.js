@@ -57,8 +57,8 @@ var emptyObject = {};
 // 3) name:         'bob'
 // 4) number:       42
 var problemEightObject = {
-	emptyObject : {}
-	emptyArray : []
+	emptyObject : {};
+	emptyArray : [];
 	name : 'bob';
 	number : '42';
 };

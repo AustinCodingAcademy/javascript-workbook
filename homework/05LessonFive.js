@@ -72,7 +72,8 @@ var forLoopArrayResult = [-1, -2, -3, -4, -5, -6, -7, -8, -9];
 //
 // What are loops? Why do we use them?
 //
-//    Loops will do an action over and over until it is told to stop
+//    Loops will do an action over and over until it is told to stop. 
+//    We use loops to itterate or parse over numbers, object, arrays
 
 // ****
 // Tests
