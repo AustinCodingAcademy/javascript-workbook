@@ -38,19 +38,20 @@ function generateHint(solution, guess) {
     };
     var correctLetters = 0;
     for (var i=0; i < 4; i++) {
-	     var targetIndex = solutionArray.indexOf(guessArray[i])
+	     var targetIndex = solutionArray.indexOf(guessArray[i]);
 //detect if the letter in guessArray matches a letter in solutionArray.  If it does,
 //add to correctLetters and set the index to null.
 	   if (targetIndex > -1) {
 		    correctLetters ++ ;
-		    targetIndex = null;
+		    solutionArray[solutionArray.indexOf(guessArray[i])] = null;
 	    }
     }
     return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
 }
 
 function mastermind(guess) {
-    if (solution === guess){
+  solution = 'abcd';
+    if (solution === guess) {
 //not console.log the string?
       return "You guessed it!";
     }
