@@ -17,11 +17,6 @@ function printStacks() {
 };
 
 
-function movePiece(startStack, endStack) {
-    var piece = stacks[startStack].pop();
-    stacks[endStack].push(piece);
-};
-
 function isLegal(startStack, endStack) {
     var startStackArray = stacks[startStack];
     var endStackArray = stacks[endStack];
@@ -46,7 +41,8 @@ function checkForWin() {
 };
 
 function towersOfHanoi(startStack, endStack) {
-
+  var piece = stacks[startStack].pop();
+  stacks[endStack].push(piece);
 
 };
 
