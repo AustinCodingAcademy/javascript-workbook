@@ -3,15 +3,20 @@
 var assert = require('assert');
 var colors = require('colors/safe');
 var prompt = require('prompt');
+var colors = require('colors/safe');
+
 prompt.start();
 
-var board = [];
 var solution = '';
+var board = [];
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+//Set a global variable to tell if the player has won
+var win = false;
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+        console.log(board[i]);
     }
 }
 
@@ -26,20 +31,69 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
     // your code here
-}
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+    var i = 0;
+    var targetIndex = 0;
+
+    //How many correct letters are also in the correct location?
+    for (i = 0; i < 4; i++){
+      if (solutionArray[i] === guessArray[i]) {
+        correctLetterLocations++;
+        solutionArray[i] = null;
+      }
+    }
+
+    //console.log('Guess array is now: ' + guessArray);
+    //console.log('Solution arrary is now: ' + solutionArray);
+
+    //How many correct letters were guessed?
+    for (i = 0; i < 4; i++) {
+      //console.log('Guess array is at: ' + guessArray[i]);
+      //console.log('Solution array is at: ' + solutionArray[i]);
+      targetIndex = solutionArray.indexOf(guessArray[i]);
+      //console.log('SolutionArrary.indexOf is: ' + solutionArray.indexOf(guessArray[i]));
+      if ( targetIndex > -1) {
+        correctLetters++;
+        solutionArray[targetIndex] = null;
+        }
+    }
+
+    // I get an error with the Mocha tests when returning a string that
+    // has been modified with colors!
+
+    return correctLetterLocations + "-" + correctLetters;
+
+}//end generateHint()
 
 function mastermind(guess) {
-    // your code here
+    solution = 'abcd';
+    var hint = '';
+
+    // Spec 1: check for the correct solution
+    if (guess === solution) {
+      win = true;
+      return 'You guessed it!';
+    }
+    else {
+      // Spec 2: Generate a hint
+      hint = generateHint(solution, guess);
+      board.push(guess + hint);
+    }
 }
 
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
         console.log( mastermind(result['guess']) );
-        printBoard();
-        getPrompt();
+        if (!win) {
+          printBoard();
+          getPrompt();
+        }
     });
 }
 
@@ -67,7 +121,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
