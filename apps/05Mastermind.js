@@ -26,12 +26,18 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+
 }
 
 function mastermind(guess) {
-    // your code here
+if (guess === solution) {
+  console.log ('You guessed it!');
+  return true;
+} else {
+  generateHint();
+  return false;
+}
 }
 
 
@@ -67,7 +73,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
