@@ -7,39 +7,79 @@ prompt.start();
 
 var board = [];
 var solution = '';
+var guess = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
-function printBoard() {
+function printBoard(hint, guess) {
     for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+        console.log(board[i]);
     }
-}
+        board.push(hint, guess);
+};
 
 function generateSolution() {
     for (var i = 0; i < 4; i++) {
         var randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
     }
-}
+};
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
-function generateHint() {
+function generateHint(solution, guess) {
     // your code here
-}
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+
+    for (var i = 0; i < solutionArray.length; i++) {
+      if (solutionArray[i] === guessArray[i]) {
+        correctLetterLocations++;
+        solutionArray[i] = null;
+      }
+    }
+    var correctLetters = 0;
+    for (var j = 0; j < solutionArray.length; j++) {
+      if (guessArray.indexOf(solutionArray[j])) {
+        var targetIndex = guessArray.indexOf(solutionArray[j]);
+        if (targetIndex > -1) {
+          solutionArray[j] = null;
+          correctLetters++;
+        }
+      }
+    }
+
+    var hint = correctLetterLocations + '-' + correctLetters;
+    return hint;
+};
 
 function mastermind(guess) {
     // your code here
-}
+    if (guess === solution) {
+      return 'You guessed it!';
+    }
+    else {
+      board += 1;
+      return generateHint(solution, guess);
+    }
+};
 
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
-        console.log( mastermind(result['guess']) );
-        printBoard();
-        getPrompt();
+        var hint = mastermind(result['guess']);
+        console.log(hint);
+        if (board.length >= 10) {
+          console.log('You are out of turns! The answer was ' + solution)
+        }
+        else {
+          if (!(hint === 'You guessed it!')) {
+            console.log('Guess again');
+            getPrompt();
+          }
+        }
     });
 }
 
@@ -67,7 +107,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
