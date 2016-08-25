@@ -40,11 +40,11 @@ function generateHint(solution, guess) {
       }
     }
     var correctLetters = 0;
-    for (var j = 0; j < solutionArray.length; j++) {
-      if (guessArray.indexOf(solutionArray[j])) {
-        var targetIndex = guessArray.indexOf(solutionArray[j]);
+    for (var i = 0; i < solutionArray.length; i++) {
+      if (guessArray.indexOf(solutionArray[i])) {
+        var targetIndex = guessArray.indexOf(solutionArray[i]);
         if (targetIndex > -1) {
-          solutionArray[j] = null;
+          solutionArray[i] = null;
           correctLetters++;
         }
       }
@@ -56,12 +56,14 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
     // your code here
-    if (guess === solution) {
-      return 'You guessed it!';
-    }
-    else {
-      board += 1;
-      return generateHint(solution, guess);
+    if (board.length < 10) {
+      if (guess === solution) {
+        return 'You guessed it!';
+      }
+      else {
+        board += 1;
+        return generateHint(solution, guess);
+      }
     }
 };
 
