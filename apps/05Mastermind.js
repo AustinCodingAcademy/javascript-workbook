@@ -31,19 +31,43 @@ function generateHint(solution, guess) {
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
 
+  for (var i = 0; i < solutionArray.length; i++) {
+    if(solutionArray[i]=== guessArray[i]){
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+    var correctLetters = 0;
+
+    for (var i = 0; i < solutionArray.length; i++) {
+      var targetIndex = solutionArray.indexOf(guessArray[i]);
+      if(targetIndex > -1){
+        correctLetters++;
+        solutionArray[targetIndex]=null;
+      }
+    }
+    return correctLetterLocations.toString()+ '-' + correctLetters.toString();
 
 }
 
 function mastermind(guess) {
     solution= 'abcd';
-    if(guess === solution){
-      return 'You guessed if!';
-    }
-    else {
-      return false;
-    }
-}
 
+    if(guess === solution){
+      return 'You guessed it!';
+    }
+
+    var hint = generateHint(solution, guess);
+     board.push(guess + '-' + hint);
+
+     if (board.length === 10){
+       return 'You ran out of turns! The solution was' + solution;
+     }
+      else {
+        return 'Guess again';
+      }
+    }
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
