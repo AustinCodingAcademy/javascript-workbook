@@ -1,9 +1,8 @@
 'use strict';
 
 var assert = require('assert');
-var colors = require('colors/safe');
 var prompt = require('prompt');
-var colors = require('colors/safe');
+// var colors = require('colors/safe');
 
 prompt.start();
 
@@ -48,15 +47,10 @@ function generateHint(solution, guess) {
       }
     }
 
-    //console.log('Guess array is now: ' + guessArray);
-    //console.log('Solution arrary is now: ' + solutionArray);
-
     //How many correct letters were guessed?
     for (i = 0; i < 4; i++) {
-      //console.log('Guess array is at: ' + guessArray[i]);
-      //console.log('Solution array is at: ' + solutionArray[i]);
       targetIndex = solutionArray.indexOf(guessArray[i]);
-      //console.log('SolutionArrary.indexOf is: ' + solutionArray.indexOf(guessArray[i]));
+
       if ( targetIndex > -1) {
         correctLetters++;
         solutionArray[targetIndex] = null;
@@ -64,7 +58,7 @@ function generateHint(solution, guess) {
     }
 
     // I get an error with the Mocha tests when returning a string that
-    // has been modified with colors!
+    // has been modified with colors, so no colors for you!
 
     return correctLetterLocations + "-" + correctLetters;
 
@@ -77,7 +71,6 @@ function mastermind(guess) {
     // Spec 1: check for the correct solution
     if (guess === solution) {
       win = true;
-      return 'You guessed it!';
     }
     else {
       // Spec 2: Generate a hint
@@ -89,10 +82,21 @@ function mastermind(guess) {
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
-        console.log( mastermind(result['guess']) );
+        mastermind(result['guess']);
         if (!win) {
-          printBoard();
-          getPrompt();
+          //The player gets 10 turns to guess
+          if (board.length < 11) {
+            printBoard();
+            console.log("Guess again!");
+            getPrompt();
+          }
+          else {
+            console.log("You ran out of turns!");
+            console.log("The solution was: " + solution);
+          }
+        }
+        else {
+          console.log('You guessed it!');
         }
     });
 }
