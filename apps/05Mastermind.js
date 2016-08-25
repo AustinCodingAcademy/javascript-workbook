@@ -35,9 +35,12 @@ function generateHint(solution,guess) {
     var guessArray = guess.split('');
     var correctLetterLocations = 0;
     var correctLetters = 0
+    var i;
+
+    console.log(solutionArray);
 
     // a for loop is created to show iterate through the solution to see if any guesses match the solution.
-    for (i = 0, i < solutionArray.length, i++) {
+    for (i = 0; i < solutionArray.length; i++) {
       if (solutionArray[i] === guessArray[i]) {
         solutionArray[i] = null;
         correctLetterLocations++;
@@ -45,19 +48,33 @@ function generateHint(solution,guess) {
     }
 
     // using indexof to determine if there are correct letters in the guess.
-    for (i = 0, i < solutionArray.length, i++) {
-      var targetIndex = solutionArray.indexof(guessArray[i])
+    for (i = 0; i < solutionArray.length; i++) {
+      var targetIndex = solutionArray.indexOf(guessArray[i])
       if (targetIndex > -1) {
         correctLetters++;
         solutionArray[targetIndex] = null;
       }
     }
+
+    return (correctLetterLocations) + '-' + (correctLetters);
 }
 
 function mastermind(guess) {
   if (guess === solution) {
-    console.log('Congrats son, you guessed it.')
+    return 'You guessed it!';
   }
+  else {
+    var hint = generateHint(solution, guess);
+  }
+  board.push(guess + ' ' + hint);
+
+  if (board.length === 10) {
+    return 'You ran out of turns! The solution was ' + solution;
+  }
+  else {
+    return 'Guess again';
+  }
+
 }
 
 
