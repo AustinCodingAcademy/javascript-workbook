@@ -7,7 +7,6 @@ prompt.start();
 
 var board = [];
 var solution = '';
-var guess = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard(hint, guess) {
