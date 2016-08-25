@@ -9,6 +9,7 @@ var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
     console.log(board[i])
@@ -52,7 +53,7 @@ function generateHint(solution, guess) {
   return correctLetterLocations.toString() + '-' + correctLetters.toString();
 }
 
-// var coloredC = colors.red('hi')
+
 
 function mastermind(guess) {
 
@@ -62,7 +63,7 @@ function mastermind(guess) {
   }
   var hint = generateHint(solution, guess);
   board.push(guess + ' ' + hint);
-  if (board.length === 10) {
+  if (board.length >= 10) {
     return 'You ran out of turns! The solution was ' + solution;
   }
   else {
