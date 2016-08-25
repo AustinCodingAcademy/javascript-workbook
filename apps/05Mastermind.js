@@ -47,6 +47,7 @@ function generateHint(solution, guess) {
         solutionArray[targetIndex]=null;
       }
     }
+
     return correctLetterLocations.toString()+ '-' + correctLetters.toString();
 
 }
@@ -61,13 +62,13 @@ function mastermind(guess) {
     var hint = generateHint(solution, guess);
      board.push(guess + '-' + hint);
 
-     if (board.length === 10){
+     if (board.length <= 10){
        return 'You ran out of turns! The solution was' + solution;
      }
-      else {
+     else {
         return 'Guess again';
       }
-    }
+  }
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
