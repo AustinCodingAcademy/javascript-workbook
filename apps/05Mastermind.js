@@ -62,7 +62,7 @@ function mastermind(guess) {
     var hint = generateHint(solution, guess);
      board.push(guess + '-' + hint);
 
-     if (board.length <= 10){
+     if (board.length >= 10){
        return 'You ran out of turns! The solution was' + solution;
      }
      else {
