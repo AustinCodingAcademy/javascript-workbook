@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var colors = require('colors/safe');
+// var colors = require('colors/safe');
 var prompt = require('prompt');
 var hint="";
 
@@ -10,12 +10,10 @@ prompt.start();
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-var trys=0;
-// var solution = 'abcd';
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+        console.log(board[i]);
     }
 }
 
@@ -31,6 +29,7 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, gess) {
+
     var solutionArray = [];
     var guessArray = [];
     var correctLetterLocations = 0;
@@ -46,7 +45,6 @@ function generateHint(solution, gess) {
         guessArray[i] = '';
       }
     }
-    // console.log("------>solutionArray:"+solutionArray);
     for (var i=0; i<4;i++){
       targetIndex = solutionArray.indexOf(guessArray[i]);
       if (targetIndex>-1){
@@ -58,21 +56,20 @@ function generateHint(solution, gess) {
 }
 
 function mastermind(guess) {
-
+    var win = "";
     if (guess === solution) {
-      return "You guessed it!";
+      win = "You guessed it!" ;
     } else {
       board[board.length] = guess;
-      return generateHint(solution, guess);
+      win = generateHint(solution, guess);
     }
+    return win;
 }
 
 function getPrompt() {
-
     prompt.get(['guess'], function (error, result) {
-        // console.log(solution) ;
+        console.log(solution) ;
         hint = mastermind(result['guess']);
-        // printBoard();
         console.log(hint) ;
         if (board.length>=10) {
           console.log('You ran out of turns! The solution was '+solution);
@@ -82,15 +79,13 @@ function getPrompt() {
             getPrompt();
           }
         }
-
     });
-
 }
 
 // Tests
 
 if (typeof describe !== 'undefined') {
-
+console.log("in tests???");
     describe('#mastermind()', function () {
         it('should register a guess and generate hints', function () {
             solution = 'abcd';
@@ -113,7 +108,6 @@ if (typeof describe !== 'undefined') {
     });
 
 } else {
-
     generateSolution();
     getPrompt();
 }
