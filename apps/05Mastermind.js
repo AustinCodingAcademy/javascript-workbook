@@ -30,32 +30,26 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
   // your code here
-  var solutionArray = solution.split("");
-  var guessArray = guess.split("");
-  var correctLetterLocations = 0;
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
+    var correctLetterLocations = 0;
   // determine correct letter location
-  for(var i=0; i<=3; i++){
-    if(guessArray[i] === solutionArray[i]){
-      correctLetterLocations++;
-      solutionArray[i] = null;
-      //        return correctLetterLocations;
+    for(var i=0; i<=3; i++){
+        if(guessArray[i] === solutionArray[i]){
+          correctLetterLocations++;
+          solutionArray[i] = null;
+        }
     }
-  }
   // determine correct letters
-  var correctLetters = 0;
-
-  // for if solution i
-  //    correctLetters
-  //for(var )
-
-  for(var j=0; j<=solutionArray.length; j++){
-
-    var targetIndex = guessArray.indexOf(solutionArray[j]);
+    var correctLetters = 0;
+    for(var j=0; j<=solutionArray.length; j++){
+      var targetIndex = guessArray.indexOf(solutionArray[j]);
   //  console.log(targetIndex);
-    if(targetIndex > -1){
-      correctLetters++;
-      solutionArray[j] = null;
-    }
+        if(targetIndex > -1){
+        correctLetters++;
+        solutionArray[j] = null;
+        // solutionArray[targetIndex]
+      }
   }
   hint = correctLetterLocations + "-" + correctLetters;
   return hint;
@@ -64,6 +58,7 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
   // your code here
+  //if (board.length <= 10){  }
   if(guess === solution){
       console.log('You guessed it!');
       var hint = generateHint(solution, guess);
