@@ -45,8 +45,8 @@ function generateHint(solution, guess) {
         solutionArray[i] = null;
       }
     }
-    return correctLetterLocations+ '-' + correctLetters;
-    //return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+  return correctLetterLocations+ '-' + correctLetters;
+  //  return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
     //NOTE: colors do not work when running mocha
 }
 
