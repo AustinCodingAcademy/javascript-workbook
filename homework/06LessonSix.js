@@ -13,7 +13,8 @@ var assert = require('assert');
 // in two dimensional space.
 var point = {
 };
-
+  point['x'] = 1;
+  point['y'] = 2;
 // Problem 2:
 // Fill in this Point constructor function so that it defines
 // a class of points with properties x and y.
@@ -21,13 +22,19 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
-}
+  this.x = 4;
+  this.y = 4;
+};
 
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint;
+var anotherPoint = new Point();
+  anotherPoint.x = 5;
+  anotherPoint.y = -3;
+
+// Why did var anotherPoint = new Point(5, -3); not pass the test? This is a correct way to add elements to the Point function, right?
 
 // ****
 // Concept Checkpoint
@@ -37,7 +44,7 @@ var anotherPoint;
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
 //
-//
+// anotherPoint is an empty object (when it doesn't have properties), belonging to the Point class. anotherPoint was constructed using constructor notation to be a new object within the larger Point object.
 
 // ****
 // Methods
@@ -76,11 +83,14 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi = function(name) {
+    return "Hi, I'm " + this.name + "!";
+  }
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
+var jen = new Person('Jen');
 
 // Problem 6:
 // add jen to the conferenceRoom
@@ -88,7 +98,7 @@ var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
-
+  conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
@@ -96,7 +106,7 @@ var conferenceRoom = new ConferenceRoom();
 // Write your answer in comments
 //
 // What is a method?
-//
+//  It is a function that executes some sort of action, housed in (or associated with) an object or associative array.
 //
 
 // ****
