@@ -10,9 +10,11 @@ var solution = "";
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
+  var toPrint;
   for (var i = 0; i < board.length; i++) {
-    console.log(board[i])
+    toPrint = board[i];
   }
+  console.log(toPrint);
 }
 
 function generateSolution() {
@@ -53,17 +55,22 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
   // your code here
-	var hint = generateHint(solution, guess);
-	board.push(guess + ":" + hint);
+  console.log(solution);
+  var hint;
 
   if (guess === solution) {
-    return ('You guessed it!');
+    hint = generateHint(solution, guess);
+    console.log(hint);
+    return ('You guessed it: ' + solution);
   }
 
-	if(board.length === 10){
+
+ if(board.length === 10){
 		return 'You ran out of turns! The solution was ' + solution;
 	}
 	else{
+    hint = generateHint(solution, guess);
+    board.push(guess + ":" + hint);
 		return 'Guess again';
 	}
 
