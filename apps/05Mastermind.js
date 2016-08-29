@@ -38,7 +38,7 @@ function getRandomInt(min, max) {
 function generateHint(guess, solution) {
 
     console.log('solution is ' + solution);
-    //console.log('the solution length is ' + solutionLength);
+
     var guessArray = guess.split('');
     var solutionArray = solution.split('');
 
@@ -50,8 +50,6 @@ function generateHint(guess, solution) {
 
     for (var i = 0; i <= (solutionLength - 1); i++) {
 
-        //console.log('correct letter locations = ' + correctLetterLocations + ' and arrays look like = ' + guessArray[i] + ' ' + solutionArray[i]);
-
         if (guessArray[i] === solutionArray[i]) {
             correctLetterLocations++;
             guessArray[i] = null;
@@ -59,9 +57,6 @@ function generateHint(guess, solution) {
         }
 
     }
-    //console.log('correct letter locations = ' + correctLetterLocations);
-
-    //console.log('guessArray = ' + guessArray + ' and solutionArray = ' + solutionArray);
 
     var correctLetters = 0;
 
@@ -79,7 +74,10 @@ function generateHint(guess, solution) {
     //we don't want to double count the correct letter positions, so we subtract that number out
     correctLetters = correctLetters - correctLetterLocations;
 
-    hint = colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+    //commenting out the colors since it was making my tests not pass.
+    //hint = colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+
+    hint = correctLetterLocations + '-' + correctLetters;
 
     return hint;
 
@@ -90,7 +88,6 @@ function mastermind(guess) {
 
     //first check to see if they guessed correctly; if so, then they win!
     //if they did not guess it correctly, then you need to generate a hint
-    //console.log('solution is ' + solution);
 
     //advance the number of guesses by 1
     numberOfGuesses++;
@@ -100,14 +97,16 @@ function mastermind(guess) {
     if (numberOfGuesses < 10) {
 
         if (guess === solution) {
+
+            //I had fancier code here to customize the response if they guessed in 1 try - but returning anything other than "You guessed it!" means it wouldn't pass the test.  So I am not using this code right now.
             if (numberOfGuesses === 1) {
                 return 'You guessed it!';
                 //console.log('You won in ' + numberOfGuesses + ' guess!  Amazing - you must be a mind reader!');
-                //process.exit();
+                process.exit();
             } else {
                 return 'You guessed it!';
                 //console.log('You won in ' + numberOfGuesses + ' guesses!  Good job!');
-                //process.exit();
+                process.exit();
             }
         } else {
             //carry on with game
@@ -115,11 +114,10 @@ function mastermind(guess) {
             generateHint(guess, solution);
             console.log('Guess again.');
             return board.push(guess + ' ' + hint);
-            //return 'Guess again.';
         }
     } else {
         return 'You ran out of turns! The solution was ' + solution;
-        //process.exit();
+        process.exit();
     }
 
 }
