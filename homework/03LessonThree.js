@@ -42,7 +42,7 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//where variables is accessible from for a function.
+//where variables are accessible from for a function.
 //
 
 
