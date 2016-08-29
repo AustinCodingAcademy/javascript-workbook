@@ -26,12 +26,31 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
     // your code here
-}
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    for (var i = 0; guessArray[i] === solutionArray[i]; i++) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+
 
 function mastermind(guess) {
     // your code here
+
+    solution = 'abcd';
+
+    if (guess === solution) {
+      return ('You guessed it!')
+    }
+
+    else {
+      return ('you are wrong bro!')
+    }
 }
 
 
@@ -67,9 +86,9 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
     getPrompt();
-}
+  }
