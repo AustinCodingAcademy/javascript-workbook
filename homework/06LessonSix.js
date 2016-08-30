@@ -44,7 +44,7 @@ var anotherPoint = new Point();
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
 //
-// anotherPoint is an empty object (when it doesn't have properties), belonging to the Point class. anotherPoint was constructed using constructor notation to be a new object within the larger Point object.
+// anotherPoint is an empty object (when it doesn't have properties), belonging to the Point class. anotherPoint was constructed using constructor notation to be an instance of the Point object.
 
 // ****
 // Methods
