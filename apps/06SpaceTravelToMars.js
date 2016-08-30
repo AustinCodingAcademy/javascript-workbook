@@ -9,7 +9,29 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.enterShip = function(CrewMember) {
+    this.crew.push(CrewMember);
+  }
+}
+
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+crewMember1.enterShip(mav);
+
 
 //tests
 if (typeof describe !== 'undefined'){
