@@ -4,10 +4,17 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
-function Checker() {
-    // Your code here
+function Checker(color) {
+  if (color === 'white')  {
+    this.symbol = String.fromCharCode(0x125CB);
+    return this.symbol;
+  }
+  else {
+    this.symbol = String.fromCharCode(0x125CF);
+    return this.symbol;
+  }
 }
+
 
 function Board() {
     this.grid = [];
@@ -21,7 +28,7 @@ function Board() {
                 this.grid[row].push(null);
             }
         }
-    }
+    };
 
     // prints out the board
     this.viewGrid = function() {
@@ -47,9 +54,48 @@ function Board() {
             string += "\n";
         }
         console.log(string);
-    }
+    };
 
-    // Your code here
+
+
+    this.checkers = [];
+
+
+    this.createCheckers = function () {
+      var whitePositions = new Checker('white');
+      var blackPositions = new Checker('black');
+      // var whitePositions = this.grid[row][column];
+      for (var x = 0; x <= 2; x++)  {
+        for (var y = 1; y <= 7; y+2)  {
+
+          // return whitePositions;
+          if (x === 1)  {
+            // whitePositions = [x][y-x];
+            this.grid[x][y-x] = Checker(whitePositions);
+          }
+          else {
+            // whitePositions = [x][y];
+            this.grid[x][y] = Checker(whitePositions);
+          }
+        }
+      }
+
+      for (var a = 5; a <= 7; a++)  {
+        for (var b = 1; b <= 7; b+2)  {
+
+
+          if (a === 6)  {
+            // blackPositions = [a][b];
+            this.grid[a][b] = Checker(blackPositions);
+          }
+          else {
+            // blackPositions = [a][b-1];
+            this.grid[a][b-1] = Checker(blackPositions);
+          }
+        }
+      }
+
+    };
 }
 function Game() {
 
@@ -57,8 +103,8 @@ function Game() {
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
-    }
+        this.board.createCheckers();
+    };
 }
 
 function getPrompt() {
