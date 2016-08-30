@@ -54,7 +54,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player X Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player x wins!');
         });
 
         it('should detect a win in row 2', function () {
@@ -62,7 +62,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player O Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player o wins!');
         });
 
         it('should detect a win in row 3', function () {
@@ -70,7 +70,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player X Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player x wins!');
         });
     });
 
@@ -80,7 +80,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player X Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player x wins!');
         });
 
         it('should detect a win in column 2', function () {
@@ -88,7 +88,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player O Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player o wins!');
         });
 
         it('should detect a win in column 3', function () {
@@ -96,7 +96,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player X Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player x wins!');
         });
     });
 
@@ -106,7 +106,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player X Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player x wins!');
         });
 
         it('should detect an upward diagonal win', function () {
@@ -114,7 +114,7 @@ describe('detect a win', function () {
                 $('div[data-cell=' + cellNumbers.x + ']').click();
                 $('div[data-cell=' + cellNumbers.o + ']').click();
             });
-            assert.equal($('#announce-winner').text(), 'Player O Wins!');
+            assert.equal($('#announce-winner').text().toLowerCase(), 'player o wins!');
         });
     });
 });
