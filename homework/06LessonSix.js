@@ -6,7 +6,6 @@ var assert = require('assert');
 // Are you down with OOP?
 // ****
 
-
 // Problem 1:
 // Associative Array Refresh
 // Add properties x: 1, y: 2 to point to make it a point
@@ -38,7 +37,8 @@ var anotherPoint = new Point(5, -3);
 //
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
-//Point is a constructor fuction that creates an object with keys and associated values whereas anotherPoint is a variable of type Point which when created makes a new array of the type Point.
+//
+//Point is a constructor fuction that creates an object with keys and associated //values whereas anotherPoint is a variable of type Point which when created makes //a new array of the type Point.
 //
 
 // ****
@@ -101,6 +101,7 @@ conferenceRoom.enter(jen);
 // Write your answer in comments
 //
 // What is a method?
+//
 //Methods are functions that can be performed on objects.
 //
 
