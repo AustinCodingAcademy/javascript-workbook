@@ -16,7 +16,6 @@ var six   = 6;
 
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
-<<<<<<< HEAD
 var onePlusPlus = 2;
 
 // Problem 2:
@@ -38,7 +37,6 @@ var fiveMultiplicationAssignmentTwo = 10;
 // Problem 6:
 // What is the result of six /= 3?
 var sixDivisionAssignmentThree = 2;
-=======
 var onePlusPlus;
 
 // Problem 2:
@@ -60,7 +58,7 @@ var fiveMultiplicationAssignmentTwo;
 // Problem 6:
 // What is the result of six /= 3?
 var sixDivisionAssignmentThree;
->>>>>>> 8c471f3e1bb34b47030fc085ac84df9293f9c902
+
 
 // ****
 // Loops
@@ -76,11 +74,9 @@ while (whileLoopCounter < 10) {
 
 // Problem 7:
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
-<<<<<<< HEAD
+
 var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-=======
-var whileLoopArrayResult = [];
->>>>>>> 8c471f3e1bb34b47030fc085ac84df9293f9c902
+
 
 // DO NOT MODIFY
 var forLoopArray = [];
@@ -91,11 +87,9 @@ for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
 
 // Problem 8:
 // Fill in forLoopArrayResult so that it matches forLoopArray
-<<<<<<< HEAD
+
 var forLoopArrayResult = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
-=======
-var forLoopArrayResult = [];
->>>>>>> 8c471f3e1bb34b47030fc085ac84df9293f9c902
+
 
 // ****
 // Concept Checkpoint
@@ -103,11 +97,11 @@ var forLoopArrayResult = [];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-<<<<<<< HEAD
+
 // Loops are bits of code that are iterated over while specific conditions are met.
-=======
+
 //
->>>>>>> 8c471f3e1bb34b47030fc085ac84df9293f9c902
+
 
 // ****
 // Tests
