@@ -19,6 +19,7 @@
     "prompt": "^0.2.14"
   },
   "devDependencies": {
+    "jsdom": "^9.4.2",
     "mocha": "^2.4.5"
   }
 }
