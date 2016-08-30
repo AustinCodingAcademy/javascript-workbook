@@ -14,6 +14,9 @@ function CrewMember(name, job, specialSkill){
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
+  this.enterShip = function(crewmember) {
+    this.crew.push(crewmember);
+  }
 }
 
 function Ship(name, type, ability) {
@@ -21,9 +24,6 @@ function Ship(name, type, ability) {
   this.type = type;
   this.ability = ability;
   this.crew = [];
-  this.enterShip = function(CrewMember) {
-    this.crew.push(CrewMember);
-  }
 }
 
 
