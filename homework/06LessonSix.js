@@ -43,7 +43,7 @@ anotherPoint.y = -3;
 //
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
-//
+// 
 //
 
 // ****
@@ -107,7 +107,8 @@ conferenceRoom.enter(jen);
 // Write your answer in comments
 //
 // What is a method?
-//
+// A Method is a function associated with an Object (a Constructor Function or Class)
+// and a Method function has access to the data present in its Construction function.
 //
 
 // ****
