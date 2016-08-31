@@ -18,9 +18,11 @@ beforeEach(function (done) {
         '../../vendor/jquery.js',
         './script.js'
       ],
-      virtualConsole: virtualConsole,
-      done: function (err, jsdomWindow) {
-        if (err) throw err;
+      virtualConsole,
+      done(err, jsdomWindow) {
+        if (err) {
+          throw err;
+        }
         document = jsdomWindow.document;
         $ = jsdomWindow.$;
         window = jsdomWindow;
