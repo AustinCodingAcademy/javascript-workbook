@@ -22,9 +22,6 @@ beforeEach(function (done) {
                 if (err) throw err;
                 document = window.document;
                 $ = window.$;
-                $(document).on('ready', function () {
-                    done();
-                });
             }
         }
     );
