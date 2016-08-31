@@ -9,6 +9,43 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+
+  this.enterShip = function(shipName) {
+    this.ship = shipName;
+    this.ship.crew.push(this);
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+}
+
+// NEED TO FINISH SPEC 4
+Ship.prototype.missionStatement = function() {
+  if (this.crew.length > 0) {
+    // If any of the crew in the crew array
+    // have a this.job
+    // that matches the jobType of the ship's this.type
+
+    // Return this ship's ability if there is a crew member that has a correct
+    // job that matches the ship type */
+    return this.ability;
+  }
+  else {
+    // If none of the ship's crew has the correct job that matches this ship type
+    // we will return "Can't perform a mission yet."
+    return "Can't perform a mission yet.";
+  }
+}
 // Your code here
 
 //tests
