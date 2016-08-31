@@ -1,4 +1,4 @@
-var jsdom = require("jsdom");
+var jsdom = require('jsdom');
 var assert = require('assert');
 
 // send browser log statements to node console
@@ -15,8 +15,8 @@ beforeEach(function (done) {
     {
       file: './homework/07LessonSeven/index.html',
       scripts: [
-        "../../vendor/jquery.js",
-        "./script.js"
+        '../../vendor/jquery.js',
+        './script.js'
       ],
       virtualConsole: virtualConsole,
       done: function (err, jsdomWindow) {
@@ -101,7 +101,7 @@ describe('Lesson 7 Homework', function () {
 
     describe('Problem 9: #insert-text', function () {
       it('should have inserted "Text Has Been Inserted" into #insert-text', function () {
-        assert.equal($('#insert-text').text(), "Text Has Been Inserted");
+        assert.equal($('#insert-text').text(), 'Text Has Been Inserted');
       });
     });
 

@@ -1,4 +1,4 @@
-var jsdom = require("jsdom");
+var jsdom = require('jsdom');
 var assert = require('assert');
 
 // send browser log statements to node console
@@ -14,8 +14,8 @@ beforeEach(function (done) {
         {
             file: './apps/07jquery-tic-tac-toe/index.html',
             scripts: [
-                "../../vendor/jquery.js",
-                "./script.js"
+                '../../vendor/jquery.js',
+                './script.js'
             ],
             virtualConsole: virtualConsole,
             done: function (err, window) {
