@@ -14,6 +14,8 @@ function CrewMember(name, job, specialSkill){
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
+  // added the enter ship method for the crew members to board the ship.  Takes ship and calls the
+  // the addCrewMember method and takes ship.
   this.enterShip = function(ship) {
     this.ship = ship;
     ship.addCrewMember(this);
@@ -25,9 +27,14 @@ function Ship(name, type, ability) {
   this.type = type;
   this.ability = ability;
   this.crew = [];
+  // Here we are simply creating a method to push a new crew member to the empty array and at that member
+  // to the ship.
   this.addCrewMember = function(crewMember) {
     this.crew.push(crewMember);
   }
+  // This method runs a loop through the crew also checking the job of that crew member and if
+  // it equals the correct type the returns the ability, the crew member doesn't have the correct type
+  // then they can't perform the mission.
   this.missionStatement = function() {
     for (var i = 0; i < this.crew.length; i++) {
       var jobs = this.crew[i].job;
@@ -39,11 +46,18 @@ function Ship(name, type, ability) {
   }
 }
 
+// Created a main ship for ya boy to board and captain. El Capitan
+var texan = new Ship('Texan', 'Main Ship', 'Hyper Drive');
 
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 
+// Created me as a new crew member and set me as a programmer since I aspire to be one.
+var crewGabe = new CrewMember('Gabe Amaya', 'programmer', 'Beast Mode');
+
+// calls crew member, Rick, to to enter the ship 'Mav' and ya boy to enter the main ship.
 crewMember1.enterShip(mav);
+crewGabe.enterShip(texan);
 
 
 //tests
