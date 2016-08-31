@@ -1,5 +1,6 @@
 var jsdom = require('jsdom');
 var assert = require('assert');
+var path = require('path');
 
 // send browser log statements to node console
 var virtualConsole = jsdom.createVirtualConsole().sendTo(console);
@@ -12,10 +13,10 @@ var $;
 beforeEach(function (done) {
     jsdom.env(
         {
-            file: './apps/07jquery-tic-tac-toe/index.html',
+            file: path.resolve(__dirname, 'index.html'),
             scripts: [
-                '../../vendor/jquery.js',
-                './script.js'
+                path.resolve(__dirname, '../../vendor/jquery.js'),
+                path.resolve(__dirname, 'script.js')
             ],
             virtualConsole: virtualConsole,
             done: function (err, window) {
