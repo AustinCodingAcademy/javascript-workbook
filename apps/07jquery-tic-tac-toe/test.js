@@ -14,7 +14,7 @@ beforeEach(function (done) {
         {
             file: './apps/07jquery-tic-tac-toe/index.html',
             scripts: [
-                "../vendor/jquery.js",
+                "../../vendor/jquery.js",
                 "./script.js"
             ],
             virtualConsole: virtualConsole,
