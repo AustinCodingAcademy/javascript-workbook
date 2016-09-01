@@ -2,6 +2,7 @@
 //require assert
 var assert = require('assert');
 
+
 var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
@@ -9,7 +10,52 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(shipAssignment) {
+    this.ship = shipAssignment;
+    shipAssignment.crew.push(this);
+}
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+  this.missionStatement = function() {
+  for  (var i = 0; i < this.crew.length; i++) {
+ var currentJob = this.crew[i].job;
+  if (jobTypes[currentJob] === this.type) {
+    return this.ability
+}
+
+
+//     if (this.crew[i].job === 'pilot' && this.type === 'MAV') {
+//       return this.ability
+// }
+//     else if (this.crew[i].job === 'mechanic' && this.type === 'Repair Ship') {
+//       return this.ability
+// }
+//     else if (this.crew[i].job === 'commander' && this.type === 'Main Ship') {
+//       return this.ability
+// }
+//     else {
+//       return "Can't perform a mission yet.";
+// }
+}
+//This is the end of the for loop^^
+
+  return "Can't perform a mission yet.";
+
+}
+//This is the end of the missionStatement function^^
+}
+//This is the end of the Ship function^^
 
 //tests
 if (typeof describe !== 'undefined'){
