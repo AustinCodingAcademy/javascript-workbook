@@ -10,7 +10,7 @@ var board = [
     [' ', ' ', ' ']
 ];
 
-var playerTurn = 'X';
+var playerTurn = 'X'; 
 
 function printBoard() {
     console.log('   0  1  2');

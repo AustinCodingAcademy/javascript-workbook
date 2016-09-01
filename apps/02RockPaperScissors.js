@@ -17,28 +17,28 @@ if (hand1 === hand2) {
 
 if (hand1 === 'rock') {
   if (hand2 === 'scissors') {
-    return 'Hand one Wins!';
+    return 'Hand one wins!';
   }
   else {
-  return 'Hand two Wins!';
+  return 'Hand two wins!';
   }
 }
 
 if (hand1 === 'paper') {
   if (hand2 === 'rock') {
-    return 'Hand one Wins!';
+    return 'Hand one wins!';
   }
   else {
-  return 'Hand two Wins!';
+  return 'Hand two wins!';
   }
 }
 
 if (hand1 === 'scissors') {
   if (hand2 === 'paper') {
-    return 'Hand one Wins!';
+    return 'Hand one wins!';
   }
   else {
-  return 'Hand two Wins!';
+  return 'Hand two wins!';
   }
 }
 }
