@@ -10,6 +10,52 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(shipAssignment) {
+    this.ship = shipAssignment;
+    shipAssignment.crew.push(this);
+  }
+};
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function() {
+    for (var i = 0; i < this.crew.length; i++) {
+      var currentCrew = this.crew[i].job;
+      if (jobTypes[currentCrew] === this.type) {
+        return this.ability;
+      }
+      else {
+        return "Can't perform a mission yet.";
+      }
+    }
+        return "Can't perform a mission yet.";
+  };
+
+};
+var jobTypes = {
+ pilot: 'MAV',
+ mechanic: 'Repair Ship',
+ commander: 'Main Ship',
+ programmer: 'Any Ship!'
+}
+
+
+
+
+//Help on Spec 3:
+//crewMember1.enterShip(mav);
+//CrewMember.prototype.enterShip = function (ship) {
+
+//instance is when you create an object using the constructor
+
 
 //tests
 if (typeof describe !== 'undefined'){
