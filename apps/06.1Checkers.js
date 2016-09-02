@@ -57,8 +57,7 @@ function Board() {
     };
 
     this.selectChecker = function(row, column)  {
-      //locate the checker
-      // write a conditional to not allow movements of 'null'
+      return this.grid[row][column];
     };
 
     this.checkers = [];
@@ -101,6 +100,7 @@ function Board() {
      }
    };
 }
+
 function Game() {
 
     this.board = new Board();
@@ -111,7 +111,31 @@ function Game() {
     };
 
     this.moveChecker = function(start, end) {
-
+      //convert string to number, push to array
+      //split input into [row][column]
+      start = parseInt(start);
+      end = parseInt(end);
+      var startSplit = [],
+          endSplit = [];
+      while (start > 0) {
+        startSplit[startSplit.length] = start % 10;
+        start = parseInt(start / 10);
+      }
+      startSplit.reverse();
+      while (end > 0) {
+        endSplit[endSplit.length] = end % 10;
+        end = parseInt(end / 10);
+      }
+      endSplit.reverse();
+      var startRow = startSplit[0],
+          startCol = startSplit[1],
+          endRow = endSplit[0],
+          endCol = endSplit[1];
+      // console.log(startRow, startCol, endRow, endCol);
+      var checker = game.board.selectChecker(startRow, startCol);
+      game.board.grid[startRow][startCol] = null;
+      game.board.grid[endRow][endCol] = checker;
+      // console.log(checker);
     };
 }
 
