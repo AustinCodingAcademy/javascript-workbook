@@ -5,8 +5,13 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
-    // Your code here
+function Checker(color) {
+    if (color === 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+    else {
+      this.symbol = String.fromCharCode(0x125CF);
+    }
 }
 
 function Board() {
