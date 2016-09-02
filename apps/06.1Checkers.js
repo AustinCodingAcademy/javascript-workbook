@@ -56,46 +56,50 @@ function Board() {
         console.log(string);
     };
 
-
+    this.selectChecker = function(row, column)  {
+      //locate the checker
+      // write a conditional to not allow movements of 'null'
+    };
 
     this.checkers = [];
 
 
-    this.createCheckers = function () {
-      var whitePositions = new Checker('white');
-      var blackPositions = new Checker('black');
-      // var whitePositions = this.grid[row][column];
-      for (var x = 0; x <= 2; x++)  {
-        for (var y = 1; y <= 7; y+2)  {
+    this.createCheckers = function(){
 
-          // return whitePositions;
-          if (x === 1)  {
-            // whitePositions = [x][y-x];
-            this.grid[x][y-x] = Checker(whitePositions);
-          }
-          else {
-            // whitePositions = [x][y];
-            this.grid[x][y] = Checker(whitePositions);
-          }
-        }
-      }
+     var jump = false;
+     var tab  = true;
 
-      for (var a = 5; a <= 7; a++)  {
-        for (var b = 1; b <= 7; b+2)  {
+     for (var row = 0; row < 8; row++) {
 
+         // a loop within a loop
+         for (var column = 0; column < 8; column++) {
 
-          if (a === 6)  {
-            // blackPositions = [a][b];
-            this.grid[a][b] = Checker(blackPositions);
-          }
-          else {
-            // blackPositions = [a][b-1];
-            this.grid[a][b-1] = Checker(blackPositions);
-          }
-        }
-      }
-
-    };
+             // jump and insert white positions
+               if (jump) {
+                   if (row <= 2 ) {
+                     var newChecker  = new Checker('white');
+                   } else {
+                     if (row >=5) {
+                       var newChecker  = new Checker('black');
+                     } else {
+                       var newChecker = null;
+                     }
+                   }
+                   // push the symbol color
+                   // rowOfCheckers.push(color);
+                   if (newChecker) {
+                     if (tab) {this.grid[row][column] = newChecker;
+                     } else {
+                       this.grid[row][column - 1] = newChecker;
+                     }
+                     this.checkers.push(newChecker);
+                   }
+               }
+             jump = !jump;
+         }
+         tab = !tab;
+     }
+   };
 }
 function Game() {
 
@@ -104,6 +108,10 @@ function Game() {
     this.start = function() {
         this.board.createGrid();
         this.board.createCheckers();
+    };
+
+    this.moveChecker = function(start, end) {
+
     };
 }
 
