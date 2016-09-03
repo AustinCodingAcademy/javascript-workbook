@@ -5,12 +5,14 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
+function Checker(symbol) {
     // Your code here
+    this.symbol = symbol;
 }
 
 function Board() {
     this.grid = [];
+    this.checkers = ;
     // creates an 8x8 array, filled with null values
     this.createGrid = function() {
         // loop to create the 8 rows
@@ -20,8 +22,21 @@ function Board() {
             for (var column = 0; column < 8; column++) {
                 this.grid[row].push(null);
             }
-        }
-    }
+        }// !this.createGrid
+
+
+    this.createCheckers = function() {
+
+    }//!this.createCheckers
+
+    this.selectChecker = function() {
+
+    }//!this.selectChecker
+
+    this.killChecker = function() {
+
+    }//!this.killChecker
+  }
 
     // prints out the board
     this.viewGrid = function() {
