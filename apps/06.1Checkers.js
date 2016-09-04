@@ -57,7 +57,12 @@ function Board() {
     };
 
     this.selectChecker = function(row, column)  {
-      return this.grid[row][column];
+      // if (this.grid[row][column] === null)  {
+      //   console.log("try again!");
+      //   return false;
+      // }
+      // else
+        return this.grid[row][column];
     };
 
     this.checkers = [];
@@ -69,16 +74,14 @@ function Board() {
      var tab  = true;
 
      for (var row = 0; row < 8; row++) {
-
          // a loop within a loop
          for (var column = 0; column < 8; column++) {
-
              // jump and insert white positions
                if (jump) {
                    if (row <= 2 ) {
                      var newChecker  = new Checker('white');
                    } else {
-                     if (row >=5) {
+                     if (row >= 5) {
                        var newChecker  = new Checker('black');
                      } else {
                        var newChecker = null;
@@ -98,6 +101,14 @@ function Board() {
          }
          tab = !tab;
      }
+   };
+   this.killChecker = function(row, column)  {
+     this.selectChecker(row, column);
+     var findRow = this.checkers.indexOf(row),
+         findCol = this.checkers.indexOf(column);
+     this.checkers.splice(this.checkers[findRow], 1);
+    //  this.checkers.splice(this.checkers[findCol], 1);
+     this.grid[row][column] = null;
    };
 }
 
@@ -132,10 +143,30 @@ function Game() {
           endRow = endSplit[0],
           endCol = endSplit[1];
       // console.log(startRow, startCol, endRow, endCol);
+
       var checker = game.board.selectChecker(startRow, startCol);
       game.board.grid[startRow][startCol] = null;
       game.board.grid[endRow][endCol] = checker;
-      // console.log(checker);
+      if (Math.abs(startRow - endRow) === 2)  {
+        var midRow, midCol;
+        if (startRow > endRow)  {
+          midRow = startRow - 1;
+        }
+        if (startRow < endRow)  {
+          midRow = startRow + 1;
+        }
+        if (startCol > endCol)  {
+          midCol = startCol - 1;
+        }
+        if (startCol < endCol)  {
+          midCol = startCol + 1;
+        }
+            game.board.killChecker(midRow, midCol);
+      }
+
+
+      //INPUT SCRUBBING - end should always be 11 +/- or 9 +/- of start
+      ////
     };
 }
 
