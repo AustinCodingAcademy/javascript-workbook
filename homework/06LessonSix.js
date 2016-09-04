@@ -89,13 +89,13 @@ function ConferenceRoom() {
 function Person(name) {
   this.name = name;
   this.sayHi = function sayHi(Person) {
-    return "Hi, I'm" + this.name + '!'
+    return "Hi, I'm" + this.name + '!';
 }
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen = new Person('Jen')
+var jen = new Person('Jen');
 
 
 // Problem 6:
