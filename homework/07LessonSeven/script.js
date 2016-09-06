@@ -1,3 +1,5 @@
+console.log('hello');
+//npm run server
 'use strict';
 
 $(document).on('ready', function() {
@@ -13,7 +15,9 @@ $(document).on('ready', function() {
   // Problem 1:
   // select the h1 element
   // assign the selected jQuery object to the property window.h1
-  window.h1;
+  window.h1 = $('h1');
+  $('h1').html('hello title');
+
 
   // Problem 2:
   // select the p element
