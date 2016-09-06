@@ -13,7 +13,7 @@ var index;
 
 function printBoard() {
     for (index = 0; index < board.length; index++) {
-        console.log(board[i])
+        console.log(board[index]);
     }
 }
 
@@ -30,8 +30,8 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
     // your code here
-    var solutionArray = guess.split("");
-    var guessArray = solution.split("");
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
     var correctLetterLocations = 0;
     var correctLetters = 0;
 
@@ -42,8 +42,8 @@ function generateHint(solution, guess) {
       }
     }
 
-    for (index=0; index < guessArray.length; index++) {
-    // var targetIndex = solutionArray.indexOf(guessArray[index]);
+    for (index= 0; index < guessArray.length; index++) {
+    var targetIndex = solutionArray.indexOf(guessArray[index]);
     if (guessArray.indexOf(solutionArray[index]) > -1) {
       correctLetters++;
       solutionArray[index] = null;
@@ -52,6 +52,7 @@ function generateHint(solution, guess) {
 
     hint = correctLetterLocations + "-" + correctLetters;
     return hint;
+
 }
 
 function mastermind(guess) {
