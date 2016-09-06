@@ -65,12 +65,13 @@ function generateHint(solution, guess) {
 }//end generateHint()
 
 function mastermind(guess) {
-    solution = 'abcd';
+    //solution = 'abcd';
     var hint = '';
 
     // Spec 1: check for the correct solution
     if (guess === solution) {
       win = true;
+      return 'You guessed it!';
     }
     else {
       // Spec 2: Generate a hint
@@ -96,7 +97,7 @@ function getPrompt() {
           }
         }
         else {
-          console.log('You guessed it!');
+          return 'You guessed it!';
         }
     });
 }
