@@ -9,34 +9,37 @@ var assert = require('assert');
 // Problem 0:
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.
-
-var myUndefined;
+var myUndefined ;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
-//
-// What is the difference between null and undefined?
-        // Null means nothing has been declared and undefined has been declared but has not been assigned a value.
 var myNull = null;
+
+// ****
+// Concept Checkpoint
+// ****
+
+// Write your answer in comments
+
+/*What is the difference between null and undefined?
+    Null acts as a placeholder.
+    Undefined means it has not been assigned a value.
+*/
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
-
 var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
-
 var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
-
 var myNumber = 5;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
-
 var myString = 'Hello There';
 
 // ****
@@ -45,70 +48,62 @@ var myString = 'Hello There';
 
 // Problem 6:
 // What is the value of true && true
-
 var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
-
 var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
-
 var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
-
 var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
-
 var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
-
 var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
-
 var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
-
 var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
-
 var notFalse = true;
 
 // Problem 15:
 // What is the value of !true
-
 var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
-
 var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
-//
-// Write your answer in comments
-//
-// What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
-//
-// Your Answer Goes Here:
-//
-// **** When you use &&  you want know if your conditional results are true or false. When you use || you want all your conditonal results to be true.
 // ****
+
+// Write your answer in comments
+/*
+What is the difference between the "and" and the "or"operators? Explain why you would use each of them.
+
+Your Answer Goes Here:
+  When you use && you want know if your conditional results are true or false. When you use || you want all your conditonal results to be true.
+
+*/
+
+//****
 // Truthiness
 // ****
 
@@ -117,36 +112,37 @@ var emptyString = ' ';
 
 // Problem 17:
 // What is the value of !!bob
-
 var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
-
 var notNotEmptyString = true;
 
 // Problem 19:
 // What is the value of !null
-
 var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
-
 var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
-//
-// Write your answer in comments
-//
-// Explain truthiness and falsiness in your own words. Provide an example for each.
-//
+//****
+
+// Write your answer in comments:
+
+/* Explain truthiness and falsiness in your own words. Provide an example for each.
+*/
+
 // Your Answer Goes Here:
-//
-// **** truthiness is when a value has been assigned and falsiness is when a value has not been assigned.
-//          I.E. truthiness = 'hello', true, 'false'
-//                  falsiness = false, 0, null, undefined
+
+/* Falsiness is when a value is false, 0, null, or undefined. Truthiness is everything else.
+  I.E.
+    truthiness = 'hello', true, 'false'
+    falsiness = false, 0, null, undefined
+*/
+
 // ****
 // Comparison Operators
 // ****
@@ -197,23 +193,25 @@ var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
-//
+// ****
+
 // Write your answer in comments
-//
+
 // What’s the difference between == and ===?
-//
+
 // Your Answer Goes Here:
-//          == returns true if both operators are equal.
-//           === is a strict equal and returns true if both are equal and of the same type.
+/*   == equal to
+      === "strict equal" equal value and equal type
+*/
+
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
-// ****
-//            != determines the "truth" of what a value is not
-//                    IE. 1 != '1' is false because a number is not a string
-//            !== determines the "truth" of what a value is 'not' not
-//                    IE. 1 !== '1' is true because it's not equal to 1, so the value doesn't equal to true but using the strict equality means it turns everything using !== true)
+/*
+  != not equal to
+  !== not equal value or not equal type
+
+*/
 
 // ****
 // Tests
