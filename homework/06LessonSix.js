@@ -100,7 +100,7 @@ var conferenceRoom = new ConferenceRoom();
 // add your code for Problem 6 here
 //
 conferenceRoom.enter(jen);
-
+// conferenceRoom.clear;
 // ****
 // Concept Checkpoint
 //
