@@ -13,6 +13,7 @@ var jobTypes = {
 function CrewMember (name, job, specialSkill) {
   this.name = name;
   this.job = job;
+  this.jobType = jobTypes[this.job];
   this.specialSkill = specialSkill;
   this.ship = null;
   this.enterShip = function(name) {
@@ -29,13 +30,13 @@ function Ship(name, type, ability) {
   this.missionStatement = function (job) {
 
     for (var i = 0; i <= jobTypes.length; i++) {
-      // if ('job' === 'pilot'){
-        return this.ability
+      if (this.jobType === 'MAV'){
+        return this.ability;
     }
     else {
       return "Can't perform a mission yet.";
     }
-  };
+  }
 
 }
 
