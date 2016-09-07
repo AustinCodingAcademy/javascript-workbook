@@ -55,12 +55,12 @@ $(document).on('ready', function() {
   // Problem 7:
   // select the element with the data-id attribute
   // assign the selected jQuery object to the property window.dataId
-  $data-id = ('#window.dataId');
+  window.dataId  = $('#data-id');
 
   // Problem 8:
   // select the element with the data-price attribute
   // assign the selected jQuery object to the the property window.dataPrice
-  $data-price = ('#window.dataPrice');
+  window.dataPrice = $('#data-price');
 
   // ****
   // dom manipulation
@@ -69,13 +69,12 @@ $(document).on('ready', function() {
   // Problem 9:
   // select the element with id="insert-text"
   // then set the text of this element to "Text Has Been Inserted"
-$insert-text.text = $("Text Has Been Inserted");
+$('insert-text').text('Text Has Been Inserted');
 
   // Problem 10:
   // select the element with id="add-attribute"
   // add the attribute data-color="red" to that element
-$add-attribute = $('#add-attribute');
-$add-attribute.attr('style', 'color: red');
+$('add-attribute').attr('style', 'color: red');
 
 
   // Problem 11:
