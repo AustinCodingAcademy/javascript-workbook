@@ -8,7 +8,8 @@
   },
   "author": "Kevin Colten",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "server": "cd . && http-server -c-1"
   },
   "bugs": {
     "url": "https://github.com/AustinCodingAcademy/intermediate-workbook/issues"
@@ -19,6 +20,8 @@
     "prompt": "^0.2.14"
   },
   "devDependencies": {
+    "http-server": "^0.9.0",
+    "jsdom": "^9.4.2",
     "mocha": "^2.4.5"
   }
 }
