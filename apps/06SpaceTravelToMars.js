@@ -28,14 +28,14 @@ function Ship(name, type, ability) {
   this.crew = [];
   this.missionStatement = function (job) {
 
-    for (var i = 0; i <= jobTypes.length; i++);
-    if(i === undefined) {
-      return "Can't perform a mission yet.";
+    for (var i = 0; i <= jobTypes.length; i++) {
+      // if ('job' === 'pilot'){
+        return this.ability
     }
     else {
-      return this.ability;
+      return "Can't perform a mission yet.";
     }
-  }
+  };
 
 }
 
