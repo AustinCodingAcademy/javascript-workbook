@@ -91,6 +91,12 @@ window.dataIdValue.attr('data-color', 'red');
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
-  $('#data-element').text('[data-content]');
+var $elementOne = $('#data-element');
+var text = $elementOne.attr('data-content');
+
+$elementOne.text(text);
+
+
+
 
 });
