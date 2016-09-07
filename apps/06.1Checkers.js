@@ -102,7 +102,9 @@ function Game() {
       var midpoint = (x + y)/2;
     }
     this.rowDistance = function(x, y) {
-      var absoluteDistance = ((Number(x) > Number(y))? (Number(x) - Number(y)) : (Number(y) - Number(x)));
+      var numX = Number(x);
+      var numY = Number(y);
+      var absoluteDistance = ((numX > numY)? (numX - numY) : (numY - numX));
       return absoluteDistance;
     }
     this.killChecker = function(position) {
