@@ -31,7 +31,7 @@ var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
-var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'
+var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
 var popped = bravestWarriors.pop();
 var shifted = bravestWarriors.shift();
 console.log(bravestWarriors);

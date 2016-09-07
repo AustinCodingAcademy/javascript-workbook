@@ -9,7 +9,18 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+//**************************************************************************************************************************
 // Your code here
+
+
+
+
+
+
+// or after programmer: 'Any Ship!'
+// missionStatement: function () {
+// return this.crew + ' ' + this.type + "Can't perform this mission yet!"  }
+//************************************************************************************************************************
 
 //tests
 if (typeof describe !== 'undefined'){
