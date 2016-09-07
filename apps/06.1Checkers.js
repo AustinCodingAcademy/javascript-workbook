@@ -6,6 +6,7 @@ prompt.start();
 
 
 function Checker() {
+  this.symbol =
     // Your code here
 }
 
@@ -19,10 +20,14 @@ function Board() {
             // push in 8 columns of nulls
             for (var column = 0; column < 8; column++) {
                 this.grid[row].push(null);
+              }
             }
-        }
+          }
+      this.checkers = [];
+      this.createCheckers = function(){
+        
+      }
     }
-
     // prints out the board
     this.viewGrid = function() {
         // add our column numbers
