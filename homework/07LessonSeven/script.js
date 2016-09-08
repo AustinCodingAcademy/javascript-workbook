@@ -13,7 +13,8 @@ $(document).on('ready', function() {
   // Problem 1:
   // select the h1 element
   // assign the selected jQuery object to the property window.h1
-  window.h1 = $("h1");
+  // window.h1 = $("h1");
+  window.h1 = $('h1');
 
   // Problem 2:
   // select the p element
@@ -28,6 +29,7 @@ $(document).on('ready', function() {
   // select the element with id="main"
   // assign the selected jQuery object to the property window.idMain
   window.idMain = $("#main");
+  // window.idMain = $('#main');
 
   // Problem 4:
   // select the element with id="secondary"
@@ -41,12 +43,12 @@ $(document).on('ready', function() {
   // Problem 5:
   // select the element with class="container"
   // assign the selected jQuery object to the property window.container
-  window.container = $('#container');
+  window.container = $('.container');
 
   // Problem 6:
   // select the elements with class="item"
   // assign the selected jQuery object to the the property window.items
- window.items = $('#item');
+ window.items = $('.item');
 
   // ****
   // attribute selectors
@@ -81,7 +83,7 @@ $('add-attribute').attr('style', 'color: red');
   // select the element with id="data-element"
   // and set window.dataIdValue to the value of the data-id attribute of the element
   // you can do this by calling .data() on the selected element
-  window.dataIdValue = $(data-element);
+  window.dataIdValue = $('data-element');
 
 
 
