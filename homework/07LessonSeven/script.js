@@ -13,12 +13,12 @@ $(document).on('ready', function() {
   // Problem 1:
   // select the h1 element
   // assign the selected jQuery object to the property window.h1
-  window.h1 = $('h1');
+  window.h1 = $("h1");
 
   // Problem 2:
   // select the p element
   // assign the selected jQuery object to the the property window.p
-  window.p = $('p');
+  window.p = $("p");
 
   // ****
   // id selectors
@@ -88,5 +88,5 @@ $('add-attribute').attr('style', 'color: red');
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
-  $('data-element').text('data-content'); 
+  $('data-element').text('data-content');
 });
