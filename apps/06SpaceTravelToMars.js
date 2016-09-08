@@ -13,7 +13,6 @@ var jobTypes = {
 function CrewMember(name, job, specialSkill) {
     this.name = name;
     this.job = job;
-    this.jobType = jobTypes[this.job];
     this.specialSkill = specialSkill;
     this.ship = null;
     this.enterShip = function(name) {
@@ -28,15 +27,14 @@ function Ship(name, type, ability) {
     this.ability = ability;
     this.crew = [];
     this.missionStatement = function() {
-
-        for (var i = 0; i <= this.crew.length; i++) {
-            if (this.crew.jobType === this.type) {
+        for (var i = 0; i < this.crew.length; i++) {
+            if (jobTypes[this.crew[i].job] === this.type) {
                 return this.ability;
             } else {
                 return "Can't perform a mission yet.";
             }
         }
-
+      return "Can't perform a mission yet.";
     }
 }
 
