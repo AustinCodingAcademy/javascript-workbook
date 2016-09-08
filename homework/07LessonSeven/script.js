@@ -81,11 +81,12 @@ $('add-attribute').attr('style', 'color: red');
   // select the element with id="data-element"
   // and set window.dataIdValue to the value of the data-id attribute of the element
   // you can do this by calling .data() on the selected element
-  $window.dataIdValue = $(data-element);
+  window.dataIdValue = $(data-element);
 
 
 
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
+  $('data-element').text('data-content'); 
 });
