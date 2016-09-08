@@ -27,7 +27,7 @@ $(document).on('ready', function() {
   // Problem 3:
   // select the element with id="main"
   // assign the selected jQuery object to the property window.idMain
-  window.idMain = $('#main');
+  window.idMain = $("#main");
 
   // Problem 4:
   // select the element with id="secondary"
