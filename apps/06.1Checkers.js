@@ -68,6 +68,7 @@ function Board() {
     }
     this.selectChecker = function(row, column) {
       return this.grid[row][column];
+      console.log(this.grid[row][column] + " this is what selectChecker is returning");
     }
 }
 function Game() {
@@ -92,14 +93,15 @@ function Game() {
       var absoluteDistance = this.rowDistance(startingPosition[0], endingPosition[0]);
       if (absoluteDistance === 2) {
         var killPosition = this.midpoint(start, end);
-        console.log(killPosition + " this is killPosition");
         this.killChecker(killPosition);
       }
     }
     this.midpoint = function(x, y) {
-      //add x and y together, then divide by 2 and split
       //take startingrow and endingrow, add together and divide by 2
-      var midpoint = (x + y)/2;
+      var numX = Number(x);
+      var numY = Number (y);
+      var midpoint = (numX + numY)/2;
+      return String(midpoint);
     }
     this.rowDistance = function(x, y) {
       var numX = Number(x);
@@ -110,12 +112,11 @@ function Game() {
     this.killChecker = function(position) {
       var positionSplit = position.split('');
       var selectedChecker = this.board.selectChecker(positionSplit[0], positionSplit[1]);
-      console.log(selectedChecker);
+      //console.log(this.board.checkers + " this is the checkers array before splice");
       //find the index of selectedChecker in the checkers array
       var checkerIndex = this.board.checkers.indexOf(selectedChecker);
-      console.log(checkerIndex + " this is checkerIndex");
-      //splice out the location of the selectedChecker from the checkers array
-      this.board.checkers.splice(checkerIndex);
+      //splice out the location of the selectedChecker from the checkers array (indexyoustartat, numberyouwanttoremove)
+      this.board.checkers.splice(checkerIndex, 1);
       //assign the position on the grid to null
       this.board.grid[positionSplit[0]][positionSplit[1]] = null;
     }
