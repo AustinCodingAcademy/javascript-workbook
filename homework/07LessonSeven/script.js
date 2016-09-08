@@ -98,5 +98,4 @@ $(document).on('ready', function() {
   // select the element with id="data-element"
   $('#data-element').text($('#data-element').attr('data-content'));
   // and set its text (.text()) to the value of the data-content attribute
-
 });
