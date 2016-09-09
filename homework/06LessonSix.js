@@ -23,8 +23,8 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
-  this.x = 1;
-  this.y = 2;
+  this.x = x;
+  this.y = y;
 }
 
 // Problem 3:
@@ -92,11 +92,11 @@ function Person(name) {
 
 // Problem 5:
 // create a new Person named Jen
-var jen = new person(Jen);
+var jen = new Person('Jen');
 
 // Problem 6:
 // add jen to the conferenceRoom
-var conferenceRoom = new ConferenceRoom.enter(jen);
+ConferenceRoom.enter(jen);
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
