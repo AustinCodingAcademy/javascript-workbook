@@ -52,7 +52,6 @@ function generateHint(solution, guess) {
 
 
 function mastermind(guess) {
-  solution = 'abcd';
   var hint;
     if (board.length <= 10) {
       if(guess === solution) {
