@@ -85,5 +85,12 @@ $(document).on('ready', function() {
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
-  $('#data-element').text($('#data-element').data('content'));
+
+  //My Answer, bad jquery etiquette
+  // $('#data-element').text($('#data-element').data('content'));
+
+  // Answer Paul wanted, splitting up code to make it more understandable and easier to make changes
+  var $dataElem = $('#data-element');
+  var content = $dataElem.data('content');
+  $dataElem.text(content);
 });
