@@ -55,14 +55,12 @@ $(document).on('ready', function() {
   // Problem 7:
   // select the element with the data-id attribute
   // assign the selected jQuery object to the property window.dataId
-  window.dataId = $('div');
-  $div.data('id');
+  window.dataId = $('[data-id="catbug"]';
 
   // Problem 8:
   // select the element with the data-price attribute
   // assign the selected jQuery object to the the property window.dataPrice
-  window.dataPrice = $('div');
-  $div.data('price');
+  window.dataPrice = $('[data-price]');
 
   // ****
   // dom manipulation
@@ -71,22 +69,23 @@ $(document).on('ready', function() {
   // Problem 9:
   // select the element with id="insert-text"
   // then set the text of this element to "Text Has Been Inserted"
-var $insText = $('#insert-text')
-$insText.text('Text Has Been Inserted')
+$('#insert-text').text('Text Has Been Inserted');
 
   // Problem 10:
   // select the element with id="add-attribute"
   // add the attribute data-color="red" to that element
-var $addAttr = $('#add-attribute');
-$addAttr.attr('data-color=red')
+$('#add-attribute').attr('data-color', 'red');
 
   // Problem 11:
   // select the element with id="data-element"
   // and set window.dataIdValue to the value of the data-id attribute of the element
   // you can do this by calling .data() on the selected element
-  window.dataIdValue = $('#data-element');
+  window.dataIdValue = $('#data-element').data('id');
 
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
 });
+var $dataElem = $('#data-element');
+var content - $dataElem.data('content');
+$dataElem.text(content);
