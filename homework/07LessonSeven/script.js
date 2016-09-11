@@ -55,7 +55,7 @@ $(document).on('ready', function() {
   // Problem 7:
   // select the element with the data-id attribute
   // assign the selected jQuery object to the property window.dataId
-  window.dataId = $('[data-id="catbug"]';
+  window.dataId = $('[data-id]');
 
   // Problem 8:
   // select the element with the data-price attribute
@@ -85,7 +85,9 @@ $('#add-attribute').attr('data-color', 'red');
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
+  var $dataElem = $('#data-element');
+  var content = $dataElem.data('content');
+  $dataElem.text(content);
+
+
 });
-var $dataElem = $('#data-element');
-var content - $dataElem.data('content');
-$dataElem.text(content);
