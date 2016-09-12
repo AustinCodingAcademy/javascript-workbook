@@ -35,7 +35,7 @@ var anotherPoint = new Point (5,-3);
 
 
 
-}
+
 
 // ****
 // Concept Checkpoint
@@ -96,11 +96,11 @@ var jen = new Person('Jen');
 
 // Problem 6:
 // add jen to the conferenceRoom
-ConferenceRoom.enter(jen);
+var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
-
+conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
