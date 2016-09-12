@@ -7,7 +7,9 @@ $(document).on('ready', function() {
     $(this).text(playerTurn);
     checkForWin();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-
+    $('#clear').click(function() {
+      $('[data-cell]').empty();
+    });
   });
 
   function horizontalWin() {
