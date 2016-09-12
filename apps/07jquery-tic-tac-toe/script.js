@@ -7,9 +7,12 @@ $(document).on('ready', function() {
     $(this).text(playerTurn);
     checkForWin();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    // occupiedSpace();
     $('#clear').click(function() {
       $('[data-cell]').empty();
+      $('#announce-winner').empty();
     });
+
   });
 
   function horizontalWin() {
@@ -36,6 +39,18 @@ $(document).on('ready', function() {
       $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
     }
   };
+  // Attempt at the bonus spec: making an occupied space unclickable. Set the 'taken' class to have css that would make it unclickable (pointer-events: none). Still figuring out.
+
+  // function occupiedSpace() {
+  //   $('[data-cell]').click(function() {
+  //   if ($(this) === 'X' || 'O') {
+  //     $(this).addClass('taken');
+  //   }
+  // });
+  //   $('.taken').click(function() {
+  //     $('#occupied-space').text('You must select an empty space!');
+  //   })
+  // };
 
 
 
