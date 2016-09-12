@@ -27,14 +27,14 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function () {
-    if (this.type==="MAV" && this.crew[0].job==="pilot"){
-      console.log(this.ability) ;
-
+    for (var i = 0; i < this.crew.length; i++) {
+      var job = this.crew[i].job;
+      if (jobTypes[job] === this.type) {
+        return this.ability;
+      }
     }
-    else {
-      console.log("Can't perform a mission yet.");
+      return "Can't perform a mission yet.";
     }
-  }
 }
 
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
