@@ -27,6 +27,11 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function() {
+
+    if (this.crew.length <= 0) {
+      return "Can't perform a mission yet.";
+    }
+
     var correctJob = [];
     if (jobTypes.pilot === this.type) {
       correctJob.push('pilot');
