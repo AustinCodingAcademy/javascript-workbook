@@ -7,30 +7,75 @@ $(document).on('ready', function() {
     var numberOfTurns = 0;
     var isWinner = false;
 
-    $("[data-cell]").click(function() {
+    var board = [
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+    ];
 
+    var row = null;
+    var column = null;
+
+    $("[data-cell]").click(function() {
 
         if (isWinner === false) {
 
+          // first checking to make sure the cell is blank.  If there is already a value, we cannot use that cell.
             if ($(this).text() === '') {
 
                 $('#error').text('');
 
                 $(this).text(playerTurn);
 
-                var cellContents0 = $("[data-cell='0']").text();
-                var cellContents1 = $("[data-cell='1']").text();
-                var cellContents2 = $("[data-cell='2']").text();
-                var cellContents3 = $("[data-cell='3']").text();
-                var cellContents4 = $("[data-cell='4']").text();
-                var cellContents5 = $("[data-cell='5']").text();
-                var cellContents6 = $("[data-cell='6']").text();
-                var cellContents7 = $("[data-cell='7']").text();
-                var cellContents8 = $("[data-cell='8']").text();
+                // we could loop through and store values in an array with rows and columns
+                var cellNumber = $(this).data('cell');
 
-                checkForWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8);
+                // Based on the data cell number, assign a row and column.  And yes this is ugly but running multiple loops seemed just as silly.
 
-                if (checkForWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) === false) {
+                if (cellNumber === 0) {
+                    row = 0;
+                    column = 0;
+                }
+                if (cellNumber === 1) {
+                    row = 0;
+                    column = 1;
+                }
+                if (cellNumber === 2) {
+                    row = 0;
+                    column = 2;
+                }
+                if (cellNumber === 3) {
+                    row = 1;
+                    column = 0;
+                }
+                if (cellNumber === 4) {
+                    row = 1;
+                    column = 1;
+                }
+                if (cellNumber === 5) {
+                    row = 1;
+                    column = 2;
+                }
+                if (cellNumber === 6) {
+                    row = 2;
+                    column = 0;
+                }
+                if (cellNumber === 7) {
+                    row = 2;
+                    column = 1;
+                }
+                if (cellNumber === 8) {
+                    row = 2;
+                    column = 2;
+                }
+
+                //need to print the X or Y to the board depending on coordinates
+                board[row][column] = (playerTurn === 'X') ? 'X' : 'O';
+
+                checkForWin();
+
+                // if there is not a win, check the number of turns - if the board is full, checkforwin is false, and number of turns is 9, then there is a tie
+                if (checkForWin() === false) {
 
                     numberOfTurns++;
 
@@ -40,11 +85,11 @@ $(document).on('ready', function() {
                     }
                 }
 
-                // then change the playerTurn
+                // change the playerTurn
                 playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 
             } else {
-
+              // don't allow users to select a cell that already has a value
                 $('#error').text('Please select an empty cell.');
             }
 
@@ -54,18 +99,24 @@ $(document).on('ready', function() {
     });
 
 
-    function horizontalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) {
+    function horizontalWin() {
 
-
+        //loop through to check each row
         function row(marker) {
 
-            //it's a horizontal win when 0,1,2 are the same, 3,4,5 are the same, or 6,7,8 are the same
+            var i = 0;
+            for (i = 0; i < 3; i++) {
 
-            if ((cellContents0 === marker && cellContents1 === marker && cellContents2 === marker) || (cellContents3 === marker && cellContents4 === marker && cellContents5 === marker) || (cellContents6 === marker && cellContents7 === marker && cellContents8 === marker)) {
+                var boardArray = [];
 
-                return true;
+                boardArray.push(board[i][0]);
+                boardArray.push(board[i][1]);
+                boardArray.push(board[i][2]);
+
+                if (boardArray[0] === marker && boardArray[1] === marker && boardArray[2] === marker) {
+                    return true;
+                }
             }
-
         }
 
         //check each row with the values
@@ -79,18 +130,24 @@ $(document).on('ready', function() {
     }
 
 
-    function verticalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) {
+    function verticalWin() {
 
-
+        //loop through to check each column
         function column(marker) {
 
-            //it's a vertical win when 0,3,6 are the same, 1,4,7 are the same, or 2,5,8 are the same
+            var i = 0;
+            for (i = 0; i < 3; i++) {
 
-            if ((cellContents0 === marker && cellContents3 === marker && cellContents6 === marker) || (cellContents1 === marker && cellContents4 === marker && cellContents7 === marker) || (cellContents2 === marker && cellContents5 === marker && cellContents8 === marker)) {
+                var boardArray = [];
 
-                return true;
+                boardArray.push(board[0][i]);
+                boardArray.push(board[1][i]);
+                boardArray.push(board[2][i]);
+
+                if (boardArray[0] === marker && boardArray[1] === marker && boardArray[2] === marker) {
+                    return true;
+                }
             }
-
         }
 
         //check each column with the values
@@ -104,21 +161,16 @@ $(document).on('ready', function() {
     }
 
 
-    function diagonalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) {
 
+    function diagonalWin() {
 
         function diagonal(marker) {
 
-            //it's a diagnomal win when 0,4,8 are the same or 6,4,2 are the same
-
-            if ((cellContents0 === marker && cellContents4 === marker && cellContents8 === marker) || (cellContents6 === marker && cellContents4 === marker && cellContents2 === marker)) {
-
+            if ((board[0][0] === marker && board[1][1] === marker && board[2][2] === marker) || (board[0][2] === marker && board[1][1] === marker && board[2][0] === marker)) {
                 return true;
+
             }
-
         }
-
-        //check each diagonal with the values
 
         if (diagonal('X') === true || diagonal('O') === true) {
             return true;
@@ -126,20 +178,17 @@ $(document).on('ready', function() {
             return false;
         }
 
+
     }
 
 
+    function checkForWin() {
 
-    function checkForWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) {
 
-        //run the horizontal, vertical, diagonal functions
-        horizontalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8);
-        verticalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8);
-        diagonalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8);
-
-        //if any are true, then there is a win!
+        //if any of the functions are true, then there is a win!
         //if not continue playing the game
-        if (horizontalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) === true || verticalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) === true || diagonalWin(cellContents0, cellContents1, cellContents2, cellContents3, cellContents4, cellContents5, cellContents6, cellContents7, cellContents8) === true) {
+
+        if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
 
             isWinner = true;
             var winnerText = "Player " + playerTurn + " wins!";
@@ -173,6 +222,12 @@ $(document).on('ready', function() {
         playerTurn = 'X';
         numberOfTurns = 0;
         isWinner = false;
+
+        board = [
+            [' ', ' ', ' '],
+            [' ', ' ', ' '],
+            [' ', ' ', ' ']
+        ];
 
     });
 });
