@@ -60,7 +60,4 @@ $(document).on('ready', function() {
     playerTurn = 'X';
   });
 
-
-
-
 });
