@@ -4,7 +4,6 @@ $(document).on('ready', function() {
     // Put app logic in here
     var playerTurn = 'x';
     $('[data-cell]').click(function() {
-      console.log("CLICK");
       if ($(this).text() === '') {
       $(this).text(playerTurn);
     };
@@ -15,7 +14,6 @@ $(document).on('ready', function() {
     function checkForWin () {
       //which data cells are winning?
       //does data-cell contain current playerTurn?
-      console.log("checking for win");
       // don't know what that is $('[data-cell]').text() === playerTurn;
 
       function horizontalWin () {
@@ -37,7 +35,6 @@ $(document).on('ready', function() {
 
       //if true, announce win
       if (horizontalWin() || verticalWin() || diagonalWin()) {
-        console.log("won");
         $('#announce-winner').text("Player " + playerTurn + "Wins!");
         //clear the board
         $('#clear').click(function() {
