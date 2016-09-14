@@ -13,7 +13,7 @@ var window;
 beforeEach(function (done) {
   jsdom.env(
     {
-      file: './homework/08LessonEight/index.html',
+      file: './index.html',
       scripts: [
         "../../vendor/jquery.js",
         "./script.js"
