@@ -16,7 +16,7 @@ $(document).on('ready', function() {
 
     function checkForWin(){
 
-      if (horizontalWin() === true || verticalWin() === true || diagonalWin === true){
+      if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true){
         // checkForHorizontalWin
           $('#announce-winner').text("Player " + playerTurn + " Wins!");
         //  console.log(playerTurn +  "!");
@@ -66,8 +66,10 @@ $(document).on('ready', function() {
         return true;
         }
       }
-
-
-
+$('#clear').on('click', function(){
+  var playerTurn = 'X';
+   $('[data-cell]').text('');
+}
+);
 
 });
