@@ -87,6 +87,7 @@ $(document).on('ready', function() {
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
+  //all tests passsinnggg
 
  $('#data-element').text($('#data-element').data('content'));
 
