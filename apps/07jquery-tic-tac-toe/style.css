@@ -16,3 +16,50 @@ div[data-cell] {
     clear: both;
     font-size: 50px;
 }
+
+/* Gabes Styling */
+.container {
+    width: 350px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+}
+
+body {
+    background: #eee;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    margin-top: 60px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+button {
+    background-color: #200066;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #9666ff;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#announce-winner {
+  font-size: 16px;
+  text-align: center;
+  color: #009933;
+  padding-top: 10px;
+}
