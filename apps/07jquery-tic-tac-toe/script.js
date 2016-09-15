@@ -1,5 +1,77 @@
 'use strict';
 
 $(document).on('ready', function() {
-    // Put app logic in here
+
+    var playerTurn = "X";
+
+    $('[data-cell]').click(function() {
+        $(this).text(playerTurn);
+        if (!checkForWin()){
+          playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+        }
+    });
+
+    $('#clear').click(function() {
+        $('[data-cell]').text('');
+        playerTurn = "X";
+    });
+
+    //div[data-cell="0"]
+
+    function horizontalWin() {
+        if (
+            ($('div[data-cell="0"]').text() === playerTurn && $('div[data-cell="1"]').text() === playerTurn && $('div[data-cell="2"]').text() === playerTurn)
+            ||
+            ($('div[data-cell="3"]').text() === playerTurn && $('div[data-cell="4"]').text() === playerTurn && $('div[data-cell="5"]').text() === playerTurn)
+            ||
+            ($('div[data-cell="6"]').text() === playerTurn && $('div[data-cell="7"]').text() === playerTurn && $('div[data-cell="8"]').text() === playerTurn)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function diagonalWin() {
+        if (
+            ($('div[data-cell="0"]').text() === playerTurn && $('div[data-cell="4"]').text() === playerTurn && $('div[data-cell="8"]').text() === playerTurn)
+            ||
+            ($('div[data-cell="2"]').text() === playerTurn && $('div[data-cell="4"]').text() === playerTurn && $('div[data-cell="6"]').text() === playerTurn)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function verticalWin() {
+        if (
+            ($('div[data-cell="0"]').text() === playerTurn && $('div[data-cell="3"]').text() === playerTurn && $('div[data-cell="6"]').text() === playerTurn)
+            ||
+            ($('div[data-cell="1"]').text() === playerTurn && $('div[data-cell="4"]').text() === playerTurn && $('div[data-cell="7"]').text() === playerTurn)
+            ||
+            ($('div[data-cell="2"]').text() === playerTurn && $('div[data-cell="5"]').text() === playerTurn && $('div[data-cell="8"]').text() === playerTurn)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkForWin(){
+      if (horizontalWin() || verticalWin() || diagonalWin()) {
+        $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+        return true;
+      }
+    }
+
+
+
 });
+
+//hypothetical checkForWin:
+// var winningCombo = [[0,1,2],[3,4,5]
+//
+// for (var i)
+// $('[data-cell="'+ winningCombo[i][0] + '"]').text() === playerTurn ||
+// ('[data-cell="'+ winningCombo[i][1] + '"]').text() === playerTurn
