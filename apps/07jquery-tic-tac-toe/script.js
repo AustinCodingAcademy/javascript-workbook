@@ -7,6 +7,7 @@ $(document).on('ready', function() {
 
     $('[data-cell]').click(function() {
         $(this).text(playerTurn);
+        checkForWin();
         playerTurn === 'X' ? playerTurn = 'O' : playerTurn = 'X';
     });
 
@@ -17,27 +18,29 @@ $(document).on('ready', function() {
     });
 
     function checkForWin() {
-        //check Horizontal
-        var hWin = true;
-        for (var i = 0; i < 3 && hWin; i++) {
-            var $h1 = $('div[data-cell=' + i + ']'),
-                $h2 = $('div[data-cell=' + (i + 3) + ']'),
-                $h3 = $('div[data-cell=' + (i + 6) + ']'),
-                hArray = [$h1, $h2, $h3];
-
-            if ((hArray[0].text() !== playerTurn) ||
-                (hArray[1].text() !== playerTurn) ||
-                (hArray[2].text() !== playerTurn)) {
-                hWin = false;
+        for (var i = 0; i < 8; i++) {
+          var winningPositions = [
+              [0, 1, 2],
+              [3, 4, 5],
+              [6, 7, 8],
+              [0, 3, 6],
+              [1, 4, 7],
+              [2, 5, 8],
+              [0, 4, 8],
+              [2, 4, 6]
+          ];
+            var $h1 = $('[data-cell="' + winningPositions[i][0] + '"]'),
+                $h2 = $('[data-cell="' + winningPositions[i][1] + '"]'),
+                $h3 = $('[data-cell="' + winningPositions[i][2] + '"]');
+            if (($h1.text() === playerTurn) && ($h2.text() === playerTurn) && ($h3.text() === playerTurn))  {
+              $('#announce-winner').text('player ' + playerTurn + ' wins!');
+              return true;
             }
         }
-        if (hWin) {
-            return true;
-        }
     }
-if (true)  {
-  $('#announce-winner').text('player ' + playerTurn + ' wins!')
-}
+
+    // if (true)  {
+    // }
 });
 
 
