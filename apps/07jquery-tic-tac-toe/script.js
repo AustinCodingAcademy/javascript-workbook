@@ -23,18 +23,13 @@ $(document).on('ready', function() {
         counter++;
         $(this).text(playerTurn);
 
-        if( checkForWin() ){
-          $('#announce-winner').html('player ' + playerTurn + ' wins!');
-          // resetBoard();
-          // $('[data-cell]').unbind();
+        checkForWin();
 
-        }
-
-        else if (checkForTie()) {
+         if (checkForTie()) {
           $('#announce-winner').html('tie game, click Clear Board button');
         }
         playerTurn = (playerTurn === 'X')?  'O': 'X';
-        }
+        
         else{
           $('#announce-winner').text('invalid move');
         }
@@ -58,11 +53,12 @@ $(document).on('ready', function() {
 
     }
     function checkForWin() {
-        for(var i = 0; i < winningCombos.length; i++) {
+        for(var i = 0; i <= winningCombos.length; i++) {
           if($('[data-cell="'  + winningCombos[i][0] +  '"]').text() === playerTurn &&
           $('[data-cell="'  + winningCombos[i][1] +  '"]').text() === playerTurn &&
           $('[data-cell="'  + winningCombos[i][2] +  '"]').text() === playerTurn
         ){
+            $('#announce-winner').html('player ' + playerTurn + ' wins!');
             return true;
           }
         }
