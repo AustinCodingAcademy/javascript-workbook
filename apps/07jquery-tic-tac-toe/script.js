@@ -6,7 +6,7 @@ $(document).on('ready', function() {
         $(this).text(playerTurn = (playerTurn === 'X') ? 'O' : 'X');
     });
     var horizontalWin = (function() {
-        if (( < div data - cell = "0" > === playerTurn && < div data - cell = "1" > === playerTurn && < div data - cell = "2" > === playerTurn) || ( < div data - cell = "3" > === playerTurn && < div data - cell = "4" > === playerTurn && < div data - cell = "5" > === playerTurn) || ( < div data - cell = "6" > === playerTurn && < div data - cell = "7" > === playerTurn && < div data - cell = "8" > === playerTurn)) {
+        if (( '[data-cell = "0"]' > === playerTurn && '[data-cell = "1"]' === playerTurn && '[data-cell = "2"]' === playerTurn) || ( '[data-cell = "3"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "5"]' === playerTurn) || ( '[data-cell = "6"]' === playerTurn && '[data-cell = "7"]' === playerTurn && '[data-cell = "8"]' === playerTurn)) {
             return true;
         } else {
             return false;
@@ -16,7 +16,7 @@ $(document).on('ready', function() {
 
 
     var verticalWin = (function() {
-        if (( < div data - cell = "0" > === playerTurn && < div data - cell = "3" > === playerTurn && < div data - cell = "6" > === playerTurn) || ( < div data - cell = "1" > === playerTurn && < div data - cell = "4" > === playerTurn && < div data - cell = "7" > === playerTurn) || ( < div data - cell = "2" > === playerTurn && < div data - cell = "5" > === playerTurn && < div data - cell = "8" > === playerTurn)) {
+        if (( '[data-cell = "0"]' === playerTurn && '[data-cell = "3"]' === playerTurn && '[data-cell = "6"]' === playerTurn) || ( '[data-cell = "1"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "7"]' === playerTurn) || ( '[data-cell = "2"]' === playerTurn && '[data-cell = "5"]' === playerTurn && '[data-cell = "8"]' === playerTurn)) {
             return true;
         } else {
             return false;
@@ -25,7 +25,7 @@ $(document).on('ready', function() {
 
 
     var diagonalWin = (function() {
-        if (( < div data - cell = "0" > === playerTurn && < div data - cell = "4" > === playerTurn && < div data - cell = "8" > === playerTurn) || ( < div data - cell = "2" > === playerTurn && < div data - cell = "4" > === playerTurn && < div data - cell = "6" > === playerTurn)) {
+        if (( '[data-cell = "0"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "8"]' === playerTurn) || ('[data-cell = "2"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "6"]' === playerTurn)) {
           return true;
         } else {
           return false;
