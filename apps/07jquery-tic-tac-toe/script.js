@@ -6,7 +6,7 @@ $(document).on('ready', function() {
         $(this).text(playerTurn = (playerTurn === 'X') ? 'O' : 'X');
     });
     var horizontalWin = (function() {
-        if (( '[data-cell = "0"]' > === playerTurn && '[data-cell = "1"]' === playerTurn && '[data-cell = "2"]' === playerTurn) || ( '[data-cell = "3"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "5"]' === playerTurn) || ( '[data-cell = "6"]' === playerTurn && '[data-cell = "7"]' === playerTurn && '[data-cell = "8"]' === playerTurn)) {
+        if (( '[data-cell = "0"]'  === playerTurn && '[data-cell = "1"]' === playerTurn && '[data-cell = "2"]' === playerTurn) || ( '[data-cell = "3"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "5"]' === playerTurn) || ( '[data-cell = "6"]' === playerTurn && '[data-cell = "7"]' === playerTurn && '[data-cell = "8"]' === playerTurn)) {
             return true;
         } else {
             return false;
