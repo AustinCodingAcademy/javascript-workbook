@@ -6,7 +6,7 @@ $(document).on('ready', function() {
         $(this).text(playerTurn = (playerTurn === 'X') ? 'O' : 'X');
     });
     var horizontalWin = (function() {
-        if (( '[data-cell = "0"]'  === playerTurn && '[data-cell = "1"]' === playerTurn && '[data-cell = "2"]' === playerTurn) || ( '[data-cell = "3"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "5"]' === playerTurn) || ( '[data-cell = "6"]' === playerTurn && '[data-cell = "7"]' === playerTurn && '[data-cell = "8"]' === playerTurn)) {
+        if (( $('[data-cell = "0"]').text()  === playerTurn && $('[data-cell = "1"]').text() === playerTurn && $('[data-cell = "2"]').text() === playerTurn) || ( $('[data-cell = "3"]').text() === playerTurn && $('[data-cell = "4"]').text() === playerTurn && $('[data-cell = "5"]').text()=== playerTurn) || ($('[data-cell = "6"]').text() === playerTurn && $('[data-cell = "7"]').text() === playerTurn && $('[data-cell = "8"]').text() === playerTurn)) {
             return true;
         } else {
             return false;
@@ -16,7 +16,7 @@ $(document).on('ready', function() {
 
 
     var verticalWin = (function() {
-        if (( '[data-cell = "0"]' === playerTurn && '[data-cell = "3"]' === playerTurn && '[data-cell = "6"]' === playerTurn) || ( '[data-cell = "1"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "7"]' === playerTurn) || ( '[data-cell = "2"]' === playerTurn && '[data-cell = "5"]' === playerTurn && '[data-cell = "8"]' === playerTurn)) {
+        if (($('[data-cell = "0"]').text() === playerTurn && $('[data-cell = "3"]').text() === playerTurn && $('[data-cell = "6"]').text() === playerTurn) || ( $('[data-cell = "1"]').text() === playerTurn && $('[data-cell = "4"]').text() === playerTurn && $('[data-cell = "7"]').text() === playerTurn) || ( $('[data-cell = "2"]').text() === playerTurn && $('[data-cell = "5"]').text() === playerTurn && $('[data-cell = "8"]').text() === playerTurn)) {
             return true;
         } else {
             return false;
@@ -25,7 +25,7 @@ $(document).on('ready', function() {
 
 
     var diagonalWin = (function() {
-        if (( '[data-cell = "0"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "8"]' === playerTurn) || ('[data-cell = "2"]' === playerTurn && '[data-cell = "4"]' === playerTurn && '[data-cell = "6"]' === playerTurn)) {
+        if (( $('[data-cell = "0"]').text() === playerTurn && $('[data-cell = "4"]').text() === playerTurn && $('[data-cell = "8"]').text() === playerTurn) || ($('[data-cell = "2"]').text() === playerTurn && $('[data-cell = "4"]').text() === playerTurn && $('[data-cell = "6"]').text() === playerTurn)) {
           return true;
         } else {
           return false;
@@ -33,7 +33,7 @@ $(document).on('ready', function() {
 
     });
     var checkForWin = (function() {
-        ifif ((horizontalWin() === true) || (verticalWin() === true) || (diagonalWin() === true)) {
+        if ((horizontalWin() === true) || (verticalWin() === true) || (diagonalWin() === true)) {
             console.log('Player ' + playerTurn + 'won!');
             return true;
         } else {
