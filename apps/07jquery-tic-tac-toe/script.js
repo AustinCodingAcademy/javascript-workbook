@@ -12,6 +12,7 @@ $('[data-cell]').click(function() {
 
 $('#clear').click(function() {
     $('[data-cell]').text('');
+    $('#announce-winner').text('');
     playerTurn = "X";
 });
 
