@@ -21,4 +21,5 @@ div[data-cell] {
 }
 #clear {
   background-color: grey;
+  margin-top: 10px;
 }
