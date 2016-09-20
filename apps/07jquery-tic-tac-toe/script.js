@@ -17,7 +17,11 @@ $('#clear').click(function() {
 });
 
 function horizontalWin() {
+<<<<<<< HEAD
   return  ($('[data-cell = "0"]').text() === playerTurn &&
+=======
+  return ($('[data-cell = "0"]').text() === playerTurn &&
+>>>>>>> c85ea4ca458142971a0ddaeb9c09d76e2b8a82be
   $('[data-cell = "1"]').text() === playerTurn &&
   $('[data-cell = "2"]').text() === playerTurn) ||
 
