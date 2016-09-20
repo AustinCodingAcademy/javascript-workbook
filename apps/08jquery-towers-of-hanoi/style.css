@@ -5,13 +5,20 @@
     -webkit-align-items: center;
     display: -webkit-flex;
     height: 101px;
-    background-color: black;
-    margin: 25px;
+    /* made the stack darker so I can see better son */
+    background-color: #222;
+    margin: 50px;
+    /* added a border for more visuals */
+    border: 3px solid #5c0099;
+    /* added a pointer so users can see that they can click on a stack */
+    cursor: pointer;
 }
 
 [data-block] {
     width: 25px;
     float: left;
+    /* of course, ya boy had to add a border for better visuals */
+    border: 2px solid #555;
 }
 
 [data-block="25"] {
@@ -37,4 +44,16 @@
 #announce-game-won {
     font-size: 50px;
     text-align: center;
+}
+
+/* Gabe's Styles */
+
+body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin-top: 50px;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px 8px #000;
 }
