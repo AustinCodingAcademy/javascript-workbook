@@ -16,27 +16,25 @@ $(document).ready(function() {
         var blockValue = $block.data('block');
 
 
-        if($children.length === 0 || $children.last().data('block') > blockValue){
+        if($children.length === 0 ||
+           $children.last().data('block') > blockValue){
+             // puts Block down
             $(this).append($block);
             $block = null;
         } else {
           console.log("invalid move!!" );
         }
 
+        function checkForWin(){
+          if($('[data-stack="2"]').children().length === 4 ||
+             $('[data-stack="3"]').children().length === 4){
+               console.log("YOU WIN!!");
+               $('#announce-game-won').text('You Won!');
+             }
+        }
+        checkForWin();
 
 
-
-      // if(lastBlock.data('block') >= block.data('block')){
-      //   console.log("invalid move!!");
-      // }
-    //  lastBlock = $(this).children().last().data('block');
-    //  $lastBlock = $lastStack.data('block');
-      // console.log(lastBlock);
-
-// this.lastblock >= l
-
-
-    //  }
     }
   });
 
