@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
   // set up a function to declare a win. Simply added text to the div and alerted user congrats if there was 4 block in
-  // stack to or 3.
+  // stack 2 or 3.
     function checkForWin() {
       if ($('[data-stack="2"]').children().length === 4 || $('[data-stack="3"]').children().length === 4) {
         $('#announce-game-won').text('You won!');
@@ -14,7 +14,7 @@ $(document).ready(function() {
     // set the variable to null to start
     var block = null;
     $('[data-stack]').click(function() {
-      // create a variable so it is easier to ready
+      // create a variable so it is easier to read
       var $children = $(this).children();
 
       // created an if statement to decide whether a block is assigned or not. If it is the detach the last block
@@ -38,5 +38,8 @@ $(document).ready(function() {
 
     });
 
+    $('#restart').click(function() {
+      location.reload();
+    })
 
 })
