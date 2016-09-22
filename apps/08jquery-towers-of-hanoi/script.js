@@ -13,15 +13,13 @@ $(document).ready(function() {
             $(this).append(block);
             block = null;
           }
+    checkForWin();
+// Don't forget to call checkForWin() somewhere... :)
       function checkForWin() {
-        if ($( "[data-stack]").each([2]).length === 4 || $( "[data-stack]").each([3]).length === 4 )  {
+        if ($( '[data-stack= "2"]').children().length === 4 || $( '[data-stack= "3"]').children().length === 4  )  {
           $( "div#announce-game-won" ).text('You Won!')
         }
+          }
       }
-      }
-
-});
-//($("[data-stack]= 2").length === 4 || $("[data-stack]= 3").length === 4 )
-
-
+})
 });
