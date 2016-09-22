@@ -5,13 +5,15 @@ $(document).ready(function() {
 
     $('form').submit(function (event) {
        event.preventDefault();
-       var todoText = $(this).find('input[type="text"]').val('#todo');
+       var todoText = $(this).find('input[type="text"]').val();
 
        console.log( $(this) );
-       $('#todo').append('<li>' + todoText + '</li>');
-       $(event.currentTarget).find('input[type="text"]'.val(''));
-
+       // add item to list
+       $('#todo-list').append('<li>' + todoText + '</li>');
+       // clear
+       $(event.currentTarget).find('input[type="text"]').val('');
 
       });
+      // makes sortable
         $('ul').sortable();
 });
