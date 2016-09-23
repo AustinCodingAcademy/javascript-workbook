@@ -26,12 +26,35 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution,guess) {
     // your code here
+    solution = solution.split('');
+    guess = guess.split('');
+    var correctLetterLocations = 0,correctLetters = 0,i;
+    for(i = 0; i < solution.length;i ++){
+        if(solution[i] === guess[i]){
+            correctLetterLocations ++;
+            solution[i] = null;
+
+        }
+    }
+     for(i = 0; i < guess.length;i ++){
+        var index = solution.indexOf(guess[i]);
+        if(index > -1){
+            correctLetters ++;
+            solution[index] = null;
+
+        }
+    }
+    return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
     // your code here
+    if(guess === solution)
+        return 'You guessed it!';
+    var hint =  generateHint(solution,guess);
+    board.push(guess + " "  + hint);
 }
 
 

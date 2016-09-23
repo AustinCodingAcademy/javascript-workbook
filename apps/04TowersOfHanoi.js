@@ -16,23 +16,29 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack,endStack) {
+    stacks[endStack].push(stacks[startStack].pop());
     // Your code here
 
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
+    startStack = stacks[startStack];
+    endStack = stacks[endStack];
+    return startStack.length > 0 && (endStack.length === 0 || startStack[startStack.length -1] < endStack[endStack.length -1]);
     // Your code here
 
 }
 
 function checkForWin() {
-    // Your code here
+    return stacks.b.length === 4 || stacks.c.length === 4;
 
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
+    if(isLegal(startStack,endStack))
+        movePiece(startStack,endStack);
 
 }
 
