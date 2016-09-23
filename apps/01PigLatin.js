@@ -6,9 +6,9 @@ prompt.start();
 
 
 function pigLatin(word) {
-
+    word = word.toLowerCase();
     var vowelIndex = -1; // Set it to assume there are no vowels
-
+    //do you see anything wrong with the following code.
     if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
         vowelIndex = word.indexOf('a');
     }
@@ -33,12 +33,15 @@ function pigLatin(word) {
     }
     var firstPart = word;
     var restWord = '';
+    var postfix = 'ay';
     if(vowelIndex > 0){
         firstPart = word.slice(0, vowelIndex);
         restWord = word.slice(vowelIndex, word.length);
     }
+    else
+        postfix = 'yay';
 
-    return restWord +firstPart + 'ay';
+    return restWord +firstPart + postfix;
 }
 
 
