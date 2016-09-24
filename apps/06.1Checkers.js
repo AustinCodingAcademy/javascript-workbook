@@ -4,10 +4,17 @@ var assert = require('assert');
 var prompt = require('prompt');
 prompt.start();
 
-
-function Checker() {
-    // Your code here
+function Checker(color) {
+  if (color === 'white')  {
+    this.symbol = String.fromCharCode(0x125CB);
+    return this.symbol;
+  }
+  else {
+    this.symbol = String.fromCharCode(0x125CF);
+    return this.symbol;
+  }
 }
+
 
 function Board() {
     this.grid = [];
@@ -21,7 +28,7 @@ function Board() {
                 this.grid[row].push(null);
             }
         }
-    }
+    };
 
     // prints out the board
     this.viewGrid = function() {
@@ -47,18 +54,120 @@ function Board() {
             string += "\n";
         }
         console.log(string);
-    }
+    };
 
-    // Your code here
+    this.selectChecker = function(row, column)  {
+      // if (this.grid[row][column] === null)  {
+      //   console.log("try again!");
+      //   return false;
+      // }
+      // else
+        return this.grid[row][column];
+    };
+
+    this.checkers = [];
+
+
+    this.createCheckers = function(){
+
+     var jump = false;
+     var tab  = true;
+
+     for (var row = 0; row < 8; row++) {
+         // a loop within a loop
+         for (var column = 0; column < 8; column++) {
+             // jump and insert white positions
+               if (jump) {
+                   if (row <= 2 ) {
+                     var newChecker  = new Checker('white');
+                   } else {
+                     if (row >= 5) {
+                       var newChecker  = new Checker('black');
+                     } else {
+                       var newChecker = null;
+                     }
+                   }
+                   // push the symbol color
+                   // rowOfCheckers.push(color);
+                   if (newChecker) {
+                     if (tab) {this.grid[row][column] = newChecker;
+                     } else {
+                       this.grid[row][column - 1] = newChecker;
+                     }
+                     this.checkers.push(newChecker);
+                   }
+               }
+             jump = !jump;
+         }
+         tab = !tab;
+     }
+   };
+   this.killChecker = function(row, column)  {
+     this.selectChecker(row, column);
+     var findRow = this.checkers.indexOf(row),
+         findCol = this.checkers.indexOf(column);
+     this.checkers.splice(this.checkers[findRow], 1);
+    //  this.checkers.splice(this.checkers[findCol], 1);
+     this.grid[row][column] = null;
+   };
 }
+
 function Game() {
 
     this.board = new Board();
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
-    }
+        this.board.createCheckers();
+    };
+
+    this.moveChecker = function(start, end) {
+      //convert string to number, push to array
+      //split input into [row][column]
+      start = parseInt(start);
+      end = parseInt(end);
+      var startSplit = [],
+          endSplit = [];
+      while (start > 0) {
+        startSplit[startSplit.length] = start % 10;
+        start = parseInt(start / 10);
+      }
+      startSplit.reverse();
+      while (end > 0) {
+        endSplit[endSplit.length] = end % 10;
+        end = parseInt(end / 10);
+      }
+      endSplit.reverse();
+      var startRow = startSplit[0],
+          startCol = startSplit[1],
+          endRow = endSplit[0],
+          endCol = endSplit[1];
+      // console.log(startRow, startCol, endRow, endCol);
+
+      var checker = game.board.selectChecker(startRow, startCol);
+      game.board.grid[startRow][startCol] = null;
+      game.board.grid[endRow][endCol] = checker;
+      if (Math.abs(startRow - endRow) === 2)  {
+        var midRow, midCol;
+        if (startRow > endRow)  {
+          midRow = startRow - 1;
+        }
+        if (startRow < endRow)  {
+          midRow = startRow + 1;
+        }
+        if (startCol > endCol)  {
+          midCol = startCol - 1;
+        }
+        if (startCol < endCol)  {
+          midCol = startCol + 1;
+        }
+            game.board.killChecker(midRow, midCol);
+      }
+
+
+      //INPUT SCRUBBING - end should always be 11 +/- or 9 +/- of start
+      ////
+    };
 }
 
 function getPrompt() {

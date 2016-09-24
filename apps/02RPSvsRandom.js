@@ -5,12 +5,21 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function rockPaperScissors(hand1, hand2) {
+function threeChoices() {
+ return (Math.random() < 0.33 ? 'Rock' :
+       (Math.random() < 0.66 ?  'Paper'
+                            : 'Scissors'));
+}
+
+
+function rockPaperScissors(hand1) {
+
+var hand2 = threeChoices();
 
 // Input Scrubbing
-    hand1 = hand1.toLowerCase()
+    hand1 = hand1.toLowerCase();
     hand1 = hand1.replace(/\s+/g, '');
-    hand2 = hand2.toLowerCase()
+    hand2 = hand2.toLowerCase();
     hand2 = hand2.replace(/\s+/g, '');
 
     var valid = ['rock','paper','scissors'];
@@ -22,6 +31,7 @@ function rockPaperScissors(hand1, hand2) {
 // &&  hand2 === 'rock' || hand2 === 'scissors' || hand2 === 'paper')  {
 
 // Operations
+      console.log("The computer chooses" + " " + hand2);
 
       if (hand1 === hand2)  {
         return "It\'s a tie!"
@@ -47,9 +57,9 @@ else {
 };
 
 function getPrompt() {
-    prompt.get(['hand1', 'hand2'], function (error, result) {
+    prompt.get(['hand1'], function (error, result) {
 
-        console.log( rockPaperScissors(result['hand1'], result['hand2']) );
+        console.log( rockPaperScissors(result['hand1']) );
 
         getPrompt();
     });

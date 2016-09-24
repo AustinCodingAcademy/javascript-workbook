@@ -16,27 +16,27 @@ var six   = 6;
 
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
-var onePlusPlus;
+var onePlusPlus = 2;
 
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
-var twoMinusMinus;
+var twoMinusMinus = 1;
 
 // Problem 3:
 // What is the result of three += 3?
-var threePlusAssignmentThree;
+var threePlusAssignmentThree = 6;
 
 // Problem 4:
 // What is the result of four -= 3?
-var fourMinusAssignmentThree;
+var fourMinusAssignmentThree = 1;
 
 // Problem 5:
 // What is the result of five *= 2?
-var fiveMultiplicationAssignmentTwo;
+var fiveMultiplicationAssignmentTwo = 10;
 
 // Problem 6:
 // What is the result of six /= 3?
-var sixDivisionAssignmentThree;
+var sixDivisionAssignmentThree = 2;
 
 // ****
 // Loops
@@ -52,7 +52,7 @@ while (whileLoopCounter < 10) {
 
 // Problem 7:
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
-var whileLoopArrayResult = [];
+var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // DO NOT MODIFY
 var forLoopArray = [];
@@ -60,10 +60,11 @@ var forLoopCounter;
 for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
   forLoopArray.push(forLoopCounter);
 }
+// console.log(forLoopArray);
 
 // Problem 8:
 // Fill in forLoopArrayResult so that it matches forLoopArray
-var forLoopArrayResult = [];
+var forLoopArrayResult = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 
 // ****
 // Concept Checkpoint
@@ -71,6 +72,13 @@ var forLoopArrayResult = [];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
+// A loop uses a set of expressions to determine conditions for executing
+// one or more statements for instance in which those conditions are met.
+// These expressions define where to start, where to end, and the frequency of
+// the loop's iterations. Loops are used to output a set of results in a given
+// range, often where the range would be cumbersome to encapsulate with
+// individual statements, or if we expect a range to be varying in length, or
+// dynamically defined by other statements in our code.
 //
 
 // ****
