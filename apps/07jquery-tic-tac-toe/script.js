@@ -58,7 +58,8 @@ function switchPlayer() {
     };
 
 function noWrite() {
-  
+  if($('[data-cell]').text() === playerTurn);
+
 };
 
 function clearBoard() {
