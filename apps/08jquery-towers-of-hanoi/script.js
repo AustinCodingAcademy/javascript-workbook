@@ -7,7 +7,7 @@ $(document).ready(function() {
     var $block = $(this).children().last().detach();
     if ($block != null) {
         $(this).click(function(){
-          $('[data-stack]'.append($block);
+          $(this).append($block);
         })
     }
     else {
