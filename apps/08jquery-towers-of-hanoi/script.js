@@ -4,12 +4,19 @@ $(document).ready(function() {
   // spec 1: moving the blocks
   $('[data-stack]').click(function(){
     console.log ("blah blah blah");
-    var $block = $(this).children().last();
+    var $block = $(this).children().last().detach();
     if ($block != null) {
-        $(this).$('[data-stack]').append($block);
+        $(this).$('[data-stack]').click(function(){
+          $(this).append($block);
+        })
     }
     else {
-      $block.detach();
-    };   
+      return false;
+    };
+
+    // spec 2: verify move
+
+
+    // spec 3: check for win
   });
 });
