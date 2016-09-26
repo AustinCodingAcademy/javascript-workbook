@@ -6,8 +6,8 @@ $(document).ready(function() {
     console.log ("blah blah blah");
     var $block = $(this).children().last().detach();
     if ($block != null) {
-        $(this).$('[data-stack]').click(function(){
-          $(this).append($block);
+        $(this).click(function(){
+          $('[data-stack]'.append($block);
         })
     }
     else {
