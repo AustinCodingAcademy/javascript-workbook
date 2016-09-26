@@ -8,7 +8,7 @@ $(document).ready(function() {
     checkForWin();
     function checkForWin() {
         if ($('[data-stack="2"]').children().length === 4 || $('[data-stack="3"]').children().length === 4) {
-            alert('Holy Shit, You Win!!!!!. Reload the page!!!!');
+            $('div#announce-game-won').append('<p>you won!</p>');
             console.log('you won');
         }
     }
