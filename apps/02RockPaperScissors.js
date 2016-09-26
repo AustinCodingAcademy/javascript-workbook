@@ -1,8 +1,11 @@
 'use strict';
 
 var assert = require('assert');
-var prompt = require('prompt');
-prompt.start();
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 
 function rockPaperScissors(hand1, hand2) {
@@ -12,11 +15,11 @@ function rockPaperScissors(hand1, hand2) {
 }
 
 function getPrompt() {
-    prompt.get(['hand1', 'hand2'], function (error, result) {
-
-        console.log( rockPaperScissors(result['hand1'], result['hand2']) );
-
-        getPrompt();
+    rl.question('hand1: ', (answer1) => {
+        rl.question('hand2: ', (answer2) => {
+            console.log( rockPaperScissors(answer1, answer2) );
+            getPrompt();
+        });
     });
 }
 
