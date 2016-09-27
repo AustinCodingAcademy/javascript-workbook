@@ -14,7 +14,7 @@ $(document).ready(function() {
             console.log(url);
             $.ajax(url, {
               success: function(user) {
-                var strTwo = $('<h3>' + user.first_name + user.last_name + '</h3>' + '<h4>' + user.occupation + '</h4>' + '<p>' + user.phone + '</p>' + '<p>' + user.address + '</p>' + '<img src=' + user.avatar + '>');
+                var strTwo = $('<h3>' + user.first_name +  ' ' + user.last_name + '</h3>' + '<h4>' + user.occupation + '</h4>' + '<p>' + user.phone + '</p>' + '<p>' + user.address + '</p>' + '<img src=' + user.avatar + '>');
 
                 $('#details').html(strTwo);
 
