@@ -30,7 +30,7 @@ $(document).ready(function() {
            var lstr  = '<div id="'+user.id+'">'+
                         "<h3>"+user.first_name+" "+user.last_name+"</h3>"+
                         "<h4>"+user.occupation+"</h4>"+
-                        "<p>"+user.number+"</p>"+
+                        "<p>"+user.phone+"</p>"+
                         "<p>"+user.address+"</p>"+
                         "<img src='"+user.avatar+"'/>"+
                         "</div>";
