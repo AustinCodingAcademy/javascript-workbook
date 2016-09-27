@@ -66,9 +66,12 @@ describe('get users', function () {
     it ('should use $.ajax to get users and build tr tags', function (done) {
         var $tbody = $('tbody');
 
+        // clear tbody beforehand in case we've removed seed data
+        $tbody.children().detach();
+
         // need a second to get the markup to be appended
         setTimeout(function () {
-            assert.equal($tbody.find('tr').length, 3);
+            assert.equal($tbody.find('tr').length, 2);
             assert.ok(nock.isDone());
             done();
         }, 1000);
