@@ -33,7 +33,7 @@ form {
     border-radius: 5px;
     text-align: center;
     background-color: #fdfdfd;
-    width: 100%;
+    width: 50%;
 }
 
 #todo-list li span {
@@ -41,7 +41,7 @@ form {
 }
 
 
-input[type="submit"] {
+/*input[type="submit"] {
     padding:5px 0;
     text-align: center;
     background:#ccc;
@@ -58,4 +58,4 @@ input[type=text] {
     -webkit-border-radius: 0px;
     border-radius: 0px;
     width: 65%;
-}
+}*/
