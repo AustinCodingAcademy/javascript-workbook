@@ -84,6 +84,7 @@ var restWord = word.slice(vowelIndex, word.length);
 //
 //Your Answer:
 //It gets us the answer of the function.
+
 function getPrompt() {
     prompt.get(['word'], function (error, result) {
 
@@ -120,4 +121,3 @@ if (typeof describe !== 'undefined') {
     getPrompt();
 
 }
- 

@@ -22,33 +22,63 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    (board[0,0] === playerTurn && board [0,1] === playerTurn && board[0,2] === playerTurn) ||
-    (board[1,1] === playerTurn && board [1,0] === playerTurn && board[1,2] === playerTurn) ||
-    (board[2,2] === playerTurn && board [2,0] === playerTurn && board[2,1] === playerTurn)
+   if(
+   (board[0][0] === playerTurn && board [0][1] === playerTurn && board[0][2] === playerTurn) ||
+   (board[1][0] === playerTurn && board [1][1] === playerTurn && board[1][2] === playerTurn) ||
+   (board[2][0] === playerTurn && board [2][1] === playerTurn && board[2][2] === playerTurn)
+){
+console.log("hor win\n");
+   return true;}
+else {
+   console.log("hor not win\n");
+   return false;
+}
 }
 
 function verticalWin() {
-    (board[0,0] === playerTurn && board [1,1] === playerTurn && board[2,2] === playerTurn) ||
-    (board[0,1] === playerTurn && board [1,0] === playerTurn && board[2,0] === playerTurn) ||
-    (board[0,2] === playerTurn && board [1,2] === playerTurn && board[2,1] === playerTurn)
+   if (
+   (board[0][0] === playerTurn && board [1][0] === playerTurn && board[2][0] === playerTurn) ||
+   (board[0][1] === playerTurn && board [1][1] === playerTurn && board[2][1] === playerTurn) ||
+   (board[0][2] === playerTurn && board [1][2] === playerTurn && board[2][2] === playerTurn)
+){
+console.log("ver win\n");
+   return true;}
+   else {
+      console.log("ver not win\n");
+      return false;
+   }
 }
 
 function diagonalWin() {
-    (board[0,0] === playerTurn && board [1,0] === playerTurn && board[2,1] === playerTurn) ||
-    (board[0,2] === playerTurn && board [1,0] === playerTurn && board[2,2] === playerTurn)
+   if (
+   (board[0][0] === playerTurn && board [1][1] === playerTurn && board[2][2] === playerTurn) ||
+   (board[0][2] === playerTurn && board [1][1] === playerTurn && board[2][0] === playerTurn)
+) {
+console.log("diag win\n");
+   return true;}
+   else {
+      console.log("diag not win\n");
+      return false;
+   }
 }
 
 function checkForWin() {
-    if (verticalWin() === true)
-    if (diagonalWin() === true)
-    if (horizontalWin() === true) {
-      console.log() ('Player' + playerTurn + 'Won!')
+    if (
+      (verticalWin() === true) ||
+    (diagonalWin() === true) ||
+    (horizontalWin() === true)
+       ) {
+      console.log('Player' + playerTurn + 'Won!');
+      return true;
+   }
+   else {
+      return false;
    }
 }
-checkForWin()
 
 function ticTacToe(row, column) {
-   board [row][column]=playerTurn
+   board [row][column]=playerTurn;
+   checkForWin();
     playerTurn = (playerTurn === 'X')? 'O' : 'X';
 }
 
