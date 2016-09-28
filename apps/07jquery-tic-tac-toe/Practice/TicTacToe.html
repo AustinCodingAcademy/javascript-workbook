@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" href="TTT.css" type="text/css" />
+	<script type="text/javascript" src="TTT.js"></script>
+</head>
+
+<body>
+	<h3>
+		<span id="player_name"></span>make your move (<span id="player_mark"></span>)
+	</h3>
+
+  <div id="game_map"></div>
+
+	<table>
+		<tr>
+			<th></th>
+			<th>Player 1</th>
+			<th>Player 2</th>
+		</tr>
+
+		<tr>
+			<th>Won</th>
+			<td id="player1_wins">0</td>
+			<td id="player2_wins">0</td>
+		</tr>
+	</table>
+
+  <h3 id="winner" class="end_game">
+		And the winner is: <span id="winner_name"></span>
+	</h3>
+
+  <div id="ask_restart" class="end_game">
+		Would you like to play again? <a href="#" id="restart_game">Yes</a>
+	</div>
+
+</body>
+</html>

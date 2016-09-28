@@ -24,8 +24,6 @@ var move2Value = Number($(this).children().last().attr("data-block"));
       checkForWin();
       console.log("3rd Down!");
   };
-
-
 });
 
 function checkForWin() {
@@ -34,6 +32,5 @@ function checkForWin() {
     $("div#announce-game-won").text("You Won!");
   }
 };
-
 
 }); /*Don't Delete Me* *Closing tags for the whole app.*/
