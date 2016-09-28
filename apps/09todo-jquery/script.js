@@ -9,6 +9,7 @@ $(document).ready(function() {
          $('#todo-list').append('<li>' + todoText + '</li>');
 
          $('ul').sortable();
+         
          $('input[type="text"]').val('');
 });
 });
