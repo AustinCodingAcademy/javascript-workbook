@@ -24,8 +24,10 @@ $(document).ready(function() {
               $details.empty();
 
               var bio = "<h3>" + user.first_name + " " + user.last_name + "</h3>" +
-                        "<h4>" + user.occupation + "<h4>"
-                        ;
+                        "<h4>" + user.occupation + "<h4>" +
+                        "<p>" + user.phone + "</p>" +
+                        "<p>" + user.address + "</p>" +
+                        "<p>" + '<img src="' + user.avatar + '">';
               // user.avatar
 
               // select details div
