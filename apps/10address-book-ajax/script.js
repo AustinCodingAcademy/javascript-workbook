@@ -37,11 +37,11 @@ $(document).ready(function() {
               // emptied the bottom section
               $details.empty();
               // added all the info from the user to the bottom to replace emptied section.
-              $details.append('<h3>' + user.first_name + ' ' + user.last_name + '</h3>');
-              $details.append('<h4>' + user.occupation + '</h4>');
-              $details.append('<p>' + user.phone + '</p>');
-              $details.append('<p>' + user.address + '</p>');
-              $details.append('<img src="' + user.avatar + '"/>');
+              $details.append('<h3 class="text-uppercase text-center">' + user.first_name + ' ' + user.last_name + '</h3>');
+              $details.append('<h4 class="text-muted text-center">' + user.occupation + '</h4>');
+              $details.append('<p class="text-center">' + user.phone + '</p>');
+              $details.append('<p class="text-center"><em>' + user.address + '</em></p>');
+              $details.append('<img class="img-circle mid" src="' + user.avatar + '"/>');
             }
           });
         });
