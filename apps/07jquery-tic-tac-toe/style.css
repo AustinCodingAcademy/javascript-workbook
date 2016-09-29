@@ -1,18 +1,36 @@
+body {
+    font-family: 'Indie Flower', cursive;
+    margin-top: 50px;
+}
+
 div[data-cell] {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     background-color: #f2f2f2;
     float: left;
     border: 1px solid #808080;
     font-size: 100px;
     text-align: center;
+    cursor: pointer;
+    padding-bottom: 40px;
 }
 
-.row {
+
+/*.row {
     clear: both;
-}
+}*/
 
 #announce-winner {
     clear: both;
     font-size: 50px;
+}
+
+#error {
+    clear: both;
+    font-size: 30px;
+    color: red;
+}
+
+button {
+    margin: 10px;
 }

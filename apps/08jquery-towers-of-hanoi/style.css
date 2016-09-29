@@ -1,3 +1,9 @@
+body {
+  font-family: 'Just Me Again Down Here', cursive;
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(tower.jpg) no-repeat center;
+  text-align: center;
+}
+
 [data-stack] {
     display: flex;
     justify-content: left;
@@ -37,4 +43,18 @@
 #announce-game-won {
     font-size: 50px;
     text-align: center;
+}
+
+#announce-number-of-turns {
+  font-size: 30px;
+  color: purple;
+}
+
+#announce-error {
+  font-size: 30px;
+  color: red;
+}
+
+h1 {
+  text-align: center;
 }

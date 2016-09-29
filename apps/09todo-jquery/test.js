@@ -59,7 +59,6 @@ describe('add todo', function () {
     });
 
     it ('should add todo text as an li tag', function () {
-
         /* clear list beforehand in case we've removed the initial li
          * for the bonus specs */
         $('#todo-list').children().detach();

@@ -5,8 +5,16 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
+function Checker(color) {
     // Your code here
+    if(color === "white") {
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+    else {
+      this.symbol = String.fromCharCode(0x125CF);
+    }
+
+    return this.symbol;
 }
 
 function Board() {
@@ -22,6 +30,24 @@ function Board() {
             }
         }
     }
+
+
+    // checkers
+    this.checkers = [];
+
+    this.createCheckers = function() {
+
+      // create the white checkers
+      Checker('white');
+      //console.log(Checker('white'));
+
+      this.checkers.push(Checker('white'));
+
+
+    }
+
+
+
 
     // prints out the board
     this.viewGrid = function() {
@@ -51,6 +77,7 @@ function Board() {
 
     // Your code here
 }
+
 function Game() {
 
     this.board = new Board();
@@ -63,7 +90,7 @@ function Game() {
 
 function getPrompt() {
     game.board.viewGrid();
-    prompt.get(['which piece?', 'to where?'], function (error, result) {
+    prompt.get(['which piece?', 'to where?'], function(error, result) {
         game.moveChecker(result['which piece?'], result['to where?']);
         getPrompt();
     });
@@ -85,8 +112,8 @@ if (typeof describe !== 'undefined') {
         });
     });
 
-    describe('Game.moveChecker()', function () {
-        it('should move a checker', function () {
+    describe('Game.moveChecker()', function() {
+        it('should move a checker', function() {
             assert(!game.board.grid[4][1])
             game.moveChecker('50', '41');
             assert(game.board.grid[4][1]);
