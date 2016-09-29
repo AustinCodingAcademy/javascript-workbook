@@ -14,27 +14,48 @@ function printStacks() {
     console.log("a: " + stacks.a);
     console.log("b: " + stacks.b);
     console.log("c: " + stacks.c);
-}
+};
 
-function movePiece() {
+function movePiece(startStack, endStack) {
+  // var poppedValue = stacks[startStack].pop();
+  // console.log(test);
+  stacks[endStack].push(stacks[startStack].pop());
+};
+
+function isLegal(startStack, endStack) {
     // Your code here
+    var startStackArray = stacks[startStack];
+    var endStackArray = stacks[endStack];
 
-}
-
-function isLegal() {
-    // Your code here
-
-}
+    if (startStackArray.length === 0) {
+      return false;
+    }
+    else if (endStackArray.length === 0) {
+      return true;
+    }
+    else {
+      console.log("Invalid move. You can't stack a larger block on top of a smaller block. Please try another move.");
+      return startStackArray[startStackArray.length - 1] < endStackArray[endStackArray.length - 1];
+    }
+};
 
 function checkForWin() {
     // Your code here
-
+    if (stacks.b.length === 4 || stacks.c.length === 4){
+      console.log('You did it!!!');
+      return true;
+    }
+    else {
+      return false;
+    }
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
-
-}
+    if (isLegal(startStack, endStack)){
+      movePiece(startStack, endStack);
+    }
+    checkForWin();
+};
 
 function getPrompt() {
     printStacks();
@@ -42,7 +63,7 @@ function getPrompt() {
         towersOfHanoi(result['start stack'], result['end stack']);
         getPrompt();
     });
-}
+};
 
 // Tests
 

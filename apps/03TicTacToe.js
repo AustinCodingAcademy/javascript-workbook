@@ -23,23 +23,57 @@ function printBoard() {
 
 function horizontalWin() {
     // Your code here
-}
+    return (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
+};
 
 function verticalWin() {
     // Your code here
-}
+    return (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+};
 
 function diagonalWin() {
     // Your code here
-}
+    return (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)
+};
 
 function checkForWin() {
     // Your code here
+      if (horizontalWin() || verticalWin() || diagonalWin()) {
+      printBoard();
+      clearBoard();
+      return true;
+    }
+    else {
+      return false;
+    }
+};
+
+function clearBoard(){
+  board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+  ];
+  console.log('Player ' + playerTurn + ' Won!');
+  return board;
 }
 
 function ticTacToe(row, column) {
-    // Your code here
-}
+    if (board[row][column] === 'X' || board[row][column] === 'O' ) {
+      console.log('Invalid selection player ' + playerTurn + ' must select an empty space!');
+    }
+    else {
+        board[row][column] = playerTurn;
+        checkForWin();
+        playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    }
+
+};
 
 function getPrompt() {
     printBoard();
