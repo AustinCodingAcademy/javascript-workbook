@@ -11,13 +11,13 @@ var assert = require('assert');
 // returns the boolean value false
 
 function alwaysFalse() {
-  return false;
+    return false;
 }
 
 // You can also define functions this way,
 // by assigning function definitions to variable
-var alwaysTrue = function () {
-  return true;
+var alwaysTrue = function() {
+    return true;
 }
 
 // Problem 1:
@@ -26,6 +26,12 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  return argument1 === argument2;
+    // if (argument1 === argument2) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
 }
 
 // Problem 2:
@@ -34,17 +40,27 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+    if (parameter1 <= parameter2) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add(number1, number2) {
+    return number1 + number2;
+}
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
-
+function addThree(number1, number2, number3) {
+    return number1 + number2 + number3;
+}
 
 // ****
 // Concept Checkpoint
@@ -53,22 +69,22 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A function is a relationship between two parameters. From w3schools: "A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ()."
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: The value reached when the function is performed. The answer, basically.
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:...with a function expression? I'm not sure I understand the difference between this question and the first question.
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A parameter goes in to code as a placeholder for an argument. The argument is the user input.
 //
 // ****
 
@@ -84,6 +100,12 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+
+    if (number % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Problem 6:
@@ -93,6 +115,12 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+
+    if (number % 3 === 0) {
+        return true;
+    } else {
+        return  false;
+    }
 }
 
 // ****
@@ -108,6 +136,15 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+    if (character === "scooby") {
+        return "dog";
+    } else if (character === "garfield") {
+        return "cat";
+    } else if (character === "nemo") {
+        return "fish";
+    } else {
+        return false;
+    }
 }
 
 // Problem 8:
@@ -117,7 +154,20 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
-
+function testNumber(number) {
+    if (number % 4 === 0) {
+        return "divisible by 4";
+    }
+    if (number % 2 === 0) {
+        return "divisible by 2";
+    }
+    if (number % 3 === 0) {
+        return "divisible by 3";
+    }
+    if (number % 5 === 0) {
+        return "divisible by 5";
+    }
+}
 
 // ****
 // Concept Checkpoint
@@ -126,7 +176,7 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Conditionals help to categorize user input to receive outputs that specifically go with their input. In  very basic way, it allows the user to interact with a program.
 //
 //
 // ****
@@ -135,113 +185,113 @@ function whichSpecies(character) {
 // Tests
 // ****
 
-describe('Lesson 2 Homework', function () {
+describe('Lesson 2 Homework', function() {
 
-  describe('Functions', function () {
-    describe('Problem 0: alwaysFalse()', function () {
-      it('should return false', function () {
-        assert.equal(alwaysFalse(), false);
-      });
+    describe('Functions', function() {
+        describe('Problem 0: alwaysFalse()', function() {
+            it('should return false', function() {
+                assert.equal(alwaysFalse(), false);
+            });
+        });
+
+        describe('Problem 0: alwaysTrue()', function() {
+            it('should return true', function() {
+                assert.equal(alwaysTrue(), true);
+            });
+        });
+
+        describe('Problem 1: equals()', function() {
+            it('should return true when argument 1 equals argument 2, else return false', function() {
+                assert.equal(equals(3, 3), true);
+                assert.equal(equals(3, null), false);
+                assert.equal(equals('bob', ''), false);
+                assert.equal(equals('bob', 'bob'), true);
+            });
+        });
+
+        describe('Problem 2: lessThanOrEqualTo()', function() {
+            it('should return true when parameter 1 is less than or equal to parameter 2, else return false', function() {
+                assert.equal(lessThanOrEqualTo(3, 3), true);
+                assert.equal(lessThanOrEqualTo(3, 4), true);
+                assert.equal(lessThanOrEqualTo(4, 1), false);
+            });
+        });
+
+        describe('Problem 3: add(number1, number2)', function() {
+            it('should be defined and of type function', function() {
+                assert(!(typeof add === 'undefined'));
+                assert(typeof add === 'function');
+            });
+
+            it('should add two numbers and return the result', function() {
+                assert.equal(add(3, 3), 6);
+                assert.equal(add(3, 7), 10);
+            });
+        });
+
+        describe('Problem 4: addThree(number1, number2, number3)', function() {
+            it('should be defined and of type function', function() {
+                assert(!(typeof addThree === 'undefined'));
+                assert(typeof addThree === 'function');
+            });
+
+            it('should add three numbers and return the result', function() {
+                assert.equal(addThree(3, 3, 3), 9);
+            });
+        });
     });
 
-    describe('Problem 0: alwaysTrue()', function () {
-      it('should return true', function () {
-        assert.equal(alwaysTrue(), true);
-      });
+    describe('Modulo % operator', function() {
+        describe('Problem 5: isEven(number)', function() {
+            it('should return true if number is even, else false', function() {
+                assert.equal(isEven(4), true);
+                assert.equal(isEven(3), false);
+            });
+        });
+
+        describe('Problem 6: isDivisibleByThree(number)', function() {
+            it('should return true if number is divisible by 3, else false', function() {
+                assert.equal(isDivisibleByThree(3), true);
+                assert.equal(isDivisibleByThree(4), false);
+            });
+        });
     });
 
-    describe('Problem 1: equals()', function () {
-      it('should return true when argument 1 equals argument 2, else return false', function () {
-        assert.equal(equals(3, 3), true);
-        assert.equal(equals(3, null), false);
-        assert.equal(equals('bob', ''), false);
-        assert.equal(equals('bob', 'bob'), true);
-      });
+    describe('Conditionals', function() {
+        describe('Problem 7: whichSpecies(character)', function() {
+            it('should return "dog" when character is scooby', function() {
+                assert.equal(whichSpecies('scooby'), 'dog');
+            });
+            it('should return "cat" when character is garfield', function() {
+                assert.equal(whichSpecies('garfield'), 'cat');
+            });
+            it('should return "fish" when character is nemo', function() {
+                assert.equal(whichSpecies('nemo'), 'fish');
+            });
+            it('should return false if character is anything else', function() {
+                assert.equal(whichSpecies('stitch'), false);
+            });
+        });
+
+        describe('Problem 8: testNumber(number)', function() {
+            it('should be defined and of type function', function() {
+                assert(!(typeof testNumber === 'undefined'));
+                assert(typeof testNumber === 'function');
+            });
+
+            it('should return "divisible by 4" when number is divisible by 4', function() {
+                assert.equal(testNumber(4), 'divisible by 4');
+            });
+            it('should return "divisible by 2" when number is divisible by 2', function() {
+                assert.equal(testNumber(2), 'divisible by 2');
+            });
+            it('should return "divisible by 3" when number is divisible by 3', function() {
+                assert.equal(testNumber(3), 'divisible by 3');
+            });
+            it('should return "divisible by 5" when number is divisible by 5', function() {
+                assert.equal(testNumber(5), 'divisible by 5');
+            });
+        });
     });
-
-    describe('Problem 2: lessThanOrEqualTo()', function () {
-      it('should return true when parameter 1 is less than or equal to parameter 2, else return false', function () {
-        assert.equal(lessThanOrEqualTo(3, 3), true);
-        assert.equal(lessThanOrEqualTo(3, 4), true);
-        assert.equal(lessThanOrEqualTo(4, 1), false);
-      });
-    });
-
-    describe('Problem 3: add(number1, number2)', function () {
-      it('should be defined and of type function', function () {
-        assert(!(typeof add === 'undefined'));
-        assert(typeof add === 'function');
-      });
-
-      it('should add two numbers and return the result', function () {
-        assert.equal(add(3, 3), 6);
-        assert.equal(add(3, 7), 10);
-      });
-    });
-
-    describe('Problem 4: addThree(number1, number2, number3)', function () {
-      it('should be defined and of type function', function () {
-        assert(!(typeof addThree === 'undefined'));
-        assert(typeof addThree === 'function');
-      });
-
-      it('should add three numbers and return the result', function () {
-        assert.equal(addThree(3, 3, 3), 9);
-      });
-    });
-  });
-
-  describe('Modulo % operator', function () {
-    describe('Problem 5: isEven(number)', function () {
-      it('should return true if number is even, else false', function () {
-        assert.equal(isEven(4), true);
-        assert.equal(isEven(3), false);
-      });
-    });
-
-    describe('Problem 6: isDivisibleByThree(number)', function () {
-      it('should return true if number is divisible by 3, else false', function () {
-        assert.equal(isDivisibleByThree(3), true);
-        assert.equal(isDivisibleByThree(4), false);
-      });
-    });
-  });
-
-  describe('Conditionals', function() {
-    describe('Problem 7: whichSpecies(character)', function () {
-      it('should return "dog" when character is scooby', function () {
-          assert.equal(whichSpecies('scooby'), 'dog');
-      });
-      it('should return "cat" when character is garfield', function () {
-          assert.equal(whichSpecies('garfield'), 'cat');
-      });
-      it('should return "fish" when character is nemo', function () {
-          assert.equal(whichSpecies('nemo'), 'fish');
-      });
-      it('should return false if character is anything else', function () {
-          assert.equal(whichSpecies('stitch'), false);
-      });
-    });
-
-    describe('Problem 8: testNumber(number)', function () {
-      it('should be defined and of type function', function () {
-        assert(!(typeof testNumber === 'undefined'));
-        assert(typeof testNumber === 'function');
-      });
-
-      it('should return "divisible by 4" when number is divisible by 4', function () {
-          assert.equal(testNumber(4), 'divisible by 4');
-      });
-      it('should return "divisible by 2" when number is divisible by 2', function () {
-          assert.equal(testNumber(2), 'divisible by 2');
-      });
-      it('should return "divisible by 3" when number is divisible by 3', function () {
-          assert.equal(testNumber(3), 'divisible by 3');
-      });
-      it('should return "divisible by 5" when number is divisible by 5', function () {
-          assert.equal(testNumber(5), 'divisible by 5');
-      });
-    });
-  });
 
 });
