@@ -26,20 +26,26 @@ $(document).ready(function() {
                 '<a href="#" data-url="' + post.url + '" >' + postStr + '</a>'
                + '</li>';
 
-            $('#posts').append(str);
-          }
+            var $postLi = $(str);
 
+            $('#posts').append($postLi);
+
+            // After the links are are inserted, add a click listener, and prevent
+            // the default event from occuring. Then make an ajax call with the
+            // "data-url" value, grabbing it with $.data('url').
+            $('a', $postLi).on('click', function(){
+              event.preventDefault();
+              console.log('You clicked a link.');
+              $.ajax()
+            });//!$('a').on
+
+          }
         });//!response.forEach
       }
     });//!$.ajax(jsonUrl)
 
-    // After the links are are inserted, add a click listener, and prevent
-    // the default event from occuring. Then make an ajax call with the
-    // "data-url" value, grabbing it with $.data('url').
 
-    $('a').on('click', function(){
-      event.preventDefault();
-      console.log('You clicked a link.');
-    });//!$('a').on
+
+
 
 });//!document.ready()
