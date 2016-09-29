@@ -90,7 +90,7 @@
     "truncated": false
   },
   {
-    "url": "api/gists/1e8d13a7a5afa02fa939.json",
+    "url": "http://localhost:8080/apps/11gist-blog/api/gists/1e8d13a7a5afa02fa939.json",
     "forks_url": "api/gists/1e8d13a7a5afa02fa939/forks",
     "commits_url": "api/gists/1e8d13a7a5afa02fa939/commits",
     "id": "1e8d13a7a5afa02fa939",
