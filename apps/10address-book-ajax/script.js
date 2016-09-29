@@ -10,7 +10,6 @@ $(document).ready(function() {
 
             user.forEach(function(user) {
 
-
                 var str = "<tr>";
                 str = str + "<td>" + user.id + "</td>";
                 str = str + "<td>" + user.first_name + "</td>";
@@ -20,7 +19,7 @@ $(document).ready(function() {
                 $('tbody').append(str);
             });
 
-            $('a').click(function() {
+            $('a').click(function(event) {
 
                 event.preventDefault();
                 var thisLink = $(this);
@@ -67,9 +66,5 @@ $(document).ready(function() {
 
         }
     });
-
-
-    // event listener for the click
-
 
 });

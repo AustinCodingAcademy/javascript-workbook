@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Gist Blog</title>
+    <title>Gist Blog</title>
+
+    <!-- Reset CSS file -->
+    <link href="css/css-reset.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Animate.css file -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Hover.css file  -->
+    <link rel="stylesheet" href="css/hover.css">
+
+    <!-- CUSTOM CSS FILE(S) -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Fonts, Font Awesome -->
+    <script src="https://use.fontawesome.com/badc11c74c.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple|PT+Sans" rel="stylesheet">
+
 </head>
+
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+
+
+
+    <div class="container-fluid">
+
+        <header class="navbar navbar-default navbar-fixed-top text-center">
+            <div class="container-fluid">
+                <h1>Christina McMillan</h1>
+                <h2>Gist Blog - Final Project</h2>
+
+        </header>
+
+        <div class="container">
+            <section>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <ul id="posts"> </ul>
+
+
+                        <!-- <h5 class="subtitle">Blog Post Subtitle</h5> -->
+                      </div>
+                      <div class="col-md-6 text-center">
+                        <div class="blog_post">
+
+
+                            <div class="title" id="post"></div>
+                            <blockquote>
+                                <ul class="subtitle" id="comments"></ul>
+                            </blockquote>
+                        </div>
+                      </div>
+
+
+
+
+
+                    </div>
+                    <!-- /col -->
+                </div>
+                <!-- /row -->
+
+
+            </section>
+        </div>
+
+
+
+        </div>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
