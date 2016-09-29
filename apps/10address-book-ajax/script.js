@@ -4,7 +4,6 @@ $(document).ready(function() {
     // You code here
     $.ajax('https://reqres-api.herokuapp.com/api/users', {
       success: function(users) {
-        // for (var i = 0; i < users.length; i++) {
         users.forEach(function(user){
            var str = "<tr>" + "<td>" + user.id + "</td>" +
                      "<td>" + user.first_name + "</td>" +
@@ -14,7 +13,7 @@ $(document).ready(function() {
     // var url = "'https://reqres-api.herokuapp.com/api/users/'";
 
         })
-
+        // when clicked
         $('a').on('click', function(event){
           event.preventDefault();
 
@@ -39,7 +38,7 @@ $(document).ready(function() {
       })
         //  var str = "<li> + 'https://reqres-api.herokuapp.com/api/users/' + + </li>";
 //          console.log(users[i]['name']);
-      //  }
+
 
     }
 
