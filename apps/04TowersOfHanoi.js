@@ -16,25 +16,44 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
-
+function movePiece(startStack, endStack) {
+    stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
-    // Your code here
-
+function isLegal(startStack, endStack) {
+    var startStackArray = stacks[startStack];
+    var endStackArray = stacks[endStack];
+    console.log("start stack: "+ startStackArray);
+    console.log("end stack: "+ endStackArray);
+    if (startStackArray.length === 0) {
+       return false; }
+    else if (endStackArray.length === 0) {
+       return true;
+    }
+    else {
+       return startStackArray[startStackArray.length -1] < endStackArray [endStackArray.length -1];
+    }
 }
 
 function checkForWin() {
-    // Your code here
-
+ if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+    return true;
+   } else {
+   return false;
+}
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
+   if (isLegal(startStack, endStack)){
 
-}
+     movePiece(startStack, endStack);
+     return true;
+  }
+  else {
+     return false;
+        }
+     }
+
 
 function getPrompt() {
     printStacks();

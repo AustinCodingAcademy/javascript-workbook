@@ -11,6 +11,64 @@ var jobTypes = {
 
 // Your code here
 
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+    this.enterShip = function(thisShip){
+        this.ship=thisShip;
+        thisShip.crew.push(this);
+    }
+}
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var commander = new CrewMember('Commander Lewis', 'commander', 'geology');
+var hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  //missionStatement
+  this.crew = [];
+    this.missionStatement = function(){
+      console.log("IM IN MISSION STATEMENT");
+      if(this.crew.length > 0){
+      for (var i = 0; i<this.crew.length; i++){
+         if(this.crew[i].job ==="pilot" && this.type==="MAV"){
+            console.log(this.ability);
+         return this.ability;
+         }
+         else if(this.crew[i].job ==="mechanic" && this.type==="Repair Ship"){
+            console.log(this.ability);
+            return this.ability;
+         }
+         else if(this.crew[i].job ==="commander" && this.type==="Main Ship"){
+            console.log(this.ability);
+            return this.ability;
+         }
+         else if(this.crew[i].job ==="programmer" && this.type==="Any Ship"){
+            console.log(this.ability);
+            //console.log("result of this.crew[i].job "+this.crew[i].job);
+            return this.ability;
+         }
+
+       else {
+     return this.crew[i] + ' ' + this.type + "Can't perform this mission yet!";
+  }}}else{
+     return "Can\'t perform a mission yet.";
+ }
+}
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var hermes = new Ship ('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+rick.enterShip(mav);
+console.log("ABOUT TO TEST MAV");
+console.log(mav.missionStatement());
+
+
 //tests
 if (typeof describe !== 'undefined'){
 describe('CrewMember', function(){

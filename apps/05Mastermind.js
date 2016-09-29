@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var colors = require('colors/safe');
+//var colors = require('colors/safe');
 var prompt = require('prompt');
 prompt.start();
 
@@ -26,14 +26,42 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+    for (var i = 0; i < guessArray.length; i++) {
+        if (guessArray[i] === solutionArray[i]) {
+            correctLetterLocations++;
+            solutionArray[i] = null;
+        }
+    }
+    for (var i = 0; i < guessArray.length; i++) {
+        var targetIndex = guessArray.indexOf(solutionArray[i]);
+        if (targetIndex > -1) {
+            correctLetters++;
+           solutionArray[i] = null;
+        }
+    }
+
+    return correctLetterLocations+ "-" + correctLetters;
 }
 
-function mastermind(guess) {
-    // your code here
+    function mastermind(guess) {
+        var hint;
+        if (board.length < 10) {
+            if (guess === solution) {
+                return "You guessed it!";
+        } else {
+            hint = generateHint(solution, guess);
+            board.push(guess + ' ' + hint);
+            return 'Guess again.';
+        }
+    } else {
+        return 'You have no more turns! The solution was ' + solution;
+    }
 }
-
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
@@ -67,7 +95,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
