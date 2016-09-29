@@ -16,12 +16,12 @@
 
 [data-block="25"] {
     height: 25px;
-    background-color: blue;
+    background-color: aqua;
 }
 
 [data-block="50"] {
     height: 50px;
-    background-color: green;
+    background-color: lime;
 }
 
 [data-block="75"] {
@@ -35,6 +35,8 @@
 }
 
 #announce-game-won {
-    font-size: 50px;
+    font-size: 150px;
     text-align: center;
+    font-style: italic;
+
 }
