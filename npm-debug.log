@@ -1,0 +1,164 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\Node.js\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\Node.js\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-',
+1 verbose cli   'g',
+1 verbose cli   'mocha' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData -
+8 silly fetchPackageMetaData g
+9 silly fetchPackageMetaData mocha@^2.4.5
+10 silly fetchNamedPackageData mocha
+11 silly mapToRegistry name mocha
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry data Result {
+14 silly mapToRegistry   raw: 'mocha',
+14 silly mapToRegistry   scope: null,
+14 silly mapToRegistry   escapedName: 'mocha',
+14 silly mapToRegistry   name: 'mocha',
+14 silly mapToRegistry   rawSpec: '',
+14 silly mapToRegistry   spec: 'latest',
+14 silly mapToRegistry   type: 'tag' }
+15 silly mapToRegistry uri https://registry.npmjs.org/mocha
+16 silly fetchOtherPackageData -
+17 silly cache add args [ '-', null ]
+18 verbose cache add spec -
+19 silly fetchNamedPackageData g
+20 silly mapToRegistry name g
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'g',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   escapedName: 'g',
+23 silly mapToRegistry   name: 'g',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri https://registry.npmjs.org/g
+25 silly cache add parsed spec Result {
+25 silly cache add   raw: '-',
+25 silly cache add   scope: null,
+25 silly cache add   escapedName: null,
+25 silly cache add   name: null,
+25 silly cache add   rawSpec: '-',
+25 silly cache add   spec: 'C:\\Users\\Sandra\\Austin-coding-academy\\repos\\intermediate-workbook\\-',
+25 silly cache add   type: 'local' }
+26 verbose request uri https://registry.npmjs.org/g
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 12:40:22 AM
+29 verbose request id 52d0762391f6b68d
+30 http request GET https://registry.npmjs.org/g
+31 error addLocal Could not install C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-
+32 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open 'C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-'
+32 silly fetchPackageMetaData     at Error (native)
+32 silly fetchPackageMetaData  error for - { Error: ENOENT: no such file or directory, open 'C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-'
+32 silly fetchPackageMetaData     at Error (native)
+32 silly fetchPackageMetaData   errno: -4058,
+32 silly fetchPackageMetaData   code: 'ENOENT',
+32 silly fetchPackageMetaData   syscall: 'open',
+32 silly fetchPackageMetaData   path: 'C:\\Users\\Sandra\\Austin-coding-academy\\repos\\intermediate-workbook\\-' }
+33 verbose request uri https://registry.npmjs.org/mocha
+34 verbose request no auth needed
+35 info attempt registry request try #1 at 12:40:23 AM
+36 verbose etag "1YUAPMXOUNICCL9LL38JQKCY2"
+37 http request GET https://registry.npmjs.org/mocha
+38 http 200 https://registry.npmjs.org/g
+39 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+39 verbose headers   etag: '"5IBAML63Y5Y7Q10E1FX7BLFSO"',
+39 verbose headers   'content-type': 'application/json',
+39 verbose headers   'content-encoding': 'gzip',
+39 verbose headers   'cache-control': 'max-age=300',
+39 verbose headers   'content-length': '1885',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   date: 'Tue, 02 Aug 2016 05:40:30 GMT',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   age: '0',
+39 verbose headers   connection: 'keep-alive',
+39 verbose headers   'x-served-by': 'cache-dfw1832-DFW',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1470116430.216386,VS0,VE53',
+39 verbose headers   vary: 'Accept-Encoding' }
+40 silly get cb [ 200,
+40 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+40 silly get     etag: '"5IBAML63Y5Y7Q10E1FX7BLFSO"',
+40 silly get     'content-type': 'application/json',
+40 silly get     'content-encoding': 'gzip',
+40 silly get     'cache-control': 'max-age=300',
+40 silly get     'content-length': '1885',
+40 silly get     'accept-ranges': 'bytes',
+40 silly get     date: 'Tue, 02 Aug 2016 05:40:30 GMT',
+40 silly get     via: '1.1 varnish',
+40 silly get     age: '0',
+40 silly get     connection: 'keep-alive',
+40 silly get     'x-served-by': 'cache-dfw1832-DFW',
+40 silly get     'x-cache': 'MISS',
+40 silly get     'x-cache-hits': '0',
+40 silly get     'x-timer': 'S1470116430.216386,VS0,VE53',
+40 silly get     vary: 'Accept-Encoding' } ]
+41 verbose get saving g to C:\Users\Sandra\AppData\Roaming\npm-cache\registry.npmjs.org\g\.cache.json
+42 verbose correctMkdir C:\Users\Sandra\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+43 http 200 https://registry.npmjs.org/mocha
+44 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+44 verbose headers   etag: '"34BUFBJAP23WJ5WXQL22JTBGG"',
+44 verbose headers   'content-type': 'application/json',
+44 verbose headers   'content-encoding': 'gzip',
+44 verbose headers   'cache-control': 'max-age=300',
+44 verbose headers   'content-length': '57479',
+44 verbose headers   'accept-ranges': 'bytes',
+44 verbose headers   date: 'Tue, 02 Aug 2016 05:40:30 GMT',
+44 verbose headers   via: '1.1 varnish',
+44 verbose headers   age: '6',
+44 verbose headers   connection: 'keep-alive',
+44 verbose headers   'x-served-by': 'cache-dfw1848-DFW',
+44 verbose headers   'x-cache': 'HIT',
+44 verbose headers   'x-cache-hits': '1',
+44 verbose headers   'x-timer': 'S1470116430.219551,VS0,VE0',
+44 verbose headers   vary: 'Accept-Encoding' }
+45 silly get cb [ 200,
+45 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+45 silly get     etag: '"34BUFBJAP23WJ5WXQL22JTBGG"',
+45 silly get     'content-type': 'application/json',
+45 silly get     'content-encoding': 'gzip',
+45 silly get     'cache-control': 'max-age=300',
+45 silly get     'content-length': '57479',
+45 silly get     'accept-ranges': 'bytes',
+45 silly get     date: 'Tue, 02 Aug 2016 05:40:30 GMT',
+45 silly get     via: '1.1 varnish',
+45 silly get     age: '6',
+45 silly get     connection: 'keep-alive',
+45 silly get     'x-served-by': 'cache-dfw1848-DFW',
+45 silly get     'x-cache': 'HIT',
+45 silly get     'x-cache-hits': '1',
+45 silly get     'x-timer': 'S1470116430.219551,VS0,VE0',
+45 silly get     vary: 'Accept-Encoding' } ]
+46 verbose get saving mocha to C:\Users\Sandra\AppData\Roaming\npm-cache\registry.npmjs.org\mocha\.cache.json
+47 verbose correctMkdir C:\Users\Sandra\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+48 silly rollbackFailedOptional Starting
+49 silly rollbackFailedOptional Finishing
+50 silly runTopLevelLifecycles Starting
+51 silly runTopLevelLifecycles Finishing
+52 silly install printInstalled
+53 verbose stack Error: ENOENT: no such file or directory, open 'C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-'
+53 verbose stack     at Error (native)
+54 verbose cwd C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook
+55 error Windows_NT 10.0.10586
+56 error argv "C:\\Program Files (x86)\\Node.js\\node.exe" "C:\\Program Files (x86)\\Node.js\\node_modules\\npm\\bin\\npm-cli.js" "install" "-" "g" "mocha"
+57 error node v6.3.1
+58 error npm  v3.10.3
+59 error path C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-
+60 error code ENOENT
+61 error errno -4058
+62 error syscall open
+63 error enoent ENOENT: no such file or directory, open 'C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-'
+64 error enoent ENOENT: no such file or directory, open 'C:\Users\Sandra\Austin-coding-academy\repos\intermediate-workbook\-'
+64 error enoent This is most likely not a problem with npm itself
+64 error enoent and is related to npm not being able to find a file.
+65 verbose exit [ -4058, true ]
