@@ -14,6 +14,8 @@ var assert = require('assert');
 var point = {
 };
 
+point.x = 1;
+point.y = 2;
 // Problem 2:
 // Fill in this Point constructor function so that it defines
 // a class of points with properties x and y.
@@ -21,13 +23,15 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
-}
+  this.x = x;
+  this.y = y;
+};
 
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint;
+var anotherPoint = new Point(5, -3);
 
 // ****
 // Concept Checkpoint
@@ -37,6 +41,14 @@ var anotherPoint;
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
 //
+// I'm going to try and give a more in depth explanation for the differences between object literals and object constructors.
+
+
+// There are several important differences between Object literals and Object Constructors, but the
+// most important difference is that changes made to the properties of Object literals impact every new instance of that Object.
+// This is limiting.
+// Object Constructors allow specification of the properties and methods of each instance of a 'class'. Changing the age property of an object named
+// Manny from the human class from 35 to his real age of 25 will not change the age of another human created from the same class named Rob.
 //
 
 // ****
@@ -76,11 +88,15 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi = function sayHi(Person) {
+    return "Hi, I'm" + this.name + '!';
+}
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
+var jen = new Person('Jen');
+
 
 // Problem 6:
 // add jen to the conferenceRoom
@@ -88,7 +104,7 @@ var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
-
+conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
@@ -97,6 +113,12 @@ var conferenceRoom = new ConferenceRoom();
 //
 // What is a method?
 //
+//
+// A method is a function created in an Object Constructor. Methods can be generalized an apply to all instances of
+// a class or methods can be individualized, specified, and unique so that only a certain instance of the class are able to per
+// If human is a class then walking is a method that most humans have.
+// marySol is also part of the human class. She has the walk() method at her disposal. However, because marySol is unique she has
+// certain methods other humans do not have. Each day she uses method codePearl() while most humans not only do not do this but they CANNOT do this.
 //
 
 // ****

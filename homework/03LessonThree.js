@@ -20,16 +20,17 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
+
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
+  //var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -42,7 +43,16 @@ function returnTheFirstArgument(firstArgument) {
 //
 // Your Answer Goes Here:
 //
+// Scope or visibility refers to the accessibility of a name to an entity
+// and where within the computer program that name can be used to refer to that entity.
+// Within Javascript scope refers to where within the code an item is accessible from.
 //
+// A simpler way to think of scope is the set of variables, objections, and functions that are accessible.
+// Javascript has global and local scope.
+// Variable defined within a function are given local scope, meaning they can only be accessed from within the fucntion they were created in.
+// Local varables are deleted once a function is complete (usually the return value)
+// Variables declared outside of functions are automatically given global scope. Global scope variables can be accessed from anywhere within the code.
+// Variables that are created but given no value default to global scope. Even when creatd within a function.
 
 
 // ****
@@ -57,19 +67,19 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -79,8 +89,16 @@ var problemSevenAnswer;
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
+// Ternary operators are operators that are commonly used as shortcuts for if statements.
+// Ternary operators are unique because they take three operands.
+// Tenary operators are written as following parameters:
+// condition ? expr1 : expr2
 //
-//
+// condition (an expression that evalutes to true or false.)
+// expr1 an expression with any type of value
+// expr2 an expression with any type of value
+// A ternary operator will return expr1 as its return value if the condition is true.
+// A ternary operator will retunr expr2 as its return value if the condition is false.
 
 
 // ****
@@ -89,17 +107,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [0, true, -1, 'manny', false];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -108,12 +127,17 @@ var threeByThreeArray = [
   [7, 8, 9]
 ];
 
+threeByThreeArray[1, 1] = 4
+
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [
+    [3, 4],
+    [7, 9]
+];
 
 // ****
 // Tests

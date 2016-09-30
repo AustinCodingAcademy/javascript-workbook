@@ -5,7 +5,7 @@
     -webkit-align-items: center;
     display: -webkit-flex;
     height: 101px;
-    background-color: aliceblue;
+    background-color: blue;
     margin: 25px;
 }
 
@@ -16,7 +16,7 @@
 
 [data-block="25"] {
     height: 25px;
-    background-color: blue;
+    background-color:pink;
 }
 
 [data-block="50"] {

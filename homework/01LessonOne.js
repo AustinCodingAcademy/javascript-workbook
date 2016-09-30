@@ -10,34 +10,37 @@ var assert = require('assert');
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.
 
-var myUndefined;
+var myUndefined = undefined;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+//
+//An undefined variable is a variable that has not been declared or give value.
+//Null is an assignment value. It is assigned to a variable as a representation of no value.
 
-var myNull;
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 10;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = 'string';
 
 // ****
 // Boolean Operators
@@ -46,57 +49,57 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue;
+var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse;
+var notFalse = !false;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = !true;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = !!true;
 
 // ****
 // Concept Checkpoint
@@ -105,7 +108,7 @@ var notNotTrue;
 //
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: The "and" operator is written as ""&&". It first tests if the value on the left is true. If so it tests if the value on the right is true. If both are true, it will return a value of true. If either is false, it will return a value of false.
 //
 // ****
 
@@ -119,22 +122,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -143,7 +146,11 @@ var notNotUndefined;
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A truthy value is a value that translates to "true" when evaluated as a boolean. A falsey value translates to "false" when evaluated as a boolean. See examples below.
+//
+//Example 1 - Truthiness: 1 == true => true
+//Example 2 - Falsiness: 0 == true => false
+
 //
 // ****
 
@@ -153,47 +160,47 @@ var notNotUndefined;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -202,13 +209,24 @@ var stringFourStrictNotEqualsNumberFour;
 //
 // What’s the difference between == and ===?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: == and === are comparison operators. == is the loose equality operator. It compares two values for equality after it converts both values to a common type.
 //
+// === is the strict equality evaluator. It compares to values and does not convert them. It will produce true if it evaluates to values to be of equal value AND equal type.
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: != and !== are comparison operators. != can be considered a "loose not equal to" operator. It evaluates two values and produces a result of true if they are not of equal value.
+// For example:
+// var x = '8';
 //
+// x != '8' will return false because 8 and '8' are considered equal value and '8' is converted into 8.
+//
+//Since ! evaluates if something is not true  8 == 8 being true makes 8 != 8 false.
+//
+// x !== '8' will return true because !== evaluates value and type. x has been assigned the number 8 while '8' is a string.
+//
+//!== does not convert type so any comparison with two different types is automatically considered not equal.
+//x !== '8' is saying that "x is not equal to '8' and is a true statement. //
 // ****
 
 

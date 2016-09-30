@@ -13,7 +13,11 @@ var window;
 beforeEach(function (done) {
   jsdom.env(
     {
+<<<<<<< HEAD
+      file: './index.html',
+=======
       file: './homework/08LessonEight/index.html',
+>>>>>>> c3114e680667d8df8b4119c32507e500da668c09
       scripts: [
         "../../vendor/jquery.js",
         "./script.js"
