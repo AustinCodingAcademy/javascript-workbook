@@ -20,18 +20,25 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
+//the firstName is 'susan' and NOT 'bob' at this point
+  //because the printFullName() function has not been  called
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
+//the lastName is 'plaid' at this point in the program
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
+  // var firstArgument = 'bob';
   return firstArgument;
 }
+//if we want to return the argument itself
+  //then we must not redefine the variable
+    //and we must simply return the initial argument variable
+
 
 // ****
 // Concept Checkpoint
@@ -41,8 +48,9 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//
-//
+//scope refers to how broad or narrow our view of functions, variables etc. is
+  //if a function or variable is global in scope then we have access to it anywhere in our function
+    //if a function or variable is in local scope then we only have access to it based on how functions and variables are 'wired together'
 
 
 // ****
@@ -57,19 +65,19 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -79,7 +87,12 @@ var problemSevenAnswer;
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-//
+//The ternary operator is an alternative to if/else statements
+  //it differs in that it presents an if/else conditional in a succinct manner
+    //the ternary operator asks...
+      //is the variable or condition true or false
+        //if the variable is true, then redefine the variable with the first value
+          //else, (variable is false), redefine the variable with the second value
 //
 
 
@@ -89,17 +102,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [2,4,6,8,10];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -110,10 +124,11 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+threeByThreeArray[1][1] = 'something else';
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [ [5,10], [20,30] ];
 
 // ****
 // Tests

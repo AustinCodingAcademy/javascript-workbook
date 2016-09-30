@@ -13,6 +13,8 @@ var assert = require('assert');
 // in two dimensional space.
 var point = {
 };
+point['x'] = 1;
+point['y'] = 2;
 
 // Problem 2:
 // Fill in this Point constructor function so that it defines
@@ -21,13 +23,15 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
+  this.x = x;
+  this.y = y;
 }
 
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint;
+var anotherPoint = new Point(5, -3);
 
 // ****
 // Concept Checkpoint
@@ -35,6 +39,8 @@ var anotherPoint;
 // Write your answer in comments
 //
 // What is the difference between point (an object literal, or associative array)
+//point is the OG/original gangster
+//another point is an instance of the point class (another point is a new)
 // and anotherPoint (a point object constructed from the Point class)?
 //
 //
@@ -53,6 +59,7 @@ var anotherPoint;
 // this.sayHi(): which calls person.sayHi() for every person in this.people
 //
 // Note how methods in one class can call methods in another class
+
 function ConferenceRoom() {
   this.people     = [];
 
@@ -66,7 +73,7 @@ function ConferenceRoom() {
 
   this.sayHi      = function() {
     for(var index = 0; index < this.people.length; index++) {
-      console.log(this.people[index].sayHi());
+      return this.people[index].sayHi();
     }
   }
 }
@@ -76,15 +83,20 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi = function(){
+    return "Hi, I'm " + this.name + '!';
+  }
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
-
+var jen = new Person('Jen');
+console.log(jen.sayHi());
 // Problem 6:
 // add jen to the conferenceRoom
 var conferenceRoom = new ConferenceRoom();
+conferenceRoom.enter(jen);
+
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
@@ -96,7 +108,7 @@ var conferenceRoom = new ConferenceRoom();
 // Write your answer in comments
 //
 // What is a method?
-//
+//A method is like a function or action that we pass on the object constructor
 //
 
 // ****
