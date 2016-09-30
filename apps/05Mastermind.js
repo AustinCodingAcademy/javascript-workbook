@@ -26,14 +26,49 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    if(solutionArray[i]=== guessArray[i]){
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+    var correctLetters = 0;
+
+    for (var i = 0; i < solutionArray.length; i++) {
+      var targetIndex = solutionArray.indexOf(guessArray[i]);
+      if(targetIndex > -1){
+        correctLetters++;
+        solutionArray[targetIndex]=null;
+      }
+    }
+
+    return correctLetterLocations.toString()+ '-' + correctLetters.toString();
+
 }
 
 function mastermind(guess) {
-    // your code here
-}
+    solution= 'abcd';
 
+    if(guess === solution){
+      return 'You guessed it!';
+    }
+
+    var hint = generateHint(solution, guess);
+     board.push(guess + '-' + hint);
+
+     if (board.length >= 10){
+       return 'You ran out of turns! The solution was' + solution;
+     }
+     else {
+        return 'Guess again';
+      }
+  }
 
 function getPrompt() {
     prompt.get(['guess'], function (error, result) {
@@ -67,7 +102,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();

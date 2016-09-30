@@ -16,29 +16,75 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
+function movePiece(startStack, endStack) {
+  stacks[endStack].push(stacks[startStack].pop());
 
 }
 
-function isLegal() {
-    // Your code here
+function isLegal(startStack, endStack) {
+  var startStacksArray = stacks[startStack];
+  var endStacksArray = stacks[endStack];
 
+  if(startStacksArray.length === 0) {
+    return false;
+  }
+  else if (endStacksArray.length === 0) {
+    return true;
+  }
+  else {
+    return startStacksArray[startStacksArray.length - 1] < endStacksArray[endStacksArray.length -1];
+    }
 }
 
 function checkForWin() {
-    // Your code here
+  if (stacks.b.length === 4 ){
+    printStacks();
+    console.log('YOU WON!');
+    clearStacks();
+    return true;
+  }
+  else if  (stacks.c.length === 4){
+    printStacks();
+    console.log('YOU WON!');
+    clearStacks();
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
+function clearStacks(){
+  stacks = {
+     a: [4, 3, 2, 1],
+     b: [],
+     c: []
+ };
+return stacks;
 }
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
-
+  if (isLegal(startStack, endStack)){
+     movePiece(startStack,endStack);
+     checkForWin();
+     return true;
+  }
+  else {
+    console.log("not a legal");
+    return false;
+  }
 }
 
 function getPrompt() {
     printStacks();
     prompt.get(['start stack', 'end stack'], function (error, result) {
+      //  if ('start stack' === a || 'start stack' === b ){
+       //
+      //  }
+      //  else {
+      //    console.log("Please enter a, b or c");
+      //    prompt.get();
+      //  };
         towersOfHanoi(result['start stack'], result['end stack']);
         getPrompt();
     });
