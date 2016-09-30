@@ -16,31 +16,58 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
     // Your code here
-
+    var poppedItem = stacks[startStack].pop();
+    stacks[endStack].push(poppedItem);
 }
 
-function isLegal() {
+function isLegal(startStack , endStack) {
     // Your code here
+    if (stacks[startStack].length === 0) {
+      return false;
+    }
 
+    if (stacks[endStack].length === 0) {
+      return true;
+     }
+
+    if (stacks[startStack][stacks[startStack].length - 1] <= stacks[endStack][stacks[endStack].length - 1] ) {
+      return true;
+    } else {
+      return false;
+    }
 }
 
 function checkForWin() {
     // Your code here
-
+    if (stacks.b.length>=4 || stacks.c.length>=4)  {
+      console.log("You Won!!!");
+      return true;
+    }
+    return false;
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
-
+    if ( isLegal(startStack, endStack) ) {
+      movePiece(startStack, endStack);
+      if (checkForWin()) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
 }
 
 function getPrompt() {
     printStacks();
     prompt.get(['start stack', 'end stack'], function (error, result) {
-        towersOfHanoi(result['start stack'], result['end stack']);
-        getPrompt();
+        if (!(towersOfHanoi(result['start stack'], result['end stack']))) {
+          getPrompt();
+        }
     });
 }
 

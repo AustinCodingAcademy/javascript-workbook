@@ -7,7 +7,58 @@ prompt.start();
 
 function rockPaperScissors(hand1, hand2) {
 
-    // Write code here
+    // // Write code here
+    var options = ["rock", "scissors", "paper"];
+    var compute_option = Math.floor( Math.random() * 3 );
+    // other option, if (Math.random() < .5) ? "Option1" "Option2";
+
+    hand1 = hand1.toLowerCase().trim();
+    hand2 = hand2.toLowerCase().trim();
+
+    if ( !(options.indexOf(hand1) > -1) ) {
+      return "Hand One, Please Enter a correct value: rock, scissors or paper";
+    }
+    if ( !(options.indexOf(hand2) > -1) ) {
+      return "Hand Two, Please Enter a correct value: rock, scissors or paper";
+    }
+
+    // if !(hand1 = options[0] || hand1 = options[1] || hand1 = options[2] ) {
+    //   return "Please Enter a correct value: rock, scissors or paper";
+    // }
+
+
+    if (hand1 === hand2){
+      return "It's a tie!";
+    }
+
+    if ( (hand1 === 'rock' &&  hand2 === 'scissors') ||
+       (hand1 === 'paper' &&  hand2 === 'rock') ||
+       (hand1 === 'scissors' &&  hand2 === 'paper') )
+       {
+      return "Hand one wins!";
+    } else {
+      return "Hand two wins!";
+    }
+
+
+    // FIRST TRY
+    // if (hand1 === 'rock'){
+    //   if (hand2 === 'scissors'){
+    //     return "Hand one wins!";
+    //   }
+    // }
+    // if (hand1 === 'paper'){
+    //   if (hand2 === 'rock'){
+    //     return "Hand one wins!";
+    //   }
+    // }
+    // if (hand1 === 'scissors'){
+    //   if (hand2 === 'paper'){
+    //     return "Hand one wins!";
+    //   }
+    // }
+    //
+    // return "Hand two wins!";
 
 }
 
@@ -19,6 +70,25 @@ function getPrompt() {
         getPrompt();
     });
 }
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// function getPrompHand1() {
+//   prompt.get(['hand1']), function (error, result) {
+//
+//     var options = ["rock", "scissors", "paper"];
+//
+//     var hand1 = result[hand1];
+//     hand1 = hand1.toLowerCase().trim();
+//
+//     if ( !(options.indexOf(hand1) > -1) ) {
+//       return "Hand One, Please Enter a correct value: rock, scissors or paper";
+//       getPrompHand1();
+//     } else {
+//       console.log( rockPaperScissors(result['hand1'], result['hand2']) );
+//     }
+//
+//   };
+// }
 
 // Tests
 

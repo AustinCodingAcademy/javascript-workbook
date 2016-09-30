@@ -5,8 +5,16 @@ var prompt = require('prompt');
 prompt.start();
 
 
-function Checker() {
+function Checker( color ) {
+    var symbol;
+
     // Your code here
+    if (color === 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+    } else {
+      this.symbol = String.fromCharCode(0x125CF);
+    }
+
 }
 
 function Board() {
@@ -50,7 +58,67 @@ function Board() {
     }
 
     // Your code here
+    this.checkers = [];
+
+    this.createCheckers = function(){
+
+      var jump = false;
+      var tab  = true;
+
+      for (var row = 0; row < 8; row++) {
+
+          // a loop within a loop
+          for (var column = 0; column < 8; column++) {
+
+              // jump and insert white positions
+                if (jump) {
+                    if (row <= 2 ) {
+                      var newChecker  = new Checker('white');
+                    } else {
+                      if (row >=5) {
+                        var newChecker  = new Checker('black');
+                      } else {
+                        var newChecker = null;
+                      }
+                    }
+                    // push the symbol color
+                    // rowOfCheckers.push(color);
+                    if (newChecker) {
+                      if (tab) {this.grid[row][column] = newChecker;
+                      } else {
+                        this.grid[row][column - 1] = newChecker;
+                      }
+                      this.checkers.push(newChecker);
+                    }
+                }
+              jump = !jump;
+          }
+          tab = !tab;
+      }
+    }
+
+    this.selectChecker = function(row, column){
+      return this.grid[row][column];
+    }
+
+    this.setChecker = function(row, column, object){
+      this.grid[row][column] = object;
+    }
+
+    this.killChecker = function(position){
+
+      var row     = position[0];
+      var column  = position[1];
+      var checher = this.selectChecker(row, column);
+      var pos = this.checkers.indexOf(checher);
+
+      if  (pos > -1) {
+         this.checkers.splice(pos,1);
+      }
+      this.grid[row][column] = null;
+    }
 }
+
 function Game() {
 
     this.board = new Board();
@@ -58,13 +126,44 @@ function Game() {
     this.start = function() {
         this.board.createGrid();
         // Your code here
+        this.board.createCheckers();
     }
-}
+
+    this.moveChecker = function(start, end){
+
+        // get the checher
+        var row1     = start[0];
+        var column1  = start[1];
+        var checker = this.board.selectChecker(row1, column1);
+
+        // Clear the space
+        this.board.setChecker(row1, column1, null);
+
+        // Move to the end point
+        var row2     = end[0];
+        var column2  = end[1];
+        this.board.setChecker(row2, column2, checker);
+
+        if (( Math.abs(row1 - row2) === 2 ) || ( Math.abs(column1 - column2) === 2 ) ) {
+          // Jumped the checker
+          var xKillPostition = ((Number(row1) + Number(row2)) / 2 );
+          var yKillPostition = ((Number(column1) + Number(column2)) / 2 );
+
+          var position = xKillPostition.toString() + yKillPostition.toString();
+
+          this.board.killChecker(position);
+
+        }
+    }
+
+
+}  // End class game
 
 function getPrompt() {
     game.board.viewGrid();
     prompt.get(['which piece?', 'to where?'], function (error, result) {
         game.moveChecker(result['which piece?'], result['to where?']);
+
         getPrompt();
     });
 }
