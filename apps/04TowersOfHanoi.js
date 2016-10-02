@@ -1,8 +1,11 @@
 'use strict';
 
 var assert = require('assert');
-var prompt = require('prompt');
-prompt.start();
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 var stacks = {
     a: [4, 3, 2, 1],
@@ -44,9 +47,11 @@ function towersOfHanoi(startStack, endStack) {
 
 function getPrompt() {
     printStacks();
-    prompt.get(['start stack', 'end stack'], function (error, result) {
-        towersOfHanoi(result['start stack'], result['end stack']);
-        getPrompt();
+    rl.question('start stack: ', (startStack) => {
+        rl.question('end stack: ', (endStack) => {
+            towersOfHanoi(startStack, endStack);
+            getPrompt();
+        });
     });
 }
 

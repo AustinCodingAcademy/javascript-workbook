@@ -1,9 +1,11 @@
 'use strict';
 
 var assert = require('assert');
-var prompt = require('prompt');
-prompt.start();
-
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 var board = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
@@ -55,10 +57,13 @@ function ticTacToe(row, column) {
 function getPrompt() {
     printBoard();
     console.log("It's Player " + playerTurn + "'s turn.");
-    prompt.get(['row', 'column'], function (error, result) {
-        ticTacToe(result['row'], result['column']);
-        getPrompt();
+    rl.question('row: ', (row) => {
+        rl.question('column: ', (column) => {
+            ticTacToe(row, column);
+            getPrompt();
+        });
     });
+
 }
 
 

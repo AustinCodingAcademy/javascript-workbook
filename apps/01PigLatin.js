@@ -2,7 +2,11 @@
 
 var assert = require('assert');
 var prompt = require('prompt');
-prompt.start();
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 
 function pigLatin(word) {
@@ -46,10 +50,8 @@ function pigLatin(word) {
 
 
 function getPrompt() {
-    prompt.get(['word'], function (error, result) {
-
-        console.log( pigLatin(result['word']) );
-
+    rl.question('word ', (answer) => {
+        console.log( pigLatin(answer) );
         getPrompt();
     });
 }

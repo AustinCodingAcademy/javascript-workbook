@@ -2,8 +2,11 @@
 
 var assert = require('assert');
 var colors = require('colors/safe');
-var prompt = require('prompt');
-prompt.start();
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 var board = [];
 var solution = '';
@@ -59,8 +62,8 @@ function mastermind(guess) {
 
 
 function getPrompt() {
-    prompt.get(['guess'], function (error, result) {
-        console.log( mastermind(result['guess']) );
+    rl.question('guess: ', (guess) => {
+        console.log( mastermind(guess) );
         printBoard();
         getPrompt();
     });

@@ -1,8 +1,11 @@
 'use strict';
 
 var assert = require('assert');
-var prompt = require('prompt');
-prompt.start();
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 
 function Checker(color) {
@@ -118,9 +121,11 @@ function Game() {
 
 function getPrompt() {
     game.board.viewGrid();
-    prompt.get(['which piece?', 'to where?'], function (error, result) {
-        game.moveChecker(result['which piece?'], result['to where?']);
+    rl.question('which piece?: ', (whichPiece) => {
+        rl.question('to where?: ', (toWhere) => {
+             game.moveChecker(whichPiece, toWhere);
         getPrompt();
+        });
     });
 }
 
