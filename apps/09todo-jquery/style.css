@@ -1,3 +1,8 @@
+body {
+  font-family: 'Cutive', serif;
+  background-color: #ffb399;
+}
+
 *:focus {
   outline-style: none !important;
   outline: 0 !important;
@@ -27,12 +32,12 @@ form {
 #todo-list li {
     display: table;
     margin: 10px auto;
-    padding: 10px 0;
-    border: 1px solid #ccc;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    padding: 10px 0 8px 0;
+    border: 1px dashed white;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
     text-align: center;
-    background-color: #fdfdfd;
+    background-color: #ffc6b3;
     width: 100%;
 }
 
@@ -42,20 +47,23 @@ form {
 
 
 input[type="submit"] {
-    padding:5px 0;
+    padding:5px 0 3px 0;
     text-align: center;
-    background:#ccc;
+    background:white;
     border: 0 none;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-    font-size: 14px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 12px;
     width: 20%;
+    font-family: 'Cutive', serif;
 }
 
 input[type=text] {
     padding:6px;
-    border:1px solid #ccc;
+    border:1px solid #ffb399;
+    border-bottom:2px solid black;
     -webkit-border-radius: 0px;
     border-radius: 0px;
     width: 65%;
+    background-color: #ffb399;
 }
