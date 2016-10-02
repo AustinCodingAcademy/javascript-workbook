@@ -25,7 +25,7 @@ var alwaysTrue = function () {
 // return a boolean expression that is true when
 // argument1 is equal to argument2
 
-function equals(argument1, argument2) {
+function equals( argument1, argument2) {
 }
 
 // Problem 2:
@@ -34,17 +34,27 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  return parameter1 <= parameter2;
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(x, y) {
+  return x + y;
+};
+console.log (add(2, 4));
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+
+function addThree(number1, number2, number3) {
+  return add(number1, number2) + number3;
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +64,22 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+// code that can solve a problem. by giving it a name and parameters
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+// what the function actually does with the parameters, the solution, then shows the result.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+//a function that is named by coder by creating a name and defining its parameters and function.
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// a parameter is the the bounds of the function, an argument is the variable within the parameter.
 // ****
 
 
@@ -84,6 +94,12 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (number % 2 === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // Problem 6:
@@ -93,6 +109,12 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if (number % 3 ===0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // ****
@@ -107,9 +129,36 @@ function isDivisibleByThree(number) {
 // should return "fish" when character is 'nemo'
 // should return false if character is anything else
 
+//==>I'm not sure why this is failing after scooby.
+
 function whichSpecies(character) {
+  if (character === 'scooby') {
+    return "dog";
+    }
+  else if (character === 'garfield') {
+    return "cat";
+    }
+  else if (character === 'nemo') {
+    return "fish";
+    }
+  else {
+    return false;
+    }
+  return
 }
 
+function whichSpecies(character) {
+  switch (character) {
+    case 'scooby':
+      return 'dog';
+    case 'garfield':
+      return 'cat';
+    case 'nemo':
+      return 'fish';
+    default:
+      return false;
+  }
+}
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
 // The function should:
@@ -118,6 +167,20 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  if (number % 4 === 0) {
+    return "divisible by 4";
+    }
+  else if (number % 2 === 0) {
+    return "divisible by 2";
+    }
+  else if (number % 3 === 0) {
+    return "divisible by 3";
+    }
+  else if (number % 5 ===0) {
+    return "divisible by 5";
+    }
+}
 
 // ****
 // Concept Checkpoint
@@ -127,7 +190,7 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
+// a series of if and else statements that can be applied to a single variable that will change depending on what the variable is.
 //
 // ****
 

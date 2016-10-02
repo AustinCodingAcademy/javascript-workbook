@@ -1,5 +1,28 @@
 'use strict';
 
 $(document).ready(function() {
-  // Put app logic here
-}
+  var $block = null;
+
+  function checkForWin() {
+    $('[data-stack]').each(function() {
+      var $stack = $(this);
+      if($stack.data('stack') > 1 && $stack.children().length === 4) {
+        $('#announce-game-won').text('You Won!');
+      }
+    });
+  }
+
+  $('[data-stack]').click(function() {
+    var $children = $(this).children();
+    if(!$block) {
+      $block = $(this).children().last().detach();
+    }
+    else {
+      if(parseInt($children.last().attr('data-block')) > parseInt($block.attr('data-block')) || $children.length === 0) {
+        $(this).append($block);
+        $block = null;
+          }
+        }
+    checkForWin();
+  });
+});
