@@ -17,76 +17,86 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Animate.css file -->
-    <link rel="stylesheet" href="css/animate.css">
-
-    <!-- Hover.css file  -->
-    <link rel="stylesheet" href="css/hover.css">
-
     <!-- CUSTOM CSS FILE(S) -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/modern-business.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts, Font Awesome -->
     <script src="https://use.fontawesome.com/badc11c74c.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'> -->
     <link href="https://fonts.googleapis.com/css?family=Homemade+Apple|PT+Sans" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here|Reenie+Beanie" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
 
 </head>
 
 <body>
 
+    <div class="container">
 
-
-    <div class="container-fluid">
-
-        <header class="navbar navbar-default navbar-fixed-top text-center">
-            <div class="container-fluid">
-                <h1>Christina McMillan</h1>
-                <h2>Gist Blog - Final Project</h2>
-
+        <header class="header text-center">
+            <h1>Christina McMillan</h1>
         </header>
 
-        <div class="container">
-            <section>
-                <div class="row">
-                    <div class="col-md-6 text-center">
-                        <ul id="posts"> </ul>
 
+        <div class="content">
 
-                        <!-- <h5 class="subtitle">Blog Post Subtitle</h5> -->
-                      </div>
-                      <div class="col-md-6 text-center">
-                        <div class="blog_post">
+            <hr />
 
+            <!-- Header Carousel -->
+            <header id="myCarousel" class="carousel slide">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                </ol>
 
-                            <div class="title" id="post"></div>
-                            <blockquote>
-                                <ul class="subtitle" id="comments"></ul>
-                            </blockquote>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+
+                        <div class="carousel-text text-center">
+                            <h2>Gist Blog</h2> Click the arrows to select a post
                         </div>
-                      </div>
-
-
-
-
-
                     </div>
-                    <!-- /col -->
+
                 </div>
-                <!-- /row -->
 
+                <!-- Controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="icon-prev"></span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="icon-next"></span>
+                </a>
+            </header>
 
-            </section>
+            <hr />
+
         </div>
 
+        <!-- Section for the blog posts -->
+        <section class="">
+            <!-- Leave class blank so formatting can be added thru jquery -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog_post">
+                        <div class="title" id="post"></div>
+                        <ul class="subtitle" id="comments"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-        </div>
+    </div>
+    <!-- /row -->
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-        <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
 </body>
 
 </html>
