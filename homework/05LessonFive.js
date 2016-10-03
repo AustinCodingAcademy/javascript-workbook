@@ -16,27 +16,27 @@ var six   = 6;
 
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
-var onePlusPlus;
+var onePlusPlus = 2
 
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
-var twoMinusMinus;
+var twoMinusMinus = 1
 
 // Problem 3:
 // What is the result of three += 3?
-var threePlusAssignmentThree;
+var threePlusAssignmentThree = 6
 
 // Problem 4:
 // What is the result of four -= 3?
-var fourMinusAssignmentThree;
+var fourMinusAssignmentThree = 1
 
 // Problem 5:
 // What is the result of five *= 2?
-var fiveMultiplicationAssignmentTwo;
+var fiveMultiplicationAssignmentTwo = 10
 
 // Problem 6:
 // What is the result of six /= 3?
-var sixDivisionAssignmentThree;
+var sixDivisionAssignmentThree = 2
 
 // ****
 // Loops
@@ -52,7 +52,7 @@ while (whileLoopCounter < 10) {
 
 // Problem 7:
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
-var whileLoopArrayResult = [];
+var whileLoopArrayResult = [0,1,2,3,4,5,6,7,8,9];
 
 // DO NOT MODIFY
 var forLoopArray = [];
@@ -63,7 +63,7 @@ for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
 
 // Problem 8:
 // Fill in forLoopArrayResult so that it matches forLoopArray
-var forLoopArrayResult = [];
+var forLoopArrayResult = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9];
 
 // ****
 // Concept Checkpoint
@@ -71,7 +71,7 @@ var forLoopArrayResult = [];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-//
+// A loop will first check a condition in the ().  If the condition returns true, then the code block in the {} will run.  After the code block has run, then the condition in the () will be checked again and if it still returns true, the code block will run again.  This process repeats until the condition in the () returns false. Loops help save time by reducing the # of lines code that need to be written. A process that would normally several lines of code could be written in just a few lines with a loop.  
 
 // ****
 // Tests

@@ -10,6 +10,63 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember (name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function (Ship) {
+    (Ship).crew.push(this);
+    this.ship = Ship;
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function() {
+
+    if (this.crew.length <= 0) {
+      return "Can't perform a mission yet.";
+    }
+
+    var correctJob = [];
+    if (jobTypes.pilot === this.type) {
+      correctJob.push('pilot');
+    }
+    else if (jobTypes.mechanic === this.type) {
+      correctJob.push('mechanic');
+    }
+    else if (jobTypes.commander === this.type) {
+      correctJob.push('commander');
+    }
+    else if (jobTypes.programmer === this.type) {
+      correctJob.push('programmer');
+    }
+    for (var i = 0; i < this.crew.length; i++ ) {
+       if (correctJob.indexOf(this.crew[i].job) > -1) {
+         return this.ability;
+       }
+       else if (correctJob.indexOf(this.crew[i].job) === -1) {
+         return "Can't perform a mission yet.";
+       }
+      }
+     }
+    }
+
+var rick = new CrewMember ('Rick Martinez', 'pilot', 'chemistry');
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+
+rick.enterShip(mav);
+mav.missionStatement();
+
+
+
+
+
+
 
 //tests
 if (typeof describe !== 'undefined'){

@@ -1,0 +1,75 @@
+body {
+  background-image:linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url("./img/NightField.jpg");
+  background-position:center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#baseballTitle {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  margin-top: 11.75%;
+  color: white;
+  font-size: 62px;
+}
+
+
+.mainEvent {
+  margin-top: 1%;
+}
+
+.avatar {
+  width: 6%;
+  height: auto;
+}
+
+loginName {
+  font-weight: bold;
+}
+
+.commentPost {
+  padding-top: 5px;
+}
+
+.postList {
+  background: rgba(255, 255, 255, 0.75); /*This will make the white background of the div transparent.*/
+  margin-right: 3%;
+  border-radius: 8px;
+  margin-top: 3%;
+}
+
+.postText {
+  color: black;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+ul {
+  list-style-type: none; /*Gets rid of the bullet points.*/
+  padding: 0; /*Gets rid of the indent for each li in the ul.*/
+}
+
+a {
+  font-weight: bold;
+  color: #2471A3;
+}
+
+.postExpand {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  color: black;
+  margin-left: 4%;
+  margin-top: 3%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.postExpand h2 {
+  text-align: center;
+}
+
+.postExpand p {
+  font-size: 18px;
+}

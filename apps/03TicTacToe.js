@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 var assert = require('assert');
 var readline = require('readline');
@@ -12,7 +12,7 @@ var board = [
     [' ', ' ', ' ']
 ];
 
-var playerTurn = 'X';
+var playerTurn = 'X'; 
 
 function printBoard() {
     console.log('   0  1  2');
@@ -24,24 +24,64 @@ function printBoard() {
 }
 
 function horizontalWin() {
-    // Your code here
-}
+  if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn ||
+  board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn ||
+  board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
+  {
+    return true;
+  }
+};
 
 function verticalWin() {
-    // Your code here
-}
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn ||
+  board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ||
+  board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+  {
+    return true;
+  }
+};  // Your code here
 
 function diagonalWin() {
-    // Your code here
-}
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn ||
+  board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0])
+  {
+    return true;
+  }
+};
+
+/*function checkForWin() {
+    if (horizontalWin() === true) {
+      console.log('Player ' + playerTurn + ' Won!');
+    }
+    else if (verticalWin() === true) {
+      console.log('Player ' + playerTurn + ' Won!');
+    }
+    else if (diagonalWin() === true) {
+      console.log('Player ' + playerTurn + ' Won!')
+    }
+    else {
+      console.log('No winner');
+    }
+};*/
 
 function checkForWin() {
-    // Your code here
-}
+  if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
+    console.log('Player ' + playerTurn + ' Won!');
+    return true;
+  }
+  else {return false;}
+  // else {
+  // console.log('No Winner');
+  // }
+};
+
 
 function ticTacToe(row, column) {
-    // Your code here
-}
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+};
+
 
 function getPrompt() {
     printBoard();
