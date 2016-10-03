@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gist Blog</title>
+  <title>NON-TECHNICAL</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="js/bootstrap.min.js" /></script>
+  <script src="https://use.fontawesome.com/261353d4d0.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600|Quicksand" rel="stylesheet">
+  <link rel="shortcut icon" href="http://www.favicon.cc/logo3d/550296.png" />
 </head>
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+  <div class="container-fluid">
+    <div class="row myHeader">
+      <h1><span>NON</span>-TECHNICAL</h1>
+      <h3>my slow trudge towards coding competency</h3>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-3 sideBar">
+        <h5>RECENT POSTS</h5>
+        <ul id="posts"></ul>
+      </div>
+      <div class="col-xs-9 postSection">
+        <div id="post"></div>
+        <ul id="comments"></ul>
+      </div>
+    </div>
+</div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>

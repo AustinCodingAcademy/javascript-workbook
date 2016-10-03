@@ -1,0 +1,69 @@
+.myHeader {
+  text-align: center;
+  height:300px;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url(../img/code.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  /*border-bottom: black solid 2px;*/
+}
+
+.myHeader h1 {
+  margin-top: 80px;
+  padding: 18px 0 15px 0;
+  border: white 2px solid;
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+.myHeader span {
+  color: #daffac;
+}
+
+.myHeader h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 100;
+}
+
+.sideBar {
+  background-color: #f3bc47;
+  height: 50vh;
+  /*border-right: 2px solid black;*/
+}
+
+.sideBar * {
+  text-decoration: none;
+  color: #d0285b;
+}
+
+.sideBar h5 {
+  color: black;
+}
+
+.sideBar ul {
+list-style-type: none;
+}
+
+
+.sideBar a:visited {
+    color: #d0285b;
+    text-decoration: none;
+}
+
+.sideBar a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.postSection {
+  background-color: #dfdfdf;
+  height: 50vh;
+}
+
+.postSection h3 {
+  color: #cc144c;
+  font-family: 'Quicksand', sans-serif;
+
+}
