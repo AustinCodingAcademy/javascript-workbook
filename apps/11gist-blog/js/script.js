@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function() {
+
     var thisCommentBody = null;
 
     // old api URL
@@ -8,7 +9,7 @@ $(document).ready(function() {
 
     $.ajax('https://api.github.com/users/nina2cool/gists', {
         success: function(response) {
-            console.log('success');
+
 
             var posts = response;
             // begin the data-slide number with 1
@@ -74,7 +75,6 @@ $(document).ready(function() {
 
                             // Show the post using the markdown language
                             var thisPostContents = marked(thisPost.files['post.md'].content);
-
 
                             $('#post').html(thisPostContents);
 
