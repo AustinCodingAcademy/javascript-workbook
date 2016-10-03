@@ -12,8 +12,8 @@ var assert = require('assert');
 // Add properties x: 1, y: 2 to point to make it a point
 // in two dimensional space.
 var point = {
-  x = 1;
-  y = 2;
+  x: 1,
+  y: 2
 };
 
 // Problem 2:
@@ -31,7 +31,7 @@ function Point(x, y) {
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint = new Point(5, 3);
+var anotherPoint = new Point(5, -3);
 
 // ****
 // Concept Checkpoint
@@ -89,7 +89,7 @@ function Person(name) {
 
 // Problem 5:
 // create a new Person named Jen
-var jen = new Person(Jen);
+var jen = new Person("Jen");
 
 // Problem 6:
 // add jen to the conferenceRoom
