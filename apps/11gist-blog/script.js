@@ -1,3 +1,8 @@
+/*
+# Create buffer between post title, post & comments
+#
+*/
+
 'use strict';
 
 $(document).ready(function() {
@@ -27,7 +32,6 @@ $(document).ready(function() {
                + '</li>';
 
             $('#posts').append(str);
-
           }
         });//!gists.forEach
 
@@ -43,20 +47,32 @@ $(document).ready(function() {
               // Since our "content" is written in Markdown, we can use the
               // Marked.js library to convert the content to html.
               var content = marked(gist['files']['post.md']['content']);
-              console.log(gist.comments_url);
               $('#post').html(content);
+              var postDate = new Date(gist.updated_at);
+              $('<h6 class="postDate">Updated: ' + postDate.toLocaleDateString() + '</h6>' + '<p></p>').insertAfter('h3')
+              //$('#post h3').append('<p>test</p>');
 
               // After inserting your content, make another ajax call using the
               // "comments_url", and insert the ["user"]["login"] and "body" in a
               // list in #comments.
               $.ajax(gist.comments_url, {
                 success: function(comments) {
+                  //If there are comments, we'll append them within a bootstrap well
+                  var commentWell =
+                    '<div class="panel panel-default">' +
+                      '<div class="panel-heading">' +
+                        '<h3 class="panel-title">Comments</h3>' +
+                      '</div>' +
+                      '<div id="commentWell" class="panel-body">' +
+                      '</div>' +
+                    '</div>';
+                  $('#comments').html(commentWell);
                   comments.forEach(function(comment){
-                    console.log(comment.user.login);
                     var commentString =
-                      '<li>' + comment.user.login + '</li>' +
-                      '<li>' + comment.body + '</li>';
-                  $('#comments').append(commentString);
+                      '<p>' + comment.body +
+                      '<p>' + '-' + comment.user.login;
+
+                  $('#commentWell').append(commentString);
                   });//!comments.forEach
                 }//!success
               });//!$.ajax

@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A gist blog">
+  <meta name="author" content="Matthew Holman">
+
   <title>Gist Do It</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/theme.css">
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Shrikhand|Cardo|Tinos" rel="stylesheet">
+
 </head>
+
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+
+  <!-- Navigation -->
+
+  <!-- Page Header -->
+  <header>
+    <div id="header" class="container-fluid">
+      <h1>Gist Do It</h1>
+    </div>
+  </header>
+
+  <!-- Main Body -->
+  <div id="body" class="container-fluid">
+    <div class="row">
+      <!-- Content -->
+      <div class="col-sm-8 blog-main">
+        <div id="post"></div>
+        <div id="comments"></div>
+      </div>
+
+      <!-- Side Bar -->
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <h4>Recent Posts</h4>
+        <ul id="posts"></ul>
+      </div> <!-- ./sidebar -->
+    </div> <!-- ./row -->
+  </div><!-- ./container -->
+
+  <!-- Footer -->
+  <footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div id="footer" class="container">
+        <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> 2016 Matthew Holman
+      </div>
+    </nav>
+  </footer>
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Custom JavaScript -->
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

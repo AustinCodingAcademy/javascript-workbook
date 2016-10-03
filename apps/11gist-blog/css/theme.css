@@ -1,0 +1,51 @@
+body {
+  background-color: #FCFBE3;
+  padding-bottom: 70px;
+}
+
+h4 {
+  font-family: 'Tinos', serif;
+}
+
+p {
+  font-family: 'Cardo', serif;
+}
+
+.postDate {
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+#header {
+  text-align: center;
+}
+
+#header h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 80px;
+}
+
+#post h3 {
+  font-family: 'PT Serif Caption', serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#post p {
+  font-size: 20px;
+}
+
+#comments {
+  padding-top: 40px;
+  width: 75%;
+}
+
+.navbar-fixed-bottom {
+  background-color: black;
+  padding: 10px;
+  color: #666666;
+}
+
+#footer {
+  text-align: center;
+}
