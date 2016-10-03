@@ -8,8 +8,13 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-    // Your code here
+function Checker(color) {
+    if (color === 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+    else {
+      this.symbol = String.fromCharCode(0x125CF);
+    }
 }
 
 function Board() {

@@ -7,13 +7,45 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-
+// Start of the app
 function rockPaperScissors(hand1, hand2) {
 
-    // Write code here
+  // set hands to lower case in case the user decides to be 'that guy'
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
 
+  // declare what happens if it is a tie between players
+  // Make user type in rock, paper, scissors
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  }
+  // continue with all other possibilities using the && to shorten the code
+  else if ((hand1 === "rock") && (hand2 === "scissors")) {
+    return "Hand one wins!";
+  }
+  else if ((hand1 === "rock") && (hand2 === "paper")) {
+    return "Hand two wins!";
+  }
+  else if ((hand1 === "paper") && (hand2 === "scissors")) {
+    return "Hand two wins!";
+  }
+  else if ((hand1 === "paper") && (hand2 === "rock")) {
+    return "Hand one wins!";
+  }
+  else if ((hand1 === "scissors") && (hand2 === "paper")) {
+    return "Hand one wins!";
+  }
+  else if ((hand1 === "scissors") && (hand2 === "rock")) {
+    return "Hand two wins!";
+  }
+  else {
+    return "Please input either rock, paper, or scissors";
+  }
 }
 
+
+
+// console check
 function getPrompt() {
     rl.question('hand1: ', (answer1) => {
         rl.question('hand2: ', (answer2) => {

@@ -4,17 +4,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Todo</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="gabestrap.css">
 </head>
 <body>
-  <div id="content">
-    <div class="header">TODO</div>
-    <form>
-      <input type="text" id="todo">
-      <input type="submit" value="Submit">
-    </form>
-    <ul id="todo-list">
-      <li>Walk the dog</li>
-    </ul>
+
+  <h1 class="text-center">To Do List</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="center-md col-md-8 col-md-offset-2">
+        <form>
+          <input type="text" id="todo">
+          <input type="submit" value="Submit" class="btn btn-outline-prime">
+        </form>
+        <ul id="todo-list">
+          <li>Walk the dog</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <script type="text/javascript" src="../../vendor/jquery.js"></script>

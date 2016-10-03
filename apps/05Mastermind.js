@@ -19,22 +19,65 @@ function printBoard() {
 }
 
 function generateSolution() {
+    // this generates a random index number and adds it to the empty string varialbe to produce a solution
     for (var i = 0; i < 4; i++) {
         var randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
     }
 }
 
+// this function is called in the generateSolution funtion to get a random number
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution,guess) {
+
+    // creating a variable so we can split the solution and guess into an array from a string.
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    var correctLetters = 0
+    var i;
+
+    console.log(solutionArray);
+
+    // a for loop is created to show iterate through the solution to see if any guesses match the solution.
+    for (i = 0; i < solutionArray.length; i++) {
+      if (solutionArray[i] === guessArray[i]) {
+        solutionArray[i] = null;
+        correctLetterLocations++;
+      }
+    }
+
+    // using indexof to determine if there are correct letters in the guess.
+    for (i = 0; i < solutionArray.length; i++) {
+      var targetIndex = solutionArray.indexOf(guessArray[i])
+      if (targetIndex > -1) {
+        correctLetters++;
+        solutionArray[targetIndex] = null;
+      }
+    }
+
+    return (correctLetterLocations) + '-' + (correctLetters);
 }
 
 function mastermind(guess) {
-    // your code here
+  if (guess === solution) {
+    return 'You guessed it!';
+  }
+  else {
+    var hint = generateHint(solution, guess);
+  }
+  board.push(guess + ' ' + hint);
+
+  if (board.length === 10) {
+    return 'You ran out of turns! The solution was ' + solution;
+  }
+  else {
+    return 'Guess again';
+  }
+
 }
 
 
@@ -70,7 +113,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();
