@@ -1,8 +1,3 @@
-/*
-# Create buffer between post title, post & comments
-#
-*/
-
 'use strict';
 
 $(document).ready(function() {
@@ -27,9 +22,9 @@ $(document).ready(function() {
             var postStr = post.description.replace('#post', '');
 
             var str =
-              '<li>' +
+              '<p>' +
                 '<a href="#" data-url="' + post.url + '" >' + postStr + '</a>'
-               + '</li>';
+               + '</p>';
 
             $('#posts').append(str);
           }
@@ -69,8 +64,7 @@ $(document).ready(function() {
                   $('#comments').html(commentWell);
                   comments.forEach(function(comment){
                     var commentString =
-                      '<p>' + comment.body +
-                      '<p>' + '-' + comment.user.login;
+                      '<p>' + comment.user.login  + ' said: "'  + comment.body + '" </p>';
 
                   $('#commentWell').append(commentString);
                   });//!comments.forEach

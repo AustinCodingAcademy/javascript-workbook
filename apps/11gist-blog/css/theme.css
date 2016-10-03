@@ -25,6 +25,10 @@ p {
   font-size: 80px;
 }
 
+#posts p {
+    margin: 0px;
+}
+
 #post h3 {
   font-family: 'PT Serif Caption', serif;
   font-size: 40px;
@@ -35,9 +39,17 @@ p {
   font-size: 20px;
 }
 
+#introPost {
+  padding-top: 50px;
+}
+
 #comments {
   padding-top: 40px;
   width: 75%;
+}
+
+#commentWell {
+  background-color: #FCFBE3;
 }
 
 .navbar-fixed-bottom {
