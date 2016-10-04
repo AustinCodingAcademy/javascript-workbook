@@ -13,7 +13,17 @@ $(document).ready(function() {
             //console.log(href);
             $.ajax(href, {
               success: function(gist) {
-                $('#post').html(gist['files']['post.md']['content']);
+                var content = gist['files']['post.md']['content'];
+                $('#post').html(marked(content));
+                console.log(gist);
+                $.ajax(gist.comments_url, {
+                  success: function(comments) {
+                    $('#comments').html(''); //clear
+                    comments.forEach(function(comment) {
+                      $('#comments').append($('<li>' + comment['user']['login'] + ': ' + comment['body'] + '</li>'));
+                    })//comments.forEach
+                  }//success(comments)
+                });//ajax comments_url
               }//success #2
             })//ajax href
           });
@@ -22,3 +32,16 @@ $(document).ready(function() {
     }//success
   });//ajax
 });//document.ready
+
+// $.ajax(gist.comments_url, {
+//   success: function(comments) {
+//     var liString = '';
+//     comments.forEach(function(comment) {
+//       liString = liString + '<li>' + comment['user']['login'] + ': ' + comment['body'] + '</li>';
+//     })
+//
+//     // <li>commentbody1</li><li>commentbody2</li>
+//     $('#comments').html(liString)
+//     //comments.forEach
+//   }//success(comments)
+// });//ajax comments_url
