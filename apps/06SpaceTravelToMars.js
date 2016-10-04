@@ -9,7 +9,45 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(someShip) {
+    this.ship = someShip;
+    this.ship.crew.push(this);
+    }
+}
+
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function () {
+    for (var i = 0; i < this.crew.length; i++) {
+      var job = this.crew[i].job;
+      if (jobTypes[job] === this.type) {
+        return this.ability;
+      }
+    }
+      return "Can't perform a mission yet.";
+    }
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+rick.enterShip(mav);
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
 
 //tests
 if (typeof describe !== 'undefined'){
@@ -46,8 +84,9 @@ describe('Ship', function(){
     var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
     var hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
     var crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
-    assert.equal(mav.missionStatement(), "Can't perform a mission yet.");
-    assert.equal(hermes.missionStatement(), "Can't perform a mission yet.");
+   assert.equal(mav.missionStatement(), "Can't perform a mission yet.");
+   assert.equal(hermes.missionStatement(), "Can't perform a mission yet.");
+
 
     crewMember1.enterShip(mav);
     assert.equal(mav.missionStatement(), "Ascend into low orbit");
