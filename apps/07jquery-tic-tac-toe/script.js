@@ -2,14 +2,20 @@
 
 $(document).on('ready', function() {
     // Put app logic in here
-    var playerTurn = 'x';
+    var playerTurn = 'X';
     $('[data-cell]').click(function() {
       if ($(this).text() === '') {
       $(this).text(playerTurn);
     };
+    $('#clear').click(function() {
+      $('[data-cell]').text('');
+      $('#announce-winner').text('');
+      //reset the playerTurn to x
+      playerTurn = 'X';
+    });
       //check for win first before switching playerTurn
       checkForWin();
-      playerTurn = ((playerTurn === 'o')? playerTurn = 'x' : playerTurn = 'o');
+      playerTurn = ((playerTurn === 'O')? playerTurn = 'X' : playerTurn = 'O');
     });
     function checkForWin () {
       //which data cells are winning?
@@ -35,14 +41,9 @@ $(document).on('ready', function() {
 
       //if true, announce win
       if (horizontalWin() || verticalWin() || diagonalWin()) {
-        $('#announce-winner').text("Player " + playerTurn + "Wins!");
+        $('#announce-winner').text("player " + playerTurn.toLowerCase() + " wins!");
         //clear the board
-        $('#clear').click(function() {
-          $('[data-cell]').text('');
-          $('#announce-winner').text('');
-          //reset the playerTurn to x
-          playerTurn = 'x';
-        });
+
       };
     };
 });
