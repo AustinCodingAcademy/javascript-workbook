@@ -34,7 +34,7 @@ upstream    git@github.com:AustinCodingAcademy/javascript-workbook.git (push)
 
 1. Click "Create Pull Request"
 
-1. Everytime you make a change *and push to GitHub*, this PR will automatically update. No need to do it more than once.
+1. Every time you make a change *and push to GitHub*, this PR will automatically update. No need to do it more than once.
 
 #### Get latest test updates
 1. To get the latest code/homework/test updates, be sure to have a "clean working directory" by committing or removing all of your changes. You check for a "clean working environment" by running `git status` and making sure no files show up.

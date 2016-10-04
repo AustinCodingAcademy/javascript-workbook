@@ -3,15 +3,15 @@
 var assert = require('assert');
 
 function returnTrue() {
-    // should return true
-    return false;
+  // should return true
+  return false;
 }
 
 
 // Tests
 
 describe('#returnTrue()', function () {
-    it('should return true', function () {
-      assert.equal(returnTrue(), true);
-    });
+  it('should return true', function () {
+    assert.equal(returnTrue(), true);
+  });
 });

@@ -22,7 +22,7 @@ $(document).on('ready', function() {
   // Problem 2:
   // Get the children of #second-list using the .children() method
   window.secondListChildren = null;
-
+  
   // Problem 3:
   // Now use the .detach() method on window.firstListChildren to
   // remove those elements from the document

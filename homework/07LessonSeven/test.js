@@ -16,8 +16,8 @@ beforeEach(function (done) {
     {
       file: path.resolve(__dirname, 'index.html'),
       scripts: [
-          path.resolve(__dirname, '../../vendor/jquery.js'),
-          path.resolve(__dirname, 'script.js')
+        path.resolve(__dirname, '../../vendor/jquery.js'),
+        path.resolve(__dirname, 'script.js')
       ],
       virtualConsole,
       done(err, jsdomWindow) {
