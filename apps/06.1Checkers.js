@@ -8,13 +8,20 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
+  this.symbol = '';
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB)
+  } else {
+    this.symbol = String.fromCharCode(0x125CF)
+  }
     // Your code here
 }
 
 function Board() {
     this.grid = [];
     // creates an 8x8 array, filled with null values
+    this.checkers = [];
     this.createGrid = function() {
         // loop to create the 8 rows
         for (var row = 0; row < 8; row++) {
@@ -22,10 +29,32 @@ function Board() {
             // push in 8 columns of nulls
             for (var column = 0; column < 8; column++) {
                 this.grid[row].push(null);
+              }
             }
-        }
-    }
+          }
 
+    this.createCheckers = function() {
+      var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+                          [1, 0], [1, 2], [1, 4], [1, 6],
+                          [2, 1], [2, 3], [2, 5], [2, 7]];
+      var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+                          [6, 1], [6, 3], [6, 5], [6, 7],
+                          [7, 0], [7, 2], [7, 4], [7, 6]];
+    for ( var i = 0; i <= 11; i++) {
+// instantiate a white checker
+      whitePositions[i]
+      blackPositions [i]
+    this.checkers.push(whitePostitions[i])
+    this.checkers.push(blackPostitions[i])
+
+    }
+    }
+    this.killChecker = function(position) {
+
+    }
+    this.selectChecker = function (position) {
+
+    }
     // prints out the board
     this.viewGrid = function() {
         // add our column numbers

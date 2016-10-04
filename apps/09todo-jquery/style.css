@@ -31,7 +31,7 @@ form {
     border: 1px solid #ccc;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
     background-color: #fdfdfd;
     width: 100%;
 }
@@ -58,4 +58,8 @@ input[type=text] {
     -webkit-border-radius: 0px;
     border-radius: 0px;
     width: 65%;
+}
+
+button[type="button"] {
+    float: right;
 }

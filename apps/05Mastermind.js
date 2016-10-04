@@ -9,12 +9,17 @@ var rl = readline.createInterface({
 });
 
 var board = [];
+//var solution = 'abcd';
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
-    for (var i = 0; i < board.length; i++) {
-        console.log(board[i])
+    if (board.length <= 10) {
+      for (var i = 0; i < board.length; i++) {
+          console.log(board[i]);
+        }
+    }else{
+      return;
     }
 }
 
@@ -26,17 +31,41 @@ function generateSolution() {
 }
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-    // your code here
+function generateHint(solution, guess) {
+    var solutionArray = solution.split('');
+    var guessArray = guess.split('');
+    var correctLetterLocations = 0;
+    var correctLetters = 0;
+    for (var i = 0; i<= solution.length-1; i++) {
+      if (solutionArray[i] === guessArray[i]) {
+        correctLetterLocations++ ;
+        solutionArray[i] = null;
+      } else if (guess.indexOf(solutionArray[i]) > -1) {
+        correctLetters ++;
+        solutionArray[i] = null;
+      }
+    }
+  return correctLetterLocations+ '-' + correctLetters;
+  //  return colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+    //NOTE: colors do not work when running mocha
 }
 
 function mastermind(guess) {
-    // your code here
+    if (guess === solution) {
+      return 'You guessed it!';
+    }
+//    var hint = generateHint(solution,guess);
+//    board.push(hint);
+    board.push(generateHint(solution,guess));
+    if ((board.length) <= 10) {
+      return('Guess again.');
+    }else{
+      return('You ran out of turns!! The solution was ' + solution);
+    }
 }
-
 
 function getPrompt() {
     rl.question('guess: ', (guess) => {
@@ -70,7 +99,7 @@ if (typeof describe !== 'undefined') {
         });
 
     });
-        
+
 } else {
 
     generateSolution();

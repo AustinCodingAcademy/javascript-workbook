@@ -12,6 +12,8 @@ var stacks = {
     b: [],
     c: []
 };
+var start;
+var end;
 
 function printStacks() {
     console.log("a: " + stacks.a);
@@ -19,24 +21,33 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-    // Your code here
-
+function movePiece (startStack, endStack) {
+  if (isLegal(startStack, endStack)=== true) {
+    stacks[endStack].push(stacks[startStack].pop());
+  }
 }
 
-function isLegal() {
-    // Your code here
-
+function isLegal (startStack, endStack) {
+  if (stacks[endStack].length === 0) {
+    return true;
+  } else if (stacks[startStack][stacks[startStack].length-1] < stacks[endStack][stacks[endStack].length-1]) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function checkForWin() {
-    // Your code here
-
+function checkForWin () {
+    if (stacks['b'].length === 4 || stacks['c'].length === 4 ) {
+      console.log("You Won!!!");
+      return true;
+    } else {
+      return false;
+    }
 }
 
-function towersOfHanoi(startStack, endStack) {
-    // Your code here
-
+function towersOfHanoi (startStack, endStack) {
+      movePiece (startStack, endStack);
 }
 
 function getPrompt() {
@@ -55,7 +66,7 @@ if (typeof describe !== 'undefined') {
 
     describe('#towersOfHanoi()', function () {
         it('should be able to move a block', function () {
-            towersOfHanoi('a', 'b');
+            towersOfHanoi('a','b');
             assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
         });
     });

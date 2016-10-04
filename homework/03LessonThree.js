@@ -20,16 +20,15 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -41,7 +40,11 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
+
+// Scope is the realm in which variables can be accessed. i.e variables with local scope(variables declared inside a function) are only available inside their functions. However, variables with global scope(variables declared outside a function) are available everywhere.
+
 //
+
 //
 
 
@@ -57,19 +60,19 @@ var ternaryResult4 = ""     ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -79,9 +82,9 @@ var problemSevenAnswer;
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-//
-//
 
+// It is an operator that takes in three operands and can be used in the place of a condional statement
+//
 
 // ****
 // Arrays
@@ -89,6 +92,13 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
+
+var emptyArray = [];
+
+// Problem 9:
+// Create an array with 5 elements in it
+var lengthFiveArray = [1,2,3,4,5];
+
 var emptyArray;
 
 // Problem 9:
@@ -100,6 +110,7 @@ var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -110,6 +121,13 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+threeByThreeArray[1][1] = 25;
+// Problem 12:
+// create a 2 by 2 (2 rows, 2 columns) nested array
+var twoByTwoArray= [
+  [2,4],
+  [4,6]
+];
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
