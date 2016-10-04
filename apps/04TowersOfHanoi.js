@@ -8,6 +8,7 @@ var rl = readline.createInterface({
 });
 
 var stacks = {
+
     a: [4, 3, 2, 1],
     b: [],
     c: []
@@ -19,26 +20,54 @@ function printStacks() {
     console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
     // Your code here
-
+    var piece = stacks[startStack].pop();
+    stacks[endStack].push(piece);
 }
-
-function isLegal() {
+function isLegal(startStack, endStack) {
     // Your code here
+
+    var startStackArray = stacks[startStack];
+    var endStackArray   = stacks[endStack];
+
+    if (startStackArray.length  === 0){
+      return false;
+    }
+    else if (endStackArray.length === 0) {
+      return true;
+    }
+    else {
+      return startStackArray[startStackArray.length-1]
+      < endStackArray[endStackArray.length - 1];
+    }
 
 }
 
 function checkForWin() {
     // Your code here
-
+    if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+      console.log("Congrats muthafucka you won!")
+      return true;
+    }
+    else {
+      return false;
+    }
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
+    if (isLegal(startStack, endStack)){
+      movePiece(startStack, endStack);
+    }
+    else {
+      console.log("Invalid move please try again.")
+    }
+    if (checkForWin()) {
+    process.exit();
+    }
 
 }
-
 function getPrompt() {
     printStacks();
     rl.question('start stack: ', (startStack) => {
