@@ -1,23 +1,22 @@
 {
-  "name": "frontend-intermediate-workbook",
+  "name": "javascript-workbook",
   "version": "1.0.0",
-  "description": "Workbook for Austin Coding Academy Intermediate Course",
+  "description": "Workbook for Austin Coding Academy Javascript Course",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AustinCodingAcademy/intermediate-workbook.git"
+    "url": "git+https://github.com/AustinCodingAcademy/javascript-workbook.git"
   },
   "author": "Kevin Colten",
   "scripts": {
     "test": "mocha",
-    "server": "cd . && http-server -c-1"
+    "start": "ln -sfn ./ ./javascript-workbook && cd . && http-server -c-1"
   },
   "bugs": {
-    "url": "https://github.com/AustinCodingAcademy/intermediate-workbook/issues"
+    "url": "https://github.com/AustinCodingAcademy/javascript-workbook/issues"
   },
-  "homepage": "https://github.com/AustinCodingAcademy/intermediate-workbook#readme",
+  "homepage": "https://github.com/AustinCodingAcademy/javascript-workbook#readme",
   "dependencies": {
-    "colors": "^1.1.2",
-    "prompt": "^0.2.14"
+    "colors": "^1.1.2"
   },
   "devDependencies": {
     "http-server": "^0.9.0",
