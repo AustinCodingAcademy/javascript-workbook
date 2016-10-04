@@ -247,8 +247,8 @@ var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 var a = 'Hello';
 
 function helloWorld() {
-    var b = 'World';
-    return a + b;
+  var b = 'World';
+  return a + b;
 }
 
 console.log(b);
@@ -356,7 +356,7 @@ var currentColor = colors[0];
 var i = 0;
 while (certainColor !== currentColor) {
   console.log(currentColor);
-i;
+  i;
   currentColor = colors[i];
 }
 
@@ -391,17 +391,17 @@ i;
 
 //48. Use ternary operators to shrink the following code:
 
-    var light = 'on';
+var light = 'on';
 
-    function toggleLight() {
-        if (light === 'on') {
-            light === 'off';
-        }  else {
-        light === 'on';
-        }
-    }
+function toggleLight() {
+  if (light === 'on') {
+    light === 'off';
+  }  else {
+    light === 'on';
+  }
+}
 
-    toggleLight();
+toggleLight();
 
 //Answer:
 
@@ -410,10 +410,10 @@ i;
 
 
 //49. Create an object called “bob”. Assign the object “bob” the following properties:
-  //name: "Bob Smith",
-  //age: 30
+//name: "Bob Smith",
+//age: 30
 
-  //Then print out bob’s full name by accessing the properties within the object.
+//Then print out bob’s full name by accessing the properties within the object.
 
 //Answer:
 
@@ -430,16 +430,16 @@ i;
 
 //Bonus: Suppose you’re working for twitter and you have the following arrays available.
 
-    var username = [‘JoeQuery’, ‘CLofton’, ‘mistakevin’]
-    var tweet = [‘You are my sunshine’, ‘Amarillo by morning, up from San Anton’, ‘giggidy giggidy’]
-    var date = [ “07/24/2015” , “09/25/2015”, “10/25/2015” ]
+var username = [‘JoeQuery’, ‘CLofton’, ‘mistakevin’]
+var tweet = [‘You are my sunshine’, ‘Amarillo by morning, up from San Anton’, ‘giggidy giggidy’]
+var date = [ “07/24/2015” , “09/25/2015”, “10/25/2015” ]
 
 //Generate an ordered list of tweets of the following form:
 
-    <ul>
-        <li>@JoeQuery - You are my sunshine - Posted on 07/24/2015</li>
-        <li>@CLofton - Amarillo by morning, up from San Antone - Posted on 09/25/2015</li>
-        <li>@mistakevin - giggidy giggidy - Posted on 10/25/2015</li>
-    </ul>
+<ul>
+<li>@JoeQuery - You are my sunshine - Posted on 07/24/2015</li>
+<li>@CLofton - Amarillo by morning, up from San Antone - Posted on 09/25/2015</li>
+<li>@mistakevin - giggidy giggidy - Posted on 10/25/2015</li>
+</ul>
 
 //Answer:
