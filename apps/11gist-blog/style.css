@@ -1,0 +1,19 @@
+h1{
+  text-align: center;
+  margin-top: 10%;
+  color: white;
+}
+body {
+  background-image:linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.4)
+    ), url("./img/musictheory.jpg");
+    background-posistion: center;
+    background-size: cover;
+    font-family: 'Oswald', sans-serif;
+}
+
+#posts{
+  font-family: 'Oswald', sans-serif;
+
+}

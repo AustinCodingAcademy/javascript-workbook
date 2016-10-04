@@ -2,14 +2,14 @@
 
 $(document).ready(function() {
     // You code here
-    $.ajax('http://localhost:8080/apps/11gist-blog/api/gists.json', {
+    $.ajax('https://api.github.com/users/aaronaustintx/gists', {
       success: function(gists) {
         gists.forEach(function(gist){
           //gist.description = "#post";
             if(gist.description.indexOf('#post') > -1){
               var $a = $('<a href="' + gist.url + '">' + gist.description.slice(6) + '</a>')
                 console.log("hey");
-              $('#posts').append($('<li></li>').append($a));
+              $('#posts').append($('<li class="list-group-item"></li>').append($a));
 
               $a.on('click', function(event){
                 event.preventDefault();
