@@ -18,7 +18,7 @@ function alwaysFalse() {
 // by assigning function definitions to variable
 var alwaysTrue = function () {
   return true;
-}
+};
 
 // Problem 1:
 // equals(argument1, argument2) is an empty function

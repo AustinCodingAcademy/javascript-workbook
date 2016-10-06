@@ -14,7 +14,7 @@ var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
-    console.log(board[i])
+    console.log(board[i]);
   }
 }
 

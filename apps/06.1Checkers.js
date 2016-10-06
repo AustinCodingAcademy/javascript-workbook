@@ -24,7 +24,7 @@ function Board() {
         this.grid[row].push(null);
       }
     }
-  }
+  };
 
   // prints out the board
   this.viewGrid = function() {

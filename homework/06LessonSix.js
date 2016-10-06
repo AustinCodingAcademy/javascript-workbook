@@ -58,17 +58,17 @@ function ConferenceRoom() {
 
   this.enter = function(person) {
     this.people.push(person);
-  }
+  };
 
   this.clearRoom = function() {
     this.people = [];
-  }
+  };
 
   this.sayHi = function() {
     for(var index = 0; index < this.people.length; index++) {
       console.log(this.people[index].sayHi());
     }
-  }
+  };
 }
 
 // Problem 4:

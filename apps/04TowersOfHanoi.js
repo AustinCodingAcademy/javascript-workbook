@@ -85,7 +85,7 @@ if (typeof describe === 'function') {
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
-  })
+  });
 } else {
 
   getPrompt();

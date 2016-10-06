@@ -101,7 +101,7 @@ describe('Lesson 4 Homework', function () {
 
     var newNumberArray;
     beforeEach(function () {
-      newNumberArray = numberArray.map(function (number) { return number });
+      newNumberArray = numberArray.map(function (number) { return number; });
     });
 
     describe('Problem 1: numberArray after pop()', function () {
