@@ -61,7 +61,7 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
-  }
+  };
 }
 
 function getPrompt() {
