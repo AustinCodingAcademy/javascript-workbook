@@ -50,7 +50,7 @@ function Board() {
       string += "\n";
     }
     console.log(string);
-  }
+  };
 
   // Your code here
 }
