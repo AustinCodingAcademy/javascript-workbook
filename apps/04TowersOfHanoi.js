@@ -51,7 +51,7 @@ function getPrompt() {
 
 // Tests
 
-if (typeof describe !== 'undefined') {
+if (typeof describe === 'function') {
 
   describe('#towersOfHanoi()', function () {
     it('should be able to move a block', function () {
@@ -80,9 +80,9 @@ if (typeof describe !== 'undefined') {
   });
   describe('#checkForWin()', function () {
     it('should detect a win', function () {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] }
+      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] }
+      stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
   })

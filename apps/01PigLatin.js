@@ -24,7 +24,7 @@ function getPrompt() {
 
 // Tests
 
-if (typeof describe !== 'undefined') {
+if (typeof describe === 'function') {
 
   describe('#pigLatin()', function () {
     it('should translate a simple word', function () {

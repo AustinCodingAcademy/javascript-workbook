@@ -48,7 +48,7 @@ function getPrompt() {
 
 // Tests
 
-if (typeof describe !== 'undefined') {
+if (typeof describe === 'function') {
 
   describe('#mastermind()', function () {
     it('should register a guess and generate hints', function () {

@@ -59,7 +59,7 @@ function getPrompt() {
 
 // Tests
 
-if (typeof describe !== 'undefined') {
+if (typeof describe === 'function') {
 
   describe('#ticTacToe()', function () {
     it('should place mark on the board', function () {

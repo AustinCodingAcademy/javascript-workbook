@@ -7,12 +7,12 @@ var assert = require('assert');
 // ****
 
 // DO NOT MODIFY
-var one   = 1;
-var two   = 2;
+var one  = 1;
+var two  = 2;
 var three = 3;
-var four  = 4;
-var five  = 5;
-var six   = 6;
+var four = 4;
+var five = 5;
+var six  = 6;
 
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?

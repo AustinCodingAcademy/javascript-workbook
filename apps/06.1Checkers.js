@@ -80,7 +80,7 @@ game.start();
 
 // Tests
 
-if (typeof describe !== 'undefined') {
+if (typeof describe === 'function') {
   describe('Game', function() {
     it('should have a board', function() {
       assert.equal(game.board.constructor.name, 'Board');
@@ -92,7 +92,7 @@ if (typeof describe !== 'undefined') {
 
   describe('Game.moveChecker()', function () {
     it('should move a checker', function () {
-      assert(!game.board.grid[4][1])
+      assert(!game.board.grid[4][1]);
       game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
       game.moveChecker('21', '30');

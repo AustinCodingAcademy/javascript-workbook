@@ -12,7 +12,7 @@ var jobTypes = {
 // Your code here
 
 //tests
-if (typeof describe !== 'undefined'){
+if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
       var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');

@@ -25,7 +25,7 @@ function getPrompt() {
 
 // Tests
 
-if (typeof describe !== 'undefined') {
+if (typeof describe === 'function') {
 
   describe('#rockPaperScissors()', function () {
     it('should detect a tie', function () {

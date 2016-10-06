@@ -14,7 +14,7 @@ var assert = require('assert');
 
 // Tests
 
-var redCar, blueCar, greenCar, yellowCar, twoCarGarage, threeCarGarage
+var redCar, blueCar, greenCar, yellowCar, twoCarGarage, threeCarGarage;
 
 it('should be able to instatiate car objects', function () {
   redCar = new Car('red');
