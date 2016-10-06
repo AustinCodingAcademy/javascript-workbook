@@ -1,5 +1,6 @@
 ![](http://static1.squarespace.com/static/538f3fcde4b05c5fecc7a40e/t/538f48a4e4b00d94e8c253b3/1453396632576/?format=400w)
-# Intermediate Workbook
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7569591264e941f2b366c2bb3c8ee595)](https://www.codacy.com/app/AustinCodingAcademy/javascript-workbook?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AustinCodingAcademy/javascript-workbook&amp;utm_campaign=Badge_Grade)
+# Javascript Workbook
 
 ## Claiming your workbook
 1. Click the 'Fork' button (choose your account if prompted).
