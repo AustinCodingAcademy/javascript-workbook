@@ -1,6 +1,6 @@
 //1. What is a data type that can have only the values true or false? Provide an example.
 
-//Answer:
+//Answer:Booleans
 
 Booleans
 
@@ -126,7 +126,7 @@ Booleans
 
 //    console.log(x !== y);
 
-//Answer:
+//Answer: true
 
 
 
