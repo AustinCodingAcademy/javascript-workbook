@@ -54,21 +54,21 @@ var anotherPoint;
 //
 // Note how methods in one class can call methods in another class
 function ConferenceRoom() {
-  this.people     = [];
+  this.people = [];
 
-  this.enter      = function(person) {
+  this.enter = function(person) {
     this.people.push(person);
-  }
+  };
 
-  this.clearRoom  = function() {
+  this.clearRoom = function() {
     this.people = [];
-  }
+  };
 
-  this.sayHi      = function() {
+  this.sayHi = function() {
     for(var index = 0; index < this.people.length; index++) {
       console.log(this.people[index].sayHi());
     }
-  }
+  };
 }
 
 // Problem 4:
@@ -136,8 +136,8 @@ describe('Lesson 6 Homework', function () {
     describe('Problem 4: Finish Person class', function () {
       it('should have method sayHi()', function () {
         var instructor = new Person('Teach');
-        assert(typeof instructor.sayHi    === 'function');
-        assert(typeof instructor.sayHi()  === 'string');
+        assert(typeof instructor.sayHi === 'function');
+        assert(typeof instructor.sayHi() === 'string');
       });
     });
 

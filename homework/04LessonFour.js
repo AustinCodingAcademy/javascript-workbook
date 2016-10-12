@@ -101,7 +101,7 @@ describe('Lesson 4 Homework', function () {
 
     var newNumberArray;
     beforeEach(function () {
-      newNumberArray = numberArray.map(function (number) { return number });
+      newNumberArray = numberArray.map(function (number) { return number; });
     });
 
     describe('Problem 1: numberArray after pop()', function () {
@@ -176,7 +176,7 @@ describe('Lesson 4 Homework', function () {
 
     describe('Problem 10: update properties in a nested object', function () {
       it('should should have the key starring with value Tim Robbins', function () {
-        assert.deepStrictEqual(nestedObjects,  {
+        assert.deepStrictEqual(nestedObjects, {
           someNumbers: [1, 2, 3.14159, 4, 5, 6],
           users: {
             'fred astaire': {

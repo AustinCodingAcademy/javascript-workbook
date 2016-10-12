@@ -18,7 +18,7 @@ function alwaysFalse() {
 // by assigning function definitions to variable
 var alwaysTrue = function () {
   return true;
-}
+};
 
 // Problem 1:
 // equals(argument1, argument2) is an empty function
@@ -210,16 +210,16 @@ describe('Lesson 2 Homework', function () {
   describe('Conditionals', function() {
     describe('Problem 7: whichSpecies(character)', function () {
       it('should return "dog" when character is scooby', function () {
-          assert.equal(whichSpecies('scooby'), 'dog');
+        assert.equal(whichSpecies('scooby'), 'dog');
       });
       it('should return "cat" when character is garfield', function () {
-          assert.equal(whichSpecies('garfield'), 'cat');
+        assert.equal(whichSpecies('garfield'), 'cat');
       });
       it('should return "fish" when character is nemo', function () {
-          assert.equal(whichSpecies('nemo'), 'fish');
+        assert.equal(whichSpecies('nemo'), 'fish');
       });
       it('should return false if character is anything else', function () {
-          assert.equal(whichSpecies('stitch'), false);
+        assert.equal(whichSpecies('stitch'), false);
       });
     });
 
@@ -230,16 +230,16 @@ describe('Lesson 2 Homework', function () {
       });
 
       it('should return "divisible by 4" when number is divisible by 4', function () {
-          assert.equal(testNumber(4), 'divisible by 4');
+        assert.equal(testNumber(4), 'divisible by 4');
       });
       it('should return "divisible by 2" when number is divisible by 2', function () {
-          assert.equal(testNumber(2), 'divisible by 2');
+        assert.equal(testNumber(2), 'divisible by 2');
       });
       it('should return "divisible by 3" when number is divisible by 3', function () {
-          assert.equal(testNumber(3), 'divisible by 3');
+        assert.equal(testNumber(3), 'divisible by 3');
       });
       it('should return "divisible by 5" when number is divisible by 5', function () {
-          assert.equal(testNumber(5), 'divisible by 5');
+        assert.equal(testNumber(5), 'divisible by 5');
       });
     });
   });
