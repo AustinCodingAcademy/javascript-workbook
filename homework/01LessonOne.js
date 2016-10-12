@@ -15,51 +15,51 @@ var myUndefined;
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
-// What is the difference between null and undefined?
+// What is the difference between null and undefined? Null does not have a value, undefined means javascript does not know. 
 
-var myNull;
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 7;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "I love Empire Strikes Back!";
 
 // ****
 // Boolean Operators
 // ****
 
 // Problem 6:
-// What is the value of true && true
+// What is the value of true && true? Is true. 
 
 var trueAndTrue;
 
 // Problem 7:
-// What is the value of false && true
+// What is the value of false && true? IS false
 
 var falseAndTrue;
 
 // Problem 8:
-// What is the value of true && false
+// What is the value of true && false? False
 
 var trueAndFalse;
 
 // Problem 9:
-// What is the value of false && false
+// What is the value of false && false? False 
 
 var falseAndFalse;
 
@@ -79,22 +79,22 @@ var falseOrTrue;
 var trueOrFalse;
 
 // Problem 13:
-// What is the value of false || false
+// What is the value of false || false? True
 
 var falseOrFalse;
 
 // Problem 14:
-// What is the value of !false
+// What is the value of !false? True 
 
 var notFalse;
 
 // Problem 15:
-// What is the value of !true
+// What is the value of !true? False
 
 var notTrue;
 
 // Problem 16:
-// What is the value of !!true
+// What is the value of !!true? true
 
 var notNotTrue;
 
@@ -117,12 +117,12 @@ var bob = 'bob';
 var emptyString = '';
 
 // Problem 17:
-// What is the value of !!bob
+// What is the value of !!bob?   Bob
 
 var notNotBob;
 
 // Problem 18:
-// What is the value of !!emptyString
+// What is the value of !!emptyString   
 
 var notNotEmptyString;
 
