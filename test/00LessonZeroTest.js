@@ -3,8 +3,8 @@
 var assert = require('assert');
 
 function returnTrue() {
-  // should return true
-  return false;
+
+  return true;
 }
 
 
