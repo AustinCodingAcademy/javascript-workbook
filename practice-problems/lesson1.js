@@ -39,7 +39,7 @@ Booleans
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
 
-//Answer:Falsey in javascript is a value that is NaN, undefines, 0, null, or false
+//Answer:Falsey in javascript is a value that is NaN, undefined, 0, null, an empty string, or false. Truthy is everything else
 
 
 
