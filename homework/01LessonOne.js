@@ -124,17 +124,17 @@ var notNotBob=true;
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString=true;
+var notNotEmptyString=false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull=false;
+var notNull=true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined=true;
+var notNotUndefined=false;
 
 // ****
 // Concept Checkpoint
