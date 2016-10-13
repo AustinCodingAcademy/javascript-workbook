@@ -6,33 +6,10 @@ prompt.start();
 
 
 function pigLatin(word) {
-  // Concept Check
-  //
-  // Please explain why we are using String.prototype.toLowerCase() here.
-  //
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
-  //
-  // Your Answer:You want to be able to still run the app if the user types in upper case letters. This allows the user to type in upper case letter and still run the app by chainging all the inputs to lower case.
-  //
 
+  word = word.toLowerCase();
 
-  word  = word.toLowerCase();
-  var vowel = [a, e, i, o, u, y];
-  // Concept Check
-  //
-  // What is the significance of setting vowelIndex to -1?
-  // This might help:
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
-  //
-  // Your Answer:
-  //
   var vowelIndex = -1; // Set it to assume there are no vowels
-
-if (vowelIndex = -1) {
-
-  console.log ("Error no vowels, unable to translate");
-
-}
 
   if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
       vowelIndex = word.indexOf('a');
@@ -58,20 +35,6 @@ if (vowelIndex = -1) {
       vowelIndex = word.indexOf('y');
   }
 
-
-
-
-
-
-
-  // Concept Check
-  //
-  // Why are we using String.prototype.slice() here? What role does vowelIndex play?
-  // This might help:
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
-  //
-  // Your Answer:
-//
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
 
@@ -84,16 +47,7 @@ if (vowelIndex = -1) {
 }
 
 
-// Concept Check
-//
-// Make sure you run this app with node in the console before answering this question.
-// Also, read Lesson 1 in the textbook.
-// http://intermediate.austincodingacademy.com/_book/lesson_one.html
-//
-// What does prompt.get() do for us?
-//
-// Your Answer:
-//
+
   function getPrompt() {
    prompt.get(['word'], function (error, result) {
 
@@ -103,17 +57,6 @@ if (vowelIndex = -1) {
     });
 }
 
-}
-
-
-function getPrompt() {
-    prompt.get(['word'], function (error, result) {
-
-        console.log( pigLatin(result['word']) );
-
-        getPrompt();
-    });
-}
 
 // Tests
 
