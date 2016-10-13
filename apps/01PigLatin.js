@@ -15,7 +15,7 @@ var vowelIndex =-1;
 //convert the word to lower case
 word = word.toLowerCase();
 
-//run through different checks to locate the first word.
+//run through different checks to locate the first vowel and assign the index to vowelIndex.
 	if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
 	    vowelIndex = word.indexOf('a');
 	}
@@ -40,7 +40,7 @@ word = word.toLowerCase();
 	    vowelIndex = word.indexOf('y');
 	}
 
-//if the vowel is the first letter or nonexistent, just attach "yay" and return
+//if the vowel is the first letter or nonexistent, attach "yay" and return
 	if (vowelIndex === 0 || vowelIndex === -1){
 		return word + "yay";
 		}
