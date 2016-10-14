@@ -8,8 +8,10 @@ var rl = readline.createInterface({
 })
 
 function pigLatin(word) {
-    var word = prompt("Enter a word to translate to pig latin", "Example");
+    var firstLetter = word[0]
     var vowelIndex = -1; // Set it to assume there are no vowels
+
+    word = word.toLowerCase();
 
     if ((word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf('a');
@@ -22,19 +24,24 @@ function pigLatin(word) {
     if ((word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf('i');
     }
-    if ((word.indexOf('o') > -1 && word.indexOf('a') < vowelIndex) || vowelIndex === -1) {
+    if ((word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf('o');
     }
 
-    if ((word.indexOf('u') > -1 && word.indexOf('e') < vowelIndex) || vowelIndex === -1) {
+    if ((word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf('u');
     }
 
     if ((word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex) || vowelIndex === -1) {
-        vowelIndex = word.indexOf('i');
+        vowelIndex = word.indexOf('y');
     }
+
     var firstPart = word.slice(0, vowelIndex);
     var restWord = word.slice(vowelIndex, word.length);
+
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    }
     return restWord + firstPart + 'ay';
 }
 
