@@ -1,3 +1,5 @@
+//SECONDARY TEST COMMENT
+
 'use strict';
 
 var assert = require('assert');

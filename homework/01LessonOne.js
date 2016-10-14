@@ -14,30 +14,30 @@ var myUndefined;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
-//
+var myNull = null;
 // What is the difference between null and undefined?
+//null is assigned address that is not in use, undefined is a variable that has never been assigned any value
 
-var myNull;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 1;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "one";
 
 // ****
 // Boolean Operators
@@ -46,7 +46,7 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
