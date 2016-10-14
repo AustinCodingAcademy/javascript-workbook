@@ -6,6 +6,7 @@ var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
+
 function pigLatin(word) {
     var word = prompt("Enter a word to translate to pig latin", "Example");
     var vowelIndex = -1; // Set it to assume there are no vowels
