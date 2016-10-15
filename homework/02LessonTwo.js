@@ -26,7 +26,15 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 === argument2) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
+console.log(equals(4, "4"))
+console.log(equals("Greg", "Greg"))
 
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
@@ -34,17 +42,36 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if (parameter1 <= parameter2) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
+console.log(lessThanOrEqualTo(3, 3));
+console.log(lessThanOrEqualTo(4, 3));
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+
+function numberAdder(num1, num2) {
+  return num1 + num2;
+}
+
+console.log(numberAdder(3, 4));
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function tripleAdd(num1, num2, num3) {
+  return num1 + num2 + num3
+}
+
+console.log(tripleAdd(32, 3, 1))
 
 // ****
 // Concept Checkpoint
