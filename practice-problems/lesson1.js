@@ -1,30 +1,30 @@
 //1. What is a data type that can have only the values true or false? Provide an example.
 
-//Answer:
+//Answer: boolean; var x = true;
 
 
 
 
 //2. What is a null value? Provide one example.
 
-//Answer:
+//Answer: a null value is a value that has been defined as empty; var x = null;
 
 
 
 
 //3. List and describe 3 more data types used in JS.
 
-//Answer:
+//Answer: string, number, object
 
 
 //4. Why do we use comments in JS?
 
-//Answer:
+//Answer: to explain the purpose behind the code we are writing
 
 
 //5. Why do we use 'strict mode'?
 
-//Answer:
+//Answer: 
 
 
 //6. Write the code to log the output "Hello World".
