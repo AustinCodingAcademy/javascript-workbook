@@ -33,9 +33,6 @@ function equals(argument1, argument2) {
   }
 }
 
-console.log(equals(4, "4"))
-console.log(equals("Greg", "Greg"))
-
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
 // return a boolean expression that is true when
@@ -48,30 +45,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
     return false;
   }
 }
-
-console.log(lessThanOrEqualTo(3, 3));
-console.log(lessThanOrEqualTo(4, 3));
-
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
-function numberAdder(num1, num2) {
-  return num1 + num2;
+function add(number1, number2) {
+  return number1 + number2;
 }
-
-console.log(numberAdder(3, 4));
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
-function tripleAdd(num1, num2, num3) {
-  return num1 + num2 + num3
+function addThree(number1, number2, number3) {
+  return number1 + number2 + number3
 }
 
-console.log(tripleAdd(32, 3, 1))
 
 // ****
 // Concept Checkpoint
@@ -80,22 +70,22 @@ console.log(tripleAdd(32, 3, 1))
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  A function is a block of instructions to perform a set of tasks.
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  A return value is the value that is returned by the function.
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  you can define it by reference like function FunctionName or by expression like var something = function () {}
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  A parameter is the value that is passed into a function upon invocation an argument are the values available to the function during execution. 
 //
 // ****
 
@@ -111,6 +101,11 @@ console.log(tripleAdd(32, 3, 1))
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Problem 6:
@@ -120,6 +115,11 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if (number % 3 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // ****
@@ -135,6 +135,15 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === "scooby") {
+    return "dog"
+  } else if (character === "garfield") {
+    return "cat"
+  } else if (character === "nemo") {
+    return "fish"
+  } else {
+    return false
+  }
 }
 
 // Problem 8:
@@ -145,6 +154,17 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  if (number % 4 === 0) {
+    return 'divisible by 4';
+  } else if (number % 3 === 0) {
+    return 'divisible by 3' ;
+  } else if (number % 2 === 0) {
+    return 'divisible by 2';
+  } else if (number % 5 === 0) {
+    return 'divisible by 5';
+  } 
+}
 
 // ****
 // Concept Checkpoint
@@ -153,7 +173,7 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A conditional is a set of checks within the control flow to display certain blocks of code based on what the user input is. 
 //
 //
 // ****
