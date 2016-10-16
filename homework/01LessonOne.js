@@ -220,7 +220,7 @@ var stringFourStrictNotEqualsNumberFour = true;
 // Your Answer Goes Here:
 //
 // ****
-// 
+// != is a negative assignement while !== is a negative comparator
 // ****
 // Tests
 // ****
