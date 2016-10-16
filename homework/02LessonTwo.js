@@ -26,6 +26,11 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 === argument2) {
+    return true;
+  } else {
+    return false;
+  };
 }
 
 // Problem 2:
@@ -34,17 +39,26 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if (parameter1 <= parameter2) {
+    return true;
+  } else {
+    return false;
+  };
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
-
+function add(number1, number2){
+  return number1 + number2;
+}
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
-
+function addThree(number1, number2, number3) {
+  return add(number1, number2) + number3;
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +68,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
-//
+// A function is a set of steps called upon to perform a task. A function is defined using the 'function' statement.
+// After the function desclaration is a set of parenthesis used to accept parameters necessary to complete the function. Parameters are values that are unknown at the time the function is written.  If needed, parameters must be passed to the function when it's called.
+// After the function name and parameters are curly brackets.  Within these curly brackets are the coded steps to perform.
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
-//
+// A return value is the end result of a function.
+// If a function is written to produce a value, such as in a calculation or a lookup, the return statement passes the resulting value back to the calling entity.
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
-//
+// A function can be named by stating a unique name in one of two ways.  A name can be added after the function declaration before the parameters.
+// A function can also be named by declaring a variable and assigning it to a delcared function.
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// A parameter is a required piece of data, or value needed to complete a function.  An argument is the actual value passed - as a parameter - to the function.
 // ****
 
 
@@ -84,6 +99,11 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if ((number % 2) === 0) {
+    return true;
+  } else {
+    return false;
+  };
 }
 
 // Problem 6:
@@ -93,6 +113,11 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if ((number % 3) === 0) {
+    return true;
+  } else {
+    return false;
+  };
 }
 
 // ****
@@ -108,6 +133,16 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === 'scooby') {
+    return 'dog';
+  };
+  if (character === 'garfield') {
+    return 'cat';
+  };
+  if (character === 'nemo') {
+    return 'fish';
+  };
+  return false;
 }
 
 // Problem 8:
@@ -117,7 +152,21 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
-
+function testNumber(number) {
+  if ((number % 4) === 0){
+    return 'divisible by 4';
+  };
+  if ((number % 2) === 0){
+    return 'divisible by 2';
+  };
+  if ((number % 3) === 0){
+    return 'divisible by 3';
+  };
+  if ((number % 5) === 0){
+    return 'divisible by 5';
+  };
+  return false;
+}
 
 // ****
 // Concept Checkpoint
@@ -127,8 +176,9 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
-//
+// A conditional tests the truthiness of a given expression and applies code depending on the result.
+// An 'if' statement is declared with an expression in parenthesis. If the expression tests true the appended code in curly brackets gets applied.
+// Multiple conditions can be tested in a function by chaining 'else' statements. It's important to use a return statement to break out of the function once a condition is met.
 // ****
 
 // ****
