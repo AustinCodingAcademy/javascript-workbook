@@ -175,7 +175,6 @@ function testNumber(number) {
 }
 
 
-console.log(testNumner(16));
 
 // ****
 // Concept Checkpoint

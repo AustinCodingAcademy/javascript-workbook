@@ -10,9 +10,8 @@
 //Answer:
 
 
-function true(String) {
-  var answer
-if (var answer === true) {
+
+if (true) {
 console.log("good job")
 } else {
   console.log("try again")
@@ -25,15 +24,18 @@ console.log("good job")
 
 //Answer:
 
-function isDivisble(num1, num2) {
-  var divisible = numb1 % numb2;
-  if(divisible === 0) {
-    console.log("divisible by " + number2);
-  } else {
-    return false;
+function isDivisble(number) {
+  if(number % 4 === 0) {
+    console.log("divisible by 4");
+  } else if (number % 2 === 0) {
+    console.log("divisible by 2");
+  } else if (number % 3 === 0) {
+    console.log("divisble by 3");
+  } else (number % 5 === 0) {
+    console.log("divisible by 5");
   }
 }
-console.log(isDivisble(16,4));
+
 
 
 
@@ -41,11 +43,11 @@ console.log(isDivisble(16,4));
 
 //Answer:
 function print(text) {
-  var text = "";
+  var text = "hi";
   return text;
 }
 
-console.log(print("Hi"));
+
 //5. Create a function that prints out the average of a set of numbers.
 
 //Answer:
