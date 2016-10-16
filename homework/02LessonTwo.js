@@ -14,6 +14,7 @@ function alwaysFalse() {
   return false;
 }
 
+
 // You can also define functions this way,
 // by assigning function definitions to variable
 var alwaysTrue = function () {
@@ -26,6 +27,11 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if(argument1 === argument2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Problem 2:
@@ -34,18 +40,33 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if(parameter1 <= parameter2) {
+    return true;
+  } else {
+    return false;
+
+  }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add(number1, number2) {
+var sum = number1 + number2;
+return sum;
+}
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(number1, number2, number3) {
+  var sum = number1 + number2 + number3;
+  return sum;
+}
 
+console.log(addThree(1, 2, 3));
 // ****
 // Concept Checkpoint
 //
@@ -53,12 +74,12 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Code designed to perform a specific task
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: The value that results in the end of the function
 //
 //
 // How do you define a named function?
@@ -68,7 +89,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Parameters are the names listed in the function while an arguments is the real value in the function
 //
 // ****
 
@@ -84,8 +105,14 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if(number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+console.log(isEven(3));
 // Problem 6:
 // isDivisibleByThree(number) is a function that
 // returns true if number is divisible by 3,
@@ -93,6 +120,11 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if (number % 3 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // ****
@@ -106,9 +138,21 @@ function isDivisibleByThree(number) {
 // should return "cat" when character is 'garfield'
 // should return "fish" when character is 'nemo'
 // should return false if character is anything else
-
 function whichSpecies(character) {
+  if (character === "scooby") {
+    return "dog";
+  } else if (character === "garfield") {
+    return "cat";
+  } else if (character === "nemo") {
+    return "fish";
+  } else {
+    return false;
+    }
 }
+
+console.log(whichSpecies("scooby"));
+
+
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -118,6 +162,20 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  if(number % 4 === 0) {
+    console.log("divisible by 4");
+  } else if (number % 2 === 0) {
+    console.log("divisible by 2");
+  } else if (number % 3 === 0) {
+    console.log("divisble by 3");
+  } else (number % 5 === 0) {
+    console.log("divisible by 5");
+  }
+}
+
+
+console.log(testNumner(16));
 
 // ****
 // Concept Checkpoint
@@ -126,7 +184,7 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Typically an if, else statement. If first part is true it returns that value otherwise it returns the second part
 //
 //
 // ****

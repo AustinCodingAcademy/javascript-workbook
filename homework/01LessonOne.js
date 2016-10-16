@@ -122,7 +122,7 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob = 'bob';
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
@@ -132,12 +132,12 @@ var notNotEmptyString = '';
 // Problem 19:
 // What is the value of !null
 
-var notNull = null;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -196,7 +196,7 @@ var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour = false;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
