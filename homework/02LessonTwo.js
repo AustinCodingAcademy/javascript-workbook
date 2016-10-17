@@ -64,21 +64,27 @@ function addThree(number1, number2, number3) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
+// A JavaScript function is code that performs a specific task, and is executed when something calls it.  A function is like a procedure.
+// A JavaScript function is defined with the word fuction, then a name, then parentheses.
 //
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
+// This is the value that is returned from the function.  Functions often compute a return value.
 //
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
+// A named function has a name following the word function, and is not anonymous.
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
+// Yes, there is a difference.  Parameters are the names listed in the function definition.  Arguments are the actual values received by the fuction.
+//
 //
 // ****
 
@@ -94,6 +100,7 @@ function addThree(number1, number2, number3) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  return (number%2 == 0);
 }
 
 // Problem 6:
@@ -103,6 +110,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  return (number % 3 == 0)
 }
 
 // ****
@@ -118,7 +126,20 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === 'scooby') {
+    return "dog";
+  }
+  else if (character === 'garfield') {
+    return "cat";
+  }
+  else if (character === 'nemo') {
+    return "fish";
+  }
+  else {
+    return false;
+  }
 }
+
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -127,6 +148,21 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
+
+function testNumber(number) {
+  if (number % 4 === 0) {
+    return "divisible by 4";
+  }
+  else if (number % 2 === 0) {
+    return "divisible by 2";
+  }
+  else if (number % 3 === 0) {
+    return "divisible by 3";
+  }
+  else if (number % 5 === 0) {
+    return "divisible by 5";
+  }
+}
 
 
 // ****
@@ -137,6 +173,7 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
+// Conditionals are a way to perform different actions based on different conditions or decisions.  The following are used in conditionals "if", "else", "if else".
 //
 //
 // ****
