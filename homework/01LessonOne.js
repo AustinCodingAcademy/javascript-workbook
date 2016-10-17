@@ -18,8 +18,8 @@ var myUndefined;
 // What is the difference between null and undefined?
 
 var myNull = null;
-undefined means the variable has not been assigned a value.
-null means the variable has been defined, but is simply a placeholder without a value.
+//undefined means the variable has not been assigned a value.
+//null means the variable has been defined, but is simply a placeholder without a value.
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
