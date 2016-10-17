@@ -66,7 +66,7 @@ function addThree(number1, number2, number3) {
   return sum;
 }
 
-console.log(addThree(1, 2, 3));
+
 // ****
 // Concept Checkpoint
 //
@@ -150,8 +150,6 @@ function whichSpecies(character) {
     }
 }
 
-console.log(whichSpecies("scooby"));
-
 
 
 // Problem 8:
@@ -163,17 +161,17 @@ console.log(whichSpecies("scooby"));
 // return the string "divisible by 5" when number % 5 === 0
 
 function testNumber(number) {
-  if(number % 4 === 0) {
-    console.log("divisible by 4");
+
+  if (number % 4 === 0) {
+    return "divisible by 4";
   } else if (number % 2 === 0) {
-    console.log("divisible by 2");
+    return "divisible by 2";
   } else if (number % 3 === 0) {
-    console.log("divisble by 3");
+    return "divisble by 3";
   } else (number % 5 === 0) {
-    console.log("divisible by 5");
+    return "divisible by 5";
   }
 }
-
 
 
 // ****
