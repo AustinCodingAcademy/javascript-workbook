@@ -108,36 +108,35 @@ var notNotTrue = true;
 // Your Answer Goes Here:
 //
 // ****
-and && operator will check the left, then the right values for true or false, if either one is false. it will return to false.
-or || operator will check to see if either values are true, if either are true.  it will reason both together as true.
-you would use && if you wanted a function to oporate if 2 conditions apply
-you would use || if both conditions apply
+// //and && operator will check the left, then the right values for true or false, if either one is false. it will return to false.
+// or || operator will check to see if either values are true, if either are true.  it will reason both together as true.
+// you would use && if you wanted a function to oporate if 2 conditions apply
+// you would use || if both conditions apply
 // ****
 // Truthiness
 // ****
 
-var bob = 'bob'; = truthy
-var emptyString = ''; = falsy
+// var bob = 'bob'; = truthy
+// var emptyString = ''; = falsy
 
 // Problem 17:
-// What is the value of !!bob
-
-var notNotBob; = true
+// What is the value of !!bob === true
+// var notNotBob; = true
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString; = false
+// var notNotEmptyString; = false
 
 // Problem 19:
 // What is the value of !null
 
-var notNull; = true
+// var notNull; = true
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+// var notNotUndefined;
 
 // ****
 // Concept Checkpoint
@@ -189,7 +188,7 @@ var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour false;
+// var stringFourNotEqualsNumberFour false;
 
 // Problem 30:
 // What is the value of '4' === 4

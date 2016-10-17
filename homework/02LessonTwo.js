@@ -10,7 +10,7 @@ var assert = require('assert');
 // alwaysFalse() is a function that always
 // returns the boolean value false
 
-function alwaysFalsec (3 > 4) {
+function alwaysFalse() {
   return false;
 }
 
@@ -19,12 +19,14 @@ function alwaysFalsec (3 > 4) {
 var alwaysTrue = function () {
   return true;
 };
+
 // Problem 1:
 // equals(argument1, argument2) is an empty function
 // return a boolean expression that is true when
 // argument1 is equal to argument2
 
-function equals(5 === 5) {
+function equals(argument1, argument2) {
+  return argument1 === argument;
 }
 
 // Problem 2:
@@ -32,29 +34,17 @@ function equals(5 === 5) {
 // return a boolean expression that is true when
 // parameter1 is less than or equal to parameter2
 
-function lessThanOrEqualTo(5 <= 8) {
+function lessThanOrEqualTo(parameter1, parameter2) {
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
-function add(number1, number2){
-return number1 + number2;
-}
-var x = add(5, 9)
-
-x;
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
-function addThree(number1, number2, number3){
-  return number1 + number2 +number3;
-}
-var x = addThree(2,4,5);
-
-x;
 
 
 // ****
@@ -63,29 +53,24 @@ x;
 // Write your answer in comments
 //
 // What is a function? How do you define a function in Javascript?
-
+//
 // Your Answer Goes Here:
-////a function is a piece of code that helps us do smaller tasts that are easier to repeat through out the code, or piece together smaller problems to a larger problem, that needs to be solved
 //
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//a return value stops the execution of a function and returns the value from that function
+//
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-function NamedFunction (Parameter){
-
-};
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//parameters are the "aliases" for the values passed into a function.
-//arguments are the actual values that are returned from the function
+//
 // ****
 
 
@@ -99,18 +84,16 @@ function NamedFunction (Parameter){
 // else returns false
 // complete isEven() by returning a boolean expression
 
-function isEven(8) {
-
+function isEven(number) {
 }
-isEven();
+
 // Problem 6:
 // isDivisibleByThree(number) is a function that
 // returns true if number is divisible by 3,
 // else returns false
 // complete isDivisibleByThree() by returning a boolean expression
 
-function isDivisibleByThree(9) {
-  return
+function isDivisibleByThree(number) {
 }
 
 // ****
@@ -126,18 +109,6 @@ function isDivisibleByThree(9) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
-if (character === 'scooby'){
-  return "dog";
-}
-else if (character === 'garfield'){
-  return "cat";
-}
-else if (character === 'nemo'){
-  return "fish";
-}
-else{
-  return false;
-}
 }
 
 // Problem 8:
@@ -147,23 +118,7 @@ else{
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
-function testNumer(number){
-  if (number % 4 === 0){
-    return "divisible by 4";
-  }
-  else if (number % 2 === 0){
-    return "divisible by 2";
-  }
-  else if (number % 3 === 0){
-    return "divisible by 3";
-  }
-  else if (number % 5 === 0){
-    return "divisible by 5"
-  }
-  else{
-    return false;
-  }
-}
+
 
 // ****
 // Concept Checkpoint
@@ -173,7 +128,7 @@ function testNumer(number){
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//conditionals are functions that can check to see if values are one thing or another, and change the sequence of execution depending on the users input.  They read "if" the code says this- do this, else- do this.
+//
 //
 // ****
 
@@ -291,3 +246,5 @@ describe('Lesson 2 Homework', function () {
   });
 
 });
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
