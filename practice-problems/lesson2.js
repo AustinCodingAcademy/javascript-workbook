@@ -73,6 +73,7 @@ console.log(myFunction());
 //Answer:
 
 
+
 //6. Call your above function and write the code to make the average print out.
 
 //Answer:
