@@ -1,11 +1,11 @@
 //1. What is a data type that can have only the values true or false? Provide an example.
 
 // A boolean.  
-var a = 4
-var b = 3
+var a = 4;
+var b = 3;
 
 if (a > b) {
-  console.log('true')
+  console.log('true');
 }
 
 //2. What is a null value? Provide one example.
@@ -57,17 +57,17 @@ console.log(helloWorld);
 
 //Examples
 
-var a = 4
-var b = 2
-var c = 3
+var d = 4;
+var e = 2;
+var f = 3;
 
-if ((a && b) > c) {
+if ((d && e) > f) {
   console.log("TRUE");
 } else {
   console.log("FALSE");
 }
 
-if ((a || b) > c) {
+if ((d || e) > f) {
   console.log("true");
 } else {
   console.log("false");
@@ -143,7 +143,7 @@ console.log('15:', !true);
 
 //16. 
 
-console.log('16:', !undefined);
+console.log('16:', !false);
 
 //Answer: true
 
@@ -188,11 +188,11 @@ console.log(nine === numNine);
 
 // This is using the !(not operator).  Again works with strictally equaling a value to what you are comparing. Checking the value and the value and type. 
 
-var nine = '9';
-var numNine = 9;
+var ten = '10';
+var numTen = 10;
 
-console.log(nine != numNine);
-console.log(nine !== numNine);
+console.log(ten != numTen);
+console.log(ten !== numTen);
 
 
 //22. What does (7 - 4 && 6 + 3) || (7 < 5 || 8 > 4) evaluate to? Explain how you solved your answer.

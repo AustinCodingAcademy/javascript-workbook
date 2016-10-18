@@ -31,7 +31,7 @@ function pigLatin(word) {
   }
 
   var firstPart = word.slice(0, vowelIndex);
-  var restWord = word.slice(vowelIndex, word.length)
+  var restWord = word.slice(vowelIndex, word.length);
 
   if(vowelIndex === -1) {
     return (word.substring(0, word.length) + 'ay').toLowerCase();

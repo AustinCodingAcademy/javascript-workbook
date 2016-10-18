@@ -2,6 +2,7 @@
 
 var assert = require('assert');
 var readline = require('readline');
+var expect = require('chai').expect;
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -14,11 +15,9 @@ function rockPaperScissors(hand1, hand2) {
   // Removed this check since we don't have a test to check whether the input was lowercase.
 
   // Added a test to check whether you entered an invalid choice. 
-  
+
   // var hand1 = hand1.toLowerCase();
   // var hand2 = hand2.toLowerCase(); 
-
-  
   var game = hand1 && hand2;
 
   if (game !== "rock" && game !== "scissors" && game !== "paper") {
@@ -29,31 +28,33 @@ function rockPaperScissors(hand1, hand2) {
 
   if (hand1 === "rock") {
     if (hand2 === "paper") {
-      return "Hand two wins!"
+      return "Hand two wins!";
     } else if (hand2 === "scissors") {
-      return "Hand one wins!"
+      return "Hand one wins!";
     }
   } 
 
   if (hand1 === "paper") {
     if (hand2 === "scissors") {
-      return "Hand two wins!"
+      return "Hand two wins!";
     } else if (hand2 === "rock") {
-      return "Hand one wins"
+      return "Hand one wins";
     }
   }
 
   if (hand1 === "scissors") {
     if (hand2 === "rock") {
-      return "Hand two wins!"
+      return "Hand two wins!";
     } else if (hand2 === "paper") {
-      return "Hand one wins!"
+      return "Hand one wins!";
     }
   }
 }
 
-rockPaperScissors('rock', 'scissors')
+rockPaperScissors('rock', 'scissors');
 rockPaperScissors('rock', 'rock');
+rockPaperScissors('RoCk', 'SciSSors');
+rockPaperScissors('stuff', 'more');
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
@@ -81,9 +82,17 @@ if (typeof describe === 'function') {
     });
     it('should detect if an invalid input is entered', function() {
       assert.equal(rockPaperScissors(!'rock', !'rock'), "Enter a real hand dood!");
-      assert.equal(rockPaperScissors(!'paper', !'paper'), "Enter a real hand dood!")
-      assert.equal(rockPaperScissors(!'scissors', !'scissors'), "Enter a real hand dood!")
-    })
+      assert.equal(rockPaperScissors(!'paper', !'paper'), "Enter a real hand dood!");
+      assert.equal(rockPaperScissors(!'scissors', !'scissors'), "Enter a real hand dood!");
+    });
+   /* it('should return a lowercase string', function (){
+      assert.equal(rockPaperScissors('RoCk')).to.equal('rock');
+      assert.equal(rockPaperScissors('Scissors')).to.equal('scissors');
+      assert.equal(rockPaperScissors('Paper')).to.equal('paper');
+      assert.equal(rockPaperScissors('Rock')).to.equal('rock');
+      assert.equal(rockPaperScissors('SciSsors')).to.equal('scissors');
+      assert.equal(rockPaperScissors('PaPer')).to.equal('paper');
+    })*/
   });
 } else {
 
