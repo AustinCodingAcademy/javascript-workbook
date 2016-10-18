@@ -152,13 +152,13 @@ function isDivisibleByThree(number) {
 
 function whichSpecies(character) {
 
- if (character == "scooby") {
+ if (character === "scooby") {
    return "dog";
  }
- else if (character == "garfield") {
+ else if (character === "garfield") {
    return "cat";
  }
- else if (character == "nemo") {
+ else if (character === "nemo") {
    return "fish";
  }
  else {
@@ -190,6 +190,8 @@ function testNumber(number){
     return false;
   }
 }
+
+
 
 // ****
 // Concept Checkpoint
