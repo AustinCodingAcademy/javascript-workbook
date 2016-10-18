@@ -12,6 +12,9 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
     // Write code here
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
+
     if (hand1 === hand2) {
         return "It's a tie!";
     }
@@ -28,12 +31,13 @@ function rockPaperScissors(hand1, hand2) {
         return "Hand two wins!";
     }
     if (hand1 === "scissors" && hand2 === "paper") {
-        return "Hand one wins!";  
+        return "Hand one wins!";
     }
     else {
         return "Hand two wins!";
     }
 }
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
