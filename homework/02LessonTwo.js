@@ -104,7 +104,7 @@ function addThree(number1, number2, number3)
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
-  if (number%2==0) {
+  if (number % 2 === 0) {
    return true;
   }
   else {
@@ -119,7 +119,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
-  if (number%3==0) {
+  if (number % 3 === 0) {
     return true;
   }
   else {
