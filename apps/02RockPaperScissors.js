@@ -10,21 +10,25 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  var hand1 = hand1.toLowerCase();
-  var hand2 = hand2.toLowerCase();
+ 
+  // Removed this check since we don't have a test to check whether the input was lowercase.
 
-  if(hand1 !== 'rock' || 'paper' || 'scissors') {
-    if(hand2 !== 'rock' || 'paper' || 'scissors') {
-      return "Enter Rock, Paper or Scissors bruh!"
-    }
+  // Added a test to check whether you entered an invalid choice. 
+  
+  // var hand1 = hand1.toLowerCase();
+  // var hand2 = hand2.toLowerCase(); 
+
+  
+  var game = hand1 && hand2;
+
+  if (game !== "rock" && game !== "scissors" && game !== "paper") {
+    return "Enter a real hand dood!";
+  } else if (hand1 === hand2) {
+    return "It's a tie!";
   }
 
-
-  if (hand1 === hand2){
-    return "It's a tie!"
-  } 
   if (hand1 === "rock") {
-    if(hand2 === "paper") {
+    if (hand2 === "paper") {
       return "Hand two wins!"
     } else if (hand2 === "scissors") {
       return "Hand one wins!"
@@ -46,12 +50,10 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand one wins!"
     }
   }
-  else {
-    return "Stop being difficult and RoShamBo!"
-  }
 }
 
 rockPaperScissors('rock', 'scissors')
+rockPaperScissors('rock', 'rock');
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
@@ -77,6 +79,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
+    it('should detect if an invalid input is entered', function() {
+      assert.equal(rockPaperScissors(!'rock', !'rock'), "Enter a real hand dood!");
+      assert.equal(rockPaperScissors(!'paper', !'paper'), "Enter a real hand dood!")
+      assert.equal(rockPaperScissors(!'scissors', !'scissors'), "Enter a real hand dood!")
+    })
   });
 } else {
 
