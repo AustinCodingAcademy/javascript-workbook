@@ -112,7 +112,6 @@ function isEven(number) {
   }
 }
 
-console.log(isEven(3));
 // Problem 6:
 // isDivisibleByThree(number) is a function that
 // returns true if number is divisible by 3,
@@ -167,9 +166,11 @@ function testNumber(number) {
   } else if (number % 2 === 0) {
     return "divisible by 2";
   } else if (number % 3 === 0) {
-    return "divisble by 3";
-  } else (number % 5 === 0) {
+    return "divisible by 3";
+  } else if (number % 5 === 0) {
     return "divisible by 5";
+  } else {
+    return false;
   }
 }
 
