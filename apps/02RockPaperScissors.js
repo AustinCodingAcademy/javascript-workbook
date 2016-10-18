@@ -13,7 +13,14 @@ function rockPaperScissors(hand1, hand2) {
   var hand1 = hand1.toLowerCase();
   var hand2 = hand2.toLowerCase();
 
-  if (hand1 === hand2) {
+  if(hand1 !== 'rock' || 'paper' || 'scissors') {
+    if(hand2 !== 'rock' || 'paper' || 'scissors') {
+      return "Enter Rock, Paper or Scissors bruh!"
+    }
+  }
+
+
+  if (hand1 === hand2){
     return "It's a tie!"
   } 
   if (hand1 === "rock") {
@@ -39,7 +46,7 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand one wins!"
     }
   }
-  else{
+  else {
     return "Stop being difficult and RoShamBo!"
   }
 }
