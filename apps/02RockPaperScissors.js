@@ -9,9 +9,40 @@ var rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+word  = word.toLowerCase();
+if (hand1 === hand2) {
+  return "It's a tie!";
+}
 
-  // Write code here
+if (hand1 === 'rock') {
+  if (hand2 === 'scissors') {
+    return 'Hand one wins!';
+  }
+  // If we reach here, player 2 must have dealt paper
+  if (hand1==='rock'){
+    if(hand2==='paper')
+  }
+  return 'Hand two wins!';
+}
 
+if (hand1 === 'scissors') {
+  if(hand2 ==='rock')
+}
+  return 'Hand two wins'
+  // fill this in using the logic above
+
+}
+
+if (hand1 === 'scissors') {
+  if (hand2 ==='paper')
+}
+  return 'Hand one wins'
+  // fill this in using the logic above
+}
+if (hand1 ==='paper'){
+  if (hand2 ==='rock')
+  }
+    return 'hand one wins'
 }
 
 function getPrompt() {
