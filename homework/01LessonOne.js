@@ -17,7 +17,7 @@ var myUndefined = true;
 //
 // What is the difference between null and undefined?
 
-var myNull = null;
+var myNull === null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
