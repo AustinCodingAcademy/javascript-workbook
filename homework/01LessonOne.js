@@ -115,28 +115,29 @@ var notNotTrue = true;
 // ****
 // Truthiness
 // ****
-
-// var bob = 'bob'; = truthy
-// var emptyString = ''; = falsy
+var bob = 'bob';
+var emptyString = '';
 
 // Problem 17:
-// What is the value of !!bob === true
-// var notNotBob; = true
+// What is the value of !!bob
+
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-// var notNotEmptyString; = false
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-// var notNull; = true
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-// var notNotUndefined;
+var notNotUndefined = false;
+
 
 // ****
 // Concept Checkpoint
@@ -188,7 +189,7 @@ var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-// var stringFourNotEqualsNumberFour false;
+ var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4

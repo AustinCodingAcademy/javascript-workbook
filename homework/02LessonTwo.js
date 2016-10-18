@@ -70,12 +70,15 @@ function addThree(number1, number2, number3){
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+//function name=(parameter){
+//}
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+//a parameter is the value that goes into the top of the function, it is the variable you want to execute,
+//a argument is the value that comes out of the executed code. paramter is the alias for the value,
+//argument is the actual value
 // ****
 
 
@@ -170,7 +173,9 @@ else if (number % 3 === 0){
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
+//conditionals are functions that can process smaller exesutions of code to make the job easier
+//for larger projects later on.  They check one thing and if that choice is met, it executes it,
+//if not, it parses on to the next choice and executes thats code.
 //
 // ****
 
