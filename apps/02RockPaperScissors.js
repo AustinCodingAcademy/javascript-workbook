@@ -12,8 +12,12 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
-hand1 = hand1.toLowerCase();
-hand2 = hand2.toLowerCase();
+var trimmedhand1 = hand1.trim();
+var trimmedhand2 = hand2.trim();
+
+var hand1 = trimmedhand1.toLowerCase();
+var hand2 = trimmedhand2.toLowerCase();
+
 
 if (hand1 === hand2) {
   return "It's a tie!";
