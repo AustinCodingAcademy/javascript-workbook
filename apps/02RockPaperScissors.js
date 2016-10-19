@@ -7,16 +7,17 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+var shortMode;
 
 function rockPaperScissors(hand1, hand2, shortMode) {
 
 	//this is a quick fix to pass the tests, since they dont enter the answer for short mode
      if (typeof shortMode === "undefined"){
 	shortMode = "n";}
-
+	//scrub the inputs
 	hand1 = hand1.toLowerCase();
 	hand2 = hand2.toLowerCase();
-	//this scrubs the shortmode
+	//this scrubs the shortmode variable
 	shortMode = shortMode.toLowerCase();
 
 	//changes the variables to their long forms if shortMode is enabled
@@ -54,10 +55,6 @@ function rockPaperScissors(hand1, hand2, shortMode) {
 		getPrompt();
 	}
 
-	
-	//scrub the variables 
-	hand1 = hand1.toLowerCase();
-	hand2 = hand2.toLowerCase();
 
 if (hand1 === hand2) {
 	  return "It's a tie!";
