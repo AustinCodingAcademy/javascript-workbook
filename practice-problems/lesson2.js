@@ -9,9 +9,10 @@
 //Answer:
 
 function typeChecker(checkedVar) {
-  if (typeof checkedVar == "string"){
+  if (typeof checkedVar === "string"){
      return "Good Job";
-  } else {
+  }
+  else {
     return "Bad Job";
   }
 }
