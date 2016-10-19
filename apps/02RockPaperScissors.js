@@ -11,10 +11,10 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
     var h1 = "Hand one wins!";
     var h2 = "Hand two wins!";
-    var tie = "It's a tie!";
-    
+    var h3 = "It's a tie!";
+
     if (hand1 === hand2) {
-        return tie;
+        return h3;
     }
 
     if (hand1 === 'rock') {
