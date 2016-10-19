@@ -11,8 +11,8 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-  hand1.toLowerCase();
-  hand2.toLowerCase();
+  var hand1 = hand1.toLowerCase();
+  var hand2 = hand2.toLowerCase();
 
   if (hand1 !== "rock" && hand1 !== "paper" && hand1 !== "scissors") {
     return "Hand one selection is not valid!";
