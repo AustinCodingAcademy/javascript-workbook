@@ -9,4 +9,4 @@ function helloWorld() {
 
 console.log(b);
 
-//Answer:
+//Answer: B is defined within the function helloworld() and therefore is only accessible within the scope of that function. In this scenario you would only be able to call var a since the scope is outside of the function. 
