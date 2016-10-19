@@ -62,7 +62,9 @@ function add(number1, number2){
 // you must call your function add() in addThree()
 
 function addThree(number1, number2, number3){
-  return add(number1, number2) + number3
+  // return (number3, add(number1,number2)) OR
+  var sum = add(number1, number2);
+  return add(sum, number3);
 }
 
 // ****
@@ -181,7 +183,7 @@ function testNumber(number){
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-// Conditionals allow for different results based on a set of parameters. If something is true, you can return one result, but if it's false, you can return another result. 
+// Conditionals allow for different results based on a set of parameters. If something is true, you can return one result, but if it's false, you can return another result.
 //
 // ****
 
