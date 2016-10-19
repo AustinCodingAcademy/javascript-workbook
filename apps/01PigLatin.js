@@ -9,6 +9,7 @@ var rl = readline.createInterface({
 
 
 function pigLatin(word) {
+word = word.toLowerCase();
 
   var vowelIndex = -1; // Set it to assume there are no vowels
 
