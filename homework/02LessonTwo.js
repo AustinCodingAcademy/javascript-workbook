@@ -165,7 +165,7 @@ function testNumber(number){
   } else if (number % 5 === 0){
     return ('divisible by 5');
   } else {
-    return ('That number is crazy, yo!')
+    return ('That number is crazy, yo!');
   }
 }
 
