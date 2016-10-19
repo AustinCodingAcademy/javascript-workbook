@@ -100,7 +100,7 @@ function addThree(number1, number2, number3) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
-  return (number%2 == 0);
+  return (number%2 === 0);
 }
 
 // Problem 6:
@@ -110,7 +110,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
-  return (number % 3 == 0)
+  return (number % 3 === 0);
 }
 
 // ****
