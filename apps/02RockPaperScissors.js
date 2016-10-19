@@ -63,35 +63,38 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand two wins!";
     } else if (valid2 === "scissors"){
       return "Hand one wins!";
-    } else {
-      return "Invalid entry, please try again";
-      rockPaperScissors();
     }
+    // else {
+    //   return "Invalid entry, please try again";
+    //   rockPaperScissors();
+    // }
   }
   else if (valid1 === "paper"){
     if (valid2 === "scissors"){
       return "Hand two wins!";
     } else if (valid2 === "rock"){
       return "Hand one wins!";
-    } else {
-      return "Invalid entry, please try again";
-      rockPaperScissors();
     }
+    // else {
+    //   return "Invalid entry, please try again";
+    //   rockPaperScissors();
+    // }
   }
   else if (valid1 === "scissors"){
     if (valid2 === "rock"){
       return "Hand two wins!";
     } else if (valid2 === "paper"){
       return "Hand one wins!";
-    } else {
-      return "Invalid entry, please try again";
-      rockPaperScissors();
     }
+    // else {
+    //   return "Invalid entry, please try again";
+    //   rockPaperScissors();
+    // }
   }
-  else {
-    return "Invalid entry, please try again";
-    rockPaperScissors();
-  }
+  // else {
+  //   return "Invalid entry, please try again";
+  //   rockPaperScissors();
+  // }
 }
 
 function getPrompt() {
