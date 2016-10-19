@@ -72,8 +72,9 @@ var number3 = 12;
 
 function addThree(number1, number2, number3) {
 
-    return number1 + number2 + number3;
+    return add(number3, add(number1, number2));
 }
+
 
 // ****
 // Concept Checkpoint
