@@ -22,9 +22,16 @@ var firstName = 'susan';
 // What is the value of firstName at this point in the file?
 var valueOfFirstName;
 
+function valueOfFirstName() {
+  var firstName = 'susan';
+  return firstName;
+}
+
+
 // Problem 2:
 // What is the value of lastName at this point in the file?
 var valueOfLastName;
+
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
