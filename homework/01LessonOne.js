@@ -17,27 +17,27 @@ var myUndefined;
 //
 // What is the difference between null and undefined?
 
-var myNull;
+var myNull= null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 12;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = 'I like football';
 
 // ****
 // Boolean Operators
@@ -46,57 +46,56 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var falseAndTrue = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var trueAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue;
+var trueOrTrue = true ;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseAndTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse;
+var trueAndFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse;
+var falseAndFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse;
-
+var notFalse = true;
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
@@ -203,13 +202,13 @@ var stringFourStrictNotEqualsNumberFour;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//
-//
+//using the == equality operator, equal strings look equal:
+//using the === equality operator, equal strings are not equal, because the === operator expects equality in both type and value.
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
+//!= (not equal to)compares to see if both are equal if not they are not, then condiction is made true.
 //
-// ****
 
 
 // ****

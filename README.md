@@ -11,6 +11,7 @@
 1. In your terminal (or in git bash, for Windows people), navigate (using `cd`) into a directory where you want to start keeping your repositories.
 1. Clone your new repository by typing `git clone <forked clone URL>` (the SSH URL you copied above)
 ![Forking a repository](https://docs.google.com/drawings/d/1tYsLHaLo8JRdp0xC1EZrAo0o9Wvv4S5AD937cokVOBk/pub?w=960&h=720)
+1. Now go into the new directory by using `cd javascript-workbook`
 1. Add the base repository as an upstream `git remote add upstream git@github.com:AustinCodingAcademy/javascript-workbook.git`
 1. Check the configuration of your remotes with `git remote -v`, it should look very similar to this (except it'll be YOUR username, not `tjefferson08`)
 ```
