@@ -59,7 +59,7 @@ function add(number1, number2) {
 // this function will add three numbers
 // you must call your function add() in addThree()
 function addThree(number1, number2, number3) {
-  return number1 + number2 + number3;
+  return add(add(number1, number2), number3);
 }
 addThree(1,2,3)
 // ****
