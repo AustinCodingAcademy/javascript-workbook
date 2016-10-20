@@ -22,6 +22,7 @@ var firstName = 'susan';
 // What is the value of firstName at this point in the file?
 var valueOfFirstName;
 
+
 // Problem 2:
 // What is the value of lastName at this point in the file?
 var valueOfLastName;
