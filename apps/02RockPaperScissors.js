@@ -16,34 +16,47 @@ function rockPaperScissors(hand1, hand2) {
     hand1 = hand1.toLowerCase();
     hand2 = hand2.toLowerCase();
 
-    if (((hand1 === 'rock') || (hand1 === 'paper') || (hand1 === 'scissors')) && ((hand2 === 'rock') || (hand2 === 'paper') || (hand2 === 'scissors'))) {
+    // if ((hand1 !== ('rock' || 'paper' || 'scissors')) && (hand2 !== ('rock' || 'paper' || 'scissors'))) {
+    //     return "Invalid entry!";
+    // } else {
         if (hand1 === hand2) {
             return "It's a tie!";
-        } else if (hand1 === 'rock') {
-            if (hand2 === 'paper') {
-                return 'Hand two wins!';
-            } else {
-                return 'Hand one wins!';
-            }
-        } else if (hand1 === 'paper') {
-            if (hand2 === 'scissors') {
-                return 'Hand two wins!';
-            } else {
-                return 'Hand one wins!';
-            }
-        } else if (hand1 === 'scissors') {
-            if (hand2 === 'rock') {
-                return 'Hand two wins!';
-            } else {
-                return 'Hand one wins!';
-            }
+        } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'rock' && hand2 === 'scissors')) {
+        return "Hand one wins!";
         } else {
-            return 'Invalid entry!';
+        return "Hand two wins!";
         }
-    } else {
-        return 'Invalid entry!';
     }
-}
+// }
+
+
+//     if (hand1 === hand2) {
+//         return "It's a tie!";
+//     } else if (hand1 === 'rock') {
+//         if (hand2 === 'paper') {
+//             return 'Hand two wins!';
+//         } else {
+//             return 'Hand one wins!';
+//         }
+//     } else if (hand1 === 'paper') {
+//         if (hand2 === 'scissors') {
+//             return 'Hand two wins!';
+//         } else {
+//             return 'Hand one wins!';
+//         }
+//     } else if (hand1 === 'scissors') {
+//         if (hand2 === 'rock') {
+//             return 'Hand two wins!';
+//         } else {
+//             return 'Hand one wins!';
+//         }
+//     } else {
+//         return 'Invalid entry!';
+//     }
+// } else {
+//     return 'Invalid entry!';
+// }
+
 
 // var iterate = true;
 // var userContinue = true;
@@ -94,4 +107,4 @@ if (typeof describe === 'function') {
     // var scrubbedInput = trimmedUserInput.toLowerCase();
     // iterate();
 
-};
+}
