@@ -99,7 +99,7 @@ var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-nameArray[1] = 'george'
+nameArray[1] = 'george';
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],

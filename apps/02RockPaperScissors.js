@@ -11,8 +11,8 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-  var hand1 = hand1.toLowerCase();
-  var hand2 = hand2.toLowerCase();
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
 
   if (hand1 !== "rock" && hand1 !== "paper" && hand1 !== "scissors") {
     return "Hand one selection is not valid!";
@@ -29,19 +29,19 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand one wins!";
     } else {
       return "Hand two wins!";
-    };
+    }
   } else if (hand1 === "paper") {
     if (hand2 === "rock") {
       return "Hand one wins!";
     } else {
       return "Hand two wins!";
-    };
+    }
   } else if (hand1 === "scissors") {
     if (hand2 === "paper") {
       return "Hand one wins!";
     } else {
       return "Hand two wins!";
-    };
+    }
   }
 }
 

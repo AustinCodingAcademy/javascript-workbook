@@ -30,7 +30,7 @@ function equals(argument1, argument2) {
     return true;
   } else {
     return false;
-  };
+  }
 }
 
 // Problem 2:
