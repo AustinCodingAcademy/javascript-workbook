@@ -40,18 +40,10 @@ hand2 = hand2.toLowerCase();
   //    return "Hand two wins!";
   //  }
   //}
-  if (hand1 === 'rock' && hand2 === 'scissors') {
+  if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
     return "Hand one wins!";
   }
-  else if (hand1 === 'paper' && hand2 === 'rock') {
-    return "Hand one wins!";
-  }
-  else if (hand1 === 'scissors' && hand2 === 'paper') {
-    return "Hand one wins!";
-  }
-  else {
     return "Hand two wins!";
-  }
 }
 
 
