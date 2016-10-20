@@ -72,7 +72,7 @@ function add(number1, number2) {
 
 function addThree(number1, number2, number3) {
 
-    return number1 + number2 + number3;
+    return add (number3, add(number1, number2));
 }
 
 var addFive = add(1, 2) + addThree(3, 4, 5);
