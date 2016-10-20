@@ -5,7 +5,6 @@ var isMarried = true;
 var hasChildren = false;
 
 
-
 //2. What is a null value? Provide one example.
 
 //Answer: null is an assignment value. So if I want a variable to exist, but don't want to necessarily assign a meaningful value to it, I can just assign it to null. It's sort of like a placeholder.
@@ -138,7 +137,7 @@ OR (||) will test whether each item on either side is true and if at least one s
 //    console.log(x !== y);
 
 //Answer: true
-          undefined
+          //undefined
 
 
 //20. What’s the difference between == and ===?
@@ -149,7 +148,7 @@ OR (||) will test whether each item on either side is true and if at least one s
 //21. What’s the difference between != and !==?
 
 //Answer: != means not equal
-!== means not equal value or not equal type
+//!== means not equal value or not equal type
 
 
 
