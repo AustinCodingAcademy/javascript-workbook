@@ -99,7 +99,7 @@ var lengthFiveArray = [1, 2, 3, 4, 5];
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
-nameArray[1] = 'george'
+nameArray[1] = 'george';
 
 nameArray;
 

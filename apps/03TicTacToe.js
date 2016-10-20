@@ -25,52 +25,47 @@ function printBoard() {
 
 function horizontalWin() {
   if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
+    console.log("horizontalWin")
     return true;
   } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
+    console.log("horizontalWin")
     return true;
   } else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+    console.log("horizontalWin")
     return true;
   }
 }
 
 function verticalWin() {
   if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+    console.log("verticalWin")
     return true;
   } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
+    console.log("verticalWin")
     return true;
   } else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+    console.log("verticalWin")
     return true;
   }
 }
 
 function diagonalWin() {
   if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+    console.log('diagonalWin')
     return true;
   }
 }
 
 function checkForWin() {
-  if (diagonalWin || verticalWin || horizontalWin) {
+  if (diagonalWin() || verticalWin() || horizontalWin()) {
+    console.log("Player " + playerTurn + " wins!");
     return true;
   }
 }
 
 function ticTacToe(row, column) {
 
-  var topRow = board[row];
-  topRow[column] = playerTurn;
-  topRow[column] = playerTurn;
-  topRow[column] = playerTurn;
-
-  var middleRow = board[row];
-  middleRow[column] = playerTurn;
-  middleRow[column] = playerTurn;
-  middleRow[column] = playerTurn;
-
-  var bottomRow = board[row];
-  bottomRow[column] = playerTurn;
-  bottomRow[column] = playerTurn;
-  bottomRow[column] = playerTurn;
+  board[row][column] = playerTurn;
 
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 

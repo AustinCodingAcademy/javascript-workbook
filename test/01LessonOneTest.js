@@ -45,9 +45,9 @@ function notEqualTo(a, b) {
   // should return true if the first argument is not equal to the second argument
   // and should return false if the first argument is equal to the second argument
   if (a !== b) {
-    return a;
+    return true;
   } else {
-    return b;
+    return false;
   }
 }
 
