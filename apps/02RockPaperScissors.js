@@ -15,13 +15,9 @@ function rockPaperScissors(hand1, hand2) {
     hand1 = hand1.toLowerCase();
     hand2 = hand2.toLowerCase();
 
-    if(hand1 !== "rock" && hand1 !=="paper" && hand1 !=="scissors"){
-    console.log("try again");
+    if(hand1 !== "rock" && hand1 !=="paper" && hand1 !=="scissors" && hand2 !== "rock" && hand2 !=="paper" && hand2 !=="scissors"){
+     return "try again!!";
   }
-    if(hand2 !== "rock" && hand2 !=="paper" && hand2 !=="scissors"){
-    console.log("try again");
-    }
-
 
     if (hand1 === hand2) {
         return "It's a tie!";
@@ -29,14 +25,8 @@ function rockPaperScissors(hand1, hand2) {
     if (hand1 === "rock" && hand2 === "scissors") {
         return "Hand one wins!";
     }
-    else {
-        return "Hand two wins!";
-    }
     if (hand1 === "paper" && hand2 === "rock") {
         return "Hand one wins!";
-    }
-    else {
-        return "Hand two wins!";
     }
     if (hand1 === "scissors" && hand2 === "paper") {
         return "Hand one wins!";
