@@ -34,7 +34,7 @@ function horizontalWin() {
 }
 
 function verticalWin() {
-   if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
     return true;
   } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
     return true;
@@ -44,15 +44,15 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-   if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
     return true;
-   }
+  }
 }
 
 function checkForWin() {
-    if (diagonalWin || verticalWin || horizontalWin) {
-      return true;
-    }
+  if (diagonalWin || verticalWin || horizontalWin) {
+    return true;
+  }
 }
 
 function ticTacToe(row, column) {
@@ -72,8 +72,7 @@ function ticTacToe(row, column) {
   bottomRow[column] = playerTurn;
   bottomRow[column] = playerTurn;
 
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X'
-
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 
 }
 
