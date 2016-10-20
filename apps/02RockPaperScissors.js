@@ -16,36 +16,11 @@ function rockPaperScissors(hand1, hand2) {
     if (hand1 === hand2) {
         return h3;
     }
-
-    if (hand1 === 'rock') {
-        if (hand2 === 'scissors') {
-            return h1;
-        }
-        else if (hand2 === 'paper') {
-          return h2;
-        }
-    }
-
-    if (hand1 === 'paper') {
-      if (hand2 === 'rock') {
-          return h1;
-      }
-      else if (hand2 === 'scissors') {
-        return h2;
-      }
-
-    }
-
-    if (hand1 === 'scissors') {
-      if (hand2 === 'paper') {
+    if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
         return h1;
-      }
-      else if (hand2 === 'rock') {
+    } else {
         return h2;
-      }
-
     }
-
 }
 
 function getPrompt() {
