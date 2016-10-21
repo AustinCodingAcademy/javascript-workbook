@@ -36,7 +36,7 @@ var valueOfLastName;
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
+  var secondArgument = 'bob';
   return firstArgument;
 }
 
