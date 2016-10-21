@@ -24,23 +24,48 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2]) ||
+      (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2]) ||
+      (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2])){
+        return true;
+  } else {
+    return false;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0]) ||
+     (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1]) ||
+     (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2])){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if((board[0][0]=== playerTurn && board[1][1]=== playerTurn && board[2][2] === playerTurn) ||
+    (board[0][2]=== playerTurn && board[1][1]=== playerTurn && board[2][0]=== playerTurn)){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  var win = horizontalWin() || verticalWin() || diagonalWin();
+  if (win) {
+    printBoard ();
+    console.log ('Player' + playerTurn + 'Won!');
+    return true;
+    clearBoard();
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+board[row][column] = playerTurn;
+checkForWin ();
+playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
