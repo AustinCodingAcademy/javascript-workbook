@@ -109,11 +109,12 @@ var notNotTrue = true;
 //
 // Your Answer Goes Here:
 //
-// ****hmmm
+// With "and" &&, both sides must return true. With "or" ||, one or both sides must return true.
+//for comparison
 
-// ****hmmm
+//
 // Truthiness
-// ****hmmm
+
 
 var bob = 'bob';
 var emptyString = '';
@@ -121,35 +122,38 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob = hmmm'bob';
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString = hmmm ' ';
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull = hmmm ;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined = ;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
 //
 // Write your answer in comments
 //
-// Explain truthiness and falsiness in your own words. Provide an example for each.
+// Explain truthiness and falsiness in your own words.
+
 //
 // Your Answer Goes Here:
 //
-// ****hmmm truthiness is
-
-// ****hmmm falsiness is
+//If it exists and has a positive emotional value, it is truthy. "truth"
+//console.log(true && true);
+//if it is not assigned a value, or has a negative emotional value, it is falsey.
+//console.log(true && false);
+//
 // Comparison Operators
 // ****
 
@@ -205,13 +209,13 @@ var stringFourStrictNotEqualsNumberFour = true;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//hmmm == is less exact than ===.
+//== is less exact than ===.
 //
 // What’s the difference between != and !==?
 
 // Your Answer Goes Here:
 //
-// *//hmmm != is less exact opposite than !==.
+//!= is less exact opposite than !==.
 
 
 // ****
