@@ -28,7 +28,6 @@ var valueOfLastName = lastName;
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
-
 var firstArgument = 'bob';
 function returnTheFirstArgument(firstArgument) {
   return firstArgument;
