@@ -17,10 +17,10 @@ function rockPaperScissors(hand1, hand2) {
   hand2 = hand2.trim();
 
    if (hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') {
-     return "Valid input is rock, scissors, paper"
+     return "Hand one input invalid.  Valid input is rock, scissors, paper"
    };
    if (hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors') {
-     return "Valid input is rock, scissors, paper"
+     return "Hand two input invalid.  Valid input is rock, scissors, paper"
    };
 
 	if (hand1 === hand2) {
