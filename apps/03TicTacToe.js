@@ -8,14 +8,29 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-var board = [
+var new_board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
 ];
 
+var board = new_board;
+
+function clearBoard() {
+  for (var r = 0; r < 3; r++) {
+    //col
+    for (var c = 0; c < 3; c++) {
+      board[r][c] = ' '; {
+      }
+    }
+  }
+}
+
 var playerTurn = 'X';
 clear();
+
+function printBoard() {
+}
 
 function printBoard() {
   console.log('   0  1  2');
@@ -35,9 +50,10 @@ function horizontalWin() {
       if (board[r][c] === playerTurn) {
         three_in_a_row++;
       }
-      check_three_in_a_row(three_in_a_row);
+      if (check_three_in_a_row(three_in_a_row)) {return true;}
     }
   }
+
 }
 
 function verticalWin() {
@@ -49,20 +65,26 @@ function verticalWin() {
       if (board[r][c] === playerTurn) {
         three_in_a_row++;
       }
-      check_three_in_a_row(three_in_a_row);
+      if (check_three_in_a_row(three_in_a_row)) {return true;}
     }
   }
 }
 
+function diagonalWin() {
+  //upper_left to bottom_right
+  if (diagonalWin_upper_left_bottom_right()){return true;}
+  else if (diagonalWin_bottom_left_upper_right()){return true;}
+}
+
+
 function diagonalWin_upper_left_bottom_right() {
-  //row
   var three_in_a_row = 0;
   for (var r = 0; r < 3; r++) {
     var c = r;
     if (board[r][c] === playerTurn) {
       three_in_a_row++;
     }
-      check_three_in_a_row(three_in_a_row);
+    if (check_three_in_a_row(three_in_a_row)) {return true;}
   }
 }
 
@@ -74,23 +96,24 @@ function diagonalWin_bottom_left_upper_right() {
     if (board[r][c] === playerTurn) {
       three_in_a_row++;
     }
-      check_three_in_a_row(three_in_a_row);
+      return check_three_in_a_row(three_in_a_row);
   }
 }
 
-function checkForWin(win) {
+function checkForWin() {
   clear();
-
-  if (horizontalWin());
-  else if (verticalWin());
-  else if (diagonalWin_upper_left_bottom_right());
-  else (diagonalWin_bottom_left_upper_right());
+  if (verticalWin()){return true;}
+  else if (horizontalWin()){return true;}
+  else if (diagonalWin()){return true;}
+  else {return false;}
 }
 
 function ticTacToe(row, column) {
   //validate input
   clear();
-  if ((["0", "1", "2"].indexOf(row) === -1) || (["0", "1", "2"].indexOf(column) === -1)) {
+  row = String(row);
+  column = String(column);
+  if ((['0', '1', '2'].indexOf(row) === -1) || (['0', '1', '2'].indexOf(column) === -1)) {
     console.log("["+row+"]"+"["+column+"]"+" is an invalid input.");
     console.log('Rows and columns can only be values 0, 1, or 2. Please enter a valid value.');
     return;
@@ -106,30 +129,31 @@ function ticTacToe(row, column) {
     board[row][column] = playerTurn;
   }
 
-  checkForWin();
+  if (checkForWin()){
+    clearBoard();
+    return true;}
 
   //changes Xs to Os
   playerTurn = (playerTurn === "X") ? "O" : "X";
 
-  // if (playerTurn === "X") {
-  //   playerTurn = "O";
-  // }
-  // else {
-  //   playerTurn = "X";
-  // }
 }
+
 
 function check_three_in_a_row(three_in_a_row) {
   if (three_in_a_row === 3) {
     printBoard();
+
     if (playerTurn === "X") {
       printXwins();
+      return true;
     }
     else {
       printOwins();
+      return true;
     }
-    process.exit(-1);
   }
+    else { return false;}
+
 }
 
 function getPrompt() {
