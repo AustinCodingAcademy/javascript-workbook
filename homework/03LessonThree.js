@@ -29,7 +29,6 @@ var valueOfLastName = 'plaid';
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -112,7 +111,8 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-var threeByThreeArrayNew = threeByThreeArray.splice(2, 1, )
+var middle = threeByThreeArray[1];
+var removed = middle.splice(1, 1, 'cat');
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
