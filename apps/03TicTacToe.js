@@ -25,33 +25,33 @@ function printBoard() {
 
 function horizontalWin() {
   if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
-    console.log("horizontalWin")
+    console.log("horizontalWin");
     return true;
   } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
-    console.log("horizontalWin")
+    console.log("horizontalWin");
     return true;
   } else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
-    console.log("horizontalWin")
+    console.log("horizontalWin");
     return true;
   }
 }
 
 function verticalWin() {
   if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
-    console.log("verticalWin")
+    console.log("verticalWin");
     return true;
   } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
-    console.log("verticalWin")
+    console.log("verticalWin");
     return true;
   } else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
-    console.log("verticalWin")
+    console.log("verticalWin");
     return true;
   }
 }
 
 function diagonalWin() {
   if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
-    console.log('diagonalWin')
+    console.log('diagonalWin');
     return true;
   }
 }
