@@ -4,12 +4,20 @@ var assert = require('assert');
 
 function loopIt() {
   // should return an array with numbers 0 - 99
-
+  var ninetyNineProblems = [];
+  for (var i = 0; i < 100; i++) {
+    ninetyNineProblems.push(i);
+  }
+  return ninetyNineProblems;
 }
 
 function onlyEvens() {
   // should return an array with all even numbers between 1 - 99
-
+  var evenSteven = [];
+  for (var i = 2; i < 100; i+= 2) {
+    evenSteven.push(i);
+  }
+  return evenSteven;
 }
 
 function fizzBuzz() {
@@ -18,6 +26,21 @@ function fizzBuzz() {
   // are replaced by the string "buzz", and the numbers divisble by both 3 and
   // 5 are replaced by fizzbuzz
 
+  // It seems strange to start at 0 with this game, but if you say so.
+  var fizzBuzzArr = [];
+  for (var i=0; i < 100; i++) {
+    var fizzyString = '';
+    if (i % 3 === 0) {
+      fizzyString += 'fizz';
+    }
+    if (i % 5 === 0) {
+      fizzyString += 'buzz';
+    }
+
+    fizzBuzzArr.push(fizzyString || i);
+  }
+
+  return fizzBuzzArr;
 }
 
 
