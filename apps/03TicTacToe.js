@@ -64,8 +64,8 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   checkForWin();
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
