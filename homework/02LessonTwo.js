@@ -25,7 +25,13 @@ var alwaysTrue = function () {
 // return a boolean expression that is true when
 // argument1 is equal to argument2
 
+
+
 function equals(argument1, argument2) {
+	if(argument1 === argument2);
+	return true;
+} else {
+	return false;
 }
 
 // Problem 2:
@@ -34,16 +40,38 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+	if(parameter1 <= parameter2);
+	return true;
+
+	} else {
+	return false;
 }
+
+
+
+
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add (number1, number2) {
+	return number1 + number2;
+};
+
+
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
+
+function addThree(number1, number2, number3){
+	return number1 + number2 + number3;
+
+};
+addThree();
+
 
 
 // ****
@@ -53,23 +81,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
-//
+// Your Answer Goes Here:  a block text that tell Javascript to do the samething over when you invoke it's name.
+//    Use the keyword "function" and give it a name, followed by parentheses().
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: The return statement stops the execution of a function and returns a value from that function.
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A named function is a function declaration if it appears as a statement.
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
-//
+// Your Answer Goes Here: Function parameters are the names listed in the function definition.
+//                        Function arguments are the real values passed to (and received by) the function.
 // ****
 
 
@@ -84,6 +112,10 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (number/2 === 0)
+  retrun true;
+} else {
+return false;
 }
 
 // Problem 6:
@@ -93,7 +125,12 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if (number/3 === 0)
+  retrun true;
+} else {
+return false;
 }
+
 
 // ****
 // Conditionals
@@ -108,6 +145,7 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+
 }
 
 // Problem 8:
