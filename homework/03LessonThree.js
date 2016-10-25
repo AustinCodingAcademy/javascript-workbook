@@ -19,17 +19,19 @@ function printFullName() {
 var firstName = 'susan';
 
 // Problem 1:
-// What is the value of firstName at this point in the file?
-var valueOfFirstName;
+// What is the value of firstName at this point in the file? 3
+var valueOfFirstName = 3;
 
 // Problem 2:
-// What is the value of lastName at this point in the file?
-var valueOfLastName;
+// What is the value of lastName at this point in the file? 5
+var valueOfLastName = 5;
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
+var firstArgument = 'bob';
+
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
+
   return firstArgument;
 }
 
@@ -41,7 +43,7 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//
+// The area where an item can be accessed.
 //
 
 
@@ -79,7 +81,7 @@ var problemSevenAnswer;
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-//
+// It takes 3 operans, only! The condition is equal to either true or false.
 //
 
 
@@ -89,17 +91,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [1, 2, 3, true, "yes"]
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+nameArray = ['bob', 'george', 'george']
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -110,10 +113,10 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-
+threeByThreeArray[1][1] = "Will";
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [ ' ', ' '], [' ',' '];
 
 // ****
 // Tests
