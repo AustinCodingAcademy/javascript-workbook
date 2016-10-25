@@ -68,8 +68,7 @@ function verticalWin() {
         board[row][column] = playerTurn;
         checkForWin();
         playerTurn = (playerTurn === "X") ? "O" : "X";
-
-    }
+}
 
     function getPrompt() {
         printBoard();
