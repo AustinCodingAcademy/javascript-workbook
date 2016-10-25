@@ -13,6 +13,7 @@ var board = [
 ];
 
 var playerTurn = 'X';
+var counter = 1;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -63,14 +64,51 @@ function checkForWin() {
   // Your code here
   if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true){
     console.log("Player "+playerTurn+" wins!");
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    playerTurn = (playerTurn === 'X') ? 'O' : 'O';
     return true;
   }
 }
 
+function checkForTie() {
+  if (counter === 9){
+    console.log("It's a tie!");
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    playerTurn = (playerTurn === 'X') ? 'O' : 'O';
+    return true;
+  }
+}
+
+
 function ticTacToe(row, column) {
+  if (row !== '0' && row !== '1' && row !== '2') {
+    console.log("Invalid input! Row not recognized.");
+    return false;
+  }
+  if (column !== '0' && column !== '1' && column !== '2') {
+    console.log("Invalid input! Column not recognized.");
+    return false;
+  }
+  if (board[row][column] !== " "){
+    console.log("Invalid input! Spot taken.");
+    return false;
+  }
   board[row][column] = playerTurn;
   checkForWin();
+  checkForTie();
+  counter++;
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+
+
+
 
   // Your code here
   //puts the x or o in the array
