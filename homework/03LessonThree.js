@@ -20,16 +20,14 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
-susan
+var valueOfFirstName = "susan";
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
-plaid
+var valueOfLastName = "plaid";
+
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -57,19 +55,19 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer = "first";
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer = "first";
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -95,7 +93,7 @@ var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray = ["joe", "tim", "ray" "allen" "john"];
+var lengthFiveArray = ['one', 'two', 'three', 'four', 'five'];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
