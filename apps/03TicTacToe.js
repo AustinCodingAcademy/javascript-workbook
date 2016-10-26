@@ -46,26 +46,17 @@ function horizontalWin() {
 
 function verticalWin() {
   // Your code here
-  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
-    return true;
-  }
-
-  if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
-    return true;
-  }
-
-  if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)){
     return true;
   }
 }
 
 function diagonalWin() {
   // Your code here
-  if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
-    return true;
-  }
-
-  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+  if ((board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn)){
     return true;
   }
 }
