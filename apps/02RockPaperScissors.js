@@ -10,8 +10,8 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(userhand1, userhand2) {
 
-  hand1 = toLowerCase();
-  hand2 = toLowerCase();
+     hand1 = hand1.toLowerCase();
+     hand2 = hand2.toLowerCase();
 
 
   if ((hand1 === 'rock') || ((hand1 === 'scissors') || ((hand1 === 'paper')) && ((hand2 === 'rock') ||
