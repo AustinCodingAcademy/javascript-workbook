@@ -14,37 +14,41 @@ var numberArray = [1, 2, 3, 4, 5];
 
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
-var numberArrayAfterPop = [];
+var numberArrayAfterPop = [1, 2, 3, 4,];
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
-var numberArrayAfterShift = [];
+var numberArrayAfterShift = [2, 3, 4, 5];
 
 // Problem 3:
 // Show what numberArray would look like if we called numberArray.push(6)
-var numberArrayAfterPush = [];
+var numberArrayAfterPush = [1, 2, 3, 4, 5, 6 ];
 
 // Problem 4:
 // Show what numberArray would look like if we called numberArray.unshift(0)
-var numberArrayAfterUnshift = [];
+var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5,];
 
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
-
+ bravestWarriors.pop();
+ bravestWarriors.shift();
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-
+fruit.push('mango');
+fruit.unshift('banana');
 // ****
 // Objects (Associative Arrays)
 // ****
 
 // Problem 7:
 // Create an empty object
-var emptyObject;
+var emptyObject = {
+
+}
 
 // Problem 8:
 // Create an object with the following key, value pairs:
@@ -52,13 +56,19 @@ var emptyObject;
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
-var problemEightObject;
+var problemEightObject = {
+  emptyObject: {  },
+  emptyArray:[],
+  name:'bob',
+  number: 42
+
+}
 
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
 var problemNineObject = {
-  'fav food': 'pizza',
-  city:       'houston'
+  'fav food': 'tacos',
+  city:       'austin'
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
@@ -72,7 +82,7 @@ var nestedObjects = {
       hometown: 'Omaha'
     },
     'bob roberts': {
-      starring: 'John Cusack'
+      starring: 'Tim Robbins'
     }
   }
 };
