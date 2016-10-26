@@ -24,23 +24,15 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2]) ||
-      (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2]) ||
-      (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2])) {
-        return true;
-  } else {
-    return false;
-  }
+  return (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2]) === playerTurn ||
+         (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2]) === playerTurn ||
+         (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2]) === playerTurn
 }
 
 function verticalWin() {
-  if((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0]) ||
-     (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1]) ||
-     (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2])){
-    return true;
-  } else {
-    return false;
-  }
+  return (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0]) === playerTurn ||
+         (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1]) === playerTurn ||
+         (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2]) === playerTurn
 }
 
 function diagonalWin() {
@@ -56,7 +48,7 @@ function checkForWin() {
   var win = horizontalWin() || verticalWin() || diagonalWin();
   if (win) {
     printBoard ();
-    console.log ('Player' + playerTurn + 'Won!');
+    console.log ('Player ' + playerTurn + ' Won!');
     return true;
     clearBoard();
   }
