@@ -106,6 +106,9 @@ var notNotTrue;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
+With the "and", if both are true, then it will return true.
+If either one is false, it will return false. With the "or",
+if at least one side is true, it will reason both together as true.
 //
 // ****
 
@@ -144,7 +147,11 @@ var notNotUndefined;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
-//
+Falsiness is a emotionally"negative" statement. Some examples are:
+false, 0, null, or NAN.
+
+Truthiness is emotionally positive and contains variable pretaining to that which is true. Some examples are:
+true,4,hello,or any number
 // ****
 
 // ****
@@ -203,11 +210,20 @@ var stringFourStrictNotEqualsNumberFour;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//
+JavaScript has both strict and type-converting equality comparison.
+For strict equality the objects being compared must have the same type. Some examples are:
+0 == false   // true
+0 === false  // false, because they are of a different type
+1 == "1"     // true, automatic type conversion for value only
+1 === "1"    // false, because they are of a different type
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
+=== and !== are strict comparison operators:
+Two Boolean operands are strictly equal if both are true or both are false.
+Two objects are strictly equal if they refer to the same Object.
+Null and Undefined types are == (but not ===). [I.e. (Null==Undefined) is true but (Null===Undefined) is false]
 //
 // ****
 
