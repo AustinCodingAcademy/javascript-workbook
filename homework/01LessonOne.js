@@ -17,6 +17,7 @@ var myUndefined;
 //
 // What is the difference between null and undefined?
 
+
 var myNull= null;
 
 // Problem 2:
@@ -106,8 +107,8 @@ var notNotTrue = true;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
-//"AND" will test weather the value to its left and right is true if so then it'll test the one on the right, if both are false
-//it'll return false.  However if both values are false, it'll return false. "OR" will only test one value and it is true, it'll return true.
+"AND" will test weather the value to its left and right is true if so then it'll test the one on the right, if both are false
+it'll return false.  However if both values are false, it'll return false. "OR" will only test one value and it is true, it'll return true.
 // ****
 
 // ****
@@ -144,8 +145,8 @@ var notNotUndefined= 'false';
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-// Truthiness is when something has emotionally positive value, for example strings and numbers are truthy.
-//Whereas falsiness is when something has a emotionally negative value, for examples 0, false, null are falsey.
+Truthiness is when something has emotionally positive value, for example strings and numbers are truthy.
+Whereas falsiness is when something has a emotionally negative value, for examples 0, false, null are falsey.
 //
 // ****
 
@@ -204,13 +205,12 @@ var stringFourStrictNotEqualsNumberFour = 'true';
 //
 // What’s the difference between == and ===?
 //
-// The == means "equal to" and === means "equal value'.
-// For example, if variable x=3, then x=="3"
-//but while x==="3" is false.
+The two equal to signs means "equal to" and three equal to signs means they are equal value. For example, if variable x=3, then x=="3";
+but while x==="3" is false.
 //
 // What’s the difference between != and !==?
 //
-// The ""!=" means "not equal" and "!==" means not equal value or not equal type.
+The exclamation mark with equal to signs means "not equal" and exclamation mark with two equal two marks means not equal value or not equal type.
 //
 // ****
 
@@ -227,6 +227,7 @@ describe('Lesson 1 Homework', function () {
         assert.equal(typeof myUndefined, 'undefined');
       });
     });
+
 
     describe('Problem 1: null variable myNull', function () {
       it('should be null', function () {

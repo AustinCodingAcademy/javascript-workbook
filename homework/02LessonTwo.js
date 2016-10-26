@@ -58,7 +58,7 @@ function addTwo(number1, number2) {
 // this function will add three numbers
 // you must call your function add() in addThree()
 function addThree(number1, number2, number3){
-  return number1 + number2 + number3;
+  return add(number3, add(number1, number2));
 }
 console.log(addThree);
 
@@ -167,6 +167,8 @@ function testNumber (number) {
   }
   if (number % 5 === 0){
     return divisible by 5;
+  } else {
+    return fasle;
   }
 }
 
