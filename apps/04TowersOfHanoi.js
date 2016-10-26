@@ -21,21 +21,33 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
-
+  //get the piece off of the start stack
+  //move it to the end stack
+  //may have to get these variables from isLegal or from towersOfHanoi
+  
 }
 
 function isLegal() {
   // Your code here
+  // does start stack have anything in it?
+  //get a refrense to the actual end stack and save it
+  //is the piece from the start stack bigger or smaller than the one on the end stack?
+  //is there even anything in there?
+  // if bad return something if good return something else
 
 }
 
 function checkForWin() {
   // Your code here
+  //does stack c have a length of 4?
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  //check to make sure move is okay
+  //make move
+  //check for win
 
 }
 
