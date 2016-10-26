@@ -52,20 +52,22 @@ function diagonalWin() {
   }
 
 function checkForWin() {
-  // Your code here
-  if ((horizontalWin) ||
-   (verticalWin) ||
-   (diagonalWin)) {
-  return true;
+    // Your code here
+    if ((horizontalWin) ||
+        (verticalWin) ||
+        (diagonalWin)) {
+        return true;
     }
-  if (true){
-    console.log ('Player' + playerTurn + 'Won!');
-  }
-  }
+    if (true) {
+        console.log('Player' + playerTurn + 'Won!');
+    }
+}
 
 function ticTacToe(row, column) {
   // Your code here'
-  board[0][0]
+  board[row][column] = playerTurn;
+  checkForWin();
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
