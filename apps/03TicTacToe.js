@@ -6,7 +6,8 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-var board = [
+var board;
+board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
@@ -65,9 +66,17 @@ function ticTacToe(row, column) {
   // This is to mark the position on the board
   board[row][column] = playerTurn;
   // This is the check for win, call the checkForWin function
-  checkForWin();
-  // This is the switch to next player, ternary operator.
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  if (checkForWin() === true) {
+  // This resets the board after a win
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    } else {
+  // This is the switch to next player, ternary operator
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  }
 }
 
 function getPrompt() {
