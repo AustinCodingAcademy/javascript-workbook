@@ -16,7 +16,7 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
-
+Null is an assingment value, where a variable has been declared, holding a place. Whereas Undefined is where a variable has been declared but nothing has been assigned to it.
 
 var myNull= null;
 

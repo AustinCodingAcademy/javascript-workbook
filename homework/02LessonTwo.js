@@ -69,22 +69,22 @@ console.log(addThree);
 //
 // What is a function? How do you define a function in Javascript?
 //
-// A funtion is a set of statements to define an action however you have to call the function to perform the actions.
+ A funtion is a set of statements to define an action however you have to call the function to perform the actions.
 //
 //
 // What is a return value?
 //
-// Return value is the output of the function.
+ Return value is the output of the function.
 //
 //
 // How do you define a named function?
 //
-// You use the word 'Function' then name the function then within parantheses define the paremeters of that function.
+You use the word 'Function' then name the function then within parantheses define the paremeters of that function.
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Parameter is the variable of the within the parenthesis of a function and an argument is the actual value of
+ Parameter is the variable of the within the parenthesis of a function and an argument is the actual value of
 // those variable that is passed to the funtion.
 //
 // ****
@@ -179,8 +179,7 @@ function testNumber (number) {
 //
 // In your own words, explain what conditionals do.
 //
-// A conditional is a statement that relies on the information given to it in an "if" "else" form. It does
-//different things under different conditions.
+A conditional is a statement that relies on the information given to it in an "if" "else" form. It does different things under different conditions.
 //
 //
 // ****
