@@ -7,6 +7,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+
 var stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -20,23 +21,33 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+  var startStack = stacks['a'];
+  var endStack = stacks['b'];
+  var otherStack = stacks['c'];
 }
 
 function isLegal() {
-  // Your code here
-
+if(startStack < endStacks) {
+  return true;
+} else {
+  return false;
+}
 }
 
 function checkForWin() {
-  // Your code here
 
+if(endStack.length || otherStack.length === 4) {
+  console.log("You Won!!!");
+  return true;
+} else {
+  return false;
+}
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
 
+var block = startStack.pop();
+endStack.push(block);
 }
 
 function getPrompt() {
@@ -66,6 +77,7 @@ if (typeof describe === 'function') {
         a: [4, 3, 2],
         b: [1],
         c: []
+      }
       };
       assert.equal(isLegal('a', 'b'), false);
     });
