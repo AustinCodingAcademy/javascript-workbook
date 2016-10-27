@@ -136,13 +136,13 @@ function isDivisibleByThree(number) {
 
 function whichSpecies(character) {
   if (character === "scooby") {
-    return "dog"
+    return "dog";
   } else if (character === "garfield") {
-    return "cat"
+    return "cat";
   } else if (character === "nemo") {
-    return "fish"
+    return "fish";
   } else {
-    return false
+    return false;
   }
 }
 
