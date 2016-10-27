@@ -79,22 +79,17 @@ function checkForWin() {
 }*/
 function ticTacToe(row, column) {
 
-  var acceptable = {'undefined': 1, 'boolean'L 1}
+  //var acceptable = {'undefined': 1, 'boolean'L 1}
   // check whether the input has already been entered 
-  if(row === true && column === true) {
     board[row][column] = playerTurn;
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    checkForWin();
-  } else {
-    console.log("enter a valid input");
-  }
+    
   /*if (row !== '0' && row !== '1' && row !== '2')  {
     console.log("Please enter a valid input");
   } else {
     board[row][column] = playerTurn;
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    checkForWin();
-  }*/
+    checkForWin();*/
 }
 
 function getPrompt() {
