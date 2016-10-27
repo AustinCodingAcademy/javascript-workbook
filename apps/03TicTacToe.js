@@ -62,13 +62,38 @@ function checkForWin() {
     return true;
   }
 }
+/*function checkForTie() {
 
+  var playerTurns = 0;
+
+  for(var i = 0; i < playerTurns.length; i++) {
+    playerTurns = playerTurns++
+    console.log(playerTurns);
+    console.log(board.length);
+  }
+
+  if (board.length > playerTurns) {
+    console.log('Game is Tied');
+    return true;
+  }
+}*/
 function ticTacToe(row, column) {
 
-  board[row][column] = playerTurn;
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-
-  checkForWin();
+  var acceptable = {'undefined': 1, 'boolean'L 1}
+  // check whether the input has already been entered 
+  if(row == true && column == true) {
+    board[row][column] = playerTurn;
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    checkForWin();
+  } else {
+    console.log("enter a valid input");
+  }
+  /*if (row !== '0' && row !== '1' && row !== '2')  {
+    console.log("Please enter a valid input");
+  } else {
+    board[row][column] = playerTurn;
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    checkForWin();*/
 }
 
 function getPrompt() {
