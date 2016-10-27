@@ -54,6 +54,10 @@ function diagonalWin() {
     console.log('diagonalWin');
     return true;
   }
+  else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    console.log('diagonalWin');
+    return true;
+  }
 }
 
 function checkForWin() {
