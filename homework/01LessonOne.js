@@ -9,34 +9,34 @@ var assert = require('assert');
 // Problem 0:
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.
-// var myUndefined; =null
+var myUndefined;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
 
-// var myNull; =true
+var myNull =null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-// var myTrue; =false
+var myTrue =true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-// var myFalse; =true
+var myFalse =false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-// var myNumber; =1234
+var myNumber =10;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-// var myString; ="this is my answer"
+var myString ='string';
 
 // ****
 // Boolean Operators
@@ -45,57 +45,57 @@ var assert = require('assert');
 // Problem 6:
 // What is the value of true && true
 
-// var trueAndTrue; =false
+var trueAndTrue =true;
 
 // Problem 7:
 // What is the value of false && true
 
-// var falseAndTrue; =false
+var falseAndTrue =false;
 
 // Problem 8:
 // What is the value of true && false
 
-// var trueAndFalse; = false
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-// var falseAndFalse; =true
+var falseAndFalse =false;
 
 // Problem 10:
 // What is the value of true || true
 
-// var trueOrTrue; =true
+var trueOrTrue =true;
 
 // Problem 11:
 // What is the value of false || true
 
-// var falseOrTrue; =true
+var falseOrTrue =true;
 
 // Problem 12:
 // What is the value of true || false
 
-// var trueOrFalse; =false
+var trueOrFalse =true;
 
 // Problem 13:
 // What is the value of false || false
 
-// var falseOrFalse; =true
+var falseOrFalse =false;
 
 // Problem 14:
 // What is the value of !false
 
-// var notFalse; =false
+var notFalse =!false;
 
 // Problem 15:
 // What is the value of !true
 
-// var notTrue; = true
+var notTrue = !true;
 
 // Problem 16:
 // What is the value of !!true
 
-// var notNotTrue; =true
+var notNotTrue =!!true;
 
 // ****
 // Concept Checkpoint
@@ -105,36 +105,27 @@ var assert = require('assert');
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
-//
-// ****
  // AND (&&) will test whether the value on the left is true, and if so, test whether the item on the right is true. If both are true, then it will return true, if either one is false, it will return false. You can even chain more than one operator together! OR (||) will test whether each item on either side is true and if at least one side is true, it will reason both together as true.
 // ****
-// Truthiness
-// ****
-
-var bob = 'bob';
-// var emptyString = ''; =true
 
 // Problem 17:
 // What is the value of !!bob
 
 
-// var notNotBob; =true
+var notNotBob =true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-// var notNotEmptyString; =false
+var notNotEmptyString =false;
 
 // Problem 19:
 // What is the value of !null
-
-// var notNull; =true
+var notNull =true;
 
 // Problem 20:
 // What is the value of !!undefined
-
-var notNotUndefined;
+var notNotUndefined =false;
 
 // ****
 // Concept Checkpoint
@@ -154,48 +145,48 @@ var notNotUndefined;
 // Problem 21
 // What is the value of 4 === 4
 // truthiness three equl signs mean same.
-var fourEqualTofour;
+var fourEqualTofour =true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour =false;
 // falsiness the Bang means opposite truthiness value.
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen =false;
 // falsiness negative three is not the same as 10
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen =true;
 // truthiness negative three is less than 10
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen =true;
 // falsiness negative three is not equal 10
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen =false;
 // falsiness negative three is not less than 10
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen =false;
 // false negative three is less 10
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour =true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour =false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour =false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour =true;
 
 // ****
 // Concept Checkpoint
@@ -210,7 +201,7 @@ var stringFourStrictNotEqualsNumberFour;
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//JavaScript has two sets of equality operators: === and !==, and their evil twins == and !=. The good ones work the way you would expect. If the two operands are of the same type and have the same value, then === produces true and !== produces false. The evil twins do the right thing when the operands are of the same type, but if they are of different types, they attempt to coerce the values. the rules by which they do that are complicated and unmemorable. 
+//JavaScript has two sets of equality operators: === and !==, and their evil twins == and !=. The good ones work the way you would expect. If the two operands are of the same type and have the same value, then === produces true and !== produces false. The evil twins do the right thing when the operands are of the same type, but if they are of different types, they attempt to coerce the values. the rules by which they do that are complicated and unmemorable.
 // ****
 
 
