@@ -29,7 +29,7 @@
 
 //6. Write the code to log the output "Hello World".
 
-//Answer:
+//Answer: console.log("Hello World");
 
 
 //7. What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
