@@ -11,8 +11,8 @@ var lastName = 'plaid';
 
 // DO NOT MODIFY
 function printFullName() {
-  var firstName = 'bob';
-  return firstName + lastName;
+    var firstName = 'bob';
+    return firstName + lastName;
 }
 
 // DO NOT MODIFY
@@ -21,16 +21,17 @@ var firstName = 'susan';
 // Problem 1:
 // What is the value of firstName at this point in the file?
 var valueOfFirstName;
+'susan'
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
 var valueOfLastName;
+'plaid'
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
-  return firstArgument;
+    return firstArgument;
 }
 
 // ****
@@ -57,19 +58,18 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
-
+var problemFourAnswer = 'first';
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'first';
 
 // ****
 // Concept Checkpoint
@@ -77,7 +77,10 @@ var problemSevenAnswer;
 // Write your answer in comments
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
-//
+//teranry operter is a three part operator.
+// The first part is what you wan to test for.
+// The second part is if it is true.
+// The third part what is it if it is false.
 // Your Answer Goes Here:
 //
 //
@@ -89,118 +92,120 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
-
+var lengthFiveArray = [0, true, -1, 'manny', false];
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-
+var myNewArray = nameArray.splice(1, 1, 'george')
+console.log(myNewArray);
 // DO NOT MODIFY
 var threeByThreeArray = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ];
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-
+var threeByThreeArray =threeByThreeArray.splice(1, 1, 2);
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
-
+var twoByTwoArray = [
+    [3, 4],
+    [7, 9]
+];
 // ****
 // Tests
 // DO NOT MODIFY CODE BELOW!!!!!
 // ****
 
-describe('Lesson 3 Homework', function () {
+describe('Lesson 3 Homework', function() {
 
-  describe('Scope', function () {
-    describe('Problem 1: firstName', function () {
-      it('should be susan', function () {
-        assert.equal(firstName, valueOfFirstName);
-      });
+    describe('Scope', function() {
+        describe('Problem 1: firstName', function() {
+            it('should be susan', function() {
+                assert.equal(firstName, valueOfFirstName);
+            });
+        });
+
+        describe('Problem 2: lastName', function() {
+            it('should be plaid', function() {
+                assert.equal(lastName, valueOfLastName);
+            });
+        });
+
+        describe('Problem 3: returnTheFirstArgument()', function() {
+            it('should return the first argument', function() {
+                assert.equal(returnTheFirstArgument('bob'), 'bob');
+                assert.equal(returnTheFirstArgument(4), 4);
+                assert.equal(returnTheFirstArgument(null), null);
+            });
+        });
     });
 
-    describe('Problem 2: lastName', function () {
-      it('should be plaid', function () {
-        assert.equal(lastName, valueOfLastName);
-      });
+    describe('Ternary Operator', function() {
+        describe('Problem 4: ternaryResult1', function() {
+            it('should be \'first\'', function() {
+                assert.equal(ternaryResult1, problemFourAnswer);
+            });
+        });
+
+        describe('Problem 5: ternaryResult2', function() {
+            it('should be \'second\'', function() {
+                assert.equal(ternaryResult2, problemFiveAnswer);
+            });
+        });
+
+        describe('Problem 6: ternaryResult3', function() {
+            it('should be \'first\'', function() {
+                assert.equal(ternaryResult3, problemSixAnswer);
+            });
+        });
+
+        describe('Problem 7: ternaryResult4', function() {
+            it('should be \'second\'', function() {
+                assert.equal(ternaryResult4, problemSevenAnswer);
+            });
+        });
     });
 
-    describe('Problem 3: returnTheFirstArgument()', function () {
-      it('should return the first argument', function () {
-        assert.equal(returnTheFirstArgument('bob'), 'bob');
-        assert.equal(returnTheFirstArgument(4), 4);
-        assert.equal(returnTheFirstArgument(null), null);
-      });
-    });
-  });
+    describe('Arrays', function() {
+        describe('Problem 8: emptyArray', function() {
+            it('should be an empty array', function() {
+                assert.equal(emptyArray.length, 0);
+            });
+        });
 
-  describe('Ternary Operator', function () {
-    describe('Problem 4: ternaryResult1', function () {
-      it('should be \'first\'', function () {
-        assert.equal(ternaryResult1, problemFourAnswer);
-      });
-    });
+        describe('Problem 9: lengthFiveArray', function() {
+            it('should have 5 elements', function() {
+                assert.equal(lengthFiveArray.length, 5);
+            });
+        });
 
-    describe('Problem 5: ternaryResult2', function () {
-      it('should be \'second\'', function () {
-        assert.equal(ternaryResult2, problemFiveAnswer);
-      });
-    });
+        describe('Problem 10: replace \'fred\' with \'george\'', function() {
+            it('should be \'george\'', function() {
+                assert.equal(nameArray[1], 'george');
+            });
+        });
 
-    describe('Problem 6: ternaryResult3', function () {
-      it('should be \'first\'', function () {
-        assert.equal(ternaryResult3, problemSixAnswer);
-      });
-    });
+        describe('Problem 11: replace the center element', function() {
+            it('should not equal 5', function() {
+                assert(threeByThreeArray[1][1] !== 5);
+            });
+        });
 
-    describe('Problem 7: ternaryResult4', function () {
-      it('should be \'second\'', function () {
-        assert.equal(ternaryResult4, problemSevenAnswer);
-      });
+        describe('Problem 12: twoByTwoArray', function() {
+            it('should be a 2x2 array', function() {
+                assert(twoByTwoArray.length === 2);
+                assert(twoByTwoArray[0].length === 2);
+                assert(twoByTwoArray[1].length === 2);
+            });
+        });
     });
-  });
-
-  describe('Arrays', function () {
-    describe('Problem 8: emptyArray', function () {
-      it('should be an empty array', function () {
-        assert.equal(emptyArray.length, 0);
-      });
-    });
-
-    describe('Problem 9: lengthFiveArray', function () {
-      it('should have 5 elements', function () {
-        assert.equal(lengthFiveArray.length, 5);
-      });
-    });
-
-    describe('Problem 10: replace \'fred\' with \'george\'', function () {
-      it('should be \'george\'', function () {
-        assert.equal(nameArray[1], 'george');
-      });
-    });
-
-    describe('Problem 11: replace the center element', function () {
-      it('should not equal 5', function () {
-        assert(threeByThreeArray[1][1] !== 5);
-      });
-    });
-
-    describe('Problem 12: twoByTwoArray', function () {
-      it('should be a 2x2 array', function () {
-        assert(twoByTwoArray.length === 2);
-        assert(twoByTwoArray[0].length === 2);
-        assert(twoByTwoArray[1].length === 2);
-      });
-    });
-  });
 });
