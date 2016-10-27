@@ -74,12 +74,11 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-var problemNineObject = {
-'fav food' : 'tacos'
- city :'austin'
-};
 
-}
+  problemNineObject['fav food']= 'tacos';
+  problemNineObject.city = 'austin';
+
+
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
 var nestedObjects = {
@@ -113,9 +112,7 @@ var nestedObjects = {
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
- Your Answer Goes Here: Associative arrays (also referred to as Objects) are similiar
- to arrays in that they are a collection of data and the big diffence is how it is organized
-  Whereas an array is aspecial variable, it can hold more than one value at a time.
+ Your Answer Goes Here: Associative arrays (also referred to as Objects) are similiar to arrays in that they are a collection of data and the big diffence is how it is organized Whereas an array is aspecial variable, it can hold more than one value at a time.
 
 
 //
