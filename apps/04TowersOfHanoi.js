@@ -47,8 +47,8 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
 
-  var legalStart = stacks[startStack]
-  var legalEnd = stacks[endStack]
+  var legalStart = stacks[startStack];
+  var legalEnd = stacks[endStack];
   var emptyStack = stacks[endStack];
 
   console.log(legalStart);
@@ -58,7 +58,10 @@ function isLegal(startStack, endStack) {
   if (legalStart < legalEnd) {
     return true;
   } else if (legalEnd.length === 0) {
+    console.log("Empty Move Try Again");
     return true;
+  } else if (legalStart === '' || legalEnd === '') {
+    return false;
   } else {
     console.log("Illegal Move");
     return false;
@@ -86,10 +89,10 @@ function isLegal(startStack, endStack) {
 function checkForWin(startStack, endStack) {
 
   var endWin = stacks[endStack];
-  console.log(endWin);
+  //console.log(endWin);
 
   if (endWin === 4) {
-    console.log("You Won!");
+    //console.log("You Won!");
     return true;
   } else {
     return false;
@@ -157,6 +160,14 @@ if (typeof describe === 'function') {
       };
       assert.equal(isLegal('a', 'c'), true);
     });
+    it('should not be empty', function() {
+      stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      };
+      assert.equal(isLegal(b, c), false);
+    })
   });
   describe('#checkForWin()', function () {
     it('should detect a win', function () {

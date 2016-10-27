@@ -81,7 +81,7 @@ function ticTacToe(row, column) {
 
   var acceptable = {'undefined': 1, 'boolean'L 1}
   // check whether the input has already been entered 
-  if(row == true && column == true) {
+  if(row === true && column === true) {
     board[row][column] = playerTurn;
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     checkForWin();
