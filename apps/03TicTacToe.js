@@ -30,36 +30,31 @@ function horizontalWin() {
 if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
   (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
   (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
-    console.log("playerwins");
   }
 }
 
 function verticalWin() {
   // Your code here
-  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+  return ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
     (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
     (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
-  console.log("playerwins");
   }
 }
 
 function diagonalWin() {
     // Your code here
-    if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+    return ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
     (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
-      console.log("playerwins");
+      return checkForWin;
     }
   }
 
 function checkForWin() {
     // Your code here
-    if ((horizontalWin) ||
+    return ((horizontalWin) ||
         (verticalWin) ||
         (diagonalWin)) {
-        return true;
-    }
-    if (true) {
-        console.log('Player' + playerTurn + 'Won!');
+      console.log('Player ' + playerTurn + ' Won!');
     }
 }
 
