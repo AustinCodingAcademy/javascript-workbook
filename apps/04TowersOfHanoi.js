@@ -21,8 +21,7 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
   // Your code here
-  var movedItem = stacks[startStack].pop();
-  stacks[endStack].push(movedItem);
+  stacks[endStack].push(stacks[startStack].pop());
 }
 
 function isLegal(startStack, endStack) {
@@ -35,6 +34,7 @@ function checkForWin() {
   var isWinning = stacks.b.length === 4 || stacks.c.length === 4;
   if (isWinning) {
     console.log("You won!");
+    process.exit();
   }
   return isWinning;
 }

@@ -14,6 +14,7 @@ var board = [
 
 var playerTurn = 'X';
 var stopGame = false;
+var acceptableAnswers = [0, 1, 2];
 
 function printBoard() {
   console.log('   0  1  2');
@@ -69,7 +70,9 @@ function checkForTie() {
 
 function ticTacToe(row, column) {
   // Your code here
-  if (!row || !column || !board[row][column]) {
+  row = parseInt(row);
+  column = parseInt(column);
+  if (acceptableAnswers.indexOf(row) < 0 || acceptableAnswers.indexOf(column) < 0 ) {
     console.log('Use valid input, asshole!');
   } else if (board[row][column] === ' ') {
     board[row][column] = playerTurn;
@@ -89,6 +92,7 @@ function getPrompt() {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
       if (!stopGame) {getPrompt();}
+      else {process.exit();}
     });
   });
 
