@@ -13,33 +13,35 @@ function rockPaperScissors(hand1, hand2) {
     var hand2 = hand2.toLowerCase();
     var choice = ['rock', 'paper', 'scissors'];
 
-    if (hand1 !== choice || hand2 !== choice) {
-        return "Not a valid input stupid!!"
-    }
+    if (hand1 === choice[0] || hand1 === choice[1] || hand1 === choice[2] || hand2 === choice[0] || hand2 === choice[1] || hand2 === choice[2]) {
 
-    if (hand1 === hand2) {
-        return "It's a tie!";
-    }
+            if (hand1 === hand2) {
+                return "It's a tie!";
+            }
 
-    if (hand1 === choice[0]) {
-        if (hand2 === choice[2]) {
-            return 'Hand one wins!';
-        }
-        return 'Hand two wins!';
-    }
+            if (hand1 === choice[0]) {
+                if (hand2 === choice[2]) {
+                    return 'Hand one wins!';
+                }
+                return 'Hand two wins!';
+            }
 
-    if (hand1 === choice[1]) {
-        if (hand2 === choice[0]) {
-            return 'Hand one wins!';
-        }
-        return 'Hand two wins!';
-    }
+            if (hand1 === choice[1]) {
+                if (hand2 === choice[0]) {
+                    return 'Hand one wins!';
+                }
+                return 'Hand two wins!';
+            }
 
-    if (hand1 === choice[2]) {
-        if (hand2 === choice[1]) {
-            return 'Hand one wins!';
-        }
-        return 'Hand two wins!';
+            if (hand1 === choice[2]) {
+                if (hand2 === choice[1]) {
+                    return 'Hand one wins!';
+                }
+                return 'Hand two wins!';
+            }
+
+    } else {
+        return "Invalid input stupid!!";
     }
 
 }
