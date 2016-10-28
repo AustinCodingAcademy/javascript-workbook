@@ -12,7 +12,8 @@ var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
-};
+}
+
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -20,34 +21,24 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  var startStack = stacks['a'];
-  var endStack = stacks['b'];
-  var otherStack = stacks['c'];
-}
 
 function isLegal() {
-if(startStack < endStacks) {
-  return true;
-} else {
-  return false;
-}
+
 }
 
 function checkForWin() {
 
-if(endStack.length || otherStack.length === 4) {
-  console.log("You Won!!!");
-  return true;
-} else {
-  return false;
-}
 }
 
 function towersOfHanoi(startStack, endStack) {
 
-var block = startStack.pop();
-endStack.push(block);
+var startingStack = stack[startStack];
+var block = startingStack.pop();
+var endingStack = stack[endStack];
+
+endingStack.push(block);
+
+// stacks[endStack].push(stacks[startStack].pop());
 }
 
 function getPrompt() {
@@ -78,7 +69,7 @@ if (typeof describe === 'function') {
         b: [1],
         c: []
       }
-      };
+    };
       assert.equal(isLegal('a', 'b'), false);
     });
     it('should allow a legal move', function () {
