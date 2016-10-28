@@ -63,7 +63,7 @@ var trueAndFalse = false;
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse = true;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
@@ -135,7 +135,7 @@ var notNotEmptyString = false;
 // What is the value of !null
 // false
 
-var notNull = false;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
@@ -185,7 +185,7 @@ var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
