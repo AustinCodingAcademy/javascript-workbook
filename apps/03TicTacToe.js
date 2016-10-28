@@ -16,6 +16,8 @@ var playerTurn = 'X';
 
 var winCheck = false;
 
+var playAgain = 'n';
+
 function printBoard() {
     console.log('   0  1  2');
     console.log('0 ' + board[0].join(' | '));
@@ -52,22 +54,37 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
     // Your code here
-    if (board[row][column] === false) {
+    if (board[row][column] != ' ') {
+        console.log('Square has already been played!');
+        console.log('Player ' + playerTurn + ' try again!');
+    } else {
         board[row][column] = playerTurn;
         winCheck = checkForWin();
         if (winCheck) {
             printBoard();
             console.log('Player ' + playerTurn + ' won!!');
+            rl.question('Would you like to play again? Enter y/n: ', (playAgain) => {
+                if (playAgain === 'y') {
+                    winCheck = false;
+                    board = [
+                        [' ', ' ', ' '],
+                        [' ', ' ', ' '],
+                        [' ', ' ', ' ']
+                    ];
+                    getPrompt();
+                } else {
+                    return;
+                }
+            })
         } else {
             function toggleMark() {
                 playerTurn = (playerTurn === 'X') ? 'O' : 'X';
             }
             toggleMark();
         }
-    } else {
-        console.log('Invalid entry!');
     }
 }
+
 
 
 function getPrompt() {
@@ -75,13 +92,18 @@ function getPrompt() {
     console.log("It's Player " + playerTurn + "'s turn.");
     rl.question('row: ', (row) => {
         rl.question('column: ', (column) => {
-            row = row.trim();
-            column = column.trim();
-            ticTacToe(row, column);
-            if (winCheck) {
-                return;
-            } else {
+            if ((row !== '0' && column !== ('0' || '1' || '2')) && (row !== '1' && column !== ('0' || '1' || '2')) && (row !== '2' && column !== ('0' || '1' || '2'))) {
+                console.log('Invalid entry!');
                 getPrompt();
+            } else {
+                row = row.trim();
+                column = column.trim();
+                ticTacToe(row, column);
+                if (winCheck) {
+                    return;
+                } else {
+                    getPrompt();
+                }
             }
         });
     });
