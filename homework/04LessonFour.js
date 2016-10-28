@@ -97,7 +97,7 @@ nestedObjects.users['bob roberts'].starring = 'Tim Robbins';
 //
 // Your Answer Goes Here:
 //
-//
+// An associative array holds groups of keys and values whereas an array only holds a group of values.
 
 // ****
 // Tests
