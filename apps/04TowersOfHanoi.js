@@ -43,13 +43,16 @@ if(stacks.b.length === 4 || stacks.c.length === 4) {
   console.log("You Won!!!");
   return true;
 } else {
+  getPrompt();
   return false;
   }
 }
 
 function towersOfHanoi(startStack, endStack) {
+if(isLegal(startStack, endStack)) {
  movePiece(startStack, endStack);
  checkForWin();
+  }
 
 }
 
@@ -58,7 +61,7 @@ function getPrompt() {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-      getPrompt();
+
     });
   });
 }
