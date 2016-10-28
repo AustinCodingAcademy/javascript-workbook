@@ -14,36 +14,55 @@ var stacks = {
 };
 
 function printStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+  console.log("Stack a: " + stacks.a);
+  console.log("Stack b: " + stacks.b);
+  console.log("Stack c: " + stacks.c);
 }
 
 function movePiece() {
-  // Your code here
-
+  // pop off block from the start stack
+  var block = stacks[startStack].pop();
+  // push block to stack
+  stacks[endStack].push(block);
 }
 
 function isLegal() {
-  // Your code here
+  // Test - should not allow an illegal move
+  // Test - should allow a legal move
+  
 
 }
 
 function checkForWin() {
-  // Your code here
-
+  // Test - should detect a win
+  if(stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log("You Won!!!");
+    return true;
+    } else {
+      return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // This function organizes the code from the other functions
+  // startStack variable contains the string name of the stack to pull block from
+  // endStack variable contains the string name of the stack to put a block on
+  // Test - should be able to move a block
 
+
+  var block = stacks[startStack].pop();
+  stacks[endStack].push(block);
+
+
+  console.log('hi', startStack, endStack);
 }
 
 function getPrompt() {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
+  rl.question('Stack to pull block from: ', (startStack) => {
+    rl.question('Stack to put block on: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
+  // This causes the loop, instead of only running the game one time
       getPrompt();
     });
   });
