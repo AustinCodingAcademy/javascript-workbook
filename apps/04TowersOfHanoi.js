@@ -41,7 +41,7 @@ function isLegal(startStack, endStack) {
 
   var legalStart = stacks[startStack];
   var legalEnd = stacks[endStack];
-  var emptyStack = stacks[endStack];
+  var emptyStack = stacks[endStack].length;
 
   console.log(legalStart);
   console.log(legalEnd);
@@ -50,11 +50,9 @@ function isLegal(startStack, endStack) {
   if (legalStart < legalEnd) {
     console.log("Piece moved");
     return true;
-  } else if (legalEnd.length === 0) {
-    console.log("Empty Move Try Again");
+  } else if (emptyStack === 0) {
+    console.log("You can do that the stack is empty");
     return true;
-  } else if (legalStart === '' || legalEnd === '') {
-    return false;
   } else {
     console.log("Illegal Move");
     return false;
