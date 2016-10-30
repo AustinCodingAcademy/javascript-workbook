@@ -12,6 +12,8 @@ var assert = require('assert');
 // Add properties x: 1, y: 2 to point to make it a point
 // in two dimensional space.
 var point = {
+  x: 1,
+  y: 2
 };
 
 // Problem 2:
@@ -21,6 +23,8 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
+  this.point = x;
+  this.point = y;
 }
 
 // Problem 3:
@@ -88,14 +92,14 @@ var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
-
+conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
 //
 // Write your answer in comments
 //
-// What is a method?
+// What is a method? property containing a function definition
 //
 //
 

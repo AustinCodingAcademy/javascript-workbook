@@ -7,13 +7,11 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-
 var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
-}
-
+};
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -21,24 +19,47 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+function movePiece(startStack, endStack) {
+  var block = stacks[startStack].pop();
+  stacks[endStack].push(block);
+}
 
-function isLegal() {
+function isLegal(startStack, endStack) {
+  var startStackPlace = stacks[startStack].length -1;
+  var startStackNumber = stacks[startStack][startStackPlace];
+  var endStackPlace = stacks[endStack].length -1;
+  var endStackNumber = stacks[endStack][endStackPlace];
 
+  if (startStackNumber < endStackNumber) {
+    return true;
+  }
+
+if(stacks[startStack].length === 0) {
+  return false;
+} else if (stacks[endStack].length === 0) {
+  return true;
+}
+else {
+  return false;
+}
 }
 
 function checkForWin() {
+if(stacks.b.length === 4 || stacks.c.length === 4) {
+  console.log("You Won !!!");
+  return true;
+} else {
+  return false;
+}
 
 }
 
 function towersOfHanoi(startStack, endStack) {
+if(isLegal(startStack, endStack)) {
+  movePiece(startStack, endStack);
+  checkForWin();
+}
 
-var startingStack = stack[startStack];
-var block = startingStack.pop();
-var endingStack = stack[endStack];
-
-endingStack.push(block);
-
-// stacks[endStack].push(stacks[startStack].pop());
 }
 
 function getPrompt() {
@@ -68,8 +89,7 @@ if (typeof describe === 'function') {
         a: [4, 3, 2],
         b: [1],
         c: []
-      }
-    };
+      };
       assert.equal(isLegal('a', 'b'), false);
     });
     it('should allow a legal move', function () {
