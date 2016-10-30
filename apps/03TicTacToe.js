@@ -58,6 +58,7 @@ function verticalWin() {
 
           console.log( "Player " + playerTurn + " won!");
           return true;
+          process.exit();
         }
 
     }
