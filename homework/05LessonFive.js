@@ -24,7 +24,7 @@ var twoMinusMinus = 1;
 
 // Problem 3:
 // What is the result of three += 3?
-var threePlusAssignmentThree = 6;;
+var threePlusAssignmentThree = 6;
 
 // Problem 4:
 // What is the result of four -= 3?

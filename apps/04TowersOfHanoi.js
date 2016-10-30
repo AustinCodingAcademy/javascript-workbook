@@ -31,14 +31,6 @@ function movePiece(startStack, endStack) {
 
   towerToAddTo.push(poppedStack);
   
-  /*var towerToRemoveFrom = stack[startStack];
-
-  var towerToAddTo = stack[endStack];
-
-  var popped = towerToRemoveFrom.pop();
-
-  towerToAddTo.push(popped);*/
-
   // Your code here
   // receive piece information.  get piece off top of start stack and save - POP
   // move it to end stack - UNSHIFT
@@ -56,6 +48,7 @@ function isLegal(startStack, endStack) {
   console.log(emptyStack);
 
   if (legalStart < legalEnd) {
+    console.log("Piece moved");
     return true;
   } else if (legalEnd.length === 0) {
     console.log("Empty Move Try Again");
@@ -87,16 +80,12 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin(startStack, endStack) {
+  var winning = stacks.b.length === 4 || stacks.c.length === 4;
 
-  var endWin = stacks[endStack];
-  //console.log(endWin);
-
-  if (endWin === 4) {
-    //console.log("You Won!");
-    return true;
-  } else {
-    return false;
+  if (winning) {
+    console.log("You have won!");
   }
+  return winning;
 }
 
 function towersOfHanoi(startStack, endStack) {
