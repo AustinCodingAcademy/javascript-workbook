@@ -30,6 +30,11 @@ function movePiece(startStack, endStack) {
   var poppedStack = towerToRemoveFrom.pop();
 
   towerToAddTo.push(poppedStack);
+
+  if (poppedStack === '') {
+    console.log("You cannot pop this stack, its empty");
+    return false;
+  }
   
   // Your code here
   // receive piece information.  get piece off top of start stack and save - POP
@@ -42,14 +47,23 @@ function isLegal(startStack, endStack) {
   var legalStart = stacks[startStack];
   var legalEnd = stacks[endStack];
   var emptyStack = stacks[endStack].length;
+  //var poppedLegalStack = stacks[startStack].length
 
-  console.log(legalStart);
-  console.log(legalEnd);
-  console.log(emptyStack);
+  console.log("legalstart", legalStart);
+  console.log("legalEnd", legalEnd);
+  console.log("emptyStack", emptyStack);
+  //console.log(poppedLegalStack);
 
+  if (legalStart === legalEnd) {
+    console.log("Pick Different Stacks");
+    return false;
+  }
   if (legalStart < legalEnd) {
     console.log("Piece moved");
     return true;
+  } else if (startStack === -1) {
+    console.log("please enter a value");
+    return false; 
   } else if (emptyStack === 0) {
     console.log("You can do that the stack is empty");
     return true;
@@ -57,13 +71,6 @@ function isLegal(startStack, endStack) {
     console.log("Illegal Move");
     return false;
   }
-  /*var startArray = startStack.pop();
-
-  if (startArray > endStack.length) {
-    return true;
-  } else 
-    return false;
-  }*/
 
   // Check to see if the array is empty?
 
