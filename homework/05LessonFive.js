@@ -71,7 +71,7 @@ var forLoopArrayResult = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-//
+//Loops are for repeated actions to simplify work. 
 
 // ****
 // Tests
