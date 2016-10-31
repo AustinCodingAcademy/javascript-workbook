@@ -26,14 +26,14 @@ function movePiece(startStack, endStack) {
 
   var towerToAddTo = stacks[endStack];
   //console.log(towerToAddTo);
-
   var poppedStack = towerToRemoveFrom.pop();
+  console.log("poppedStack", poppedStack);
 
-  towerToAddTo.push(poppedStack);
-
-  if (poppedStack === '') {
+  if (poppedStack === undefined) {
     console.log("You cannot pop this stack, its empty");
     return false;
+  } else {
+    towerToAddTo.push(poppedStack);
   }
   
   // Your code here
@@ -61,9 +61,6 @@ function isLegal(startStack, endStack) {
   if (legalStart < legalEnd) {
     console.log("Piece moved");
     return true;
-  } else if (startStack === -1) {
-    console.log("please enter a value");
-    return false; 
   } else if (emptyStack === 0) {
     console.log("You can do that the stack is empty");
     return true;
