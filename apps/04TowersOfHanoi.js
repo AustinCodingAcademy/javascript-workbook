@@ -104,7 +104,7 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   // Your code here
   //does stack c have a length of 4?
-  if (stacks.c.length === 4 || stacks.b.length === 4 && counter === 15){
+  if (stacks.c.length === 4 && counter === 15 || stacks.b.length === 4 && counter === 15){
     console.log("Perfect game! board is reset");
     stacks = {
       a: [4, 3, 2, 1],
@@ -119,6 +119,7 @@ function checkForWin() {
       b: [],
       c: []
     };
+    counter = 0;
     return true;
   }else {
     console.log("Move counter:"+counter);
