@@ -36,28 +36,33 @@ function isLegal(startStack, endStack) {
     } else {
         return startStackArray[startStackArray.length - 1] < endStackArray[endStackArray.length - 1];
     }
+
 }
 
 function checkForWin() {
     // Your code here
     if (stacks.b.length === 4 || stacks.c.length === 4) {
         return true;
-        console.log("You Won!!!");
     }
     return false;
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
+    if ((startStack == 'b' || startStack == 'a' || startStack == 'c') && (endStack == 'a' || endStack == 'b' || endStack == 'c')){
+        if (isLegal(startStack, endStack)) {
+            movePiece(startStack, endStack);
+        } else {
+            console.log('Not Legal');
+        }
 
-    if (isLegal(startStack, endStack)) {
-        movePiece(startStack, endStack);
+        if (checkForWin()) {
+            console.log("You Won!!!");
+            process.exit();
+        }
+
     } else {
-        console.log('Not Legal');
-    }
-
-    if (checkForWin()) {
-        process.exit();
+        console.log("Wrong input!!!!");
     }
 
 
