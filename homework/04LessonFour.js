@@ -83,6 +83,7 @@ var nestedObjects = {
 };
 // update the starring property to have the value 'Tim Robbins'
 nestedObjects['users']['bob roberts']['starring'] = 'Tim Robbins';
+nestedObjects.users['bob roberts'].starring = 'Tim Robbins';
 
 // ****
 // Concept Checkpoint
