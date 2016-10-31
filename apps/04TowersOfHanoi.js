@@ -29,7 +29,7 @@ function movePiece(startStack, endStack) {
   var poppedStack = towerToRemoveFrom.pop();
   console.log("poppedStack", poppedStack);
 
-  if (poppedStack === undefined) {
+  if (typeof poppedStack === "undefined") {
     console.log("You cannot pop this stack, its empty");
     return false;
   } else {
