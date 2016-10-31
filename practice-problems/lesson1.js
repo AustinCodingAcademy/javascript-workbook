@@ -54,14 +54,14 @@
 //9. console.log(true && false);
 
 //Answer:
-
-
+false
+undefined
 
 
 //10. console.log(false && true);
 
 //Answer:
-
+false
 
 
 
@@ -75,28 +75,28 @@
 //12. console.log(true || false);
 
 //Answer:
-
+true
 
 
 
 //13. console.log(false || true);
 
 //Answer:
-
+true
 
 
 
 //14. console.log(true || true || false);
 
 //Answer:
-
+true
 
 
 
 //15. console.log(!true);
 
 //Answer:
-
+false
 
 
 
@@ -134,17 +134,21 @@
 //20. What’s the difference between == and ===?
 
 //Answer:
-
-
+== is a comparision
+=== has to be same data type and information
 
 
 //21. What’s the difference between != and !==?
 
 //Answer:
-
-
+!= is a comparision
+!== looks for exact values
 
 
 //22. What does (7 - 4 && 6 + 3) || (7 < 5 || 8 > 4) evaluate to? Explain how you solved your answer.
 
 //Answer:
+(3 && 9) || (false || true)
+(true && true)  || true
+true || true
+true

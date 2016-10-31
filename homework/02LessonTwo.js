@@ -245,3 +245,4 @@ describe('Lesson 2 Homework', function () {
   });
 
 });
+C:\Users\Jerry Joe\javascript-workbook\apps\02RockPaperScissors.js
