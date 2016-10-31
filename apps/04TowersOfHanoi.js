@@ -12,32 +12,56 @@ var stacks = {
   b: [],
   c: []
 };
+// var win1 = stacks.b;
+// var win2 = stacks.c;
 
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
-}
+};
 
 function movePiece() {
   // Your code here
 
-}
+};
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
+var arrayA = stacks[startStack][stacks[startStack].length-1];
+var arrayB = stacks[endStack][stacks[endStack].length-1];
 
+if (arrayA == arrayB){
+  return true;
 }
+else if (arrayA > arrayB){
+  return false;
+}
+else{
+  return true;
+}
+}
+
 
 function checkForWin() {
   // Your code here
-
+if(stacks.b.length === 4 || stacks.c.length === 4){
+  console.log("You won!");
+  return true;
+}
+else {
+return false;
+}
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
-}
+  var startingStack = stacks[startStack];
+  var block = startingStack.pop();
+  var endingStack = stacks[endStack];
+  endingStack.push(block);
+  checkForWin();
+};
 
 function getPrompt() {
   printStacks();
