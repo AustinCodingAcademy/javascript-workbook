@@ -22,50 +22,36 @@ function printStacks() {
 function movePiece(startStack, endStack) {
 
   var towerToRemoveFrom = stacks[startStack];
-  //console.log(startStack);
-
   var towerToAddTo = stacks[endStack];
-  //console.log(towerToAddTo);
   var poppedStack = towerToRemoveFrom.pop();
-  console.log("poppedStack", poppedStack);
 
+  // undefined check
   if (typeof poppedStack === "undefined") {
     console.log("You cannot pop this stack, its empty");
     return false;
   } else {
     towerToAddTo.push(poppedStack);
   }
-  
-  // Your code here
-  // receive piece information.  get piece off top of start stack and save - POP
-  // move it to end stack - UNSHIFT
-
 }
 
 function isLegal(startStack, endStack) {
-
+  // Stack variables
   var legalStart = stacks[startStack];
+  var startLength = stacks[startStack][stacks[startStack].length - 1];
+  var endLength = stacks[endStack][stacks[endStack].length - 1];
   var legalEnd = stacks[endStack];
-  var emptyStack = stacks[endStack].length;
-  //var poppedLegalStack = stacks[startStack].length
 
-  console.log("legalstart", legalStart);
-  console.log("legalEnd", legalEnd);
-  console.log("emptyStack", emptyStack);
-  //console.log(poppedLegalStack);
-
+  if(legalEnd.length === 0) {
+    return true;
+  }
   if (legalStart === legalEnd) {
     console.log("Pick Different Stacks");
     return false;
-  }
-  if (legalStart < legalEnd) {
+  } 
+  if (startLength < endLength) {
     console.log("Piece moved");
-    return true;
-  } else if (emptyStack === 0) {
-    console.log("You can do that the stack is empty");
-    return true;
+    return true; 
   } else {
-    console.log("Illegal Move");
     return false;
   }
 
@@ -86,32 +72,18 @@ function checkForWin(startStack, endStack) {
 
   if (winning) {
     console.log("You have won!");
+    //process.exit();
   }
   return winning;
 }
 
 function towersOfHanoi(startStack, endStack) {
 
-  isLegal(startStack, endStack);
-  movePiece(startStack, endStack);
-  checkForWin(startStack, endStack);
-
- /* var towertoremovefrom = stack[startStack];
-
-  var towertoaddto = stack[endStack];
-
-  var popped = towertoremovefrom.pop();
-
-  towertoaddto.push(popped);*/
-  
-
-  // Your code here
-  // check length of startStack, endStack
-
-  // check if move is okay
-  // if so continue
-  // check to see if player won 
-}
+    if (isLegal(startStack, endStack)) {  
+      movePiece(startStack, endStack);
+      checkForWin();
+    }
+  }
 
 function getPrompt() {
   printStacks();
