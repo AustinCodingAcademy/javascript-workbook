@@ -8,6 +8,10 @@ div[data-cell] {
   text-align: center;
 }
 
+div:not(:empty):active {
+  background-color:red;
+}
+
 .row {
   clear: both;
 }
