@@ -80,6 +80,7 @@ function checkForWin() {
     if (stacks.b.length == 4 || stacks.c.length == 4) {
         console.log("You win, your movecount was" + moveCount);
         return true;
+        processExit();
     } else {
         return false;
     }
