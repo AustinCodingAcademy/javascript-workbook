@@ -8,10 +8,23 @@ var rl = readline.createInterface({
 });
 
 var stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
-};
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+
+//reset function below on how to reset the board after a win
+
+// var stacks;
+//function reset(){
+//  stacks = {
+  //    a: [4, 3, 2, 1],
+    //  b: [],
+      //c: []
+    //};
+//}
+//rest(); how to reset the board
+
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -45,6 +58,7 @@ function checkForWin() {
 
   if (win) {
       console.log('Winner!');
+        //rest(); how to reset the board
       process.exit();
   }
   return win;
@@ -63,6 +77,7 @@ function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
+      //enter check in here for if the input is bad aka not A,B, or C. 
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
