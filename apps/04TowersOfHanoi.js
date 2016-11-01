@@ -7,17 +7,27 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+var stacks;
+
 var stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
-};
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
 
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
+
+function resetBoard() {
+  var stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+};
 
 function movePiece(startStack, endStack) {
 
@@ -72,7 +82,7 @@ function checkForWin(startStack, endStack) {
 
   if (winning) {
     console.log("You have won!");
-    //process.exit();
+    resetBoard();
   }
   return winning;
 }
@@ -87,6 +97,7 @@ function towersOfHanoi(startStack, endStack) {
 
 function getPrompt() {
   printStacks();
+  resetBoard();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
