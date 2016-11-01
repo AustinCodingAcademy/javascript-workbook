@@ -41,8 +41,6 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
 
-    var startStackValue = stacks[startStack][stacks[startStack].length - 1];
-
 
     //If there's nothing in the key inside stacks then we can initialize startStackValue to 0
     //Otherwise we will give it the length of the key
@@ -71,13 +69,9 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  console.log("Stacks a is " + stacks.a.length);
-  console.log("Stacks a is " + stacks.b.length);
-  console.log("Stacks a is " + stacks.c.length);
-
   if(stacks.b.length==4 || stacks.c.length==4)
   {
-    console.log("You win, your movecount was" + moveCount);
+    console.log("You win, your movecount was " + moveCount + "!!!");
     return true;
   }
   else {
@@ -103,7 +97,7 @@ function resetStacks() {
 
 //Ensures that the user entry is an a b or c (has already been toLowerCased)
 function checkEntry(startStack, endStack) {
-    if (startStack == 'a' || startStack == 'b' || startStack == 'c') {
+    if ((startStack == 'a' || startStack == 'b' || startStack == 'c') && (endStack == 'a' || endStack == 'b' || endStack == 'c')) {
         return true;
     } else {
         console.log("Please enter 'a', 'b', or 'c'");
@@ -127,9 +121,13 @@ function towersOfHanoi(startStack, endStack) {
 
         movePiece(startStack, endStack);
         //We add a move to moveCount on successfull passthrough
-        console.log("piece has been moved, now checking for win")
         moveCount += 1;
-        checkForWin();
+
+        //We check for win and then if so we reset the stacks
+        if(checkForWin()){
+          resetStacks();
+        }
+
     }
 
 
