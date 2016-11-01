@@ -10,10 +10,10 @@ var rl = readline.createInterface({
 var stacks;
 
 var stacks = {
-    a: [4, 3, 2, 1],
-    b: [],
-    c: []
-  };
+  a: [4, 3, 2, 1],
+  b: [],
+  c: []
+};
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -27,7 +27,7 @@ function resetBoard() {
     b: [],
     c: []
   };
-};
+}
 
 function movePiece(startStack, endStack) {
 
@@ -89,11 +89,11 @@ function checkForWin(startStack, endStack) {
 
 function towersOfHanoi(startStack, endStack) {
 
-    if (isLegal(startStack, endStack)) {  
-      movePiece(startStack, endStack);
-      checkForWin();
-    }
+  if (isLegal(startStack, endStack)) {  
+    movePiece(startStack, endStack);
+    checkForWin();
   }
+}
 
 function getPrompt() {
   printStacks();
