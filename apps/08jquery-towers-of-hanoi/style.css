@@ -1,3 +1,17 @@
+body {
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+#title {
+  text-align: center;
+  font-size: 50px;
+}
+
+#board {
+  width: 300px;
+  margin: 0 auto;
+}
+
 [data-stack] {
   border: solid black 1px;
   height: 400px;
