@@ -19,30 +19,70 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(stackStack, endStack) {
+  // Your code here
+  var choice = stacks[startStack];
+  var endChoice = stacks[endStack];
+  var block = choice.pop();
+
+  console.log(choice);
+
+  endChoice.push(block);
+
+} // end movePiece
+
+function isLegal(startStack, endStack) {
   // Your code here
 
-}
+  var choice = stacks[startStack];
+  var endChoice = stacks[endStack];
+  var block = choice[choice.length - 1];
+  var block2 = endChoice[endChoice.length - 1];
 
-function isLegal() {
-  // Your code here
+  console.log(block2);
+if(endChoice.length === 0){
 
+  return true;
 }
+if (block2 > block){
+
+  return true;
+}
+  else { return false; }
+}// end isLegal
 
 function checkForWin() {
   // Your code here
+if(stacks['b'].length === 4 || stacks['c'].length === 4){
+  console.log("You won!!!");
+  return true;
 
+} else {
+  return false;
 }
+} // end checkForWin
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  if(isLegal(startStack, endStack)){
+  // movePiece(startStack, endStack);
+  var choice = stacks[startStack];
+  var endChoice = stacks[endStack];
+  var block = choice.pop();
+
+  endChoice.push(block);
+
+} else {
+  console.log('Nope,nope, and nope...');
+}
 
 }
 
 function getPrompt() {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
+  rl.question('Where would you like to move from? ', (startStack) => {
+    rl.question('Where would you like to end your move?: ', (endStack) => {
+
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
