@@ -46,8 +46,8 @@ var sixDivisionAssignmentThree = 2;
 var whileLoopArray = [];
 var whileLoopCounter = 0;
 while (whileLoopCounter < 10) {
-  whileLoopArray.push(whileLoopCounter);
-  whileLoopCounter++;
+    whileLoopArray.push(whileLoopCounter);
+    whileLoopCounter++;
 }
 
 // Problem 7:
@@ -58,7 +58,7 @@ var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var forLoopArray = [];
 var forLoopCounter;
 for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
-  forLoopArray.push(forLoopCounter);
+    forLoopArray.push(forLoopCounter);
 }
 
 // Problem 8:
@@ -71,68 +71,68 @@ var forLoopArrayResult = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-//
+//A loop is a sequence of instructions that is continually repeated until a certain condition is reached.  It is used to streamline and simplify your code.
 
 // ****
 // Tests
 // DO NOT MODIFY CODE BELOW!!!!!
 // ****
 
-describe('Lesson 5 Homework', function () {
+describe('Lesson 5 Homework', function() {
 
-  describe('More Operators', function () {
+    describe('More Operators', function() {
 
-    describe('Problem 1: increment operator, one plus plus', function () {
-      it('should add one to the original number', function () {
-        assert.equal(onePlusPlus, 2);
-      });
+        describe('Problem 1: increment operator, one plus plus', function() {
+            it('should add one to the original number', function() {
+                assert.equal(onePlusPlus, 2);
+            });
+        });
+
+        describe('Problem 2: decrement operator, two minus minus', function() {
+            it('should subtract one from the original number', function() {
+                assert.equal(twoMinusMinus, 1);
+            });
+        });
+
+        describe('Problem 3: plus assigment operator', function() {
+            it('should add 3 to the original number', function() {
+                assert.equal(threePlusAssignmentThree, 6);
+            });
+        });
+
+        describe('Problem 4: minus assigment operator', function() {
+            it('should subtract 3 from the original number', function() {
+                assert.equal(fourMinusAssignmentThree, 1);
+            });
+        });
+
+        describe('Problem 5: multiplication assigment operator', function() {
+            it('should multiply the original number by two', function() {
+                assert.equal(fiveMultiplicationAssignmentTwo, 10);
+            });
+        });
+
+        describe('Problem 6: division assigment operator', function() {
+            it('should divide the original number by three', function() {
+                assert.equal(sixDivisionAssignmentThree, 2);
+            });
+        });
     });
 
-    describe('Problem 2: decrement operator, two minus minus', function () {
-      it('should subtract one from the original number', function () {
-        assert.equal(twoMinusMinus, 1);
-      });
+    describe('Loops', function() {
+
+        describe('Problem 7: while loop array push result', function() {
+            it('should match the result of the while loop', function() {
+                assert.deepStrictEqual(whileLoopArray, whileLoopArrayResult);
+            });
+        });
+
+        describe('Problem 8: for loop array push result', function() {
+            it('should match the result of the for loop', function() {
+                assert.deepStrictEqual(forLoopArray, forLoopArrayResult);
+            });
+        });
+
     });
-
-    describe('Problem 3: plus assigment operator', function () {
-      it('should add 3 to the original number', function () {
-        assert.equal(threePlusAssignmentThree, 6);
-      });
-    });
-
-    describe('Problem 4: minus assigment operator', function () {
-      it('should subtract 3 from the original number', function () {
-        assert.equal(fourMinusAssignmentThree, 1);
-      });
-    });
-
-    describe('Problem 5: multiplication assigment operator', function () {
-      it('should multiply the original number by two', function () {
-        assert.equal(fiveMultiplicationAssignmentTwo, 10);
-      });
-    });
-
-    describe('Problem 6: division assigment operator', function () {
-      it('should divide the original number by three', function () {
-        assert.equal(sixDivisionAssignmentThree, 2);
-      });
-    });
-  });
-
-  describe('Loops', function () {
-
-    describe('Problem 7: while loop array push result', function () {
-      it('should match the result of the while loop', function () {
-        assert.deepStrictEqual(whileLoopArray, whileLoopArrayResult);
-      });
-    });
-
-    describe('Problem 8: for loop array push result', function () {
-      it('should match the result of the for loop', function () {
-        assert.deepStrictEqual(forLoopArray, forLoopArrayResult);
-      });
-    });
-
-  });
 
 });
