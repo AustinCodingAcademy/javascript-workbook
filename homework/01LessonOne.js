@@ -16,7 +16,7 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
-Null is an assingment value, where a variable has been declared, holding a place. Whereas Undefined is where a variable has been declared but nothing has been assigned to it.
+// Null is an assingment value, where a variable has been declared, holding a place. Whereas Undefined is where a variable has been declared but nothing has been assigned to it.
 
 var myNull= null;
 
@@ -107,8 +107,8 @@ var notNotTrue = true;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
-"AND" will test weather the value to its left and right is true if so then it'll test the one on the right, if both are false
-it'll return false.  However if both values are false, it'll return false. "OR" will only test one value and it is true, it'll return true.
+// "AND" will test weather the value to its left and right is true if so then it'll test the one on the right, if both are false
+// it'll return false.  However if both values are false, it'll return false. "OR" will only test one value and it is true, it'll return true.
 // ****
 
 // ****
@@ -145,8 +145,8 @@ var notNotUndefined= 'false';
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-Truthiness is when something has emotionally positive value, for example strings and numbers are truthy.
-Whereas falsiness is when something has a emotionally negative value, for examples 0, false, null are falsey.
+// Truthiness is when something has emotionally positive value, for example strings and numbers are truthy.
+// Whereas falsiness is when something has a emotionally negative value, for examples 0, false, null are falsey.
 //
 // ****
 
@@ -205,12 +205,12 @@ var stringFourStrictNotEqualsNumberFour = 'true';
 //
 // What’s the difference between == and ===?
 //
-The two equal to signs means "equal to" and three equal to signs means they are equal value. For example, if variable x=3, then x=="3";
+// The two equal to signs means "equal to" and three equal to signs means they are equal value. For example, if variable x=3, then x=="3";
 but while x==="3" is false.
 //
 // What’s the difference between != and !==?
 //
-The exclamation mark with equal to signs means "not equal" and exclamation mark with two equal two marks means not equal value or not equal type.
+// The exclamation mark with equal to signs means "not equal" and exclamation mark with two equal two marks means not equal value or not equal type.
 //
 // ****
 
