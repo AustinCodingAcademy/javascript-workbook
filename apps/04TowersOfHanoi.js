@@ -86,9 +86,9 @@ function checkForWin() {
     }
 }
 
-function resetStacks() {
-    console.log("Resetting Stacks");
-}
+//function resetStacks() {
+//    console.log("Resetting Stacks");
+//}
 
 function checkEntry(startStack, endStack) {
     if (startStack == 'a' || startStack == 'b' || startStack == 'c') {
