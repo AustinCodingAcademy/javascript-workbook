@@ -35,7 +35,7 @@ function createObject() {
     first: 1,
     second: 2,
     third: 3
-  }
+  };
 }
 
 function returnValueByKey(object, key) {
@@ -47,7 +47,7 @@ function assignKeyValue(object, key, value) {
   // given an object, key, and value, add the key/value pair
   // to the object. return the object
 
-  var object = {
+  object = {
     [key]: value
   }
   return object;
