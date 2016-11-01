@@ -22,6 +22,14 @@ var stacks = {
     c: []
 };
 
+function resetStacks() {
+  stacks = {
+      a: [4, 3, 2, 1],
+      b: [],
+      c: []
+  };
+}
+
 function printStacks() {
     console.log("a: " + stacks.a);
     console.log("b: " + stacks.b);
@@ -86,9 +94,6 @@ function checkForWin() {
     }
 }
 
-//function resetStacks() {
-//    console.log("Resetting Stacks");
-//}
 
 function checkEntry(startStack, endStack) {
     if (startStack == 'a' || startStack == 'b' || startStack == 'c') {
@@ -123,6 +128,7 @@ function getPrompt() {
     rl.question('start stack: ', (startStack) => {
         rl.question('end stack: ', (endStack) => {
             towersOfHanoi(startStack, endStack);
+            resetStacks();
             getPrompt();
         });
     });
