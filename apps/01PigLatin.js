@@ -46,7 +46,6 @@ function pigLatin(word) {
   return pigAnswer.toLowerCase();
   }
 
-
 }
 
 

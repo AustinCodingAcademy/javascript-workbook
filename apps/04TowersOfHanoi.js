@@ -7,43 +7,81 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+//this is just the board
 var stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
+  tower1: [4, 3, 2, 1],
+  tower2: [],
+  tower3: []
 };
 
 function printStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+  console.log("tower1: " + stacks.tower1);
+  console.log("tower2: " + stacks.tower2);
+  console.log("tower3: " + stacks.tower3);
 }
 
-function movePiece() {
+function movePiece(startMove, endMove) {
   // Your code here
+    var choice = stacks[startMove];
+    var endChoice = stacks[endMove];
+    var block = choice.pop();
+
+    endChoice.push(block);
+}
+
+function isLegal(startMove, endMove) {
+  // Your code here
+  var choice = stacks[startMove];
+  var endChoice = stacks[endMove];
+  var block = choice[choice.length -1];
+  var block2 = endChoice[endChoice.length -1];
+
+  if( endChoice.length === 0){
+    return true;
+  }
+
+  if(block > block2){
+    return false;
+  }
+
+  return true;
 
 }
 
-function isLegal() {
+function checkForWin(startMove, endMove) {
   // Your code here
+  var choice = stacks[startMove];
+  var endChoice = stacks[endMove];
+
+  // does stack have a length of 4
+  if(stacks.tower2.length === 4 || stacks.tower3.length === 4){
+    return true;
+  }
+  return false;
+
 
 }
 
-function checkForWin() {
+function towersOfHanoi(startMove, endMove) {
   // Your code here
+  movePiece(startMove, endMove);
+  isLegal(startMove, endMove); //if true make the move
+  checkForWin(startMove, endMove); //Did the player win
 
-}
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  if(checkForWin()) {
+    console.log('Winner!');
+    process.exit();
+  }
+
 
 }
 
 function getPrompt() {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
-      towersOfHanoi(startStack, endStack);
+  rl.question('Pick a tower to pull a block from: tower1, tower2, tower3: ', (startMove) => {
+    rl.question('Place block on a tower: ', (endMove) => {
+      towersOfHanoi(startMove, endMove);
       getPrompt();
     });
   });
@@ -55,34 +93,34 @@ if (typeof describe === 'function') {
 
   describe('#towersOfHanoi()', function () {
     it('should be able to move a block', function () {
-      towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      towersOfHanoi('tower1', 'tower2');
+      assert.deepEqual(stacks, { tower1: [4, 3, 2], tower2: [1], tower3: [] });
     });
   });
 
   describe('#isLegal()', function () {
     it('should not allow an illegal move', function () {
       stacks = {
-        a: [4, 3, 2],
-        b: [1],
-        c: []
+        tower1: [4, 3, 2],
+        tower2: [1],
+        tower3: []
       };
-      assert.equal(isLegal('a', 'b'), false);
+      assert.equal(isLegal('tower1', 'tower2'), false);
     });
     it('should allow a legal move', function () {
       stacks = {
-        a: [4, 3, 2, 1],
-        b: [],
-        c: []
+        tower1: [4, 3, 2, 1],
+        tower2: [],
+        tower3: []
       };
-      assert.equal(isLegal('a', 'c'), true);
+      assert.equal(isLegal('tower1', 'tower2'), true);
     });
   });
   describe('#checkForWin()', function () {
     it('should detect a win', function () {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = { tower1: [], tower2: [4, 3, 2, 1], tower3: [] };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = { tower1: [1], tower2: [4, 3, 2], tower3: [] };
       assert.equal(checkForWin(), false);
     });
   });
