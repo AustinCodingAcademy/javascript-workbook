@@ -87,7 +87,7 @@ function isLegal(startStack, endStack) {
     console.log("INVALID");
     return false;
   }else {
-    movePiece(startStack, endStack);
+    //movePiece(startStack, endStack);
     return true;
   }
 
@@ -140,9 +140,10 @@ function towersOfHanoi(startStack, endStack) {
   //check for win
   // var start = startStack;
   // var end = endStack;
-  isLegal(startStack, endStack);
-  //movePiece(startStack, endStack);
-  checkForWin();
+  if(isLegal(startStack, endStack)=== true){
+    movePiece(startStack, endStack);
+    checkForWin();
+  }
   // var start = stacks[startStack];
   // var end = stacks[endStack];
   // var block = start.pop();

@@ -29,12 +29,45 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  // generateHint() should take two arguments, solution and guess
+  //In generateHint(), create variables solutionArray and guessArray that each split up passed in arguments, .splitting on ''(empty string).
+  //var arrayOfStrings = stringToSplit.split(separator);
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  //Create a variable correctLetterLocations that will record how many correct "letter-locations" were guessed. For instance, a guess of aabc against a solution of deba would yield one correct "letter-location" (b). Set correctLetterLocations equal to 0. In a for loop, iterate over the solutionArray, comparing each index of solutionArray against the same index of guessArray. If the item matches, increment correctLetterLocations, and set that index in solutionArray to null.
+  //not sure if this is written right
+  var correctLetterLocations = 0;
+  for (var i = 0; i <= solutionArray.length; i++) {
+  if (guessArray[i] === solutionArray[i]){
+    correctLetterLocations++;
+    solutionArray[i] = null;
+  }
 }
+  //Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null.
+  //not sure if this is written right
+  var correctLetters = 0;
+  for (var i = 0; i <= solutionArray.length; i++) {
+    if (guessArray[i].indexOf() === solutionArray[i].indexOf()){
+      var targetIndex = guessArray[i];
+      if (targetIndex > -1){
+        correctLetters++;
+        solutionArray[i] = null;
+      }
+    }
+  }
+  return correctLetterLocations.red;
+  return correctLetters.green;
+}
+
 
 function mastermind(guess) {
   // your code here
+  solution = 'abcd'
+  if (guess === solution){
+    return "you guessed it";
+  }
 }
 
 
