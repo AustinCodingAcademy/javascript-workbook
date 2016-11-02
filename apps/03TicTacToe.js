@@ -57,9 +57,10 @@ function checkForWin() {
     var a = horizontalWin();
     var b = verticalWin();
     var c = diagonalWin();
-    if (a || b || c === true) {
+    if (a || b || c === true){
         return true;
-    }
+        console.log("Player " + playerTurn + " Won!!!!");
+    } return false;
 }
 
 function ticTacToe(row, column) {
@@ -67,10 +68,8 @@ function ticTacToe(row, column) {
     console.log("Let's Play Tic Tac Toe, choose ur row and column to place 'X'or 'O' ", row, column);
     board[row][column] = playerTurn;
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    checkForWin();
     var answer = ' ';
-    if (checkForWin() === true) {
-        console.log("Player " + playerTurn + " Won!!!!");
+    if ( checkForWin() === true) {
         rl.question("Do you want to play again? yes or no?", (answer) => {
             if (answer === 'yes') {
                 renew();
