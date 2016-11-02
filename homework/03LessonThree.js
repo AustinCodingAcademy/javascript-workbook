@@ -24,7 +24,7 @@ var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName = 'bob';
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
@@ -40,7 +40,7 @@ function returnTheFirstArgument(firstArgument) {
 //
 // What is scope?
 //
-Everything that appears before the function is the scope. Scope tells us where an item can be found.
+// Everything that appears before the function is the scope. Scope tells us where an item can be found.
 //
 //
 
@@ -78,7 +78,7 @@ var problemSevenAnswer = 'second';
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
-Ternary operator is the same as the functionality of the conditional statement, however stated with less code.
+// Ternary operator is the same as the functionality of the conditional statement, however stated with less code.
 //
 //
 
@@ -89,11 +89,11 @@ Ternary operator is the same as the functionality of the conditional statement, 
 
 // Problem 8:
 // Create an empty array
-var emptyArray = [0]
+var emptyArray = []
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray = [sun, moon, star, ocean, code, done];
+var lengthFiveArray = ['sun', 'moon', 'star', 'ocean', 'code'];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
