@@ -19,24 +19,36 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
-
+ if (isLegal(startStack, endStack) === false) {
+   console.log('This was an illegal move!');
+ } else {
+ stacks[endStack].push(stacks[startStack].pop());
+ }
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
-
+  var moveStack = stacks[startStack];
+  var toStack = stacks[endStack];
+  var movedPiece = moveStack[(moveStack.length - 1)];
+  var topPiece = toStack[(toStack.length - 1)];
+  if ((moveStack.length === 0 ) || (movedPiece > topPiece)) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function checkForWin() {
   // Your code here
-
+  return ((stacks['b'].length === 4) || (stacks['c'].length === 4))
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  movePiece(startStack, endStack);
 }
 
 function getPrompt() {
@@ -44,7 +56,11 @@ function getPrompt() {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
+      if (checkForWin() != true) {
       getPrompt();
+       } else {
+      console.log("Look at the brains on Brad!! You just won the game!");
+     }
     });
   });
 }
