@@ -21,21 +21,19 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
     // Your code here
-    var chosenBlock = stacks[startStack].pop();
-    stacks[endStack].push(chosenBlock);
+    stacks[endStack].push(stacks[startStack].pop());
 }
 
 function isLegal(startStack, endStack) {
     // Your code here
-    // if (stacks[endStack] === false) {
-    //     return true;
-    // } else
+
+    // set up access to variables that need to be compared
     var firstStack = stacks[startStack].length - 1;
     var secondStack = stacks[endStack].length - 1;
     var compareA = stacks[startStack][firstStack];
     var compareB = stacks[endStack][secondStack];
 
-    // why can't i use (compareB === false) ?
+    // compare selected variables
     if (compareB === undefined) {
         return true;
     } else if (compareA < compareB) {
@@ -52,15 +50,12 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
     // Your code here
     if ((stacks.b.length || stacks.c.length) === 4) {
-            return true;
-    } else {
-        return false;
+        return true;
     }
 }
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
-    // if (isLegal(startStack, endStack) === true) {
     if (isLegal(startStack, endStack)) {
         movePiece(startStack, endStack);
     } else {
@@ -69,11 +64,26 @@ function towersOfHanoi(startStack, endStack) {
     var winCheck = checkForWin();
     if (winCheck) {
         console.log('You win good stuff breh!');
-        stacks = {
-            a: [4, 3, 2, 1],
-            b: [],
-            c: []
-        };
+
+        // ask user if they'd like to play again
+        rl.question('Would you like to play again? Enter y/n: ', (playAgain) => {
+            playAgain = playAgain.toLowerCase();
+
+            // if yes, reset the winCheck and board to default and start game over
+            if (playAgain === 'y') {
+                winCheck = false;
+                stacks = {
+                    a: [4, 3, 2, 1],
+                    b: [],
+                    c: []
+                };
+                getPrompt();
+
+            // otherwise cease execution of game
+            } else {
+                return;
+            }
+        })
     }
 }
 
@@ -81,11 +91,25 @@ function getPrompt() {
     printStacks();
     rl.question('start stack: ', (startStack) => {
         rl.question('end stack: ', (endStack) => {
-            towersOfHanoi(startStack, endStack);
-            getPrompt();
+
+            // scrub input
+            startStack = startStack.toLowerCase();
+            endStack = endStack.toLowerCase();
+
+            // check if input is a, b, or c and if not ask again
+            if ((startStack !== 'a' && startStack !== 'b' && startStack !== 'c') || (endStack !== 'a' && endStack !== 'b' && endStack !== 'c')) {
+                console.log('Invalid entry!');
+                getPrompt();
+
+            // if input is ok execute game
+            } else {
+                towersOfHanoi(startStack, endStack);
+                getPrompt();
+            }
         });
     });
 }
+
 
 // Tests
 
@@ -137,7 +161,5 @@ if (typeof describe === 'function') {
         });
     });
 } else {
-
     getPrompt();
-
 }
