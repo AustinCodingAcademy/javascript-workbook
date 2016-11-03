@@ -33,12 +33,13 @@ function equals(argument1, argument2) {
   }
 }
 
+
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
 // return a boolean expression that is true when
 // parameter1 is less than or equal to parameter2
 
-function lessThanOrEqualTo(parameter1, parameter2) {
+function lessThanOrEqualTo() {
   if (parameter1 <= paramater2) {
     return true;
   } else {
@@ -50,7 +51,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 function addTwo(number1, number2) {
-  return number1 + number2;
+  return addTwo;
 }
 
 // Problem 4:
@@ -58,9 +59,9 @@ function addTwo(number1, number2) {
 // this function will add three numbers
 // you must call your function add() in addThree()
 function addThree(number1, number2, number3){
-  return add(number3, add(number1, number2));
+  console.log(addThree);
+
 }
-console.log(addThree);
 
 // ****
 // Concept Checkpoint
@@ -69,22 +70,22 @@ console.log(addThree);
 //
 // What is a function? How do you define a function in Javascript?
 //
- A funtion is a set of statements to define an action however you have to call the function to perform the actions.
+ // A funtion is a set of statements to define an action however you have to call the function to perform the actions.
 //
 //
 // What is a return value?
 //
- Return value is the output of the function.
+ // Return value is the output of the function.
 //
 //
 // How do you define a named function?
 //
-You use the word 'Function' then name the function then within parantheses define the paremeters of that function.
+// You use the word 'Function' then name the function then within parantheses define the paremeters of that function.
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
- Parameter is the variable of the within the parenthesis of a function and an argument is the actual value of
+ // Parameter is the variable of the within the parenthesis of a function and an argument is the actual value of
 // those variable that is passed to the funtion.
 //
 // ****
@@ -136,13 +137,13 @@ function isDivisibleByThree(number) {
 
 function whichSpecies(character) {
   if (character === 'scooby'){
-    return true;
+    return 'dog';
   }
   if (character === 'garfield') {
-    return true;
+    return 'cat';
   }
   if (character === 'nemo') {
-    return true;
+    return 'fish';
   } else {
     return false;
   }
@@ -157,18 +158,18 @@ function whichSpecies(character) {
 // return the string "divisible by 5" when number % 5 === 0
 function testNumber (number) {
   if (number % 4 === 0) {
-    return divisible by 4;
+    return 'divisible by 4';
   }
   if (number % 2 === 0) {
-    return divisible by 2;
+    return 'divisible by 2';
   }
   if (number % 3 === 0){
-    return divisible by 3;
+    return 'divisible by 3';
   }
   if (number % 5 === 0){
-    return divisible by 5;
+    return 'divisible by 5';
   } else {
-    return fasle;
+    return false;
   }
 }
 
@@ -179,7 +180,7 @@ function testNumber (number) {
 //
 // In your own words, explain what conditionals do.
 //
-A conditional is a statement that relies on the information given to it in an "if" "else" form. It does different things under different conditions.
+// A conditional is a statement that relies on the information given to it in an "if" "else" form. It does different things under different conditions.
 //
 //
 // ****

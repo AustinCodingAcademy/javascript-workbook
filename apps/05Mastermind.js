@@ -9,7 +9,7 @@ var rl = readline.createInterface({
 });
 
 var board = [];
-var solution = '';
+var solution = 'abcd';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -31,10 +31,13 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
+  var solutionArray = solution.split();
+  var guessArray = guess.split();
 }
 
 function mastermind(guess) {
   // your code here
+var correctLetterLocations = 
 }
 
 
