@@ -35,10 +35,6 @@ function isLegal(startStack, endStack) {
   }else if(compareOne < compareTwo){
     return true;
   }else{
-    console.log(stackOne);
-    console.log(stackTwo);
-    console.log(compareOne);
-    console.log(compareTwo);
     return false;
   };
 
@@ -46,7 +42,7 @@ function isLegal(startStack, endStack) {
 
 function checkForWin() {
   // Your code here
-  if((stacks.b.length || stack.c.length) === 4){
+  if((stacks.a.length || stacks.b.length || stacks.c.length) === 4){
     return true;
   } else {
     return false;
