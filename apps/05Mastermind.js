@@ -39,34 +39,45 @@ function generateHint(solution, guess) {
   //Create a variable correctLetterLocations that will record how many correct "letter-locations" were guessed. For instance, a guess of aabc against a solution of deba would yield one correct "letter-location" (b). Set correctLetterLocations equal to 0. In a for loop, iterate over the solutionArray, comparing each index of solutionArray against the same index of guessArray. If the item matches, increment correctLetterLocations, and set that index in solutionArray to null.
   //not sure if this is written right
   var correctLetterLocations = 0;
-  for (var i = 0; i <= solutionArray.length; i++) {
-  if (guessArray[i] === solutionArray[i]){
-    correctLetterLocations++;
-    solutionArray[i] = null;
+  //var i = 0;
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (guessArray[i] === solutionArray[i]){
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
   }
-}
   //Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null.
   //not sure if this is written right
   var correctLetters = 0;
-  for (var i = 0; i <= solutionArray.length; i++) {
-    if (guessArray[i].indexOf() === solutionArray[i].indexOf()){
-      var targetIndex = guessArray[i];
+  for (var i = 0; i < solutionArray.length; i++) {
+    //if (guessArray[i].indexOf() === solutionArray[i].indexOf()){
+      var targetIndex = solutionArray.indexOf(guessArray[i]);
       if (targetIndex > -1){
         correctLetters++;
-        solutionArray[i] = null;
+        solutionArray[targetIndex] = null;
       }
-    }
   }
-  return correctLetterLocations.red;
-  return correctLetters.green;
+  //return colors.red(correctLetterLocations) + "-" + colors.green(correctLetters);
+  return correctLetterLocations +"-"+correctLetters;
 }
 
 
 function mastermind(guess) {
   // your code here
-  solution = 'abcd'
+  //solution = 'abcd'
   if (guess === solution){
-    return "you guessed it";
+    return 'You guessed it!';
+  } else {
+    var hint = generateHint(solution, guess);
+    board.push(guess + hint);
+  }
+  if (board.length === 10){
+    console.log('You ran out of turns! The solution was '+solution+'!');
+    board = [];
+    solution = '';
+    generateSolution();
+  } else {
+    return 'Guess again.';
   }
 }
 
@@ -109,3 +120,19 @@ if (typeof describe === 'function') {
   generateSolution();
   getPrompt();
 }
+
+//presentation from class
+//
+// var arr1 = [2, 4, 6, 8];
+// var arr1Doubled = [];
+//
+// var i = 0;
+//
+// while (i <= arr1.length -1){
+//   console.log('i', i);
+//   console.log('doubled arr1[1]', arr1[i] * 2);
+//   arr1Doubled.push(arr1[i] * 2);
+//   i = i + 1;
+// }
+//
+// console.log('still going', arr1Doubled);

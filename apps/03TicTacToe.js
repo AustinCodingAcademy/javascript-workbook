@@ -87,20 +87,26 @@ function checkForTie() {
   }
 }
 
+function validate (row, column){
+  if (row !== '0' && row !== '1' && row !== '2') {
+    console.log("Invalid input! Row not recognized.");
+    return false;
+  }
+   else if (column !== '0' && column !== '1' && column !== '2') {
+    console.log("Invalid input! Column not recognized.");
+    return false;
+  }
+   else if (board[row][column] !== " "){
+    console.log("Invalid input! Spot taken.");
+    return false;
+  }
+   else {
+     return true;
+   }
+}
 
 function ticTacToe(row, column) {
-  // if (row !== '0' && row !== '1' && row !== '2') {
-  //   console.log("Invalid input! Row not recognized.");
-  //   return false;
-  // }
-  // if (column !== '0' && column !== '1' && column !== '2') {
-  //   console.log("Invalid input! Column not recognized.");
-  //   return false;
-  // }
-  // if (board[row][column] !== " "){
-  //   console.log("Invalid input! Spot taken.");
-  //   return false;
-  // }
+  validate(row, column);
   board[row][column] = playerTurn;
   checkForWin();
   checkForTie();
