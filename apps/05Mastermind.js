@@ -11,6 +11,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var counter = 10;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -66,6 +67,9 @@ function mastermind(guess) {
   // your code here
   //solution = 'abcd'
   if (guess === solution){
+    board = [];
+    solution = '';
+    generateSolution();
     return 'You guessed it!';
   } else {
     var hint = generateHint(solution, guess);
@@ -77,6 +81,8 @@ function mastermind(guess) {
     solution = '';
     generateSolution();
   } else {
+    counter--;
+    console.log("Turns remaining: " + counter);
     return 'Guess again.';
   }
 }
