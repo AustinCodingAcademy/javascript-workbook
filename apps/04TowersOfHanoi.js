@@ -14,8 +14,6 @@ var stacks = {
   c: []
 };
 
-console.log(stacks['a']);
-
 function printStacks() {
   console.log("Stack a: " + stacks.a);
   console.log("Stack b: " + stacks.b);
@@ -57,7 +55,8 @@ function isLegal(startStackKey, endStackKey) {
 
 function checkForWin() {
   // Test - should detect a win
-  if(stacks.b.length === 4 || stacks.c.length === 4) {
+  // If the stack is equal to four blocks, then a win is returned
+  if(stacks.a.length === 4 || stacks.b.length === 4 || stacks.c.length === 4) {
     console.log("You Won!!!");
     return true;
     } else {
@@ -66,23 +65,22 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStackKey, endStackKey) {
-  // This function organizes the code from the other functions
+  // This function organizes the code from the other functions above
   if(isLegal(startStackKey, endStackKey)) {
     movePiece(startStackKey, endStackKey);
     } else {
       console.log('Move is Not Legal!!');
   }
   checkForWin();
-
 }
 
 
 function getPrompt() {
   printStacks();
-  rl.question('Pull block from stack: ', (startStackKey) => {
-    rl.question('Put block on stack: ', (endStackKey) => {
+  rl.question('Pull block from stack "a, b, or c": ', (startStackKey) => {
+    rl.question('Put block on stack "a, b, or c": ', (endStackKey) => {
       towersOfHanoi(startStackKey, endStackKey);
-  // This causes the loop, instead of only running the game one time
+  // The getPrompt below causes the loop, instead of only running the game one time
       getPrompt();
     });
   });
