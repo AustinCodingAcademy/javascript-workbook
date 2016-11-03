@@ -35,15 +35,13 @@ function isLegal(startStack, endStack) {
 
     // compare selected variables
     if (compareB === undefined) {
+        if (compareA !== undefined) {
+            return true;
+        }
+    }
+
+    if (compareA < compareB) {
         return true;
-    } else if (compareA < compareB) {
-        return true;
-    } else {
-        console.log(firstStack);
-        console.log(secondStack);
-        console.log(compareA);
-        console.log(compareB);
-        return false;
     }
 }
 
