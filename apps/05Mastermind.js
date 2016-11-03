@@ -29,19 +29,68 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetters = 0;
+  var correctLetterLocations;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray.indexOf() === guessArray.indexOf()) {
+      solutionArray = null;
+      console.log("solution array", solutionArray[i]);
+
+    }
+  }
+
+  for (var i = 0; i < guessArray.length; i++) {
+    console.log("guess array", guessArray[i]);
+  }
 }
 
 function mastermind(guess) {
   // your code here
+  var counter = 0;
+
+  console.log(guess);
+  console.log(solution);
+  if (guess !== solution) {
+    board.push(guess);
+    console.log('board', board);
+    generateHint(solution, guess);
+    if (board.length > 10) {
+      return "Game over!"
+    }
+  } else if (guess === solution) {
+      return "You guessed it!";
+  }
+  return guess;
+  /*var correctLetterLocations = 0;
+  var correctLetters = 0;
+
+  if (guessArray contains any correctLetters) that werent in correct location
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    results.push(solutionArray[i]);
+
+    var targetIndex;
+
+    if (targetIndex > -1) {
+      correctLetters++
+    }
+  }*/
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
+    console.log('\n' + 'Guess:');
+    console.log( mastermind(guess) + '\n');
+    console.log('Board:');
     printBoard();
+    console.log('\n' + 'Solution: ' + solution + '\n');
     getPrompt();
   });
 }
