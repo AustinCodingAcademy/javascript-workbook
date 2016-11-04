@@ -29,12 +29,44 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(soultion, guess) {
+  // Test - should generate hints
+  // Test - should generate hints if solution has duplicates
+
+  // Sets variable arrays, and turn characters into arrays using split
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+
+  // Spec 2.2 - Loop count to record amount of correct letter locations
+  // solution [ null, 'b, 'c', null]
+  var correctLetterLocations = [];
+  var i = 0
+
+  for (i, i < 4, i++) {
+    if(solutionArray === guessArray){
+      
+    }
+    solutionArray = 'null';
+  }
+
+
+  // Spec 2.3 - Loop again this time counting the correct letters
+
+
+
 }
 
 function mastermind(guess) {
-  // your code here
+  // Test - should register a guess and generate hints
+  // Test - should be able to detect a win
+
+  solution === 'abcd'; // delete this line when done
+
+  if (guess === solution) {
+    return "You guessed it!!!";
+  }
+
+
 }
 
 
