@@ -58,7 +58,7 @@ function generateHint(solution, guess) {
         solutionArray[targetIndex] = null;
       }
   }
-  //return colors.red(correctLetterLocations) + "-" + colors.green(correctLetters);
+  //return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
   return correctLetterLocations +"-"+correctLetters;
 }
 

@@ -11,6 +11,38 @@ var jobTypes = {
 
 // Your code here
 
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+function enterShip(crew){
+
+}
+/*
+rick.enterShip(mav);
+
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
+*/
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
