@@ -3,91 +3,108 @@
 var assert = require('assert');
 var readline = require('readline');
 var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
-var board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
 
-var playerTurn = 'X';
 
-function printBoard() {
-  console.log('   0  1  2');
-  console.log('0 ' + board[0].join(' | '));
-  console.log('  ---------');
-  console.log('1 ' + board[1].join(' | '));
-  console.log('  ---------');
-  console.log('2 ' + board[2].join(' | '));
-}
+function rockPaperScissors(hand1, hand2) {
+    // Write code here
+    hand1 = hand1.trim();
+    hand2 = hand2.trim();
 
-function horizontalWin() {
-  // Your code here
-}
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
 
-function verticalWin() {
-  // Your code here
-}
+    // if ((hand1 !== ('rock' || 'paper' || 'scissors')) && (hand2 !== ('rock' || 'paper' || 'scissors'))) {
+    //     return "Invalid entry!";
+    // } else {
+        if (hand1 === hand2) {
+            return "It's a tie!";
+        } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'rock' && hand2 === 'scissors')) {
+        return "Hand one wins!";
+        } else {
+        return "Hand two wins!";
+        }
+    }
+// }
 
-function diagonalWin() {
-  // Your code here
-}
 
-function checkForWin() {
-  // Your code here
-}
+//     if (hand1 === hand2) {
+//         return "It's a tie!";
+//     } else if (hand1 === 'rock') {
+//         if (hand2 === 'paper') {
+//             return 'Hand two wins!';
+//         } else {
+//             return 'Hand one wins!';
+//         }
+//     } else if (hand1 === 'paper') {
+//         if (hand2 === 'scissors') {
+//             return 'Hand two wins!';
+//         } else {
+//             return 'Hand one wins!';
+//         }
+//     } else if (hand1 === 'scissors') {
+//         if (hand2 === 'rock') {
+//             return 'Hand two wins!';
+//         } else {
+//             return 'Hand one wins!';
+//         }
+//     } else {
+//         return 'Invalid entry!';
+//     }
+// } else {
+//     return 'Invalid entry!';
+// }
 
-function ticTacToe(row, column) {
-  // Your code here
-}
+
+// var iterate = true;
+// var userContinue = true;
 
 function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
-
+    rl.question('hand1: ', (answer1) => {
+        rl.question('hand2: ', (answer2) => {
+            console.log(rockPaperScissors(answer1, answer2));
+            getPrompt();
+        })
+    })
 }
 
-
-
+// var userIterate = true;
+//
+// function iterate() {
+//     while (userIterate === true) {
+//         if (userInput === 'n') {
+//             console.log('Thank you for playing! Come back again.');
+//             userIterate = false;
+//         } else {
+//             console.log('Awesome, here we go!');
+//             getPrompt();
+//         }
+//     }
+// }
 // Tests
 
 if (typeof describe === 'function') {
 
-  describe('#ticTacToe()', function () {
-    it('should place mark on the board', function () {
-      ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+    describe('#rockPaperScissors()', function() {
+        it('should detect a tie', function() {
+            assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
+            assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
+            assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
+        });
+        it('should detect which hand won', function() {
+            assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
+            assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
+            assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
+        });
     });
-    it('should alternate between players', function () {
-      ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-    });
-    it('should check for vertical wins', function () {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-      assert.equal(verticalWin(), true);
-    });
-    it('should check for horizontal wins', function () {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-      assert.equal(horizontalWin(), true);
-    });
-    it('should check for diagonal wins', function () {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-      assert.equal(diagonalWin(), true);
-    });
-    it('should detect a win', function () {
-      assert.equal(checkForWin(), true);
-    });
-  });
 } else {
 
-  getPrompt();
+    getPrompt();
+    // var userInput = prompt("Would you like to continue?", "<Enter y/n>");
+    // var trimmedUserInput = userInput.trim();
+    // var scrubbedInput = trimmedUserInput.toLowerCase();
+    // iterate();
 
 }
