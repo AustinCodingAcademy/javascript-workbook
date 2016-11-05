@@ -38,10 +38,10 @@ function isLegal(startStack, endStack) {
         if (compareA !== undefined) {
             return true;
         }
-    }
-
-    if (compareA < compareB) {
+    } else if (compareA < compareB) {
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -49,6 +49,8 @@ function checkForWin() {
     // Your code here
     if ((stacks.b.length || stacks.c.length) === 4) {
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -65,6 +67,7 @@ function towersOfHanoi(startStack, endStack) {
 
         // ask user if they'd like to play again
         rl.question('Would you like to play again? Enter y/n: ', (playAgain) => {
+            playAgain = playAgain.trim();
             playAgain = playAgain.toLowerCase();
 
             // if yes, reset the winCheck and board to default and start game over
@@ -91,6 +94,8 @@ function getPrompt() {
         rl.question('end stack: ', (endStack) => {
 
             // scrub input
+            startStack = startStack.trim();
+            endStack = endStack.trim();
             startStack = startStack.toLowerCase();
             endStack = endStack.toLowerCase();
 
