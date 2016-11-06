@@ -105,7 +105,7 @@ conferenceRoom.enter(jen);
 // Write your answer in comments
 //
 // What is a method?
-//
+// A method is a key value pair that contains a function within an object.
 //
 
 // ****
