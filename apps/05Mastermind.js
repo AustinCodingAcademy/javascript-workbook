@@ -36,18 +36,39 @@ function generateHint(solution, guess) {
   var guessArray = guess.split('');
   var correctLetters = 0;
   var correctLetterLocations;
+  var solutionContainer = [];
+  var guessContainer = [];
+  var match = null;
+  var temp;
+
 
   for (var i = 0; i < solutionArray.length; i++) {
-    if (solutionArray.indexOf() === guessArray.indexOf()) {
-      solutionArray = null;
-      console.log("solution array", solutionArray[i]);
-
-    }
+  /* if (solutionArray.indexOf() === guessArray.indexOf()) {
+      solutionArray = null;}*/
+    console.log("solution array", solutionArray[i]);
+    solutionContainer.push(solutionArray[i]);
+    console.log(solutionContainer);
   }
 
   for (var i = 0; i < guessArray.length; i++) {
     console.log("guess array", guessArray[i]);
+    guessContainer.push(guessArray[i]);
+    console.log(guessContainer);
   }
+
+  for (var i = 0; i < guessArray.length; i++) {
+    temp = solutionArray[i].indexOf(guessArray[i]);
+    console.log('temp', temp)
+    if ( temp === -1 )
+      match = false;
+  }
+  console.log(match);
+  return match;
+
+  /*while (guessArray !== solutionArray) {
+    correctLetters++
+    console.log('correctLetters', correctLetters);
+  }*/
 }
 
 function mastermind(guess) {
@@ -56,10 +77,14 @@ function mastermind(guess) {
 
   console.log(guess);
   console.log(solution);
+
   if (guess !== solution) {
+    
     board.push(guess);
     console.log('board', board);
+
     generateHint(solution, guess);
+
     if (board.length > 10) {
       return "Game over!"
     }
