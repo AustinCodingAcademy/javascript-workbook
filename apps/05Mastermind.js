@@ -17,6 +17,7 @@ var solutionArray;
 var guessArray;
 var correctLetters;
 var correctLetterLocations;
+var match;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -49,8 +50,8 @@ function generateHint(solution, guess) {
       solutionArray[i] = null;
     }
   }
-  for (var i = 0; i < guessArray.length; i++) {
-    var match = solutionArray.indexOf(guessArray[i]);
+  for (var j = 0; j < guessArray.length; j++) {
+    match = solutionArray.indexOf(guessArray[j]);
     console.log('match', match);
     if ( match > -1 ) {
       correctLetters++;
@@ -70,8 +71,8 @@ function mastermind(guess) {
   console.log(solution);
 
   if (guess === solution) {
-    return "You guessed it!"
-    var hint = generateHint(solution, guess);
+    return "You guessed it!";
+    hint = generateHint(solution, guess);
     board.push(hint);
     turns--;
     console.log("Turns remaining " + turns);
