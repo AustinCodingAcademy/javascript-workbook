@@ -38,34 +38,41 @@ function generateHint(soultion, guess) {
   var guessArray = guess.split('');
 
   // Spec 2.2 - Loop count to record amount of correct letter locations
-  // solution [ null, 'b, 'c', null]
-  var correctLetterLocations = [];
-  var i = 0
+  var correctLetterLocations = 0;
+  var i = 0;
 
-  for (i, i < 4, i++) {
-    if(solutionArray === guessArray){
-      
+  for (i; i < 4; i++) {
+    if(solutionArray[i] === guessArray[i]) {
+    correctLetterLocations++;
+    solutionArray[i] = null;
     }
-    solutionArray = 'null';
   }
 
-
   // Spec 2.3 - Loop again this time counting the correct letters
+  var correctLetters = 0;
 
+  for (i; i < 4; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
 
-
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    }
+  }
 }
 
 function mastermind(guess) {
   // Test - should register a guess and generate hints
   // Test - should be able to detect a win
 
-  solution === 'abcd'; // delete this line when done
+  // solution === 'abcd'; // delete this line when done
+  var hint = generateHint(solution, guess);
+
+  board.push (guess + hint);
 
   if (guess === solution) {
     return "You guessed it!!!";
   }
-
 
 }
 
