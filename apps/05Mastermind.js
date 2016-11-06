@@ -13,6 +13,10 @@ var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 var turns = 10;
 var hint;
+var solutionArray;
+var guessArray;
+var correctLetters;
+var correctLetterLocations;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -34,10 +38,10 @@ function getRandomInt(min, max) {
 function generateHint(solution, guess) {
   // your code here
 
-  var solutionArray = solution.split('');
-  var guessArray = guess.split('');
-  var correctLetters = 0;
-  var correctLetterLocations = 0;
+  solutionArray = solution.split('');
+  guessArray = guess.split('');
+  correctLetters = 0;
+  correctLetterLocations = 0;
 
   for (var i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
@@ -65,19 +69,23 @@ function mastermind(guess) {
   console.log(guess);
   console.log(solution);
 
-  if (guess !== solution) {
-    
+  if (guess === solution) {
+    return "You guessed it!"
     var hint = generateHint(solution, guess);
     board.push(hint);
     turns--;
     console.log("Turns remaining " + turns);
-    console.log('boards', board.length);
-    return "Guess again!";
-  } else if (guess === solution) {
-    return "You guessed it!";
-  } else if (turns === 0 ) {
-      return "Game Over!";
-  }
+    console.log('board', board.length);
+  } else if (board.length === 10) {
+      return "You ran out of guesses, the correct solution was " + solution;
+  } else if (guess !== solution) {
+    var hint = generateHint(solution, guess);
+    board.push(hint);
+    turns--;
+    console.log("Turns remaining " + turns);
+    console.log('board', board.length);
+    return "Try again!";
+  } 
 }
 
 
