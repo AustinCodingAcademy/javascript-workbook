@@ -47,14 +47,14 @@ function generateHint(solution, guess) {
   }
   for (var i = 0; i < guessArray.length; i++) {
     var match = solutionArray.indexOf(guessArray[i]);
-    console.log('match', match)
+    console.log('match', match);
     if ( match > -1 ) {
       correctLetters++;
       solutionArray[match] = null;
     }
   }
 
-  console.log('correctLetters', correctLetters)
+  console.log('correctLetters', correctLetters);
   console.log('correctLetterLocations', correctLetterLocations);
   return correctLetters + "-" + correctLetterLocations;
 
@@ -62,10 +62,8 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
   // your code here
-  hint;
   console.log(guess);
   console.log(solution);
-  console.log(hint);
 
   if (guess !== solution) {
     
@@ -73,14 +71,12 @@ function mastermind(guess) {
     board.push(hint);
     turns--;
     console.log("Turns remaining " + turns);
-    console.log('boards', board);
+    console.log('boards', board.length);
     return "Guess again!";
-
-    if (board.length > 10) {
-      return "Game over!"
-    }
   } else if (guess === solution) {
-      return "You guessed it!";
+    return "You guessed it!";
+  } else if (turns === 0 ) {
+      return "Game Over!";
   }
 }
 
