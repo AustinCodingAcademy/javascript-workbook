@@ -83,7 +83,7 @@ function Person(name) {
   this.name = name;
   this.sayHi = function () {
     return "Hi, I'm " + this.name + "!";
-  }
+  };
 }
 
 // Problem 5:
