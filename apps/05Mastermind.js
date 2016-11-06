@@ -72,11 +72,6 @@ function mastermind(guess) {
 
   if (guess === solution) {
     return "You guessed it!";
-    hint = generateHint(solution, guess);
-    board.push(hint);
-    turns--;
-    console.log("Turns remaining " + turns);
-    console.log('board', board.length);
   } else if (board.length === 10) {
       return "You ran out of guesses, the correct solution was " + solution;
   } else if (guess !== solution) {
