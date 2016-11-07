@@ -15,8 +15,9 @@ function CrewMember(name, job, specialSkill, ship) {
   this.specialSkill = specialSkill;
   this.ship = null;
   this.enterShip = function(ship) {
-   this.ship = ship;
-   ship.crew.push(this);
+    this.ship = ship;
+    var shipmates = ship.crew.push(this);
+    console.log(shipmates);
   };
 }
 
@@ -26,12 +27,9 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function() {
-    
     return "Can't perform a mission yet.";
-  }
+  };
 }
-
-// Your code here
 
 //tests
 if (typeof describe === 'function'){
