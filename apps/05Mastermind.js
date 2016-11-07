@@ -19,7 +19,7 @@ function printBoard() {
 }
 
 function generateSolution() {
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < generateSolution.length; i++) {
     var randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
   }
@@ -29,17 +29,45 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  var solutionArray = solution.split("");
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+  var guessArray = guess.split('');
+  for(var i = 0; i < solutionArray.length; i++){
+    if(solutionArray[i] === guessArray[i]){
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+for(var i = 0; i < solutionArray.length; i++){
+  var targetindex = solutionArray.indexOf(guessArray[i]);
+  if(targetindex > -1){
+    correctLetters ++;
+    solutionArray[targetindex]=null;
+  }
+}
+return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
   // your code here
+    if(guess === solution){
+  return "You guessed it!";
+  }
+  var hint = generateHint(solution, guess);
+  board.push(hint);
+//  if (board.length = 10){
+//    return "You ran out of turns";
+
+//  }
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
+  rl.question('guess: Type any 4 letters between a through h ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
     getPrompt();
@@ -73,6 +101,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  generateSolution();
+//  generateSolution();
   getPrompt();
 }
