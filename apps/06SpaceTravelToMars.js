@@ -9,6 +9,28 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+function CrewMember(name, job, specialSkill, ship) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(ship) {
+   this.ship = ship;
+   ship.crew.push(this);
+  };
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function() {
+    
+    return "Can't perform a mission yet.";
+  }
+}
+
 // Your code here
 
 //tests
