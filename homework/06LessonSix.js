@@ -4,6 +4,7 @@ var assert = require('assert');
 
 // ****
 // Are you down with OOP?
+// Yeah you know me!
 // ****
 
 
@@ -14,6 +15,11 @@ var assert = require('assert');
 var point = {
 };
 
+var point = {
+  x: 1,
+  y: 2,
+}
+
 // Problem 2:
 // Fill in this Point constructor function so that it defines
 // a class of points with properties x and y.
@@ -23,11 +29,18 @@ var point = {
 function Point(x, y) {
 }
 
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
 var anotherPoint;
+
+
 
 // ****
 // Concept Checkpoint
