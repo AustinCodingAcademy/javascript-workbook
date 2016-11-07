@@ -39,9 +39,8 @@ function generateHint(soultion, guess) {
 
   // Spec 2.2 - Loop count to record amount of correct letter locations
   var correctLetterLocations = 0;
-  var i = 0;
 
-  for (i; i < 4; i++) {
+  for (var i = 0; i < solutionArray.length; i++) {
     if(solutionArray[i] === guessArray[i]) {
     correctLetterLocations++;
     solutionArray[i] = null;
@@ -51,7 +50,7 @@ function generateHint(soultion, guess) {
   // Spec 2.3 - Loop again this time counting the correct letters
   var correctLetters = 0;
 
-  for (i; i < 4; i++) {
+  for (var i = 0; i < solutionArray.length; i++) {
     var targetIndex = solutionArray.indexOf(guessArray[i]);
 
     if (targetIndex > -1) {
@@ -59,26 +58,32 @@ function generateHint(soultion, guess) {
       solutionArray[targetIndex] = null;
     }
   }
+
+  return correctLetterLocations + '-' + correctLetters;
 }
 
 function mastermind(guess) {
   // Test - should register a guess and generate hints
   // Test - should be able to detect a win
+  // Hints are: 1) Correct colors in the correct spot, and 2) correct colors in the wrong spot
 
-  // solution === 'abcd'; // delete this line when done
-  var hint = generateHint(solution, guess);
-
-  board.push (guess + hint);
-
-  if (guess === solution) {
-    return "You guessed it!!!";
+  if (board.length === 10) {
+    console.log('You ran out of turns. The solution was ' + solution);
+    } else {
+      console.log('Guess again');
   }
 
+  if (guess === solution) {
+    return('You guessed it!');
+  }
+
+  var hint = generateHint(solution, guess);
+  board.push(guess + ' ' + hint);
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
+  rl.question('Enter letters a thru h separated by commas for your guess: ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
     getPrompt();
