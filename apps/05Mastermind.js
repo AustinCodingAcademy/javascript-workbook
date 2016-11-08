@@ -63,8 +63,9 @@ function mastermind(guess) {
     board.push(hint + "" + guess);
 
     if (board.length === 10) {
-        return "You ran out of turns. The solution was" + solution;
+        return "You ran out of turns. The solution was " + solution;
     }
+    return guess;
 }
 
 
