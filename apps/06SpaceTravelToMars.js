@@ -39,14 +39,6 @@ function Ship(name, type, ability){
 	}
 }
 
-var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-rick.enterShip(mav);
-console.log(rick.ship); //=> 'Mars Ascent Vehicle'
-console.log(mav.crew.length); //=> 1
-console.log(mav.crew[0].name); //=> 'Rick Martinez'
-console.log(rick.ship === "MAV"); //=> true
-console.log(mav.crew.indexOf(rick) === 0); //=> true
 
 
 //tests
