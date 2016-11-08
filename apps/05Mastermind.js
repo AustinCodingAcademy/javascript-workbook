@@ -6,14 +6,13 @@ var prompt = require('prompt');
 prompt.start();
 
 var board = [];
-var solution = 'abcd';
+var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
         console.log(board[i]);
     }
-    board.push(hint, guess);
 }
 
 function generateSolution() {
@@ -34,23 +33,22 @@ function generateHint(solution, guess) {
    for(var i = 0; i < solutionArray.length; i++){
     if(solutionArray[i] === guessArray[i]) {
       correctLetterLocations++;
-      solutionArray[i] === null;
+      solutionArray[i] = null;
   }
 }
 
 var correctLetters = 0;
 for(var i = 0; i < solutionArray.length; i++) {
-  if(guessArray.indexOf(solutionArray[i])){
-  var targetIndex = guessArray.indexOf(solutionArray[i]);
+  var targetIndex = solutionArray.indexOf(guessArray[i]);
   if(targetIndex > -1) {
-    solutionArray[i] === null;
     correctLetters++;
+    solutionArray[targetIndex] = null;
   }
-}
 }
 
 //
-var hint = colors.red(correctLetterLocations) + '-' + colors.white(correctLetters);
+var hint = (correctLetterLocations) + '-' + (correctLetters);
+// console.log('Why is this not working', hint)
 
 
 return hint;
@@ -65,9 +63,12 @@ function mastermind(guess){
   if(guess === solution) {
       return "You guessed it!";
     }   else {
-       board +=1;
+      var hint = generateHint(solution, guess);
     }
+    board.push(guess + hint);
+    return 'Guess again.';
   }
+
 
 
 
