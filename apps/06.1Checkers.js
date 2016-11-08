@@ -12,7 +12,7 @@ function Checker(color) {
   // Sets up symbol
   this.symbol = color;
   // Check to see what color
-  this.symbol = (color === 'white') ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
+  this.symbol = (color === 'white') ? String.fromCharCode(0x125CF) : String.fromCharCode(0x125CB);
 }
 
 function Board() {
@@ -63,16 +63,21 @@ function Board() {
     var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
     var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
 
-    for (var i = 0; i <= 11; i++) {
-      console.log(this.checkers.push(this));
+    for (var i = 0; i < whitePositions.length; i++) {
+      var white = new Checker('white');
+      console.log('white positions', whitePositions[i]);
+      console.log('white position', this.checkers.push(whitePositions[i]));
     }
-    for (var i = 0; i <= 11; i++) {
-      console.log(this.checkers.push(this));
+
+    for (var i = 0; i < blackPositions.length; i++) {
+      var black = new Checker('black');
+      console.log('black positions', blackPositions[i]);
+      console.log('black position', this.checkers.push(blackPositions[i]));
     }
-    return this.checkers;
+    console.log('checker board', this.checkers);
   }
-  // Your code here this.checkers
 }
+
 function Game() {
 
   this.board = new Board();
