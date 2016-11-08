@@ -8,8 +8,11 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  // Sets up symbol
+  this.symbol = color;
+  // Check to see what color
+  this.symbol = (color === 'white') ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
 }
 
 function Board() {
@@ -24,7 +27,10 @@ function Board() {
         this.grid[row].push(null);
       }
     }
-  };
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column];
+  }    
+};
 
   // prints out the board
   this.viewGrid = function() {
@@ -52,14 +58,29 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.checkers = [];
+  this.createCheckers = function (checker) {
+    var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
+    var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
+
+    for (var i = 0; i <= 11; i++) {
+      console.log(this.checkers.push(this));
+    }
+    for (var i = 0; i <= 11; i++) {
+      console.log(this.checkers.push(this));
+    }
+    return this.checkers;
+  }
+  // Your code here this.checkers
 }
 function Game() {
 
   this.board = new Board();
+  this.checker = new Checker();
 
   this.start = function() {
     this.board.createGrid();
+    this.board.createCheckers();
     // Your code here
   };
 }
