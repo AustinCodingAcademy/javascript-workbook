@@ -9,10 +9,8 @@ var rl = readline.createInterface({
 
 
 function Checker(color) {
-  // Sets up symbol
-  this.symbol = color;
   // Check to see what color
-  this.symbol = (color === 'white') ? String.fromCharCode(0x125CF) : String.fromCharCode(0x125CB);
+  this.symbol = (color === 'white') ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
 }
 
 function Board() {
@@ -28,7 +26,7 @@ function Board() {
       }
     }
   this.selectChecker = function(row, column) {
-    return this.grid[row][column];
+    console.log('select checker', this.grid[row][column]);
   }    
 };
 
@@ -64,17 +62,25 @@ function Board() {
     var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
 
     for (var i = 0; i < whitePositions.length; i++) {
-      var white = new Checker('white');
+
+      var whiteRow = whitePositions[i][0];
+      var whiteColumn = whitePositions[i][1];
+
+      this.grid[whiteRow][whiteColumn] = new Checker('white');
       console.log('white positions', whitePositions[i]);
-      console.log('white position', this.checkers.push(whitePositions[i]));
+      console.log('white position', this.checkers.push(this.grid[whiteRow][whiteColumn]));
     }
 
     for (var i = 0; i < blackPositions.length; i++) {
-      var black = new Checker('black');
+
+      var blackRow = blackPositions[i][0];
+      var blackColumn = blackPositions[i][1];
+
+      this.grid[blackRow][blackColumn] = new Checker('black');
       console.log('black positions', blackPositions[i]);
-      console.log('black position', this.checkers.push(blackPositions[i]));
+      console.log('black position', this.checkers.push(this.grid[blackRow][blackColumn]));
     }
-    console.log('checker board', this.checkers);
+   return console.log(this.checkers);
   }
 }
 
