@@ -70,6 +70,7 @@ function mastermind(guess) {
     board = [];
     solution = '';
     generateSolution();
+    counter = 10;
     return 'You guessed it!';
   } else {
     var hint = generateHint(solution, guess);
@@ -80,6 +81,7 @@ function mastermind(guess) {
     board = [];
     solution = '';
     generateSolution();
+    counter = 10;
   } else {
     counter--;
     console.log("Turns remaining: " + counter);
