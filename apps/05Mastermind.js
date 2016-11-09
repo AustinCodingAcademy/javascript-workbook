@@ -49,7 +49,7 @@ function generateHint(solution, guess) {
             correctLetters++;
             solutionArray[i] = null;
         }
-    }
+    };
 
     return correctLetterLocations + '-' + correctLetters;
 
@@ -59,9 +59,7 @@ function mastermind(guess) {
     // your code here
     if (guess === solution) {
         return 'You guessed it!';
-    }
-
-    if (guess !== solution) {
+    } else if (guess !== solution) {
         var currentHint = generateHint(solution, guess);
         console.log(currentHint);
         board.push(guess + ' ' + currentHint);
