@@ -67,23 +67,25 @@ function mastermind(guess) {
   // Test - should be able to detect a win
   // Hints are: 1) Correct colors in the correct spot, and 2) correct colors in the wrong spot
 
-  if (board.length === 10) {
-    console.log('You ran out of turns. The solution was ' + solution);
-    } else {
-      console.log('Guess again');
-  }
-
   if (guess === solution) {
     return('You guessed it!');
   }
 
+  if (board.length <= 10) {
+    return ('Guess again');
+    } else {
+      return ('You ran out of turns. The solution was ' + solution);
+  }
+
   var hint = generateHint(solution, guess);
   board.push(guess + ' ' + hint);
+  return hint;
+
 }
 
 
 function getPrompt() {
-  rl.question('Enter letters a thru h separated by commas for your guess: ', (guess) => {
+  rl.question('Enter letters a thru h for your guess: ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
     getPrompt();
