@@ -41,6 +41,12 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
 if(stacks.b.length === 4 || stacks.c.length === 4) {
   console.log("You Won!!!");
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+
   return true;
 } else {
   getPrompt();
@@ -61,7 +67,7 @@ function getPrompt() {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-
+      getPrompt();
     });
   });
 }
