@@ -11,6 +11,40 @@ var jobTypes = {
 
 // Your code here
 
+// CrewMember tests:
+// 1) should have a name, a job, a specialSkill and ship upon instantiation
+// 2) can enter a ship
+
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+rick.enterShip(mav);
+
+
+
+// Ship tests:
+// 1) should have a name, a type, an ability and an empty crew upon instantiation
+// 2) can return a mission statement correctly
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+
+
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
