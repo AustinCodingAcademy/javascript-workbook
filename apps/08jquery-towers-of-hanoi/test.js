@@ -1,6 +1,6 @@
-var jsdom = require('jsdom');
-var assert = require('assert');
-var path = require('path');
+var jsdom = require("jsdom");
+var assert = require("assert");
+var path = require("path");
 
 // send browser log statements to node console
 var virtualConsole = jsdom.createVirtualConsole().sendTo(console);
@@ -13,10 +13,10 @@ var $;
 beforeEach(function (done) {
   jsdom.env(
     {
-      file: path.resolve(__dirname, 'index.html'),
+      file: path.resolve(__dirname, "index.html"),
       scripts: [
-        path.resolve(__dirname, '../../vendor/jquery.js'),
-        path.resolve(__dirname, 'script.js')
+        path.resolve(__dirname, "../../vendor/jquery.js"),
+        path.resolve(__dirname, "script.js")
       ],
       virtualConsole: virtualConsole,
       done: function (err, window) {
@@ -25,7 +25,7 @@ beforeEach(function (done) {
         }
         document = window.document;
         $ = window.$;
-        $(document).on('ready', function () {
+        $(document).on("ready", function () {
           done();
         });
       }
@@ -33,10 +33,10 @@ beforeEach(function (done) {
   );
 });
 
-describe('basic moves', function () {
-  it ('should be able to move to an empty stack', function () {
-    var $stack1 = $('[data-stack=1]');
-    var $stack2 = $('[data-stack=2]');
+describe("basic moves", function () {
+  it ("should be able to move to an empty stack", function () {
+    var $stack1 = $("[data-stack=1]");
+    var $stack2 = $("[data-stack=2]");
     assert.equal($stack1.children().length, 4);
     assert.equal($stack2.children().length, 0);
 
@@ -47,10 +47,10 @@ describe('basic moves', function () {
     assert.equal($stack2.children().length, 1);
   });
 
-  it ('should be able to move to a nonempty stack', function () {
-    var $stack1 = $('[data-stack=1]');
-    var $stack2 = $('[data-stack=2]');
-    var $stack3 = $('[data-stack=3]');
+  it ("should be able to move to a nonempty stack", function () {
+    var $stack1 = $("[data-stack=1]");
+    var $stack2 = $("[data-stack=2]");
+    var $stack3 = $("[data-stack=3]");
     var assertStackLengths = function (len1, len2, len3) {
       assert.equal($stack1.children().length, len1);
       assert.equal($stack2.children().length, len2);
@@ -79,11 +79,11 @@ describe('basic moves', function () {
   });
 });
 
-describe('illegal move', function () {
-  it ('should not place bigger blocks on smaller ones', function () {
-    var $stack1 = $('[data-stack=1]');
-    var $stack2 = $('[data-stack=2]');
-    var $stack3 = $('[data-stack=3]');
+describe("illegal move", function () {
+  it ("should not place bigger blocks on smaller ones", function () {
+    var $stack1 = $("[data-stack=1]");
+    var $stack2 = $("[data-stack=2]");
+    var $stack3 = $("[data-stack=3]");
     var assertStackLengths = function (len1, len2, len3) {
       assert.equal($stack1.children().length, len1);
       assert.equal($stack2.children().length, len2);
@@ -108,11 +108,11 @@ describe('illegal move', function () {
   });
 });
 
-describe('detect a win', function () {
-  it ('should detect a win in stack 2', function () {
-    var $stack1 = $('[data-stack=1]');
-    var $stack2 = $('[data-stack=2]');
-    var $stack3 = $('[data-stack=3]');
+describe("detect a win", function () {
+  it ("should detect a win in stack 2", function () {
+    var $stack1 = $("[data-stack=1]");
+    var $stack2 = $("[data-stack=2]");
+    var $stack3 = $("[data-stack=3]");
     var stacks = [ $stack1, $stack2, $stack3 ];
     [
       1, 3,
@@ -133,6 +133,6 @@ describe('detect a win', function () {
     ].forEach(function (stackNum) {
       stacks[stackNum - 1].click();
     });
-    assert.equal($('#announce-game-won').text().toLowerCase(), 'you won!');
+    assert.equal($("#announce-game-won").text().toLowerCase(), "you won!");
   });
 });

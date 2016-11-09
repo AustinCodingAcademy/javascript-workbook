@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-$(document).on('ready', function() {
+$(document).on("ready", function() {
 
   // ****
   // jQuery

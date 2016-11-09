@@ -5,7 +5,7 @@ var a = 4;
 var b = 3;
 
 if (a > b) {
-  console.log('true');
+  console.log("true");
 }
 
 //2. What is a null value? Provide one example.
@@ -40,9 +40,9 @@ console.log(thisIsANumber);
 // To make our code more readable and understandable and for maintainability for other developers who may come after us.  It gives them a clear picture of what is going on 
 
 
-//5. Why do we use 'strict mode'?
+//5. Why do we use "strict mode"?
 
-// First, strict mode eliminates some JavaScript silent errors by changing them to throw errors. Second, strict mode fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode. Third, strict mode prohibits some syntax likely to be defined in future versions of ECMAScript.
+// First, strict mode eliminates some JavaScript silent errors by changing them to throw errors. Second, strict mode fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that"s not strict mode. Third, strict mode prohibits some syntax likely to be defined in future versions of ECMAScript.
 
 
 //6. Write the code to log the output "Hello World".
@@ -89,7 +89,7 @@ if ((d || e) > f) {
 
 //9. 
 
-console.log('9:', true && false);
+console.log("9:", true && false);
 
 //Answer: false
 
@@ -97,7 +97,7 @@ console.log('9:', true && false);
 
 //10. 
 
-console.log('10:', false && true);
+console.log("10:", false && true);
 
 //Answer: false
 
@@ -105,7 +105,7 @@ console.log('10:', false && true);
 
 //11. 
 
-console.log('11:', true && true && false);
+console.log("11:", true && true && false);
 
 //Answer: false
 
@@ -113,7 +113,7 @@ console.log('11:', true && true && false);
 
 //12. 
 
-console.log('12:', true || false);
+console.log("12:", true || false);
 
 //Answer: true
 
@@ -121,21 +121,21 @@ console.log('12:', true || false);
 
 //13. 
 
-console.log('13:', false || true);
+console.log("13:", false || true);
 
 //Answer: true
 
 
 //14. 
 
-console.log('14:', true || true || false);
+console.log("14:", true || true || false);
 
 //Answer: true
 
 
 //15. 
 
-console.log('15:', !true);
+console.log("15:", !true);
 
 //Answer: false
 
@@ -143,20 +143,20 @@ console.log('15:', !true);
 
 //16. 
 
-console.log('16:', !false);
+console.log("16:", !false);
 
 //Answer: true
 
 
 //17. 
 
-console.log('17:', !!"Hello");
+console.log("17:", !!"Hello");
 
 //Answer: true
 
 //18. 
 
-console.log('18:', !!null);
+console.log("18:", !!null);
 
 //Answer: false
 
@@ -165,7 +165,7 @@ console.log('18:', !!null);
 var x = 7;
 var y = 5;
 
-console.log('19:', x !== y);
+console.log("19:", x !== y);
 
 //Answer: true
 
@@ -176,7 +176,7 @@ console.log('19:', x !== y);
 
 //examples
 
-var nine = '9';
+var nine = "9";
 var numNine = 9;
 
 // Removed to hide errors from the codacy about the non-strict equals
@@ -190,7 +190,7 @@ var numNine = 9;
 
 // This is using the !(not operator).  Again works with strictally equaling a value to what you are comparing. Checking the value and the value and type. 
 
-var ten = '10';
+var ten = "10";
 var numTen = 10;
 
 // Removed to hide errors from the codacy about the non-strict !==

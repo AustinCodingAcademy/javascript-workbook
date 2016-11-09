@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-var assert = require('assert');
+var assert = require("assert");
 
 function returnTrue() {
   // should return true
@@ -10,8 +10,8 @@ function returnTrue() {
 
 // Tests
 
-describe('#returnTrue()', function () {
-  it('should return true', function () {
+describe("#returnTrue()", function () {
+  it("should return true", function () {
     assert.equal(returnTrue(), true);
   });
 });

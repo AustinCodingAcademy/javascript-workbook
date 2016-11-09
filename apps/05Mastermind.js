@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
-var assert = require('assert');
-var colors = require('colors/safe');
-var readline = require('readline');
+var assert = require("assert");
+var colors = require("colors/safe");
+var readline = require("readline");
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
 var board = [];
-var solution = '';
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var solution = "";
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 var turns = 10;
 var hint;
 var solutionArray;
@@ -39,8 +39,8 @@ function getRandomInt(min, max) {
 function generateHint(solution, guess) {
   // your code here
 
-  solutionArray = solution.split('');
-  guessArray = guess.split('');
+  solutionArray = solution.split("");
+  guessArray = guess.split("");
   correctLetters = 0;
   correctLetterLocations = 0;
 
@@ -52,15 +52,15 @@ function generateHint(solution, guess) {
   }
   for (var j = 0; j < guessArray.length; j++) {
     match = solutionArray.indexOf(guessArray[j]);
-    console.log('match', match);
+    console.log("match", match);
     if ( match > -1 ) {
       correctLetters++;
       solutionArray[match] = null;
     }
   }
 
-  console.log('correctLetters', correctLetters);
-  console.log('correctLetterLocations', correctLetterLocations);
+  console.log("correctLetters", correctLetters);
+  console.log("correctLetterLocations", correctLetterLocations);
   return correctLetters + "-" + correctLetterLocations;
 
 }
@@ -79,44 +79,44 @@ function mastermind(guess) {
     board.push(hint);
     turns--;
     console.log("Turns remaining " + turns);
-    console.log('board', board.length);
+    console.log("board", board.length);
     return "Try again!";
   } 
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log('\n' + 'Guess:');
-    console.log( mastermind(guess) + '\n');
-    console.log('Board:');
+  rl.question("guess: ", (guess) => {
+    console.log("\n" + "Guess:");
+    console.log( mastermind(guess) + "\n");
+    console.log("Board:");
     printBoard();
-    console.log('\n' + 'Solution: ' + solution + '\n');
+    console.log("\n" + "Solution: " + solution + "\n");
     getPrompt();
   });
 }
 
 // Tests
 
-if (typeof describe === 'function') {
+if (typeof describe === "function") {
 
-  describe('#mastermind()', function () {
-    it('should register a guess and generate hints', function () {
-      solution = 'abcd';
-      mastermind('aabb');
+  describe("#mastermind()", function () {
+    it("should register a guess and generate hints", function () {
+      solution = "abcd";
+      mastermind("aabb");
       assert.equal(board.length, 1);
     });
-    it('should be able to detect a win', function () {
-      assert.equal(mastermind(solution), 'You guessed it!');
+    it("should be able to detect a win", function () {
+      assert.equal(mastermind(solution), "You guessed it!");
     });
   });
 
-  describe('#generateHint()', function () {
-    it('should generate hints', function () {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
+  describe("#generateHint()", function () {
+    it("should generate hints", function () {
+      assert.equal(generateHint("abcd", "abdc"), "2-2");
     });
-    it('should generate hints if solution has duplicates', function () {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
+    it("should generate hints if solution has duplicates", function () {
+      assert.equal(generateHint("abcd", "aabb"), "1-1");
     });
 
   });

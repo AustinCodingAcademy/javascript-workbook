@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-$(document).on('ready', function() {
+$(document).on("ready", function() {
 
   // ****
   // jQuery
@@ -10,10 +10,10 @@ $(document).on('ready', function() {
   // more dom manipulation
   // ****
 
-  // First, I'm going to select these for you
-  var $firstList = $('#first-list');
-  var $secondList = $('#second-list');
-  var $finalList = $('#final-list');
+  // First, I"m going to select these for you
+  var $firstList = $("#first-list");
+  var $secondList = $("#second-list");
+  var $finalList = $("#final-list");
 
   // Problem 1:
   // Get the children of #first-list using the .children() method
