@@ -27,18 +27,18 @@ function movePiece(startStack, endStack) {
 function isLegal(startStack, endStack) {
     // Your code here
 
-    // set up access to variables that need to be compared
-    var firstStack = stacks[startStack].length - 1;
-    var secondStack = stacks[endStack].length - 1;
-    var compareA = stacks[startStack][firstStack];
-    var compareB = stacks[endStack][secondStack];
+    // set up access to the last index of startStack and endStack
+    var lastIndexStartStack = stacks[startStack].length - 1;
+    var lastIndexEndStack = stacks[endStack].length - 1;
+    var topStartStack = stacks[startStack][lastIndexStartStack];
+    var topEndStack = stacks[endStack][lastIndexEndStack];
 
-    // compare selected variables
-    if (compareB === undefined) {
-        if (compareA !== undefined) {
+    // compare selected variables: if both stacks empty return false, if endStack empty but startStack filled return true, if both stacks filled if startStack is greater than endStack return true
+    if (topEndStack === undefined) {
+        if (topStartStack !== undefined) {
             return true;
         }
-    } else if (compareA < compareB) {
+    } else if (topStartStack < topEndStack) {
         return true;
     } else {
         return false;
