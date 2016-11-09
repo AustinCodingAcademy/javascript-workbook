@@ -54,7 +54,7 @@ returnTheFirstArgument("bob");
 var ternaryResult1 = true ? "first" : "second";
 var ternaryResult2 = false ? "first" : "second";
 var ternaryResult3 = 4 ? "first" : "second";
-var ternaryResult4 = "" ? "first" : "second";
+var ternaryResult4 = "''" ? "first" : "second";
 
 // Problem 4:
 // What is the value of ternaryResult1
