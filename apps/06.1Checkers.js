@@ -122,10 +122,9 @@ function Game() {
 
     console.log("checker", checker);
 
-    if (boardGrid[endRow][endColumn] === null) {
-      boardGrid[startRow][startColumn] === null;
-      boardGrid[endRow][endColumn] = checker;
-    }
+    boardGrid[startRow][startColumn] === null;
+    boardGrid[endRow][endColumn] = checker;
+    
     // remove checker from grid by setting row/column to null
     //this.board.grid[startRow][startColumn] = null;
 
