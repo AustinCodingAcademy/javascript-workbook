@@ -124,13 +124,6 @@ function Game() {
 
     boardGrid[startRow][startColumn] = null;
     boardGrid[endRow][endColumn] = checker;
-    
-    // remove checker from grid by setting row/column to null
-    //this.board.grid[startRow][startColumn] = null;
-
-    //var endCheckerMove = this.board.selectChecker(endRow, endColumn);
-    
-    // Inside the method, use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker.
 
   };
 
