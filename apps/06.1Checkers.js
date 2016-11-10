@@ -87,8 +87,15 @@ function Board() {
     // return the selected checker
     return this.grid[row][column];
   };
+
   this.killChecker = function (position) {
-    console.log("position", position);
+    //this.selectChecker(position.splice())
+    /*var rowPosition = parseInt(position[0]);
+    var colPosition = parseInt(position[1]);
+    
+    this.grid[rowPosition][colPosition] = null;
+    this.checkers.pop();
+    console.log("position", position);*/
     // slice string from row - position and then push back to the array
   };
 }
@@ -99,27 +106,33 @@ function Game() {
   this.checker = new Checker();
 
   this.moveChecker = function(start, end) {
-    
+
     var startRow = start.split("")[0];
     var startColumn = start.split("")[1];
     var endRow = end.split("")[0];
     var endColumn = end.split("")[1];
+    var boardGrid = this.board.grid;
+
+    console.log("startRow", startRow);
+    console.log("startColumn", startColumn);
+    console.log("endRow", endRow);
+    console.log("endColumn", endColumn);
 
     var checker = this.board.selectChecker(startRow, startColumn);
 
+    console.log("checker", checker);
+
+    if (boardGrid[endRow][endColumn] === null) {
+      boardGrid[startRow][startColumn] === null;
+      boardGrid[endRow][endColumn] = checker;
+    }
     // remove checker from grid by setting row/column to null
-    this.board.grid[startRow][startColumn] = null;
+    //this.board.grid[startRow][startColumn] = null;
 
     //var endCheckerMove = this.board.selectChecker(endRow, endColumn);
     
     // Inside the method, use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker.
 
-    //console.log(this.selectChecker(this.moveChecker(this.row, this.column)));
-    /*this.start = null;
-    this.end = start;*/
-    //console.log(column);
-    // console.log(this.checker);
-    //this.selectChecker[start][whiteRow][whiteColumn] = this.checker;
   };
 
   this.start = function() {
