@@ -50,14 +50,14 @@ function generateHint(solution, guess) {
             solutionArray[targetIndex] = null;
         }
     }
-    return (correctLetterLocations + "-" + correctLetters);
-
+    var hint = (correctLetterLocations + "-" + correctLetters);
+     board.push(guess + '' +hint);
+        return hint;
 }
 
 
 function mastermind(guess) {
-    board [0]= guess;
-    console.log(generateHint(solution, guess));
+    generateHint(solution, guess);
     console.log(guess);
     console.log(solution);
     if (guess != 0 || guess != null) {
@@ -71,7 +71,7 @@ function mastermind(guess) {
 }
 
 function getPrompt() {
-    // 
+    //
     rl.question('guess: ', (guess) => {
         console.log(mastermind(guess));
         // console.log(guess);
