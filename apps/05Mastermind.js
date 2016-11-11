@@ -50,31 +50,31 @@ function generateHint(solution, guess) {
     }
   }
    var hint = correctLetterLocations + '-' + correctLetters;
-   var guessHint = guess + ' , ' + hint;
-   board.push(guessHint);
-   return hint;
+   //var guessHint = guess + ' , ' + hint;
+   board.push(guess + ' , '  + hint);
+   return hint
 }
 
 function mastermind(guess) {
   // your code here
-  solution = 'abcd';
+  //solution = 'abcd';
   //generateSolution();
   if ( guess === solution) {
     return 'You guessed it!';
   }
   generateHint(solution, guess);
+  if (board.length < 10) {
+    return 'Guess again.';
+  } else {
+    return 'You ran out of turns! The solution was ' + solution;
+  }
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
+    console.log(mastermind(guess));
     printBoard();
-    if (board.length < 10) {
-      return 'Guess again.';
-    } else {
-      return 'You ran out of turns! The solution was ' + solution;
-    }
     getPrompt();
   });
 }
