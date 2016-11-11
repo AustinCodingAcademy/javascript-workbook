@@ -8,11 +8,56 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
+  this.checkers =[];
+  this.createCheckers = function() {
+    var whitePositions = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+    for (var i = 0; i < whitePositions.length; i++){
+      //this.Checker(white);
+      var wPos = whitePositions[i];
+
+      //this.checkers.push(checker);
+      var row = wPos[0];
+      var column = wPos[1];
+      var checker = new Checker('white');
+      this.grid[row][column] = checker;
+      this.checkers.push(checker);
+    }
+    for (var i = 0; i < blackPositions.length; i++){
+      //this.Checker(black);
+      var bPos = blackPositions[i];
+
+      //checkers.push(checker);
+      var row = bPos[0];
+      var column = bPos[1];
+      var checker = new Checker('black');
+      this.grid[row][column] = checker;
+      this.checkers.push(checker);
+    }
+  }
+  this.selectChecker = function(row, column){
+    return this.grid[row][column];
+  }
+
+
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -53,6 +98,7 @@ function Board() {
   };
 
   // Your code here
+
 }
 function Game() {
 
@@ -61,6 +107,19 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
+  };
+  //start might look like 50
+  //end might look like 41
+  this.moveChecker = function(start, end){
+    //Inside the method, use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker. Then set that spot on the grid to null and set the spot at the end rowcolumn coordinate to the checker.
+    var startRow = start.split('')[0];
+    var startColumn =  start.split('')[1];
+    var endRow = end.split('')[0];
+    var endColumn = end.split('')[1];
+    var checker = this.board.selectChecker(startRow, startColumn);
+    this.board.grid[startRow][startColumn] = null;
+    this.board.grid[endRow][endColumn] = this.board.selectChecker(endRow, endColumn);
   };
 }
 
