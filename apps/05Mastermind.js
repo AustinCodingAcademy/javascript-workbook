@@ -59,7 +59,12 @@ function generateHint(soultion, guess) {
     }
   }
 
-  return correctLetterLocations + '-' + correctLetters;
+
+  var hint = correctLetterLocations + '-' + correctLetters;
+  board.push(guess + ' ' + hint);
+  console.log(board);
+  return hint;
+
 }
 
 function mastermind(guess) {
@@ -71,15 +76,13 @@ function mastermind(guess) {
     return('You guessed it!');
   }
 
+  generateHint(solution, guess);
+
   if (board.length <= 10) {
     return ('Guess again');
     } else {
       return ('You ran out of turns. The solution was ' + solution);
   }
-
-  var hint = generateHint(solution, guess);
-  board.push(guess + ' ' + hint);
-  return hint;
 
 }
 
