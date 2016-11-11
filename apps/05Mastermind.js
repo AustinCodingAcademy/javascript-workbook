@@ -11,6 +11,8 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var lossCheck = false;
+var winCheck = false;
 
 function printBoard() {
     for (var i = 0; i < board.length; i++) {
@@ -57,36 +59,24 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
     // your code here
-    if (guess === solution) {
-        return 'You guessed it!';
-    } else if (guess !== solution) {
-        var currentHint = generateHint(solution, guess);
-        console.log(currentHint);
-        board.push(guess + ' ' + currentHint);
-    }
-}
-
-function lossCheck() {
-    printBoard();
-    if (board.length >= 10) {
-        console.log('You ran out of turns! The solution was ' + solution);
-        return true;
+    var currentHint = generateHint(solution, guess);
+    board.push(guess + ' ' + currentHint);
+    if (board.length > 10) {
+        lossCheck = true;
+        return ('You ran out of turns! The solution was ' + solution);
+    } else if (guess === solution) {
+        winCheck = true;
+        return ('You guessed it!');
     } else {
         console.log('Guess again.');
     }
 }
 
-
 function getPrompt() {
     rl.question('guess: ', (guess) => {
         console.log(mastermind(guess));
-        // printBoard();
-        // if (board.length >= 10) {
-        //     return 'You ran out of turns! The solution was ' + solution;
-        // } else {
-        //     return 'Guess again.';
-        var lossState = lossCheck();
-        if (lossState !== true) {
+        if ((lossCheck !== true) && (winCheck !== true)) {
+            printBoard();
             getPrompt();
         }
     });
