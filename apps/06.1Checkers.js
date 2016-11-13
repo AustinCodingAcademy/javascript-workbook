@@ -8,11 +8,73 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+//we need to pass in a string into this class function
+//value will be 'white' or 'black'
+//only one of these two words
+function Checker(color) {
   // Your code here
+  //property called symbol
+  //but i cant just set it outright, if the color is white set it to String.fromCharCode(0x1<unicode>)
+  //if color is black set the symbol to String.fromCharCode(0x125CF)
+  if(color === 'white'){
+   this.symbol = String.fromCharCode(0x125CB);
+  }
+  else{
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
+  //create propery called checkers and assign it to an empty array
+//create method called 'createCheckers'
+this.checkers = [];
+this.createCheckers = function(){
+var whitePositions = [
+[0, 1], [0, 3], [0, 5], [0, 7],
+[1, 0], [1, 2], [1, 4], [1, 6],
+[2, 1], [2, 3], [2, 5], [2, 7]
+] ;
+var blackPositions = [
+[5, 0], [5, 2], [5, 4], [5, 6],
+[6, 1], [6, 3], [6, 5], [6, 7],
+[7, 0], [7, 2], [7, 4], [7, 6]
+] ;
+//need to put something in these above positions
+for (var i = 0; i < whitePositions.length; i++){
+   //cant hardcode row and col, where do i dynamictly row and col
+   var position = whitePositions[i];
+   //what is in position, an array with something like [0,1] 
+   var row = position[0];
+   var col = position[1];
+   //these are positions of each row, first.. then col, second.
+   //to get row and column out of it
+   var checker = new Checker('white');
+    this.grid[row][col] = checker;
+  this.checkers.push(checker);
+}
+////blackcheckrs/////
+for (var i = 0; i < blackPositions.length; i++){
+   
+   //cant hardcode row and col, where do i dynamictly row and col
+   var position = blackPositions[i];
+   //what is in position, an array with something like [0,1] 
+   var row = position[0];
+   var col = position[1];
+
+   var checker = new Checker('black');
+   this.grid[row][col] = checker;
+   //these are positions of each row, first.. then col, second.
+   //to get row and column out of it
+ this.checkers.push(checker);
+
+}
+//how do i put a checker on the grid
+//for example row 0 column 0 put an x
+
+
+// checkers.push(checkers);
+// checkers.push(checker);
+};
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -51,7 +113,10 @@ function Board() {
     }
     console.log(string);
   };
+this.selectChecker = function(row, column){
+return checker[row][column];
 
+}
   // Your code here
 }
 function Game() {
@@ -61,6 +126,20 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
+    //start might look like this 40, end might look like this 52.
+    this.moveChecker = function(start, end){
+      //we need to send in row and col to select checker
+      var startrow =start.split('')[0];
+      var startcol =start.split('')[1];
+      var endrow =end.split('')[0];
+      var endcol =end.split('')[1];
+
+    var checker = this.board.selectChecker(startrow, startcol, endrow, endcol);
+    //we are removing checker from grid, grid is in property called grid
+       this.board.grid[startrow][startcol] = null;
+        this.board.grid[endrow][endcol] = checker;
+    }
   };
 }
 
