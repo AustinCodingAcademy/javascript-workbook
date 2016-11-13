@@ -73,11 +73,37 @@ function mastermind(guess) {
 }
 
 function getPrompt() {
+    console.log('Guess a 4 letter string using the letters a, b, c, d, e, f, g, and h')
     rl.question('guess: ', (guess) => {
+        // scrub input
+        guess = guess.trim();
+        guess = guess.toLowerCase();
+
+        // if board doesn't meet loss or win condition, execute the game
         console.log(mastermind(guess));
         if ((lossCheck !== true) && (winCheck !== true)) {
             printBoard();
             getPrompt();
+        } else {
+            // if loss or win condition is met ask user if they'd like to play again
+            rl.question('Would you like to play again? Enter y/n: ', (playAgain) => {
+                playAgain = playAgain.trim();
+                playAgain = playAgain.toLowerCase();
+
+                // if yes, reset the winCheck and board to default and start game over
+                if (playAgain === 'y') {
+                    winCheck = false;
+                    lossCheck = false;
+                    board = [];
+                    solution = '';
+                    generateSolution();
+                    getPrompt();
+
+                // otherwise cease execution of game
+                } else {
+                    return;
+                }
+            })
         }
     });
 }
