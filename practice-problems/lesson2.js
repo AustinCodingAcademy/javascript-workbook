@@ -16,11 +16,6 @@ function typeChecker(checkedVar) {
   }
 }
 
-console.log(typeChecker(4));
-console.log(typeChecker("greg"));
-
-
-
 
 //3. Write a conditional statement that prints out “divisible by 2”, “divisible by 3”, “divisible by 4”, or “divisible by 5” if a number is divisible by each of these numbers, respectively.
 
@@ -28,15 +23,15 @@ console.log(typeChecker("greg"));
 
 function numChecker(num) {
   if (num % 2 === 0) {
-    console.log("divisible by 2");
+    return "divisible by 2";
   } else if (num % 3 === 0) {
-    console.log("divisible by 3");
+    return "divisible by 3";
   } else if (num % 4 === 0) {
-    console.log("divisible by 4");
+    return "divisible by 4";
   } else if (num % 5 === 0) {
-    console.log("divisible by 5");
+    return "divisible by 5";
   } else {
-    console.log("not divisible");
+    return "not divisible";
   }
 }
 
@@ -56,8 +51,6 @@ function printReturnedString(string) {
   return string;
 }
 
-console.log(printReturnedString("Hey you Jamoke!"));
-
 //5. Create a function that prints out the average of a set of numbers.
 
 //Answer:
@@ -74,7 +67,6 @@ function averageChecker(num) {
   return average;
 
 }
-console.log(averageChecker([1, 3, 41, 5]));
 
 
 //6. Call your above function and write the code to make the average print out.

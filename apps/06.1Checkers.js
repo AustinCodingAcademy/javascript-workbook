@@ -89,6 +89,17 @@ function Board() {
   };
 
   this.killChecker = function (position) {
+    
+    console.log("position", position);
+
+    var movedChecker = this.selectChecker(position[0],position[1]);
+    var killedChecker = this.checkers.indexOf(movedChecker);
+
+    console.log("movedChecker", movedChecker);
+    console.log("killedChecker", killedChecker);
+
+    this.checkers.splice(killedChecker, 1);
+    this.grid[position[0]][position[1]] = null
     //this.selectChecker(position.splice())
     /*var rowPosition = parseInt(position[0]);
     var colPosition = parseInt(position[1]);
@@ -124,6 +135,23 @@ function Game() {
 
     boardGrid[startRow][startColumn] = null;
     boardGrid[endRow][endColumn] = checker;
+
+    var moveDistance = Math.abs(startRow - endRow);
+    console.log("moveDistance", moveDistance);
+
+    if (moveDistance === 2){
+
+        var killPositionX = (startRow + endRow) / 2;
+        var killPositionY = (startColumn + endColumn) / 2;
+        var killPosition = killPositionX + "" + killPositionY;
+        console.log("killPositionX", killPositionX);
+        console.log("killPositionY", killPositionY);
+        console.log("killPosition", killPosition);
+
+        var killedChecker = this.board.killChecker(killPosition);
+        console.log("killedCheckerGame", killedChecker)
+        killedChecker = null;
+    }
 
   };
 

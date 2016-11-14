@@ -52,23 +52,16 @@ function generateHint(solution, guess) {
   }
   for (var j = 0; j < guessArray.length; j++) {
     match = solutionArray.indexOf(guessArray[j]);
-    console.log("match", match);
     if ( match > -1 ) {
       correctLetters++;
       solutionArray[match] = null;
     }
   }
-
-  console.log("correctLetters", correctLetters);
-  console.log("correctLetterLocations", correctLetterLocations);
   return correctLetters + "-" + correctLetterLocations;
-
 }
 
 function mastermind(guess) {
   // your code here
-  console.log(guess);
-  console.log(solution);
 
   if (guess === solution) {
     return "You guessed it!";
@@ -78,20 +71,14 @@ function mastermind(guess) {
     var hint = generateHint(solution, guess);
     board.push(hint);
     turns--;
-    console.log("Turns remaining " + turns);
-    console.log("board", board.length);
-    return "Try again!";
+    return "Try again, turns remaining  " + turns;
   } 
 }
 
 
 function getPrompt() {
   rl.question("guess: ", (guess) => {
-    console.log("\n" + "Guess:");
-    console.log( mastermind(guess) + "\n");
-    console.log("Board:");
     printBoard();
-    console.log("\n" + "Solution: " + solution + "\n");
     getPrompt();
   });
 }

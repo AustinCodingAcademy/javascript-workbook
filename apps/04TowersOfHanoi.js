@@ -37,7 +37,6 @@ function movePiece(startStack, endStack) {
 
   // undefined check
   if (typeof poppedStack === "undefined") {
-    console.log("You cannot pop this stack, its empty");
     return false;
   } else {
     towerToAddTo.push(poppedStack);
@@ -55,11 +54,9 @@ function isLegal(startStack, endStack) {
     return true;
   }
   if (legalStart === legalEnd) {
-    console.log("Pick Different Stacks");
     return false;
   } 
   if (startLength < endLength) {
-    console.log("Piece moved");
     return true; 
   } else {
     return false;
@@ -81,7 +78,6 @@ function checkForWin(startStack, endStack) {
   var winning = stacks.b.length === 4 || stacks.c.length === 4;
 
   if (winning) {
-    console.log("You have won!");
     resetBoard();
   }
   return winning;

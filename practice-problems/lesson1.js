@@ -5,7 +5,7 @@ var a = 4;
 var b = 3;
 
 if (a > b) {
-  console.log("true");
+  return "true";
 }
 
 //2. What is a null value? Provide one example.
@@ -13,27 +13,22 @@ if (a > b) {
 //An assignment value put away to be used for later
 
 var variableForLater = null;
-console.log(variableForLater);
 
 variableForLater = "Can I meet you later?";
-console.log(variableForLater);
 
 //3. List and describe 3 more data types used in JS.
 
 // A string - anything put between quotes
 
 var thisIsAString = "Greg";
-console.log(thisIsAString);
 
 // undefined - a variable declared but to be used for later
 
 var thisIsUndefined;
-console.log(thisIsUndefined);
 
 // number - anything with a numeric or integer value
 
 var thisIsANumber = 4;
-console.log(thisIsANumber);
 
 //4. Why do we use comments in JS?
 
@@ -48,7 +43,6 @@ console.log(thisIsANumber);
 //6. Write the code to log the output "Hello World".
 
 var helloWorld = "Hello World";
-console.log(helloWorld);
 
 
 //7. What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
@@ -62,15 +56,15 @@ var e = 2;
 var f = 3;
 
 if ((d && e) > f) {
-  console.log("TRUE");
+  return "TRUE";
 } else {
-  console.log("FALSE");
+  return "FALSE";
 }
 
 if ((d || e) > f) {
-  console.log("true");
+  return "true";
 } else {
-  console.log("false");
+  return "false";
 }
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
@@ -89,15 +83,11 @@ if ((d || e) > f) {
 
 //9. 
 
-console.log("9:", true && false);
-
 //Answer: false
 
 
 
 //10. 
-
-console.log("10:", false && true);
 
 //Answer: false
 
@@ -105,15 +95,11 @@ console.log("10:", false && true);
 
 //11. 
 
-console.log("11:", true && true && false);
-
 //Answer: false
 
 
 
 //12. 
-
-console.log("12:", true || false);
 
 //Answer: true
 
@@ -121,21 +107,16 @@ console.log("12:", true || false);
 
 //13. 
 
-console.log("13:", false || true);
-
 //Answer: true
 
 
 //14. 
-
-console.log("14:", true || true || false);
 
 //Answer: true
 
 
 //15. 
 
-console.log("15:", !true);
 
 //Answer: false
 
@@ -143,20 +124,16 @@ console.log("15:", !true);
 
 //16. 
 
-console.log("16:", !false);
-
 //Answer: true
 
 
 //17. 
 
-console.log("17:", !!"Hello");
 
 //Answer: true
 
 //18. 
 
-console.log("18:", !!null);
 
 //Answer: false
 
@@ -165,7 +142,6 @@ console.log("18:", !!null);
 var x = 7;
 var y = 5;
 
-console.log("19:", x !== y);
 
 //Answer: true
 
@@ -202,5 +178,3 @@ var numTen = 10;
 //22. What does (7 - 4 && 6 + 3) || (7 < 5 || 8 > 4) evaluate to? Explain how you solved your answer.
 
 //Answer:  The answer is 9 .  With the order of precendence the items within the parens are evaluated first.  Then the operations move outward.  so 7 - 4 is equal to 3 and 6 + 3 is equal to nine for a value.  In the other block.  Is 7 < 5 = false or 8 > 4 true so that block will evaluate to true since its using the || operator.  The operation then compares whether 9 or true.  In this instance it will return 9. 
-
-console.log((7 - 4 && 6 + 3) || (7 < 5 || 8 > 4));
