@@ -8,11 +8,63 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
+  else{this.symbol = String.fromCharCode(0x125CF);
+  }
+
 }
 
 function Board() {
+  //your code here
+  this.checkers = [];
+
+  this.createCheckers = function() {
+
+    var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+                          [1, 0], [1, 2], [1, 4], [1, 6],
+                          [2, 1], [2, 3], [2, 5], [2, 7]];
+
+    var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+                          [6, 1], [6, 3], [6, 5], [6, 7],
+                          [7, 0], [7, 2], [7, 4], [7, 6]];
+
+
+    for (var i = 0; i < whitePositions.length; i++) {
+
+        var position = whitePositions[i];
+
+        var row = position[0];
+        var column = position[1];
+
+        var checker = new Checker('white');
+        this.grid[row][column] = checker;
+    }
+  for (var i = 0; i < blackPositions.length; i++) {
+      var position = blackPositions[i];
+
+      var row = position[0];
+      var column = position[1];
+
+      var checker = new Checker('black');
+      this.grid[row][column] = checker;
+    }
+
+    this.killChecker = function(position){
+      var selectedChecker = this.selectChecker(position[0],position[1]);
+      var checkerIndex = this.checkers.indexOf(selectedChecker);
+
+      this.checkers.splice(checkerIndex,1);
+      this.grid[position[0]][position[1]] = null;
+    };
+
+  }
+
+
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -53,6 +105,12 @@ function Board() {
   };
 
   // Your code here
+  this.checker = function(row, column){
+    return this.grid[row][column];
+  };
+
+
+
 }
 function Game() {
 
@@ -61,7 +119,20 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
+
+
+//Need help understanding this method
+
+  this.moveChecker = function(start,end){
+    var checker = this.board.selectChecker(start[0], start[1]);
+    this.board.grid[start[0]][start[1]] = null;
+    this.board.grid[end[0]][end[1]] = checker;
+  }
+
+//Need help with kill class here
+
 }
 
 function getPrompt() {
