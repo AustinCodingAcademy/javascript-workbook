@@ -54,13 +54,14 @@ function Board() {
     console.log(string);
   };
 
+
   this.checkers = [];
   this.createCheckers = function (checker) {
 
   var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
   var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
 
-    for (i = 0; i < whitePositions.length; i++) {
+    for (var i = 0; i < whitePositions.length; i++) {
       var whiteRow = whitePositions[i][0];
       var whiteColumn = whitePositions[i][1];
 
@@ -68,7 +69,7 @@ function Board() {
       this.checkers.push(this.grid[whiteRow][whiteColumn]);
     }
 
-    for (i = 0; i < blackPositions.length; i++) {
+    for (var i = 0; i < blackPositions.length; i++) {
       var blackRow = blackPositions[i][0];
       var blackColumn = blackPositions[i][1];
 
@@ -79,30 +80,26 @@ function Board() {
 
   this.selectChecker = function(row, column) {
     // return the selected checker
+    console.log("selected Checker", this.grid[row][column]);
     return this.grid[row][column];
   };
 
   this.killChecker = function (position) {
-    
-    console.log("position", position);
 
-    var movedChecker = this.selectChecker(position[0],position[1]);
-    var killedChecker = this.checkers.indexOf(movedChecker);
 
-    console.log("movedChecker", movedChecker);
+    var row = position[0];
+    var column = position[1];
+
+    var movedChecker = this.selectChecker(row, column);
+    var indexChecker = this.checkers.indexOf(movedChecker);
+    var killedChecker = this.checkers.splice(indexChecker, 1);
+
+    console.log("indexChecker", indexChecker);
     console.log("killedChecker", killedChecker);
+    console.log("movedChecker", movedChecker);
 
-    console.log('killsplice', this.checkers.splice(killedChecker, 1));
-    console.log('grid position', this.grid[position[0]][position[1]] = null);
-    //this.selectChecker(position.splice())
-    /*var rowPosition = parseInt(position[0]);
-    var colPosition = parseInt(position[1]);
-    
-    this.grid[rowPosition][colPosition] = null;
-    this.checkers.pop();
-    console.log("position", position);*/
-    // slice string from row - position and then push back to the array
-  };
+    this.grid[row][column] = null;
+  }
 }
 
 function Game() {
@@ -117,36 +114,26 @@ function Game() {
     var endRow = end.split("")[0];
     var endColumn = end.split("")[1];
     var boardGrid = this.board.grid;
-
-    /*console.log("startRow", startRow);
-    console.log("startColumn", startColumn);
-    console.log("endRow", endRow);
-    console.log("endColumn", endColumn);*/
-
     var checker = this.board.selectChecker(startRow, startColumn);
 
-    /*console.log("checker", checker);*/
+    console.log(checker);
 
     boardGrid[startRow][startColumn] = null;
     boardGrid[endRow][endColumn] = checker;
 
     var moveDistance = Math.abs(startRow - endRow);
-   /* console.log("moveDistance", moveDistance);*/
 
     if (moveDistance === 2){
 
-        var killPositionX = (startRow + endRow) / 2;
-        var killPositionY = (startColumn + endColumn) / 2;
-        var killPosition = killPositionX + "" + killPositionY;
-        console.log("killPositionX", killPositionX);
-        console.log("killPositionY", killPositionY);
-        console.log("killPosition", killPosition);
+      var killPositionX = (parseInt(startRow) + parseInt(endRow)) / 2;
+      var killPositionY = (parseInt(startColumn) + parseInt(endColumn)) / 2;
+      var killPosition = [killPositionX , killPositionY];
 
-        var killedChecker = this.board.killChecker(killPosition);
-        console.log("killedCheckerGame32", killedChecker);
-        killedChecker = null;
+      console.log("killPositionX", killPositionX);
+      console.log("killPositionY", killPositionY);
+      console.log("killPosition", killPosition);
+      this.board.killChecker(killPosition)
     }
-
   };
 
   this.start = function() {
