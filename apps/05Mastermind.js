@@ -1,5 +1,4 @@
 'use strict';
-
 var assert = require('assert');
 var colors = require('colors/safe');
 var readline = require('readline');
@@ -23,6 +22,7 @@ function generateSolution() {
         var randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
     }
+    return solution;
 }
 
 function getRandomInt(min, max) {
@@ -34,48 +34,44 @@ function generateHint(solution, guess) { //added solution and guess
     var solutionArray = solution.split('');
     var guessArray = guess.split('');
     var correctLetterLocations = 0;
-    for (var i = 0; i < 4; i++) {
-        if (solutionArray[i] === guessArray[i]) {
+    var correctLetters = 0;
+    for (var i = 0; i <= solution.length - 1; i++) {
+        if (guessArray[i] === solutionArray[i]) {
             correctLetterLocations++;
             solutionArray[i] = null;
         }
     }
-    var correctLetters = 0;
-    var targetIndex = 0;
-    for (var i = 0; i < 4; i++) {
-        targetIndex = solutionArray.indexof(guessArray[i]);
+    for (var i = 0; i <= solution.length - 1; i++) {
+        var targetIndex = solutionArray.indexOf(guessArray[i]);
         if (targetIndex > -1) {
             correctLetters++;
             solutionArray[targetIndex] = null;
         }
     }
-    return correctLetterLocations + "-" + correctLetters;
+    var hint = correctLetterLocations + '-' + correctLetters;
+    board.push(guess + ',' + hint);
+    return hint
 }
 
 function mastermind(guess) {
     // your code here
-    solution = 'abcd';
     if (guess === solution) {
-        winCheck = true;
-        return "You guessed correctly!";
+        return 'You guessed it!';
+    }
+    generateHint(solution, guess);
+    if (board.length < 10) {
+        return 'Guess again';
     } else {
-        var hint = generateHint(solution, guess);
-        board.push(guess + hint);
+        return 'You ran out of turns! The solution was ' + solution;
     }
 }
 
 function getPrompt() {
-    if (winCheck === false) {
-        promt.get(['guess'], function(error, result) {
-            if (board.length === 10) {
-                console.log('You are out of turns! The correct solution was ' + solution)
-            } else {
-                console.log(mastermind(result['guess']));
-                printBoard();
-                getPrompt();
-            }
-        });
-    }
+    rl.question('guess: ', (guess) => {
+        console.log(mastermind(guess));
+        printBoard();
+        getPrompt();
+    });
 }
 
 // Tests
