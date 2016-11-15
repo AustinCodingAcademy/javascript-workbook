@@ -7,29 +7,34 @@ $(document).ready(function() {
   var startStack;
   var endStack;
   var stackArray;
+  var bouncingPiece;
   var winningArray = ["25", "50", "75", "100"];
 
   $('div[data-stack]').on('click', myClickEvent); //if data-stack div is clicked then myClickEvent
 
   function myClickEvent(){
+    //starting stack
     if (startStackPiece == null) {
       startStack = $(this).attr('data-stack');
       stackArray = $(this).children().map(function(el, i) {return $(this).attr('data-block')}).get();
-      console.log(stackArray);
+      console.log("This is the stackArray " + stackArray);
       // startStack == $(this).attr("data-stack");
       startStackPiece = getTopPiece(stackArray);
-      // ($(this).children("[data-block='25']")).effect( "bounce", {times:5000} );
-      bounce();
-      // $(this).effect( "bounce", {times:3}, 300 );
+      bouncingPiece = $(this).children("[data-block='" + stackArray[0] + "']");
+      bouncingPiece.addClass("bounce animated infinite");
+      // ($(this).children("[data-block='" + stackArray[0] + "']")).effect( "bounce", {times:5}, "slow" );
+      // changeToBounce($(this));
 
       console.log("start top piece is " + startStackPiece);
       console.log("start stack is " + startStack);
     }
 
     else if (endStackPiece == null) {
+      bouncingPiece.removeClass("bounce animated infinite");
+      ($(this).children("[data-block='" + stackArray[0] + "']")).addClass("bounce animated infinite");
       endStack = $(this).attr('data-stack');
       stackArray = $(this).children().map(function(el, i) {return $(this).attr('data-block')}).get();
-      console.log(stackArray);
+      console.log("This is the stackArray " + stackArray);
       // startStack == $(this).attr("data-stack");
       endStackPiece = getTopPiece(stackArray);
       console.log("end top piece is " + endStackPiece);
@@ -37,21 +42,39 @@ $(document).ready(function() {
       if (checkValid(startStackPiece, endStackPiece)) {
       console.log(startStackPiece + "is valid" + endStackPiece);
         movePiece();
-        if (checkForWin()) {$("#announce-game-won").text("YOU WON!")} ;
+        if (checkForWin()) {
+          $("#announce-game-won").text("YOU WON!")
+          //disable clicking
+        } ;
       }
       else {
+        bouncingPiece.removeClass("bounce animated infinite");
         console.log(startStackPiece + "is invalid" + endStackPiece);
         clear();
       }
     }
 
-    else {}
+    else {
+      bouncingPiece.removeClass("bounce animated infinite");
+    }
   }
 
+  function bounce(clickedStack) {
+    (clickedStack.children("[data-block='25']")).effect( "bounce", {times:5}, "slow" );
 
-  function bounce() {
-      $(this).effect('bounce', '1000');
+    setTimeout(function name() {
+      bounce(clickedStack);
+    }, 1000);
   }
+
+  // var bounceFlag = true;
+  // function bounce(clickedStack) {
+  //   (clickedStack.children("[data-block='25']")).effect( "bounce", {times:5}, "slow" );
+  //
+  //   setTimeout(function name() {
+  //     bounce(clickedStack);
+  //   }, 1000);
+  // }
 
   function checkForWin() {
     var stackArray2 = $("[data-stack='2']").children().map(function(el, i) {return $(this).attr('data-block')}).get();

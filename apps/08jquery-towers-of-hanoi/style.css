@@ -3,6 +3,8 @@ body {
 }
 
 #title {
+  margin-top: 50px;
+  margin-bottom: 25px;
   text-align: center;
   font-size: 50px;
 }
@@ -53,6 +55,17 @@ body {
 }
 
 #announce-game-won {
+  height: 70px;
   font-size: 50px;
   text-align: center;
+}
+
+#clear {
+  width: 100%;
+  text-align: center;
+  box-shadow: none;
+  border-radius: 5px;
+  background-color: #7ded95;
+  font-size: 25px;
+  font-family: 'Patrick Hand SC', cursive;
 }

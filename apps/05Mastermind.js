@@ -23,18 +23,82 @@ function generateSolution() {
     var randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
   }
+  // solution = "abcd";
+  // console.log(solution);
+
 }
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  //hint format exact-almost
+
+  var hint;
+  var guessArray = guess.split("");
+  var solutionArray = solution.split("");
+  // console.log(solutionArray);
+
+  //get exact matches
+  var exactMatch = 0;
+  for (var i = 0; i < solutionArray.length; i++ ) {
+    if (guessArray[i] === solutionArray[i]) {
+      delete guessArray[i];
+      delete solutionArray[i];
+      exactMatch++;
+    //  console.log("EXACT = [" + solutionArray +"]");
+    }
+  }
+  //for guess[i]...  loop through all of solutions and see if it detects a match.   if so closeMatch++
+  var closeMatch = 0;
+    // for (var i = 0; i < solutionArray.length; i++ ) {
+    //   if (guessArray[i] !== undefined) {
+    //     for (var j = 0; j < solutionArray.length; j++) {
+    //       if (guessArray[i] === solutionArray[j]) {
+    //         // console.log(solutionArray[i]);
+    //         delete solutionArray[j];
+    //         closeMatch++;
+    //         j=4;
+    //         // return;
+    //       }
+    //     }
+    //   }
+    // }
+
+    for (var i = 0; i < solutionArray.length; i++ ) {
+      if (solutionArray[i] !== undefined) {
+        if (guessArray.indexOf(solutionArray[i]) !== -1) {
+          // console.log("index of " + guessArray.indexOf(solutionArray[i]));
+          delete guessArray[guessArray.indexOf(solutionArray[i])];
+          console.log(guessArray);
+          closeMatch++;
+        }
+      }
+    }
+
+  console.log("exact:" + exactMatch + " close: " + closeMatch);
+  // console.log(solutionArray);
+  // console.log(exactMatch);
+  // var hint = exactMatch+ '-' + closeMatch;
+  var hint = closeMatch+ '-' + exactMatch;
+  console.log("the hint is " + hint);
+  return hint;
 }
 
 function mastermind(guess) {
   // your code here
+  // console.log(guess);
+  // board.push(guess.split(""));
+  board.push(guess);
+  // console.log(board);
+  if (guess === solution) {
+    return 'You guessed it!';
+  }
+  else {
+   generateHint(solution, guess);
+  }
 }
 
 

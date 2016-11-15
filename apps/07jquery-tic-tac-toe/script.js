@@ -45,8 +45,8 @@ $('div[data-cell]').on('click', myClickEvent);
 
   function checkForWin(){
     // what does el, i do?  what are parameters for function in jquery?
-    var boardArray = $('div[data-cell]').map(function(el, i) {
-      return $(i).html();
+    var boardArray = $('div[data-cell]').map(function(index, element) {
+      return $(element).html();
     }).get();
     checkHori(boardArray);
     checkVert(boardArray);
