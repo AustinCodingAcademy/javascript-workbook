@@ -36,11 +36,13 @@ function Ship(name, type, ability) {
             return "Can't perform a mission yet.";
         }
 
-        // if there is crew, loop through the crew array to check if any of the crew member's jobs match the ship type's requirements to conduct missions; if no crew pass the check then return can't perform yet msg
+        // if there is crew, loop through the crew array to check if any of the crew member's jobs match the ship type's requirements to conduct missions
         for (var i = 0; i < this.crew.length; i++) {
             if (jobTypes[this.crew[i].job] === this.type) {
                 return this.ability;
-            } else {
+                
+            // if it reaches the end of the array and no crew pass the check then return can't perform yet msg
+            } else if (i === this.crew.length - 1) {
                 return "Can't perform a mission yet.";
             }
         }
@@ -51,8 +53,9 @@ var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 var jim = new CrewMember ('Jim Abbot', 'mechanic', 'anatomy');
 
-// rick.enterShip(mav);
+
 jim.enterShip(mav);
+rick.enterShip(mav);
 
 // console.log(rick.ship.name);
 // console.log(mav.crew.length); //=> 1
