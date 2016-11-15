@@ -98,10 +98,26 @@ function Board() {
   };
 
   // Your code here
-  this.killChecker = function(position) {
-    var checkerPosition = this.checkers.indexOf(this.selectChecker(position[0],position[1]));
-    this.checkers.splice(checkerPosition,1);
-    this.grid[position[0]][position[1]] = null;
+  // this.killChecker = function(killRow, killColumn) {
+  //   //var checkerPosition = this.checkers.indexOf(this.selectChecker(position[0],position[1]));
+  //   //this.checkers.splice(checkerPosition,1);
+  //   this.grid[killRow][killColumn] = null;
+  // }
+  this.killChecker = function(position){
+    //var y = position.splice(1,1);
+    //var x = position.splice(0,1);
+    var row = position[0];
+    var col = position[1];
+    var piece = this.selectChecker(row, col);
+    console.log(piece);
+    
+
+    var indexOfChecker = this.checkers.indexOf(piece);//maybe x,y? piece
+
+    this.checkers.splice(indexOfChecker, 1);
+    //this.grid[deadPiece] = null;
+    //this.grid[indexOfChecker] = null;
+    this.grid[row][col] = null;
   }
 
 }
@@ -125,26 +141,38 @@ function Game() {
     var checker = this.board.selectChecker(startRow, startColumn);
     this.board.grid[startRow][startColumn] = null;
     this.board.grid[endRow][endColumn] = checker;
-    if (startRow - endRow === 2){
-      var killRow = startRow -1;
-      if (startColumn - endColumn === 2) {
-        var killColumn = endColumn -1;
-      } else if (startColumn - endColumn === -2) {
-        var killColumn = endColumn + 1;
-      }
-      var killPosition = killRow+killColumn;
-      killChecker(killPosition);
+    var distance = Math.abs(startRow - endRow);
+    // var killX = Math.abs(startRow - endRow);
+    // var killY = Math.abs(startColumn - endColumn);
+    // var killPosition = (killX+killY);
+    if(distance === 2){
+      var killRow =(parseInt(startRow) + parseInt(endRow)) / 2; 
+      var killColumn = (parseInt(startColumn) + parseInt(endColumn)) / 2;
+      var killPosition = [killRow, killColumn];
+      this.board.killChecker(killPosition);
     }
-    if (startRow - endRow === -2){
-      var killRow = startRow +1;
-      if (startColumn - endColumn === 2) {
-        var killColumn = endColumn -1;
-      } else if (startColumn - endColumn === -2) {
-        var killColumn = endColumn + 1;
-      }
-      var killPosition = killRow+killColumn;
-      killChecker(killPosition);
-    }
+  //   if (startRow - endRow === 2){
+  //     var killRow = parseInt(startRow) -1;
+  //     if (startColumn - endColumn === 2) {
+  //       var killColumn = parseInt(endColumn) -1;
+  //     } else if (startColumn - endColumn === -2) {
+  //       var killColumn = parseInt(endColumn) + 1;
+  //     }
+  //     //var killPosition = killRow+killColumn;
+  //     console.log(killRow+killColumn);
+  //     this.killChecker(killRow, killColumn);
+  //   }
+  //   if (startRow - endRow === -2){
+  //     var killRow = parseInt(startRow) +1;
+  //     if (startColumn - endColumn === 2) {
+  //       var killColumn = parseInt(endColumn) -1;
+  //     } else if (startColumn - endColumn === -2) {
+  //       var killColumn = parseInt(endColumn) + 1;
+  //     }
+  //     //var killPosition = killRow+killColumn;
+  //     console.log(killRow, killColumn);
+  //     this.killChecker(killRow, killColumn);
+  //   }
   };
 }
 
