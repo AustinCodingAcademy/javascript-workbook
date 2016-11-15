@@ -7,12 +7,66 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function Checker() {
+//pass a string into this class function. The Value is either white or black.
+function Checker(color) {
   // Your code here
+  if(color === 'white'){
+    this.symbol === String.fromCharCode(0x1263B);
+    console.log(this.symbol + "checker");
+  }
+  else{
+    this.symbol === String.fromCharCode(0x1263A);
+  } 
+  
+  //Here i need to set the property called "symbol"
+  //if color is white > String.fromCharCode(0x125CB)
+  //if not then > String.fromCharCode(0x125CF)
+
+
 }
 
 function Board() {
+  //create a property called checkers and assign it to an empty array
+  this.checkers = [];
+  this.createCheckers = function(){
+    var whitePositions = [ 
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+];
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+
+for( var i = 0; i < whitePositions.length; i++){
+  var position = whitePositions[i];
+
+    
+    var row = position[0];
+    var column = position[1];
+
+  //Instanciating white checker
+  var checker = new Checker('white');
+  this.grid[row][column] = checker;
+  this.checkers.push(checker);
+
+}
+
+for( var i = 0; i < blackPositions.length; i++){
+  var position = blackPositions[i];
+    var row = position[0];
+    var column = position[1];
+
+  //Instanciating black checker
+  var checker = new Checker('black');
+  this.grid[row][column] = checker;
+}
+
+
+//create a method called 'createCheckers'
+}
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -57,12 +111,27 @@ function Board() {
 function Game() {
 
   this.board = new Board();
+  this.checkers = new Checker();
 
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
-}
+
+  this.moveChecker = function(start, end){
+    var startrow = start.split('')[0];
+    var startcolumn = start.split('')[1];
+    var endrow = end.split('')[0];
+    var endcolumn = end.split('')[1];
+
+    var checker = this.board.selectChecker(startrow,startcolumn);
+
+    this.board.grid[startrow][startcolumn] = null;
+  }
+
+
+};
 
 function getPrompt() {
   game.board.viewGrid();
