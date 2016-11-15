@@ -79,8 +79,6 @@ function Board() {
   };
 
   this.selectChecker = function(row, column) {
-    // return the selected checker
-    console.log("selected Checker", this.grid[row][column]);
     return this.grid[row][column];
   };
 
@@ -93,10 +91,6 @@ function Board() {
     var movedChecker = this.selectChecker(row, column);
     var indexChecker = this.checkers.indexOf(movedChecker);
     var killedChecker = this.checkers.splice(indexChecker, 1);
-
-    console.log("indexChecker", indexChecker);
-    console.log("killedChecker", killedChecker);
-    console.log("movedChecker", movedChecker);
 
     this.grid[row][column] = null;
   }
@@ -116,8 +110,6 @@ function Game() {
     var boardGrid = this.board.grid;
     var checker = this.board.selectChecker(startRow, startColumn);
 
-    console.log(checker);
-
     boardGrid[startRow][startColumn] = null;
     boardGrid[endRow][endColumn] = checker;
 
@@ -129,9 +121,6 @@ function Game() {
       var killPositionY = (parseInt(startColumn) + parseInt(endColumn)) / 2;
       var killPosition = [killPositionX , killPositionY];
 
-      console.log("killPositionX", killPositionX);
-      console.log("killPositionY", killPositionY);
-      console.log("killPosition", killPosition);
       this.board.killChecker(killPosition)
     }
   };
