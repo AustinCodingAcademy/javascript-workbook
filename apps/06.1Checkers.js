@@ -98,6 +98,11 @@ function Board() {
   };
 
   // Your code here
+  this.killChecker = function(position) {
+    var checkerPosition = this.checkers.indexOf(this.selectChecker(position[0],position[1]));
+    this.checkers.splice(checkerPosition,1);
+    this.grid[position[0]][position[1]] = null;
+  }
 
 }
 function Game() {
@@ -113,13 +118,33 @@ function Game() {
   //end might look like 41
   this.moveChecker = function(start, end){
     //Inside the method, use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker. Then set that spot on the grid to null and set the spot at the end rowcolumn coordinate to the checker.
-    var startRow = start.split('')[0];
-    var startColumn =  start.split('')[1];
-    var endRow = end.split('')[0];
-    var endColumn = end.split('')[1];
+    var startRow = start.split("")[0];
+    var startColumn = start.split("")[1];
+    var endRow = end.split("")[0];
+    var endColumn = end.split("")[1];
     var checker = this.board.selectChecker(startRow, startColumn);
     this.board.grid[startRow][startColumn] = null;
-    this.board.grid[endRow][endColumn] = this.board.selectChecker(endRow, endColumn);
+    this.board.grid[endRow][endColumn] = checker;
+    if (startRow - endRow === 2){
+      var killRow = startRow -1;
+      if (startColumn - endColumn === 2) {
+        var killColumn = endColumn -1;
+      } else if (startColumn - endColumn === -2) {
+        var killColumn = endColumn + 1;
+      }
+      var killPosition = killRow+killColumn;
+      killChecker(killPosition);
+    }
+    if (startRow - endRow === -2){
+      var killRow = startRow +1;
+      if (startColumn - endColumn === 2) {
+        var killColumn = endColumn -1;
+      } else if (startColumn - endColumn === -2) {
+        var killColumn = endColumn + 1;
+      }
+      var killPosition = killRow+killColumn;
+      killChecker(killPosition);
+    }
   };
 }
 
