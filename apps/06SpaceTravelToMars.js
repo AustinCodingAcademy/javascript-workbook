@@ -16,9 +16,9 @@ function CrewMember(name, job, specialSkill) {
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
-  this.enterShip = function(ship) {
-    this.ship = ship;
-    ship.crew.push(this);
+  this.enterShip = function(theship) {
+    this.ship = theship;
+    this.ship.crew.push(this);
   };
 }
 
@@ -33,7 +33,7 @@ function Ship(name, type, ability) {
         return this.ability;
       }
     }
-    return "Can't perform a mission yet.";    
+    return "Can't perform a mission yet.";
   };
 }
 
