@@ -9,7 +9,8 @@
   "author": "Kevin Colten",
   "scripts": {
     "test": "mocha",
-    "start": "cd . && http-server -c-1"
+    "start": "cd . && http-server -c-1",
+    "server":"http-server"
   },
   "bugs": {
     "url": "https://github.com/AustinCodingAcademy/javascript-workbook/issues"
