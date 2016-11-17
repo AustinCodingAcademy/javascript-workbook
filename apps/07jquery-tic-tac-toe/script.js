@@ -3,12 +3,15 @@
 $(document).on("ready", function() {
   // Put app logic in here
   var $playerTurn = "X";
+  var turns = 0;
 
   function playerTurn() {
     $('[data-cell]').click(function(e){
       e.preventDefault();
       $(this).text($playerTurn);
       $playerTurn = ($playerTurn === "X") ? "O" : "X";
+      turns = turns += 1;
+      console.log(turns);
       checkForWin();
     })
   }
@@ -21,6 +24,8 @@ $(document).on("ready", function() {
   }
 
   function checkForWin() {
+
+    //var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
     var val0 = $('[data-cell="0"]').text();
     var val1 = $('[data-cell="1"]').text();
@@ -58,14 +63,17 @@ $(document).on("ready", function() {
     if (val2 === $playerTurn && val4 === $playerTurn && val6 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
     } 
-    if (val6 === $playerTurn && val4 === $playerTurn && val2 === $playerTurn) {
-      $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
-    } 
-    if (val8 === $playerTurn && val4 === $playerTurn && val0 === $playerTurn) {
-      $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
-    } 
-  
+
+    if (turns > 9) {
+      alert("Draw");
+      resetGame();
+    }
+  };
+
+  function resetGame() {
+    location.reload();
   }
+
   checkForWin();
   playerTurn();
   clearButton();
