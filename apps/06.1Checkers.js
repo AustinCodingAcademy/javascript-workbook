@@ -93,7 +93,7 @@ function Board() {
     var killedChecker = this.checkers.splice(indexChecker, 1);
 
     this.grid[row][column] = null;
-  }
+  };
 }
 
 function Game() {
@@ -121,7 +121,7 @@ function Game() {
       var killPositionY = (parseInt(startColumn) + parseInt(endColumn)) / 2;
       var killPosition = [killPositionX , killPositionY];
 
-      this.board.killChecker(killPosition)
+      this.board.killChecker(killPosition);
     }
   };
 
