@@ -85,5 +85,5 @@ $('#add-attribute').attr('data-color', 'red');
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
-  $('#data-element').text(attr('#data-content'));
+  $('#data-element').text($('#data-element').attr('data-content'));
 });
