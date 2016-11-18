@@ -28,19 +28,21 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function(){
-    for (var i = 0; i < this.crew.length; i++){
-      console.log(this.crew[i].job);
-      if (this.crew[i].job == this.type){
+    if (this.crew.length === 0){
+      return "Can't perform a mission yet.";
+    } else {
+      for (var i = 0; i < this.crew.length; i++){
+        if (this.crew[i].job === 'programmer'){
+          return this.ability;
+        } else if (jobTypes[this.crew[i].job] === this.type) {
+          return this.ability;
+        }else {
         return "Can't perform a mission yet.";
-      } else if (this.crew[i].job == 'programmer'){
-        return this.ability;
-      } else {
-        return this.ability;
+        }
       }
     }
-  }
+  };
 }
-
 
 
 //tests
