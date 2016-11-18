@@ -104,7 +104,7 @@ conferenceRoom.enter(jen);
 // Write your answer in comments
 //
 // What is a method?
-//
+// A method is a function that has access to and corresponds to an object.
 //
 
 // ****
