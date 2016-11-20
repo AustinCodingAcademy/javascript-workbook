@@ -32,7 +32,7 @@ function Ship(name, type, ability) {
     this.missionStatement = function() {
 
         // QUICK EXIT -- if there are no crew members return can't perform yet msg
-        if (this.crew == false) {
+        if (this.crew.length === 0) {
             return "Can't perform a mission yet.";
         }
 
@@ -40,7 +40,7 @@ function Ship(name, type, ability) {
         for (var i = 0; i < this.crew.length; i++) {
             if (jobTypes[this.crew[i].job] === this.type) {
                 return this.ability;
-                
+
             // if it reaches the end of the array and no crew pass the check then return can't perform yet msg
             } else if (i === this.crew.length - 1) {
                 return "Can't perform a mission yet.";
