@@ -8,7 +8,7 @@ $(document).on("ready", function() {
   var $dataCell = $('[data-cell]');
 
   function validatePlay() {
-    if ($dataCell.val() !== "") {
+    if (($dataCell.text() === "X") || ($dataCell.text() === "O")) {
       alert("Please select an empty cell");
       return true;
     }
@@ -20,7 +20,6 @@ $(document).on("ready", function() {
       
       // checks for win, validates play, max amount of moves per board
       checkForWin();
-      validatePlay();
 
       $playerTurn = ($playerTurn === "X") ? "O" : "X";
       turns = turns += 1;
@@ -44,12 +43,12 @@ $(document).on("ready", function() {
     $("#clear").click(function(e) {
       e.preventDefault();
       $('[data-cell]').empty();
+      $('#announce-winner').empty();
     })
   }
 
   function checkForWin() {
     console.log("Check for win");
-
     //var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
     var val0 = $('[data-cell="0"]').text();
@@ -93,7 +92,6 @@ $(document).on("ready", function() {
       $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
     } 
   };
-
   playerTurn();
   clearButton();
 });
