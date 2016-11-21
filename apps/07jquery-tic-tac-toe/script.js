@@ -3,17 +3,41 @@
 $(document).on("ready", function() {
   // Put app logic in here
   var $playerTurn = "X";
+  var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
   var turns = 0;
+  var $dataCell = $('[data-cell]');
 
+  function validatePlay() {
+    if ($dataCell.val() !== "") {
+      alert("Please select an empty cell");
+      return true;
+    }
+  }
   function playerTurn() {
-    $('[data-cell]').click(function(e){
+    $dataCell.click(function(e){
       e.preventDefault();
-      $(this).text($playerTurn);
+      var $turn = $(this).text($playerTurn);
+      
+      // checks for win, validates play, max amount of moves per board
+      checkForWin();
+      validatePlay();
+
       $playerTurn = ($playerTurn === "X") ? "O" : "X";
       turns = turns += 1;
       console.log(turns);
-      checkForWin();
+      maxMoves();
+    
     })
+  }
+  function maxMoves() {
+    if (turns >= 8) {
+      $('#announce-winner').text('Game is a draw, resetting board');
+      resetGame();
+    }
+  }
+  // reset game upon maximum cell choices
+  function resetGame() {
+    setTimeout(location.reload(), 10000);
   }
 
   function clearButton() {
@@ -24,6 +48,7 @@ $(document).on("ready", function() {
   }
 
   function checkForWin() {
+    console.log("Check for win");
 
     //var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
@@ -37,11 +62,15 @@ $(document).on("ready", function() {
     var val7 = $('[data-cell="7"]').text();
     var val8 = $('[data-cell="8"]').text();
 
+    console.log($playerTurn);
+
     if (val0 === $playerTurn && val1 === $playerTurn && val2 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
+      resetGame();
     } 
-    if (val3 === $playerTurn && val4 === $playerTurn && val5 === $playerTurn) {
+    if ((val3 === $playerTurn) && (val4 === $playerTurn) && (val5 === $playerTurn)) {
       $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
+      resetGame();
     } 
     if (val6 === $playerTurn && val7 === $playerTurn && val8 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
@@ -63,18 +92,8 @@ $(document).on("ready", function() {
     if (val2 === $playerTurn && val4 === $playerTurn && val6 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + " Wins!");
     } 
-
-    if (turns > 9) {
-      alert("Draw");
-      resetGame();
-    }
   };
 
-  function resetGame() {
-    location.reload();
-  }
-
-  checkForWin();
   playerTurn();
   clearButton();
 });
