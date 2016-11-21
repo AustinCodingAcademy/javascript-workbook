@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 //1. In your own words, explain what conditionals do.
 
 //Answer:  Conditionals are a set of instructions based on booleans for your computer program to execute code in one control flow or another.
@@ -9,10 +9,10 @@
 //Answer:
 
 function typeChecker(checkedVar) {
-  if (typeof checkedVar === "string"){
-    return "Good Job";
+  if (typeof checkedVar === 'string'){
+    return 'Good Job';
   } else {
-    return "Bad Job";
+    return 'Bad Job';
   }
 }
 
@@ -23,22 +23,22 @@ function typeChecker(checkedVar) {
 
 function numChecker(num) {
   if (num % 2 === 0) {
-    return "divisible by 2";
+    return 'divisible by 2';
   } else if (num % 3 === 0) {
-    return "divisible by 3";
+    return 'divisible by 3';
   } else if (num % 4 === 0) {
-    return "divisible by 4";
+    return 'divisible by 4';
   } else if (num % 5 === 0) {
-    return "divisible by 5";
+    return 'divisible by 5';
   } else {
-    return "not divisible";
+    return 'not divisible';
   }
 }
 
 numChecker(1);
 numChecker(2);
 numChecker(9);
-numChecker(24); // all 4"s are also divisible by 2 so not sure how to change this one.
+numChecker(24); // all 4's are also divisible by 2 so not sure how to change this one.
 numChecker(25);
 
 
@@ -96,18 +96,18 @@ var paramCity = function(num1, num2, num3, num4) {
 }
 bleh(paramCity(4, 3, 2, 1));*/
 
-/*var pizza = "Where is my pizza!?";
+/*var pizza = 'Where is my pizza!?';
 
 var reverse = function(string) {
-  return string.split("").reverse().join("");
+  return string.split('').reverse().join('');
 }
 
 var cashier = {
-  str1: "ers",
-  str2: reverse("araP"),
-  str3: "met",
+  str1: 'ers',
+  str2: reverse('araP'),
+  str3: 'met',
   request: function(preference) {
-    return preference + " Secret Word: " + this.str2 + this.str3 + this.str1;
+    return preference + ' Secret Word: ' + this.str2 + this.str3 + this.str1;
   }
 };
 

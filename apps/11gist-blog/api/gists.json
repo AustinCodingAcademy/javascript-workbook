@@ -19,7 +19,7 @@
     "public": true,
     "created_at": "2016-01-17T16:38:43Z",
     "updated_at": "2016-01-17T16:39:17Z",
-    "description": "#post Here"s Another Post",
+    "description": "#post Here's Another Post",
     "comments": 1,
     "user": null,
     "comments_url": "http://127.0.0.1:8080/apps/11gist-blog/api/gists/214debaa24a258a85fa6/comments.json",

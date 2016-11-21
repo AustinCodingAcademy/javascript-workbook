@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var assert = require("assert");
-var readline = require("readline");
+var assert = require('assert');
+var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -10,7 +10,7 @@ var rl = readline.createInterface({
 
 function Checker(color) {
   // Check to see what color
-  this.symbol = (color === "white") ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
+  this.symbol = (color === 'white') ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
 }
 
 function Board() {
@@ -31,25 +31,25 @@ function Board() {
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
-    var string = "  0 1 2 3 4 5 6 7\n";
+    var string = '  0 1 2 3 4 5 6 7\n';
     for (var row = 0; row < 8; row++) {
       // we start with our row number in our array
       var rowOfCheckers = [row];
       // a loop within a loop
       for (var column = 0; column < 8; column++) {
-        // if the location is "truthy" (contains a checker piece, in this case)
+        // if the location is 'truthy' (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
           rowOfCheckers.push(this.grid[row][column].symbol);
         } else {
           // just push in a blank space
-          rowOfCheckers.push(" ");
+          rowOfCheckers.push(' ');
         }
       }
       // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join(" ");
-      // add a "new line"
-      string += "\n";
+      string += rowOfCheckers.join(' ');
+      // add a 'new line'
+      string += '\n';
     }
     console.log(string);
   };
@@ -65,7 +65,7 @@ function Board() {
       var whiteRow = whitePositions[i][0];
       var whiteColumn = whitePositions[i][1];
 
-      this.grid[whiteRow][whiteColumn] = new Checker("white");
+      this.grid[whiteRow][whiteColumn] = new Checker('white');
       this.checkers.push(this.grid[whiteRow][whiteColumn]);
     }
 
@@ -73,7 +73,7 @@ function Board() {
       var blackRow = blackPositions[i][0];
       var blackColumn = blackPositions[i][1];
 
-      this.grid[blackRow][blackColumn] = new Checker("black");
+      this.grid[blackRow][blackColumn] = new Checker('black');
       this.checkers.push(this.grid[blackRow][blackColumn]);
     }
   };
@@ -103,10 +103,10 @@ function Game() {
 
   this.moveChecker = function(start, end) {
 
-    var startRow = start.split("")[0];
-    var startColumn = start.split("")[1];
-    var endRow = end.split("")[0];
-    var endColumn = end.split("")[1];
+    var startRow = start.split('')[0];
+    var startColumn = start.split('')[1];
+    var endRow = end.split('')[0];
+    var endColumn = end.split('')[1];
     var boardGrid = this.board.grid;
     var checker = this.board.selectChecker(startRow, startColumn);
 
@@ -133,8 +133,8 @@ function Game() {
 
 function getPrompt() {
   game.board.viewGrid();
-  rl.question("which piece?: ", (whichPiece) => {
-    rl.question("to where?: ", (toWhere) => {
+  rl.question('which piece?: ', (whichPiece) => {
+    rl.question('to where?: ', (toWhere) => {
       game.moveChecker(whichPiece, toWhere);
       getPrompt();
     });
@@ -147,28 +147,28 @@ game.start();
 
 // Tests
 
-if (typeof describe === "function") {
-  describe("Game", function() {
-    it("should have a board", function() {
-      assert.equal(game.board.constructor.name, "Board");
+if (typeof describe === 'function') {
+  describe('Game', function() {
+    it('should have a board', function() {
+      assert.equal(game.board.constructor.name, 'Board');
     });
-    it("board should have 24 checkers", function() {
+    it('board should have 24 checkers', function() {
       assert.equal(game.board.checkers.length, 24);
     });
   });
 
-  describe("Game.moveChecker()", function () {
-    it("should move a checker", function () {
+  describe('Game.moveChecker()', function () {
+    it('should move a checker', function () {
       assert(!game.board.grid[4][1]);
-      game.moveChecker("50", "41");
+      game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
-      game.moveChecker("21", "30");
+      game.moveChecker('21', '30');
       assert(game.board.grid[3][0]);
-      game.moveChecker("52", "43");
+      game.moveChecker('52', '43');
       assert(game.board.grid[4][3]);
     });
-    it("should be able to jump over and kill another checker", function() {
-      game.moveChecker("30", "52");
+    it('should be able to jump over and kill another checker', function() {
+      game.moveChecker('30', '52');
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
       assert.equal(game.board.checkers.length, 23);

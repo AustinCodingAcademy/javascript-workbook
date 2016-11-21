@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var assert = require("assert");
+var assert = require('assert');
 
 // ****
 // Functions
@@ -129,18 +129,18 @@ function isDivisibleByThree(number) {
 
 // Problem 7:
 // whichSpecies(character) is a function that
-// should return "dog" when character is "scooby"
-// should return "cat" when character is "garfield"
-// should return "fish" when character is "nemo"
+// should return 'dog' when character is 'scooby'
+// should return 'cat' when character is 'garfield'
+// should return 'fish' when character is 'nemo'
 // should return false if character is anything else
 
 function whichSpecies(character) {
-  if (character === "scooby") {
-    return "dog";
-  } else if (character === "garfield") {
-    return "cat";
-  } else if (character === "nemo") {
-    return "fish";
+  if (character === 'scooby') {
+    return 'dog';
+  } else if (character === 'garfield') {
+    return 'cat';
+  } else if (character === 'nemo') {
+    return 'fish';
   } else {
     return false;
   }
@@ -149,20 +149,20 @@ function whichSpecies(character) {
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
 // The function should:
-// return the string "divisible by 4" when number % 4 === 0
-// return the string "divisible by 2" when number % 2 === 0
-// return the string "divisible by 3" when number % 3 === 0
-// return the string "divisible by 5" when number % 5 === 0
+// return the string 'divisible by 4' when number % 4 === 0
+// return the string 'divisible by 2' when number % 2 === 0
+// return the string 'divisible by 3' when number % 3 === 0
+// return the string 'divisible by 5' when number % 5 === 0
 
 function testNumber(number) {
   if (number % 4 === 0) {
-    return "divisible by 4";
+    return 'divisible by 4';
   } else if (number % 3 === 0) {
-    return "divisible by 3" ;
+    return 'divisible by 3' ;
   } else if (number % 2 === 0) {
-    return "divisible by 2";
+    return 'divisible by 2';
   } else if (number % 5 === 0) {
-    return "divisible by 5";
+    return 'divisible by 5';
   } 
 }
 
@@ -182,111 +182,111 @@ function testNumber(number) {
 // Tests
 // ****
 
-describe("Lesson 2 Homework", function () {
+describe('Lesson 2 Homework', function () {
 
-  describe("Functions", function () {
-    describe("Problem 0: alwaysFalse()", function () {
-      it("should return false", function () {
+  describe('Functions', function () {
+    describe('Problem 0: alwaysFalse()', function () {
+      it('should return false', function () {
         assert.equal(alwaysFalse(), false);
       });
     });
 
-    describe("Problem 0: alwaysTrue()", function () {
-      it("should return true", function () {
+    describe('Problem 0: alwaysTrue()', function () {
+      it('should return true', function () {
         assert.equal(alwaysTrue(), true);
       });
     });
 
-    describe("Problem 1: equals()", function () {
-      it("should return true when argument 1 equals argument 2, else return false", function () {
+    describe('Problem 1: equals()', function () {
+      it('should return true when argument 1 equals argument 2, else return false', function () {
         assert.equal(equals(3, 3), true);
         assert.equal(equals(3, null), false);
-        assert.equal(equals("bob", ""), false);
-        assert.equal(equals("bob", "bob"), true);
+        assert.equal(equals('bob', ''), false);
+        assert.equal(equals('bob', 'bob'), true);
       });
     });
 
-    describe("Problem 2: lessThanOrEqualTo()", function () {
-      it("should return true when parameter 1 is less than or equal to parameter 2, else return false", function () {
+    describe('Problem 2: lessThanOrEqualTo()', function () {
+      it('should return true when parameter 1 is less than or equal to parameter 2, else return false', function () {
         assert.equal(lessThanOrEqualTo(3, 3), true);
         assert.equal(lessThanOrEqualTo(3, 4), true);
         assert.equal(lessThanOrEqualTo(4, 1), false);
       });
     });
 
-    describe("Problem 3: add(number1, number2)", function () {
-      it("should be defined and of type function", function () {
-        assert(!(typeof add === "undefined"));
-        assert(typeof add === "function");
+    describe('Problem 3: add(number1, number2)', function () {
+      it('should be defined and of type function', function () {
+        assert(!(typeof add === 'undefined'));
+        assert(typeof add === 'function');
       });
 
-      it("should add two numbers and return the result", function () {
+      it('should add two numbers and return the result', function () {
         assert.equal(add(3, 3), 6);
         assert.equal(add(3, 7), 10);
       });
     });
 
-    describe("Problem 4: addThree(number1, number2, number3)", function () {
-      it("should be defined and of type function", function () {
-        assert(!(typeof addThree === "undefined"));
-        assert(typeof addThree === "function");
+    describe('Problem 4: addThree(number1, number2, number3)', function () {
+      it('should be defined and of type function', function () {
+        assert(!(typeof addThree === 'undefined'));
+        assert(typeof addThree === 'function');
       });
 
-      it("should add three numbers and return the result", function () {
+      it('should add three numbers and return the result', function () {
         assert.equal(addThree(3, 3, 3), 9);
       });
     });
   });
 
-  describe("Modulo % operator", function () {
-    describe("Problem 5: isEven(number)", function () {
-      it("should return true if number is even, else false", function () {
+  describe('Modulo % operator', function () {
+    describe('Problem 5: isEven(number)', function () {
+      it('should return true if number is even, else false', function () {
         assert.equal(isEven(4), true);
         assert.equal(isEven(3), false);
       });
     });
 
-    describe("Problem 6: isDivisibleByThree(number)", function () {
-      it("should return true if number is divisible by 3, else false", function () {
+    describe('Problem 6: isDivisibleByThree(number)', function () {
+      it('should return true if number is divisible by 3, else false', function () {
         assert.equal(isDivisibleByThree(3), true);
         assert.equal(isDivisibleByThree(4), false);
       });
     });
   });
 
-  describe("Conditionals", function() {
-    describe("Problem 7: whichSpecies(character)", function () {
-      it("should return "dog" when character is scooby", function () {
-        assert.equal(whichSpecies("scooby"), "dog");
+  describe('Conditionals', function() {
+    describe('Problem 7: whichSpecies(character)', function () {
+      it('should return 'dog' when character is scooby', function () {
+        assert.equal(whichSpecies('scooby'), 'dog');
       });
-      it("should return "cat" when character is garfield", function () {
-        assert.equal(whichSpecies("garfield"), "cat");
+      it('should return 'cat' when character is garfield', function () {
+        assert.equal(whichSpecies('garfield'), 'cat');
       });
-      it("should return "fish" when character is nemo", function () {
-        assert.equal(whichSpecies("nemo"), "fish");
+      it('should return 'fish' when character is nemo', function () {
+        assert.equal(whichSpecies('nemo'), 'fish');
       });
-      it("should return false if character is anything else", function () {
-        assert.equal(whichSpecies("stitch"), false);
+      it('should return false if character is anything else', function () {
+        assert.equal(whichSpecies('stitch'), false);
       });
     });
 
-    describe("Problem 8: testNumber(number)", function () {
-      it("should be defined and of type function", function () {
-        assert(!(typeof testNumber === "undefined"));
-        assert(typeof testNumber === "function");
+    describe('Problem 8: testNumber(number)', function () {
+      it('should be defined and of type function', function () {
+        assert(!(typeof testNumber === 'undefined'));
+        assert(typeof testNumber === 'function');
       });
 
-      it("should return "divisible by 4" when number is divisible by 4", function () {
-        assert.equal(testNumber(4), "divisible by 4");
+      it('should return 'divisible by 4' when number is divisible by 4', function () {
+        assert.equal(testNumber(4), 'divisible by 4');
       });
-      it("should return "divisible by 2" when number is divisible by 2", function () {
-        assert.equal(testNumber(2), "divisible by 2");
+      it('should return 'divisible by 2' when number is divisible by 2', function () {
+        assert.equal(testNumber(2), 'divisible by 2');
       });
-      it("should return "divisible by 3" when number is divisible by 3", function () {
-        assert.equal(testNumber(3), "divisible by 3");
+      it('should return 'divisible by 3' when number is divisible by 3', function () {
+        assert.equal(testNumber(3), 'divisible by 3');
       });
-      it("should return "divisible by 5" when number is divisible by 5", function () {
-        assert.equal(testNumber(5), "divisible by 5");
+      it('should return 'divisible by 5' when number is divisible by 5', function () {
+        assert.equal(testNumber(5), 'divisible by 5');
       });
     });
   });

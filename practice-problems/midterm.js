@@ -122,7 +122,7 @@
 
 
 
-//17. console.log(!!"Hello");
+//17. console.log(!!'Hello');
 
 //Answer:
 
@@ -167,7 +167,7 @@
 
 
 
-//23. Write a conditional statement that prints out "even" when the variable "number" is even.
+//23. Write a conditional statement that prints out 'even' when the variable 'number' is even.
 
 //Answer:
 
@@ -190,24 +190,24 @@
 
 //Use the following array for questions 28-31.
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 
 
-//26. Write code to print out the length of the "colors" array and then the 3rd color of the array.
-
-//Answer:
-
-
-
-
-//27. Write code to add the color ‘dark-violet’ to the "colors" array.
+//26. Write code to print out the length of the 'colors' array and then the 3rd color of the array.
 
 //Answer:
 
 
 
 
-//28. Write code to add the color "orange-yellow" to the "colors" array between the colors orange and yellow. (So your array will print out red, orange, orange-yellow, yellow, green, blue, indigo, violet, dark-violet)
+//27. Write code to add the color ‘dark-violet’ to the 'colors' array.
+
+//Answer:
+
+
+
+
+//28. Write code to add the color 'orange-yellow' to the 'colors' array between the colors orange and yellow. (So your array will print out red, orange, orange-yellow, yellow, green, blue, indigo, violet, dark-violet)
 
 //Answer:
 
@@ -244,10 +244,10 @@ var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 
 //33. Identify and explain the problem in the code below:
 
-var a = "Hello";
+var a = 'Hello';
 
 function helloWorld() {
-  var b = "World";
+  var b = 'World';
   return a + b;
 }
 
@@ -350,8 +350,8 @@ console.log(num);
 
 //44. Review the code below.
 
-var colors = ["red", "blue", "green" "yellow"]
-var certainColor = "green"
+var colors = ['red', 'blue', 'green' 'yellow']
+var certainColor = 'green'
 var currentColor = colors[0];
 var i = 0;
 while (certainColor !== currentColor) {
@@ -391,13 +391,13 @@ while (certainColor !== currentColor) {
 
 //48. Use ternary operators to shrink the following code:
 
-var light = "on";
+var light = 'on';
 
 function toggleLight() {
-  if (light === "on") {
-    light === "off";
+  if (light === 'on') {
+    light === 'off';
   }  else {
-    light === "on";
+    light === 'on';
   }
 }
 
@@ -410,7 +410,7 @@ toggleLight();
 
 
 //49. Create an object called “bob”. Assign the object “bob” the following properties:
-//name: "Bob Smith",
+//name: 'Bob Smith',
 //age: 30
 
 //Then print out bob’s full name by accessing the properties within the object.
@@ -420,7 +420,7 @@ toggleLight();
 
 
 
-//50. Create a method called “aging” that adds 20 years to bob’s age. Then print out bob"s new age.
+//50. Create a method called “aging” that adds 20 years to bob’s age. Then print out bob's new age.
 
 //Answer:
 

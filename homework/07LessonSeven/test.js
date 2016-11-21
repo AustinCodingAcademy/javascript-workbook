@@ -103,13 +103,13 @@ describe('Lesson 7 Homework', function () {
   describe('dom manipulation', function () {
 
     describe('Problem 9: #insert-text', function () {
-      it('should have inserted "Text Has Been Inserted" into #insert-text', function () {
+      it('should have inserted 'Text Has Been Inserted' into #insert-text', function () {
         assert.equal($('#insert-text').text(), 'Text Has Been Inserted');
       });
     });
 
     describe('Problem 10: #add-attribute', function () {
-      it('should have added data-color="red" to #add-attribute', function () {
+      it('should have added data-color='red' to #add-attribute', function () {
         assert($('#add-attribute').is($('[data-color]')));
         assert.equal($('#add-attribute').attr('data-color'), 'red');
       });

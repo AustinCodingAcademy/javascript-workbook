@@ -5,7 +5,7 @@ var a = 4;
 var b = 3;
 
 if (a > b) {
-  return "true";
+  return 'true';
 }
 
 //2. What is a null value? Provide one example.
@@ -14,13 +14,13 @@ if (a > b) {
 
 var variableForLater = null;
 
-variableForLater = "Can I meet you later?";
+variableForLater = 'Can I meet you later?';
 
 //3. List and describe 3 more data types used in JS.
 
 // A string - anything put between quotes
 
-var thisIsAString = "Greg";
+var thisIsAString = 'Greg';
 
 // undefined - a variable declared but to be used for later
 
@@ -35,17 +35,17 @@ var thisIsANumber = 4;
 // To make our code more readable and understandable and for maintainability for other developers who may come after us.  It gives them a clear picture of what is going on 
 
 
-//5. Why do we use "strict mode"?
+//5. Why do we use 'strict mode'?
 
-// First, strict mode eliminates some JavaScript silent errors by changing them to throw errors. Second, strict mode fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that"s not strict mode. Third, strict mode prohibits some syntax likely to be defined in future versions of ECMAScript.
-
-
-//6. Write the code to log the output "Hello World".
-
-var helloWorld = "Hello World";
+// First, strict mode eliminates some JavaScript silent errors by changing them to throw errors. Second, strict mode fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode. Third, strict mode prohibits some syntax likely to be defined in future versions of ECMAScript.
 
 
-//7. What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
+//6. Write the code to log the output 'Hello World'.
+
+var helloWorld = 'Hello World';
+
+
+//7. What is the difference between the 'and' and the 'or' operators? Explain why you would use each of them.
 
 // The difference comes within conditionals.  When comparing two values the AND operator will need both conditions to be true/false in order to satisfy its conditions.  The OR operator will satisfy its conditions when one of the two conditions are met.  
 
@@ -56,15 +56,15 @@ var e = 2;
 var f = 3;
 
 if ((d && e) > f) {
-  return "TRUE";
+  return 'TRUE';
 } else {
-  return "FALSE";
+  return 'FALSE';
 }
 
 if ((d || e) > f) {
-  return "true";
+  return 'true';
 } else {
-  return "false";
+  return 'false';
 }
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
@@ -152,7 +152,7 @@ var y = 5;
 
 //examples
 
-var nine = "9";
+var nine = '9';
 var numNine = 9;
 
 // Removed to hide errors from the codacy about the non-strict equals
@@ -166,7 +166,7 @@ var numNine = 9;
 
 // This is using the !(not operator).  Again works with strictally equaling a value to what you are comparing. Checking the value and the value and type. 
 
-var ten = "10";
+var ten = '10';
 var numTen = 10;
 
 // Removed to hide errors from the codacy about the non-strict !==
