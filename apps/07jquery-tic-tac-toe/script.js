@@ -37,7 +37,7 @@ $(document).on('ready', function() {
   }
   // reset game upon maximum cell choices
   function resetGame() {
-    setTimeout(location.reload(), 10000);
+    setTimeout(window.location.reload.bind(window.location), 1050)
   }
 
   function clearButton() {
@@ -67,6 +67,7 @@ $(document).on('ready', function() {
     if (val0 === $playerTurn && val1 === $playerTurn && val2 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
       resetGame();
+      return;
     } 
     if ((val3 === $playerTurn) && (val4 === $playerTurn) && (val5 === $playerTurn)) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
@@ -74,23 +75,29 @@ $(document).on('ready', function() {
     } 
     if (val6 === $playerTurn && val7 === $playerTurn && val8 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+      resetGame();
     }
 
     if (val0 === $playerTurn && val3 === $playerTurn && val6 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+      resetGame();
     } 
     if (val1 === $playerTurn && val4 === $playerTurn && val7 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+      resetGame();
     }
     if (val2 === $playerTurn && val5 === $playerTurn && val8 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+      resetGame();
     }
 
     if (val0 === $playerTurn && val4 === $playerTurn && val8 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+      resetGame();
     }
     if (val2 === $playerTurn && val4 === $playerTurn && val6 === $playerTurn) {
       $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+      resetGame();
     } 
   };
   playerTurn();
