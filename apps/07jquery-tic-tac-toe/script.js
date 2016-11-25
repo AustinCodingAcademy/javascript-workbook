@@ -43,7 +43,7 @@ $(document).on('ready', function() {
       e.preventDefault();
       $("[data-cell]").empty();
       $("#announce-winner").empty();
-    })
+    });
   }
 
   function checkForWin() {
@@ -58,7 +58,7 @@ $(document).on('ready', function() {
     var val6 = $("[data-cell='6']").text();
     var val7 = $("[data-cell='7']").text();
     var val8 = $("[data-cell='8']").text();
-    
+
     if (val0 === $playerTurn && val1 === $playerTurn && val2 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();

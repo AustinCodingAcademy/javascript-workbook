@@ -17,7 +17,6 @@ function CrewMember(name, job, specialSkill, ship) {
   this.enterShip = function(ship) {
     this.ship = ship;
     var shipmates = ship.crew.push(this);
-    console.log('shipmates', shipmates);
   };
 }
 
@@ -29,19 +28,17 @@ function Ship(name, type, ability) {
   this.missionStatement = function() {
     for (var i = 0; i < this.crew.length; i++) {
       //actual object looped
-      console.log('crew i', this.crew[i]);
       // job of object returned
-      console.log('crew job', this.crew[i].job);
       if(jobTypes[this.crew[i].job] === this.type) {
         return this.ability;
       }
     }
-    return 'Can\'t perform a mission yet.';
+    return "Can't perform a mission yet.";
   };
 }
 
-var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+var mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
+var rick = new CrewMember("Rick Martinez", "pilot", "chemistry");
 
 //tests
 if (typeof describe === 'function'){
@@ -78,8 +75,8 @@ if (typeof describe === 'function'){
       var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       var hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
       var crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
-      assert.equal(mav.missionStatement(), 'Can\'t perform a mission yet.');
-      assert.equal(hermes.missionStatement(), 'Can\'t perform a mission yet.');
+      assert.equal(mav.missionStatement(), "Can't perform a mission yet.");
+      assert.equal(hermes.missionStatement(), "Can't perform a mission yet.");
 
       crewMember1.enterShip(mav);
       assert.equal(mav.missionStatement(), 'Ascend into low orbit');

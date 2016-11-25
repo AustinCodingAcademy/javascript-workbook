@@ -80,7 +80,7 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
       assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
     });
-    it('should detect if an invalid input is entered', function() {
+    it("should detect if an invalid input is entered", function() {
       assert.equal(rockPaperScissors(!"rock", !"rock"), "Enter a real hand dood!");
       assert.equal(rockPaperScissors(!"paper", !"paper"), "Enter a real hand dood!");
       assert.equal(rockPaperScissors(!"scissors", !"scissors"), "Enter a real hand dood!");

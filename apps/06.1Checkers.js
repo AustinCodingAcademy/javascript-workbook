@@ -10,7 +10,7 @@ var rl = readline.createInterface({
 
 function Checker(color) {
   // Check to see what color
-  this.symbol = (color === 'white') ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
+  this.symbol = (color === "white") ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
 }
 
 function Board() {
@@ -31,7 +31,7 @@ function Board() {
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
-    var string = '  0 1 2 3 4 5 6 7\n';
+    var string = "  0 1 2 3 4 5 6 7\n";
     for (var row = 0; row < 8; row++) {
       // we start with our row number in our array
       var rowOfCheckers = [row];
@@ -49,7 +49,7 @@ function Board() {
       // join the rowOfCheckers array to a string, separated by a space
       string += rowOfCheckers.join(' ');
       // add a 'new line'
-      string += '\n';
+      string += "\n";
     }
     console.log(string);
   };
@@ -65,7 +65,7 @@ function Board() {
       var whiteRow = whitePositions[i][0];
       var whiteColumn = whitePositions[i][1];
 
-      this.grid[whiteRow][whiteColumn] = new Checker('white');
+      this.grid[whiteRow][whiteColumn] = new Checker("white");
       this.checkers.push(this.grid[whiteRow][whiteColumn]);
     }
 
@@ -73,7 +73,7 @@ function Board() {
       var blackRow = blackPositions[i][0];
       var blackColumn = blackPositions[i][1];
 
-      this.grid[blackRow][blackColumn] = new Checker('black');
+      this.grid[blackRow][blackColumn] = new Checker("black");
       this.checkers.push(this.grid[blackRow][blackColumn]);
     }
   };
@@ -103,10 +103,10 @@ function Game() {
 
   this.moveChecker = function(start, end) {
 
-    var startRow = start.split('')[0];
-    var startColumn = start.split('')[1];
-    var endRow = end.split('')[0];
-    var endColumn = end.split('')[1];
+    var startRow = start.split("")[0];
+    var startColumn = start.split("")[1];
+    var endRow = end.split("")[0];
+    var endColumn = end.split("")[1];
     var boardGrid = this.board.grid;
     var checker = this.board.selectChecker(startRow, startColumn);
 

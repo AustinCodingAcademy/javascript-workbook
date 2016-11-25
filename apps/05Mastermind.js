@@ -39,8 +39,8 @@ function getRandomInt(min, max) {
 function generateHint(solution, guess) {
   // your code here
 
-  solutionArray = solution.split('');
-  guessArray = guess.split('');
+  solutionArray = solution.split("");
+  guessArray = guess.split("");
   correctLetters = 0;
   correctLetterLocations = 0;
 
@@ -57,21 +57,21 @@ function generateHint(solution, guess) {
       solutionArray[match] = null;
     }
   }
-  return correctLetters + '-' + correctLetterLocations;
+  return correctLetters + "-" + correctLetterLocations;
 }
 
 function mastermind(guess) {
   // your code here
 
   if (guess === solution) {
-    return 'You guessed it!';
+    return "You guessed it!";
   } else if (board.length === 10) {
-    return 'You ran out of guesses, the correct solution was ' + solution;
+    return "You ran out of guesses, the correct solution was " + solution;
   } else if (guess !== solution) {
     var hint = generateHint(solution, guess);
     board.push(hint);
     turns--;
-    return 'Try again, turns remaining  ' + turns;
+    return "Try again, turns remaining  " + turns;
   } 
 }
 
