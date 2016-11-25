@@ -5,7 +5,7 @@ var a = 4;
 var b = 3;
 
 if (a > b) {
-  return 'true';
+  return "true";
 }
 
 //2. What is a null value? Provide one example.
@@ -14,13 +14,13 @@ if (a > b) {
 
 var variableForLater = null;
 
-variableForLater = 'Can I meet you later?';
+variableForLater = "Can I meet you later?";
 
 //3. List and describe 3 more data types used in JS.
 
 // A string - anything put between quotes
 
-var thisIsAString = 'Greg';
+var thisIsAString = "Greg";
 
 // undefined - a variable declared but to be used for later
 
@@ -42,7 +42,7 @@ var thisIsANumber = 4;
 
 //6. Write the code to log the output 'Hello World'.
 
-var helloWorld = 'Hello World';
+var helloWorld = "Hello World";
 
 
 //7. What is the difference between the 'and' and the 'or' operators? Explain why you would use each of them.
@@ -56,15 +56,15 @@ var e = 2;
 var f = 3;
 
 if ((d && e) > f) {
-  return 'TRUE';
+  return "TRUE";
 } else {
-  return 'FALSE';
+  return "FALSE";
 }
 
 if ((d || e) > f) {
-  return 'true';
+  return "true";
 } else {
-  return 'false';
+  return "false";
 }
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
@@ -152,7 +152,7 @@ var y = 5;
 
 //examples
 
-var nine = '9';
+var nine = "9";
 var numNine = 9;
 
 // Removed to hide errors from the codacy about the non-strict equals
@@ -166,7 +166,7 @@ var numNine = 9;
 
 // This is using the !(not operator).  Again works with strictally equaling a value to what you are comparing. Checking the value and the value and type. 
 
-var ten = '10';
+var ten = "10";
 var numTen = 10;
 
 // Removed to hide errors from the codacy about the non-strict !==

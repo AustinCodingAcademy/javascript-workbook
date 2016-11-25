@@ -33,17 +33,17 @@ var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
 
-bravestWarriors.pop('Impossibear');
+bravestWarriors.pop("Impossibear");
 
-bravestWarriors.shift('Catbug');
+bravestWarriors.shift("Catbug");
 
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
 
-fruit.push('mango');
-fruit.unshift('banana');
+fruit.push("mango");
+fruit.unshift("banana");
 
 // ****
 // Objects (Associative Arrays)
@@ -62,7 +62,7 @@ var emptyObject = {};
 var problemEightObject = {
   emptyObject: {},
   emptyArray: [],
-  name: 'bob',
+  name: "bob",
   number: 42
 };
 
@@ -74,8 +74,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-problemNineObject['fav food'] = 'tacos';
-problemNineObject['city'] = 'austin';
+problemNineObject["fav food"] = "tacos";
+problemNineObject["city"] = "austin";
 
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
@@ -92,7 +92,7 @@ var nestedObjects = {
 };
 // update the starring property to have the value 'Tim Robbins'
 
-nestedObjects['users']['bob roberts']['starring'] = 'Tim Robbins';
+nestedObjects["users"]["bob roberts"]["starring"] = "Tim Robbins";
 
 // ****
 // Concept Checkpoint

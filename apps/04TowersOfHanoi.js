@@ -16,9 +16,9 @@ var stacks = {
 };
 
 function printStacks() {
-  console.log('a: ' + stacks.a);
-  console.log('b: ' + stacks.b);
-  console.log('c: ' + stacks.c);
+  console.log("a: " + stacks.a);
+  console.log("b: " + stacks.b);
+  console.log("c: " + stacks.c);
 }
 
 function resetBoard() {
@@ -36,7 +36,7 @@ function movePiece(startStack, endStack) {
   var poppedStack = towerToRemoveFrom.pop();
 
   // undefined check
-  if (typeof poppedStack === 'undefined') {
+  if (typeof poppedStack === "undefined") {
     return false;
   } else {
     towerToAddTo.push(poppedStack);

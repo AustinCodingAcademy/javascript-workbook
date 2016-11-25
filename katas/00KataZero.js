@@ -14,6 +14,6 @@ function sayHello() {
 
 describe('#sayHello()', function () {
   it('says hello', function () {
-    assert.equal(sayHello(), 'Hello!');
+    assert.equal(sayHello(), "Hello!");
   });
 });

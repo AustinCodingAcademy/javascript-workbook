@@ -65,5 +65,5 @@ it('should be able to detect of a garage is full', function () {
 });
 
 it('should be able to detect if a car is not in a garage', function () {
-  assert.equal(twoCarGarage.remove(blueCar), 'That car isn\'t here!');
+  assert.equal(twoCarGarage.remove(blueCar), "That car isn't here!");
 });
