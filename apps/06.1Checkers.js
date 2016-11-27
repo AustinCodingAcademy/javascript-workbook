@@ -81,7 +81,7 @@ function Board() {
   this.createCheckers = function() {
     // created a method called this.createCheckers...
 
-    // in it (the function), defined our starting positions of the checkers on the grid...
+    // in it (the function), define our starting positions of the checkers on the grid...
     // in local variables, define whitePositions and blackPositions as array of [row, column] coordinates:...
     var whitePositions = [row, column];
     var blackPositions = [row, column];
@@ -89,31 +89,36 @@ function Board() {
 
   // Spec 2.1
   // in a for loop, iterate over the range from 0 - 11, with each index you want to:...
-  // instantiate a 'white' Checker...
+  // instantiate (create an instance) a 'white' Checker...
   // place that checker on the grid at the position corresponding with the index in the positions array...
   // push the checker into your this.checkers array...
 
-  var whiteChecker = whitePositions;
+  function WhiteChecker() {
+  }
+  // var whiteChecker = new WhiteChecker;
 
   for (var i = 0; i < 12; i++) {
     this.checkers = [];
     this.positions = [];
     this.grid = this.positions[i];
-    whiteChecker.push(this.checkers[i]);
+    whiteChecker.push(this.checkers);
   }
+
 
   // do all three steps above for a 'black' checker...
-  var blackChecker = blackPositions;
+  function BlackChecker() {
+  }
+  var blackChecker = new BlackChecker;
 
   for (var i = 0; i < 12; i++) {
     this.checkers = [];
     this.positions = [];
     this.grid = this.positions[i];
-    blackChecker.push(this.checkers[i]);
+    blackChecker.push(this.checkers);
   }
 
-}
 
+}
 
 function Game() {
 // Tests Game
@@ -131,7 +136,7 @@ function Game() {
     // Your code here
 
     // Spec 2.1 - In your Game class, in the this.start method (function), added this.board.createCheckers().
-    this.board.createCheckers()
+    this.board.createCheckers();
   };
 }
 
