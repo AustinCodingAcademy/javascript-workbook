@@ -108,8 +108,9 @@ $(document).on('ready', function() {
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
+  // $('#data-element').text = $dataElement.data('content'); <-- Initially thought this was the solution
   var $dataElement = $('#data-element');
-  $('#data-element').text = $dataElement.data('content');
+  $('#data-element').text($dataElement.data('content'));
 
 
 });
