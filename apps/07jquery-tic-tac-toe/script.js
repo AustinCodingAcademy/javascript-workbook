@@ -6,20 +6,25 @@ $(document).on('ready', function() {
   //var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
   var turns = 0;
   var $dataCell = $("[data-cell]");
+  var $turn;
 
-  function validatePlay() {
-    if (($dataCell.text() === "X") || ($dataCell.text() === "O")) {
-      alert("Please select an empty cell");
-      return true;
-    }
-  }
+  
   function playerTurn() {
     $dataCell.click(function(e){
-      var $turn = $(this).text($playerTurn);
+      var $turn = $(this);
       
       // checks for win, validates play, max amount of moves per board
-      checkForWin();
 
+
+      if (($turn.text() === "X") || ($turn.text() === "O")) {
+        alert("Please select an empty cell");
+        return true;
+      }
+
+      $turn.text($playerTurn);
+
+      checkForWin();
+      
       $playerTurn = ($playerTurn === "X") ? "O" : "X";
       turns = turns += 1;
       maxMoves();
