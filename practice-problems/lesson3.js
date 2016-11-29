@@ -9,4 +9,4 @@ function helloWorld() {
 
 console.log(b);
 
-//Answer:
+//Answer:b is not defined outside the scope of the function. Since variable b was created inside the helloWorld function it is only abavilable in that function. The error is caused because when it is called outside that function the program cannot recognize it.

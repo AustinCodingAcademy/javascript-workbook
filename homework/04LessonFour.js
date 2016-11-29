@@ -14,19 +14,23 @@ var numberArray = [1, 2, 3, 4, 5];
 
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
-var numberArrayAfterPop = [1, 2, 3, 4];
+var numberArrayAfterPop = numberArray.slice();
+numberArrayAfterPop.pop();
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
-var numberArrayAfterShift = [2, 3, 4];
+var numberArrayAfterShift = numberArray.slice();
+numberArrayAfterShift.shift();
 
 // Problem 3:
 // Show what numberArray would look like if we called numberArray.push(6)
-var numberArrayAfterPush = [1, 2, 3, 4, 5, 6];
+var numberArrayAfterPush = numberArray.slice();
+numberArrayAfterPush.push(6);
 
 // Problem 4:
 // Show what numberArray would look like if we called numberArray.unshift(0)
-var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
+var numberArrayAfterUnshift = numberArray.slice();
+numberArrayAfterUnshift.unshift(0);
 
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
@@ -35,12 +39,13 @@ var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibea
 bravestWarriors.pop();
 bravestWarriors.shift();
 
+
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-fruit.unshift("banana");
-fruit.push("mango");
+fruit.push('mango');
+fruit.unshift('banana');
 
 // ****
 // Objects (Associative Arrays)
@@ -73,7 +78,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-
+problemNineObject['fav food'] = 'tacos';
+problemNineObject.city = 'austin';
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
 var nestedObjects = {
@@ -89,6 +95,7 @@ var nestedObjects = {
 };
 // update the starring property to have the value 'Tim Robbins'
 
+nestedObjects.users['bob roberts'].starring = 'Tim Robbins';
 
 // ****
 // Concept Checkpoint
@@ -97,8 +104,8 @@ var nestedObjects = {
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
-// Your Answer Goes Here:
-//
+// Your Answer Goes Here: An arrau uses an implied index of 0 while a associative array can have an index of a value set by the creator.
+
 //
 
 // ****

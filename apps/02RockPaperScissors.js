@@ -15,7 +15,7 @@ function rockPaperScissors(hand1, hand2) {
     hand2 = hand2.toLowerCase();
 
     if(hand1 !== "rock" && hand1 !=="paper" && hand1 !=="scissors" && hand2 !== "rock" && hand2 !=="paper" && hand2 !=="scissors"){
-     return "try again!!";
+     return "Try again!";
   }
 
     if (hand1 === hand2) {

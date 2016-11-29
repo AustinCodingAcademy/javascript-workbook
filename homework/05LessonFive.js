@@ -16,27 +16,27 @@ var six = 6;
 
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
-var onePlusPlus; 2
+var onePlusPlus = 2;
 
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
-var twoMinusMinus; 0
+var twoMinusMinus = 1;
 
 // Problem 3:
 // What is the result of three += 3?
-var threePlusAssignmentThree; 6
+var threePlusAssignmentThree = 6;
 
 // Problem 4:
 // What is the result of four -= 3?
-var fourMinusAssignmentThree; 1
+var fourMinusAssignmentThree = 1;
 
 // Problem 5:
 // What is the result of five *= 2?
-var fiveMultiplicationAssignmentTwo; 10
+var fiveMultiplicationAssignmentTwo = 10;
 
 // Problem 6:
 // What is the result of six /= 3?
-var sixDivisionAssignmentThree; 2
+var sixDivisionAssignmentThree = 2;
 
 // ****
 // Loops
