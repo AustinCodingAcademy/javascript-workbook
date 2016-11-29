@@ -8,7 +8,7 @@ div[data-cell] {
   text-align: center;
 }
 
-div:not(:empty):active {
+.row div:not(:empty):active {
   background-color:red;
 }
 
