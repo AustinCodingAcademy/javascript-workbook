@@ -3,7 +3,7 @@
 $(document).on('ready', function() {
   // Put app logic in here
   var $playerTurn = "X";
-  var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+  //var wins = [[0,1,2], [3,4,5] [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
   var turns = 0;
   var $dataCell = $("[data-cell]");
 
@@ -15,7 +15,6 @@ $(document).on('ready', function() {
   }
   function playerTurn() {
     $dataCell.click(function(e){
-      e.preventDefault();
       var $turn = $(this).text($playerTurn);
       
       // checks for win, validates play, max amount of moves per board
@@ -40,7 +39,6 @@ $(document).on('ready', function() {
 
   function clearButton() {
     $("#clear").click(function(e) {
-      e.preventDefault();
       $("[data-cell]").empty();
       $("#announce-winner").empty();
     });
@@ -59,6 +57,7 @@ $(document).on('ready', function() {
     var val7 = $("[data-cell='7']").text();
     var val8 = $("[data-cell='8']").text();
 
+    /*Horizontal Win*/
     if (val0 === $playerTurn && val1 === $playerTurn && val2 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
@@ -67,32 +66,42 @@ $(document).on('ready', function() {
     if ((val3 === $playerTurn) && (val4 === $playerTurn) && (val5 === $playerTurn)) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     } 
     if (val6 === $playerTurn && val7 === $playerTurn && val8 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     }
 
+    /*Vertical Win*/
     if (val0 === $playerTurn && val3 === $playerTurn && val6 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     } 
     if (val1 === $playerTurn && val4 === $playerTurn && val7 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     }
     if (val2 === $playerTurn && val5 === $playerTurn && val8 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     }
+
+    /*Diagonal Win*/
 
     if (val0 === $playerTurn && val4 === $playerTurn && val8 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     }
     if (val2 === $playerTurn && val4 === $playerTurn && val6 === $playerTurn) {
       $("#announce-winner").text("Player " + $playerTurn + " Wins!");
       resetGame();
+      return;
     } 
   }
   playerTurn();
