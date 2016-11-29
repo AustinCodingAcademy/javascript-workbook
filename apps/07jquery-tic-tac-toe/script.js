@@ -9,17 +9,20 @@ $(document).on('ready', function () {
   //You should now be able to change turns as you click around on your board.
   var playerTurn = 'X';
   var dataCells = $('[data-cell]')
+  var $announceWinner = $("announce-winner");
   dataCells.click(function () {
     //that SETs playerTurn as .text() on $(this) by $(this).text(playerTurn).
     $(this).text(playerTurn);
     checkForWin();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    //$("announce-winner").text('');
   });
   //Spec 4
   //Add a button with an id="clear" that will not only clear the board, but reset the player to player 'X'
   $('button').click(function () {
     $('[data-cell]').text('');
     playerTurn = 'X';
+    $("announce-winner").text('');
   });
   //Spec 3
   //Write a function checkForWin() that checks each combination of winning data-cells and see if they all contain 
@@ -83,4 +86,5 @@ $(document).on('ready', function () {
       return;
     }
   }
+  
 });
