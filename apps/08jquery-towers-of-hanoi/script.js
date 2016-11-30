@@ -23,6 +23,7 @@ $(document).ready(function() {
      }
   });
 
+
   function isLegal($start, $end) {
 
     console.log('start', $start.attr('data-block'));
@@ -47,6 +48,14 @@ $(document).ready(function() {
      return $('#announce-game-won').text('You Won!');
     }
   }
-
+  function resetGame() {
+    $("#clear-button").click(function() {
+      console.log('Clicked');
+      setTimeout(window.location.reload.bind(window.location), 150);
+    })
+  }
+  resetGame()
 });
+
+
 
