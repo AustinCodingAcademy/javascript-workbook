@@ -8,14 +8,12 @@ $(document).ready(function() {
   $dataStack.click(function(e){
 
     $clickedStack = $(this);
-    console.log($block)
-    console.log(!$block)
     // check to see if block is clicked and isn't null and if so detach the last child of the stack.
     if (!$block) {
       $block = $clickedStack.children().last().detach();
     } else if (isLegal($block, $clickedStack.children().last())){
-      /*console.log($block.get(0));
-      console.log($clickedStack.children().last().get(0));*/
+       /*console.log($block.get(0));
+       console.log($clickedStack.children().last().get(0));*/
        $clickedStack.append($block);
        $block = null;
        checkForWin();
