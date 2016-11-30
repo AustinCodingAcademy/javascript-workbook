@@ -25,22 +25,70 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+      (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+      (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+        return true;
+      }
+      return false;
 }
 
 function verticalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+      (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+      (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+      return true;
+    }
+    return false;
 }
 
 function diagonalWin() {
   // Your code here
+  if((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+      (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+        return true;
+      }
+      return false;
 }
 
 function checkForWin() {
   // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + ' Won!');
+    resetGame();
+    return true;
+  }
+  return false;
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  row = row.toString();
+  column = column.toString();
+  if ((["0", "1", "2"].indexOf(row) === -1) || (["0", "1", "2"].indexOf(column) === -1)) {
+    console.log('Rows and columns can only be values 0, 1, or 2. Please enter a valid value.');
+    return;
+  }
+  if (board[row][column] !== ' ') {
+    console.log('That space is taken, please select another');
+    return;
+  }
+  board[row][column] = playerTurn;
+  checkForWin();
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+}
+
+function resetGame() {
+  board[0][0] = ' ';
+  board[0][1] = ' ';
+  board[0][2] = ' ';
+  board[1][0] = ' ';
+  board[1][1] = ' ';
+  board[1][2] = ' ';
+  board[2][0] = ' ';
+  board[2][1] = ' ';
+  board[2][2] = ' ';
 }
 
 function getPrompt() {
@@ -52,10 +100,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
-
-
 
 // Tests
 
