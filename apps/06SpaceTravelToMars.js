@@ -30,19 +30,14 @@ function Ship(name, type, ability) {
   this.crew = [];
   this.missionStatement = function (){
 
- for(var i = 0; i < this.crew.length; i ++){
-   var thejob = this.crew[i].job;
-   var typeofShip = jobTypes[thejob];
-
-if(typeofShip === this.type){
-return this.ability;
-
-   }
- }
-    return "Can't perform a mission yet."
-  }
-}
-
+    for (var i = 0; i < this.crew.length; i++) {
+          if (jobTypes[this.crew[i].job] === this.type) {
+            return this.ability;
+          }
+        }
+        return "Can't perform a mission yet.";
+      };
+    }
 
 
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
