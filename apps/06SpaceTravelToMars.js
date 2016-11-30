@@ -6,7 +6,7 @@ var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
   commander: 'Main Ship',
-  programmer: 'Any Ship!'
+  programmer: 'Any Ship'
 };
 
 // Your code here
@@ -15,14 +15,16 @@ function CrewMember(name, job, specialSkill) {
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
-  this.enterShip = function(Ship) {
-    this.ship = Ship;
-    Ship.crew.push(this);
+  this.enterShip = function(someShip) {
+    this.ship = someShip;
+    someShip.crew.push(this);
   }
 }
 
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-rick;
+var john = new CrewMember('John Smith', 'mechanic', 'origami');
+var felicia = new CrewMember('Felicia Jones', 'commander', 'pointing fingers');
+var wizKid = new CrewMember('Derek Johnson', 'programmer', 'fixing software problems')
 
 function Ship(name, type, ability) {
   this.name = name;
@@ -34,13 +36,18 @@ function Ship(name, type, ability) {
       if (this.type === jobTypes[this.crew[i].job]) {
         return this.ability;
       }
+      else if (programmer) {
+        return this.ability;
+      }
     }
     return "Can't perform a mission yet.";
   }
 }
 
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-mav;
+var repairShip = new Ship('Hyper Tools', 'Repair Ship', 'Roadside assistance');
+var mainShip = new Ship('Millenium Falcon', 'Main Ship', 'Brings justice');
+
 
 
 //tests
