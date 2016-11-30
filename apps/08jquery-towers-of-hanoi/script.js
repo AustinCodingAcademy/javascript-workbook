@@ -4,10 +4,13 @@ $(document).ready(function() {
   var $dataStack = $("[data-stack]");
   var $clickedStack;
   var $block = null;
+  console.log($block)
+    console.log(!$block)
 
   $dataStack.click(function(e){
 
     $clickedStack = $(this);
+    
     // check to see if block is clicked and isn't null and if so detach the last child of the stack.
     if (!$block) {
       $block = $clickedStack.children().last().detach();
@@ -26,7 +29,7 @@ $(document).ready(function() {
     console.log('end',  $end.attr('data-block'));
     console.log($start.attr('data-block') < $end.attr('data-block'))
     
-    if ($start.attr('data-block') < $end.attr('data-block')) {
+    if (Number($start.attr('data-block')) < Number($end.attr('data-block'))) {
       return true;
     } else if ($clickedStack.children().length === 0 ) {
         return true;
