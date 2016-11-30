@@ -8,13 +8,14 @@ $(document).ready(function() {
   $dataStack.click(function(e){
 
     $clickedStack = $(this);
-
-    // check to see if block exists and is true if so set the variable.
+    console.log($block)
+    console.log(!$block)
+    // check to see if block is clicked and isn't null and if so detach the last child of the stack.
     if (!$block) {
       $block = $clickedStack.children().last().detach();
     } else if (isLegal($block, $clickedStack.children().last())){
-      console.log($block.get(0));
-      console.log($clickedStack.children().last().get(0));
+      /*console.log($block.get(0));
+      console.log($clickedStack.children().last().get(0));*/
        $clickedStack.append($block);
        $block = null;
        checkForWin();
@@ -25,18 +26,15 @@ $(document).ready(function() {
 
     console.log('start', $start.attr('data-block'));
     console.log('end',  $end.attr('data-block'));
-    console.log($clickedStack.length);
-    console.log($clickedStack.children().length);
     console.log($start.attr('data-block') < $end.attr('data-block'))
     
-    if ($end.attr('data-block') > $start.attr('data-block')) {
+    if ($start.attr('data-block') < $end.attr('data-block')) {
       return true;
     } else if ($clickedStack.children().length === 0 ) {
-      return true;
+        return true;
     } else {
         return false;
     }
-    console.log("global block", $block);
   }
 
   function checkForWin(){
