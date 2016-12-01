@@ -20,9 +20,9 @@ $(document).on('ready', function() {
   //   for (var i =0; i < winningcombo.length, i++) {
   //     if(
   //
-  //   $('[data-cell="'+ winningcombo[i][0]'"]') === playerTurn &&
-  //   $('[data-cell="'+ winningcombo[i][1]'"]') === playerTurn &&
-  //   $('[data-cell="'+ winningcombo[i][2]'"]') === playerTurn){
+  //   $('[data-cell="'+ winningcombo[i][0]'"]').text(); === playerTurn &&
+  //   $('[data-cell="'+ winningcombo[i][1]'"]').text(); === playerTurn &&
+  //   $('[data-cell="'+ winningcombo[i][2]'"]').text(); === playerTurn){
   //     return true;
   //   }
   // }
@@ -79,7 +79,6 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-  console.log('test2: ' + datacells8);
     if (datacells0 === playerTurn && datacells4 === playerTurn && datacells8 === playerTurn ||
         datacells2 === playerTurn && datacells4 === playerTurn && datacells6 === playerTurn) {
 
@@ -107,7 +106,6 @@ function checkForWin() {
         $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
 
         return true;
-        // process.exit();
     }
 
 }
