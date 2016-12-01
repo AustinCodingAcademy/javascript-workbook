@@ -14,9 +14,7 @@ $(document).ready(function() {
     $toDoList.sortable();
   })
 
-  $listItem.click(function(event) {
-    event.preventDefault();
-    console.log(this)
-    $this.find().remove();
+  $("#todo-list").on('click', 'li', function(event) {
+    $(this).closest('li').remove();
   })
 });

@@ -4,6 +4,7 @@ $(document).ready(function() {
   var $dataStack = $("[data-stack]");
   var $clickedStack;
   var $block = null;
+  var block = null;
 
   $dataStack.click(function(e){
 
