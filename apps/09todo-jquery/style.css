@@ -1,3 +1,7 @@
+body {
+  font-family: 'Inconsolata', arial;
+}
+
 *:focus {
   outline-style: none !important;
   outline: 0 !important;
@@ -6,13 +10,39 @@
 #content {
   margin: 0 auto;
   width: 100%;
-  max-width: 275px;
+  max-width: 500px;
+}
+#alert-prompt {
+  color: red;
+  text-align: center;
 }
 
-.header {
+header {
   text-align: center;
   margin: 20px;
   font-size: 40px;
+}
+
+header input {
+  width: 140px;
+  height: 40px;
+  font-size: 18px;
+  border: none;
+  background-color: rgb(102, 204, 255);
+  color: white;
+}
+
+#item-count {
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  background-color: rgb(150, 150, 150);
+  color: white;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  visibility: hidden;
+  text-align: center;
 }
 
 #todo-list {
@@ -27,29 +57,35 @@ form {
 #todo-list li {
   display: table;
   margin: 10px auto;
-  padding: 10px 0;
+  padding: 10px 0 10px 5px;
   border: 1px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
   background-color: #fdfdfd;
   width: 100%;
 }
 
-#todo-list li span {
-  text-align: right;
+#todo-list li div {
+  float: right;
+  border-left: 1px solid #ccc;
+  padding: 0 10px;
 }
 
+.fa-minus-square {
+  color: red;
+}
 
 input[type="submit"] {
   padding:5px 0;
   text-align: center;
-  background:#ccc;
+  background-color: rgb(102, 204, 255);
   border: 0 none;
   -webkit-border-radius: 0px;
   border-radius: 0px;
   font-size: 14px;
-  width: 20%;
+  width: 140px;
+  color: white;
 }
 
 input[type=text] {
@@ -57,5 +93,5 @@ input[type=text] {
   border:1px solid #ccc;
   -webkit-border-radius: 0px;
   border-radius: 0px;
-  width: 65%;
+  width: 250px;
 }
