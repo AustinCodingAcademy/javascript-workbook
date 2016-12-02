@@ -3,20 +3,52 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Towers of Hanoi</title>
+  <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Towers of Hanoi</h1>
+    <div id="reset-game"><h2>Reset Game</h2></div>
+  </header>
+  <div class="stack-num">Stack 1</div>
   <div data-stack="1">
+    <!--<span>Stack 1</span>-->
     <div data-block="100"></div>
     <div data-block="75"></div>
     <div data-block="50"></div>
     <div data-block="25"></div>
   </div>
+  <div class="stack-num">Stack 2</div>
   <div data-stack="2">
+    <!--<span>Stack 2</span>-->
   </div>
+  <div class="stack-num">Stack 3</div>
   <div data-stack="3">
+    <!--<span>Stack 3</span>-->
   </div>
   <div id="announce-game-won"></div>
+  <div id="move-count"></div>
+  <section id="help">
+    <h1>Instructions</h1>
+    <h2>Objective</h2>
+    <p>
+      There are three "stacks".  The first stack has 4 blocks.  The object of the game is to move all four blocks to another stack, in the same order, in as few moves as possible.
+    </p>
+    <h2>Rules</h2>
+    <ol>
+      <li>Only the last block in a stack can be moved.</li>
+      <li>A larger block cannot be stacked on a smaller block.</li>
+    </ol>
+    <h2>How To</h2>
+    <ul>
+      <li>Click a stack to move a block from.</li>
+      <li>Click a second stack to move the block to.</li>
+      <li>Re-click the starting stack to cancel a move.</li>
+      <li>Click 'Reset Game' to start over, or play a new game.</li>
+    </ul>
+    <a href="#">Top</a>
+  </section>
   <script type="text/javascript" src="../../vendor/jquery.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </body>
