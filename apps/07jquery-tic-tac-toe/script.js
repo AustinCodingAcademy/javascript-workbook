@@ -23,7 +23,7 @@ $(document).on('ready', function () {
     $('#clear').click(function () {
         $('[data-cell]').text("");
         playerTurn = "X";
-    })
+    });
 
     function checkForWin($this) {
         if ($this.text() === "X") {
