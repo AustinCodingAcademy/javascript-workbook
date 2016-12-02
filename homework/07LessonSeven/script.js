@@ -75,7 +75,7 @@ $(document).on('ready', function() {
   // Problem 10:
   // select the element with id="add-attribute"
   // add the attribute data-color="red" to that element
-  $('#add-attribute').attr("data-color", "red");
+  $('#add-attribute').attr('data-color', "red");
 
   // Problem 11:
   // select the element with id="data-element"

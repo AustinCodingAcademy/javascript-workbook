@@ -19,7 +19,7 @@ function CrewMember(name, job, specialSkill){
   this.enterShip = function(ship){
     this.ship = ship;
     ship.crew.push(this);
-  }
+  };
 }
 
 function Ship(name, type, ability) {
