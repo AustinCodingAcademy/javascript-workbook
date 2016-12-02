@@ -1,3 +1,16 @@
+body{
+  background-color: #80ccff;
+    font-family: 'Indie Flower', cursive;
+}
+h1{
+  font-size: 100px;
+  color:white;
+  text-align: center;
+
+}
+.grid{
+padding-left: 550px;
+}
 div[data-cell] {
   width: 100px;
   height: 100px;
@@ -13,6 +26,7 @@ div[data-cell] {
 }
 
 #announce-winner {
-  clear: both;
   font-size: 50px;
+  color: white;
+
 }
