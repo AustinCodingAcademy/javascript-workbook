@@ -12,6 +12,8 @@ var bshipCompCounter = 0;
 var cruiserCompCounter = 0;
 var destroyerCompCounter = 0;
 var subCompCounter = 0;
+var whichDirection;
+var iterator = 0;
 
 $(document).ready(function () {
 
@@ -43,6 +45,7 @@ $(document).ready(function () {
                         $('#messages').text("You Sunk My Battleship!");
                     }
                     markOut(obj);
+                    break;
                 case "C":
                     if (cruiserCounter < 2) {
                         $('#messages').text("You Hit My Cruiser!");
@@ -73,6 +76,7 @@ $(document).ready(function () {
                 default:
                     $('#messages').text("Miss!");
                     $(obj).css("background", "white");
+                    obj.innerText = ' ';
 
                 }
             }
@@ -91,14 +95,14 @@ $(document).ready(function () {
 function markOut(obj) {
     obj.innerText = "X";
     $(obj).css("background", "red");
-    overallWin++
+    overallWin++;
     checkForWin();
 }
 
 function markOutComp(obj) {
     obj.innerText = "X";
     $(obj).css("background", "red");
-    overallCompWin++
+    overallCompWin++;
     checkForWin();
 }
 
@@ -118,6 +122,22 @@ function checkForWin() {
 
 var chaining = false;
 var chainingNext;
+var shotObj;
+var carrierHit1 = false;
+var bshipHit1 = false;
+var cruiserHit1 = false;
+var subHit1 = false;
+var destroyerHit1 = false;
+var carrierHit2 = false;
+var bshipHit2 = false;
+var cruiserHit2 = false;
+var subHit2 = false;
+var destroyerHit2 = false;
+var carrierSplitToggle=false;
+var bshipSplitToggle=false;
+var cruiserSplitToggle=false;
+var subSplitToggle=false;
+var destroyerSplitToggle=false;
 
 function computersTurn() {
     //
@@ -125,164 +145,267 @@ function computersTurn() {
     //        alert("that isnt fair! you need to put your ships to sea")
     //        return;
     //    }
-    
+
+    var ShotObj;
 
     if (!chaining) {
-        var xShot = getRandomInt(0, 9);
-        var yShot = getRandomInt(0, 9);
-        var shotObj = document.getElementById(xShot + ',' + yShot);
+        var xShot = 4;// getRandomInt(0, 9);
+        var yShot = 4;//getRandomInt(0, 9);
+        shotObj = document.getElementById(xShot + ',' + yShot);
 
     } else {
-        var shotObj = chainingNext;
-            
+        shotObj = chainingNext;
+        
     }
-    
-    if (shotObj.innerText === 'X'){
-        return;
+
+
+    if (shotObj.innerText === 'X' || shotObj.innerText === ' ') {
+        if (!chaining) {
+            return;
+        } else {
+            chainingNext = chainingFunction(shotObj);
+            return;
+        }
     }
-playerTurn = true;
 
     switch (shotObj.innerText) {
     case "A":
         if (aircraftCompCounter < 4) {
             $('#messages2').text("I Hit Your Aircraft Carrier!");
+            if (aircraftCompCounter === 0) {
+                carrierHit1 = shotObj;
+            }
+            if (aircraftCompCounter === 1) {
+                carrierHit2 = shotObj;
+            }
             aircraftCompCounter++;
             chaining = true;
+            if (carrierHit2 || carrierSplitToggle) {
+                iterator = checkTheDirection();
+            }
+            
             chainingNext = chainingFunction(shotObj);
-            iterator=checkTheDirection(iterator);
+            
         } else {
             $('#messages2').text("I Sunk Your Aircraft Carrier!");
             chaining = false;
-            whichDirection="null";
-            iterator=0;
+            whichDirection = "null";
+            iterator = 0;
         }
         markOutComp(shotObj);
         break;
     case "B":
         if (bshipCompCounter < 3) {
             $('#messages2').text("I Hit Your Battleship!");
+            if (bshipCompCounter === 0) {
+                bshipHit1 = shotObj;
+            }
+            if (bshipCompCounter === 1) {
+                bshipHit2 = shotObj;
+            }
             bshipCompCounter++;
             chaining = true;
+            if (bshipHit1 || bshipSplitToggle) {
+                iterator = checkTheDirection();
+            }
             chainingNext = chainingFunction(shotObj);
+
         } else {
             $('#messages2').text("I Sunk Your Battleship!");
             chaining = false;
-            whichDirection="null";
-            iterator=0;
+            whichDirection = "null";
+            iterator = 0;
         }
         markOutComp(shotObj);
-            break;
+        break;
     case "C":
         if (cruiserCompCounter < 2) {
             $('#messages2').text("I Hit Your Cruiser!");
+            if (cruiserCompCounter === 0) {
+                cruiserHit1 = shotObj;
+            }
+            if (cruiserCompCounter === 1) {
+                cruiserHit2 = shotObj;
+            }
             cruiserCompCounter++;
             chaining = true;
+            if (cruiserHit1 || cruiserSplitToggle) {
+                iterator = checkTheDirection();
+            }
             chainingNext = chainingFunction(shotObj);
         } else {
             $('#messages2').text("I Sunk Your Cruiser!");
             chaining = false;
-            whichDirection="null";
-            iterator=0;
+            whichDirection = "null";
+            iterator = 0;
         }
         markOutComp(shotObj);
         break;
     case "S":
         if (subCompCounter < 2) {
             $('#messages2').text("I Hit Your Submarine!");
+            if (subCompCounter === 0) {
+                subHit1 = shotObj;
+            }
+            if (subCompCounter === 1) {
+                subHit2 = shotObj;
+            }
             subCompCounter++;
             chaining = true;
+            if (subHit1 || subSplitToggle) {
+                iterator = checkTheDirection();
+            }
             chainingNext = chainingFunction(shotObj);
         } else {
             $('#messages2').text("I Sunk Your Submarine!");
             chaining = false;
-            whichDirection="null";
-            iterator=0;
+            whichDirection = "null";
+            iterator = 0;
         }
         markOutComp(shotObj);
         break;
     case "D":
         if (destroyerCompCounter < 1) {
             $('#messages2').text("I Hit Your Destroyer!");
+            if (destroyerCompCounter === 0) {
+                subHit1 = shotObj;
+            }
+            if (destroyerCompCounter === 1) {
+                subHit2 = shotObj;
+            }
             destroyerCompCounter++;
             chaining = true;
+            if (destroyerHit1 || destroyerSplitToggle) {
+                iterator = checkTheDirection();
+            }
             chainingNext = chainingFunction(shotObj);
+
         } else {
             $('#messages2').text("I Sunk Your Destroyer!");
             chaining = false;
-            whichDirection="null";
-            iterator=0;
+            whichDirection = "null";
+            iterator = 0;
         }
         markOutComp(shotObj);
         break;
     default:
-        $('#messages2').text("I Missed!");
-        $(shotObj).css("background", "white");
-            if(chaining===true){
+            $('#messages2').text("I Missed!");
+            $(shotObj).css("background", "white");
+            $(shotObj).text(' ');
+            
+        if (!cleanUpShots()) {
+            if (chaining === true) {
                 chainingNext = chainingFunction(shotObj);
             }
+            
+        }
+    }
+    playerTurn = true;
+}
+
+
+function checkTheDirection() {
+    switch (whichDirection) {
+    case "right":
+        return 0;
+        break;
+    case "left":
+        return 1;
+        break;
+    case "up":
+        return 2;
+        break;
+    case "down":
+        return 3;
+        break;
+    default:
+        return iterator;
     }
 }
 
 
-function checkTheDirection(iterator){
-    switch (whichDirection){
-        case "right":
-            return 0;
-            break;
-            case "left":
-            return 1;
-            break;
-            case "up":
-            return 2;
-            break;
-            case "down":
-            return 3;
-            break;
-        default:
-            return iterator;
-    }
-}
-
-var whichDirection;
-var iterator = 0;
 function chainingFunction(shotObj) {
-    var chainingId = shotObj.id;
+    var chainingId;
+    var i =0;
+    if (carrierHit1) {
+        chainingId = carrierHit1.id;
+    }
+    if(carrierSplitToggle=== true){
+        i++;
+    }
+    if ((carrierHit2) || carrierSplitToggle) {
+        chainingId = shotObj.id;
+    }
+    var xShot;
+    var yShot;
+    
     switch (iterator) {
     case 0:
-        var xShot = parseInt(chainingId[0]) + 1;
-        var yShot = parseInt(chainingId[2]);
-            iterator++;
-            whichDirection="right"
+        xShot = parseInt(chainingId[0]) + 1;
+        yShot = parseInt(chainingId[2]);
+        iterator++;
+        whichDirection = "right";
         break;
     case 1:
-        var xShot = parseInt(chainingId[0]) - 2;
-        var yShot = parseInt(chainingId[2]);
+        xShot = (parseInt(chainingId[0]) - 1);
+        yShot = parseInt(chainingId[2]);
         iterator++;
-            whichDirection="left"
-            break;
+        whichDirection = "left";
+        break;
     case 2:
-        var xShot = parseInt(chainingId[0]) +1;
-        var yShot = parseInt(chainingId[2]) + 1;
+        xShot = parseInt(chainingId[0]);
+        yShot = parseInt(chainingId[2]) - 1;
         iterator++;
-            whichDirection="up"
-            break;
+        whichDirection = "up";
+        break;
     case 3:
-        var xShot = parseInt(chainingId[0]);
-        var yShot = parseInt(chainingId[2]) - 2;
+        xShot = parseInt(chainingId[0]);
+        yShot = parseInt(chainingId[2]) + 1;
         iterator++;
-            whichDirection="down"
-            break;
+        whichDirection = "down";
+        break;
     default:
         iterator = 0;
     }
+
+    shotObj = document.getElementById(xShot + ',' + yShot);
     
-    var shotObj = document.getElementById(xShot + ',' + yShot);
     return shotObj;
+}
+
+
+
+function cleanUpShots() {
+    if (carrierHit2) {
+        flipTheDirection();
+        iterator = checkTheDirection();
+        carrierHit2 = false;
+        chainingNext = chainingFunction(shotObj);
+        carrierSplitToggle=true;
+        return true;
+    }
+    return false;
+}
+
+function flipTheDirection() {
+    switch (whichDirection) {
+    case "right":
+        whichDirection = "left";
+        break;
+    case "left":
+        whichDirection = "right";
+        break;
+    case "up":
+        whichDirection = "down";
+        break;
+    case "down":
+        whichDirection = "up";
+        break;
+    default:
+        return iterator;
     }
 
-
-
-
+}
 
 
 $(function () {
