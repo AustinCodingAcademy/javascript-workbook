@@ -6,11 +6,21 @@
   display: -webkit-flex;
   height: 101px;
   background-color: aliceblue;
+  border: 1px solid black;
   margin: 25px;
+  font-family: sans-serif;
 }
 
 [data-block] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  display: -webkit-flex;
   width: 25px;
+  text-shadow: black 0px 0px 10px;
+  font-size: 25px;
+  font-weight: bold;
   float: left;
 }
 
@@ -37,4 +47,12 @@
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+}
+
+#rick {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  display: none;
 }
