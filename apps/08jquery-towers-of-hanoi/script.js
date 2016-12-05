@@ -6,29 +6,14 @@ $(document).ready(function() {
   var $block = null;
   var block = null;
 
-  $dataStack.click(function(e){
-
-    $clickedStack = $(this);
-    
-    // check to see if block is clicked and isn't null and if so detach the last child of the stack.
-    if (!$block) {
-      $block = $clickedStack.children().last().detach();
-    } else if (isLegal($block, $clickedStack.children().last())){
-       $clickedStack.append($block);
-       $block = null;
-       checkForWin();
-     }
-  });
-
-
   function isLegal($start, $end) {
     
     if (Number($start.attr('data-block')) < Number($end.attr('data-block'))) {
       return true;
     } else if ($clickedStack.children().length === 0 ) {
-        return true;
+      return true;
     } else {
-        return false;
+      return false;
     }
   }
 
@@ -43,6 +28,20 @@ $(document).ready(function() {
 
     })
   }
+
+  $dataStack.click(function(e){
+
+    $clickedStack = $(this);
+    
+    // check to see if block is clicked and isn't null and if so detach the last child of the stack.
+    if (!$block) {
+      $block = $clickedStack.children().last().detach();
+    } else if (isLegal($block, $clickedStack.children().last())){
+      $clickedStack.append($block);
+      $block = null;
+      checkForWin();
+    }
+  });
 
   function resetGame() {
     $("#clear-button").click(function() {

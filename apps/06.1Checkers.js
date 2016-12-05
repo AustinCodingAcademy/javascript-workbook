@@ -58,20 +58,25 @@ function Board() {
   this.checkers = [];
   this.createCheckers = function (checker) {
 
-  var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
-  var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
+    var whiteRow;
+    var whiteColumn;
+    var blackRow;
+    var blackColumn;
+
+    var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
+    var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
 
     for (var i = 0; i < whitePositions.length; i++) {
-      var whiteRow = whitePositions[i][0];
-      var whiteColumn = whitePositions[i][1];
+      whiteRow = whitePositions[i][0];
+      whiteColumn = whitePositions[i][1];
 
       this.grid[whiteRow][whiteColumn] = new Checker("white");
       this.checkers.push(this.grid[whiteRow][whiteColumn]);
     }
 
-    for (var i = 0; i < blackPositions.length; i++) {
-      var blackRow = blackPositions[i][0];
-      var blackColumn = blackPositions[i][1];
+    for (var j = 0; j < blackPositions.length; j++) {
+      blackRow = blackPositions[j][0];
+      blackColumn = blackPositions[j][1];
 
       this.grid[blackRow][blackColumn] = new Checker("black");
       this.checkers.push(this.grid[blackRow][blackColumn]);
@@ -91,6 +96,9 @@ function Board() {
     var movedChecker = this.selectChecker(row, column);
     var indexChecker = this.checkers.indexOf(movedChecker);
     var killedChecker = this.checkers.splice(indexChecker, 1);
+
+    console.log("killedChecker", killedChecker);
+    console.log("indexChecker", indexChecker);
 
     this.grid[row][column] = null;
   };

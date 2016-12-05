@@ -8,38 +8,18 @@ $(document).on('ready', function() {
   var $dataCell = $("[data-cell]");
   var $turn;
 
-  
-  function playerTurn() {
-    $dataCell.click(function(e){
-      var $turn = $(this);
-      
-      // checks for win, validates play, max amount of moves per board
 
-
-      if (($turn.text() === "X") || ($turn.text() === "O")) {
-        alert("Please select an empty cell");
-        return true;
-      }
-
-      $turn.text($playerTurn);
-
-      checkForWin();
-      
-      $playerTurn = ($playerTurn === "X") ? "O" : "X";
-      turns = turns += 1;
-      maxMoves();
-    });
+  // reset game upon maximum cell choices
+  function resetGame() {
+    setTimeout(window.location.reload.bind(window.location), 1050);
   }
+
   function maxMoves() {
     if (turns >= 8) {
       alert("Game is a tie, resetting");
       $("#announce-winner").text("Game is a draw, resetting board");
       resetGame();
     }
-  }
-  // reset game upon maximum cell choices
-  function resetGame() {
-    setTimeout(window.location.reload.bind(window.location), 1050);
   }
 
   function clearButton() {
@@ -109,6 +89,29 @@ $(document).on('ready', function() {
       return;
     } 
   }
+
+  function playerTurn() {
+    $dataCell.click(function(e){
+      var $turn = $(this);
+      
+      // checks for win, validates play, max amount of moves per board
+
+
+      if (($turn.text() === "X") || ($turn.text() === "O")) {
+        alert("Please select an empty cell");
+        return true;
+      }
+
+      $turn.text($playerTurn);
+
+      checkForWin();
+      
+      $playerTurn = ($playerTurn === "X") ? "O" : "X";
+      turns = turns += 1;
+      maxMoves();
+    });
+  }
+
   playerTurn();
   clearButton();
 });

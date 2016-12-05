@@ -12,7 +12,7 @@ $(document).ready(function() {
     $value = $this.find('input[type="text"]').val();
     $toDoList.append('<li>' + $value + '</li>');
     $toDoList.sortable();
-  })
+  });
 
   $("#todo-list").on('click', 'li', function(event) {
     $(this).closest('li').remove();

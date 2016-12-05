@@ -51,7 +51,7 @@ var helloWorld = "Hello World";
 
 //Examples
 
-var d = 4;
+/*var d = 4;
 var e = 2;
 var f = 3;
 
@@ -65,7 +65,7 @@ if ((d || e) > f) {
   return "true";
 } else {
   return "false";
-}
+}*/
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
 
