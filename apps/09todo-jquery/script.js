@@ -16,5 +16,5 @@ $(document).ready(function() {
 
   $("#todo-list").on('click', 'li', function(event) {
     $(this).closest('li').remove();
-  })
+  });
 });

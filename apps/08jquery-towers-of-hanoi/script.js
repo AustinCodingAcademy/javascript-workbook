@@ -5,6 +5,7 @@ $(document).ready(function() {
   var $clickedStack;
   var $block = null;
   var block = null;
+  var $winStack;
 
   function isLegal($start, $end) {
     
@@ -25,8 +26,7 @@ $(document).ready(function() {
       if ($(this).children().length === 4) {
         return $('#announce-game-won').text("You Won!");
       }
-
-    })
+    });
   }
 
   $dataStack.click(function(e){
@@ -49,7 +49,7 @@ $(document).ready(function() {
       setTimeout(window.location.reload.bind(window.location), 150);
     })
   }
-  resetGame()
+  resetGame();
 });
 
 
