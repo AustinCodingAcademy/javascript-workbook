@@ -47,7 +47,7 @@ $(document).ready(function() {
     $("#clear-button").click(function() {
       console.log('Clicked');
       setTimeout(window.location.reload.bind(window.location), 150);
-    })
+    });
   }
   resetGame();
 });
