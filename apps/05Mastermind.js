@@ -32,58 +32,53 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
-    // your code here
-    var correctLetterLocation = 0;
-    // (a counter always starts at zero)
-    var correctLetters = 0;
-    // following is split, which separates a string into an array:
-    var solutionArray = solution.split('');
-    var guessArray = guess.split('');
-
-    // so, if true for generate Hint:
-    // if (solutionArray[0] === guessArray[0] {
-    //   correctLetterLocations ++;})
-    // But instead, combine the ifs into one:
-
-    for (var i = 0; i < solutionArray.length; i++) {
-        if (solutionArray[i] === guessArray[i]) {
-            correctLetterLocation++;
-            //  The above is a very typical code.
-            // Below is giving a null value to the letter already checked:
-            solutionArray[i] = null;
+  // your code here
+    var solutionArray = solution.split("");
+    var guessArray = guess.split("");
+    var correctLetterLocations = 0;
+  // determine correct letter location
+    for(var i=0; i<=3; i++){
+        if(guessArray[i] === solutionArray[i]){
+          correctLetterLocations++;
+          solutionArray[i] = null;
         }
     }
-
-    for (var i = 0; i < guessArray.length; i++) {
-        var targetIndex = solutionArray.indexOf(guessArray[i]);
-        if (targetIndex > -1) {
-            correctLetters++;
-            solutionArray[targetIndex] = null;
-        }
-    } return correctLetterLocation + "-" + correctLetters;
+  // determine correct letters
+    var correctLetters = 0;
+    for(var j=0; j<=solutionArray.length; j++){
+      var targetIndex = guessArray.indexOf(solutionArray[j]);
+  //  console.log(targetIndex);
+        if(targetIndex > -1){
+        correctLetters++;
+        solutionArray[j] = null;
+        // solutionArray[targetIndex]
+      }
+  }
+  hint = correctLetterLocations + "-" + correctLetters;
+  return hint;
 }
 
 function mastermind(guess) {
-    // your code here
-    if (guess === solution) {
-        return "You guessed it!";
-    }
-    var hint = generateHint(solution, guess);
-    board.push(guess + "" + hint);
-
-    if (board.length === 10) {
-        return "You ran out of turns! The solution was " + solution;
-    }
-    return guess;
-
+  // your code here
+  //if (board.length <= 10){  }
+  if(guess === solution){
+      console.log('You guessed it!');
+      var hint = generateHint(solution, guess);
+      board.push(hint + " " + guess );
+    return 'You guessed it!';
+  } else {
+      var hint = generateHint(solution, guess);
+      board.push(hint + " " + guess );
+  }
+  return guess;
 }
-
 function getPrompt() {
-    rl.question('select four letters a-h: ', (guess) => {
-        console.log(mastermind(guess));
-        printBoard();
-        getPrompt();
-    });
+  prompt.get(['guess'], function (error, result) {
+    console.log( mastermind(result['guess']) );
+    printBoard();
+  // console.log(solution);
+    getPrompt();
+  });
 }
 
 // Tests
