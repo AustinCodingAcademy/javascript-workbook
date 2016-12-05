@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+}
+.playfair {
+  font-family: 'Playfair Display', garamond;
+}
+.row {
+  margin: 0;
+}
+header {
+  padding: 10px;
+  height: 120px;
+}
+header h1 {
+  font-size: 45px;
+}
+p {
+  font-size: 17px;
+}
+h4 {
+  height: 35px;
+  padding: 5px;
+  background-color: rgb(100, 100, 100);
+  color: white;
+  font-size: 25px;
+}
+section {
+  height: 600px;
+}
+a, a:hover, a:visited {
+  color: white;
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+  font-size: 18px;
+}
+#post-list {
+  height: 100%;
+  background-color: rgb(255, 133, 51);
+}
+#post-content {
+  height: 100%;
+  background-color: rgb(102, 204, 255);
+}
+#comments li {
+  border-bottom: 2px solid rgb(100, 100, 100);
+}
