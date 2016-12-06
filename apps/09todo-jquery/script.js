@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
   // App logic goes here
+  $('#todo-list').sortable();
   $('form').submit(function(event) {
     event.preventDefault();
 
@@ -10,13 +11,16 @@ $(document).ready(function() {
     }
 
     var todoText = $(this).find('#todo').val();
-    $('#todo-list').append('<li><a class="done" href="#">Done</a><span class="todo-text">' + todoText + '</span></li>');
-    $('#todo-list').sortable();
+    $('#todo-list').append('<li><button class="done" href="#">Done</button><span class="todo-text">' + todoText + '</span></li>');
+
     $('#todo').val('');
   });
 
+
+
   $('#todo-list').on('click', '.done', function (e) {
-    $(e.target).parent().remove();
+    e.preventDefault();
+    $(this).parent().remove();
     if ($('#todo-list').children().length === 0) {
       $('#todo-list').append('<li id="default-li"><span class="todo-text">You finished your list! Feel free to start over!</span></li>');
     }
