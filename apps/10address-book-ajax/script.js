@@ -11,6 +11,9 @@ $(document).ready(function() {
          $tbody.append(str);
         console.log($(str).get(0));
       })
+    },
+    error: function(err) {
+        console.log(err);
     }
   });
 
