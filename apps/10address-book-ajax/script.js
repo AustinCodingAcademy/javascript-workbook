@@ -20,8 +20,8 @@ $(document).ready(function() {
 
   $tbody.on("click", "[data-id]", function(e) {
     e.preventDefault();
-    var url = "https://reqres-api.erokuapp.com/api/users/" + $(event.target).data("id");
-    console.log(url);
+    var url = "https://reqres-api.herokuapp.com/api/users/" + $(event.target).data("id");
+    console.log(url);``
     $.ajax(url, {
       success: function(user) {
         console.log(user);
