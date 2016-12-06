@@ -102,7 +102,7 @@ describe('get specific user details', function () {
 
     // need a second to get the markup to be appended
     setTimeout(function () {
-      $('[data-id='1']').click();
+      $('[data-id="1"]').click();
       setTimeout(function () {
         var detailsHtml = $('#details').html();
         assert.ok(nock.isDone());
