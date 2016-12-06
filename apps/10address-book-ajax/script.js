@@ -12,14 +12,15 @@ $(document).ready(function() {
         console.log($(str).get(0));
       })
     },
-    error: function(err) {
-        console.log(err);
+    error: function (request, status, error) {
+      alert(request.responseText);
+      alert("Request Failed");
     }
   });
 
   $tbody.on("click", "[data-id]", function(e) {
     e.preventDefault();
-    var url = "https://reqres-api.herokuapp.com/api/users/" + $(event.target).data("id");
+    var url = "https://reqres-api.erokuapp.com/api/users/" + $(event.target).data("id");
     console.log(url);
     $.ajax(url, {
       success: function(user) {
@@ -27,8 +28,9 @@ $(document).ready(function() {
         var str = "<h3>" + user.first_name + " " + user.last_name + "</h3>" + "<h4>" + user.occupation + "</h4>" +  "<p>" + user.phone + "</p>" + "<p>" + user.address + "</p>" + "<img src='" + user.avatar + "'/>";
         $($details).html(str);
       },
-      error: function(err) {
-        console.log(err);
+      error: function (request, status, error) {
+        alert(request.responseText);
+        alert("Request Failed");
       }
     })
   })
