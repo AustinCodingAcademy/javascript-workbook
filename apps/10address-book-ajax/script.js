@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   $tbody.on("click", "[data-id]", function(e) {
     e.preventDefault();
-    var url = "https://reqres-api.herokuapp.com/api/users/" + $(event.target).data("id");
+    var url = "https://reqres-api.herokuapp.com/api/users/" + $(e.target).data("id");
     console.log(url);``
     $.ajax(url, {
       success: function(user) {
