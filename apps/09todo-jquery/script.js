@@ -7,6 +7,7 @@ $(document).ready(function() {
   var $toDoList = $('#todo-list');
   var $listItem = $('li');
   var $input = $('input');
+  var $toDoListContainer = $('.to-do-list-item');
 
   $form.submit(function(event) {
     event.preventDefault();
@@ -16,13 +17,13 @@ $(document).ready(function() {
     $input.val("");
   });
 
-  $('#todo-list').on('change', 'input', function(event) {
+  $toDoList.on('change', 'input', function(event) {
     if ($(this).is(":checked")) {
       $($(this)).closest('.to-do-list-item').remove();
     }  
   });
 
-  $("#todo-list").on('click', 'li', function(event) {
+  $toDoList.on('click', 'li', function(event) {
     $($(this)).closest('.to-do-list-item').remove();
   });
 });
