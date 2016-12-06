@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
     var $tbody = $("tbody");
+    var $details = $("#details");
 
     $.ajax("https://reqres-api.herokuapp.com/api/users", {
       success: function(users) {
@@ -12,4 +13,20 @@ $(document).ready(function() {
       })
     }
   });
+
+  $tbody.on("click", "[data-id]", function(e) {
+    e.preventDefault();
+    var url = "https://reqres-api.herokuapp.com/api/users/" + $(event.target).data("id");
+    console.log(url);
+    $.ajax(url, {
+      success: function(user) {
+        console.log(user);
+        var str = "<h3>" + user.first_name + " " + user.last_name + "</h3>" + "<h4>" + user.occupation + "</h4>" +  "<p>" + user.phone + "</p>" + "<p>" + user.address + "</p>" + "<img src='" + user.avatar + "'/>";
+        $($details).html(str);
+      },
+      error: function(err) {
+        console.log(err);
+      }
+    })
+  })
 });
