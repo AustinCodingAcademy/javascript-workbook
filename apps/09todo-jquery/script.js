@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   $('#todo-list').on('change', 'input', function(event) {
     if ($(this).is(":checked")) {
-      $(this).closest('.to-do-list-item').remove();
+      $($(this)).closest('.to-do-list-item').remove();
     }  
   });
 
