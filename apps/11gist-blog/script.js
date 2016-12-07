@@ -12,7 +12,7 @@ $(document).ready(function() {
     return arrDate[1] + '/' + arrDate[2] + '/'
  + arrDate[0]  }
 
-  $.ajax('https://api.github.com/users/dsolis421/gists.json', {
+  $.ajax('https://api.github.com/users/dsolis421/gists', {
     success: function getGists(response) {
       response.forEach(function(post){
         if (post.description.match('^#post')) {
