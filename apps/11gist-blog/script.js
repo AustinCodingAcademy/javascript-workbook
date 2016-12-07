@@ -17,7 +17,7 @@ $(document).ready(function() {
       response.forEach(function(post){
         if (post.description.match('^#post')) {
           var postDesc = post.description.replace(/#post /g, '');
-          var postURL = post.url.replace(/http:\/\/127.0.0.1:808/g,'https://api.github.com/users/dsolis421/gists');
+          var postURL = post.url.replace(/http:\/\/127.0.0.1:808/g,'');
           var postDate = formatDate(post.created_at.split('T')[0]);
           var str = '<li><a href="#" data-url="' + postURL + '">' + postDesc + '</a> | ' + postDate + '</li>';
           console.log(str);
@@ -30,7 +30,7 @@ $(document).ready(function() {
         console.log(url);
         $.ajax(url, {
           success: function postHandler(postResponse) {
-            var commURL = postResponse.comments_url.replace(/http:\/\/127.0.0.1:8080/g,'https://api.github.com/users/dsolis421/gists');
+            var commURL = postResponse.comments_url.replace(/http:\/\/127.0.0.1:8080/g,'');
             $("#post").empty();
             $('#post').css("text-align","left");
             $("#comments").empty();
