@@ -2,7 +2,7 @@
 
 $(document).on('ready', function() {
 
-
+    //I played, unnecessarily, with data structures cause I could have just written some or statements with selectors, and I learned a valuable lesson in redunancy and paid the price of time, but I learned other things and it was fun.
     //Player turn identified via string, initialized to 'x'
     var playerTurn = 'x';
     //saved values for current cell
@@ -12,6 +12,7 @@ $(document).on('ready', function() {
     var xList = [];
     var yList = [];
 
+    //Inject win conditions here
     var winConditions = {
             horizontalTop: [0, 1, 2],
             horizontalMiddle: [3, 4, 5],
@@ -21,7 +22,7 @@ $(document).on('ready', function() {
             verticalRight: [2, 5, 8],
             diagonalTopLeft: [0, 4, 8],
             diagonalTopRight: [6, 4, 2]
-            //if any of these cell numbers reside in the array and match all x or all y then the x or y player wins.
+                //if any of these cell numbers reside in the array and match all x or all y then the x or y player wins.
         }
         //check for clicked items with attribute [data-cell]
     $("[data-cell]").click(function() {
@@ -33,10 +34,10 @@ $(document).on('ready', function() {
 
 
         //if the clicked item does not have the class "immutable" change the turn
-        if (!$(this).hasClass("immutable")) {
+        if ( ! $(this).hasClass("immutable")) {
 
             console.log("The clicked item does not have class immutable");
-            $(this).text(playerTurn);
+            $(this).text(playerTurn.toUpperCase());
 
             if (playerTurn == "x") {
                 xList.push($(this).data('cell'));
@@ -56,16 +57,23 @@ $(document).on('ready', function() {
             //How do we get info from CellObjects?
 
             //How do we push the cell value into an array?
-
-            console.log("player turn is: " + playerTurn);
+            if(checkForWin()){
+              console.log("win detected")
+              $('div[data-cell]').addClass("immutable");
+              playerTurn = "x";
+            }
+            else{
+              console.log("player turn is: " + playerTurn);
             //toggle the playerTurn to its alternate value
             playerTurn = (playerTurn == 'x') ? 'o' : 'x';
 
             //secure the div square with class "immutable" so that it cannot be changed
             $(this).addClass("immutable");
+            }
+
 
             //Check for with
-            checkForWin();
+
         }
 
 
@@ -85,17 +93,18 @@ $(document).on('ready', function() {
 
                 for (var rule in winConditions[condition]) {
                     if (xList[cell] == winConditions[condition][rule]) {
-                      console.log("cell value " + xList[cell] + " rule value " + winConditions[condition][rule]);
+                        console.log("cell value " + xList[cell] + " rule value " + winConditions[condition][rule]);
                         correctX++;
                     }
                 }
 
-                console.log("comparing item: " + xList[cell] + " with conditions: " + condition + " " + winConditions[condition] + " correct items: " + correctX );
+                console.log("comparing item: " + xList[cell] + " with conditions: " + condition + " " + winConditions[condition] + " correct items: " + correctX);
 
 
-                if(correctX==winConditions[condition].length){
-                  console.log("X WINS!")
-                  return 1;
+                if (correctX == winConditions[condition].length) {
+                    console.log("X WINS!");
+                    $('#announce-winner').text('Player ' + playerTurn.toUpperCase()  + ' Wins!');
+                    return 1;
                 }
             }
 
@@ -103,17 +112,19 @@ $(document).on('ready', function() {
 
                 for (var rule in winConditions[condition]) {
                     if (yList[cell] == winConditions[condition][rule]) {
-                      console.log("cell value " + yList[cell] + " rule value " + winConditions[condition][rule]);
+                        console.log("cell value " + yList[cell] + " rule value " + winConditions[condition][rule]);
                         correctY++;
                     }
                 }
 
-                console.log("comparing item: " + yList[cell] + " with conditions: " + condition + " " + winConditions[condition] + " correct items: " + correctY );
+                console.log("comparing item: " + yList[cell] + " with conditions: " + condition + " " + winConditions[condition] + " correct items: " + correctY);
 
 
-                if(correctY==winConditions[condition].length){
-                  console.log("O WINS!")
-                  return 1;
+                if (correctY == winConditions[condition].length) {
+                    console.log("O WINS!");
+                    $('#announce-winner').text('Player ' + playerTurn.toUpperCase() + ' Wins!');
+
+                    return 1;
                 }
             }
         }
@@ -136,7 +147,10 @@ $(document).on('ready', function() {
         //restore mutability, clear text, clear active cell objects
         $(".immutable").removeClass("immutable");
         $("[data-cell]").text("");
-        allCells = [];
+        $('#announce-winner').empty();
+        xList = [];
+        yList = [];
+        playerTurn = 'x';
         //remove all instances of attribute "immutable"
         //remove all text from the board
     }
@@ -146,11 +160,7 @@ $(document).on('ready', function() {
         resetBoard()
     });
 
-    function debug() {
-        console.log('debug enabled, logging values of cells using methods')
-        console.log('data cell selector data cell' + $('[data-cell]'));
-        console.log('data cell selector for data cell plus' + $(this).attr("[data-cell]"));
-    }
+
 
 
 
