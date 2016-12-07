@@ -13,8 +13,13 @@
 </head>
 
 <body>
-    <header>
+    <header class="row">
+      <div class="col-sm-3">
         <h1 class="playfair">Get the Gist</h1>
+      </div>
+      <div class="col-sm-9">
+        <p>My various coding thoughts, lessons, musings, and general nonsense...</p>
+      </div>
     </header>
     <section class="row">
       <div class="col-sm-3" id="post-list">
@@ -22,14 +27,27 @@
         <ul id="posts"></ul>
       </div>
       <div class="col-sm-9" id="post-content">
-        <div id="post"><p>My various coding thoughts, lessons, musings, and general nonsense...</p>
-        </div>
+        <div id="post"><span class="fa fa-file-text-o fa-5x" id="p-holder"></span></div>
         <ul id="comments"></ul>
       </div>
     </section>
+    <footer class="row">
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+        <span class="fa fa-facebook-square fa-3x"></span>
+        <span class="fa fa-linkedin-square fa-3x"></span>
+        <span class="fa fa-github-square fa-3x"></span>
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+    </footer>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script src="https://use.fontawesome.com/9822dc9e23.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 
