@@ -8,20 +8,20 @@ $(document).ready(function() {
 
         var post = "<a href='#' data-url='" + gist.url + "'>" + gist.description + "</a>";
 
-        if (post.indexOf('#post') !== -1) {
+        if (post.indexOf("#post") !== -1) {
           post = post.replace("#post", " ");
-          $('#posts').append(post);
+          $("#posts").append(post);
         }
       });
       
-      $('#posts').on('click', 'a', function(e){
+      $("#posts").on("click", "a", function(e){
         e.preventDefault();
-        console.log($(this).data('url'));
+        //console.log($(this).data('url'));
         /*var $self = this;
         $.ajax($self, {
 
         })*/
-      })
+      });
     },
     error(request, status, error) {
       alert("Request Failed");

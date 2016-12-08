@@ -22,7 +22,6 @@ $(document).ready(function() {
     var url = "https://reqres-api.herokuapp.com/api/users/" + $(e.target).data("id");
     $.ajax(url, {
       success(user) {
-        console.log(user);
         var str = "<h3>" + user.first_name + " " + user.last_name + "</h3>" + "<h4>" + user.occupation + "</h4>" +  "<p>" + user.phone + "</p>" + "<p>" + user.address + "</p>" + "<img src='" + user.avatar + "'/>";
         $($details).html(str);
       },
@@ -31,5 +30,5 @@ $(document).ready(function() {
         alert("Request Failed");
       }
     })
-  })
+  });
 });
