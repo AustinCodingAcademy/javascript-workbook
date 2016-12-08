@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   function isLegal($start, $end) {
     
-    if (Number($start.attr('data-block')) < Number($end.attr('data-block'))) {
+    if (Number($start.attr("data-block")) < Number($end.attr("data-block"))) {
       return true;
     } else if ($clickedStack.children().length === 0 ) {
       return true;
@@ -21,10 +21,10 @@ $(document).ready(function() {
   function checkForWin(){
     $dataStack.each(function(e){
 
-      $winStack = $(this).attr('data-stack');
+      $winStack = $(this).attr("data-stack");
 
       if ($(this).children().length === 4) {
-        return $('#announce-game-won').text("You Won!");
+        return $("#announce-game-won").text("You Won!");
       }
     });
   }
@@ -45,7 +45,6 @@ $(document).ready(function() {
 
   function resetGame() {
     $("#clear-button").click(function() {
-      console.log('Clicked');
       setTimeout(window.location.reload.bind(window.location), 150);
     });
   }

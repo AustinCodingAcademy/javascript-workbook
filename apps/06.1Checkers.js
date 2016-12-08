@@ -97,9 +97,6 @@ function Board() {
     var indexChecker = this.checkers.indexOf(movedChecker);
     var killedChecker = this.checkers.splice(indexChecker, 1);
 
-    console.log("killedChecker", killedChecker);
-    console.log("indexChecker", indexChecker);
-
     this.grid[row][column] = null;
   };
 }

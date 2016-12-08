@@ -79,10 +79,10 @@ if (typeof describe === 'function'){
       assert.equal(hermes.missionStatement(), "Can't perform a mission yet.");
 
       crewMember1.enterShip(mav);
-      assert.equal(mav.missionStatement(), 'Ascend into low orbit');
+      assert.equal(mav.missionStatement(), "Ascend into low orbit");
 
       crewMember2.enterShip(hermes);
-      assert.equal(hermes.missionStatement(), 'Interplanetary Space Travel');
+      assert.equal(hermes.missionStatement(), "Interplanetary Space Travel");
     });
   });
 }

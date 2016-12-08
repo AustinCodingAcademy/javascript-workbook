@@ -5,14 +5,13 @@ $(document).ready(function() {
     var $details = $("#details");
 
     $.ajax("https://reqres-api.herokuapp.com/api/users", {
-      success: function(users) {
+      success(users) {
         users.forEach(function(user) {
           var str = "<tr><td>" + user.id + "</td><td>" + user.first_name + "</td><td>" + user.last_name + "</td><td><a href='#' data-id='" + user.id + "'>view</a></td></tr>";
          $tbody.append(str);
-        console.log($(str).get(0));
-      })
+      });
     },
-    error: function (request, status, error) {
+    error(request, status, error) {
       alert(request.responseText);
       alert("Request Failed");
     }
@@ -21,14 +20,13 @@ $(document).ready(function() {
   $tbody.on("click", "[data-id]", function(e) {
     e.preventDefault();
     var url = "https://reqres-api.herokuapp.com/api/users/" + $(e.target).data("id");
-    console.log(url);``
     $.ajax(url, {
-      success: function(user) {
+      success(user) {
         console.log(user);
         var str = "<h3>" + user.first_name + " " + user.last_name + "</h3>" + "<h4>" + user.occupation + "</h4>" +  "<p>" + user.phone + "</p>" + "<p>" + user.address + "</p>" + "<img src='" + user.avatar + "'/>";
         $($details).html(str);
       },
-      error: function (request, status, error) {
+      error(request, status, error) {
         alert(request.responseText);
         alert("Request Failed");
       }
