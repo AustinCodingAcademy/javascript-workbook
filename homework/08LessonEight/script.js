@@ -16,31 +16,32 @@ $(document).on('ready', function() {
   var $finalList = $('#final-list');
 
   // Problem 1:
-  // Get the children of #first-list using the .children() method
-  window.firstListChildren = null;
+// Get the children of #first-list using the .children() method
+window.firstListChildren = $firstList.children();
 
-  // Problem 2:
-  // Get the children of #second-list using the .children() method
-  window.secondListChildren = null;
-  
-  // Problem 3:
-  // Now use the .detach() method on window.firstListChildren to
-  // remove those elements from the document
-  window.firstListChildren;
+// Problem 2:
+// Get the children of #second-list using the .children() method
+window.secondListChildren = $secondList.children();
 
-  // Problem 4:
-  // Now use the .detach() method on window.secondListChildren to
-  // remove those elements from the document
-  window.secondListChildren;
+// Problem 3:
+// Now use the .detach() method on window.firstListChildren to
+// remove those elements from the document
+window.firstListChildren = firstListChildren.detach();
 
-  // Problem 5:
-  // use $finalList.prepend() to put window.firstListChildren
-  // at the beggining of #final-list
-  $finalList;
 
-  // Problem 6:
-  // use $finalList.append() to put window.secondListChildren
-  // at the end of #final-list
-  $finalList;
+// Problem 4:
+// Now use the .detach() method on window.secondListChildren to
+// remove those elements from the document
+window.secondListChildren = secondListChildren.detach();
+
+// Problem 5:
+// use $finalList.prepend() to put window.firstListChildren
+// at the beggining of #final-list
+$finalList.prepend(window.firstListChildren);
+
+// Problem 6:
+// use $finalList.append() to put window.secondListChildren
+// at the end of #final-list
+$finalList.append(window.secondListChildren);
 
 });
