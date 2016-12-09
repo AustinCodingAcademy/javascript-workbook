@@ -1,3 +1,10 @@
+.half {
+  display: inline-block;
+  float: left;
+  height: 50vw;
+  width: 50%;
+}
+
 div[data-cell] {
   width: 100px;
   height: 100px;
@@ -12,6 +19,22 @@ div[data-cell] {
   background-color:red;
 }
 
+#game {
+  min-width: 375px;
+  padding-left: 20%;
+}
+
+/* Clearfix */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#clear, #announce-winner {
+  margin-left: 20%;
+}
+
 .row {
   clear: both;
 }
@@ -19,4 +42,5 @@ div[data-cell] {
 #announce-winner {
   clear: both;
   font-size: 50px;
+  visibility: hidden;
 }
