@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     // Spec 3
     // Construct a string containing a list item <li></li> with your todoText in the middle. .append() the html string to the end of your #todo-list.
-    $('#todo-list').append('<li>' + todoText + '<li>');
+    $('#todo-list').append('<li>' + todoText + '</li>');
 
     // clears the input value in the form
     $(this).find('input[type="text"]').val('');
@@ -23,7 +23,7 @@ $(document).ready(function() {
     // Now make your list .sortable().
     $('#todo-list').sortable();
 
-  })
+  });
 
 
 });
