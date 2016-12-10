@@ -10,15 +10,19 @@
   margin: 25px;
   font-family: sans-serif;
 }
-
+.trollGifBg {
+  background-image: url("troll.gif");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-color: none;
+}
 [data-block] {
   display: flex;
   justify-content: center;
   align-items: center;
   -webkit-align-items: center;
   display: -webkit-flex;
-  width: 25px;
-  text-shadow: black 0px 0px 10px;
+  width: 50px;
   font-size: 25px;
   font-weight: bold;
   float: left;
@@ -42,6 +46,11 @@
 [data-block="100"] {
   height: 100px;
   background-color: yellow;
+}
+
+#counter {
+  font-size: 30px;
+  text-align: center;
 }
 
 #announce-game-won {
