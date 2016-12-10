@@ -1,10 +1,31 @@
-body {
-    width: 80%;
-    margin: 5% auto 0 auto;
-    background-color: 
+ul#posts {
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    padding: 0;
 }
 
-#comments {
+div#post-card {
+    border-radius: 10px;
+}
+
+div#post {
+    margin: 0 0 5% 0;
+}
+
+div#post p {
     text-align: right;
-    font-size: .8em;
+}
+
+ul#comments {
+    text-align: right;
+}
+
+span.comment-user {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+span.comment-body {
+    font-size: 1em;
 }

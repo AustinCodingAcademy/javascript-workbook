@@ -7,18 +7,25 @@
     <!-- CSS RESET -->
     <link rel="stylesheet" href="css/css-reset.css">
 
-    <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- MY CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <ul id="posts"></ul>
-    <div class="card-panel green lighten-4 blue-text">
-        <div id="post"></div>
-        <ul id="comments"></ul>
+<body class="red accent-1">
+    <div class="container">
+        <div class="row">
+            <ul id="posts" class="col s12 m3 push-m9 collection"></ul>
+            <div id="post-card" class="col s12 m8 pull-m3 card-panel green lighten-4 deep-purple-text text-darken-1">
+                <div id="post">
+                    <h3>[ I am empty, fill me up! ]</h3>
+                    <p>( select a post to the right => )</p>
+                </div>
+                <ul id="comments" class="pink-text text-lighten-3"></ul>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
