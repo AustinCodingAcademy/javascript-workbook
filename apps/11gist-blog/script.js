@@ -11,8 +11,8 @@ $(document).ready(function() {
                     $('#posts').append($post);
                 };
             })
-            $('body').on('click', 'a', function(event) {
-                $('#posts a').removeClass('active');
+            $('ul#posts').on('click', 'a', function(event) {
+                $('ul#posts a').removeClass('active');
                 $(this).addClass('active');
                 event.preventDefault();
                 $.ajax($(this).data('url'), {
