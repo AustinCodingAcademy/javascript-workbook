@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Todo</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div id="content">
-    <div class="header">TODO</div>
-    <form>
-      <input type="text" id="todo">
-      <input type="submit" value="Submit">
-    </form>
-    <ul id="todo-list">
-      <li><label class="checkbox-inline"><input type="checkbox" />Walk the dog</label></li>
-    </ul>
-  </div>
 
-  <script type="text/javascript" src="../../vendor/jquery.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To Do List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="content">
+        <div class="header">To Do List</div>
+        <form>
+            <input type="text" id="todo" autocomplete="off" placeholder="Next task">
+            <input type="submit" value="Submit">
+        </form>
+        <ul id="todo-list">
+            <li>
+                <label class="checkbox-inline">
+                    <input type="checkbox" />Walk the dog</label>
+            </li>
+        </ul>
+        <div id="buttonRow">
+            <button id="clearButton">
+                Complete Checked Tasks
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../vendor/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

@@ -71,13 +71,11 @@ $(document).on('ready', function() {
             $('#announce-winner').text('Player ' + $playerTurn + ' Wins!').css({
                 'color': 'green ',
                 'text-shadow': '1px 2px black'
-            }).addClass('animated bounceInRight');
+            }).addClass('animated pulse infinite');
             $dataCellDiv.css({
                 'background-image': "url('http://i.imgur.com/g6W2Dvc.png')",
                 'background-size': 'cover',
-                'background-position': 'center',
-                'color': 'yellow',
-                'text-shadow': '2px 2px black'
+                'background-position': 'center'
             });
             return true;
         }
@@ -88,7 +86,7 @@ $(document).on('ready', function() {
     // Checks for a win.
     // Toggles to the next player.
     $dataCellDiv.click(function() {
-        if ($(this).text() === '') {
+        if (($(this).text() === '') && (!checkForWin())) {
             $(this).text($playerTurn);
         };
         checkForWin();
@@ -100,11 +98,10 @@ $(document).on('ready', function() {
     // Clears board and winner.
     $button.click(function() {
         // Clears the text from between the tags of every div with a data-cell attribute
-        $dataCellDiv.empty();
+        $dataCellDiv.css('background-image', 'none').empty();
         // Empties the text from between the tags of the #announce-winner div
         $('#announce-winner').empty();
         $playerTurn = 'X';
-        $dataCellDiv.css('background-image', "none");
     });
 
 
