@@ -15,7 +15,7 @@ $(document).ready(function() {
               $.ajax($url, {
                 success: function(user){
                   var $str = $('<h3>' + user.first_name + ' ' + user.last_name + '</h3><h4>' + user.occupation + '</h3><p>' + user.phone + '</p><p>' + user.address + '</p><img src="' + user.avatar + '">');
-                  $('div#details').html($str).addClass('animated fadeInDown');
+                  $('div#details').html($str).addClass('animated fadeIn');
                   $('#details').css("display", "block");
 
                 }
