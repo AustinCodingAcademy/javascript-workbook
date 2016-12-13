@@ -16,7 +16,7 @@ $(document).ready(function() {
         // In each loop, create a var called 'str' that builds an html string that...
         // matches the <tr></tr> in the html markup, but with the 'user' keys.
         // This variable has the same structure as the table data in the html
-        var str = '<tr><td>' + user.id + '</td><td>' + user.first_name + '</td><td>' + user.last_name + '</td><td><a href="#" data-id=""' + user.id + '>view</a></td></tr>';
+        var str = '<tr><td>' + user.id + '</td><td>' + user.first_name + '</td><td>' + user.last_name + '</td><td><a href="#" data-id="' + user.id + '">view</a></td></tr>';
 
         // At the end of each loop, append the str to the tbody element.
         var $tbody = $('tbody');
@@ -37,12 +37,14 @@ $(document).ready(function() {
 
     // Create a var url that starts as a string 'https://reqres-api.herokuapp.com/api/users/'.
     var userUrl = 'https://reqres-api.herokuapp.com/api/users/';
+    // Now grab the data-id value from the link using the .data method,
+    var userUrlDetail = $(event.target).data('id');
 
-    // Now grab the data-id value from the link using the .data method, and attach it to the end of the url.
-    var userUrlData = userUrl + $(this).data('id');
+    // and attach it to the end of the url.
+    var userUrlData = userUrl + userUrlDetail;
 
     // Now make an .ajax with that url,
-    $.ajax('userUrlData', {
+    $.ajax(userUrlData, {
 
       // and in a success callback, pass in user as the response.
       success: function(user) {
