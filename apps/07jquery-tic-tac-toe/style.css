@@ -6,6 +6,7 @@
 }
 
 div[data-cell] {
+  cursor: pointer;
   width: 100px;
   height: 100px;
   background-color: #f2f2f2;
@@ -17,6 +18,10 @@ div[data-cell] {
 
 .row div:not(:empty):active {
   background-color:red;
+}
+
+.row div:empty:hover {
+  background-color: aliceblue;
 }
 
 #game {
@@ -37,6 +42,10 @@ div[data-cell] {
 
 .row {
   clear: both;
+}
+
+.winner {
+  color: #33ff66;
 }
 
 #announce-winner {
