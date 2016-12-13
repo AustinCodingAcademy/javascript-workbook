@@ -11,7 +11,7 @@ $(document).ready(function() {
         todoText = $(this).find('#todo').val(" ");
     });
 
-    $('button').click(function() {
-        $(':checked').parent().remove();
+    $('body').on('click', 'button', function(){
+      $(this).parent().remove();
     });
 });
