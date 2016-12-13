@@ -15,16 +15,19 @@ div[data-cell] {
     font-size: 150px;
     text-align: center;
     color: black;
-}
-div[data-cell]:hover{
-  background-color: rgba(0, 0, 0, .1);
+    margin: 1px;
 }
 .row {
     clear: both;
 }
+.winningColor{
+  background-color: #ffff99;
+}
 #announce-winner {
     clear: both;
     font-size: 50px;
+    color: black;
+    font-weight: bold;
 }
 button {
   margin: 10px auto;
@@ -35,5 +38,5 @@ button {
   font-weight: bold;
 }
 button:hover {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: #80ff80;
 }

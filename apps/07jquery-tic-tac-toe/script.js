@@ -67,16 +67,49 @@ $(document).on('ready', function() {
         $dc7 = $('[data-cell="7"]').text();
         $dc8 = $('[data-cell="8"]').text();
 
+        function announceWinner(){
+          $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+        }
+
+        function highlightWinMoves(){
+            if (($playerTurn === $dc0) && ($playerTurn === $dc1) && ($playerTurn === $dc2)) {
+              $('[data-cell="0"]').css('background-color', '#ffff99');
+              $('[data-cell="1"]').css('background-color', '#ffff99');
+              $('[data-cell="2"]').css('background-color', '#ffff99');
+            } else if (($playerTurn === $dc3) && ($playerTurn === $dc4) && ($playerTurn === $dc5)){
+              $('[data-cell="3"]').css('background-color', '#ffff99');
+              $('[data-cell="4"]').css('background-color', '#ffff99');
+              $('[data-cell="5"]').css('background-color', '#ffff99');
+            } else if (($playerTurn === $dc6) && ($playerTurn === $dc7) && ($playerTurn === $dc8)) {
+              $('[data-cell="6"]').css('background-color', '#ffff99');
+              $('[data-cell="7"]').css('background-color', '#ffff99');
+              $('[data-cell="8"]').css('background-color', '#ffff99');
+            } else if (($playerTurn === $dc0) && ($playerTurn === $dc3) && ($playerTurn === $dc6)){
+              $('[data-cell="0"]').css('background-color', '#ffff99');
+              $('[data-cell="3"]').css('background-color', '#ffff99');
+              $('[data-cell="6"]').css('background-color', '#ffff99');
+            } else if (($playerTurn === $dc1) && ($playerTurn === $dc4) && ($playerTurn === $dc7)){
+              $('[data-cell="1"]').css('background-color', '#ffff99');
+              $('[data-cell="4"]').css('background-color', '#ffff99');
+              $('[data-cell="7"]').css('background-color', '#ffff99');
+            } else if (($playerTurn === $dc2) && ($playerTurn === $dc5) && ($playerTurn === $dc8)){
+              $('[data-cell="2"]').css('background-color', '#ffff99');
+              $('[data-cell="5"]').css('background-color', '#ffff99');
+              $('[data-cell="8"]').css('background-color', '#ffff99');
+            } else if (($playerTurn === $dc0) && ($playerTurn === $dc4) && ($playerTurn === $dc8)) {
+              $('[data-cell="0"]').css('background-color', '#ffff99');
+              $('[data-cell="4"]').css('background-color', '#ffff99');
+              $('[data-cell="8"]').css('background-color', '#ffff99');
+            } else if(($playerTurn === $dc2) && ($playerTurn === $dc4) && ($playerTurn === $dc6)){
+              $('[data-cell="2"]').css('background-color', '#ffff99');
+              $('[data-cell="4"]').css('background-color', '#ffff99');
+              $('[data-cell="6"]').css('background-color', '#ffff99');
+            }
+        }
+
         if (horizontalWin() || verticalWin() || diagonalWin()) {
-            $('#announce-winner').text('Player ' + $playerTurn + ' Wins!').css({
-                'color': 'green ',
-                'text-shadow': '1px 2px black'
-            }).addClass('animated pulse infinite');
-            $dataCellDiv.css({
-                'background-image': "url('http://i.imgur.com/g6W2Dvc.png')",
-                'background-size': 'cover',
-                'background-position': 'center'
-            });
+            announceWinner();
+            highlightWinMoves();
             return true;
         }
     };
@@ -98,7 +131,7 @@ $(document).on('ready', function() {
     // Clears board and winner.
     $button.click(function() {
         // Clears the text from between the tags of every div with a data-cell attribute
-        $dataCellDiv.css('background-image', 'none').empty();
+        $dataCellDiv.empty().css({'background-image': 'none', 'background-color': 'white'});
         // Empties the text from between the tags of the #announce-winner div
         $('#announce-winner').empty();
         $playerTurn = 'X';
