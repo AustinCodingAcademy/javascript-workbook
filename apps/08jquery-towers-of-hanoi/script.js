@@ -2,17 +2,23 @@
 
 $(document).ready(function() {
     // Put app logic here
-
+    var block = null;
     $('[data-stack]').click(
         function() {
-            var block = $(this).children().last().detach()
-                //where should i be defining this variable?
-            console.log(block)
-            if (block.length > 0) {
-                $(this).append(block)
+            if (!block) {
+              block = $(this).children().last().detach()
             } else {
-                console.log('hi');
+              if ((block.data('block') < $(this).children().last().data('block')) || $(this).children().length === 0 ){
+                $(this).append(block);
+                block = null;
+              }
             }
+            checkForWin();
         }
     );
+    function checkForWin(){
+      if ($('[data-stack ="2"]').children().length === 4 || $('[data-stack ="3"]').children().length === 4) {
+        $('#announce-game-won').text('You Won!');
+      }
+    }
 });
