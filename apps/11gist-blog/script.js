@@ -13,19 +13,46 @@ $(document).ready(function() {
           $("#posts").append(post);
         }
       });
-      
-      $("#posts").on("click", "a", function(e){
-        e.preventDefault();
-        //console.log($(this).data('url'));
-        /*var $self = this;
-        $.ajax($self, {
-
-        })*/
-      });
     },
     error(request, status, error) {
       alert("Request Failed");
     }
   });
+
+  /*Click Handler For Posts*/
+  $("#posts").on("click", "a", function(e){
+    e.preventDefault();
+    var $self = $(this).data('url');    
+    $.ajax($self, {
+      success(url) {
+        var $post = url.files["post.md"].content;  
+        var $marked = marked($post);
+        
+        $("#post").append($marked);
+        console.log("1st call");
+        grabComments(url);
+      },
+      error(request, stats, error) {
+        alert("Request Failed");
+      }
+    });
+  });
+
+  function grabComments(url) {
+    console.log(url.comments_url);
+    $.ajax(url.comments_url, {
+      success(url) {
+        console.log(url);
+        $.each(url, function(index, value) {
+          var $comments = value.user.login;
+          var $body = value.body;
+          console.log("2nd call");
+          $("#comments").append(" " + $comments + " ");
+          $('#comments').append(" " + $body + " ");
+        })
+      }
+    }) 
+  }
+
 });
 
