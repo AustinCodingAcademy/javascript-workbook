@@ -29,6 +29,6 @@ $(document).ready(function() {
         alert(request.responseText);
         alert("Request Failed");
       }
-    })
+    });
   });
 });

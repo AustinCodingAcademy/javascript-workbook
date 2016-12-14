@@ -19,17 +19,32 @@ $(document).ready(function() {
     }
   });
 
+  function grabComments(url) {
+    $.ajax(url.comments_url, {
+      success(url) {
+        $.each(url, function(index, value) {
+          var $comments = value.user.login;
+          var $body = value.body;
+          $("#comments").append(" " + $comments + " ");
+          $("#comments").append(" " + $body + " ");
+        });
+      }
+    });
+  }
+
   /*Click Handler For Posts*/
   $("#posts").on("click", "a", function(e){
     e.preventDefault();
-    var $self = $(this).data('url');    
+    var $marked;
+    var $post;
+
+    var $self = $(this).data("url");    
     $.ajax($self, {
       success(url) {
-        var $post = url.files["post.md"].content;  
-        var $marked = marked($post);
+        $post = url.files["post.md"].content;  
+        $marked = marked($post);
         
         $("#post").append($marked);
-        console.log("1st call");
         grabComments(url);
       },
       error(request, stats, error) {
@@ -37,22 +52,5 @@ $(document).ready(function() {
       }
     });
   });
-
-  function grabComments(url) {
-    console.log(url.comments_url);
-    $.ajax(url.comments_url, {
-      success(url) {
-        console.log(url);
-        $.each(url, function(index, value) {
-          var $comments = value.user.login;
-          var $body = value.body;
-          console.log("2nd call");
-          $("#comments").append(" " + $comments + " ");
-          $('#comments').append(" " + $body + " ");
-        })
-      }
-    }) 
-  }
-
 });
 
