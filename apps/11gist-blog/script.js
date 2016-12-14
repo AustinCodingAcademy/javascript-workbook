@@ -13,7 +13,7 @@ $(document).ready(function() {
  + arrDate[0]  }
 
   $.ajax('https://api.github.com/users/dsolis421/gists', {
-    success: function getGists(response) {
+    success: function (response) {
       response.forEach(function(post){
         if (post.description.match('^#post')) {
           var postDesc = post.description.replace(/#post /g, '');
