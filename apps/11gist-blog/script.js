@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     // make request to GET array of gist json objects
     $.ajax('https://api.github.com/users/chrisperk/gists', {
+    // $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
 
         // if request is successful run this generate #posts list function with returned posts array as param
         success: function(posts) {
@@ -35,11 +36,8 @@ $(document).ready(function() {
                 // prevent page from reloading
                 event.preventDefault();
 
-                // set #post p to text-align: left
-                $('div#post p').css('text-align', 'left');
-
                 // when a post is selected, display the #new-comment entry form
-                $('#new-comment').css('display', 'block');
+                $('form#new-comment').css('display', 'block');
 
                 // remove active class from all #posts list-links
                 $('ul#posts a').removeClass('active');
@@ -58,6 +56,9 @@ $(document).ready(function() {
 
                         // clear the #post div then style the postContent with marked() and insert postContent into #post div
                         $('div#post').html(marked(postContent));
+
+                        // set #post p to text-align: left
+                        $('div#post p').attr('style', 'text-align: left');
                     }
                 });
 
