@@ -30,7 +30,8 @@ $(document).ready(function() {
                             success: function(commentInfo) {
                               var $date = new Date(commentInfo[0].created_at);
                               var $commentTimeAndDate = (`${$date.toLocaleDateString()} @ ${$date.toLocaleTimeString()}`);
-                                $('#comments').html(`<h2>Comments</h2><div class="currentComment"><ul><li><span class="userName">${commentInfo[0].user.login}:</span><br/> ${commentInfo[0].body}</li><br /><span class="commentDate">${$commentTimeAndDate}</span></ul></div>`).hide().slideDown();
+                                $('#comments').html(`<h2>Comments</h2><div class="currentComment"><ul><li><span class="userName">${commentInfo[0].user.login}:</span><br/><br/> ${commentInfo[0].body}</li><br /><span class="commentDate">${$commentTimeAndDate}</span></ul></div>`).hide().slideDown();
+                                $('.postContent a').attr('target', '_blank');
                             }
                         });
                     }

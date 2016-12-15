@@ -1,12 +1,17 @@
 body {
-  background-image:url("http://www.w3schools.com/css/paper.gif");
-  background-repeat: repeat-x repeat-y;
+  background: repeating-linear-gradient(
+    45deg,
+    #B6B6B6,
+    #B6B6B6 10px,
+    #a5a5a5 10px,
+    #a5a5a5 20px
+  );
   padding: 25px 0;
   min-width: 1060px;
 }
 header div {
   min-height: 200px;
-  background-color: #2D3047;
+  background-color: #004687;
   border: 3px solid black;
   border-radius: 15px;
 }
@@ -24,7 +29,7 @@ h3 {
   text-shadow: 3px 3px 3px black;
   font-weight: bolder;
   padding: 20px 0;
-  text-align: center;
+  text-align: left;
 }
 li{
   color: white;
@@ -35,10 +40,9 @@ li{
   border-right: 3px solid black;
   margin: 0;
   box-shadow: 0 0 20px black;
-  background-color: #63372C;
+  background-color: #b81d18;
 }
 .myPosts {
-  background-color: #63372C;
   min-height: 500px;
   padding: 0 50px;
   font-family: 'Nunito Sans', sans-serif;
@@ -57,12 +61,13 @@ li{
   border-radius: 5px;
 }
 .contentContainer{
-  background-color: #28635E;
+  background-color: #202020;
   min-height: 500px;
-  padding: 0 50px;
+  padding: 0 50px 10px 50px;
   color: white;
   font-size: 20px;
   font-family: 'Gloria Hallelujah', cursive;
+  border-left: 3px solid black;
 }
 .contentContainer h3 {
   color: white;
@@ -79,11 +84,14 @@ li{
   border-radius: 15px;
 }
 .contentContainer a, .contentContainer a:active, .contentContainer a:visited {
-  color: yellow;
+  color: #004687;
+}
+.contentContainer li {
+  color: white;
 }
 #comments {
   min-height: 100px;
-  background-color: #2D3047;
+  background-color: #004687;
   color: white;
   border: 3px solid black;
   border-radius: 15px;
