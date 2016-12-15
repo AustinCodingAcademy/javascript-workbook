@@ -68,7 +68,7 @@ $(document).on('ready', function() {
         $dc8 = $('[data-cell="8"]').text();
 
         function announceWinner(){
-          $('#announce-winner').text('Player ' + $playerTurn + ' Wins!');
+          $('#announce-winner').html('<p>Player ' + '<span class="playerTurn">' + $playerTurn + '</span> Wins!</p>');
         }
 
         function highlightWinMoves(){

@@ -28,6 +28,11 @@ div[data-cell] {
     font-size: 50px;
     color: black;
     font-weight: bold;
+    text-shadow: 2px 2px 2px #ffff99;
+}
+.playerTurn{
+  color: #ffff99;
+  text-shadow: 5px 1px 1px black;
 }
 button {
   margin: 10px auto;
