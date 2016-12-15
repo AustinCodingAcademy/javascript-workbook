@@ -4,7 +4,7 @@ $(document).ready(function() {
     // Your code here
 
     // make request to GET array of gist json objects
-    $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+    $.ajax('https://api.github.com/users/chrisperk/gists', {
 
         // if request is successful run this generate #posts list function with returned posts array as param
         success: function(posts) {
@@ -19,23 +19,30 @@ $(document).ready(function() {
                     var strPostDescription = post.description.slice(5);
 
                     // make an html-encapsulated string that will be inserted into index.html
-                    var $post = $('<a class="collection-item" href="#" data-url="' + post.url + '" data-comments="' + post.comments_url + '">' + strPostDescription + '</a>');
+                    var $post = $('<a class="collection-item" href="#" data-url="' + post.url + '" data-comments="' + post.comments_url + ' ">' + strPostDescription + '</a>');
 
                     // attach string creating list-link element to end of #posts list; lastest post will be at top of list
                     $('ul#posts').append($post);
                 };
             })
+
             // click listener on #posts list-links
             $('ul#posts a').click(function(event) {
+
+                var $that = $(this).data('url').id;
+                console.log($that);
+
+                // prevent page from reloading
+                event.preventDefault();
+
+                // when a post is selected, display the #new-comment entry form
+                $('#new-comment').css('display', 'block');
 
                 // remove active class from all #posts list-links
                 $('ul#posts a').removeClass('active');
 
                 // add active class to clicked #posts list-link
                 $(this).addClass('active');
-
-                // prevent page from reloading
-                event.preventDefault();
 
                 // make ajax request for the post object with this link's data-url key
                 $.ajax($(this).data('url'), {
@@ -50,7 +57,8 @@ $(document).ready(function() {
                         $('div#post').empty().append(marked(postContent));
                     }
                 });
-                // make ajax request for the comments object this this link's data-comments_url key
+
+                // make ajax request for the comments object with this link's data-comments_url key
                 $.ajax($(this).data('comments'), {
 
                     // if request is successful run this new comments function with returned comments array as param
@@ -70,6 +78,41 @@ $(document).ready(function() {
                         })
                     }
                 })
+
+                // put click listener on submit button after new-comment form and post comments are displayed
+                // $('button#submit-comment').click(function(event) {
+                //     event.preventDefault();
+                //     var $newCommentUsername = $('#user-name').val();
+                //     var $newCommentBody = $('#user-comment').val();
+                //     console.log(`${$newCommentUsername} ${$newCommentBody}`);
+                //     $.post(`http://127.0.0.1:8080/apps/11gist-blog/api/gists/88b4b967cd89b99da6e3/comments.json`, {
+                //         success: function(response) {
+                //
+                //             console.log(response);
+                //
+                //             // make ajax request for the comments object with this link's data-comments_url key
+                //             $.ajax($(this).data('comments'), {
+                //
+                //                 // if request is successful run this new comments function with returned comments array as param
+                //                 success: function(comments) {
+                //
+                //                     // reset the comments list before we loop through and generate each comment
+                //                     $('ul#comments').empty();
+                //
+                //                     // loop through comment object in array and enter each as the param for this generate comment function
+                //                     comments.forEach(function(comment) {
+                //
+                //                         // make an html-encapsulated string that displays and styles new comment
+                //                         var $comment = $('<blockquote><li><span class="comment-user">' + comment.user.login + '</span> says "<span class="comment-body">' + comment.body + '"</span></li></blockquote>');
+                //
+                //                         // attach new comment to the #comments list; latest comment will be at bottom of list
+                //                         $('#comments').append($comment);
+                //                     })
+                //                 }
+                //             })
+                //         }
+                //     })
+                // })
             });
         }
     });

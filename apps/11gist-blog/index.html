@@ -10,6 +10,9 @@
     <!-- Compiled and minified Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
+    <!-- Material Icons link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- MY CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,10 +39,37 @@
                 <ul id="comments" class="pink-text text-lighten-3"></ul>
             </div>
         </div>
+        <div class="row">
+            <form id="new-comment" class="col s8 push-s2 card-panel white">
+                <div class="row">
+                    <h4 class="pink-text text-lighten-3">Add a comment!</h4>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="What is your name?" id="user-name" type="text" class="validate">
+                        <label class="active" for="user-name">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea placeholder="What would you like to say?" id="user-comment" class="materialize-textarea"></textarea>
+                        <label class="active" for="user-comment">Comment</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button id="submit-comment" class="btn waves-effect waves-light col s3 push-s8" type="submit" name="action">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+
 </body>
 
 </html>
