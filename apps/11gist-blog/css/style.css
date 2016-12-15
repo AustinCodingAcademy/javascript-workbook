@@ -17,8 +17,13 @@ div#post {
     margin-bottom: 5%;
 }
 
+div#post pre {
+    margin-bottom: 3%;
+}
+
 div#post p {
     text-align: right;
+    margin-bottom: 3%;
 }
 
 ul#comments {
