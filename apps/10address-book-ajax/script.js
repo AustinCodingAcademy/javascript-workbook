@@ -15,13 +15,13 @@ $(document).ready(function() {
                 });
               }
             });
-    $('body').on('click', 'a', function() {
+    $('body').on('click', 'a', function(event) {
         event.preventDefault();
         var url = 'https://reqres-api.herokuapp.com/api/users/' + $(this).data("id");
         $.ajax(url, {
             success: function(users) {
                 var str =
-                    "<h3>" + users.first_name + users.last_name + "</h3>" +
+                    "<h3>" + users.first_name + " " + users.last_name + "</h3>" +
                     "<h4>" + users.occupation + "</h4>" +
                     "<p>" + users.phone + "</p>" +
                     "<p>" + users.address + "</p>" +
