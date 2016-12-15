@@ -6,7 +6,7 @@ $(document).ready(function() {
   var play = true;
 
   function isLegal($blockToMove, $destinationBlock) {
-    return !($blockToMove.data('block') > $destinationBlock.data('block'));
+    return ($blockToMove.data('block') < $destinationBlock.data('block'));
   }
 
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
     }
   }
 
-  
+
   $('div[data-stack]').click(function () {
     if (!$block && play) {
       $block = $(this).children().last().detach();
