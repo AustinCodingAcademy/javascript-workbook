@@ -2,11 +2,11 @@
 
 $(document).ready(function() {
 
-  $.ajax("http://127.0.0.1:8080/apps/11gist-blog/api/gists.json", {
+  $.ajax("https://api.github.com/users/GPFAFF/gists", {
     success(gists) {
       gists.forEach(function(gist) {
 
-        var post = "<a href='#' data-url='" + gist.url + "'>" + gist.description + "</a>";
+        var post = "<a href='#' id='gist' data-url='" + gist.url + "'>" + gist.description + "</a>";
 
         if (post.indexOf("#post") !== -1) {
           post = post.replace("#post", " ");
@@ -19,15 +19,19 @@ $(document).ready(function() {
     }
   });
 
-  function grabComments(url) {
-    $.ajax(url.comments_url, {
-      success(url) {
-        $.each(url, function(index, value) {
+  function grabComments(gist) {
+    $.ajax(gist.comments_url, {
+      success(gist) {
+        console.log(gist);
+        $.each(gist, function(index, value) {
           var $comments = value.user.login;
           var $body = value.body;
-          $("#comments").append(" " + $comments + " ");
-          $("#comments").append(" " + $body + " ");
+          var $avatar = value.user.avatar_url
+          $("#comments").append("<img src="+ $avatar + " id='image'/>" + "<p id='user'> " + $comments + " </p>" + "<p id='text'> " + $body + " </p>");
         });
+      },
+      error(request, status, error) {
+        alert("Request Failed");
       }
     });
   }
