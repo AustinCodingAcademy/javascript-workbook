@@ -11,7 +11,7 @@ marked.setOptions({
 });
 
 $(document).ready(function() {
-    $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+    $.ajax('https://api.github.com/users/RocketShipp/gists', {
         success: function(response) {
             response.forEach(function(gist) {
                 var $myDescription = gist.description.slice(6, gist.description.length);
