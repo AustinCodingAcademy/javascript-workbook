@@ -35,6 +35,9 @@ $(document).ready(function() {
                 // prevent page from reloading
                 event.preventDefault();
 
+                // set #post p to text-align: left
+                $('div#post p').css('text-align', 'left');
+
                 // when a post is selected, display the #new-comment entry form
                 $('#new-comment').css('display', 'block');
 
@@ -54,7 +57,7 @@ $(document).ready(function() {
                         var postContent = post.files['post.md'].content;
 
                         // clear the #post div then style the postContent with marked() and insert postContent into #post div
-                        $('div#post').empty().append(marked(postContent));
+                        $('div#post').html(marked(postContent));
                     }
                 });
 
