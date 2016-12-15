@@ -20,11 +20,18 @@
 <body class="red accent-1">
     <div class="container">
         <div class="row">
+            <ul id="dropdown-link" class="dropdown-content">
+                <li><a href="https://chrisperk.github.io">Portfolio</a></li>
+            </ul>
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Christopher Perkins Gist</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="https://chrisperk.github.io">My Portfolio</a></li>
+                    <a href="#" class="brand-logo left hide-on-small-only">Christopher Perkins Gist</a>
+                    <ul id="nav-dropdown" class="right">
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown-link">
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
