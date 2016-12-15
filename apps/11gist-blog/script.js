@@ -37,7 +37,7 @@ $(document).ready(function() {
                 event.preventDefault();
 
                 // when a post is selected, display the #new-comment entry form
-                $('form#new-comment').css('display', 'block');
+                // $('form#new-comment').css('display', 'block');
 
                 // remove active class from all #posts list-links
                 $('ul#posts a').removeClass('active');
