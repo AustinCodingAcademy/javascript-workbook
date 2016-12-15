@@ -10,12 +10,14 @@ body {
   justify-content: center;
 }
 #tableColumn {
-  background-color: rgba(0, 0, 0, .2);
-  border: 5px solid black;
-  border-radius: 20px;
+  background-image: url('http://i.imgur.com/SGB8koF.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-x;
+  border: 3px solid black;
   padding: 20px;
   text-transform: capitalize;
-  color: white;
+  color: black;
 }
 tr{
   font-size: 20px;
@@ -25,12 +27,12 @@ tr th{
   padding-bottom: 20px;
   color: yellow;
   text-decoration: underline;
-  text-shadow: 1px 1px 10px black;
+  text-shadow: 1px 1px 1px black;
   font-size: 30px;
 }
 td a, td a:active, td a:visited {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 td a:hover {
   color: yellow;
@@ -39,8 +41,9 @@ td a:hover {
 }
 #details{
   text-align: center;
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba(0, 0, 0, .2);
   border: 3px solid black;
+  border-radius: 10px;
   margin-top: 20px;
   padding-bottom:20px;
   overflow: hidden;
