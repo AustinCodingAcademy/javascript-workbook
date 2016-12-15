@@ -17,12 +17,17 @@ div#post {
     margin-bottom: 5%;
 }
 
-div#post pre {
+div#post p {
+    text-align: right;
     margin-bottom: 3%;
 }
 
-div#post p {
-    text-align: right;
+div#post img {
+    display: block;
+    margin: 0 auto;
+}
+
+div#post pre {
     margin-bottom: 3%;
 }
 
