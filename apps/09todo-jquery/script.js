@@ -8,7 +8,7 @@ $(document).ready(function() {
         var todoText = $(this).find('input[type="text"]').val();
         //.val if empty will be "" or could have taken the falsey approach --> !todoText
         if (todoText === "") {
-          return;
+            return;
         }
 
         $('#todo-list').append('<li> <input type ="checkbox" name="test" value="test"/>' + todoText + '<button class ="done"></button></li>');
