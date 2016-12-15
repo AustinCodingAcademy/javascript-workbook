@@ -6,8 +6,7 @@ $(document).ready(function() {
     success(gists) {
       gists.forEach(function(gist) {
 
-        var post = "<a href='#' id='gist' data-url='" + gist.url + "'>" + gist.description + "</a>";
-
+        var post = "<div class='post'> <li class='item'><a href='#' id='gist' data-url='" + gist.url + "'>" + gist.description + "</a></li>" + "<div id='post'></div>"
         if (post.indexOf("#post") !== -1) {
           post = post.replace("#post", " ");
           $("#posts").append(post);
@@ -22,14 +21,16 @@ $(document).ready(function() {
   function grabComments(gist) {
     $.ajax(gist.comments_url, {
       success(gist) {
-        console.log(gist);
         $.each(gist, function(index, value) {
+          //var $user = value.owner.html_url
           var $login = value.user.login;
           var $body = value.body;
           var $avatar = value.user.avatar_url
           var $comments = $("#comments");
 
-          $comments.append("<img src="+ $avatar + " id='image'/>" + "<p id='user'> " + $login + " </p>" + "<p id='text'> " + $body + " </p>");
+          var $details = "<ul id='comments'>" + "<img src="+ $avatar + " id='image'/>" + "<p id='user'> " + "<a href='" + '#' + "'>" + $login + "</a>" + " </p>" + "<p id='text'> " + $body + " </p></ul>";
+          $("#post").append($details);
+      
         });
       },
       error() {
@@ -59,4 +60,3 @@ $(document).ready(function() {
     });
   });
 });
-

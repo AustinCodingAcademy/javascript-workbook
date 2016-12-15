@@ -29,9 +29,23 @@ main {
   padding: 30px;
 }
 #image {
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
 }
-#user {
+
+#user, #user a {
   display: inline;
+  vertical-align: top;
+  font-size: 20px;
+  color: black;
+  text-shadow: 1px 1px 1px gray;
+}
+#text {
+  margin: 10px;
+}
+#comments {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
 }
