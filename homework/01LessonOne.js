@@ -10,34 +10,37 @@ var assert = require('assert');
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.
 
-var myUndefined;
+var myUndefined = undefined;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+//
+//An undefined variable is a variable that has not been declared or give value.
+//Null is an assignment value. It is assigned to a variable as a representation of no value.
 
-var myNull;
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 27;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = 'hello';
 
 // ****
 // Boolean Operators
@@ -46,57 +49,57 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue;
+var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse;
+var notFalse = !false;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = !true;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = !!true;
 
 // ****
 // Concept Checkpoint
@@ -105,10 +108,8 @@ var notNotTrue;
 //
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
-// Your Answer Goes Here:
-With the "and", if both are true, then it will return true.
-If either one is false, it will return false. With the "or",
-if at least one side is true, it will reason both together as true.
+// Your Answer Goes Here: The "and" operator is written as ""&&". It first tests if the value on the left is true. If so it tests if the value on the right is true. If both are true, it will return a value of true. If either is false, it will return a value of false.
+
 //
 // ****
 
@@ -122,22 +123,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = false;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -147,11 +148,11 @@ var notNotUndefined;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
-Falsiness is a emotionally"negative" statement. Some examples are:
-false, 0, null, or NAN.
+//Falsiness is a emotionally"negative" statement. Some examples are:
+//false, 0, null, or NAN.
 
-Truthiness is emotionally positive and contains variable pretaining to that which is true. Some examples are:
-true,4,hello,or any number
+//Truthiness is emotionally positive and contains variable pretaining to that which is true. Some examples are:
+//true,4,hello,or any number
 // ****
 
 // ****
@@ -160,47 +161,47 @@ true,4,hello,or any number
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -210,20 +211,17 @@ var stringFourStrictNotEqualsNumberFour;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-JavaScript has both strict and type-converting equality comparison.
-For strict equality the objects being compared must have the same type. Some examples are:
-0 == false   // true
-0 === false  // false, because they are of a different type
-1 == "1"     // true, automatic type conversion for value only
-1 === "1"    // false, because they are of a different type
+// Your Answer Goes Here: == and === are comparison operators. == is the loose equality operator. It compares two values for equality after it converts both values to a common type.
+//
+// === is the strict equality evaluator. It compares to values and does not convert them. It will produce true if it evaluates to values to be of equal value AND equal type.
+//
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-=== and !== are strict comparison operators:
-Two Boolean operands are strictly equal if both are true or both are false.
-Two objects are strictly equal if they refer to the same Object.
-Null and Undefined types are == (but not ===). [I.e. (Null==Undefined) is true but (Null===Undefined) is false]
+//Two Boolean operands are strictly equal if both are true or both are false.
+//Two objects are strictly equal if they refer to the same Object.
+//Null and Undefined types are == (but not ===). [I.e. (Null==Undefined) is true but (Null===Undefined) is false]
 //
 // ****
 
