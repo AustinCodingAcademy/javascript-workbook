@@ -13,11 +13,15 @@ $(document).ready(function() {
                          "</tr>";
                      $('tbody').append(str);
                  });
+                 userClick();
                }
              });
-     $('body').on('click', 'a', function(event) {
+  function userClick() {
+    $('body').on('click', 'a', function(event) {
          event.preventDefault();
          var url = 'https://reqres-api.herokuapp.com/api/users/' + $(this).data("id");
+         //var userid = $(this).data("id");
+         //var urltarget = url + userid;
          $.ajax(url, {
              success: function(users) {
                  var str =
