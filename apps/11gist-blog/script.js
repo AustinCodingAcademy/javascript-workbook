@@ -24,7 +24,7 @@ $(document).ready(function() {
                 var $myUrl = $(this).data('url');
                 $.ajax($myUrl, {
                     success: function(postInfo) {
-                        var $content = (postInfo.files[0].content);
+                        var $content = (postInfo.files["post.md"].content);
                         $('.postContent').html(marked($content)).hide().show('slow');
                         $.ajax(postInfo["comments_url"], {
                             success: function(commentInfo) {
