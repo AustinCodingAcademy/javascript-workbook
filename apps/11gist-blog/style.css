@@ -35,13 +35,13 @@ li{
   border-right: 3px solid black;
   margin: 0;
   box-shadow: 0 0 20px black;
+  background-color: #63372C;
 }
 .myPosts {
   background-color: #63372C;
   min-height: 500px;
   padding: 0 50px;
   font-family: 'Nunito Sans', sans-serif;
-  border-right: 3px solid black;
 }
 .myPosts ul {
   padding: 0;
