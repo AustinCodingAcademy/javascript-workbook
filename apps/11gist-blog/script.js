@@ -14,7 +14,7 @@ $(document).ready(function() {
         }
       });
     },
-    error(request, status, error) {
+    error() {
       alert("Request Failed");
     }
   });
@@ -24,13 +24,15 @@ $(document).ready(function() {
       success(gist) {
         console.log(gist);
         $.each(gist, function(index, value) {
-          var $comments = value.user.login;
+          var $login = value.user.login;
           var $body = value.body;
           var $avatar = value.user.avatar_url
-          $("#comments").append("<img src="+ $avatar + " id='image'/>" + "<p id='user'> " + $comments + " </p>" + "<p id='text'> " + $body + " </p>");
+          var $comments = $("#comments");
+
+          $comments.append("<img src="+ $avatar + " id='image'/>" + "<p id='user'> " + $login + " </p>" + "<p id='text'> " + $body + " </p>");
         });
       },
-      error(request, status, error) {
+      error() {
         alert("Request Failed");
       }
     });
@@ -40,18 +42,18 @@ $(document).ready(function() {
   $("#posts").on("click", "a", function(e){
     e.preventDefault();
     var $marked;
-    var $post;
+    var $postId = $("#post");
 
     var $self = $(this).data("url");    
     $.ajax($self, {
       success(url) {
-        $post = url.files["post.md"].content;  
+        var $post = url.files["post.md"].content;  
         $marked = marked($post);
         
-        $("#post").append($marked);
+        $postId.append($marked);
         grabComments(url);
       },
-      error(request, stats, error) {
+      error() {
         alert("Request Failed");
       }
     });
