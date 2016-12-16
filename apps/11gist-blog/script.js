@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 $(document).ready(function() {
   // You code here
   //change AJAX calls to work w local host when testing
@@ -31,6 +29,7 @@ $(document).ready(function() {
         $.ajax(url, {
           success: function postHandler(postResponse) {
             var commURL = postResponse.comments_url.replace(/http:\/\/127.0.0.1:8080/g,'');
+            var postID = postResponse.id;
             $("#post").empty();
             $('#post').css("text-align","left");
             $("#comments").empty();
@@ -38,7 +37,7 @@ $(document).ready(function() {
             console.log(commURL);
             $.ajax(commURL, {
               success: function getComments(commResponse) {
-                $("#post").append("<h4 class='playfair'>Comments <span class='fa fa-comments'></span></h4>");
+                $("#post").append("<h4 class='playfair'>Comments +<a target='_blank' href='https://gist.github.com/dsolis421/" + postID + "'><span class='fa fa-comments'></span></a></h4>");
                 commResponse.forEach(function(comment){
                   if (comment.user.login != null) {
                     $("#comments").append("<li>" + comment.user.login + " - " + comment.body + "</li>");

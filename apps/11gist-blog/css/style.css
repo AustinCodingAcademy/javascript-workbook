@@ -45,6 +45,7 @@ ul li {
 #post-list {
   height: 100%;
   background-color: rgb(255, 133, 51);
+  overflow-y: auto;
 }
 #post-content {
   height: 100%;
@@ -55,7 +56,7 @@ ul li {
   text-align: center;
 }
 #p-holder {
-  line-height: 600px;
+  line-height: 590px;
   color: rgb(100, 100, 100);
 }
 #comments li {
@@ -64,9 +65,14 @@ ul li {
 footer {
   height: 300px;
   background-color: rgb(100, 100, 100);
-}
-footer div:nth-last-of-type(2) {
+  color: white;
   text-align: center;
+}
+footer div:first-of-type {
+  text-align: left;
+}
+footer div:not(:first-of-type) {
+  padding-top: 20px;
 }
 footer span {
   color: white;
@@ -92,12 +98,12 @@ footer a:nth-of-type(2) {
   #post-content {
     height: 600px;
   }
-  #p-holder {
-    line-height: 600px;
-  }
 }
 @media screen and (max-width: 767px) {
   header {
+    text-align: center;
+  }
+  footer div:first-of-type {
     text-align: center;
   }
 }
