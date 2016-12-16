@@ -1,41 +1,52 @@
 'use strict';
 
 var assert = require('assert');
-var readline = require('readline');
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+var prompt = require('prompt');
+prompt.start();
+
 
 
 function rockPaperScissors(hand1, hand2) {
-  hand1=hand1.toLowerCase();
-  hand2=hand2.tolowercase();
 
-  // Write code here
-  if (hand1 === 'rock' && hand2 === 'scissors') {
-return "Hand one wins!";
-}
-else if (hand1 === 'paper' && hand2 === 'rock') {
-return "Hand one wins!";
-}
-else if (hand1 === 'scissors' && hand2 === 'paper') {
-return "Hand one wins!";
-}
-else {
-return "Hand two wins!";
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
+    hand1 = hand1.trim();
+    hand2 = hand2.trim();
+
+    var handWin1 = 'Hand one wins!';
+    var handWin2 = 'Hand two wins!';
+    var handTie = "It's a tie!";
+
+    if (hand1 === hand2) {
+        return handTie;
+    } else if (hand1 === 'rock' && hand2 === 'scissors') {
+        return handWin1;
+    } else if (hand1 === 'rock' && hand2 === 'paper') {
+        return handWin2;
+    } else if (hand1 === 'scissors' && hand2 === 'paper') {
+        return handWin1;
+    } else if (hand1 === 'scissors' && hand2 === 'rock') {
+        return handWin2;
+    } else if (hand1 === 'paper' && hand2 === 'rock') {
+        return handWin1;
+    } else if (hand1 === 'paper' && hand2 === 'scissors') {
+        return handWin2;
+    } else {
+        return ('Invalid Input! Please enter rock, paper, or scissors to continue');
+    }
 }
 
-}
 
 function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
+    prompt.get(['hand1', 'hand2'], function(error, result) {
+
+        console.log(rockPaperScissors(result['hand1'], result['hand2']));
+
+        getPrompt();
     });
-  });
 }
+
+
 
 // Tests
 
