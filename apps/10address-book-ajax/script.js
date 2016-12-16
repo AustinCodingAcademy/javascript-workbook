@@ -14,7 +14,6 @@ $(document).ready(function() {
 
       })
       $('a').click(function(event) {
-        console.log('did we fire?');
         event.preventDefault();
         var $clickedID = $(this).data('id');
         var url = "https://reqres-api.herokuapp.com/api/users/" + $clickedID;
