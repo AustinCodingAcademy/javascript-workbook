@@ -56,6 +56,7 @@ li{
   text-decoration: none;
   color: white;
   font-size: 20px;
+  padding: 0 5px;
 }
 .myPosts ul a:hover{
   color: white;
@@ -63,6 +64,7 @@ li{
   border-radius: 5px;
 }
 .contentContainer{
+  display: table;
   background-color: #202020;
   min-height: 500px;
   padding: 0 50px 10px 50px;
@@ -94,6 +96,10 @@ li{
 }
 .contentContainer li {
   color: white;
+}
+.postContent{
+  display: table-cell;
+  vertical-align: middle;
 }
 #comments {
   min-height: 100px;
