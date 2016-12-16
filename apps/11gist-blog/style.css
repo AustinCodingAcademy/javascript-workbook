@@ -50,12 +50,12 @@ li{
 .myPosts ul {
   padding: 0;
 }
-.myPosts a, .myPosts a:active, .myPosts a:visited {
+.myPosts ul a, .myPosts ul a:active, .myPosts ul a:visited {
   text-decoration: none;
   color: white;
   font-size: 20px;
 }
-.myPosts a:hover{
+.myPosts ul a:hover{
   color: white;
   background-color: rgba(0,0,0,.5);
   border-radius: 5px;
@@ -85,6 +85,10 @@ li{
 }
 .contentContainer a, .contentContainer a:active, .contentContainer a:visited {
   color: #004687;
+}
+.contentContainer a:hover {
+  color: white;
+  text-decoration: none;
 }
 .contentContainer li {
   color: white;
