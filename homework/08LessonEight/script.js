@@ -30,19 +30,21 @@ $(document).on('ready', function() {
   // remove those elements from the document
   window.firstListChildren = $("#first-list").children().detach();
 
+
   // Problem 4:
   // Now use the .detach() method on window.secondListChildren to
   // remove those elements from the document
   window.secondListChildren = $("#second-list").children().detach();
 
+
   // Problem 5:
   // use $finalList.prepend() to put window.firstListChildren
   // at the begining of #final-list
-  $finalList.prepend(firstListChildren);
+  $finalList.prepend(window.firstListChildren);
 
   // Problem 6:
   // use $finalList.append() to put window.secondListChildren
   // at the end of #final-list
-  $finalList.append(secondListChildren);
+  $finalList.append(window.secondListChildren);
 
 });
