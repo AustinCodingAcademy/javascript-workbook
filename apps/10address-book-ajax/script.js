@@ -1,7 +1,6 @@
 'use strict';
 
 $(document).ready(function () {
-  // You code here
   //1. Copy past requirements into code which has api data structure.
   //2. Separate things into named functions as much as possible
   //3. Remember to use the settings object with the success method
