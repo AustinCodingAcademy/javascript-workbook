@@ -1,31 +1,25 @@
 'use strict';
 
 $(document).ready(function() {
-  // Put app logic here
-  //var children = $('data-stack').children();
-  //var lastChild = children.last();
-  var dataStack = $('[data-stack]');
   var block = null;
 
-  dataStack.click(function(){
-    if (block === null){
+  $('[data-stack]').click(function() {
+    if (!block) {
       block = $(this).children().last().detach();
-      //block.append(dataStack);
-      // if (isLegal){
-      //
-      // }
+    } else {
+      if ($(this).children().last().data('block') > block.data('block') || $(this).children().last().data('block') == undefined) {
+        $(this).append(block);
+        block = null;
+      }
     }
-    else if (isLegal){
-        $(this).children().append(block);
+    if (checkForWin()) {
+      $('#announce-game-won').text('you won!');
     }
-  });
-  // function isLegal(start, end) {
-  //   if (start.data('block') > end.data('block')) {
-  //     return true;
-  //   }
-  // }
-
-});
+  })
+})
+function checkForWin() {
+  return ($('[data-stack=2]').children().length === 4) || ($('[data-stack=3]').children().length === 4)
+}
 
 // On click() of a [data-stack], detach() the last() of the children() and set it equal to a variable called block. Then, when another [data-stack] is click()ed, check if the block variable is assigned, if so, append the block to the stack and set block to null.
 
@@ -36,4 +30,4 @@ $(document).ready(function() {
 
 
 
-  //var selected = = $(this);
+//var selected = = $(this);
