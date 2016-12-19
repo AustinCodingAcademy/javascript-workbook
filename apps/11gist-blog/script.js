@@ -22,9 +22,9 @@ $(document).ready(function() {
     $.ajax(clicked, {
       success: function(url) {
         var postContent = marked(url.files['post.md'].content);
-        $('#posts').append(postContent);
+        $('#post').append(postContent);
         console.log(postContent);
-      }
+      },
     });
   })
 
