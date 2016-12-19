@@ -4,7 +4,7 @@ $(document).on('ready', function() {
     // Put app logic in here
 
     var playerTurn = 'X';
-    var stopGame = false;
+    var play = true;
     var acceptableanswers = [0, 1, 2];
     var turnCounter = 1;
     //that SETs playerturn as .text() on $(this)
