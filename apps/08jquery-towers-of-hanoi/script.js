@@ -15,7 +15,7 @@ $(document).ready(function() {
       //
       // }
     }
-    else {
+    else if (isLegal){
         $(this).children().append(block);
     }
   });
