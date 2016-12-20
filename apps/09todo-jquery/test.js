@@ -65,7 +65,7 @@ describe('add todo', function () {
     $('#todo-list').children().detach();
     $('#todo').val('write code');
     $('form').submit();
-    assert.equal($('#todo-list').find('li').text(), ('write code'));
+    assert.equal($('#todo-list').find('li span').text(), ('write code'));
   });
 });
 

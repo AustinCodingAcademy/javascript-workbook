@@ -11,7 +11,7 @@ $(document).ready(function() {
     }
 
     var todoText = $(this).find('#todo').val();
-    $('#todo-list').append('<li><button class="done" href="#">Done</button><span class="todo-text">' + todoText + '</span></li>');
+    $('#todo-list').append('<li><button class="done">Done</button><span class="todo-text">' + todoText + '</span></li>');
 
     $('#todo').val('');
   });
