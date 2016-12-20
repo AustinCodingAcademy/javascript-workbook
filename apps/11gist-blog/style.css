@@ -1,0 +1,48 @@
+/* Section home */
+
+#home {
+  background-color: #455a64;
+  /*background-image: url("./img/woodtop.jpg");
+  background-position: center;
+  background-size: cover;*/
+  height: 150px;
+  color: #ffffff;
+}
+
+#home h1 {
+  padding-top: 25px;
+  text-align: center;
+  font-family: Play;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* Section content */
+
+#content {
+  padding-left: 100px;
+}
+
+#content li {
+  color: black;
+}
+
+#content h2 {
+  color: #cc0f0e;
+}
+
+/* Section footer */
+
+#footer {
+  background-color: #455a64;
+  /*background-image: url("./img/woodtop.jpg");*/
+  /*background-color: #212127;*/
+  height: 125px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+#footer h3 {
+  padding-top: 25px;
+  text-align: center;
+}
