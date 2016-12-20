@@ -7,7 +7,6 @@ body {
 }
 a {
   display: block;
-  margin: 20px 0;
   font-size: 20px;
   text-shadow: 1px 1px 1px black;
 }
@@ -22,6 +21,9 @@ h1 {
   font-size: 30px;
   padding: 25px 25px;
   text-shadow: 1px 1px 1px white;
+}
+h3 {
+  margin-top: 0;
 }
 main {
   width: 100%;
@@ -40,18 +42,25 @@ main {
   color: black;
   text-shadow: 1px 1px 1px gray;
 }
+.item {
+  display: inline-block;
+}
 #text {
   margin: 10px;
 }
 #posts {
   position: relative;
 }
+#post {
+  top: 0;
+  width: 400px;
+  right: 20%;
+  position: absolute;
+}
 #comments {
   border-radius: 5px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.7);
   margin: 10px 0;
-  top: 0;
   width: 400px;
-  right: 10%;
 }
