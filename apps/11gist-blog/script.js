@@ -6,9 +6,10 @@ $(document).ready(function() {
         blogPosts.forEach(function(post) {
           var url = post.url;
           var description = post.description;
-          var str = '<li><a href="#" data-url="' + url + '">' + description + '</a></li>';
-          if (str.indexOf('#post') >= 0 ) {
-            str = '<li><a href="#" data-url="' + url + '">' + description.replace('#post', ' ') + '</a></li>';
+          var comments_url = post.comments_url;
+          var str = '<li><a href="#" data-url="' + url + '"> data-comments_url="' + comments_url + '">' + description + '</a></li>';
+          if (str.indexOf('#post') >= 0) {
+            str = '<li><a href="#" data-url="' + url + '" data-comments_url="' + comments_url + '">' + description.replace('#post', ' ') + '</a></li>';
             $('#posts').append(str);
             //console.log(str);
           };
@@ -19,17 +20,26 @@ $(document).ready(function() {
   $('#posts').on('click', 'a', function(link) {
     link.preventDefault();
     var clicked = $(this).data('url');
+    var comment = $(this).data('comments_url');
+    //console.log(comment);
+    //console.log(clicked);
     $.ajax(clicked, {
       success: function(url) {
+        $('#post').empty();
         var postContent = marked(url.files['post.md'].content);
         $('#post').append(postContent);
-        console.log(postContent);
       },
     });
-  })
-
-
-
+    $.ajax(comment, {
+      success: function(comments) {
+        $('#comments').empty();
+        comments.forEach(function(comment) {
+          var $comment = $('<blockquote><li><span class="comment-user">' + comment.user.login + '</span> says "<span class="comment-body">' + comment.body + '"</span></li></blockquote>');
+          $('#comments').append($comment);
+        })
+      }
+    });
+  });
 });
 
 // Spec 0 - Playing with the API
