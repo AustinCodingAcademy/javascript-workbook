@@ -41,7 +41,7 @@ li{
   border-left: 3px solid black;
   border-right: 3px solid black;
   margin: 0;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 75px black;
   background-color: #b81d18;
 }
 .myPosts {
@@ -70,7 +70,7 @@ li{
   padding: 0 50px 10px 50px;
   color: white;
   font-size: 20px;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Baumans', cursive;
   border-left: 3px solid black;
 }
 .contentContainer h3 {
@@ -101,6 +101,10 @@ li{
   display: table-cell;
   vertical-align: middle;
 }
+.postContent img {
+  border-radius: 10px;
+}
+
 #comments {
   min-height: 100px;
   background-color: #004687;
@@ -116,7 +120,7 @@ li{
   background-color: rgba(0,0,0,.5);
   color: white;
   font-size: 20px;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Baumans', cursive;
   padding: 10px 0;
   border-radius: 15px;
 }
