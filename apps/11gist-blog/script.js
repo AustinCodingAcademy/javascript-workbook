@@ -98,10 +98,7 @@ $(document).ready(function() {
                 //     // $('#comments').append($newComment);
                 //     // $('input#user-name').val('');
                 //     // $('textarea#user-comment').val('');
-                //     $.ajax('https://api.github.com/user?access_token=cd5e11656049515e0cb90cd14f91bac9e24830fa', {
-                //         success: function(response) {
-                //             console.log(response);
-                //             $.post(`https://api.github.com/users/chrisperk/gists/${$('a.collection-item.active').data('id')}/comments`, {
+                //  $.post(`https://api.github.com/users/chrisperk/gists/${$('a.collection-item.active').data('id')}/comments`, {
                 //                 "body": $newCommentBody
                 //             }, {
                 //                 success: function(response) {
