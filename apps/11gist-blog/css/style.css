@@ -1,0 +1,27 @@
+
+h1{
+  text-align: center;
+  font-family: 'Oswald', serif;
+}
+#posts{
+  padding-top: 25px;
+  font-family: 'Open Sans', sans-serif;
+}
+li{
+    margin-bottom: 20px;
+}
+#posts a{
+  text-decoration: none;
+  color: teal;
+  padding: 5px;
+}
+a:hover{
+  color:yellow;
+  text-decoration: none;
+}
+a:active{
+  color: magenta;
+}
+#post{
+  font-family: 'Open Sans', sans-serif;
+}
