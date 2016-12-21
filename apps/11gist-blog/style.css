@@ -55,7 +55,7 @@ li {
 }
 
 a {
-    color: red;
+    color: white;
 }
 
 h3 {
@@ -114,7 +114,7 @@ p {
 
 .hovereffect h2 {
     text-transform: uppercase;
-    color: red;
+    color: white;
     text-align: center;
     font-size: 40px;
     padding: 10px;
@@ -140,14 +140,14 @@ p {
 }
 
 .hovereffect a.info:hover {
-    box-shadow: 0 0 5px red;
+    box-shadow: 0 0 5px white;
 }
 
 .hovereffect hr {
     width: 40%;
     opacity: 0;
     filter: alpha(opacity=0);
-    border: 1px solid red;
+    border: 1px solid white;
 }
 
 .hovereffect hr:nth-child(3) {
@@ -206,7 +206,7 @@ p {
 }
 
 .hovereffect p a {
-    color: red;
+    color: white;
 }
 
 .hovereffect p a:hover, .hovereffect p a:focus {
