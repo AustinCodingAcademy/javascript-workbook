@@ -16,7 +16,7 @@ $(document).ready(function() {
             response.forEach(function(gist) {
                 var $myDescription = gist.description.slice(6, gist.description.length);
                 if (gist.description.indexOf('#post') > -1) {
-                    $('#posts ul').prepend(`<li><a href="#" data-url="${gist.url}">${$myDescription}</a></li>`);
+                    $('#posts ul').prepend(`<li><a href="#" data-url="${gist.url}">${$myDescription}</a></li>`).hide().fadeIn('fast');
                 };
             });
             $('a').click(function(event) {
@@ -39,6 +39,7 @@ $(document).ready(function() {
                                 } else {
                                   $('#comments').html('<h2>Comments</h2>')
                                 }
+
 
                             }
                         });
