@@ -4,7 +4,7 @@
 $(document).ready(function() {
 
   // Spec 1.1 - Using jQuery to make an AJAX call,
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+  $.ajax('https://api.github.com/users/ssfiero/gists', {
     success: function(posts) {
       // Spec 1.1 - insert a list of links into #posts using JavaScript forEach...
       posts.forEach(function(post) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
           $('#posts').append(postDetail);
         }
       })
-      
+
       // Spec 2 - After the links are inserted, add a click listener,
       $('#posts a').click(function(postClickResponse) {
         // Spec 2 - and prevent the default event from occuring.
@@ -39,7 +39,7 @@ $(document).ready(function() {
               success: function(commentResponse) {
                 commentResponse.forEach(function(comment) {
                   // Spec 4 - and insert the ["user"]["login"] and "body" in a list in #comments.
-                  var postComment = '<ul><li>' + comment.user.login + '</li><li>' + comment.body + '</li></ul>';
+                  var postComment = '<ul><li>' + comment.body + '</li><li>' + comment.user.login + '</li></ul>';
                   $('#comments').empty().append(postComment);
                 })
               }

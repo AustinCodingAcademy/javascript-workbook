@@ -23,12 +23,33 @@
   padding-left: 100px;
 }
 
+#content ul, #content p {
+  font-size: 18px;
+}
+
 #content li {
   color: black;
 }
 
 #content h2 {
   color: #cc0f0e;
+}
+
+#posts li {
+  list-style-type: none;
+}
+
+#posts, #posts ul {
+  padding-left: 0px;
+}
+
+#comments li {
+  list-style-type: none;
+  text-align: left;
+}
+
+#comments, #comments ul {
+  padding-left: 0px;
 }
 
 /* Section footer */
