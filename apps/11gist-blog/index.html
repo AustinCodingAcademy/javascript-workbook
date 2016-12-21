@@ -27,11 +27,11 @@
         <div class="bw pic">
             <img src="http://i.imgur.com/cMyi0bA.jpg" alt="portrait">
         </div>
-        <div class="myinfo col-lg-12 col-md-12 col-12-sm">
+        <div class="content col-lg-12 col-md-12 col-12-sm">
             <ul id="posts"></ul>
             <div id="post"></div>
             <ul id="comments"></ul>
-  </div>
+        </div>
         <div class="multi Media" </>
         <div class="spacer one col-lg-4 col-md-4 col-sm-6 col-xs-12">
             <a class="button" href="mailto:clintlucio@gmail.com">Get In Touch</a>
@@ -64,12 +64,15 @@
         </div>
         <div class="spacer two col-lg-4 col-md-4 col-sm-6 col-xs-12">
         </div>
-      </div>
+        </div>
 
     </main>
 
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script>
+        document.getElementById('content').innerHTML =
+            marked('# Marked in browser\n\nRendered by **marked**.');
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
