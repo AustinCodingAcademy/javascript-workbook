@@ -1,0 +1,43 @@
+body {
+  background-color: #d9d9d9;
+  padding: 0 7.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+header {
+  background-color: #fafafa;
+}
+#post_container {
+  background-color: #fafafa;
+  height: 50vh;
+  padding: 0 10px;
+}
+#comments_container {
+  /*border: 1px solid #d9d9d9;*/
+}
+h3 {
+  font-size: 50px;
+}
+#posts {
+  background-color: #d1d1d1;
+  height: 100vh;
+}
+#post>p {
+  font-size: 14px;
+}
+h1.title {
+    position: absolute;
+    background-color: #f74f4f;
+    color: #fff;
+    width: 4em;
+    height: 2em;
+    line-height: 2em;
+    font-family: 'Rochester', cursive;
+
+}
+.title {
+  color: #1c1c1c;
+  font-family: 'Droid Sans', sans-serif;
+  }
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #d1d1d1 !important;
+}
