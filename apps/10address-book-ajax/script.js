@@ -8,7 +8,8 @@ $(document).ready(function() {
                 var str = '<tr><td>' + user.id + '</td><td>' + user.first_name + '</td><td>' + user.last_name + '</td><td>' + '<a href = "#"data-id="' + user.id + '">view</a>' + '</td></tr>';
                 $('tbody').append(str);
             })
-            $('a').click(function() {
+            $('a').click(function(event) {
+              event.preventDefault();
                 var url = 'https://reqres-api.herokuapp.com/api/users/';
                 var id = $(this).data('id');
                 $.ajax(url + id, {
