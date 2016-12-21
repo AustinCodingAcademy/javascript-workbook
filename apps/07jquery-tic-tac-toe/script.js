@@ -19,22 +19,18 @@ $(document).on('ready', function() {
             ($cell3.text() === playerTurn && $cell4.text() === playerTurn && $cell5.text() === playerTurn) ||
             ($cell6.text() === playerTurn && $cell7.text() === playerTurn && $cell8.text() === playerTurn)
     }
-
     function verticalWin() {
     return ($cell0.text() === playerTurn && $cell3.text() === playerTurn && $cell6.text() === playerTurn) ||
             ($cell1.text() === playerTurn && $cell4.text() === playerTurn && $cell7.text() === playerTurn) ||
             ($cell2.text() === playerTurn && $cell5.text() === playerTurn && $cell8.text() === playerTurn)
     }
-
     function diagonalWin() {
     return ($cell0.text() === playerTurn && $cell4.text() === playerTurn && $cell8.text() === playerTurn)||
             ($cell2.text() === playerTurn && $cell4.text() === playerTurn && $cell6.text() === playerTurn)
     }
-
     function checkForWin() {
     return (horizontalWin() === true) || (verticalWin() === true) || (diagonalWin() === true);
     }
-
     $('[data-cell]').click(function() {
     $(this).text(playerTurn);
     var winCheck = checkForWin();
