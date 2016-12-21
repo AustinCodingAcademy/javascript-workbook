@@ -18,6 +18,10 @@ div#post-card {
     border-radius: 10px;
 }
 
+div#post-date {
+    text-align: right;
+}
+
 div#post {
     margin-bottom: 5%;
 }
