@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <title>Gist Blog</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+  <!-- Bootstrap CDN -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+
+  <section id="home">
+    <div class="hr row">
+      <div class="header col-lg-12 col-xs-12">
+        <h1>My GitHub Gist Blog</h1>
+      </div>
+    </div>
+  </section>
+
+  <section id="content">
+    <h2>Posts</h2>
+    <ul id="posts"></ul>
+
+    <h2>Post</h2>
+    <div id="post"></div>
+
+    <h2>Comments</h2>
+    <ul id="comments"></ul>
+  </section>
+
+  <section id="footer">
+    <div class="fr row">
+      <div class="footer col-lg-12 col-xs-12">
+        <h3>Austin, TX</h3>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- JQuery cdn script -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- AJAX cdn script -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  <!-- Bootstrap cdn script -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

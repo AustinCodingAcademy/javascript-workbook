@@ -7,6 +7,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+//The variable 'stacks' is made up of keys and values
 var stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -14,36 +15,72 @@ var stacks = {
 };
 
 function printStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+  console.log("Stack a: " + stacks.a);
+  console.log("Stack b: " + stacks.b);
+  console.log("Stack c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStackKey, endStackKey) {
+  // Test - should be able to move a block
+  // pop off block from the start stack
+  // startStack variable contains the string name of the stack to pull block from
+  var block = stacks[startStackKey].pop();
+  // push block to new stack
+  // endStack variable contains the string name of the stack to put block on
+  stacks[endStackKey].push(block);
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startStackKey, endStackKey) {
+  // Test - should not allow an illegal move
+  // Test - should allow a legal move
 
+  // The variable 'startStackArray' is an array (4, 3, 2, 1), and is equal to the key 'startStackKey' (which is a, b or c) inside the global variable 'stacks'
+  var startStackArray = stacks[startStackKey];
+  // The variable 'topBlockOfStartStackKey' is the block on top of the key 'startStackKey', and is equal to the length of the array 'startStackArray' minus one
+  var topBlockOfStartStackKey = startStackArray[startStackArray.length - 1];
+
+  var endStackArray = stacks[endStackKey];
+  var topBlockOfEndStackKey = endStackArray[endStackArray.length - 1];
+
+  if(stacks[startStackKey].length === 0) {
+    return false;
+  }
+
+  else if(stacks[endStackKey].length === 0) {
+    return true;
+  } else {
+    return(topBlockOfStartStackKey < topBlockOfEndStackKey);
+  }
 }
 
 function checkForWin() {
-  // Your code here
-
+  // Test - should detect a win
+  // If the stack is equal to four blocks, then a win is returned
+  if(stacks.a.length === 4 || stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log("You Won!!!");
+    return true;
+    } else {
+      return false;
+  }
 }
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+function towersOfHanoi(startStackKey, endStackKey) {
+  // This function organizes the code from the other functions above
+  if(isLegal(startStackKey, endStackKey)) {
+    movePiece(startStackKey, endStackKey);
+    } else {
+      console.log('Move is Not Legal!!');
+  }
+  checkForWin();
 }
+
 
 function getPrompt() {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
-      towersOfHanoi(startStack, endStack);
+  rl.question('Pull block from stack "a, b, or c": ', (startStackKey) => {
+    rl.question('Put block on stack "a, b, or c": ', (endStackKey) => {
+      towersOfHanoi(startStackKey, endStackKey);
+  // The getPrompt below causes the loop, instead of only running the game one time
       getPrompt();
     });
   });

@@ -6,7 +6,8 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-var board = [
+var board;
+board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
@@ -25,22 +26,57 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  // [row], [column]
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function verticalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function diagonalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+    return true;
+  }
 }
 
 function checkForWin() {
   // Your code here
+  // Check vertical, horizontal, and diagonal for a true
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + ' Won!');
+    return true;
+  }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  // Mark, check, switch
+  // This is to mark the position on the board
+  board[row][column] = playerTurn;
+  // This is the check for win, call the checkForWin function
+  if (checkForWin() === true) {
+  // This resets the board after a win
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    } else {
+  // This is the switch to next player, ternary operator
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  }
 }
 
 function getPrompt() {

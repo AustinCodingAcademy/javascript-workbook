@@ -29,17 +29,66 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(soultion, guess) {
+  // Test - should generate hints
+  // Test - should generate hints if solution has duplicates
+
+  // Sets variable arrays, and turn characters into arrays using split
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+
+  // Spec 2.2 - Loop count to record amount of correct letter locations
+  var correctLetterLocations = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    if(solutionArray[i] === guessArray[i]) {
+    correctLetterLocations++;
+    solutionArray[i] = null;
+    }
+  }
+
+  // Spec 2.3 - Loop again this time counting the correct letters
+  var correctLetters = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    }
+  }
+
+
+  var hint = correctLetterLocations + '-' + correctLetters;
+  board.push(guess + ' ' + hint);
+  console.log(board);
+  return hint;
+
 }
 
 function mastermind(guess) {
-  // your code here
+  // Test - should register a guess and generate hints
+  // Test - should be able to detect a win
+  // Hints are: 1) Correct colors in the correct spot, and 2) correct colors in the wrong spot
+
+  if (guess === solution) {
+    return('You guessed it!');
+  }
+
+  generateHint(solution, guess);
+
+  if (board.length <= 10) {
+    return ('Guess again');
+    } else {
+      return ('You ran out of turns. The solution was ' + solution);
+  }
+
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
+  rl.question('Enter letters a thru h for your guess: ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
     getPrompt();

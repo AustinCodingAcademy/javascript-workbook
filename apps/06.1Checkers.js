@@ -8,13 +8,34 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  // Spec 1
+  // pass in the color as an argument...
+  // A Checker piece has one concern, its symbol.
+  // The symbol that is assigned is based on what color ('white' or 'black') the checker will be.
+
+  var symbol = this.symbol;
+  // and set the Checker instance's this.symbol...
+
+  function CharCode() {
+  // Used unicode characters with the JavaScript String.fromCharCode(0x1<unicode>) method (function).
+
+    // if the color is 'white', set this.symbol equal to String.fromCharCode(0x125CB),
+    // otherwise set it equal to String.fromCharCode(0x125CF)...
+    if (color = 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+      } else {
+        this.symbol = String.fromCharCode(0x125CF);
+      }
+  }
+
 }
+
 
 function Board() {
   this.grid = [];
   // creates an 8x8 array, filled with null values
+  // this.grid [] will hold the Checker instances (i.e., the pieces)
   this.createGrid = function() {
     // loop to create the 8 rows
     for (var row = 0; row < 8; row++) {
@@ -52,17 +73,73 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  // Spec 2.1
+  // in your Board class, create an attribute called this.checkers and assign it to an empty array...
+  // this will be your repository of checker pieces...
+  this.checkers = [];
+
+  this.createCheckers = function() {
+    // created a method called this.createCheckers...
+
+    // in it (the function), define our starting positions of the checkers on the grid...
+    // in local variables, define whitePositions and blackPositions as array of [row, column] coordinates:...
+    var whitePositions = [row, column];
+    var blackPositions = [row, column];
+  }
+
+  // Spec 2.1
+  // in a for loop, iterate over the range from 0 - 11, with each index you want to:...
+  // instantiate (create an instance) a 'white' Checker...
+  // place that checker on the grid at the position corresponding with the index in the positions array...
+  // push the checker into your this.checkers array...
+
+  function WhiteChecker() {
+  }
+  // var whiteChecker = new WhiteChecker;
+
+  for (var i = 0; i < 12; i++) {
+    this.checkers = [];
+    this.positions = [];
+    this.grid = this.positions[i];
+    whiteChecker.push(this.checkers);
+  }
+
+
+  // do all three steps above for a 'black' checker...
+  function BlackChecker() {
+  }
+  var blackChecker = new BlackChecker;
+
+  for (var i = 0; i < 12; i++) {
+    this.checkers = [];
+    this.positions = [];
+    this.grid = this.positions[i];
+    blackChecker.push(this.checkers);
+  }
+
+
 }
+
 function Game() {
+// Tests Game
+// 1) should have a board
+// 2) board should have 24 checkers
+
+// Tests Game.moveChecker()
+// 3) should move a checker
+// 4) should be able to jump over and kill another checker
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
     // Your code here
+
+    // Spec 2.1 - In your Game class, in the this.start method (function), added this.board.createCheckers().
+    this.board.createCheckers();
   };
 }
+
 
 function getPrompt() {
   game.board.viewGrid();

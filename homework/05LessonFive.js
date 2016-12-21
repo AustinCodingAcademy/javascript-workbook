@@ -18,25 +18,37 @@ var six = 6;
 // What is the result of applying the increment (++) operator to var one?
 var onePlusPlus;
 
+var onePlusPlus = 2;
+
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
 var twoMinusMinus;
+
+var twoMinusMinus = 1;
 
 // Problem 3:
 // What is the result of three += 3?
 var threePlusAssignmentThree;
 
+var threePlusAssignmentThree = 6;
+
 // Problem 4:
 // What is the result of four -= 3?
 var fourMinusAssignmentThree;
+
+var fourMinusAssignmentThree = 1;
 
 // Problem 5:
 // What is the result of five *= 2?
 var fiveMultiplicationAssignmentTwo;
 
+var fiveMultiplicationAssignmentTwo = 10;
+
 // Problem 6:
 // What is the result of six /= 3?
 var sixDivisionAssignmentThree;
+
+var sixDivisionAssignmentThree = 2;
 
 // ****
 // Loops
@@ -54,6 +66,8 @@ while (whileLoopCounter < 10) {
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
 var whileLoopArrayResult = [];
 
+var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 // DO NOT MODIFY
 var forLoopArray = [];
 var forLoopCounter;
@@ -65,13 +79,15 @@ for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
 // Fill in forLoopArrayResult so that it matches forLoopArray
 var forLoopArrayResult = [];
 
+var forLoopArrayResult = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
+
 // ****
 // Concept Checkpoint
 //
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-//
+// Loops are a way to run the same procedure multiple times one after the other without having to write lenghty code (or one line for each time you want to run the operation)
 
 // ****
 // Tests
