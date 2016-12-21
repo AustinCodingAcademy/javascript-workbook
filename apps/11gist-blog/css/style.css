@@ -1,0 +1,28 @@
+header {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+blockquote {
+  background-color: #eee;
+}
+
+a:hover, a:active, a:visited, a:link {
+  text-decoration: none;
+}
+
+main {
+  margin-top: 80px;
+}
+
+ul#posts {
+  margin-bottom: 60px;
+  padding-left: 0;
+}
+
+#posts li {
+  font-size: 24px;
+}
