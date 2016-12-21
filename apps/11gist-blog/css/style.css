@@ -42,14 +42,16 @@ header {
     padding-top: 2%;
 }
 #posts {
-  background-color: white;
+    background-color: white;
     width: 100%;
     height: auto;
     margin-left: 3%;
     margin-top: 0%;
     padding-top: 5%;
 }
+
 /*SECTION 3 - POST*/
+
 .mypost h4 {
     background-color: pink;
     border: 1px solid black;
@@ -60,13 +62,15 @@ header {
     padding-top: 2%;
 }
 #post {
-  background-color: white;
+    background-color: white;
     width: 100%;
     height: auto;
     margin: auto;
     padding-top: 5%;
 }
+
 /*SECTION 4 - COMMENTS*/
+
 .mycomments h4 {
     background-color: lightblue;
     border: 1px solid black;
@@ -78,7 +82,7 @@ header {
     padding-top: 2%;
 }
 #comments {
-  background-color: white;
+    background-color: white;
     width: 100%;
     height: auto;
     margin: auto;
