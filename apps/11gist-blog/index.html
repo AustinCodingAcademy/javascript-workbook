@@ -2,13 +2,53 @@
 <html>
 <head>
   <title>Gist Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="giststyle.css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans|Rochester" rel="stylesheet">
 </head>
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+  <div class="row">
+
+  <main class="container-fluid col-sm-12 col-md-8">
+    <div class="row">
+      <h1 class="main title text-center col-sm-12">Gist Mill</h1>
+    </div>
+    <div class="row">
+      <img class="img-responsive" src="http://capethemes.com/demo/blogist/wp-content/uploads/2013/10/coffee-839234_1280.jpg" />
+    </div>
+    <div class="row" id="post_container">
+    <div id="post"></div>
+      <div id="comments_container">
+        
+        <ul id="comments"></ul>
+      </div>
+    </div>
+  </main>
+  <aside class="col-sm-12 col-md-4">
+    <nav>
+      <h3 class="title">Posts</h3>
+      <ul id="posts-nav" class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#posts">Latest</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#">Categories</a>
+        </li>
+        <li>
+          <a data-toggle="tab"href="#">Date</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="posts" class="tab-content">
+      <ul id="latest-posts" class="tab-pane fade in active"></ul>
+    </div>
+
+  </aside>
+    </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

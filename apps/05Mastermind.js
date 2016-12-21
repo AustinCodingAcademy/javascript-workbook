@@ -23,24 +23,57 @@ function generateSolution() {
     var randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
   }
+      return solution;
 }
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+  for ( var i = 0; i <= solution.length - 1; i++) {
+    if (guessArray[i] === solutionArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+  for ( var i = 0; i <= solution.length - 1; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1){
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    }
+  }
+   var hint = correctLetterLocations + '-' + correctLetters;
+   //var guessHint = guess + ' , ' + hint;
+   board.push(guess + ' , '  + hint);
+   return hint
 }
 
 function mastermind(guess) {
   // your code here
+  //solution = 'abcd';
+  //generateSolution();
+  if ( guess === solution) {
+    return 'You guessed it!';
+  }
+  generateHint(solution, guess);
+  if (board.length < 10) {
+    return 'Guess again.';
+  } else {
+    return 'You ran out of turns! The solution was ' + solution;
+  }
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
+    console.log(mastermind(guess));
     printBoard();
     getPrompt();
   });
