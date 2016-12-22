@@ -1,0 +1,33 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1480796927426-f609979314bd?dpr=2&auto=compress,format&fit=crop&w=767&h=512&q=80&cs=tinysrgb&crop=");
+    font-family: 'Abril Fatface', cursive;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+     
+}
+.container {
+    margin-top: 100px;
+}
+.links {
+    background-color: #dec0ae;
+}
+.comments {
+     background-color: #dec0ae;     
+}
+#postcommentbox {
+     background-color: #dec0ae;
+     border: 2px solid #303e44;    
+}
+
+@media (min-width: 768px) {
+    body {
+    background-size: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+    background-size: auto;
+    }
+}
