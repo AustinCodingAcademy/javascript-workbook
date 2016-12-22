@@ -20,11 +20,11 @@ $(document).ready(function() {
                                         $('#comments').html('');
                                         comments.forEach(function(comment) {
                                             $('#comments').append($('<li>' + comment['user']['login'] + ': ' + comment['body'] + '</li>'));
-                                        })
+                                        });
                                     }
                                 });
                             }
-                        })
+                        });
                     });
                 }
             });
