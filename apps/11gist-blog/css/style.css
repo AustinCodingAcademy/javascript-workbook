@@ -46,11 +46,15 @@ ul#comments {
 
 span.comment-user {
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 span.comment-body {
-    font-size: 1em;
+    font-size: 1.2em;
+}
+
+span.comment-date {
+    font-size: 0.8em;
 }
 
 form#new-comment {

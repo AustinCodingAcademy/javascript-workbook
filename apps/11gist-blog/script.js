@@ -80,7 +80,7 @@ $(document).ready(function() {
                         comments.forEach(function(comment) {
 
                             // make an html-encapsulated string that displays and styles new comment
-                            var $comment = $('<blockquote><li><span class="comment-user">' + comment.user.login + '</span> says "<span class="comment-body">' + comment.body + '"</span></li></blockquote>');
+                            var $comment = $(`<blockquote><li><span class="comment-user">${comment.user.login}</span> says "<span class="comment-body">${comment.body}"</span></li><li><span class="comment-date">@ ${moment(comment.updated_at).format("MMMM Do, h:mm:ss a")}</span></li></blockquote>`);
 
                             // attach new comment to the #comments list; latest comment will be at bottom of list
                             $('#comments').append($comment);
