@@ -14,7 +14,7 @@ var myUndefined;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
-var myNull = 'null';
+var myNull = null;
 
 //
 // What is the difference between null and undefined?
@@ -36,7 +36,7 @@ var myFalse = false;
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber = '3';
+var myNumber = 3;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
@@ -90,7 +90,7 @@ var falseOrFalse = false;
 // Problem 14:
 // What is the value of !false
 
-var notFalse = false;
+var notFalse = true;
 
 // Problem 15:
 // What is the value of !true
@@ -131,17 +131,17 @@ var notNotBob = true;
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString = true;
+var notNotEmptyString = falsey;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull = false;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefind = true;
+var notNotUndefind = false;
 
 // ****
 // Concept Checkpoint
@@ -188,15 +188,15 @@ var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour = false;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour = true;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour = true; 
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
