@@ -1,8 +1,8 @@
 'use strict';
 
 $(document).ready(function() {
-  
-    $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+
+    $.ajax('https://api.github.com/users/zekeg/gists', {
         success: function(response) {
 
             response.forEach(function(item) {
