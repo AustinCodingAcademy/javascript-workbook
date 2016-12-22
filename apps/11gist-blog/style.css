@@ -26,8 +26,3 @@ body {
     }
 }
 
-@media (max-width: 767px) {
-    body {
-    background-size: auto;
-    }
-}

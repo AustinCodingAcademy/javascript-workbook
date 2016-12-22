@@ -1,15 +1,4 @@
-//Spec 0 - Playing with the API
-//So let's run through the API real quick. First, in your terminal, navigate to to your app directory:
-//After starting up a server in the app directory, navigate in your browser to http://127.0.0.1:8080/apps/11gist-blog/api/gists.json,
-//here you will see the top level of the api, with all of the gists. In each gist, you will see a "url" key. Navigate to that URL.
-//In that address you will see another //JSON object. Look for a "files" key with an object containing a file. In that file you'll see
-//the "content" of the file. Next look for a "comments_url". At that address, you'll see a collection of comments, 
-//with keys such as "user" and "body".
-//Spec 7
-//After development and styling on your blog dies down, you can plug it into your Github account. If done correctly,
-//you should only have to change one url: http://127.0.0.1:8080/apps/11gist-blog/api/gists.json to 
-//https://api.github.com/users/<your github username>/gists.
-//Now whenever you create a //gist with "#post" in the title and a file named post.md, it will automatically be pulled into your blog
+
 'use strict';
 
 $(document).ready(function () {

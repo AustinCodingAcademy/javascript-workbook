@@ -65,6 +65,13 @@ function ticTacToe(row, column) {
     // Your code here that puts the x or o in the array
     // checks if there is a winner
     // changes whose turn it is
+    //if(!row || !column || !board[row][column]){
+    //  console.log("use valid input please!");
+    //} else if (board[row][column] === ' '){
+    //  board[row][column] = playerTurn;
+    //  checkForTie();
+    //  checkForWin();
+    //}
     board[row][column] = playerTurn;
     checkForWin();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';

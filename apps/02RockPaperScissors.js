@@ -12,6 +12,14 @@ function rockPaperScissors(hand1, hand2) {
     hand1 = hand1.toLowerCase();
     hand2 = hand2.toLowerCase();
     // Write code here
+
+    //if(hand1 != 'rock' && hand1 != 'paper' && hand1 != 'scissors');{
+    //  console.log("Invalid Entry. Try again!");
+    //}
+    //if(hand2 != 'rock' && hand2 != 'paper' && hand2 != 'scissors');{
+    //  console.log("Invalid Entry. Try again!");
+    //}
+
     if (hand1 === hand2) {
         return "It's a tie!";
     }
