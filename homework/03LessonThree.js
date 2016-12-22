@@ -90,7 +90,7 @@ var problemSevenAnswer = 'second';
 // Problem 8:
 // Create an empty array
 var emptyArray = [
-  ['']['']
+  [ ]
 ];
 
 // Problem 9:
