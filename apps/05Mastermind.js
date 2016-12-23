@@ -29,12 +29,41 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  for(var i = 0; i < solutionArray.length; i++){
+    if (solutionArray[i] === guessArray[i]) {
+    correctLetterLocations++;
+    solutionArray[i] === null;
+   }
+  }
+  var correctLetters = 0;
+    for (var i = 0; i < solutionArray.length; i++) {
+        var targetIndex = guessArray.indexOf(solutionArray[i]);
+        if (targetIndex > -1) {
+            correctLetters++;
+            solutionArray[i] = null;
+        }
+    };
+    return correctLetterLocations + '-' + correctLetters;
 }
 
 function mastermind(guess) {
-  // your code here
+  var currentHint = generateHint(solution, guess);
+  board.push(guess + ' ' + currentHint);
+  if(board.length > 10){
+    // lossCheck = true;
+    return ('You ran out of turns! The solution was ' + solution);
+  }else if(guess === solution){
+    return console.log('You guessed it!');
+  }else if(guess !== solution){
+    var hint = generateHint(solution, guess);
+    console.log(hint);
+    board.push(guess + '' + hint);
+  }
+
 }
 
 
