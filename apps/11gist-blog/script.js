@@ -1,32 +1,64 @@
 'use strict';
 
-//Using jQuery to make an AJAX call, insert a list of links into #posts using JavaScript forEach with the "description" of each gist as the text.
-
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
-        success:function(post){
-          post.forEach.description('#post')
-        }
-
-  });
-
-  
-//Spec 2
-//After the links are inserted, add a click listener.
-//When a click occurs then:
-//1)prevent the default event from occuring
-//2) Then mak an ajax call with the data-url value,
-// grabbing it with $.data('url').
 
 $(document).ready(function() {
   // You code here
-  var getPost = {
+   
 
-  }
+   var getPost = {
+      success: successCallback
+  };
 
 
+      function successCallback(posts) {
+        posts.forEach(allPosts);
+    }
+
+   function allPosts(post){
+        if (post.description.startsWith('#post')){
+             var viewPost = '<li><a href="#" data-url=" ' + post.url + ' "> '
+                            + post.description.substring(6) 
+                            + '</a></li>';
+
+                $('#posts').append(viewPost);
+          }
+        }
+  
+    $.ajax('http://api.github.com/users/<your github username>/gists', getPost);
+
+
+//clicking on all the things
+
+  $('#posts').on('click', 'a', function(posts) {
+    event.preventDefault();
+
+        var url = $(this).data('url');
+
+      $.ajax($(url, {
+      
+      success: function(post) {
+        $('#post').html(marked(post.files['post.md'].content));
+       
+        //comments:
+        $.ajax(post['comments_url'], {
+          success: function(comments) {
+
+                  $('#comments').empty();
+
+                  comments.forEach(function(comment){
+                  var login = comment['user']['login'];
+                  var bodyDetail = comment['body'];
+                  var htmlComment = '<li>' + login + '</li>' + '<li> <ol>' + bodyDetail + '</ol> </li>';
+
+                  $('#comments').append(htmlComment); 
+  
+                  });
+        }});
+
+      }
+
+      }));
+
+  });
 
 });
-
-
-
-//here is what the console has acceesss to
