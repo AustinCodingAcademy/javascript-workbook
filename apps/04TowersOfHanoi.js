@@ -41,82 +41,89 @@ function isLegal(startStack, endStack) {
 function checkForWin(startStack, endStack) {
     if (stacks.b.length === 4 || stacks.c.length === 4) {
         console.log('You Won!!!');
+        stacks={
+            a: [4, 3, 2, 1],
+            b: [],
+            c: [],
+
+        };
         return true;
+
     } else {
         console.log('Keep Going!!!!');
 
         return false;
     }
-  }
-
-    function towersOfHanoi(startStack, endStack) {
-        if (isLegal(startStack, endStack)) {
-            movePiece(startStack, endStack);
-            checkForWin();
-        }
+}
+function towersOfHanoi(startStack, endStack) {
+    if (isLegal(startStack, endStack)) {
+        movePiece(startStack, endStack);
+        checkForWin();
     }
+}
 
-    function getPrompt() {
-        printStacks();
-        rl.question('start stack: ', (startStack) => {
-            rl.question('end stack: ', (endStack) => {
-                towersOfHanoi(startStack, endStack);
-                getPrompt();
+function getPrompt() {
+    printStacks();
+    rl.question('start stack: ', (startStack) => {
+        rl.question('end stack: ', (endStack) => {
+            towersOfHanoi(startStack, endStack);
+            getPrompt();
+        });
+    });
+}
+
+
+// Tests
+
+if (typeof describe === 'function') {
+
+    describe('#towersOfHanoi()', function() {
+        it('should be able to move a block', function() {
+            towersOfHanoi('a', 'b');
+            assert.deepEqual(stacks, {
+                a: [4, 3, 2],
+                b: [1],
+                c: []
             });
         });
-    }
+    });
 
-    // Tests
-
-    if (typeof describe === 'function') {
-
-        describe('#towersOfHanoi()', function() {
-            it('should be able to move a block', function() {
-                towersOfHanoi('a', 'b');
-                assert.deepEqual(stacks, {
-                    a: [4, 3, 2],
-                    b: [1],
-                    c: []
-                });
-            });
+    describe('#isLegal()', function() {
+        it('should not allow an illegal move', function() {
+            stacks = {
+                a: [4, 3, 2],
+                b: [1],
+                c: []
+            };
+            assert.equal(isLegal('a', 'b'), false);
         });
-
-        describe('#isLegal()', function() {
-            it('should not allow an illegal move', function() {
-                stacks = {
-                    a: [4, 3, 2],
-                    b: [1],
-                    c: []
-                };
-                assert.equal(isLegal('a', 'b'), false);
-            });
-            it('should allow a legal move', function() {
-                stacks = {
-                    a: [4, 3, 2, 1],
-                    b: [],
-                    c: []
-                };
-                assert.equal(isLegal('a', 'c'), true);
-            });
+        it('should allow a legal move', function() {
+            stacks = {
+                a: [4, 3, 2, 1],
+                b: [],
+                c: []
+            };
+            assert.equal(isLegal('a', 'c'), true);
         });
-        describe('#checkForWin()', function() {
-            it('should detect a win', function() {
-                stacks = {
-                    a: [],
-                    b: [4, 3, 2, 1],
-                    c: []
-                };
-                assert.equal(checkForWin(), true);
-                stacks = {
-                    a: [1],
-                    b: [4, 3, 2],
-                    c: []
-                };
-                assert.equal(checkForWin(), false);
-            });
+    });
+    describe('#checkForWin()', function() {
+        it('should detect a win', function() {
+            stacks = {
+                a: [],
+                b: [4, 3, 2, 1],
+                c: []
+            };
+            assert.equal(checkForWin(), true);
+            stacks = {
+                a: [1],
+                b: [4, 3, 2],
+                c: []
+            };
+            assert.equal(checkForWin(), false);
         });
-    } else {
+    });
+} else {
 
-        getPrompt();
+    getPrompt();
 
-    }
+}

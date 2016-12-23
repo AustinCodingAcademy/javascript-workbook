@@ -1,0 +1,23 @@
+body{
+  background-color: #011627;
+}
+.blog{
+  background-color:#515130;
+  height: 200px;
+
+}
+header{
+  color: #59D2FE;
+  text-align: center;
+  font-size:50px;
+font-family: 'Orbitron', sans-serif;
+padding-top: 60px;
+}
+.school{
+  background-color: #59D2FE
+}
+ .learing{
+   font-family: 'Orbitron', sans-serif;
+  color:white;
+  background-color:#6EC4D9;
+}

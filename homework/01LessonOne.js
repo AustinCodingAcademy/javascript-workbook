@@ -111,13 +111,14 @@ var notNotTrue = !!true;
 // Problem 17:
 // What is the value of !!bob
 
-
-var notNotBob =true;
+var bob;
+var notNotBob = bob = true ;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString =false;
+var emptyString = true;
+var notNotEmptyString = emptyString = true;
 
 // Problem 19:
 // What is the value of !null
