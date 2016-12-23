@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('form').submit(function(event) {
         event.preventDefault();
         var todoText = $(this).find('#todo').val();
-        $('#todo-list').append('<li><input type="checkbox"></input>  ' + todoText + '  <button class="remove-button" type="button">Remove</button></li>');
+        $('#todo-list').append('<li><input type="checkbox"></input>' + todoText + '<button class="remove-button" type="button"></button></li>');
         $('#todo-list').sortable();
         $('#todo').val('');
     });
