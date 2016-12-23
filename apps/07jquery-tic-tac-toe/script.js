@@ -15,33 +15,36 @@ $(document).on('ready', function() {
     var $announceWinner = $('#announce-winner');
 
     function horizontalWin() {
-    return ($cell0.text() === playerTurn && $cell1.text() === playerTurn && $cell2.text() === playerTurn) ||
+        return ($cell0.text() === playerTurn && $cell1.text() === playerTurn && $cell2.text() === playerTurn) ||
             ($cell3.text() === playerTurn && $cell4.text() === playerTurn && $cell5.text() === playerTurn) ||
             ($cell6.text() === playerTurn && $cell7.text() === playerTurn && $cell8.text() === playerTurn)
     }
+
     function verticalWin() {
-    return ($cell0.text() === playerTurn && $cell3.text() === playerTurn && $cell6.text() === playerTurn) ||
+        return ($cell0.text() === playerTurn && $cell3.text() === playerTurn && $cell6.text() === playerTurn) ||
             ($cell1.text() === playerTurn && $cell4.text() === playerTurn && $cell7.text() === playerTurn) ||
             ($cell2.text() === playerTurn && $cell5.text() === playerTurn && $cell8.text() === playerTurn)
     }
+
     function diagonalWin() {
-    return ($cell0.text() === playerTurn && $cell4.text() === playerTurn && $cell8.text() === playerTurn)||
+        return ($cell0.text() === playerTurn && $cell4.text() === playerTurn && $cell8.text() === playerTurn) ||
             ($cell2.text() === playerTurn && $cell4.text() === playerTurn && $cell6.text() === playerTurn)
     }
+
     function checkForWin() {
-    return (horizontalWin() === true) || (verticalWin() === true) || (diagonalWin() === true);
+        return (horizontalWin() === true) || (verticalWin() === true) || (diagonalWin() === true);
     }
     $('[data-cell]').click(function() {
-    $(this).text(playerTurn);
-    var winCheck = checkForWin();
-    console.log(winCheck);
+        $(this).text(playerTurn);
+        var winCheck = checkForWin();
+        console.log(winCheck);
         if (winCheck) {
-        return $announceWinner.text('player ' + playerTurn.toLowerCase() + ' wins!');
+            return $announceWinner.text('player ' + playerTurn.toLowerCase() + ' wins!');
         };
         playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     })
     $('#clear').click(function() {
-    $('[data-cell]').empty();
-    playerTurn = 'X';
+        $('[data-cell]').empty();
+        playerTurn = 'X';
     })
 });
