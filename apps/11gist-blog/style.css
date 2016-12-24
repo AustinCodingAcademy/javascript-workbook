@@ -1,0 +1,32 @@
+
+body{
+  background-color: #222;
+  color: #eee;
+
+}
+.jumbotron{
+  background-color: #222;
+  border-bottom: 5px solid #eee;
+}
+a{
+  color: #e67300;
+  font-size: 30px;
+}
+a:hover{
+  color: #cccc00;
+  text-decoration: none;
+}
+a:visited{
+  color: #cccc00;
+  text-decoration: none;
+}
+a:active{
+  color: #cccc00;
+  text-decoration: none;
+}
+p{
+  font-size: 25px;
+}
+li{
+  font-size: 25px;
+}
