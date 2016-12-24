@@ -12,7 +12,7 @@ $(document).ready(function() {
         success: function getGists(response) {
             response.forEach(function(post) {
                 if (post.description.match('^#post')) {
-                    var postDesc = post.description.replace(/#post /g, '');
+                    var postDesc = post.description.replace(/#post/g, '');
                     var postURL = post.url.replace(/http:\/\/127.0.0.1:8080/g, '');
                     var postDate = formatDate(post.created_at.split('T')[0]);
                     var str = '<li><a href="#" data-url="' + postURL + '">' + postDesc + '</a> | ' + postDate + '</li>';
@@ -21,7 +21,6 @@ $(document).ready(function() {
                 }
             })
             $("#posts a").click(function() {
-                event.preventDefault();
                 var url = $(this).data('url');
                 console.log(url);
                 $.ajax(url, {
