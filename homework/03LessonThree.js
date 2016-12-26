@@ -20,17 +20,17 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
-  return firstArgument;
+    var otherArgument = 'bob';
+    return firstArgument;
 }
 
 // ****
@@ -40,7 +40,7 @@ function returnTheFirstArgument(firstArgument) {
 //
 // What is scope?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: An item's scope refers to where exactly the JavaScript gremlin can access it.
 //
 //
 
@@ -57,19 +57,19 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -78,7 +78,7 @@ var problemSevenAnswer;
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A ternary operator is used as a switch to toggle an object between two states. It differs from a conditional statement by shrinking its syntactical footprint and should generally be used when evaluating a Boolean value and taking one action if true and another if false.
 //
 //
 
@@ -89,17 +89,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [0, 1, 2, 3, 4];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -110,10 +111,11 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+threeByThreeArray[1][1] = 'butts';
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [['butts', 'boobs'], ['poop', 'barf']];
 
 // ****
 // Tests

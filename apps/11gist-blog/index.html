@@ -1,14 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="us-en">
+
 <head>
-  <title>Gist Blog</title>
+
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Christopher Perkins's Gist Blog">
+
+    <title>Christopher Perkins || Gist Blog</title>
+
+    <!-- CSS RESET -->
+    <link rel="stylesheet" href="css/css-reset.css">
+
+    <!-- Compiled and minified Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Material Icons link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+
+<body class="red accent-1">
+    <div class="container">
+        <div class="row">
+            <ul id="dropdown-link" class="dropdown-content">
+                <li><a href="https://chrisperk.github.io">Portfolio</a></li>
+            </ul>
+            <nav class="deep-purple darken-1">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo left hide-on-small-only">Christopher Perkins Gist</a>
+                    <ul id="nav-dropdown" class="right">
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown-link">
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <ul id="posts" class="col s12 m3 push-m9 collection with-header z-depth-1">
+                <li id="posts-list-head" class="collection-header deep-purple darken-1 white-text">
+                    <h4>Blog Posts</h4>
+                </li>
+            </ul>
+            <div id="post-card" class="col s12 m8 pull-m3 card-panel green lighten-4 deep-purple-text text-darken-1">
+                <div id="post-date" class="cyan-text text-darken-4"></div>
+                <div id="post">
+                    <h3>[ I am empty, fill me up! ]</h3>
+                    <p>( select a post to the right => )</p>
+                </div>
+                <ul id="comments" class="pink-text text-darken-3"></ul>
+            </div>
+        </div>
+        <div class="row">
+            <form id="new-comment" class="col s8 push-s2 card-panel white">
+                <div class="row">
+                    <h4 class="pink-text text-darken-3">Add a comment!</h4>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="What is your name?" id="user-name" type="text" class="validate">
+                        <label class="active" for="user-name">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea placeholder="What would you like to say?" id="user-comment" class="materialize-textarea"></textarea>
+                        <label class="active" for="user-comment">Comment</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button id="submit-comment" class="btn waves-effect waves-light col s3 push-s8" type="submit" name="action">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
 </body>
+
 </html>

@@ -26,6 +26,11 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+    if (argument1 === argument2) {
+        return true;
+    } else {
+        return false;
+    };
 }
 
 // Problem 2:
@@ -34,17 +39,29 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
-}
+    if (parameter1 <= parameter2) {
+        return true;
+    } else {
+        return false;
+    };
+};
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+
+function add(number1, number2) {
+    return number1 + number2;
+};
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(number1, number2, number3) {
+    return add(number3, add(number1, number2));
+};
 
 // ****
 // Concept Checkpoint
@@ -53,22 +70,22 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A function is a set of instructions that tells the JS engine what to do with the input data and what to output. They are used to modularize large problems into multiple smaller problems. A globally defined function can be called on any globally defined variable. To define a function, one must type the keyword 'function' followed by '[name]([parameters])' where [name] is the function's name and [parameters] are the arugment parameters that the function will require to operate.
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A return value is the output of the function. When a return line is executed, the function is broken out of, so one must be aware of where are they are calling return so that the function is not exited prematurely.
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: function newFunction(parameter1, parameter2, parameter3) {};
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A parameter is the variable that is defined when the function is declared, and receives the value of the argument. The argument is the value or variable being passed into the parameter, and is defined when the function is called.
 //
 // ****
 
@@ -84,7 +101,12 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
-}
+    if (number % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    };
+};
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -93,7 +115,12 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
-}
+    if (number % 3 === 0) {
+        return true;
+    } else {
+        return false;
+    };
+};
 
 // ****
 // Conditionals
@@ -108,7 +135,17 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
-}
+    switch(character) {
+        case 'scooby':
+            return 'dog';
+        case 'garfield':
+            return 'cat';
+        case 'nemo':
+            return 'fish';
+        default:
+            return false;
+    };
+};
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -118,6 +155,28 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+    if (number % 4 === 0) {
+        return 'divisible by 4';
+    } else if (number % 2 === 0) {
+        return 'divisible by 2';
+    } else if (number % 3 === 0) {
+        return 'divisible by 3';
+    } else if (number % 5 === 0) {
+        return 'divisible by 5';
+    } else {
+        return false;
+    };
+
+    // if (test4 === true && test2 === true && test3 === true && test5 === true) {
+    //     return 'divisible by 4, divisible by 2, divisible by 3, divisible by 5';
+    // } else if (test2 === true) {
+    //     return 'divisible by 2';
+    // } else if (test3 === true) {
+    //     return
+    // }
+};
+
 
 // ****
 // Concept Checkpoint
@@ -126,7 +185,7 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Conditionals are instructions that tell the JS engine to execute a particular set of commands if a condition is met, and gives an alternative set of commands if that condition is not met.
 //
 //
 // ****

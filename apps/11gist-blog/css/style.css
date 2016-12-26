@@ -1,0 +1,68 @@
+a.brand-logo {
+    margin-left: 1%;
+}
+
+ul#posts {
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    padding: 0;
+}
+
+li#posts-list-head h4 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+}
+
+div#post-card {
+    border-radius: 10px;
+}
+
+div#post-date {
+    text-align: right;
+}
+
+div#post {
+    margin-bottom: 5%;
+}
+
+div#post p {
+    text-align: right;
+    margin-bottom: 3%;
+}
+
+div#post img {
+    display: block;
+    margin: 0 auto;
+}
+
+div#post pre {
+    margin-bottom: 3%;
+}
+
+ul#comments {
+    text-align: right;
+}
+
+span.comment-user {
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+span.comment-body {
+    font-size: 1.2em;
+}
+
+span.comment-date {
+    font-size: 0.8em;
+}
+
+form#new-comment {
+    padding-top: 2%;
+    border-radius: 10px;
+    display: none;
+}
+
+form#new-comment h4 {
+    text-align: center;
+}
