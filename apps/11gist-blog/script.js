@@ -14,13 +14,20 @@ $(document).ready(function() {
             posts.forEach(function(post) {
 
                 // check if a post object in the returned array's description prop starts with '#post' then continue if true
-                if (post.description.startsWith('#post')) {
+                if (post.description.startsWith('#post ')) {
+
+                    // set the slice point to remove '#post ' from string
+                    var descSlicePoint = 5;
 
                     // get the #post description string, remove '#post ' from it, and store it in var
-                    var strPostDescription = post.description.slice(5);
+                    var strPostDesc = post.description.slice(descSlicePoint);
 
-                    // make an html-encapsulated string that will be inserted into index.html
-                    var $post = $(`<a class="collection-item" href="#" data-url="${post.url}" data-comments="${post.comments_url}" data-id="${post.id}">${strPostDescription}</a>`);
+                    // make an html-encapsulated and interpolated string that will be inserted into #posts list
+                    var $post = $(`
+                        <a class="collection-item" href="#" data-url="${post.url}" data-comments="${post.comments_url}" data-id="${post.id}">
+                            ${strPostDesc}
+                        </a>
+                    `);
 
                     // attach string creating list-link element to end of #posts list; lastest post will be at top of list
                     $('ul#posts').append($post);
@@ -29,9 +36,6 @@ $(document).ready(function() {
 
             // click listener on #posts list-links
             $('ul#posts a').click(function(event) {
-
-                var $thatId = $(this).data('url').id;
-                console.log($thatId);
 
                 // prevent page from reloading
                 event.preventDefault();
@@ -50,10 +54,20 @@ $(document).ready(function() {
 
                     // if request is successful run this new post function with returned post as param
                     success: function(post) {
-                        var $postCreatedDate = moment(post.created_at).format("dddd, MMMM Do YYYY, h:mm:ss a");
-                        var $postUpdatedDate = moment(post.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a");
-                        var $postDate = $(`<p>Posted: ${$postCreatedDate}</p><p>Last edited: ${$postUpdatedDate}</p>`);
 
+                        // use moment to format post.created_at data
+                        var postCreatedDate = moment(post.created_at).format("dddd, MMMM Do YYYY, h:mm:ss a");
+
+                        // use moment to format post.updated_at data
+                        var postUpdatedDate = moment(post.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a");
+
+                        // create html-encapsulated and interpolated string to insert into #post-date div
+                        var $postDate = $(`
+                            <p>Posted: ${postCreatedDate}</p>
+                            <p>Last edited: ${postUpdatedDate}</p>
+                        `);
+
+                        // use html() method to insert $postDate into #post-date div
                         $('div#post-date').html($postDate);
 
                         // pull the content property from the selected post's 'post.md' file and store it in a var
@@ -80,7 +94,18 @@ $(document).ready(function() {
                         comments.forEach(function(comment) {
 
                             // make an html-encapsulated string that displays and styles new comment
-                            var $comment = $(`<blockquote><li><span class="comment-user">${comment.user.login}</span> says "<span class="comment-body">${comment.body}"</span></li><li><span class="comment-date"> ${moment(comment.updated_at).format("MMMM Do, h:mm:ss a")}</span></li></blockquote>`);
+                            var $comment = $(`
+                                <blockquote>
+                                    <li>
+                                        <span class="comment-user">${comment.user.login}</span>
+                                        says "<span class="comment-body">${comment.body}"</span>
+                                    </li>
+                                    <li>
+                                        <span class="comment-date"> ${
+                                            moment(comment.updated_at).format("MMMM Do, h:mm:ss a")
+                                        }</span>
+                                    </li>
+                                </blockquote>`);
 
                             // attach new comment to the #comments list; latest comment will be at bottom of list
                             $('#comments').append($comment);
