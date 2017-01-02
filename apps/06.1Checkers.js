@@ -8,11 +8,56 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
+  this.checkers =[];
+  this.createCheckers = function() {
+    var whitePositions = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+    for (var i = 0; i < whitePositions.length; i++){
+      //this.Checker(white);
+      var wPos = whitePositions[i];
+
+      //this.checkers.push(checker);
+      var row = wPos[0];
+      var column = wPos[1];
+      var checker = new Checker('white');
+      this.grid[row][column] = checker;
+      this.checkers.push(checker);
+    }
+    for (var i = 0; i < blackPositions.length; i++){
+      //this.Checker(black);
+      var bPos = blackPositions[i];
+
+      //checkers.push(checker);
+      var row = bPos[0];
+      var column = bPos[1];
+      var checker = new Checker('black');
+      this.grid[row][column] = checker;
+      this.checkers.push(checker);
+    }
+  }
+  this.selectChecker = function(row, column){
+    return this.grid[row][column];
+  }
+
+
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -53,6 +98,28 @@ function Board() {
   };
 
   // Your code here
+  // this.killChecker = function(killRow, killColumn) {
+  //   //var checkerPosition = this.checkers.indexOf(this.selectChecker(position[0],position[1]));
+  //   //this.checkers.splice(checkerPosition,1);
+  //   this.grid[killRow][killColumn] = null;
+  // }
+  this.killChecker = function(position){
+    //var y = position.splice(1,1);
+    //var x = position.splice(0,1);
+    var row = position[0];
+    var col = position[1];
+    var piece = this.selectChecker(row, col);
+    console.log(piece);
+    
+
+    var indexOfChecker = this.checkers.indexOf(piece);//maybe x,y? piece
+
+    this.checkers.splice(indexOfChecker, 1);
+    //this.grid[deadPiece] = null;
+    //this.grid[indexOfChecker] = null;
+    this.grid[row][col] = null;
+  }
+
 }
 function Game() {
 
@@ -61,6 +128,51 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
+  };
+  //start might look like 50
+  //end might look like 41
+  this.moveChecker = function(start, end){
+    //Inside the method, use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker. Then set that spot on the grid to null and set the spot at the end rowcolumn coordinate to the checker.
+    var startRow = start.split("")[0];
+    var startColumn = start.split("")[1];
+    var endRow = end.split("")[0];
+    var endColumn = end.split("")[1];
+    var checker = this.board.selectChecker(startRow, startColumn);
+    this.board.grid[startRow][startColumn] = null;
+    this.board.grid[endRow][endColumn] = checker;
+    var distance = Math.abs(startRow - endRow);
+    // var killX = Math.abs(startRow - endRow);
+    // var killY = Math.abs(startColumn - endColumn);
+    // var killPosition = (killX+killY);
+    if(distance === 2){
+      var killRow =(parseInt(startRow) + parseInt(endRow)) / 2; 
+      var killColumn = (parseInt(startColumn) + parseInt(endColumn)) / 2;
+      var killPosition = [killRow, killColumn];
+      this.board.killChecker(killPosition);
+    }
+  //   if (startRow - endRow === 2){
+  //     var killRow = parseInt(startRow) -1;
+  //     if (startColumn - endColumn === 2) {
+  //       var killColumn = parseInt(endColumn) -1;
+  //     } else if (startColumn - endColumn === -2) {
+  //       var killColumn = parseInt(endColumn) + 1;
+  //     }
+  //     //var killPosition = killRow+killColumn;
+  //     console.log(killRow+killColumn);
+  //     this.killChecker(killRow, killColumn);
+  //   }
+  //   if (startRow - endRow === -2){
+  //     var killRow = parseInt(startRow) +1;
+  //     if (startColumn - endColumn === 2) {
+  //       var killColumn = parseInt(endColumn) -1;
+  //     } else if (startColumn - endColumn === -2) {
+  //       var killColumn = parseInt(endColumn) + 1;
+  //     }
+  //     //var killPosition = killRow+killColumn;
+  //     console.log(killRow, killColumn);
+  //     this.killChecker(killRow, killColumn);
+  //   }
   };
 }
 

@@ -5,36 +5,40 @@ var assert = require('assert');
 
 function returnTrue() {
   // should return true
-
+  return true;
 }
 
 function returnFalse() {
   // should return false
-
+  return false;
 }
 
 function greaterThan(big, small) {
   // should return true if the first argument is greater than the second argument
   // and return false if the first argument is less than the second argument
-
+  var ternary = (big > small) ? true : false;
+  return ternary
 }
 
 function lessThan(small, big) {
   // should return true if the first argument is less than the second argument
   // and return false if the first argument is greater than the second argument
-
+  var ternary = (small < big) ? true : false;
+  return ternary
 }
 
 function equalTo(a, b) {
   // should return true if the first argument is equal to the second argument
   // and should return true if the first argument is equal to the second argument
-
+  var ternary = (a === b) ? true : false;
+  return ternary
 }
 
 function notEqualTo(a, b) {
   // should return true if the first argument is not equal to the second argument
   // and should return false if the first argument is equal to the second argument
-
+  var ternary = (a !== b) ? true : false;
+  return ternary
 }
 
 

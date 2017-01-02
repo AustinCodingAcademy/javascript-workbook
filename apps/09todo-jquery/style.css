@@ -59,3 +59,14 @@ input[type=text] {
   border-radius: 0px;
   width: 65%;
 }
+
+button {
+  float: right;
+  margin-right: 5px;
+  background-color: #aeaeae;
+  background-image: url(" http://www.drodd.com/images15/red-x11.jpeg");
+  background-size: cover;
+  background-blend-mode: multiply;
+  height: 25px;
+  width: 25px;
+}
