@@ -1,10 +1,12 @@
+//SECONDARY TEST COMMENT
+
 'use strict';
 
 var assert = require('assert');
 
 function returnTrue() {
   // should return true
-  return false;
+  return true;
 }
 
 

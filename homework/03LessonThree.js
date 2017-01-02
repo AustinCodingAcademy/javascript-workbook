@@ -20,16 +20,15 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -41,8 +40,8 @@ function returnTheFirstArgument(firstArgument) {
 // What is scope?
 //
 // Your Answer Goes Here:
-//
-//
+//Scope defines where a variable can be utilized. There are layers of scope, going inward from a global scope (any item in this scope can be called) into functional scopes (which can only be called within an object or function)
+//As you go deeper into functions within functions and objects objets in the outward scope are still available, but calling those functions FROM the external scope will not yielf them
 
 
 // ****
@@ -57,19 +56,19 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first';
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -77,9 +76,9 @@ var problemSevenAnswer;
 // Write your answer in comments
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
-//
 // Your Answer Goes Here:
-//
+//A ternary operator is a simple comparison operator where an exprsesion or variable is presented for evaluation, then two return values are provided depending upon the truth of the evaluation
+//A normal conditional is both more varied and formal in that in can compare multiple terms and use AND and OR to create more conditions
 //
 
 
@@ -89,18 +88,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [4, 2, 0, 6, 9];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-
+nameArray[1]='george';
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
@@ -110,10 +109,10 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-
+threeByThreeArray[1][1]=9;
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray=[[6,9],[6,9]];
 
 // ****
 // Tests
