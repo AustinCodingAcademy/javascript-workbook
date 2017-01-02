@@ -8,12 +8,14 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  // Check to see what color
+  this.symbol = (color === "white") ? String.fromCharCode(0x125CB) : String.fromCharCode(0x125CF);
 }
 
 function Board() {
   this.grid = [];
+
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -35,7 +37,7 @@ function Board() {
       var rowOfCheckers = [row];
       // a loop within a loop
       for (var column = 0; column < 8; column++) {
-        // if the location is "truthy" (contains a checker piece, in this case)
+        // if the location is 'truthy' (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
           rowOfCheckers.push(this.grid[row][column].symbol);
@@ -52,15 +54,85 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+
+  this.checkers = [];
+  this.createCheckers = function (checker) {
+
+    var whiteRow;
+    var whiteColumn;
+    var blackRow;
+    var blackColumn;
+
+    var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
+    var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
+
+    for (var i = 0; i < whitePositions.length; i++) {
+      whiteRow = whitePositions[i][0];
+      whiteColumn = whitePositions[i][1];
+
+      this.grid[whiteRow][whiteColumn] = new Checker("white");
+      this.checkers.push(this.grid[whiteRow][whiteColumn]);
+    }
+
+    for (var j = 0; j < blackPositions.length; j++) {
+      blackRow = blackPositions[j][0];
+      blackColumn = blackPositions[j][1];
+
+      this.grid[blackRow][blackColumn] = new Checker("black");
+      this.checkers.push(this.grid[blackRow][blackColumn]);
+    }
+  };
+
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column];
+  };
+
+  this.killChecker = function (position) {
+
+
+    var row = position[0];
+    var column = position[1];
+
+    var movedChecker = this.selectChecker(row, column);
+    var indexChecker = this.checkers.indexOf(movedChecker);
+    var killedChecker = this.checkers.splice(indexChecker, 1);
+
+    this.grid[row][column] = null;
+  };
 }
+
 function Game() {
 
   this.board = new Board();
+  this.checker = new Checker();
+
+  this.moveChecker = function(start, end) {
+
+    var startRow = start.split("")[0];
+    var startColumn = start.split("")[1];
+    var endRow = end.split("")[0];
+    var endColumn = end.split("")[1];
+    var boardGrid = this.board.grid;
+    var checker = this.board.selectChecker(startRow, startColumn);
+
+    boardGrid[startRow][startColumn] = null;
+    boardGrid[endRow][endColumn] = checker;
+
+    var moveDistance = Math.abs(startRow - endRow);
+
+    if (moveDistance === 2){
+
+      var killPositionX = (parseInt(startRow) + parseInt(endRow)) / 2;
+      var killPositionY = (parseInt(startColumn) + parseInt(endColumn)) / 2;
+      var killPosition = [killPositionX , killPositionY];
+
+      this.board.killChecker(killPosition);
+    }
+  };
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
   };
 }
 

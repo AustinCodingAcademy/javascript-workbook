@@ -3,29 +3,41 @@
 var assert = require('assert');
 
 function whichSpecies(character) {
-  // should return "dog" when character is 'scooby'
-  // should return "cat" when character is 'garfield'
-  // should return "fish" when character is 'nemo'
+  // should return 'dog' when character is 'scooby'
+  // should return 'cat' when character is 'garfield'
+  // should return 'fish' when character is 'nemo'
   // should return false if character is anything else
-  
+  if (character === 'dog') {
+    return 'scooby';
+  } else if (character === 'cat') {
+    return 'garfield';
+  } else if (character === 'fish') {
+    return 'nemo';
+  } else {
+    return false;
+  }  
 }
 
 function isEven(number) {
   // should return true is number is even (divisible by 2)
-
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
 // Tests
 
 describe('#whichSpecies()', function () {
-  it('should return "dog" when character is scooby', function () {
+  it('should return 'dog' when character is scooby', function () {
     assert.equal(whichSpecies('scooby'), 'dog');
   });
-  it('should return "cat" when character is garfield', function () {
+  it('should return 'cat' when character is garfield', function () {
     assert.equal(whichSpecies('garfield'), 'cat');
   });
-  it('should return "fish" when character is nemo', function () {
+  it('should return 'fish' when character is nemo', function () {
     assert.equal(whichSpecies('nemo'), 'fish');
   });
   it('should return false if character is anything else', function () {

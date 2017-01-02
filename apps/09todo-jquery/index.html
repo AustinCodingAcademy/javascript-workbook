@@ -9,11 +9,15 @@
   <div id="content">
     <div class="header">TODO</div>
     <form>
-      <input type="text" id="todo">
-      <input type="submit" value="Submit">
+      <input type="text" id="todo" required>
+      <button type="submit" value="Submit"> Submit </button>
     </form>
     <ul id="todo-list">
-      <li>Walk the dog</li>
+      <div class="to-do-list-item">
+        <li>Walk the dog</li>
+        <input type="checkbox" id="finishTask" /> 
+        <span id="complete-checkbox"> Mark Complete </span>
+      </div>
     </ul>
   </div>
 

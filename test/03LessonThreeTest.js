@@ -5,33 +5,45 @@ var assert = require('assert');
 
 function buildArray(first, second, third) {
   // return array with the items first, second, and third in an array.
+  var newArr = [first, second, third];
 
+  /*for (var i = 0, i < arguments.length; i++;) {
+    newArr.push(arguments[i]);
+  }*/
+  return newArr;
 }
 
 function returnThirdItem(arr) {
   // should return the third item in the array
-
+  var newArr = arr;
+  /*for (var i = 0, i < arguments.length; i++;) {
+    newArr.push(arguments[i]);
+  }*/
+  return newArr[2];
 }
 
 function setFirstItem(arr, newFirstItem) {
   // should set the first item in the array with newFirstItem
-
+  arr[0] = newFirstItem;
+  return arr;
 }
 
 function returnCenterItem(fiveByFiveArray) {
-  // returns the "center" item in a 5 x 5 array
+  // returns the 'center' item in a 5 x 5 array
   // ex. 3 x 3 array [[1, 2, 3], [4, 5, 6], [7, 8, 9]] the center item is 5
+  return fiveByFiveArray[2][2];
 
 }
 
 function arrayJoin(arr) {
+  return arr.join(' ');
   // should return a string of the joined array items, separated by a space
 
 }
 
 function stringSplit(str) {
   // should return an array of the words in a string, delimited by a space
-
+  return str.split(' ');
 }
 
 
@@ -59,7 +71,7 @@ describe('#setFirstItem()', function () {
 });
 
 describe('#returnCenterItem()', function () {
-  it('returns the "center" item in a 5 x 5 array', function () {
+  it('returns the 'center' item in a 5 x 5 array', function () {
     var arr = [
       [1, 2, 1, 4, 5],
       [1, 2, 2, 4, 5],

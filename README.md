@@ -25,23 +25,23 @@ upstream    git@github.com:AustinCodingAcademy/javascript-workbook.git (push)
 ### Push to Github and create a PR
 1. From your project directory, run `npm install` to tell NPM to install all the node modules we use in this class
 1. Use Atom (or another editor) to make the change to the JS function indicated in `test/00LessonZeroTest.js`
-1. Make sure the tests pass: run `npm test test/00LessonZeroTest.js` (look in the output for "1 passing")
+1. Make sure the tests pass: run `npm test test/00LessonZeroTest.js` (look in the output for '1 passing')
 1. When you're finished, commit your changes and push to GitHub using the following commands:
 
   ```bash
   git status
   git add test/00LessonZeroTest.js
-  git commit -m "Lesson Zero Tests passing"
+  git commit -m 'Lesson Zero Tests passing'
   git push origin gh-pages
   ```
 1. Now go to your forked repository on GitHub (at https://github.com/your-username/javascript-workbook). A little yellow box should have popped up asking you to make a Pull Request. Click to review.
 
-1. Click "Create Pull Request"
+1. Click 'Create Pull Request'
 
 1. Every time you make a change *and push to GitHub*, this PR will automatically update. No need to do it more than once.
 
 #### Get latest test updates
-1. To get the latest code/homework/test updates, be sure to have a "clean working directory" by committing or removing all of your changes. You check for a "clean working environment" by running `git status` and making sure no files show up.
+1. To get the latest code/homework/test updates, be sure to have a 'clean working directory' by committing or removing all of your changes. You check for a 'clean working environment' by running `git status` and making sure no files show up.
 1. Run `git pull upstream gh-pages`
 
 ![Contributing workflow](https://docs.google.com/drawings/d/1WeKQxOHgPKfwjy_eKtlJO62Fu4XTCWFeqkAh1oIqICM/pub?w=960&h=720)

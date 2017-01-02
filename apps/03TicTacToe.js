@@ -24,28 +24,80 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
+    console.log('horizontalWin');
+    return true;
+  } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
+    console.log('horizontalWin');
+    return true;
+  } else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+    console.log('horizontalWin');
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+    console.log('verticalWin');
+    return true;
+  } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
+    console.log('verticalWin');
+    return true;
+  } else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+    console.log('verticalWin');
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+    console.log('diagonalWin');
+    return true;
+  } else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    console.log('diagonalWin');
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if (diagonalWin() || verticalWin() || horizontalWin()) {
+    console.log('Player ' + playerTurn + ' wins!');
+    return true;
+  }
 }
+/*function checkForTie() {
 
+  var playerTurns = 0;
+
+  for(var i = 0; i < playerTurns.length; i++) {
+    playerTurns = playerTurns++
+    console.log(playerTurns);
+    console.log(board.length);
+  }
+
+  if (board.length > playerTurns) {
+    console.log('Game is Tied');
+    return true;
+  }
+}*/
 function ticTacToe(row, column) {
-  // Your code here
+
+  //var acceptable = {'undefined': 1, 'boolean'L 1}
+  // check whether the input has already been entered 
+  board[row][column] = playerTurn;
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    
+  /*if (row !== '0' && row !== '1' && row !== '2')  {
+    console.log('Please enter a valid input');
+  } else {
+    board[row][column] = playerTurn;
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    checkForWin();*/
 }
 
 function getPrompt() {
   printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
+  console.log('It's Player ' + playerTurn + ''s turn.');
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);

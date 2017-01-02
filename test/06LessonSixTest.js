@@ -7,8 +7,8 @@ var assert = require('assert');
 // The Garage should also take one parameter, size. The size will be an integer, and set it to an attribute
 // Give the Garage object an attribute, this.cars, and set it to an empty array
 // The Garage class should have two methods, .add and .remove
-// .add should take one argument, car. If the length of this.cars is less than this.size, push the car into this.cars, else return "Not enough space!"
-// .remove should also take one argument, car. look for the index of the car in this.cars. If it is found, splice it out of this.cars. If it isn't found, return "That car isn't here!"
+// .add should take one argument, car. If the length of this.cars is less than this.size, push the car into this.cars, else return 'Not enough space!'
+// .remove should also take one argument, car. look for the index of the car in this.cars. If it is found, splice it out of this.cars. If it isn't found, return 'That car isn't here!'
 
 // Your code here
 

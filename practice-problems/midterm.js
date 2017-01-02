@@ -122,7 +122,7 @@
 
 
 
-//17. console.log(!!"Hello");
+//17. console.log(!!'Hello');
 
 //Answer:
 
@@ -190,7 +190,7 @@
 
 //Use the following array for questions 28-31.
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 
 
 //26. Write code to print out the length of the 'colors' array and then the 3rd color of the array.
@@ -410,7 +410,7 @@ toggleLight();
 
 
 //49. Create an object called “bob”. Assign the object “bob” the following properties:
-//name: "Bob Smith",
+//name: 'Bob Smith',
 //age: 30
 
 //Then print out bob’s full name by accessing the properties within the object.

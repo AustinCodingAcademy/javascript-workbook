@@ -1,3 +1,7 @@
+body {
+  font-family: Arial;
+}
+
 [data-stack] {
   display: flex;
   justify-content: left;
@@ -7,6 +11,7 @@
   height: 101px;
   background-color: aliceblue;
   margin: 25px;
+  border: 2px solid black;
 }
 
 [data-block] {
@@ -37,4 +42,17 @@
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+  padding: 20px;
+}
+
+#clear-button {
+  padding: 20px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: gray;
+  width: 150px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  border: 2px solid black;
 }

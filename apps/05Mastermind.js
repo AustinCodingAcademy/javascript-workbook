@@ -11,6 +11,13 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var turns = 10;
+var hint;
+var solutionArray;
+var guessArray;
+var correctLetters;
+var correctLetterLocations;
+var match;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -29,18 +36,48 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+
+  solutionArray = solution.split("");
+  guessArray = guess.split("");
+  correctLetters = 0;
+  correctLetterLocations = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+  for (var j = 0; j < guessArray.length; j++) {
+    match = solutionArray.indexOf(guessArray[j]);
+    if ( match > -1 ) {
+      correctLetters++;
+      solutionArray[match] = null;
+    }
+  }
+  return correctLetters + "-" + correctLetterLocations;
 }
 
 function mastermind(guess) {
   // your code here
+
+  if (guess === solution) {
+    return "You guessed it!";
+  } else if (board.length === 10) {
+    return "You ran out of guesses, the correct solution was " + solution;
+  } else if (guess !== solution) {
+    var hint = generateHint(solution, guess);
+    board.push(hint);
+    turns--;
+    return "Try again, turns remaining  " + turns;
+  } 
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
     printBoard();
     getPrompt();
   });
