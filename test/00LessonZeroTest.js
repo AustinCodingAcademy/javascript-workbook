@@ -4,7 +4,9 @@ var assert = require('assert');
 
 function returnTrue() {
   // should return true
-  return false;
+  //test changes
+  //another test
+  return true;
 }
 
 
