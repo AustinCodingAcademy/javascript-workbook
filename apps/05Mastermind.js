@@ -11,6 +11,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var counter = 10;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -29,17 +30,52 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  var solutionArray = solution.split("");
+  var guessArray = guess.split("");
+  var correctLetterLocations = 0;
+
+  for (var i = 0; i < solutionArray.length; i++){
+    if (guessArray[i] === solutionArray[i]){
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+  var correctLetters = 0;
+  for (var i = 0; i < solutionArray.length; i++){
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1){
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    }
+  }
+  return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
   // your code here
+  //solution = 'abcd';
+  if (guess === solution){
+    return "You guessed it!";
+  } else {
+    var hint = generateHint(solution, guess);
+    board.push (guess + hint);
+  }
+
+if (board.length === 10) {
+  console.log("You ran out of turns! The solution was 'solution'!");
+  generateSolution();
+} else {
+  counter--;
+  console.log("Turns remaining: " + counter);
+  return "Guess again.";
+}
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
+  rl.question('guess a combination of 4 letters "a through h": ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
     getPrompt();

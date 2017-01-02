@@ -1,45 +1,47 @@
 //1. What is a data type that can have only the values true or false? Provide an example.
 
-//Answer:
+//Answer:Booleans. console.log(4 < 14);
 
 
 
 
 //2. What is a null value? Provide one example.
 
-//Answer:
+//Answer: an assignment value. var inmyMind = null;
 
 
 
 
 //3. List and describe 3 more data types used in JS.
 
-//Answer:
+//Answer: Undefined, Number & String
 
 
 //4. Why do we use comments in JS?
 
-//Answer:
+//Answer: used for commentary or notes for yourself and fellow developers
 
 
 //5. Why do we use 'strict mode'?
 
-//Answer:
+//Answer: It voluntairly restricts some of JavaScripts powers that are used by accident when not needed. It saves time, frustration, and possible security concerns.
 
 
 //6. Write the code to log the output "Hello World".
 
-//Answer:
+//Answer: console.log("Hello World");
 
 
 //7. What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 
-//Answer:
+//Answer:AND (&&) will test whether the value on the left is true, and if so, test whether the item on the right is true. If both are true, then it will return true, if either one is false, it will return false. OR (||) will test whether each item on either side is true and if at least one side is true, it will reason both together as true.
+
+
 
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
 
-//Answer:
+//Answer: an 'emotionally positive' value such as 'true' 'hello' '1' '-4' 'false' is considered truthy. Falsey is a value not assigned or 'emotionally negative' such as 'false' '0' 'null' 'undefined' 'NaN'. 0 is the only number considered falsey.
 
 
 
@@ -53,70 +55,70 @@
 
 //9. console.log(true && false);
 
-//Answer:
+//Answer: False
 
 
 
 
 //10. console.log(false && true);
 
-//Answer:
+//Answer: False
 
 
 
 
 //11. console.log(true && true && false);
 
-//Answer:
+//Answer: False
 
 
 
 
 //12. console.log(true || false);
 
-//Answer:
+//Answer: True
 
 
 
 
 //13. console.log(false || true);
 
-//Answer:
+//Answer: True
 
 
 
 
 //14. console.log(true || true || false);
 
-//Answer:
+//Answer: True
 
 
 
 
 //15. console.log(!true);
 
-//Answer:
+//Answer: False
 
 
 
 
 //16. console.log(!undefined);
 
-//Answer:
+//Answer: True
 
 
 
 
 //17. console.log(!!"Hello");
 
-//Answer:
+//Answer: True
 
 
 
 
 //18. console.log(!!null);
 
-//Answer:
+//Answer: False
 
 
 
@@ -126,25 +128,27 @@
 
 //    console.log(x !== y);
 
-//Answer:
+//Answer: True
 
 
 
 
 //20. What’s the difference between == and ===?
 
-//Answer:
+//Answer: == attempts to convert the values to the same type before testing. === does not do this, it requires objects to be the same type to be equal.
 
 
 
 
 //21. What’s the difference between != and !==?
 
-//Answer:
+//Answer: != is not equal, !== not equal value or equal type.
 
 
 
 
 //22. What does (7 - 4 && 6 + 3) || (7 < 5 || 8 > 4) evaluate to? Explain how you solved your answer.
 
-//Answer:
+//Answer: True (3 && 9) || (false || true)
+// (9) || true
+// True is the answer for this problem
