@@ -2,6 +2,7 @@
 //require assert
 var assert = require('assert');
 
+
 var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
@@ -9,7 +10,49 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+this.name = name;
+this.job = job;
+this.specialSkill = specialSkill;
+this.ship = null;
+this.enterShip = function(theship){
+  this.ship = theship;
+  theship.crew.push(this)
+}
+};
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function(){
+    
+    //ship has .crew, crew has .job
+    for(var i = 0; this.crew.length; i++){
+      //string of job of crew member
+      var theJob = this.crew[i].job;
+      var typeOfShip = jobTypes[theJob];
+   if(typeOfShip === this.type){
+     return this.ability;
+      }
+      return "Can't perform a mission yet.";
+      
+    }
+}
+};
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var message = mav.missionStatement();
+message = mav.missionStatement();
+
+rick.enterShip(mav);
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
 
 //tests
 if (typeof describe === 'function'){

@@ -3,35 +3,35 @@
 var assert = require('assert');
 
 
-function returnTrue() {
+function returnTrue(5 === 5) {
   // should return true
 
 }
 
-function returnFalse() {
+function returnFalse(5 >= 9) {
   // should return false
 
 }
 
-function greaterThan(big, small) {
+function greaterThan(big, small 12 >= 9) {
   // should return true if the first argument is greater than the second argument
   // and return false if the first argument is less than the second argument
 
 }
 
-function lessThan(small, big) {
+function lessThan(small, big 9 >= 12) {
   // should return true if the first argument is less than the second argument
   // and return false if the first argument is greater than the second argument
 
 }
 
-function equalTo(a, b) {
+function equalTo(a, b 12 === 12) {
   // should return true if the first argument is equal to the second argument
   // and should return true if the first argument is equal to the second argument
 
 }
 
-function notEqualTo(a, b) {
+function notEqualTo(a, b 12 === 12) {
   // should return true if the first argument is not equal to the second argument
   // and should return false if the first argument is equal to the second argument
 
