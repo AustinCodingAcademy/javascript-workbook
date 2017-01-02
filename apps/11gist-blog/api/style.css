@@ -1,0 +1,21 @@
+.hero {
+    background-image: url("../img/server-farm.jpg");
+    width: 100% auto;
+    height: 630px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: #6e6e6e;
+    margin: auto;
+    background-attachment: fixed;
+}
+.textbox {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 160px;
+}
+
+a{
+    color:white;
+}

@@ -11,8 +11,89 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
 
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  }
+  if (hand1 === 'rock' && hand2 === 'scissors') {
+  return "Hand one wins!";
+  }
+  else if (hand1 === 'paper' && hand2 === 'rock') {
+  return "Hand one wins!";
+  }
+  else if (hand1 === 'scissors' && hand2 === 'paper') {
+  return "Hand one wins!";
+  }
+  else {
+  return "Hand two wins!";
+  }
 }
+//   if (hand1 ==='rock' && hand2 === 'scissors') ||
+//      (hand1 === 'paper' && hand2 === 'rock') ||
+//      (hand1 === 'scissors' && hand2 === 'paper') {
+//       return "hand one wins!";
+//     }
+//     return "hand two wins!";
+// }
+//   if (hand1 === hand2) {
+//   return "It's a tie!";
+// }
+//
+// if (hand1 === 'rock') {
+//   if (hand2 === 'scissors') {
+//     return 'Hand one wins!';
+//   }
+// }
+//
+//   if (hand1 === 'rock'){
+//     if (hand2 === 'paper'){
+//   return 'Hand two wins!';
+// }
+// }
+//
+// if (hand1 === 'paper') {
+// if (hand2 === 'rock'){
+// return 'hand one wins!';
+// }
+// }
+//
+// if (hand1 === 'paper') {
+// if (hand2 === 'scissors') {
+//   return 'hand one wins!';
+//   }
+// }
+// if (hand1 === 'scissors') {
+// if (hand2 === 'rock') {
+//   return 'hand two wins!';
+//   }
+// }
+// if (hand1 === 'scissors') {
+// if (hand2 === 'paper') {
+//   return 'hand one wins!';
+//   }
+// }
+// if (hand2 === 'paper') {
+// if (hand1 === 'scissors') {
+//   return 'hand one wins!';
+//   }
+// }
+// if (hand2 === 'paper') {
+// if (hand1 === 'rock') {
+//   return 'hand two wins!';
+//   }
+// }
+// if (hand2 === 'scissors') {
+// if (hand1 === 'rock') {
+//   return 'hand one wins!';
+//   }
+// }
+// if (hand2 === 'scissors') {
+// if (hand1 === 'paper') {
+//   return 'hand two wins!';
+//   }
+// }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {

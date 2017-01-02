@@ -10,6 +10,59 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  // Where is the method entership
+  this.enterShip = function(myship){
+
+    this.ship = myship;
+    // where is crew member instance
+
+    var whereiscrewmember = this;
+    // where is ships crew array
+
+    this.ship.crew.push(this);
+  }
+
+}
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function(){
+    // we need to look at all crew members
+
+ for(var i = 0; i < this.crew.length; i++){
+  //  what is the type of the ship, we need to know if crew can handle it
+
+  var jobofthecrewmember = this.crew[i].job;
+  // this is the variable that holds the object of key jobs to value ship types
+  // how to we get out the ship type per job
+  // if the job was pilot then the ship type would be mav
+  var shipthatcrewmembercanfly = jobTypes[jobofthecrewmember];
+    if(this.type === shipthatcrewmembercanfly){
+    return this.ability;
+  }
+}
+   return "Can't perform a mission yet."
+  }
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+rick.enterShip(mav);
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
+
+
 
 //tests
 if (typeof describe === 'function'){
