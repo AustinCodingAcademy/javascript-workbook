@@ -19,10 +19,12 @@
     "colors": "^1.1.2"
   },
   "devDependencies": {
+    "csslint": "^1.0.5",
+    "eslint": "^3.12.2",
+    "htmllint-cli": "0.0.5",
     "http-server": "^0.9.0",
     "jsdom": "^9.4.2",
     "mocha": "^2.4.5",
-    "nock": "^8.0.0",
-    "htmllint-cli": "0.0.5"
+    "nock": "^8.0.0"
   }
 }
