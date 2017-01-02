@@ -7,12 +7,35 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+//above code is node code for input and prompt. Will not be using prompt. USE NODE
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+    // Write code here
+    hand1 = hand1.toLowerCase();
+    hand2 = hand2.toLowerCase();
 
+    if(hand1 !== "rock" && hand1 !=="paper" && hand1 !=="scissors" && hand2 !== "rock" && hand2 !=="paper" && hand2 !=="scissors"){
+     return "try again!!";
+  }
+
+    if (hand1 === hand2) {
+        return "It's a tie!";
+    }
+    if (hand1 === "rock" && hand2 === "scissors") {
+        return "Hand one wins!";
+    }
+    if (hand1 === "paper" && hand2 === "rock") {
+        return "Hand one wins!";
+    }
+    if (hand1 === "scissors" && hand2 === "paper") {
+        return "Hand one wins!";
+    }
+    else {
+        return "Hand two wins!";
+    }
 }
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {

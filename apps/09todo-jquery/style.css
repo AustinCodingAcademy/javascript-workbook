@@ -28,7 +28,7 @@ form {
   display: table;
   margin: 10px auto;
   padding: 10px 0;
-  border: 1px solid #ccc;
+  border: 5px solid navy;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   text-align: center;
@@ -59,3 +59,6 @@ input[type=text] {
   border-radius: 0px;
   width: 65%;
 }
+button{
+  margin-left: 50px;
+  }
