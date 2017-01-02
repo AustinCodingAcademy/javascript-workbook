@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Gist Blog</title>
+    <title>Gist Blog</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Baumans|Nunito+Sans" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
 </head>
-<body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+
+<body class="container">
+    <header class="row">
+        <div class="col-xs-12">
+            <h2>Welcome to Austin Shipp's Gist blog!</h2>
+        </div>
+    </header>
+    <section class="row postRow">
+        <div id="posts" class="col-xs-3 myPosts"><h3>My Posts:</h3><ul></ul></div>
+        <div id="post" class="col-xs-9 contentContainer">
+          <div class="postContent">
+            <h2 class="animated fadeInDown">Click on a title to view a post</h2>
+          </div>
+        </div>
+    </section>
+    <section class="row">
+      <section id="comments" class="col-xs-12">
+        <h2>Comments</h2>
+      </section>
+    </section>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

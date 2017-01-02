@@ -1,0 +1,133 @@
+body {
+  background: repeating-linear-gradient(
+    45deg,
+    #B6B6B6,
+    #B6B6B6 10px,
+    #a5a5a5 10px,
+    #a5a5a5 20px
+  );
+  padding: 25px 0;
+  min-width: 1060px;
+}
+header div {
+  min-height: 200px;
+  background-color: #004687;
+  border: 3px solid black;
+  border-radius: 15px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+h3 {
+  font-weight: bold;
+  font-size: 35px;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  font-weight: bolder;
+  padding: 20px 0;
+  text-align: left;
+}
+li{
+  color: white;
+  list-style-type: square;
+}
+.postRow{
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  margin: 0;
+  box-shadow: 0 0 75px black;
+  background-color: #b81d18;
+}
+.myPosts {
+  min-height: 500px;
+  padding: 0 50px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+.myPosts ul {
+  padding: 0;
+}
+.myPosts ul a, .myPosts ul a:active, .myPosts ul a:visited {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 0 5px;
+}
+.myPosts ul a:hover{
+  color: white;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 5px;
+}
+.contentContainer{
+  display: table;
+  background-color: #202020;
+  min-height: 500px;
+  padding: 0 50px 10px 50px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Baumans', cursive;
+  border-left: 3px solid black;
+}
+.contentContainer h3 {
+  color: white;
+  font-size: 35px;
+  padding: 20px 0;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+}
+.contentContainer p {
+  font-size: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 15px;
+}
+.contentContainer a, .contentContainer a:active, .contentContainer a:visited {
+  color: #004687;
+}
+.contentContainer a:hover {
+  color: white;
+  text-decoration: none;
+}
+.contentContainer li {
+  color: white;
+}
+.postContent{
+  display: table-cell;
+  vertical-align: middle;
+}
+.postContent img {
+  border-radius: 10px;
+}
+
+#comments {
+  min-height: 100px;
+  background-color: #004687;
+  color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding-bottom: 10px;
+}
+#comments h2, h3 {
+  text-decoration: underline;
+}
+.currentComment {
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  font-size: 20px;
+  font-family: 'Baumans', cursive;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+.commentDate {
+  font-size: 15px;
+}
+.userName{
+  font-weight: bold;
+  font-size: 25px;
+}

@@ -2,11 +2,18 @@
   outline-style: none !important;
   outline: 0 !important;
 }
-
+body {
+  display: table;
+  margin: 0 auto;
+}
 #content {
   margin: 0 auto;
-  width: 100%;
-  max-width: 275px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 300px;
+  text-transform: capitalize;
+  display: table-cell;
+  vertical-align: center;
 }
 
 .header {
@@ -32,7 +39,6 @@ form {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   text-align: center;
-  background-color: #fdfdfd;
   width: 100%;
 }
 
@@ -41,15 +47,19 @@ form {
 }
 
 
-input[type="submit"] {
-  padding:5px 0;
+input[type="submit"], #clearButton {
+  padding:5px 10px;
   text-align: center;
   background:#ccc;
-  border: 0 none;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
+  border: 1px solid black;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   font-size: 14px;
-  width: 20%;
+  font-weight: bolder;
+}
+
+.checkedItem {
+  background-color: #b3ffb3;
 }
 
 input[type=text] {
@@ -58,4 +68,8 @@ input[type=text] {
   -webkit-border-radius: 0px;
   border-radius: 0px;
   width: 65%;
+}
+#buttonRow{
+  display: flex;
+  justify-content: center;
 }

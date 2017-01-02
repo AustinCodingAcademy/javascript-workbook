@@ -8,11 +8,24 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  this.symbol = color;
+  this.symbolAssign = new function() {
+    if (this.symbol = 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+    } else if (this.symbol = 'black') {
+      this.symbol = String.fromCharCode(0x125CF);
+    } else {
+      throw new Error('Thats not white or black.');
+    }
+  }
 }
 
 function Board() {
+  this.checkers = [];
+  this.createCheckers = new function() {
+    
+  }
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {

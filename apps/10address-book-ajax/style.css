@@ -1,0 +1,50 @@
+body {
+  background-image: url('http://www.stockvault.net/data/2010/04/01/113522/preview16.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  padding-top: 10px;
+}
+#tableRow {
+  display: flex;
+  justify-content: center;
+}
+#tableColumn {
+  background-image: url('http://i.imgur.com/SGB8koF.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  border: 3px solid black;
+  padding: 20px;
+  text-transform: capitalize;
+  color: black;
+}
+tr{
+  font-size: 20px;
+}
+tr th{
+  padding-right: 70px;
+  padding-bottom: 20px;
+  color: yellow;
+  text-decoration: underline;
+  text-shadow: 1px 1px 1px black;
+  font-size: 30px;
+}
+td a, td a:active, td a:visited {
+  text-decoration: none;
+  color: black;
+}
+td a:hover {
+  color: yellow;
+  text-shadow: 1px 1px 10px black;
+  text-decoration: none;
+}
+#details{
+  text-align: center;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-bottom:20px;
+  overflow: hidden;
+  display: none;
+}

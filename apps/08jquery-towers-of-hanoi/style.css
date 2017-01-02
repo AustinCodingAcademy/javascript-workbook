@@ -6,11 +6,25 @@
   display: -webkit-flex;
   height: 101px;
   background-color: aliceblue;
+  border: 1px solid black;
   margin: 25px;
+  font-family: sans-serif;
 }
-
+.trollGifBg {
+  background-image: url("troll.gif");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-color: none;
+}
 [data-block] {
-  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  display: -webkit-flex;
+  width: 50px;
+  font-size: 25px;
+  font-weight: bold;
   float: left;
 }
 
@@ -34,7 +48,20 @@
   background-color: yellow;
 }
 
+#counter {
+  font-size: 30px;
+  text-align: center;
+}
+
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+}
+
+#rick {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  display: none;
 }
