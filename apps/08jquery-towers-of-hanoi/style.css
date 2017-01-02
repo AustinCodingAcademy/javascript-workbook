@@ -1,3 +1,6 @@
+body{
+  background-color: black;
+}
 [data-stack] {
   display: flex;
   justify-content: left;
@@ -16,7 +19,7 @@
 
 [data-block="25"] {
   height: 25px;
-  background-color: blue;
+  background-color: #002080;
 }
 
 [data-block="50"] {
@@ -35,6 +38,7 @@
 }
 
 #announce-game-won {
-  font-size: 50px;
+  font-size: 100px;
   text-align: center;
+  color:red;
 }

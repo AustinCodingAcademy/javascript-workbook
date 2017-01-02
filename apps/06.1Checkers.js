@@ -9,7 +9,7 @@ var rl = readline.createInterface({
 
 
 function Checker() {
-  // Your code here
+  // Your code here›
 }
 
 function Board() {
