@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Todo</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div id="content">
-    <div class="header">TODO</div>
-    <form>
-      <input type="text" id="todo">
-      <input type="submit" value="Submit">
-    </form>
-    <ul id="todo-list">
-      <li>Walk the dog</li>
-    </ul>
-  </div>
 
-  <script type="text/javascript" src="../../vendor/jquery.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo</title>
+    <script src="https://use.fontawesome.com/ddda06316e.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main id="content">
+        <header>To do list</header>
+
+
+        <form>
+            <input type="text" id="todo" placeholder="Type your to-do item">
+            <button type="submit"><span>+</span></button>
+        </form>
+        <ul id="todo-list">
+        </ul>
+    </main>
+
+    <script type="text/javascript" src="../../vendor/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

@@ -16,27 +16,32 @@ var six = 6;
 
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
-var onePlusPlus;
-
+var onePlusPlus = one;
+onePlusPlus++;
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
-var twoMinusMinus;
+var twoMinusMinus = two;
+twoMinusMinus--;
 
 // Problem 3:
 // What is the result of three += 3?
-var threePlusAssignmentThree;
+var threePlusAssignmentThree = three;
+threePlusAssignmentThree += 3;
 
 // Problem 4:
 // What is the result of four -= 3?
-var fourMinusAssignmentThree;
+var fourMinusAssignmentThree = four;
+fourMinusAssignmentThree -= 3;
 
 // Problem 5:
 // What is the result of five *= 2?
-var fiveMultiplicationAssignmentTwo;
+var fiveMultiplicationAssignmentTwo = five;
+fiveMultiplicationAssignmentTwo *= 2;
 
 // Problem 6:
 // What is the result of six /= 3?
-var sixDivisionAssignmentThree;
+var sixDivisionAssignmentThree = six;
+sixDivisionAssignmentThree /= 3;
 
 // ****
 // Loops
@@ -52,7 +57,7 @@ while (whileLoopCounter < 10) {
 
 // Problem 7:
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
-var whileLoopArrayResult = [];
+var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // DO NOT MODIFY
 var forLoopArray = [];
@@ -63,7 +68,7 @@ for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
 
 // Problem 8:
 // Fill in forLoopArrayResult so that it matches forLoopArray
-var forLoopArrayResult = [];
+var forLoopArrayResult = [0, -1, -2, -3, -4 , -5, -6, -7, -8, -9];
 
 // ****
 // Concept Checkpoint
@@ -72,6 +77,7 @@ var forLoopArrayResult = [];
 //
 // What are loops? Why do we use them?
 //
+// Loops are for when you want to cylce through an array and you dont want to write out each index to do the same thing.
 
 // ****
 // Tests

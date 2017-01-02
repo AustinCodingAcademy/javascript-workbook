@@ -1,61 +1,93 @@
+body {
+    width: 50%;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: "Dosis", sans-serif;
+}
+
 *:focus {
-  outline-style: none !important;
-  outline: 0 !important;
+    outline: 0 !important;
+    outline-style: none !important;
 }
 
 #content {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 275px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ede8e8;
 }
 
-.header {
-  text-align: center;
-  margin: 20px;
-  font-size: 40px;
+header {
+    padding-top: 50px;
+    padding-bottom: 25px;
+    text-align: center;
+    font-size: 40px;
 }
 
 #todo-list {
-  margin: 20px 0;
-  padding: 0;
+    width: 65%;
+    margin: 20px 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff;
 }
 
 form {
-  text-align: center;
+    width: 80%;
+    height: 140px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
 }
 
 #todo-list li {
-  display: table;
-  margin: 10px auto;
-  padding: 10px 0;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #fdfdfd;
-  width: 100%;
+    display: table;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 1px solid #ddd;
 }
 
-#todo-list li span {
-  text-align: right;
+button {
+    z-index: 20;
+    width: 80px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #fff;
+    border: 10px solid #e80606;
+    border-radius: 100%;
+    background-color: #b30404;
 }
 
-
-input[type="submit"] {
-  padding:5px 0;
-  text-align: center;
-  background:#ccc;
-  border: 0 none;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  font-size: 14px;
-  width: 20%;
+button span {
+    position: relative;
+    top: -51px;
+    font-family: "Dosis", sans-serif;
+    font-size: 100px;
+    align-self: center;
 }
 
-input[type=text] {
-  padding:6px;
-  border:1px solid #ccc;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  width: 65%;
+input[type="text"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    font-family: "Dosis", sans-serif;
+    font-size: 15px;
+}
+
+.button {
+    float: right;
+    color: #b30404;
+    border: none;
+    background-color: none;
+    font-size: 30px;
 }
