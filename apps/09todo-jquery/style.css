@@ -25,19 +25,21 @@ form {
 }
 
 #todo-list li {
-  display: table;
+  display: inline-flex;
   margin: 10px auto;
-  padding: 10px 0;
+  padding: 10px 2%;
   border: 1px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   text-align: center;
   background-color: #fdfdfd;
-  width: 100%;
+  width: 95%;
+  position: relative;
 }
 
-#todo-list li span {
-  text-align: right;
+.todo-text {
+  flex-grow: 3;
+  line-height: 26px;
 }
 
 
@@ -58,4 +60,20 @@ input[type=text] {
   -webkit-border-radius: 0px;
   border-radius: 0px;
   width: 65%;
+}
+
+.done {
+  align-self: center;
+  background-color: #e3433d;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  font-family: sans-serif;
+  padding: 3px 7px;
+  max-height: 20px;
+  text-decoration: none;
+}
+
+.done:hover {
+  background-color: #c9221d;
 }

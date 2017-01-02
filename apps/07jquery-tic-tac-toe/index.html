@@ -6,24 +6,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="row">
-    <div data-cell="0"></div>
-    <div data-cell="1"></div>
-    <div data-cell="2"></div>
+  <div class="half">
+    <h1>Tic Tac Toe</h1>
+    <p>
+      This is an assignment from Austin Coding Academy. This one was interesting in that the specs asked us to do things that hadn't been covered in the lesson, like set a click listener for all of the [data-cell]s. The lesson didn't cover selecting based on the presence of an attribute. In order to complete the app I had to do my own research (which, admittedly, was easy). It helped me get used to finding answers in documentation and blogs. I also got some valuable XP from battling the dreaded, multi-tusked terrorbeast of StackOverflow.
+    </p>
+    <p>
+      In addition to the JS/jQuery insights I gained from this project, I also got some good practice thinking about which jobs to allocate to the stylesheet versus the script. After finishing the app as described by the specs, I was able to think further about additional features to make the game more pleasant/reliable/complete. For example, while a bonus spec challenged us to disallow writing on a cell that had already been used, it didn't say anything about making it visually obvious, nor did it say anything about extending that behavior to any cell once the game was over. For such a simple game, it afforded me the opportunity to ask and answer some pretty neat questions.
+    </p>
+    <p>
+      <strong>TL;DR</strong> Overall, 5/5 would code again.
+    </p>
   </div>
-  <div class="row">
-    <div data-cell="3"></div>
-    <div data-cell="4"></div>
-    <div data-cell="5"></div>
+  <div class="half">
+    <div id="announce-winner"></div>
+    <div id="game" class="group">
+      <div class="row">
+        <div data-cell="0"></div>
+        <div data-cell="1"></div>
+        <div data-cell="2"></div>
+      </div>
+      <div class="row">
+        <div data-cell="3"></div>
+        <div data-cell="4"></div>
+        <div data-cell="5"></div>
+      </div>
+      <div class="row">
+        <div data-cell="6"></div>
+        <div data-cell="7"></div>
+        <div data-cell="8"></div>
+      </div>
+    </div>
+    <button id="clear">Clear Board</button>
   </div>
-  <div class="row">
-    <div data-cell="6"></div>
-    <div data-cell="7"></div>
-    <div data-cell="8"></div>
-  </div>
-  <div id="announce-winner"></div>
-  <button id="clear">Clear Board</button>
-  <script src="../../vendor/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

@@ -14,29 +14,38 @@ var numberArray = [1, 2, 3, 4, 5];
 
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
-var numberArrayAfterPop = [];
+var numberArrayAfterPop = numberArray.slice();
+numberArrayAfterPop.pop();
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
-var numberArrayAfterShift = [];
+var numberArrayAfterShift = numberArray.slice();
+numberArrayAfterShift.shift();
 
 // Problem 3:
 // Show what numberArray would look like if we called numberArray.push(6)
-var numberArrayAfterPush = [];
+var numberArrayAfterPush = numberArray.slice();
+numberArrayAfterPush.push(6);
 
 // Problem 4:
 // Show what numberArray would look like if we called numberArray.unshift(0)
-var numberArrayAfterUnshift = [];
+var numberArrayAfterUnshift = numberArray.slice();
+numberArrayAfterUnshift.unshift(0);
 
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
+bravestWarriors.pop();
+bravestWarriors.shift();
+
 
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
+fruit.push('mango');
+fruit.unshift('banana');
 
 // ****
 // Objects (Associative Arrays)
@@ -44,7 +53,7 @@ var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
 
 // Problem 7:
 // Create an empty object
-var emptyObject;
+var emptyObject = {};
 
 // Problem 8:
 // Create an object with the following key, value pairs:
@@ -52,7 +61,12 @@ var emptyObject;
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
-var problemEightObject;
+var problemEightObject = {
+  emptyObject:  {},
+  emptyArray:   [],
+  name:         'bob',
+  number:       42
+};
 
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
@@ -62,6 +76,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
+problemNineObject['fav food'] = 'tacos';
+problemNineObject.city = 'austin';
 
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
@@ -77,7 +93,7 @@ var nestedObjects = {
   }
 };
 // update the starring property to have the value 'Tim Robbins'
-
+nestedObjects.users['bob roberts'].starring = 'Tim Robbins';
 
 // ****
 // Concept Checkpoint
@@ -86,7 +102,7 @@ var nestedObjects = {
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Associative arrays (objects) use an explicit index called a key with an associated value. The key can be whatever you want. An array uses an implicit index starting at 0.
 //
 //
 
