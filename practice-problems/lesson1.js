@@ -1,45 +1,49 @@
 //1. What is a data type that can have only the values true or false? Provide an example.
 
-//Answer:
+//Answer: boolean.
+//Ex: var isTure= true;
 
 
 
 
 //2. What is a null value? Provide one example.
 
-//Answer:
+//Answer: null is the absence of value in an object.
+//Ex: var noValue = null;
 
 
 
 
 //3. List and describe 3 more data types used in JS.
 
-//Answer:
+//Answer: string - a sequence of character;
+//number - a data point for numerical values;
+//array - A table or group of similar values;
 
 
 //4. Why do we use comments in JS?
 
-//Answer:
+//Answer: So other people we work with can see what we are doing, it's a way to explain our work or to make notes to ourselfves;
 
 
 //5. Why do we use 'strict mode'?
 
-//Answer:
+//Answer: To increase performance and relaability, lets us see more of our errors;
 
 
 //6. Write the code to log the output "Hello World".
 
-//Answer:
+//Answer: console.log("Hello World");
 
 
 //7. What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 
-//Answer:
+//Answer: and both expressions must be true, or either expression can be true. And can add more criteria, or cna make it more yes or no.
 
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
 
-//Answer:
+//Answer: truthy means closer to true or anything other than false, falsy mean closer to false or anything other than true. While null or 0 values are truthy.
 
 
 
@@ -54,20 +58,20 @@
 //9. console.log(true && false);
 
 //Answer:
-
-
+false
+undefined
 
 
 //10. console.log(false && true);
 
 //Answer:
-
+false
 
 
 
 //11. console.log(true && true && false);
 
-//Answer:
+//Answer: false
 
 
 
@@ -75,48 +79,48 @@
 //12. console.log(true || false);
 
 //Answer:
-
+true
 
 
 
 //13. console.log(false || true);
 
 //Answer:
-
+true
 
 
 
 //14. console.log(true || true || false);
 
 //Answer:
-
+true
 
 
 
 //15. console.log(!true);
 
 //Answer:
-
+false
 
 
 
 //16. console.log(!undefined);
 
-//Answer:
+//Answer: true
 
 
 
 
 //17. console.log(!!"Hello");
 
-//Answer:
+//Answer: true
 
 
 
 
 //18. console.log(!!null);
 
-//Answer:
+//Answer: false
 
 
 
@@ -126,7 +130,7 @@
 
 //    console.log(x !== y);
 
-//Answer:
+//Answer: true
 
 
 
@@ -134,17 +138,21 @@
 //20. What’s the difference between == and ===?
 
 //Answer:
-
-
+== is a comparision
+=== has to be same data type and information
 
 
 //21. What’s the difference between != and !==?
 
 //Answer:
-
-
+!= is a comparision
+!== looks for exact values
 
 
 //22. What does (7 - 4 && 6 + 3) || (7 < 5 || 8 > 4) evaluate to? Explain how you solved your answer.
 
 //Answer:
+(3 && 9) || (false || true)
+(true && true)  || true
+true || true
+true

@@ -11,6 +11,9 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var guess
+var solution
+
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -29,12 +32,20 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+var CorrectLetterLocations = 0;
+var CorrectLetters = 0;
+var solutionArray = solution.split('');
+var guessArray = guess.split('');
 }
 
+if board.length === 10
+
+
 function mastermind(guess) {
-  // your code here
+  if (guess === soultion) {
+    return "You're a mastermind!"
+  }
 }
 
 
