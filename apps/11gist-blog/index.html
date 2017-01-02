@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Gist Blog</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steven Anderson</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <script src="https://use.fontawesome.com/d540f557c8.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Tinos" rel="stylesheet">
+
+    <!-- CSS STYLE SHEET -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+    <!--SECTION 1 - HEADER-->
+    <header>
+        <h1>Steve Anderson's Gist Blog</h1>
+        <h2>A Gist Blog Created for my <a href="https://www.austincodingacademy.com/courses/javascript-jquery-app-development/">Intermediate Class</a></h2>
+        <h2> at the Austin Coding Academy <a href="https://www.austincodingacademy.com/?gclid=Cj0KEQiAyuPCBRCimuayhb3qqvwBEiQAgz62kXBoFVEsJOROllAlhuMhxaAVugSDuiq0UONudFG1D1QaAkXH8P8HAQ">(ACA)</a> </h2>
+
+    </header>
+    <div class="row">
+        <!--SECTION 2 - POSTS-->
+        <div class=" myposts col-lg-4 col-sm-12">
+            <h4>Previous Posts</h4>
+            <ul id="posts"> </ul>
+        </div>
+        <!--SECTION 3 - POST-->
+        <div class="mypost col-lg-4 col-sm-12">
+            <h4>Post Text</h4>
+            <div id="post"></div>
+        </div>
+        <!--SECTION 4 - COMMENTS-->
+        <div class="mycomments col-lg-4 col-sm-12">
+            <h4>Post Comments</h4>
+            <ul id="comments"></ul>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- BOOTSTRAP SCRIPT -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- FONT AWESOME SCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- PARALLAX SCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!--script src="/path/to/parallax.js"></script-->
+    <!-- ANIMATION SCRIPT -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- SLIDE CAROUSEL SCRIPT -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
