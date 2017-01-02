@@ -19,6 +19,7 @@
     "colors": "^1.1.2"
   },
   "devDependencies": {
+    "cli-clear": "^1.0.4",
     "http-server": "^0.9.0",
     "jsdom": "^9.4.2",
     "mocha": "^2.4.5",

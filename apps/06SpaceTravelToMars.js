@@ -11,6 +11,58 @@ var jobTypes = {
 
 // Your code here
 
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+// var hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+// var crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+// crewMember1.enterShip(mav);
+// mav.missionStatement();
+// crewMember2.enterShip(hermes);
+// hermes.missionStatement();
+
+
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function (shipInstance) {
+    shipInstance.crew.push(this); //puts the crewmember into the ship...  doesn't check job
+    this.ship = shipInstance;
+    // console.log(shipInstance.name);
+    // var correctShip;
+    // correctShip = jobTypes[this.job];
+    // this.ship = correctShip;
+    // console.log(this.name + " belongs in the " + correctShip);
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+  this.missionStatement = function () {
+    for (var i = 0; i < this.crew.length; i++) {
+      var correctShip = jobTypes[this.crew[i].job]; //identifies the correct ship the crewmember should be on
+      if (correctShip === this.type) {  //check if the right
+        console.log(this.ability);
+        return this.ability;
+      }
+      else {
+        console.log("Can't perform");
+        return "Can't perform a mission yet.";
+      }
+    }
+    if (this.crew.length == 0) {  //check if the ship is empty
+      return "Can't perform a mission yet.";
+    }
+  }
+}
+
+
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){

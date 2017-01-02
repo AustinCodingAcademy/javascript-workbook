@@ -1,10 +1,40 @@
+body {
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+.center {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+#clear {
+  box-shadow: none;
+  border-radius: 5px;
+  background-color: #7ded95;
+  font-size: 25px;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+#announce-winner {
+  height: 70px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#board {
+  width: 306px;
+  margin: 0 auto;
+}
+
 div[data-cell] {
   width: 100px;
   height: 100px;
   background-color: #f2f2f2;
   float: left;
   border: 1px solid #808080;
-  font-size: 100px;
+  font-size: 80px;
   text-align: center;
 }
 

@@ -1,40 +1,71 @@
+body {
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+#title {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 50px;
+}
+
+#board {
+  width: 300px;
+  margin: 0 auto;
+}
+
 [data-stack] {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  -webkit-align-items: center;
-  display: -webkit-flex;
-  height: 101px;
+  border: solid black 1px;
+  height: 400px;
   background-color: aliceblue;
-  margin: 25px;
+  width: 100px;
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.content {
+  max-height: 100px;
+  overflow: auto;
 }
 
 [data-block] {
-  width: 25px;
-  float: left;
+  margin: 0 auto;
+  height: 25px;
+  /*float: left;*/
 }
 
 [data-block="25"] {
-  height: 25px;
+  width: 25%;
   background-color: blue;
 }
 
 [data-block="50"] {
-  height: 50px;
+  width: 50%;
   background-color: green;
 }
 
 [data-block="75"] {
-  height: 75px;
+  width: 75%;
   background-color: red;
 }
 
 [data-block="100"] {
-  height: 100px;
+  width: 100%;
   background-color: yellow;
 }
 
 #announce-game-won {
+  height: 70px;
   font-size: 50px;
   text-align: center;
+}
+
+#clear {
+  width: 100%;
+  text-align: center;
+  box-shadow: none;
+  border-radius: 5px;
+  background-color: #7ded95;
+  font-size: 25px;
+  font-family: 'Patrick Hand SC', cursive;
 }

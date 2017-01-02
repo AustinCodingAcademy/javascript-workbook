@@ -3,21 +3,30 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Towers of Hanoi</title>
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+  <link rel="stylesheet" href="animate.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div data-stack="1">
-    <div data-block="100"></div>
-    <div data-block="75"></div>
-    <div data-block="50"></div>
-    <div data-block="25"></div>
+  <div id ="title">Super Amazing Towers of Hanoi</div>
+  <div id ="board">
+  <div data-stack="1" class="content">
+      <div data-block="25"></div>
+      <div data-block="50"></div>
+      <div data-block="75"></div>
+      <div data-block="100"></div>
   </div>
-  <div data-stack="2">
+  <div data-stack="2" class="content">
   </div>
-  <div data-stack="3">
+  <div data-stack="3" class="content">
   </div>
   <div id="announce-game-won"></div>
+  <button id="clear">Clear Board</button>
+
+</div>
   <script type="text/javascript" src="../../vendor/jquery.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
 </body>
 </html>
