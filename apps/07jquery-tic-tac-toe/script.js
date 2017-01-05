@@ -1,4 +1,4 @@
-// Coded by Alex Gaw. If you judge me for the lightEmUp function, I'll judge you for judging me. Fair warning!
+// Coded by Alex Gaw.
 
 'use strict';
 
