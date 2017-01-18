@@ -144,7 +144,11 @@ var notNotUndefined = undefined;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
-//
+// Truthiness is when a value translates to true. A value is always true unless defined as false,
+// except for the values: false, 0, null, undefined,"", and NaN.
+// x = 5, y = 6
+// var T = x < y --> true
+// var F = x === y --> false
 // ****
 
 // ****
@@ -201,14 +205,17 @@ var stringFourStrictNotEqualsNumberFour = true;
 // Write your answer in comments
 //
 // What’s the difference between == and ===?
-//
+// 
 // Your Answer Goes Here:
-//
+// === is more strict than ==. The strict equality sign determines only the equality of the two values.
+// The non-strict equality sign will try to change one side of the expression to be the same type as the other.
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
+// The same rules apply to != and !== as == and ===. !== is more strict than != and  checks only 
+// the inequality of the two values. != will try to change one side of the expression to be the 
+// same type of value as the other side and then check the inequality.
 // ****
 
 
