@@ -91,12 +91,12 @@ var notFalse = true;
 // Problem 15:
 // What is the value of !true
 
-var notTrue;
+var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
