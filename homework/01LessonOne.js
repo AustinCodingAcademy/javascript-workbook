@@ -105,7 +105,7 @@ var notNotTrue = true;
 //
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: and both need to be true for the statement to be true and or means if either is true then it is true. used for to determine Truthiness
 //
 // ****
 
@@ -119,22 +119,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
