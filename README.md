@@ -1,6 +1,6 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7569591264e941f2b366c2bb3c8ee595)](https://www.codacy.com/app/AustinCodingAcademy/javascript-workbook?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AustinCodingAcademy/javascript-workbook&amp;utm_campaign=Badge_Grade)
+[![CircleCI](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages.svg?style=svg)](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages)
 
-![](http://static1.squarespace.com/static/538f3fcde4b05c5fecc7a40e/t/538f48a4e4b00d94e8c253b3/1453396632576/?format=400w)
+![](https://raw.githubusercontent.com/AustinCodingAcademy/campus-manager/develop/public/img/aca-logo-header.png)
 
 # Javascript Workbook
 
@@ -11,6 +11,7 @@
 1. In your terminal (or in git bash, for Windows people), navigate (using `cd`) into a directory where you want to start keeping your repositories.
 1. Clone your new repository by typing `git clone <forked clone URL>` (the SSH URL you copied above)
 ![Forking a repository](https://docs.google.com/drawings/d/1tYsLHaLo8JRdp0xC1EZrAo0o9Wvv4S5AD937cokVOBk/pub?w=960&h=720)
+1. Now go into the new directory by using `cd javascript-workbook`
 1. Add the base repository as an upstream `git remote add upstream git@github.com:AustinCodingAcademy/javascript-workbook.git`
 1. Check the configuration of your remotes with `git remote -v`, it should look very similar to this (except it'll be YOUR username, not `tjefferson08`)
 ```
