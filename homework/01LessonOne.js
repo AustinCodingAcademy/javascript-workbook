@@ -22,7 +22,7 @@ var myUndefined;
 var myNull = null;
 
 // Problem 2:
-// Let's create a new variable named myTrue and give it the value true.
+// Let's create a new variable named myTrue and give it the value true..
 
 var myTrue = true;
 
