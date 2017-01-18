@@ -17,27 +17,27 @@ var myUndefined;
 //
 // What is the difference between null and undefined?
 
-var myNull;
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 7;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "word";
 
 // ****
 // Boolean Operators
@@ -105,7 +105,7 @@ var notNotTrue;
 //
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  The "and" logical operator states that conditions are true (ex. If you have an expression that needs two conditions to be met you would use the "and" operator). The "or" operator states that one of the conditions has to be true. (ex. If you have an expression that needs one of the conditions to be met you would use the "or" logical operator).
 //
 // ****
 
@@ -119,22 +119,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -143,7 +143,7 @@ var notNotUndefined;
 //
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  Truthiness and falsiness are a set of vaules that can evaluate to true or false but may not equal true or false. Truthy values are true, non-zero numbers, strings, objects, arrays, and functions. Falsy values are false, 0, empty strings, undefined, null, NaN.
 //
 // ****
 
@@ -153,11 +153,11 @@ var notNotUndefined;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
@@ -165,35 +165,35 @@ var negativeThreeEqualToTen;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen;
+var negativeThreeGreaterThanOrEqualToTen = false; 
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
@@ -202,12 +202,12 @@ var stringFourStrictNotEqualsNumberFour;
 //
 // What’s the difference between == and ===?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: the == is a comparison operator is just checking for the value and the ==== comparison operator checks for value and type.
 //
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: the != is saying the value is not equal and the !== is saying the value and type.
 //
 // ****
 
