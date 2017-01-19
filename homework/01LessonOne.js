@@ -144,11 +144,10 @@ var notNotUndefined = undefined;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
-// Truthiness is when a value translates to true. A value is always true unless defined as false,
+// Truthiness is when a value translates to true when evaluated in a boolean context. A value is always true unless defined as false,
 // except for the values: false, 0, null, undefined,"", and NaN.
-// x = 5, y = 6
-// var T = x < y --> true
-// var F = x === y --> false
+// Truthiness = if(23);
+// Falsiness = if(NaN);
 // ****
 
 // ****
