@@ -8,31 +8,43 @@ var rl = readline.createInterface({
 });
 
 function pigLatin(word) {
+  //makes word lower case
   word = word.toLowerCase();
-  console.log('translating: ' + word);
+  console.log('lowercasing: ' + word);
   var vowelIndex = -1;
+  //stores first part of word before vowel
   var firstPart = '';
+  //stores vowel and rest of word
   var restWord = '';
+  //stores only the vowel
   var vowel = '';
+  //checks to see if it starts with a vowel and if it does it adds 'yay' to the end
   if (word.slice(0, 1) === 'a' || word.slice(0, 1) === 'e' || word.slice(0, 1) === 'i' || word.slice(0, 1) === 'o' || word.slice(0, 1) === 'u' || word.slice(0, 1) === 'y') {
     return word + 'yay';
   }
+  //loops through 'word' and finds the first vowel
   for (var i = 0; i < word.length; i++) {
     if (word[i] === 'a' || word[i] === 'e' || word[i] === 'i' || word[i] === 'o' || word[i] === 'u' || word[i] === 'y') {
+      //stores first vowel here
       vowel = word.slice(i, i + 1);
       console.log('vowel: ' + vowel);
+      //checks index of var vowel vs var vowelIndex and then cuts the word, reorders it, and attaches 'ay' 
       if ((word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf(vowel);
-        console.log('VI: ' + vowelIndex);
+        console.log('vowel index: ' + vowelIndex);
         firstPart = word.slice(0, vowelIndex);
         restWord = word.slice(vowelIndex, word.length);
         console.log('first part: ' + firstPart);
         console.log('restWord: ' + restWord);
+        //returns the final word
         return restWord + firstPart + 'ay';
       }
 
     }
   }
+
+  //decided all of this was unnessary and commented it out.
+
   // if ((word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex) || vowelIndex === -1) {
   //   vowelIndex = word.indexOf(vowel);
   //   console.log('VI: ' + vowelIndex);
