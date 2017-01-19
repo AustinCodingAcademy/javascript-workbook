@@ -7,17 +7,104 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function pigLatin(word) {
+  word = word.toLowerCase();
+  console.log('translating: ' + word);
+  var vowelIndex = -1;
+  var firstPart = '';
+  var restWord = '';
+  if (word.slice(0, 1) === 'a' || word.slice(0, 1) === 'e' || word.slice(0, 1) === 'i' || word.slice(0, 1) === 'o' || word.slice(0, 1) === 'u' || word.slice(0, 1) === 'y' ) {
+    return word + 'yay';
+  }
+  if ((word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf('a');
+    console.log('VI: ' + vowelIndex);
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      firstPart = word.slice(0, vowelIndex);
+      restWord = word.slice(vowelIndex, word.length);
+      console.log('first part: ' + firstPart);
+      console.log('restWord: ' + restWord);
+      return restWord + firstPart + 'ay';
+    }
+  }
 
-  // Your code here
+  if ((word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf('e');
+    console.log('VI: ' + vowelIndex);
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      firstPart = word.slice(0, vowelIndex);
+      restWord = word.slice(vowelIndex, word.length);
+      console.log('first part: ' + firstPart);
+      console.log('restWord: ' + restWord);
+      return restWord + firstPart + 'ay';
+    }
+  }
 
+  if ((word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf('i');
+    console.log('VI: ' + vowelIndex);
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      firstPart = word.slice(0, vowelIndex);
+      restWord = word.slice(vowelIndex, word.length);
+      console.log('first part: ' + firstPart);
+      console.log('restWord: ' + restWord);
+      return restWord + firstPart + 'ay';
+    }
+  }
+
+  if ((word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf('o');
+    console.log('VI: ' + vowelIndex);
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      firstPart = word.slice(0, vowelIndex);
+      restWord = word.slice(vowelIndex, word.length);
+      console.log('first part: ' + firstPart);
+      console.log('restWord: ' + restWord);
+      return restWord + firstPart + 'ay';
+    }
+  }
+
+  if ((word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf('u');
+    console.log('VI: ' + vowelIndex);
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      firstPart = word.slice(0, vowelIndex);
+      restWord = word.slice(vowelIndex, word.length);
+      console.log('first part: ' + firstPart);
+      console.log('restWord: ' + restWord);
+      return restWord + firstPart + 'ay';
+    }
+  }
+
+  if ((word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf('y');
+    console.log('VI: ' + vowelIndex);
+    if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      firstPart = word.slice(0, vowelIndex);
+      restWord = word.slice(vowelIndex, word.length);
+      console.log('first part: ' + firstPart);
+      console.log('restWord: ' + restWord);
+      return restWord + firstPart + 'ay';
+    }
+  }
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
