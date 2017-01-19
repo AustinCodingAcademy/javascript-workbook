@@ -9,7 +9,35 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function enterShip(shipName){
+    this.ship = shipName;
+    this.ship.crew.push(this);
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function () {
+      for(var i = 0; i < this.crew.length; i++) {
+        var job = this.crew[i].job;
+        if(jobTypes[job] === this.type) {
+          return this.ability;
+        }
+      }
+      return "Can't perform a mission yet.";
+    }
+
+
+
+
 
 //tests
 if (typeof describe === 'function'){
