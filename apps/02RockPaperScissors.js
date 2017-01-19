@@ -7,15 +7,15 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
   var p1 = hand1.toLowerCase();
   var p2 = hand2.toLowerCase();
+
   if (p1 !=='rock' && p1 !== 'paper' && p1 !== 'scissors'){
-    return 'Invalid entry, please try again.';
+    return 'Invalid entry player 1, please try again.';
   }
   if (p2 !=='rock' && p2 !== 'paper' && p2 !== 'scissors'){
-    return 'Invalid entry, please try again.';
+    return 'Invalid entry player 2, please try again.';
   }
   if (p1 === p2){
     return "It's a tie!";
@@ -73,12 +73,3 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
-
-
-
-// if (hand1 == hand2){
-//     return "It's a tie!";
-//   }
-//   else if (hand1 === 'rock' && hand2 === 'scissors'){
-//     return 'Rock wins!'
-//   }
