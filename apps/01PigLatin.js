@@ -43,7 +43,7 @@ function pigLatin(word) {
     }
   }
 
-  //decided all of this was unnessary and commented it out.
+  //decided all of this was unnessary and commented it out.*************
 
   // if ((word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex) || vowelIndex === -1) {
   //   vowelIndex = word.indexOf(vowel);
