@@ -1,45 +1,46 @@
 //1. What is a data type that can have only the values true or false? Provide an example.
 
-//Answer:
+//Answer: Boolean
 
 
 
 
 //2. What is a null value? Provide one example.
 
-//Answer:
+//Answer: Null = it has no value 
 
 
 
 
 //3. List and describe 3 more data types used in JS.
 
-//Answer:
+//Answer: strings, numbers, operators
 
 
 //4. Why do we use comments in JS?
 
-//Answer:
+//Answer: To leave notes about the codes .. or anything else? 
 
 
 //5. Why do we use 'strict mode'?
 
-//Answer:
+//Answer: To limit some of the features of Javascript. 
 
 
 //6. Write the code to log the output "Hello World".
 
-//Answer:
+//Answer: console.log("Hello World");
 
 
 //7. What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 
-//Answer:
+//Answer: The && is a comparison between 2 or more conditions and returns true. If one is false, it will return false.
+//THe || is a comparison, but only one of the conditions must be true to reture true. 
 
 
 //8. Explain truthiness and falsiness in your own words. Provide an example for each.
 
-//Answer:
+//Answer: I have no idea .. 
 
 
 
@@ -53,70 +54,70 @@
 
 //9. console.log(true && false);
 
-//Answer:
+//Answer: false
 
 
 
 
 //10. console.log(false && true);
 
-//Answer:
+//Answer: false
 
 
 
 
 //11. console.log(true && true && false);
 
-//Answer:
+//Answer: false
 
 
 
 
 //12. console.log(true || false);
 
-//Answer:
+//Answer: true 
 
 
 
 
 //13. console.log(false || true);
 
-//Answer:
+//Answer: true 
 
 
 
 
 //14. console.log(true || true || false);
 
-//Answer:
+//Answer: true 
 
 
 
 
 //15. console.log(!true);
 
-//Answer:
+//Answer: false
 
 
 
 
 //16. console.log(!undefined);
 
-//Answer:
+//Answer: true
 
 
 
 
 //17. console.log(!!"Hello");
 
-//Answer:
+//Answer: true 
 
 
 
 
 //18. console.log(!!null);
 
-//Answer:
+//Answer: false 
 
 
 
@@ -126,25 +127,25 @@
 
 //    console.log(x !== y);
 
-//Answer:
+//Answer: true 
 
 
 
 
 //20. What’s the difference between == and ===?
 
-//Answer:
+//Answer: 
 
 
 
 
 //21. What’s the difference between != and !==?
 
-//Answer:
+//Answer: Not equal to, not assigned to...
 
 
 
 
 //22. What does (7 - 4 && 6 + 3) || (7 < 5 || 8 > 4) evaluate to? Explain how you solved your answer.
 
-//Answer:
+//Answer: 9 ... chrome console. 
