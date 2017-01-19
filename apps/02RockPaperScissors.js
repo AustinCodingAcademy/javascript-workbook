@@ -9,13 +9,6 @@ var rl = readline.createInterface({
 
 // hand1 and hand2 are variables that will take the values: 'rock', 'paper', or 'scissors'.
 function rockPaperScissors(hand1, hand2) {
-  if(hand1.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
-    return "Could not recognize input. Please enter either 'rock', 'paper', or 'scissors'.";
-  }
-    else if(hand2.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
-    return "Could not recognize input. Please enter either 'rock', 'paper', or 'scissors'.";
-  };
-
   if(hand1.toLowerCase() === hand2.toLowerCase()) {
     return "It's a tie!";
   }
@@ -43,7 +36,7 @@ function rockPaperScissors(hand1, hand2) {
     }
   };
 
-  
+
 
   if(hand1.toLowerCase() === 'scissors') {
     if(hand2.toLowerCase() === 'paper') {
@@ -55,6 +48,10 @@ function rockPaperScissors(hand1, hand2) {
     else {
       return "Could not recognize input. Please enter either 'rock', 'paper', or 'scissors.";
     }
+  };
+
+  if(hand1.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
+    return "Could not recognize input. Please enter either 'rock', 'paper', or 'scissors'.";
   };
 };
 
