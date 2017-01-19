@@ -61,7 +61,7 @@ var trueAndFalse = false;
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse = true;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
@@ -71,7 +71,7 @@ var trueOrTrue = true;
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
@@ -81,7 +81,7 @@ var trueOrFalse = true;
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse = true;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
@@ -120,7 +120,7 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob = bob;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
@@ -189,7 +189,7 @@ var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour = true;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
@@ -197,7 +197,7 @@ var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour =false;
+var stringFourStrictNotEqualsNumberFour =true;
 
 // ****
 // Concept Checkpoint
