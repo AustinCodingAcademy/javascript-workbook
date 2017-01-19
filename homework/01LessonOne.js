@@ -46,7 +46,7 @@ var myString = "im a string!";
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue = true;
+var trueAndTrue = myTrue;
 
 // Problem 7:
 // What is the value of false && true
