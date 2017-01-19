@@ -125,7 +125,7 @@ var notNotBob = true;
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString = true;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
