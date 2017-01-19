@@ -7,10 +7,41 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+var h1 = 'Hand one wins!';
+var h2 = 'Hand two wins!';
+var h3 = "It's a tie!";
+
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  if(hand1 === hand2) {
+    return h3;
+  }
+  if(hand1 === 'rock') {
+    if(hand2 === 'scissors') {
+        return h1;
+    }
+    else if(hand2 === 'paper') {
+      return h2;
+    }
+  }
+  if(hand1 === 'paper') {
+    if(hand2 === 'rock') {
+      return h1;
+    }
+    else if(hand2 === 'scissors') {
+      return h2;
+    }
+  }
+
+  if(hand1 === 'scissors') {
+    if(hand2 === 'paper') {
+      return h1;
+    }
+    else if(hand2 === 'rock') {
+      return h2;
+    }
+  }
 
 }
 
