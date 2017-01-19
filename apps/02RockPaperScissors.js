@@ -7,10 +7,43 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+  // Hand one is just a variable that will just have the word Rock Paper or Scissor in it!
+
+  //Spec 1 - If it's a tie, return "It's a tie!" It must be exactly "It's a tie!" for the tests to pass
+  // Write code here
+
 
 function rockPaperScissors(hand1, hand2) {
+  if (hand1.toLowerCase() === hand2.toLowerCase()) {
+  return "It's a tie!";
+}
 
-  // Write code here
+if (hand1.toLowerCase() === 'rock') {
+  if (hand2.toLowerCase() === 'scissors') {
+    return 'Hand one wins!';
+  }
+   if (hand2.toLowerCase() === 'paper') {
+return 'Hand two wins!';}
+}
+
+if (hand1.toLowerCase() === 'paper') {
+  if (hand2.toLowerCase() === 'scissors') {
+    return 'Hand two wins!';
+  }
+   if (hand2.toLowerCase() === 'rock'){
+  return 'Hand one wins!';
+   }
+}
+
+if (hand1.toLowerCase() === 'scissors') {
+  if (hand2.toLowerCase() === 'rock') {
+    return 'Hand two wins!';
+  }
+   if (hand2.toLowerCase() === 'paper'){
+  return 'Hand one wins!';
+   }
+}
+
 
 }
 
