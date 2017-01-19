@@ -14,7 +14,7 @@ function rockPaperScissors(hand1, hand2) {
 
   // check for tie
 
-  if (hand1 === hand2) {
+  if (hand1.toLowerCase() === hand2.toLowerCase()) {
     return "It's a tie!";
   }
 
