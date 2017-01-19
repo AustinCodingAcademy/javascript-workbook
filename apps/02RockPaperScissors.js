@@ -10,10 +10,48 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
-  if(hand1 === hand2)
-    console.log("It's a tie!");
+  /*
+  Edge cases
+  */
+  // Case 1: Inputs are not completely lowercase
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
+  // Case 2: Inputs are not strings
+  console.log(typeof hand1);
+  console.log(typeof hand2);
+  if((hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') 
+  || (hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors')) {      // both inputs are strings
+    return "Error: Please enter a valid choice.";
+  }
 
+  // Write code here
+  if(hand1 === hand2) {
+    return "It's a tie!";
+  }
+  if (hand1 === 'rock') {
+    if (hand2 === 'scissors') {
+      return 'Hand one wins!';
+    }
+    // If we reach here, player 2 must have dealt paper
+    return 'Hand two wins!';
+}
+
+  if (hand1 === 'paper') {
+    // fill this in using the logic above
+    if(hand2 === 'rock') {
+      return 'Hand one wins!';
+    }
+    return 'Hand two wins!';
+  }
+
+  if (hand1 === 'scissors') {
+    // fill this in using the logic above  
+    if(hand2 === 'paper') {
+      return 'Hand one wins!';
+    }
+    return 'Hand two wins!';
+  }
+  
 }
 
 function getPrompt() {
