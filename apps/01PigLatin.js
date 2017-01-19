@@ -8,13 +8,23 @@ var rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(word){
 
   // Your code here
+  var word = 'carrot';
+
+  var firstLetter = word[0];
+  console.log (firstLetter);
+  console.log (word.replace('a', ' '));
+
+  return word.replace(firstLetter, ' ') + firstLetter + 'ay';
+
+  console.log ('batty'.indexOf('a'));
+
 
 }
 
-
+/*
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
