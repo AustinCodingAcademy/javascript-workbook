@@ -8,9 +8,24 @@ var rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors(hand1, hand2) { // rock paper and scissors are hard coded
 
   // Write code here
+if(hand1 === 'paper' && hand2 === 'rock'){
+  return "Hand1 Wins";
+  }
+if(hand1 === 'scissors' && hand2 === 'paper'){
+    return ("Hand1 wins!");
+    }
+if(hand1 === 'rock' && hand2 === 'scissors'){
+  return "Hand1 WINS!";
+    }
+if(hand1 === hand2){
+  return "its a tie";
+}
+else{
+  return "Hand2 Wins";
+} 
 
 }
 
