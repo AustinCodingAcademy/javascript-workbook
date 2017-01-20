@@ -44,7 +44,7 @@ function pigLatin(word) {
     var restWord = word.slice(vowelIndex, word.length);
 
     if (vowelIndex === 0) {
-        return word + 'ay';
+        return word + 'yay';
     } else {
         return restWord + firstPart + 'ay';
     }
