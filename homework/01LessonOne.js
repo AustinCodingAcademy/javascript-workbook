@@ -17,28 +17,28 @@ var myUndefined;
 //
 // What is the difference between null and undefined?
 
-var myNull === null;
+var myNull = null;
 //Null is valueless, undefined doesn't exist.
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue === true;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse === false;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber === 42;
+var myNumber = 42;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString === "Hello";
+var myString = 'Hello';
 
 // ****
 // Boolean Operators
@@ -47,57 +47,57 @@ var myString === "Hello";
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue === true;
+var trueAndTrue = true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue === true;
+var falseAndTrue = false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse === true;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse === false;
+var falseAndFalse = false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue === true;
+var trueOrTrue = true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue === true;
+var falseOrTrue = true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse === true;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse === false;
+var falseOrFalse = false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse === true;
+var notFalse = true;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue === false;
+var notTrue = false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue === true;
+var notNotTrue = true;
 
 // ****
 // Concept Checkpoint
@@ -120,22 +120,22 @@ var emptyString = '';
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob === true;
+var notNotBob = true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString === false;
+var notNotEmptyString = false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull === true;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined === true;
+var notNotUndefined = false;
 
 // ****
 // Concept Checkpoint
@@ -154,47 +154,47 @@ var notNotUndefined === true;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour === true;
+var fourEqualTofour = true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour === false;
+var fourNotEqualTofour = false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen === false;
+var negativeThreeEqualToTen = false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen === true;
+var negativeThreeLessThanTen = true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen === true;
+var negativeThreeLessThanOrEqualToTen = true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen === false;
+var negativeThreeGreaterThanTen = false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen === false;
+var negativeThreeGreaterThanOrEqualToTen = false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour;
+var stringFourEqualsNumberFour = true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour;
+var stringFourNotEqualsNumberFour = false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour;
+var stringFourStrictEqualsNumberFour = false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour;
+var stringFourStrictNotEqualsNumberFour = true;
 
 // ****
 // Concept Checkpoint
