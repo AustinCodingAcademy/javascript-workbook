@@ -91,3 +91,75 @@ if (typeof describe === 'function') {
     getPrompt();
 
 }
+
+//MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git status
+// On branch gh-pages
+// Your branch is up-to-date with 'origin/gh-pages'.
+// Changes not staged for commit:
+//   (use "git add <file>..." to update what will be committed)
+//   (use "git checkout -- <file>..." to discard changes in working directory)
+//
+//         modified:   apps/01PigLatin.js
+//         modified:   homework/01LessonOne.js
+//
+// no changes added to commit (use "git add" and/or "git commit -a")
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git add apps/01PigLatin.js
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git status
+// On branch gh-pages
+// Your branch is up-to-date with 'origin/gh-pages'.
+// Changes to be committed:
+//   (use "git reset HEAD <file>..." to unstage)
+//
+//         modified:   apps/01PigLatin.js
+//
+// Changes not staged for commit:
+//   (use "git add <file>..." to update what will be committed)
+//   (use "git checkout -- <file>..." to discard changes in working directory)
+//
+//         modified:   homework/01LessonOne.js
+//
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git add homework/01LessonOne.js
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git status
+// On branch gh-pages
+// Your branch is up-to-date with 'origin/gh-pages'.
+// Changes to be committed:
+//   (use "git reset HEAD <file>..." to unstage)
+//
+//         modified:   apps/01PigLatin.js
+//         modified:   homework/01LessonOne.js
+//
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git commit -m "First Week - Second class"
+// [gh-pages 2b7033a] First Week - Second class
+//  2 files changed, 121 insertions(+), 78 deletions(-)
+//  rewrite apps/01PigLatin.js (75%)
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git push origin gh-pages
+// Counting objects: 6, done.
+// Delta compression using up to 8 threads.
+// Compressing objects: 100% (6/6), done.
+// Writing objects: 100% (6/6), 1.41 KiB | 0 bytes/s, done.
+// Total 6 (delta 4), reused 0 (delta 0)
+// remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+// To github.com:Morgakd/javascript-workbook.git
+//    bef441c..2b7033a  gh-pages -> gh-pages
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $ git status
+// On branch gh-pages
+// Your branch is up-to-date with 'origin/gh-pages'.
+// nothing to commit, working tree clean
+//
+// MDean@PC053025 MINGW64 ~/Documents/GitHub/javascript-workbook (gh-pages)
+// $
