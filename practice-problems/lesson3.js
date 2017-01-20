@@ -10,3 +10,4 @@ function helloWorld() {
 console.log(b);
 
 //Answer:
+The variable is declared within the function helloWorld(), it will not be acessible outside that function, and we are not calling the function thus we wont get any output.
