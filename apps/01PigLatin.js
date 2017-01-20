@@ -26,13 +26,13 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('i');
   }
   if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
-  vowelIndex = word.indexOf('o');
+    vowelIndex = word.indexOf('o');
   }
   if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
-  vowelIndex = word.indexOf('u');
+    vowelIndex = word.indexOf('u');
   }
   if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
-  vowelIndex = word.indexOf('y');
+    vowelIndex = word.indexOf('y');
   }
 
   var firstPart = word.slice(0, vowelIndex);
