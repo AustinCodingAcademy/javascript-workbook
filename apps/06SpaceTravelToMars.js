@@ -9,8 +9,54 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+//itirate
+for (var i = 0; i < this.crew.length; i++) {
+  this.type
+  var crewMemberWereOn = this.crew[i];
+  crewMemberWereOn = this.crew[i];
+  jobTypes[crewMemberWereOn.job] === this.type) {
+    return this.ability
+  } else {
+    return "Can't Perform";
+  }
+}
 
+return 'can not perform'
+
+
+// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = funtion enterShip(someShip) {
+    this.ship = someShip;
+    someShip.crew.push(this);
+  }
+}
+
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+rick.enterShip(mav);
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){

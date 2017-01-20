@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gist Blog</title>
+<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <title> Ray's Gist Blog</title>
+  <link rel="stylesheet" href="css/11gist.css">
 </head>
-<body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+<body class="blue accent">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Ray Hansen's Blog</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#posts">Posts</a></li>
+        <li><a href="#post">Post</a></li>
+        <li><a href="www.mrrobotatx.com">Other Website</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+  <div class="row">
+    <div class="postsarea col s2 white accent">
+      <ul id="posts">
+        <li>
+        </li>
+      </ul>
+    </div>
+   </div>
+     <div class="postarea col s8 white accent"
+    <div id="post">
+    </div>
+  </div>
+ </div>
+ <div class="container">
+
+
+  <ul id="comments" class="row">
+    <h4>Leave a Comment:</h4>
+    <form role="form s10 white accent">
+      <div class="form-group">
+        <textarea class="form-control" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <br><br>
+  </ul>
+ </div>
+</div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 </body>
 </html>
