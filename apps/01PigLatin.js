@@ -6,7 +6,7 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-s
+
 
 function pigLatin(word) {
   word = word.toLowerCase();
@@ -27,7 +27,7 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('i');
   }
   if ((word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex) || vowelIndex === -1) {
-    vowelIndex = word.indexOf('ao');
+    vowelIndex = word.indexOf('o');
   }
   if ((word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex) || vowelIndex === -1) {
     vowelIndex = word.indexOf('u');
@@ -37,16 +37,17 @@ function pigLatin(word) {
   }
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
-  console.log("First word", firstPart);
-  console.log("Rest word", restWord);
-  return restWord + firstPart + 'ay';
+  // console.log("First word", firstPart);
+  // console.log("Rest word", restWord);
+  // return restWord + firstPart + 'ay';
 
-  return word.replace(firstLetter, '') + firstLetter + 'ay';
+  // return word.replace(firstLetter, '') + firstLetter + 'ay';
 
   if (vowelIndex === 0) {
     return word + 'yay';
-  } else {
-    return restWord + firstPart + 'ay'
+  }
+  else {
+    return restWord + firstPart + 'ay';
   }
 }
 
