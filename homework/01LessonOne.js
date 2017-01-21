@@ -18,7 +18,7 @@ var myUndefined;
 // What is the difference between null and undefined? null is a special value meaning "no value". null is a special object because typeof null returns 'object'. On the other hand, undefined means that the variable has not been declared, or has not been given a value.//
 
 var myNull=null;
-  
+
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
@@ -190,7 +190,7 @@ var stringFourNotEqualsNumberFour=false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour=true;
+var stringFourStrictEqualsNumberFour=false;
 
 // Problem 31:
 // What is the value of '4' !== 4
@@ -208,7 +208,7 @@ var stringFourStrictNotEqualsNumberFour=true;
 //
 // What’s the difference between != and !==?
 //
-// Your Answer Goes Here: 
+// Your Answer Goes Here:
 //
 // ****
 
