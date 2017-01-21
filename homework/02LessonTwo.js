@@ -26,6 +26,11 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if(argument1 === argument2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Problem 2:
@@ -34,16 +39,37 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if(parameter1 <= parameter2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+var number1 = 3;
+var number2 = 5;
+
+function  add(number1, number2) {
+  return number1 + number2;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
+
+var number1 = 2;
+var number2 = 4;
+var number3 = 6;
+
+function addThree(number1, number2, number3) {
+  add(number1, number2, number3);
+  return number1 + number2 + number3;
+}
 
 
 // ****
@@ -84,6 +110,11 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if(number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Problem 6:
@@ -93,6 +124,11 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if(number % 3 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // ****
@@ -108,6 +144,19 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  
+  if(character === 'scooby') {
+    return "dog";
+  
+  } else if(character === 'garfield') {
+    return "cat";
+  
+  } else if(character === 'nemo') {
+    return "fish";
+  
+  } else {
+    return false;
+  }
 }
 
 // Problem 8:
