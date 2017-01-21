@@ -26,6 +26,9 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if(argument1 === argument2)
+    return true;
+  return false;
 }
 
 // Problem 2:
@@ -34,17 +37,24 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  return (parameter1 <= parameter2) ? true : false;
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add(number1, number2) {
+  return (number1 + number2);
+}
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
-
+function addThree(number1, number2, number3) {
+  var firstSum = add(number1, number2);
+  return add(firstSum, number3);
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +64,38 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
-//
+// Functions help break large problems into smaller, solvable problems.
+// Functions can be declared in two ways - on its own, or as the result of a variable.
+// function myCustomName(parameter1, parameter2) {    // on its own
+//    //=> Do something with the parameters in here
+// }
+// var anotherFunction = function (parameter3, parameter4) {  // the result of a variable
+//    //=> Do something with the parameters in here
+// };
+// 
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+// The value that is sent back to the calling function.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+// When defining a variable that is defined by a function, give the function a name.
+// var foo = function foo() {
+      //=> Do something with the parameters in here
+// };
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// A parameter is a value that the defined function uses.
+// An argument is a value that the declared function uses.
+// There is a difference in the use of the word, but they describe the same part of the function.
+// 'Parameter' is only used in the definition of the function. 'Argument' is only used when the function is called.
+// For example, 'thisFunctionIsCalled("argument that the function takes");' has a string argument.
+// 'function definedFunction(parameter) {}' is the definition of the function, so a parameter is used.
+// 
 // ****
 
 
@@ -84,6 +110,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  return (number % 2 == 0) ? true : false;
 }
 
 // Problem 6:
@@ -93,6 +120,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  return (number % 3 == 0) ? true : false;
 }
 
 // ****
@@ -100,7 +128,7 @@ function isDivisibleByThree(number) {
 // ****
 
 
-// Problem 7:
+// Problem 7: *
 // whichSpecies(character) is a function that
 // should return "dog" when character is 'scooby'
 // should return "cat" when character is 'garfield'
@@ -108,16 +136,42 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  var animal = "";
+  switch(character) {
+    case 'scooby':
+      animal = "dog";
+      break;
+    case 'garfield':
+      animal = "cat";
+      break;
+    case 'nemo':
+      animal = "fish";
+      break;
+    default:
+      return false;
+  }
+  return animal;
 }
 
-// Problem 8:
+// Problem 8: *
 // write a function named testNumber(number) with the following requirements.
 // The function should:
 // return the string "divisible by 4" when number % 4 === 0
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
-
+function testNumber(number) {
+  switch(true) {
+    case (number % 4 === 0):
+      return "divisible by 4";
+    case (number % 2 === 0):
+      return "divisible by 2";    
+    case (number % 3 === 0):
+      return "divisible by 3";
+    case (number % 5 === 0):
+      return "divisible by 5";    
+  }
+}
 
 // ****
 // Concept Checkpoint
@@ -127,7 +181,7 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
+// A conditional only executes when an expression is evaluated as true
 //
 // ****
 
