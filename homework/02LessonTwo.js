@@ -80,22 +80,22 @@ function addThree(number1, number2, number3) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
+// A function is a JavaScript procedure—a set of statements that performs a task or calculates a value. To use a function, you must define it somewhere in the scope from which you wish to call it.
 //
-//
-// What is a return value?
+// What is a return value? 
 //
 // Your Answer Goes Here:
-//
+// The return statement stops the execution of a function and returns a value from that function
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+// There are several ways to define a function. The function expression, the generator function declaration, the generator function expression, the arrow funciton expression, the function constructor, and the GeneratorFunction Constructor.
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// A parameter is the name of an argument to be passed to the function. An argument is an array-like object containing the arguments passed to the currently executing function. In JavaScript, you'll find that both the terms are often used interchangeably, so it's really just preference. However, some may distinguish a parameter as something that is given to a function declaration, definition, or prototype, and an argument is something that is passed when calling the function.
 // ****
 
 
@@ -167,6 +167,25 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+
+  if(number % 4 === 0) {
+    return "divisible by 4";
+  }
+
+  else if(number % 2 === 0) {
+    return "divisible by 2";
+  }
+
+  else if(number % 3 === 0) {
+    return "divisible by 3";
+  }
+
+  else if(number % 5 === 0) {
+    return "divisible by 5";
+  }
+}
+
 
 // ****
 // Concept Checkpoint
@@ -174,7 +193,7 @@ function whichSpecies(character) {
 // Write your answer in comments
 //
 // In your own words, explain what conditionals do.
-//
+// Conditionals are a way to perform different actions for different decisions..  if the statement is true, javascript will return one statement.. if false, javascript will return another.
 // Your Answer Goes Here:
 //
 //
