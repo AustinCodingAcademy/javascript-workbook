@@ -11,6 +11,9 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+   if(hand1){
+   //does this indentation of 3 break the build?  
+   }  
 
 }
 
