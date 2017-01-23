@@ -9,9 +9,12 @@ var rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  //after the user types in a word and hits the enter key, they code right here will start running
+  //take it for granted that the variable word will have whatever the user typed into it
+  //your code goes here
 
-  // Your code here
 
+//do not type any code below this line. Do not remove this curly brace
 }
 
 
@@ -49,3 +52,39 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+
+/*
+  var indexVowel = word.indexOf("a");
+
+  var indexOfE = word.indexOf("e");
+  if(indexOfE < indexVowel){
+    indexVowel= indexOfE;
+  }
+  var indexOfI = word.indexOf("i");
+  if(indexOfI < indexVowel){
+    indexVowel= indexOfI;
+  }
+  var indexOfO = word.indexOf("o");
+  if(indexOfO < indexVowel){
+    indexVowel= indexOfO;
+  }
+  var indexOfU = word.indexOf("u");
+  if(indexOfU < indexVowel){
+    indexVowel= indexOfU;
+  }
+   var indexOfY = word.indexOf("y");
+  if(indexOfY < indexVowel){
+    indexVowel= indexOfY;
+  }
+
+  if(indexVowel ===0 ){
+    word = word + 'yay';
+  }else{
+    var beginofword = word.slice(0,indexVowel);
+    var afterofword = word.slick(indexVowel, word.length);
+    word = afterofword + beginofword + 'ay';
+  }
+
+  return word;
+  */

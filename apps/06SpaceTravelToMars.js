@@ -3,15 +3,78 @@
 var assert = require('assert');
 
 var jobTypes = {
-  pilot: 'MAV',
-  mechanic: 'Repair Ship',
-  commander: 'Main Ship',
-  programmer: 'Any Ship!'
+  "pilot": 'MAV',
+  "mechanic": 'Repair Ship',
+  "commander": 'Main Ship',
+  "programmer": 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill){
+  //var this = {};
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  //there is a method called enterShip
+  this.enterShip = function(myship){
+    this.ship = myship;
+    //where the crew member instance at this point
+    var whereisthecrewmember = this;
 
-//tests
+    //where is the ship instance
+    //this.ship
+    //where is the ship's crew array
+    //myship.crew.push(this); don't do this
+    this.ship.crew.push(this);
+
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+  this.missionStatement = function(){
+  //we need to look at every crew member
+  //we need to look at everything in the crew member array
+  //var thetypeofthisship = this.type;
+
+  for(var i =0; i < this.crew.length;i++){
+    //what is the type of this ship because we need to see if any crew can handle this ship
+    //??
+    var jobofthecrewmember = this.crew[i].job;
+    //this is the variable that holds the object of key jobs to value ship types
+    //how do we get out the ship type per job
+    //if the job was "pilot", then the ship type would be "MAV"
+    var shiptypethatthiscrewmembercanfly = jobTypes[jobofthecrewmember];
+    if(this.type === shiptypethatthiscrewmembercanfly){
+      return this.ability;
+    }
+  }
+    return "Can't perform a mission yet.";
+  }
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var rick = new CrewMember('Rick Martinez', 'mechanic', 'chemistry');
+var jon = new CrewMember('jon','janitor','')
+
+rick.enterShip(mav);
+jon.enterShip(mav);
+
+var message = mav.missionStatement();
+
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
+
+
+
+
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
