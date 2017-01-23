@@ -27,7 +27,10 @@ var alwaysTrue = function () {
 
 function equals(argument1, argument2) {
   if (argument1 === argument2) {
-    return 'true';
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
@@ -38,20 +41,26 @@ function equals(argument1, argument2) {
 
 function lessThanOrEqualTo(parameter1, parameter2) {
   if (parameter1 <= parameter2){
-    return 'true';
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
-function add(number1, number2)
+function add(number1, number2){
+  return number1 + number2;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 function addThree(number1, number2, number3){
-  function add()
+  return number1 + number2 + number3;
 }
   
 // ****
@@ -94,10 +103,10 @@ function addThree(number1, number2, number3){
 
 function isEven(number) {
   if (number % 2 === 0){
-    return 'true';
+    return true;
   }
   else {
-    return 'false';
+    return false;
   }
 
 }
@@ -110,10 +119,10 @@ function isEven(number) {
 
 function isDivisibleByThree(number) {
   if(number % 3 === 0){
-    return 'true';
+    return true;
   }
   else{
-    return 'false';
+    return false;
   }
 }
 
@@ -140,7 +149,7 @@ function whichSpecies(character) {
     return "fish";
   }
   else {
-    return 'false';
+    return false;
   }
 }
 
@@ -165,7 +174,7 @@ function testNumber(number){
     return "divisible by 5";
   }
   else {
-    return 'false';
+    return false;
   }
 }
 
