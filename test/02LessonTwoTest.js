@@ -8,17 +8,17 @@ function whichSpecies(character) {
   // should return "fish" when character is 'nemo'
   // should return false if character is anything else
   switch(character) {
-    case 'scooby':
-      return 'dog';
-      break;
-    case 'garfield':
-      return 'cat';
-      break;
-    case 'nemo':
-      return 'fish';
-      break;
-    default:
-      return false;
+  case 'scooby':
+    return 'dog';
+    break;
+  case 'garfield':
+    return 'cat';
+    break;
+  case 'nemo':
+    return 'fish';
+    break;
+  default:
+    return false;
   }
   
 };
