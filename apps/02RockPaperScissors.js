@@ -7,6 +7,8 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+/* This function determines which hand will win in a game of Rock, Paper, Scissors based off of predetermined conditions */
+
 
 function rockPaperScissors(hand1, hand2) {
 
