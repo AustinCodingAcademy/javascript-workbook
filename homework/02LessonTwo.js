@@ -179,7 +179,10 @@ function testNumber(number){
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: A conditional statement is a set of
+// commands that will execute if a specified condition is true.
+// By using if...else and switch you can execute various
+// statements based on different conditions.
 //
 //
 // ****
