@@ -8,18 +8,23 @@ var rl = readline.createInterface({
 });
 
 function rockPaperScissors(hand1, hand2) {
+  //converts word to lower case
   var p1 = hand1.toLowerCase();
   var p2 = hand2.toLowerCase();
 
+  //filters any answers that arent rock paper or scisossors out and anything spelt incorrectly
   if (p1 !=='rock' && p1 !== 'paper' && p1 !== 'scissors'){
     return 'Invalid entry player 1, please try again.';
   }
   if (p2 !=='rock' && p2 !== 'paper' && p2 !== 'scissors'){
     return 'Invalid entry player 2, please try again.';
   }
+  //checks for tie
   if (p1 === p2){
     return "It's a tie!";
   }
+
+  //checks all three options for p1 vs p2
   if (p1 === 'rock'){
     if (p2 === 'paper'){
       return 'Hand two wins!';
