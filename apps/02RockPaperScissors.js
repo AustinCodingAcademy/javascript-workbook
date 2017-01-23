@@ -7,7 +7,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-
+// A game of Rock, Paper, Scissors determines a winner, given two hands
 function rockPaperScissors(hand1, hand2) {
 
   /*
@@ -17,17 +17,17 @@ function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.toLowerCase();
   hand2 = hand2.toLowerCase();
   // Case 2: Inputs are not strings
-  console.log(typeof hand1);
-  console.log(typeof hand2);
   if((hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') 
   || (hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors')) {      // both inputs are strings
     return "Error: Please enter a valid choice.";
   }
 
-  // Write code here
+  // This section of code compares the hands and decides which hand wins
+  // if the hands are equal, there is no winner
   if(hand1 === hand2) {
     return "It's a tie!";
   }
+  // 'rock' beats 'scissors', 'scissors' beats 'paper', 'paper' beats 'rock'
   if (hand1 === 'rock') {
     if (hand2 === 'scissors') {
       return 'Hand one wins!';
@@ -37,18 +37,18 @@ function rockPaperScissors(hand1, hand2) {
 }
 
   if (hand1 === 'paper') {
-    // fill this in using the logic above
     if(hand2 === 'rock') {
       return 'Hand one wins!';
     }
+    // If we reach here, player 2 must have dealt scissors    
     return 'Hand two wins!';
   }
 
   if (hand1 === 'scissors') {
-    // fill this in using the logic above  
     if(hand2 === 'paper') {
       return 'Hand one wins!';
     }
+    // If we reach here, player 2 must have dealt rock
     return 'Hand two wins!';
   }
   

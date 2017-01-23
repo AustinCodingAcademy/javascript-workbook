@@ -1,19 +1,24 @@
 'use strict';
 
+// Optional: Do 'npm install clear' and uncomment the following line if you want to clear the screen
+// var clear = require('clear');   // clearing the terminal screen
+// Note: clear() is used in function resetScreen();
+
 var assert = require('assert');
 var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 var board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
 ];
-
 var playerTurn = 'X';
 
+// Displays the screen on the console
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -23,24 +28,72 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+// Check for a horizontal row of the same marks
 function horizontalWin() {
-  // Your code here
+  if (
+  // Top horizontal row
+  (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || 
+  // Middle horizontal row
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+  // Bottom horizontal row
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
+  ) {
+    return true;
+  }
 }
 
+// Check for a vertical column of the same marks
 function verticalWin() {
-  // Your code here
+  if (
+  // Left vertical column
+  (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || 
+  // Middle vertical column
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+  // Right vertical column
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+  ) {
+    return true;
+  }
 }
 
+// Check for a diagonal line of the same marks
 function diagonalWin() {
-  // Your code here
+  if (
+  // Diagonal 1 (negative slope)
+  (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || 
+  // Diagonal 2 (positive slope)
+  (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn)
+  ) {
+    return true;
+  }
 }
 
+// Checks for any type of win
 function checkForWin() {
-  // Your code here
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log("Player " + playerTurn + " Won!");
+    resetScreen();
+    return true;
+  }
 }
 
+// Resets the screen to its initial state
+function resetScreen() {
+  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+  // Uncomment this line if you are using 'require('clear');' at the top of the program
+  // clear();   // clears the screen
+  // The loser starts the next game, so don't do anything
+}
+
+// Main program to fill in the values
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  checkForWin();
+  (playerTurn === 'X') ? playerTurn = 'O' : playerTurn = 'X';
 }
 
 function getPrompt() {
