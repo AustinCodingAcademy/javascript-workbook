@@ -24,8 +24,13 @@ var alwaysTrue = function () {
 // equals(argument1, argument2) is an empty function
 // return a boolean expression that is true when
 // argument1 is equal to argument2
-
 function equals(argument1, argument2) {
+
+  if (argument1 === argument2){
+      return true;
+  } else {
+      return false;
+  }
 }
 
 // Problem 2:
@@ -34,18 +39,31 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+
+    if (parameter1 <= parameter2) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add(number1, number2){
 
+  return number1 + number2;
+
+}
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
+function addThree(number1, number2, number3){
 
+  return number1 + number2 + number3;
 
+}
 // ****
 // Concept Checkpoint
 //
@@ -53,22 +71,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // What is a function? How do you define a function in Javascript?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  Funtions are small portions of a program. They help break down a larger set of problems.
 //
 //
 // What is a return value?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: When a return statement is used in a function, the execution of this function is stopped. However, if given a specific value the return value can break       the function execution in different ways. 
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  There are two ways you can define a named function:
+//  function myCustomName(parameter1, parameter2) and var anotherFunction = function (parameter3, parameter4) 
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  Parameters are the identifiers in a function delcaration, and the arguments are actual parameters
 //
 // ****
 
@@ -84,8 +103,17 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
-}
 
+  if (number % 2 === 0) {
+
+      return true;
+
+    } else {
+
+      return false;
+
+    }
+}
 // Problem 6:
 // isDivisibleByThree(number) is a function that
 // returns true if number is divisible by 3,
@@ -93,6 +121,17 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+
+  if (number % 3 === 0) {
+
+    return true;
+
+  } else {
+    
+    return false;
+
+  }
+
 }
 
 // ****
@@ -108,6 +147,25 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+
+  if (character === 'scooby'){
+
+      return "dog";
+
+  } else if (character === 'garfield') {
+
+      return "cat";
+
+  } else if (character === 'nemo') {
+
+      return "fish";
+
+  } else  {
+
+      return false;
+
+  }
+
 }
 
 // Problem 8:
@@ -118,7 +176,32 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number){
 
+if (number % 4 === 0){
+
+	return "divisible by 4";
+
+} else if (number % 2 === 0){
+
+	return "divisible by 2";
+
+} else if (number % 3 === 0){
+
+	return "divisible by 3";
+
+} else if (number % 5 === 0){
+
+	return "divisible by 5";
+
+}
+
+
+
+
+
+
+}
 // ****
 // Concept Checkpoint
 //
@@ -126,8 +209,9 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
-//
+// Your Answer Goes Here:  Conditionals control behavior in JavaScript and determine whether or not pieces of code can run.
+//	
+//	
 //
 // ****
 
