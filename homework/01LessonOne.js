@@ -26,7 +26,7 @@ var myNull = null;
 var myTrue = true;
 
 // Problem 3:
-// Let's create a new variable named myFalse and give it the value false.
+// Let's create a new variable named myFalse and give it the value false...
 
 var myFalse = false;
 
