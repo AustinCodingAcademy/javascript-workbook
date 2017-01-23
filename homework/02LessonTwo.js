@@ -67,8 +67,8 @@ var number2 = 4;
 var number3 = 6;
 
 function addThree(number1, number2, number3) {
-  add(number1, number2, number3);
   return number1 + number2 + number3;
+  add(number1, number2, number3);
 }
 
 
@@ -80,17 +80,17 @@ function addThree(number1, number2, number3) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-// A function is a JavaScript procedure—a set of statements that performs a task or calculates a value. To use a function, you must define it somewhere in the scope from which you wish to call it.
+// A function is a JavaScript procedure.. a set of statements that performs a task or calculates a value. To use a function, you must define it somewhere in the scope from which you wish to call it.
 //
 // What is a return value? 
 //
 // Your Answer Goes Here:
-// The return statement stops the execution of a function and returns a value from that function
+// The return statement stops the execution of a function and returns a value from that function.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-// There are several ways to define a function. The function expression, the generator function declaration, the generator function expression, the arrow funciton expression, the function constructor, and the GeneratorFunction Constructor.
+// There are several ways to define a function. The function expression, the generator function declaration, the generator function expression, the arrow function expression, the function constructor, and the GeneratorFunction Constructor.
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
@@ -144,16 +144,12 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
-  
   if(character === 'scooby') {
     return "dog";
-  
   } else if(character === 'garfield') {
     return "cat";
-  
   } else if(character === 'nemo') {
     return "fish";
-  
   } else {
     return false;
   }
@@ -168,20 +164,13 @@ function whichSpecies(character) {
 // return the string "divisible by 5" when number % 5 === 0
 
 function testNumber(number) {
-
   if(number % 4 === 0) {
     return "divisible by 4";
-  }
-
-  else if(number % 2 === 0) {
+  } else if(number % 2 === 0) {
     return "divisible by 2";
-  }
-
-  else if(number % 3 === 0) {
+  } else if(number % 3 === 0) {
     return "divisible by 3";
-  }
-
-  else if(number % 5 === 0) {
+  } else if(number % 5 === 0) {
     return "divisible by 5";
   }
 }
