@@ -10,9 +10,9 @@ var rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  var firstLetter = word[0];
-
   word = word.toLowerCase();
+
+  var firstLetter = word[0];
 
   var vowelIndex = -1;
 
@@ -35,12 +35,14 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('y');
   }
 
-  var firstPart = word.slice(0, vowelIndex);
-  var restWord = word.slice(vowelIndex, word.length);
 
   if (vowelIndex === 0) {
     return word + 'yay';
   } else {
+
+    var firstPart = word.slice(0, vowelIndex);
+    var restWord = word.slice(vowelIndex, word.length);
+
     return restWord + firstPart + 'ay';
   }
 
