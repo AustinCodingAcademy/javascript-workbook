@@ -49,7 +49,7 @@ function pigLatin(word){
   var lastPtWord = word.slice(vowelIndex, word.length);
 
 //then put those vars together.
-  return lastPtWord + firstPtWord +"ay";
+  return lastPtWord + firstPtWord + "ay";
  
 
 }
