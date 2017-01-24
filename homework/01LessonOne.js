@@ -109,7 +109,11 @@ var notNotTrue = true;
 // Your Answer Goes Here:
 //
 // ****
+//AND (&&) tests whether the values on the left and right are true. If they are both true, it will return a true.  If one or both are false, it will return a false.
 
+//Or (//) tests whether either the right or the left is true.  If one of them is true, it will return true.
+
+//You would use the AND statement if it needs to meet more than one requirement to move forward.  The OR statement is used if only one requirement needs to be met.
 // ****
 // Truthiness
 // ****
@@ -147,7 +151,7 @@ var notNotUndefined = false;
 // Your Answer Goes Here:
 //
 // ****
-
+//To me it seems like if it exists, and has substance, its "truthiness".  If it doesn't have substance its "falsiness".  null is flasiness because there is nothing there, no value, same as 0.  A word or number or string will all contain substance and therefore are "truthiness".
 // ****
 // Comparison Operators
 // ****
@@ -204,12 +208,12 @@ var stringFourStrictNotEqualsNumberFour = true;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//
+// == is a loose comparison between two items. A string that only contains a number could equal a number.  Whereas === is a strict comparison between two items.  In this case a string containing a number could never equal a number, since it's technically a string.
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//
+//This is the same as above, but with the comparison of NOT matching.  != will loosely compare whether two items are not the same, and !== will strictly compare whether they are not the same.  so a string containing a number will technically match a number in a loose comparison, and return a false, but in a strict comparison, it will NOT match and return a true.
 // ****
 
 
