@@ -11,20 +11,44 @@ var rl = readline.createInterface({
 function pigLatin(word){
 
   // Your code here
-  var word = 'carrot';
+  word = word.toLowerCase()
+  var vowelIndex = -1; //set to no vowels
 
-  var firstLetter = word[0];
-  console.log (firstLetter);
-  console.log (word.replace('a', ' '));
+  if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+  }
 
-  return word.replace(firstLetter, ' ') + firstLetter + 'ay';
+  if ( ( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('e');
+  }
 
-  console.log ('batty'.indexOf('a'));
+  if ( ( word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('i');
+  }
 
+  if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('o');
+  }
+
+  if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('u');
+  }
+
+  if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('y');
+  }
+
+  if (vowelIndex === 0 || vowelIndex === -1) { return word + 'yay'}
+
+  var firstPtWord = word.slice(0, vowelIndex);
+  var lastPtWord = word.slice(vowelIndex, word.length);
+
+  return lastPtWord + firstPtWord +"ay";
+ 
 
 }
 
-/*
+
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );

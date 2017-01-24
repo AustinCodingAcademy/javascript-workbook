@@ -24,12 +24,12 @@ function rockPaperScissors(hand1, hand2) {
     //if the first player puts in rock then check the hands of the second player to see who wins.
   if (hand1 === 'rock') {
     //then check to see if...
-    if (hand2 === 'scissors') {
+   else if (hand2 === 'scissors') {
     //if so...
       return "Hand One wins!"
     }
     //if not then go to check if...
-    if (hand2 === 'paper') {
+   else if (hand2 === 'paper') {
     //if so...
       return "Hand Two Wins!" 
     }
