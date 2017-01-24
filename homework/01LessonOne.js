@@ -57,7 +57,7 @@ var falseAndTrue = false;
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse = true;
+var trueAndFalse = false;
 
 // Problem 9:
 // What is the value of false && false 
@@ -77,7 +77,7 @@ var falseOrTrue = true;
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse = false;
+var trueOrFalse = true;
 
 // Problem 13:
 // What is the value of false || false
@@ -132,7 +132,7 @@ var notNotEmptyString = false;
 // Problem 19:
 // What is the value of !null
 
-var notNull = false;
+var notNull = true;
 
 // Problem 20:
 // What is the value of !!undefined
