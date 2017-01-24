@@ -12,6 +12,27 @@ function rockPaperScissors(hand1, hand2) {
   var p1 = hand1.toLowerCase();
   var p2 = hand2.toLowerCase();
 
+  //checks to see if the person at least got the first letter correct. just in the event of a typo. also allows the use to just type r,p, or s
+  if (p1.slice(0,1) === 'r'){
+    p1 = 'rock';
+  }
+  if (p1.slice(0,1) === 'p'){
+    p1 = 'paper';
+  }
+  if (p1.slice(0,1) === 's'){
+    p1 = 'scissors';
+  }
+
+  if (p2.slice(0,1) === 'r'){
+    p2 = 'rock';
+  }
+  if (p2.slice(0,1) === 'p'){
+    p2 = 'paper';
+  }
+  if (p2.slice(0,1) === 's'){
+    p2 = 'scissors';
+  }
+
   //filters any answers that arent rock paper or scisossors out and anything spelt incorrectly
   if (p1 !=='rock' && p1 !== 'paper' && p1 !== 'scissors'){
     return 'Invalid entry player 1, please try again.';
