@@ -33,8 +33,6 @@ var pigLatin = word; //create variable pigLatin to store changes to original wor
 return pigLatin;
 }
 
-
-
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
