@@ -14,6 +14,8 @@ function pigLatin(word){
   word = word.toLowerCase()
   var vowelIndex = -1; //set to no vowels
 
+
+  // Look for the vowelIndex --> a, e, i, o, u, y and compare it to -1
   if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('a');
   }
@@ -38,11 +40,14 @@ function pigLatin(word){
     vowelIndex = word.indexOf('y');
   }
 
+//if there is no vowel just add 'yay' to the word
   if (vowelIndex === 0 || vowelIndex === -1) { return word + 'yay'}
 
+// but if there is a vowel, create these vars with the index of that vowel
   var firstPtWord = word.slice(0, vowelIndex);
   var lastPtWord = word.slice(vowelIndex, word.length);
 
+//then put those vars together.
   return lastPtWord + firstPtWord +"ay";
  
 
