@@ -7,22 +7,12 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+//after the user types in a word and hits the enter key, the code will start running.
 
 function pigLatin(word) {
 
-  var word = 'car'; 
-
   var firstLetter = word[0];
-  console.log(firstLetter);
-  
-  return word.replace(firstLetter, '') + firstLetter + 'ay';
 
-  console.log( 'crazy'.indexOf('a') );
-
-  console.log( 'crazy'.indexOf('e') );
-
-  var word = 'crazy';
-  
   var vowelIndex = -1; // Set it to assume there are no vowels
 
     if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
@@ -37,19 +27,31 @@ function pigLatin(word) {
         vowelIndex = word.indexOf('i');
     }
 
-    if ( ( word.indexOf('i') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
-        vowelIndex = word.indexOf('i');
+    if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('o');
     }
 
-    if ( ( word.indexOf('i') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
-        vowelIndex = word.indexOf('i');
+    if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('u');
     }
 
-    if ( ( word.indexOf('i') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
-        vowelIndex = word.indexOf('i');
+    if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
+        vowelIndex = word.indexOf('y');
     }
 
-}
+    word = word.toLowerCase();
+    var firstPart = word.slice(0, vowelIndex);
+    var restWord  = word.slice(vowelIndex, word.length)
+
+    if(vowelIndex > 0) {
+    return restWord + firstPart + 'ay';
+    } else if (vowelIndex === 0) {
+      return word + 'yay';
+    } else {
+      return 'Invalid User Input';
+    }
+
+};
 
 
 function getPrompt() {
