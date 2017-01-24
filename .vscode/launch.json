@@ -8,8 +8,9 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/-c-1",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceRoot}/apps/01PigLatin.js",
+            "cwd": "${workspaceRoot}",
+            "console": "externalTerminal"
         },
         {
             "type": "node",
