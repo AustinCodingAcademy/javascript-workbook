@@ -27,7 +27,7 @@ return 'Hand two wins!';
   }
 }
 
-if (hand1.toLowerCase() === 'paper') {
+  if (hand1.toLowerCase() === 'paper') {
   if (hand2.toLowerCase() === 'scissors') {
     return 'Hand two wins!';
   }
@@ -36,7 +36,7 @@ if (hand1.toLowerCase() === 'paper') {
   }
 }
 
-if (hand1.toLowerCase() === 'scissors') {
+  if (hand1.toLowerCase() === 'scissors') {
   if (hand2.toLowerCase() === 'rock') {
     return 'Hand two wins!';
   }
