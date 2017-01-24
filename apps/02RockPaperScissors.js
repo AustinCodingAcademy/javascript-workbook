@@ -21,31 +21,31 @@ function rockPaperScissors(hand1, hand2) {
   //rock - victory/defeat conditions
 
   if (hand1.toLowerCase() === "rock" && hand2.toLowerCase() === "scissors") {
-    return "Hand 1 wins!";
+    return "Hand one wins!";
   }
 
   if (hand1.toLowerCase() === "rock" && hand2.toLowerCase() === "paper") {
-    return "Hand 2 wins!";
+    return "Hand two wins!";
   }
 
   //paper - victory/defeat conditions
 
   if (hand1.toLowerCase() === "paper" && hand2.toLowerCase() === "rock") {
-    return "Hand 1 wins!";
+    return "Hand one wins!";
   }
 
   if (hand1.toLowerCase() === "paper" && hand2.toLowerCase() === "scissors") {
-    return "Hand 2 wins!";
+    return "Hand two wins!";
   }
 
   //scissors - victory/defeat conditions
 
   if (hand1.toLowerCase() === "scissors" && hand2.toLowerCase() === "paper") {
-    return "Hand 1 wins!";
+    return "Hand one wins!";
   }
 
   if (hand1.toLowerCase() === "scissors" && hand2.toLowerCase() === "rock") {
-    return "Hand 2 wins!";
+    return "Hand two wins!";
 
   // error message if inputs are not rock, paper or scissors
 
