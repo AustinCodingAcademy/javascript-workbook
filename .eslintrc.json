@@ -1,7 +1,9 @@
 {
-  "extends": "",
+  "extends": "eslint:recommended",
+  "no-undef": 1,
+  "no-unused-vars": 1,
   "rules": {
-    "indent": ["error", 2]
+    "indent": ["error", 2, { "SwitchCase": 1 }]
   },
   "env": {
     "es6": true

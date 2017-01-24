@@ -9,10 +9,7 @@ var rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-  // Can I do this?: word = word.toLowerCase(); - since word is immutable
-  var word = word.toLowerCase();    // sets the word to all lowercase values
+  word = word.toLowerCase();        // sets the word to all lowercase values
   var vowelIndex = -1;              // '-1' means the value is not in the word
                                     // This variable keeps track of where inside the word a vowel is, if at all.
 
