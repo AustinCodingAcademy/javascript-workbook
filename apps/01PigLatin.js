@@ -10,7 +10,12 @@ var rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  var word = word.toLowerCase();
+  //lowercase conversion
+
+  word = word.toLowerCase();
+
+  //no vowel by default
+
   var vowelIndex = -1;
 
   //locate the first vowel
@@ -39,9 +44,9 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('y');
   }
 
-  //if word begins with vowel or doesn't contain a vowel, just add "yay"
+  //if word begins with vowel just add "yay"
 
-  if (vowelIndex === 0 || vowelIndex === -1) {
+  if (vowelIndex === 0) {
     return word + "yay";
   }
 
