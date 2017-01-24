@@ -33,8 +33,11 @@ var alwaysTrue = function () {
 
 function equals(argument1, argument2) {
 
-  if (argument1 === argument2){
+  if (argument1 == argument2){
     return true;
+  }
+  else {
+    return false;
   }
 }
 
@@ -46,8 +49,11 @@ function equals(argument1, argument2) {
 
 function lessThanOrEqualTo(parameter1, parameter2) {
 
-  if (parameter1 >= parameter2){
+  if (parameter1 <= parameter2){
     return true;
+  }
+  else {
+    return false;
   }
 }
 
@@ -162,13 +168,13 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
-  if (character.toLowercase() === "scooby"){
+  if (character === "scooby"){
     return "dog";
   }
-  else if (character.toLowercase()=== "garfield"){
+  else if (character === "garfield"){
     return "cat";
   }
-  else if (character.toLowercase() === "nemo"){
+  else if (character === "nemo"){
     return "fish";
   }
   else{
