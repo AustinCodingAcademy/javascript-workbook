@@ -12,7 +12,8 @@ function pigLatin(word){
 
   // Your code here
   word = word.toLowerCase()
-  var vowelIndex = -1; //set to no vowels
+  //set to no vowels
+  var vowelIndex = -1; 
 
 
   // Look for the vowelIndex --> a, e, i, o, u, y and compare it to -1
