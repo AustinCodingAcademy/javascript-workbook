@@ -13,6 +13,7 @@ function pigLatin(word) {
 
   var vowelIndex = -1; // Set it to assume there are no vowels
 
+// finding the vowel within the word
   if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('a');
   }
@@ -36,6 +37,7 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('y');
   }
   
+  // changing the input to lower case
   word = word.toLowerCase();
   var firstPart = word.slice(0, vowelIndex);
   var restWord = word.slice(vowelIndex, word.length);
