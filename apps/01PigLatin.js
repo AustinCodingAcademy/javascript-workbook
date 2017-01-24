@@ -9,7 +9,7 @@ var rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
+  word = word.toLowerCase();
   // Your code here
   var vowelIndex = -1; // Set it to assume there are no vowels
 
@@ -33,10 +33,19 @@ function pigLatin(word) {
       vowelIndex = word.indexOf('u');
     }
 
-  var firstPart = word.slice(0, vowelIndex);
-  var restWord = word.slice(vowelIndex, word.length);
+  if ((vowelIndex === 0) || (vowelIndex === -1))
+    {
+      //The word begins with a vowel, or there is no vowel.
+      return word + "yay";
+    }
+  else
+    {
+      //The word contained a vowel, but not at the start of the string.
+    var firstPart = word.slice(0, vowelIndex);
+    var restWord = word.slice(vowelIndex, word.length);
 
-  return restWord + firstPart + 'ay';
+    return restWord + firstPart + 'ay';
+    }
   }
 
 
