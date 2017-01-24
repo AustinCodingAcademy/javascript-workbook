@@ -25,6 +25,7 @@ function rockPaperScissors(hand1, hand2) {
    return "It's a tie!";
 }
 
+
 if (hand1 === 'rock') {
   if (hand2 === 'scissors') {
     return 'Hand one wins!';
