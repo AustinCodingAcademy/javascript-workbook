@@ -15,7 +15,7 @@ if(hand1 === 'paper' && hand2 === 'rock'){
   return "Hand1 Wins";
   }
 if(hand1 === 'scissors' && hand2 === 'paper'){
-    return ("Hand1 wins!");
+  return ("Hand1 wins!");
     }
 if(hand1 === 'rock' && hand2 === 'scissors'){
   return "Hand1 WINS!";
