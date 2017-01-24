@@ -39,9 +39,9 @@ function pigLatin(word) {
     vowelIndex = word.indexOf('y');
   }
 
-  //if word begins with vowel, just add "yay"
+  //if word begins with vowel or doesn't contain a vowel, just add "yay"
 
-  if (vowelIndex === 0) {
+  if (vowelIndex === 0 || vowelIndex === -1) {
     return word + "yay";
   }
 
