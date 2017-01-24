@@ -13,7 +13,7 @@ function pigLatin(word) {
     //  var word = 'car';
     var firstLetter = word[0];
     console.log(firstLetter);
-    word = word.toLowercase;
+    word = word.toLowerCase();
 
     var word = 'crazy';
     var vowelIndex = -1; // Set it to assume there are no vowels
@@ -28,31 +28,31 @@ function pigLatin(word) {
 
     if ((word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf('i');
+      }
+    if ((word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex) || vowelIndex === -1) {
+          vowelIndex = word.indexOf('o');
+      }
 
-        if ((word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex) || vowelIndex === -1) {
-            vowelIndex = word.indexOf('o');
-        }
+      if ((word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex) || vowelIndex === -1) {
+          vowelIndex = word.indexOf('u');
+      }
 
-        if ((word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex) || vowelIndex === -1) {
-            vowelIndex = word.indexOf('u');
-        }
+      if ((word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex) || vowelIndex === -1) {
+          vowelIndex = word.indexOf('y');
+      }
 
-        if ((word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex) || vowelIndex === -1) {
-            vowelIndex = word.indexOf('y');
-        }
+      var firstPart = word.slice(0, vowelIndex);
+      var restWord = word.slice(vowelIndex, word.length);
+      console.log('first part', firstPart);
+      console.log('rest word', restWord);
 
-        var firstPart = word.slice(0, vowelIndex);
-        var restWord = word.slice(vowelIndex, word.length);
-        console.log 'first part', firstPart;
-        console.log 'rest word', restWord;
+      if (vowelIndex === 0) {
+          return word + "yay";
+      }
+      else {
+          return restWord.toLowerCase()
+      }
 
-        if vowelIndex == 0 {
-            return word + "yay";
-        }
-        else {
-            return restWord.toLowercase()
-        }
-    }
     return restWord + firstPart + 'ay';
 }
 
