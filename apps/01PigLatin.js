@@ -70,32 +70,7 @@ function pigLatin(word) {
 
 
 }
-/*
-word = word.toLowerCase();
-+  var firstLetter = word[0];
-+  var vowelIndex = -1;
 
--  // Your code here
-+  var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-
-+  for (var i = 0; i < vowels.length; i++) {
-+    var letter = vowels[i];
-+    if ( ( word.indexOf(letter) > -1 && word.indexOf(letter) < vowelIndex ) || vowelIndex === -1 ) {
-+      vowelIndex = word.indexOf(letter);
-+    }
-+  }
-+
-+  //If your vowelIndex is 0, then just attach yay to the end of the word.
-+  if (vowelIndex === 0) {
-+    return word + 'yay';
-+  } else {
-+    var firstPart = word.slice(0, vowelIndex);
-+    var restWord = word.slice(vowelIndex, word.length);
-+
-+    return restWord + firstPart + 'ay';
-+  }
- }
-*/
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log(pigLatin(answer));
