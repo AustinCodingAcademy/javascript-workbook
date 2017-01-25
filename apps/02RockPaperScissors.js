@@ -43,7 +43,11 @@ function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
+
+      if (rockPaperScissors(answer1, answer2) !== 'It\'s a tie!') {
+        console.log('GAME OVER!');
+        process.exit();
+      } else getPrompt();
     });
   });
 }
