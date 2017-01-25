@@ -23,7 +23,7 @@ function pigLatin(answer) {
   }
   else{
     //It is indeed a vowel! So just add 'ay', as in 'YAY!'
-    return answer + 'ay';
+    return answer + 'yay';
   }
 }
 
