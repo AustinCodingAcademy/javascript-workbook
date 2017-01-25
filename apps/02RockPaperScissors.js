@@ -53,6 +53,12 @@ function rockPaperScissors(hand1, hand2) {
   if (hand2 !== 'rock', 'paper', 'scissors');
   return 'Not valid entry'
 }
+// trying to restart the game
+function checkForWin() {
+  if ('Hand two wins!' || 'Hand one wins!');
+  return 'Game Over!'
+}
+checkForWin();
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
