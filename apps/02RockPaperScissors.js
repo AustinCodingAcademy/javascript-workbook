@@ -9,7 +9,8 @@ var rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
+var hand1 = '';
+var hand2 = '';
   // Write code here
 
 }
