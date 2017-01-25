@@ -7,6 +7,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+// Test comment for Git to stage file
 
 function pigLatin(word) {
   word = word.toLowerCase();        // sets the word to all lowercase values

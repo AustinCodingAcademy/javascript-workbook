@@ -9,9 +9,9 @@ rules:
   # indent:   '.eslintrc.yml' overrides '.eslintrc.json', so don't include it here
    # - error
    # - tab
-  linebreak-style:
-    - error
-    - windows
+  # linebreak-style:
+  #  - error
+  #  - windows
   quotes: off
   no-undef: warn
   no-unused-vars: warn
