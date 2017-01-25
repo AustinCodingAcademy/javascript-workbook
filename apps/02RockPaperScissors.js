@@ -14,6 +14,8 @@ function rockPaperScissors(hand1, hand2) {
 
   // hand1 and hand2 will either be rock, paper, or scissors.
 
+  //.toLowerCase after parameter (good practice)
+
   if (hand1 === hand2) {
     return "It\'s a tie!";
   }
