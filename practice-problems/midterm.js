@@ -430,9 +430,9 @@ toggleLight();
 
 //Bonus: Suppose you're working for twitter and you have the following arrays available.
 
-var username = ['JoeQuery', 'CLofton', 'mistakevin']
-var tweet = ['You are my sunshine', 'Amarillo by morning, up from San Anton', 'giggidy giggidy']
-var date = [ "07/24/2015" , "09/25/2015", "10/25/2015" ]
+var username = ['JoeQuery', 'CLofton', 'mistakevin'];
+var tweet = ['You are my sunshine', 'Amarillo by morning, up from San Anton', 'giggidy giggidy'];
+var date = [ "07/24/2015" , "09/25/2015", "10/25/2015" ];
 
 //Generate an ordered list of tweets of the following form:
 
