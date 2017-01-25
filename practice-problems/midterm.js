@@ -190,7 +190,7 @@
 
 //Use the following array for questions 28-31.
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+var colors1 = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 
 
 //26. Write code to print out the length of the 'colors' array and then the 3rd color of the array.
@@ -260,7 +260,7 @@ console.log(b);
 
 //34. Apply the pop method to the array below.
 
-var arr = [ 1, 2, 3, 4 ]
+var arr1 = [ 1, 2, 3, 4 ];
 
 //Answer:
 
@@ -269,7 +269,7 @@ var arr = [ 1, 2, 3, 4 ]
 
 //35. Apply the push method to the array below.
 
-var arr = [ 1, 2, 3, 4 ]
+var arr2 = [ 1, 2, 3, 4 ];
 
 //Answer:
 
@@ -278,7 +278,7 @@ var arr = [ 1, 2, 3, 4 ]
 
 //36. Apply the shift method to the array below.
 
-var arr = [ 1, 2, 3, 4 ]
+var arr3 = [ 1, 2, 3, 4 ];
 
 //Answer:
 
@@ -287,7 +287,7 @@ var arr = [ 1, 2, 3, 4 ]
 
 //37. Apply the unshift method to the array below.
 
-var arr = [ 1, 2, 3, 4 ]
+var arr4 = [ 1, 2, 3, 4 ];
 
 //Answer:
 
@@ -317,9 +317,9 @@ var arr = [ 1, 2, 3, 4 ]
 
 //41. What will the following lines of code print out?
 
-var num = 3;
-num += 4;
-console.log(num);
+var num1 = 3;
+num1 += 4;
+console.log(num1);
 
 //Answer:
 
@@ -328,9 +328,9 @@ console.log(num);
 
 //42. What will the following lines of code print out?
 
-var num = 8;
-num *= 4;
-console.log(num);
+var num2 = 8;
+num2 *= 4;
+console.log(num2);
 
 //Answer:
 
@@ -339,9 +339,9 @@ console.log(num);
 
 //43. What will the following lines of code print out?
 
-var num = 21;
-num /= 7 ;
-console.log(num);
+var num3 = 21;
+num3 /= 7 ;
+console.log(num3);
 
 //Answer:
 
@@ -350,8 +350,8 @@ console.log(num);
 
 //44. Review the code below.
 
-var colors = ['red', 'blue', 'green', 'yellow']
-var certainColor = 'green'
+var colors = ['red', 'blue', 'green', 'yellow'];
+var certainColor = 'green';
 var currentColor = colors[0];
 var i = 0;
 while (certainColor !== currentColor) {
