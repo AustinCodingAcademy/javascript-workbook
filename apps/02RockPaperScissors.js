@@ -54,11 +54,29 @@ function rockPaperScissors(hand1, hand2) {
   return 'Not valid entry'
 }
 // trying to restart the game
-function checkForWin() {
+/*function checkForWin() {
   if ('Hand two wins!' || 'Hand one wins!');
   return 'Game Over!'
 }
 checkForWin();
+
+function checkForWin() {
+  if ('Hand one wins!', 'Hand two wins!') {
+  return 'Do you want to play again?'
+    if (true) {
+      rockPaperScissors.restart();
+    }
+  }
+}
+
+*/
+function checkForWin() {
+  if ('wins!') {
+    return 'Do you want to play again?';
+    if (true)
+      rockPaperScissors.restart();
+  }
+}
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
