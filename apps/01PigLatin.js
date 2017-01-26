@@ -52,8 +52,8 @@ function pigLatin(word) {
     return word + 'yay';
   }
   else {
-    return restWord + firstPart + 'ay'
-  };
+    return restWord + firstPart + 'ay';
+  }
 }
   
 
