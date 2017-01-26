@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/homework/02LessonTwo.js",
+            "program": "${workspaceRoot}/apps/02RockPaperScissors.js",
             "cwd": "${workspaceRoot}",
             "console": "externalTerminal"
         },
