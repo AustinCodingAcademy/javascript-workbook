@@ -12,6 +12,8 @@ var board = [
   [' ', ' ', ' ']
 ];
 
+
+
 var playerTurn = 'X';
 
 function printBoard() {
