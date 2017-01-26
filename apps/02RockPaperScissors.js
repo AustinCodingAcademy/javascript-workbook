@@ -19,30 +19,30 @@ function rockPaperScissors(hand1, hand2) {
   }
 
   if (hand1.toLowerCase() === 'rock') {
-  if (hand2.toLowerCase() === 'scissors') {
+    if (hand2.toLowerCase() === 'scissors') {
     return 'Hand one wins!';
   }
-   if (hand2.toLowerCase() === 'paper') {
+    if (hand2.toLowerCase() === 'paper') {
     return 'Hand two wins!';
   }
   }
 
   if (hand1.toLowerCase() === 'paper') {
-  if (hand2.toLowerCase() === 'scissors') {
+    if (hand2.toLowerCase() === 'scissors') {
     return 'Hand two wins!';
   }
-   if (hand2.toLowerCase() === 'rock') {
-  return 'Hand one wins!';
+    if (hand2.toLowerCase() === 'rock') {
+    return 'Hand one wins!';
   }
   }
 
   if (hand1.toLowerCase() === 'scissors') {
-  if (hand2.toLowerCase() === 'rock') {
+    if (hand2.toLowerCase() === 'rock') {
     return 'Hand two wins!';
   }
-   if (hand2.toLowerCase() === 'paper') {
-  return 'Hand one wins!';
-  }
+    if (hand2.toLowerCase() === 'paper') {
+    return 'Hand one wins!';
+   }
   }
 
 
