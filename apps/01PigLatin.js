@@ -42,19 +42,12 @@ function pigLatin(word) {
 
   if(vowelIndex > 0) {
     return restWord + firstPart + 'ay';
-  } 
-  else {
+  } else if(vowelIndex === 0) {
     return word + 'yay';
-  }
-
-  if(vowelIndex = 0) {
-    return word + 'yay';
-  }
-  else {
-    return restWord + firstPart + 'ay';
+  } else {
+    return 'Invalid User Input';
   }
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
