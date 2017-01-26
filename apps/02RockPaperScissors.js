@@ -10,41 +10,40 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
+  // hand1 and hand are just variables
+
   if (hand1 === hand2) {
-  return "It's a tie!";
+    return "It's a tie!";
 }
 
   if (hand1 === 'rock') {
   if (hand2 === 'scissors') {
-  return 'Hand one wins!';
+    return 'Hand one wins!';
 }
-  if (hand2 === 'paper') { 
-  return 'Hand two wins!';
+  if(hand2 === 'paper'){
+    return 'Hand two wins!';
 }
-
+}
 
   if (hand1 === 'paper') {
   if (hand2 === 'scissors') {
-  return 'Hand two wins!';
+   return 'Hand two wins!';
 }
-
   if (hand2 === rock) {
-  return 'Hand one wins!';
+   return 'Hand one wins!';
+}
 }
 
-
-  if (hand1 === "scissors") {
+  if(hand1 === "scissors") {
   if (hand2 === 'rock') {
-  return 'Hand two wins!';
+    return 'Hand two wins!';
 }
-
   if (hand2 === 'paper') {
-  return 'Hand one wins!';
+    return 'Hand one wins!'
+}
+}
 }
 
-
-}
-}
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
@@ -73,6 +72,5 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
-
 
 }
