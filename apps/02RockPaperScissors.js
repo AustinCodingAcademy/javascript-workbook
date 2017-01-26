@@ -23,6 +23,7 @@ if(hand1 === 'rock' && hand2 === 'scissors'){
 if(hand1 === hand2){
   return "It's a tie!";
 }
+
 else{
   return "Hand two wins!";
 } 
