@@ -63,7 +63,7 @@ function pigLatin(word) {
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('Pig Latin Translator: Enter a word to translate! ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
