@@ -21,7 +21,7 @@ function rockPaperScissors(hand1, hand2) {
   if (hand1.toLowerCase() === 'rock') {
     if (hand2.toLowerCase() === 'scissors') {
       return 'Hand one wins!';
-  }
+    }
     if (hand2.toLowerCase() === 'paper') {
       return 'Hand two wins!';
     }
@@ -42,7 +42,7 @@ function rockPaperScissors(hand1, hand2) {
     }
     if (hand2.toLowerCase() === 'paper') {
       return 'Hand one wins!';
-     }
+    }
   }
 
 
