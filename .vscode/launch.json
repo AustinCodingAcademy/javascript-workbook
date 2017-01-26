@@ -8,8 +8,9 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/apps/01PigLatin.js",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceRoot}/apps/03TicTacToe.js",
+            "cwd": "${workspaceRoot}",
+            "console":"externalTerminal"
         },
         {
             "type": "node",
