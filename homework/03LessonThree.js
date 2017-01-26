@@ -20,16 +20,17 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan'
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid'
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
+
+var firstArgument = 'bob';
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -40,7 +41,8 @@ function returnTheFirstArgument(firstArgument) {
 //
 // What is scope?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: An item's scope refers to where exactly it is accessible from. The rule of thumb is if it is
+// defined immediately inside or outside of the current function, it is accessible.
 //
 //
 
