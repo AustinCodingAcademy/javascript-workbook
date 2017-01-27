@@ -26,6 +26,13 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if(argument1===argument2){
+    return true;
+  }
+      else {
+        return false;
+    }
+
 }
 
 // Problem 2:
@@ -34,17 +41,27 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if(parameter1<=parameter2){
+    return true;
+  }
+      else {
+        return false;
+    }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
-
+function add(number1, number2) {
+  return (number1 + number2);
+}
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
-
+function addThree(number1, number2, number3) {
+  return (add(number1,number2) + number3);
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +71,27 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+//A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:
+// The name of the function.
+// A list of arguments to the function, enclosed in parentheses and separated by commas.
+// The JavaScript statements that define the function, enclosed in curly brackets, { }.
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+//it is the value computed by a function
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+// list JavaScript statements that define the function, enclosed in curly brackets, { } after the arguments/parameters are listed in the ().
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+//up vote
+
+// A parameter is a variable in a method definition. When a method is called, the arguments are the data you pass into the method's parameters.
 // ****
 
 
@@ -84,6 +106,12 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if((number%2)===0){
+    return true;
+  }
+      else {
+        return false;
+    }
 }
 
 // Problem 6:
@@ -93,6 +121,12 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if((number%3)===0){
+    return true;
+  }
+      else {
+        return false;
+    }
 }
 
 // ****
@@ -108,6 +142,17 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if(character==='scooby'){
+    return 'dog';
+  } else if(character==='garfield'){
+    return 'cat';
+  }
+  else if(character==='nemo'){
+    return 'fish';
+  }
+      else {
+        return false;
+    }
 }
 
 // Problem 8:
@@ -118,7 +163,19 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
-
+function testNumber(number) {
+  if((number%4)===0){
+    return 'divisible by 4';
+  } else if((number%2)===0){
+    return 'divisible by 2';
+  }
+  else if((number%3)===0){
+    return 'divisible by 3';
+  }
+      else if((number%5)===0) {
+        return 'divisible by 5';
+    }
+}
 // ****
 // Concept Checkpoint
 //
@@ -127,7 +184,7 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
+//conditionals specify the conditions that merit different output under different circumstances
 //
 // ****
 
