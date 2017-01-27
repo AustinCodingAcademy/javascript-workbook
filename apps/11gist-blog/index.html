@@ -29,14 +29,32 @@
 					<p>Welcome to my site. Click a post to start reading.</p>
 				</div>
 				<div id="post"></div>
-				<h5 id="commentsHeader">Comments</h5>
+				<h5 id="comments-header">Comments</h5>
 				<ul id="comments"></ul>
 			</div>
 		</div>
 	</div>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
- 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
- 	<script type="text/javascript" src="js/script.js"></script>
+	<template id="post-list-template">
+		<li>
+			<a class="post-links" href="#" data-url="{{url}}">{{title}}</a>
+		</li>
+	</template>
+
+	<template id="comment-template">
+		<li>
+			<img class="avatar" src="{{avatar}}" />
+			<span class="user">{{user}}</span>
+			<span class="date">{{date}}</span>
+			<br />
+			<span class="comment">{{body}}</span>
+			<span class="date">{{time}}</span>
+		</li>
+	</template>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+ 	<script src="js/script.js"></script>
 </body>
 </html>

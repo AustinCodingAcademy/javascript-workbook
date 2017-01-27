@@ -2,19 +2,39 @@
 
 $(document).ready(function() {
 
+    var PATH_TO_GISTS_JSON = 'api/gists.json';
+    //var PATH_TO_GISTS_JSON = 'https://api.github.com/users/arinaldi/gists';
+
     var $posts = $('#posts');
     var $landing = $('#landing');
     var $post = $('#post');
-    var $commentsHeader = $('#commentsHeader');
+    var $commentsHeader = $('#comments-header');
     var $comments = $('#comments');
+
+    var commentTemplate = $('#comment-template').html();
+    var postListTemplate = $('#post-list-template').html();
+
+    function populatePostList(post) {
+        $posts.append(Mustache.render(postListTemplate, post));
+    }
+
+    function populateComments(comment) {
+    	$comments.append(Mustache.render(commentTemplate, comment));
+    }
 
     var postListSettings = {
 		success: function(res) {
             res.forEach(function(post) {
                 if (post.description.startsWith('#post')) {
                     var hashTag = '#post ';
-                    var shortDesc = post.description.substring(hashTag.length);
-                    $posts.append('<li><a class=\"post-links\" href=\"#\" data-url=' + post.url + '>' + shortDesc + '</a></li>');
+                    var postTitle = post.description.substring(hashTag.length);
+
+                    var postListData = {
+                        url: post.url,
+                        title: postTitle
+                    };
+
+                    populatePostList(postListData);
                 }
             });
             var $links = $('.post-links');
@@ -51,10 +71,18 @@ $(document).ready(function() {
 	        	var date = createdDate.toDateString().substring(4);
 	        	var time = createdDate.toLocaleTimeString();
 
-	        	$comments.append('<li><img class=\"avatar\" src=' + avatarUrl + '/ ><span class=\"user\">' + comment.user.login + '</span><span class=\"date\">' + date + '</span><br />' + '<span class=\"comment\">' + comment.body + '</span><span class=\"date\">' + time + '</li>');
+                var commentData = {
+                    avatar: avatarUrl,
+                    user: comment.user.login,
+                    date: date,
+                    body: comment.body,
+                    time: time
+                };
+
+	        	populateComments(commentData);
 	    	});
 	    }
 	};
 
-    $.ajax('api/gists.json', postListSettings);
+    $.ajax(PATH_TO_GISTS_JSON, postListSettings);
 });
