@@ -21,7 +21,7 @@ function rockPaperScissors(hand1, hand2) {
     } else if (hand2 === 'paper') {
       return "Hand two wins!";
     } else {
-      return "This is not a choice"; 
+      return "This is not a choice";
     }
   }
   if (hand1 === 'paper') {
@@ -38,7 +38,7 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand two wins!";
     }
   } else {
-    return "This is not a choice"
+    return "This is not a choice";
   }
 }
 
