@@ -52,32 +52,21 @@ function rockPaperScissors(hand1, hand2) {
   }
   if (hand2 !== 'rock', 'paper', 'scissors');
   return 'Not valid entry'
-}
-// trying to restart the game
-/*function checkForWin() {
-  if ('Hand two wins!' || 'Hand one wins!');
-  return 'Game Over!'
-}
-checkForWin();
 
+}
+
+
+// trying to restart the game
+/*
 function checkForWin() {
   if ('Hand one wins!', 'Hand two wins!') {
-  return 'Do you want to play again?'
+    return 'Do you want to play again?'
     if (true) {
       rockPaperScissors.restart();
     }
   }
 }
-
 */
-function checkForWin() {
-  if ('wins!') {
-    return 'Do you want to play again?';
-    if (true)
-      rockPaperScissors.restart();
-  }
-}
-
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
