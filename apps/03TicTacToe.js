@@ -40,7 +40,12 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+
+}
+
+function toggleTurn() {
+  playerTurn = (playerTurn === 'X')? 'O' : 'X';
 }
 
 function getPrompt() {
@@ -49,6 +54,7 @@ function getPrompt() {
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
+      toggleTurn();
       getPrompt();
     });
   });
