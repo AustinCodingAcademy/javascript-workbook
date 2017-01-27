@@ -26,6 +26,12 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 === argument2) {
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 // Problem 2:
@@ -34,17 +40,34 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if (parameter1 <= parameter2) {
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(x, y) {
+  var x = 5;
+  var y = 6;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(x, y, z) {
+  var x = 4;
+  var y = 5;
+  var z = 7;
+}
+addThree();
 
 // ****
 // Concept Checkpoint
@@ -83,8 +106,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // else returns false
 // complete isEven() by returning a boolean expression
 
-function isEven(number) {
-}
+function isEven(number) {}
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -92,8 +114,7 @@ function isEven(number) {
 // else returns false
 // complete isDivisibleByThree() by returning a boolean expression
 
-function isDivisibleByThree(number) {
-}
+function isDivisibleByThree(number) {}
 
 // ****
 // Conditionals
@@ -107,8 +128,7 @@ function isDivisibleByThree(number) {
 // should return "fish" when character is 'nemo'
 // should return false if character is anything else
 
-function whichSpecies(character) {
-}
+function whichSpecies(character) {}
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -207,7 +227,7 @@ describe('Lesson 2 Homework', function () {
     });
   });
 
-  describe('Conditionals', function() {
+  describe('Conditionals', function () {
     describe('Problem 7: whichSpecies(character)', function () {
       it('should return "dog" when character is scooby', function () {
         assert.equal(whichSpecies('scooby'), 'dog');
