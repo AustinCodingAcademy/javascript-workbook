@@ -16,28 +16,29 @@ var myUndefined;
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+//Null is when you have assigned the value null. Undefined means that you never defined the variable's value.
 
-var myNull = null;
+var myNull=null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue = true;
+var myTrue=true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse = false;
+var myFalse=false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber = 9;
+var myNumber=10;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString = "Chris";
+var myString="I'm a string";
 
 // ****
 // Boolean Operators
@@ -46,57 +47,57 @@ var myString = "Chris";
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue = true;
+var trueAndTrue=true;
 
 // Problem 7:
 // What is the value of false && true
 
-var falseAndTrue = false;
+var falseAndTrue=false;
 
 // Problem 8:
 // What is the value of true && false
 
-var trueAndFalse = false;
+var trueAndFalse=false;
 
 // Problem 9:
 // What is the value of false && false
 
-var falseAndFalse = false;
+var falseAndFalse=false;
 
 // Problem 10:
 // What is the value of true || true
 
-var trueOrTrue = true;
+var trueOrTrue=true;
 
 // Problem 11:
 // What is the value of false || true
 
-var falseOrTrue = true;
+var falseOrTrue=true;
 
 // Problem 12:
 // What is the value of true || false
 
-var trueOrFalse = true;
+var trueOrFalse=true;
 
 // Problem 13:
 // What is the value of false || false
 
-var falseOrFalse = false;
+var falseOrFalse=false;
 
 // Problem 14:
 // What is the value of !false
 
-var notFalse = true;
+var notFalse=true;
 
 // Problem 15:
 // What is the value of !true
 
-var notTrue = false;
+var notTrue=false;
 
 // Problem 16:
 // What is the value of !!true
 
-var notNotTrue = true;
+var notNotTrue=true;
 
 // ****
 // Concept Checkpoint
@@ -106,7 +107,7 @@ var notNotTrue = true;
 // What is the difference between the "and" and the "or" operators? Explain why you would use each of them.
 //
 // Your Answer Goes Here:
-// The difference is dependent when you need to compare 2 items or between 2 items.
+//And operator means that all of the conditions specified are met. Or operatior means that at least one of the conditions specified is met
 // ****
 
 // ****
@@ -114,27 +115,27 @@ var notNotTrue = true;
 // ****
 
 var bob = 'bob';
-var emptyString = 'true';
+var emptyString = '';
 
 // Problem 17:
 // What is the value of !!bob
 
-var notNotBob = false;
+var notNotBob=true;
 
 // Problem 18:
 // What is the value of !!emptyString
 
-var notNotEmptyString = false;
+var notNotEmptyString=false;
 
 // Problem 19:
 // What is the value of !null
 
-var notNull = true;
+var notNull=true;
 
 // Problem 20:
 // What is the value of !!undefined
 
-var notNotUndefined = false;
+var notNotUndefined=false;
 
 // ****
 // Concept Checkpoint
@@ -144,7 +145,9 @@ var notNotUndefined = false;
 // Explain truthiness and falsiness in your own words. Provide an example for each.
 //
 // Your Answer Goes Here:
-//truthiness is a type of way of describing non-exact booleans
+//truthiness and falsiness are when things may not be ABSOLUTELY true or false, but fall more toward one of those absolutes than the other.
+//truthiness example: !null
+//falsiness example: !!undefined
 // ****
 
 // ****
@@ -153,47 +156,47 @@ var notNotUndefined = false;
 
 // Problem 21
 // What is the value of 4 === 4
-var fourEqualTofour = true;
+var fourEqualTofour=true;
 
 // Problem 22:
 // What is the value of 4 !== 4
-var fourNotEqualTofour = false;
+var fourNotEqualTofour=false;
 
 // Problem 23:
 // What is the value of -3 === 10
-var negativeThreeEqualToTen = false;
+var negativeThreeEqualToTen=false;
 
 // Problem 24:
 // What is the value of -3 < 10
-var negativeThreeLessThanTen =  true;
+var negativeThreeLessThanTen=true;
 
 // Problem 25:
 // What is the value of -3 <= 10
-var negativeThreeLessThanOrEqualToTen = true;
+var negativeThreeLessThanOrEqualToTen=true;
 
 // Problem 26:
 // What is the value of -3 > 10
-var negativeThreeGreaterThanTen = false;
+var negativeThreeGreaterThanTen=false;
 
 // Problem 27:
 // What is the value of -3 >= 10
-var negativeThreeGreaterThanOrEqualToTen = false;
+var negativeThreeGreaterThanOrEqualToTen=false;
 
 // Problem 28:
 // What is the value of '4' == 4
-var stringFourEqualsNumberFour = false;
+var stringFourEqualsNumberFour=true;
 
 // Problem 29:
 // What is the value of '4' != 4
-var stringFourNotEqualsNumberFour = false;
+var stringFourNotEqualsNumberFour=false;
 
 // Problem 30:
 // What is the value of '4' === 4
-var stringFourStrictEqualsNumberFour = false;
+var stringFourStrictEqualsNumberFour=false;
 
 // Problem 31:
 // What is the value of '4' !== 4
-var stringFourStrictNotEqualsNumberFour = true;
+var stringFourStrictNotEqualsNumberFour=true;
 
 // ****
 // Concept Checkpoint
@@ -203,12 +206,12 @@ var stringFourStrictNotEqualsNumberFour = true;
 // What’s the difference between == and ===?
 //
 // Your Answer Goes Here:
-//the === is a strict comparison that only compares like items (like comparing numbers with numbers and booleans with booleans) the == is less strict and can be used to other abstract types
+//=== is an absolute equal == means pretty much equals
 //
 // What’s the difference between != and !==?
 //
 // Your Answer Goes Here:
-//!= means not equal while the other is more strict and doesnt make exceptions for things that are almost true
+//!== is the absolute of not equalling and != is the mostly opposite
 // ****
 
 
