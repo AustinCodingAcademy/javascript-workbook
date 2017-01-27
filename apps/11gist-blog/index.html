@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Gist Blog</title>
+	<meta charset="UTF-8">
+	<title>Tony's Gist Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
+
+    <link rel="stylesheet" href="css/normalize.css">
+  	<link rel="stylesheet" href="css/skeleton.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+	<div class="container">
+		<div class="row">
+			<!-- <div class="three columns"></div> -->
+			<div class="twelve columns">
+				<h1 id="title">Tony's Gist Blog</h1>
+			</div>
+		</div>
+  		<div class="row">
+  			<div class="three columns">
+  				<ul id="posts"></ul>
+  			</div>
+			<div class="nine columns">
+				<div id="landing">
+					<p>Welcome to my site. Click a post to start reading.</p>
+				</div>
+				<div id="post"></div>
+				<h5 id="commentsHeader">Comments</h5>
+				<ul id="comments"></ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+ 	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
