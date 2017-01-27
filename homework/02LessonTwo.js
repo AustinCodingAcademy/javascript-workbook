@@ -26,6 +26,7 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  return argument1 === argument2;
 }
 
 // Problem 2:
@@ -34,17 +35,25 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  return parameter1 <= parameter2;
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(number1, number2) {
+  return number1 + number2;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(number1, number2, number3) {
+  return add(number1, number2) + number3;
+}
 
 // ****
 // Concept Checkpoint
@@ -55,20 +64,31 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // Your Answer Goes Here:
 //
+// A function is a set of statements that performs a task or calculates a value.
+// Define a function by using the function keyword, a unique name, parentheses around optional parameters, and code between curly brackets.
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
 //
+// The return statement stops the execution of a function and returns a value from that function.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
 //
+// You can define a named function as:
+// * a declaration: function funcName() {}
+// * an expression: var funcName = function() {}
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
+//
+// A parameter is a value inserted in the parentheses when you declare a function.
+// An argument is the value you pass in the parentheses when you call a function.
+// Although used interchangeably, they are different.
+// The actual argument is an instance of the formal parameter.
 //
 // ****
 
@@ -84,6 +104,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  return number % 2 === 0;
 }
 
 // Problem 6:
@@ -93,6 +114,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  return number % 3 === 0;
 }
 
 // ****
@@ -108,6 +130,15 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === 'scooby') {
+    return 'dog';
+  } else if (character === 'garfield') {
+    return 'cat';
+  } else if (character === 'nemo') {
+    return 'fish';
+  } else {
+    return false;
+  }
 }
 
 // Problem 8:
@@ -118,6 +149,13 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  var output = 'divisible by ';
+  if (number % 4 === 0) return output += '4';
+  if (number % 2 === 0) return output += '2';
+  if (number % 3 === 0) return output += '3';
+  if (number % 5 === 0) return output += '5';
+}
 
 // ****
 // Concept Checkpoint
@@ -128,6 +166,7 @@ function whichSpecies(character) {
 //
 // Your Answer Goes Here:
 //
+// You can use conditionals to perform different actions based on associated decisions.
 //
 // ****
 
