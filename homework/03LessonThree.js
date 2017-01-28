@@ -82,7 +82,7 @@ var problemSevenAnswer = 'second';
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: The ternary operator is a specific syntax for conditional statements. This is a way to write a conditional statement with much less code.
 //
 //
 
