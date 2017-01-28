@@ -12,7 +12,7 @@ var assert = require('assert');
 
 function alwaysFalse() {
   return false;
-}
+};
 
 // You can also define functions this way,
 // by assigning function definitions to variable
@@ -31,7 +31,7 @@ function equals(argument1, argument2) {
   } else {
     return false;
   }
-}
+};
 
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
@@ -44,7 +44,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
   } else {
     return false;
   }
-}
+};
 
 // Problem 3:
 // write a function named add(number1, number2)
@@ -55,7 +55,7 @@ var number2 = 5;
 
 function  add(number1, number2) {
   return number1 + number2;
-}
+};
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
@@ -69,7 +69,7 @@ var number3 = 6;
 function addThree(number1, number2, number3) {
   return number1 + number2 + number3;
   add(number1, number2, number3);
-}
+};
 
 
 // ****
@@ -115,7 +115,7 @@ function isEven(number) {
   } else {
     return false;
   }
-}
+};
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -129,7 +129,7 @@ function isDivisibleByThree(number) {
   } else {
     return false;
   }
-}
+};
 
 // ****
 // Conditionals
@@ -153,7 +153,7 @@ function whichSpecies(character) {
   } else {
     return false;
   }
-}
+};
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -173,7 +173,7 @@ function testNumber(number) {
   } else if(number % 5 === 0) {
     return "divisible by 5";
   }
-}
+};
 
 
 // ****
