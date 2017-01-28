@@ -1,7 +1,5 @@
 
 //what can I do as an adult
-
-
 // i want to print out ALL the things i can do when i am a certain age
 //whats wrong with this code from a logic standpoint
 var age = 66;
@@ -19,13 +17,16 @@ else{
 
 
 
+
+
+
+
 //whats wrong here
 if(age > 65)
 {
     console.log('you must retire');
 }
-
-if(age > 18)
+else if(age > 18)
 {
     console.log('you must continue working');
 }
