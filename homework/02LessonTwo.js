@@ -52,22 +52,16 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
-function add(x, y) {
-  var x = 5;
-  var y = 6;
+function addTwo(a + b) {
+
 }
+addTwo();
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
-function addThree(x, y, z) {
-  var x = 4;
-  var y = 5;
-  var z = 7;
-}
-addThree();
 
 // ****
 // Concept Checkpoint
