@@ -10,10 +10,16 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
+
   //Write code here
   //take it for granted that the variable hand1 will have whatever value the user types in at the prompt "hand1:"
   //take it for granted that the variable hand2 will have whatever value the user types in at the prompt "hand2:"
   //after the user types in a value for hand2 and hits the enter key, the computer will execute line 17 so start your first line of code there
+
+  // Write code here
+   if(hand1){
+   //does this indentation of 3 break the build?  
+   }  
 
 
 
