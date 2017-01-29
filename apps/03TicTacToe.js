@@ -6,6 +6,7 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 var board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -21,7 +22,7 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-}
+};
 
 function horizontalWin() {
   if(board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn || 
@@ -30,8 +31,8 @@ function horizontalWin() {
   return true;
   } else {
     return false;
-  }
-}
+  };
+};
 
 function verticalWin() {
   if(board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn || 
@@ -40,8 +41,8 @@ function verticalWin() {
   return true;
   } else {
     return false;
-  }
-}
+  };
+};
 
 function diagonalWin() {
   if(board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn || 
@@ -49,8 +50,8 @@ function diagonalWin() {
   return true; 
   } else {
     return false;
-  }
-}
+  };
+};
 
 function checkForWin() {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
@@ -58,16 +59,14 @@ function checkForWin() {
     return true;
   } else {
     return false;
-  }
-}
+  };
+};
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   checkForWin();
   playerTurn = playerTurn === 'X' ? 'O' : 'X';
-}
-
-
+};
 
 function getPrompt() {
   printBoard();
@@ -78,10 +77,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-
-}
-
-
+};
 
 // Tests
 
@@ -116,4 +112,4 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
-}
+};
