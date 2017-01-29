@@ -89,14 +89,14 @@ var problemSevenAnswer = 'second';
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [1, 3, 'chubby', null, 'niner'];
 
 // DO NOT MODIFY
-var nameArray = ['bob', 'fred', 'susan'];
+var nameArray = ['bob', 'george', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
@@ -104,7 +104,7 @@ var nameArray = ['bob', 'fred', 'susan'];
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
-  [4, 5, 6],
+  [4, 4, 6],
   [7, 8, 9]
 ];
 
@@ -113,7 +113,10 @@ var threeByThreeArray = [
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [
+  [1, 2],
+  [3, 4]
+];
 
 // ****
 // Tests
