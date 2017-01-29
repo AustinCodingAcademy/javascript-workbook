@@ -27,37 +27,38 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
-    
-
    (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || 
    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
      
-     return true;
    
      
-   
-}
+   return true;
+   }
 
 
 
 function verticalWin() {
   // Your code here
-       (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
-       (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
-       (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+   (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+   (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+   (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+
+   
         
-       return true;
+   return true;
     
 }
 
 
 function diagonalWin() {
   // Your code here
-        (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
-        (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)
+   (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+   (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)
 
-        return true;
+   
+
+   return true;
 
 
 
@@ -68,6 +69,7 @@ function checkForWin() {
   if(horizontalWin() === true || verticalWin() === true || diagonalWin() === true){
   console.log('Player ' + playerTurn + ' Won!');
   }
+ return true;
 }
 
 
@@ -78,10 +80,8 @@ function ticTacToe(row, column) {
     
     checkForWin();
     
-    playerTurn === 'X'  ? board[row][column] = playerTurn : board[row][column] = 'O';
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     
-    playerTurn = 'O';
-  
 }
 
 function getPrompt() {
