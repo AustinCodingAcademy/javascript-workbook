@@ -25,9 +25,9 @@ function printBoard() {
 };
 
 function horizontalWin() {
-  if(board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn || 
-  board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn || 
-  board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) { 
+  if((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || 
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || 
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) { 
   return true;
   } else {
     return false;
@@ -35,9 +35,9 @@ function horizontalWin() {
 };
 
 function verticalWin() {
-  if(board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn || 
-  board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn || 
-  board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+  if((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || 
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || 
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
   return true;
   } else {
     return false;
@@ -45,8 +45,8 @@ function verticalWin() {
 };
 
 function diagonalWin() {
-  if(board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn || 
-  board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn) {
+  if((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || 
+  (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn)) {
   return true; 
   } else {
     return false;
@@ -55,8 +55,8 @@ function diagonalWin() {
 
 function checkForWin() {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log('Player ' + playerTurn + ' Won!');
     return true;
+    console.log('Player ' + playerTurn + ' Won!');
   } else {
     return false;
   };
