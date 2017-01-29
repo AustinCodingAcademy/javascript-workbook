@@ -11,18 +11,23 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.toLowerCase();
   hand2 = hand2.toLowerCase();
-  // Write code here
+
+  var handPass = ['rock', 'paper', 'scissors']
+    // Write code here
+  if (handPass.indexOf(hand1) === -1 || handPass.indexOf(hand2) === -1) {
+    return "Oops, try again. Choose: rock, paper, or scissors";
+  }
+
   if (hand1 === hand2) {
     return "It's a tie!";
   }
   if (hand1 === 'rock') {
     if (hand2 === 'scissors') {
       return "Hand one wins!";
-    } else if (hand2 === 'paper') {
-      return "Hand two wins!";
     } else {
-      return "This is not a choice";
+      return "Hand two wins!";
     }
+
   }
   if (hand1 === 'paper') {
     if (hand2 === 'rock') {
@@ -37,9 +42,8 @@ function rockPaperScissors(hand1, hand2) {
     } else {
       return "Hand two wins!";
     }
-  } else {
-    return "This is not a choice";
   }
+
 }
 
 function getPrompt() {
