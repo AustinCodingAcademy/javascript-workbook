@@ -80,7 +80,7 @@ function ticTacToe(row, column) {
     
     checkForWin(); //test for a winning combination
     
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X'; //switch between players
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X'; // switch between players
     
 }
 
