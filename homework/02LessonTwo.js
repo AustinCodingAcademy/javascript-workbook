@@ -90,6 +90,7 @@ function addThree(x, y, z) {
 //
 // Your Answer Goes Here:
 //    Params are used to define functions; arguments are used to invoke/call the function.
+//   you define parameters, you make arguments.
 // ****
 
 
@@ -103,7 +104,13 @@ function addThree(x, y, z) {
 // else returns false
 // complete isEven() by returning a boolean expression
 
-function isEven(number) {}
+function isEven(number) {
+  if ((number % 2) === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -111,7 +118,13 @@ function isEven(number) {}
 // else returns false
 // complete isDivisibleByThree() by returning a boolean expression
 
-function isDivisibleByThree(number) {}
+function isDivisibleByThree(number) {
+  if ((number % 3) === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // ****
 // Conditionals
@@ -125,7 +138,19 @@ function isDivisibleByThree(number) {}
 // should return "fish" when character is 'nemo'
 // should return false if character is anything else
 
-function whichSpecies(character) {}
+function whichSpecies(character) {
+  if (character === 'scooby') {
+    return 'dog';
+  }
+  if (character === 'garfield') {
+    return 'cat';
+  }
+  if (character === 'nemo') {
+    return 'fish';
+  } else {
+    return false;
+  }
+}
 
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -135,6 +160,22 @@ function whichSpecies(character) {}
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  if ((number % 4) === 0) {
+    return 'divisible by 4';
+  }
+  if ((number % 2) === 0) {
+    return 'divisible by 2';
+  }
+  if ((number % 3) === 0) {
+    return 'divisible by 3';
+  }
+  if ((number % 5) === 0) {
+    return 'divisible by 5';
+  } else {
+    return false;
+  }
+}
 
 // ****
 // Concept Checkpoint
@@ -144,8 +185,8 @@ function whichSpecies(character) {}
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
-//
+// If, else, and else if are used to tell a function where to go next if certain conditions are met/true or if they're false.
+//  It's like a roadmap for things to try in order to get the correct output.
 // ****
 
 // ****
