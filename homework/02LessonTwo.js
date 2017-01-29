@@ -52,16 +52,19 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
-function addTwo(a + b) {
+function add(x, y) {
 
+  return x + y;
 }
-addTwo();
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(x, y, z) {
+  return x + y + z;
+}
 
 // ****
 // Concept Checkpoint
@@ -71,22 +74,22 @@ addTwo();
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
-//
+//  A function is how you tell javascript to do a certain action/group of actions.
+//  They do nothing until they're invoked
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+//  It stops the execution of the function.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
-//
+//  myFunction () {} this function is now called myFunction
+//  then you can go on into defining what that function does.
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+//    Params are used to define functions; arguments are used to invoke/call the function.
 // ****
 
 

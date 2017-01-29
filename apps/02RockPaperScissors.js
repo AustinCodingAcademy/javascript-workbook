@@ -7,6 +7,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+rockPaperScissors('value1', 'value2')
 
 function rockPaperScissors(hand1, hand2) {
 
@@ -59,19 +60,30 @@ function rockPaperScissors(hand1, hand2) {
 // trying to restart the game
 /*
 function checkForWin() {
-  if ('Hand one wins!', 'Hand two wins!') {
+  if ('Hand one wins!' || 'Hand two wins!') {
     return 'Do you want to play again?'
     if (true) {
       rockPaperScissors.restart();
     }
   }
-}
-*/
+}*/
+
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log(rockPaperScissors(answer1, answer2));
-      getPrompt();
+      // checking for win conditionals
+      var winMessage = rockPaperScissors(answer1, answer2);
+      console.log(winMessage);
+      if (winMessage === 'Hand two wins!' || winMessage === 'Hand one wins!') {
+        rl.question('Play Again? ', function (answer3) {
+          if (answer3 === 'yes') {
+            getPrompt();
+          } else {
+            console.log('later loser');
+            process.exit()
+          }
+        });
+      }
     });
   });
 }
