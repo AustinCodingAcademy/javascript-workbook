@@ -59,7 +59,7 @@ function pigLatin(word) {
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('Please type in a word to translate into Pig Latin: ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
