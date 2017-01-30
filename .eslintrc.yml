@@ -1,0 +1,22 @@
+env:
+  node: true
+  mocha: true
+  es6: true
+  # The below key-value pair does the same thing as 'es6: true'
+  # parser: babel-eslint
+extends: 'eslint:recommended'
+rules:
+  # indent:   '.eslintrc.yml' overrides '.eslintrc.json', so don't include it here
+   # - error
+   # - tab
+  # linebreak-style:
+  #  - error
+  #  - windows
+  quotes: off
+  no-undef: warn
+  no-unused-vars: warn
+  no-console: warn
+  semi:
+    - error
+    - always
+  no-constant-condition: warn
