@@ -40,7 +40,7 @@ function returnTheFirstArgument(firstArgument) {
 //
 // What is scope?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: An item's scope refers to where exactly it is accessible from. The rule of thumb is if it is defined immediately inside or outside of the current function, it is accessible.
 //
 //
 
