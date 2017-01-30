@@ -78,7 +78,7 @@ var problemSevenAnswer = 'second';
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: It is a shortcut for the if statement that takes three operands. example would be (condition) ? expression1 : expression2;
 //
 //
 
@@ -104,7 +104,7 @@ var nameArray = ['bob', 'george', 'susan'];
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
-  [4, 4, 6],
+  [4, 0, 6],
   [7, 8, 9]
 ];
 
@@ -113,10 +113,7 @@ var threeByThreeArray = [
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray = [
-  [1, 2],
-  [3, 4]
-];
+var twoByTwoArray = [[1, 2], [3, 4]];
 
 // ****
 // Tests
