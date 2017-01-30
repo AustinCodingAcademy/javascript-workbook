@@ -47,7 +47,7 @@ function pigLatin(word) {
   } else {
     return 'Invalid User Input';
   }
-}
+};
 
 function getPrompt() {
   rl.question('word ', (answer) => {
