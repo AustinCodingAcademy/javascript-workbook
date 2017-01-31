@@ -48,8 +48,8 @@ function pigLatin(word) {
 
   //decided all of this was unnessary and commented it out.*************
 
-  // if ((word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex) || vowelIndex === -1) {
-  //   vowelIndex = word.indexOf(vowel);
+  // if ((word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex) || vowelIndex === -1) {
+  //   vowelIndex = word.indexOf(a);
   //   console.log('VI: ' + vowelIndex);
   //   firstPart = word.slice(0, vowelIndex);
   //   restWord = word.slice(vowelIndex, word.length);
