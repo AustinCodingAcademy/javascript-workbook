@@ -25,22 +25,111 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn))
+    {
+    return true;
+    }
+  else
+    {
+    return false;
+    }
 }
 
 function verticalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn))
+    {
+    return true;
+    }
+  else
+    {
+    return false;
+    }
 }
 
 function diagonalWin() {
   // Your code here
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn))
+    {
+    return true;
+    }
+  else
+    {
+    return false;
+    }
 }
 
 function checkForWin() {
   // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin())
+    {
+    //Print the win message.
+    var totalTimesToLoop = 8;
+    var currentTimesToLoop = totalTimesToLoop;
+    var printedBoard = false;
+    var winString = 'HOLY CRAP PLAYER ' + playerTurn + ' WON!!!!!'
+    console.log('///////////////////////////');
+    while (currentTimesToLoop>0)
+      {
+      console.log(winString);
+      currentTimesToLoop=currentTimesToLoop-1;
+
+      if (printedBoard===false && (currentTimesToLoop<=(totalTimesToLoop/2)))
+        {
+        printedBoard=true;
+        printBoard();
+        }
+      }
+    console.log('///////////////////////////');
+    console.log('Resetting the board')
+
+    //Reset the board.
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+
+    //Reset the player turn to X. X Always starts a new game.
+    playerTurn='X';
+    return true;
+    }
+  else
+    {
+    //There were no wins, just go to the next turn.
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    return false;
+    }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  row=row.toString();
+  column=column.toString();
+  if ((row==='0' || row==='1' || row==='2') && (column==='0' || column==='1' || column==='2'))
+    {
+      //I entered a valid number. 
+      //Check if the slot is valid too.
+      if (board[row][column]===' ')
+        {
+        //This spot is empty, it is a valid spot to choose.
+        board[row][column] = playerTurn;
+
+        checkForWin();
+        }
+      else
+        {
+        console.log('//////////////////////////////////////////////////');
+        console.log('Sorry, this spot is already taken. Choose another.');
+        console.log('//////////////////////////////////////////////////');
+        }
+    }
+  else  
+    {
+    console.log('///////////////////////////////////////////////////////');
+    console.log('I dont understand. Use 0, 1, or 2 for columns and rows.');
+    console.log('///////////////////////////////////////////////////////');
+    }
 }
 
 function getPrompt() {
