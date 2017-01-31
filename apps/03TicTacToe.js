@@ -6,13 +6,20 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+//array to receive playerTurn values
+
 var board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
 ];
 
+//variable for mark on the board
+
 var playerTurn = 'X';
+
+//display the board
 
 function printBoard() {
   console.log('   0  1  2');
@@ -23,24 +30,50 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+// conditions for horizontal win
+
 function horizontalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn || 
+      board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn ||
+      board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+  }
 }
+
+// conditions for vertical win
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn || 
+      board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ||
+      board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+        return true;
+  }
 }
+
+// conditions for diagonal win
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn || 
+      board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+        return true;
+  }
 }
+
+// check for win
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
+    console.log('Player' + " " + playerTurn + " " + 'Wins!')
+    return true;
+  };
 }
 
+//tic tac toe function
+
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  checkForWin();
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
