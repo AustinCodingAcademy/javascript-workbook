@@ -113,7 +113,7 @@ var threeByThreeArray = [
 threeByThreeArray[1, 1] = '5'
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray; = [
+var twoByTwoArray = [
   [1, 2],
   [1, 2]
 ];
