@@ -19,9 +19,10 @@ function pigLatin(word) {
   //stores only the vowel
   var vowel = '';
   //checks to see if it starts with a vowel and if it does it adds 'yay' to the end
-  if (word.slice(0, 1) === 'a' || word.slice(0, 1) === 'e' || word.slice(0, 1) === 'i' || word.slice(0, 1) === 'o' || word.slice(0, 1) === 'u' || word.slice(0, 1) === 'y') {
-    return word + 'yay';
-  }
+  // if (word.slice(0, 1) === 'a' || word.slice(0, 1) === 'e' || word.slice(0, 1) === 'i' || word.slice(0, 1) === 'o' || word.slice(0, 1) === 'u' || word.slice(0, 1) === 'y') {
+  //   return word + 'yay';
+  // }
+
   //loops through 'word' and finds the first vowel
   for (var i = 0; i < word.length; i++) {
     if (word[i] === 'a' || word[i] === 'e' || word[i] === 'i' || word[i] === 'o' || word[i] === 'u' || word[i] === 'y') {
@@ -32,14 +33,16 @@ function pigLatin(word) {
       if ((word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex) || vowelIndex === -1) {
         vowelIndex = word.indexOf(vowel);
         console.log('vowel index: ' + vowelIndex);
+        if (vowelIndex === 0) {
+          return word + 'yay';
+        }
         firstPart = word.slice(0, vowelIndex);
-        restWord = word.slice(vowelIndex, word.length);
         console.log('first part: ' + firstPart);
+        restWord = word.slice(vowelIndex, word.length);
         console.log('restWord: ' + restWord);
         //returns the final word
         return restWord + firstPart + 'ay';
       }
-
     }
   }
 
