@@ -73,12 +73,17 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
+  //check duplicate
+  if ((board[row][column] === "O") || (board[row][column] === "X")) {
+  console.log("Spot already taken!!! Please restart.");
+  } else {
   //put the turn on the board
-  board[row][column] = playerTurn;
+   board[row][column] = playerTurn;
   //check for win
   checkForWin();
   //switch the players
   togglePlayerTurn();
+  }
 }
 
 function getPrompt() {
