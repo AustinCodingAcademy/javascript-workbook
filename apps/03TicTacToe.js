@@ -14,6 +14,18 @@ var board = [
 
 var playerTurn = 'X';
 
+function reset () {
+  var board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+}
+
+function togglePlayerTurn() {
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+}
+
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -24,23 +36,56 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+   //check for horizontal win
+  if ((board [0][0] === playerTurn) && (board [0][1] === playerTurn) && (board [0][2] === playerTurn)) {
+    return true;
+  }
+  if ((board [1][0] === playerTurn) && (board [1][1] === playerTurn) && (board [1][2] === playerTurn)) {
+    return true;
+  }
+  if ((board [2][0] === playerTurn) && (board [2][1] === playerTurn) && (board [2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  //check for vertical win
+  if ((board [0][0] === playerTurn) && (board [1][0] === playerTurn) && (board [2][0] === playerTurn)) {
+    return true;
+  }
+  if ((board [0][1] === playerTurn) && (board [1][1] === playerTurn) && (board [2][1] === playerTurn)) {
+    return true;
+  }
+  if ((board [0][2] === playerTurn) && (board [1][2] === playerTurn) && (board [2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  //check for diagonal win
+  if ((board [0][0] === playerTurn) && (board [1][1] === playerTurn) && (board [2][2] === playerTurn)) {
+    return true;
+  }
+  if ((board [0][2] === playerTurn) && (board [1][1] === playerTurn) && (board [2][0] === playerTurn)) {
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + ' Won!');
+    reset();
+    return true;
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  //put the turn on the board
+  board[row][column] = playerTurn;
+  //check for win
+  checkForWin();
+  //switch the players
+  togglePlayerTurn();
 }
 
 function getPrompt() {
