@@ -162,6 +162,20 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number){
+    if (number%4 ===0){
+      return "divisible by 4";
+    } else if(number%2 ===0){
+      return "divisible by 2";
+    }else if(number%3 ===0){
+      return "divisible by 3";
+    } else {
+      return "divisible by 5";
+    }
+
+
+}
+
 
 // ****
 // Concept Checkpoint
