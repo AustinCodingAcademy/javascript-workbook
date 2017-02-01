@@ -78,7 +78,7 @@ var problemSevenAnswer = 'second';
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
 // Your Answer Goes Here:
-// A ternary operator checks if a condition is met and then
+// A ternary operator takes 3 operands to check if a condition is met (operand 1) and then returns one of the two values (operand 2 , operand 3). If the condition is met/true, the first value is returned (operand 2); if the condition is not met/is false, the second value is returned (operand 3).
 //
 
 
