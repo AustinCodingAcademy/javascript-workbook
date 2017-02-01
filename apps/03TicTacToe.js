@@ -14,6 +14,12 @@ var board = [
 
 var playerTurn = 'X';
 
+function togglePlayerTurn() {
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+}
+
+togglePlayerTurn();
+
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -24,23 +30,42 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if (board[0][0,1,2] || board[1][0,1,2] || board[2][0,1,2] === [X,X,X]) {
+    return("X wins!");
+  }
+   else board [0][0,1,2] || board [1][0,1,2] || board [2][0,1,2] === [X,X,X]; {
+    return("X wins!");
+  }
+  
 }
 
 function verticalWin() {
-  // Your code here
+   if (board [0,1,2][0] || board[0,1,2][1] || board[0,1,2][2] === [X,X,X]) {
+    return("X wins!");
+  }
+  else board [0,1,2][0] || board [0,1,2][1] || board [0,1,2][2] === [O,O,O]; {
+    return("O wins!");
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if (board [0][0] && [1][1] && [0][2] || board [0][2] && [1][1] && [2][0] === [X,X,X]) {
+    return("X wins!");
+  }
+  else board [0][0] && [1][1] && [0][2] || board [0][2] && [1][1] && [2][0] === [O,O,O]; {
+    return("O wins!");
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    return ("Winner winner chicken dinner");
+  }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+
 }
 
 function getPrompt() {
