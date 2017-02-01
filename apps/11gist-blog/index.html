@@ -29,7 +29,7 @@
 					<p>Welcome to my site. Click a post to start reading.</p>
 				</div>
 				<div id="post"></div>
-				<h5 id="comments-header">Comments</h5>
+				<div id="comments-header"></div>
 				<ul id="comments"></ul>
 			</div>
 		</div>
@@ -39,6 +39,10 @@
 		<li>
 			<a class="post-links" href="#" data-url="{{url}}">{{title}}</a>
 		</li>
+	</template>
+
+	<template id="comments-total-template">
+		<h5>Comments ({{total}})</h5>
 	</template>
 
 	<template id="comment-template">

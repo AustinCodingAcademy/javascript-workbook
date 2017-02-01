@@ -11,11 +11,16 @@ $(document).ready(function() {
     var $commentsHeader = $('#comments-header');
     var $comments = $('#comments');
 
-    var commentTemplate = $('#comment-template').html();
     var postListTemplate = $('#post-list-template').html();
+    var commentsTotalTemplate = $('#comments-total-template').html();
+    var commentTemplate = $('#comment-template').html();
 
     function populatePostList(post) {
         $posts.append(Mustache.render(postListTemplate, post));
+    }
+
+    function populateCommentsTotal(total) {
+    	$commentsHeader.append(Mustache.render(commentsTotalTemplate, total));
     }
 
     function populateComments(comment) {
@@ -43,7 +48,6 @@ $(document).ready(function() {
                 var dataUrl = $(this).data('url');
 
 				$landing.hide();
-				$commentsHeader.show();
                 $.ajax(dataUrl, postContentSettings);
             });
         }
@@ -53,9 +57,15 @@ $(document).ready(function() {
 		success: function(res) {
 			var content = res.files["post.md"].content;
 			var commentsUrl = res.comments_url;
+			var commentsTotalData = {
+				total: res.comments
+			}
 
 			$post.empty();
 			$post.append(marked(content));
+
+			$commentsHeader.empty();
+			populateCommentsTotal(commentsTotalData);
 
 			$.ajax(commentsUrl, commentListSettings);
 		}
@@ -66,13 +76,12 @@ $(document).ready(function() {
 			$comments.empty();
 
 	        res.forEach(function(comment) {
-	        	var avatarUrl = comment.user.avatar_url;
 	        	var createdDate = new Date(comment.created_at);
 	        	var date = createdDate.toDateString().substring(4);
 	        	var time = createdDate.toLocaleTimeString();
 
                 var commentData = {
-                    avatar: avatarUrl,
+                    avatar: comment.user.avatar_url,
                     user: comment.user.login,
                     date: date,
                     body: comment.body,
