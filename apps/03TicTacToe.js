@@ -30,42 +30,49 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  if (board[0][0,1,2] || board[1][0,1,2] || board[2][0,1,2] === [X,X,X]) {
-    return("X wins!");
+  if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
+    return true;
   }
-   else board [0][0,1,2] || board [1][0,1,2] || board [2][0,1,2] === [X,X,X]; {
-    return("X wins!");
-  }
-  
+  if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
+    return true;
+  } 
+  if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+    return true;
+  } 
 }
 
 function verticalWin() {
-   if (board [0,1,2][0] || board[0,1,2][1] || board[0,1,2][2] === [X,X,X]) {
-    return("X wins!");
-  }
-  else board [0,1,2][0] || board [0,1,2][1] || board [0,1,2][2] === [O,O,O]; {
-    return("O wins!");
-  }
+   if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+    return true;
+  } 
+  if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
+    return true;
+  } 
+  if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+    return true;
+  } 
 }
 
 function diagonalWin() {
-  if (board [0][0] && [1][1] && [0][2] || board [0][2] && [1][1] && [2][0] === [X,X,X]) {
-    return("X wins!");
-  }
-  else board [0][0] && [1][1] && [0][2] || board [0][2] && [1][1] && [2][0] === [O,O,O]; {
-    return("O wins!");
-  }
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+    return true;
+  } 
+  if (board[2][2] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn) {
+    return true;
+  } 
 }
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
-    return ("Winner winner chicken dinner");
+    console.log('Player' + playerTurn + 'Won!');
+    return true;
   }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
-
+  board[row][column] = playerTurn
+  checkForWin();
+  togglePlayerTurn();
 }
 
 function getPrompt() {

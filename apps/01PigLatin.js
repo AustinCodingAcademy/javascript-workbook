@@ -36,12 +36,11 @@ if ( ( word.indexOf('y') > -1 && word.indexOf('y') < firstVowel ) || firstVowel 
 var firstPart = word.slice(0, firstVowel);
 var restWord = word.slice(firstVowel, word.length);
 
-return restWord + firstPart + "ay";
 
 if ( vowelIndex === 0) {
   return word + "yay";
 }
-
+return restWord + firstPart + "ay";
 //leave the curly brace below alone
 }
 
