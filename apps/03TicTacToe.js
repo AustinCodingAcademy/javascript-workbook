@@ -32,12 +32,42 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-//tic tac toe function
+// tic tac toe function
 
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
-  checkForWin();
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  //determine if the spot on the board is already taken
+
+  if (board[row][column] != " ") {
+    console.log("This space is taken. Please pick again.");
+
+  //if not...place mark, switch players and check for win
+
+  } else {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  };
+}
+
+// check for win function
+
+function checkForWin() {
+  if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
+    console.log('Player' + " " + playerTurn + " " + 'Wins!')
+    startOver();
+    return true;
+  };
+}
+
+// function to provide a clear board after a winner is found
+
+function startOver() {
+  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+  return board;
 }
 
 // conditions for horizontal win
@@ -67,27 +97,6 @@ function diagonalWin() {
   board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
     return true;
   }
-}
-
-// check for win
-
-function checkForWin() {
-  if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
-    console.log('Player' + " " + playerTurn + " " + 'Wins!')
-    startOver();
-    return true;
-  };
-}
-
-//function to provide a clear board after a winner is found
-
-function startOver() {
-  board = [
-    [' ', ' ', ' '],
-    [' ', ' ', ' '],
-    [' ', ' ', ' ']
-  ];
-  return board;
 }
 
 function getPrompt() {
