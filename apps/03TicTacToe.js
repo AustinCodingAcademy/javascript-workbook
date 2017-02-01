@@ -24,28 +24,39 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[0][2] === playerTurn && board[2][2] === playerTurn && board[2][0] === playerTurn)) {
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin(true) || verticalWin(true) || diagonalWin(true)) {
+    console.log('Player ' + playerTurn + ' wins!');
+    return true;
+  }
+  return false;
 }
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-
+  checkForWin();
+  toggleTurn();
 }
 
 function toggleTurn() {
-  playerTurn = (playerTurn === 'X')? 'O' : 'X';
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
@@ -54,7 +65,6 @@ function getPrompt() {
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
-      toggleTurn();
       getPrompt();
     });
   });
