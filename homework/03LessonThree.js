@@ -20,17 +20,17 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
-function returnTheFirstArgument(firstArgument) {
+function returnTheFirstArgument(FirstArgument) {
   var firstArgument = 'bob';
-  return firstArgument;
+  return FirstArgument;
 }
 
 // ****
@@ -57,19 +57,19 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = 'first' ;
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = 'second';
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = 'first';
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = 'second';
 
 // ****
 // Concept Checkpoint
@@ -89,14 +89,15 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [ 'red', 'blue', 'green', 'white', 'black'];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
+nameArray[1] = 'george';
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
@@ -110,10 +111,14 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
+threeByThreeArray[1,1] = '8';
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [
+  [1,2],
+  [1,2]
+];
 
 // ****
 // Tests

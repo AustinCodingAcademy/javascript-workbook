@@ -25,7 +25,10 @@ var alwaysTrue = function() {
 // return a boolean expression that is true when
 // argument1 is equal to argument2
 
-function equals(argument1, argument2) {}
+function equals(argument1, argument2) {
+  if ( argument1 == argument2){
+  return true;}
+}
 
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
@@ -33,6 +36,8 @@ function equals(argument1, argument2) {}
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {}
+if (argument1 <= argument2){
+return true;}
 
 // Problem 3:
 // write a function named add(number1, number2)
@@ -89,7 +94,7 @@ function addThree() {
     // complete isEven() by returning a boolean expression
 
     function isEven(number) {
-        if (number % % 2) {
+        if (number %% 2) {
             return true;
         } else {
             return false;
@@ -102,7 +107,7 @@ function addThree() {
         // complete isDivisibleByThree() by returning a boolean expression
 
         function isDivisibleByThree(number) {
-            if (number % % 3) {
+            if (number % 3) {
                 return true;
             } else {
                 return false;
@@ -147,16 +152,16 @@ function addThree() {
         // return the string "divisible by 5" when number % 5 === 0
 
         function testNumber(number) {
-            if (number % % 4 === 0) {
+            if (number % 4 === 0) {
                 return "divisible by 4";
             }
-            if (number % % 2 === 0) {
+            if (number % 2 === 0) {
                 return "divisible by 2";
             }
-            if (number % % 3 === 0) {
+            if (number % 3 === 0) {
                 return "divisible by 3";
             }
-            if (number % % 5 === 0) {
+            if (number % 5 === 0) {
                 return "divisible by 5"
             }
         }

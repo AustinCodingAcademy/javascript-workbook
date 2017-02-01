@@ -41,6 +41,7 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   // Your code here
+  console.log('I work', row, column)
 }
 
 function getPrompt() {
