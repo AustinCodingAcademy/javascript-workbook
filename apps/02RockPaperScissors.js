@@ -56,18 +56,6 @@ function rockPaperScissors(hand1, hand2) {
 
 }
 
-
-// trying to restart the game
-/*
-function checkForWin() {
-  if ('Hand one wins!' || 'Hand two wins!') {
-    return 'Do you want to play again?'
-    if (true) {
-      rockPaperScissors.restart();
-    }
-  }
-}*/
-
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
