@@ -38,15 +38,23 @@ function verticalWin() {
 };
 
 function diagonalWin() {
-  // Your code here
+  if((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn));
+  return true;
 };
 
 function checkForWin() {
-  // Your code here
-}
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + ' Won!');
+    return true;
+  } else {
+    return false;
+  }
+};
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
+  checkForWin();
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   
 };
