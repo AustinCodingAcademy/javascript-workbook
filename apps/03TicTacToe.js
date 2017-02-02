@@ -14,6 +14,7 @@ var board = [
 ];
 
 var playerTurn = 'X';
+// var counter = 1;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -53,19 +54,52 @@ function diagonalWin() {
   };
 };
 
+// var possibleMoves = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
+
+
+
+function clearBoard() {
+  board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+  ];
+};
+
+
+
 function checkForWin() {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
-    return true;
     console.log('Player ' + playerTurn + ' Won!');
+    clearBoard();
+    return true;
   } else {
     return false;
   };
 };
 
 function ticTacToe(row, column) {
+  
+  // check for invalid input
+  
+  if(row > 2) {
+    console.log('Invalid User Input');
+    return false;
+  } else if(column > 2) { 
+    console.log('Invalid User Input');
+    return false;
+  } 
+
+  // checks for slots that have already been played
+
+  if(board[row][column] !== ' ') {
+    console.log('Already Been Played!');
+    return true;
+  }
+  
   board[row][column] = playerTurn;
   checkForWin();
-  playerTurn = playerTurn === 'X' ? 'O' : 'X';
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 };
 
 function getPrompt() {

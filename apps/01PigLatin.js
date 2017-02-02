@@ -7,11 +7,25 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+function findVowel(vowelIndex, word, vowel) {
+  if ( ( word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf(vowel);
+  }
+  return vowelIndex;
+};
+
+// Another way to do the same thing instead of writing all of those if statements below.
 
 function pigLatin(word) {
   var firstLetter = word[0];
   var vowelIndex = -1;
   word = word.toLowerCase();
+  findVowel(vowelIndex, word, "a");
+  findVowel(vowelIndex, word, "e");
+  findVowel(vowelIndex, word, "i");
+  findVowel(vowelIndex, word, "o");
+  findVowel(vowelIndex, word, "u");
+
 
   if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
     vowelIndex = word.indexOf('a');

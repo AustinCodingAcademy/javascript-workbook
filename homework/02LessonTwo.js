@@ -68,7 +68,7 @@ var number3 = 6;
 
 function addThree(number1, number2, number3) {
   return number1 + number2 + number3;
-  add(number1, number2, number3);
+  add();
 };
 
 
