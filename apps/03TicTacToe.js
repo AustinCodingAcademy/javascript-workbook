@@ -26,7 +26,7 @@ function printBoard() {
 function horizontalWin() {
   if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
     return true;
-  }else {
+  } else {
     return false;
   }
 }
@@ -34,7 +34,7 @@ function horizontalWin() {
 function verticalWin() {
   if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
     return true;
-  }else {
+  } else {
     return false;
   }
 }
@@ -48,13 +48,21 @@ function diagonalWin() {
 }
 
 function checkForWin() {
+  var playerO = 0;
+  var playerX = 0;
   if (horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log(playerTurn + ' wins! Resetting Board.');
+    console.log('Player ' + playerTurn + ' wins! Resetting Board.');
     board = [
       [' ', ' ', ' '],
       [' ', ' ', ' '],
       [' ', ' ', ' ']
     ];
+    if (playerTurn === 'X') {
+      playerX++;
+    } else {
+      playerO++;
+    }
+    console.log('Current score X: ' + playerX + '   O: ' + playerO);
     return true;
   }
 
@@ -69,11 +77,22 @@ function changePlayer() {
 }
 
 function ticTacToe(row, column) {
+  if (!(row == 0 || row == 1 || row == 2) || !(column == 0 || column == 1 || column == 2)) {
+    console.log('Invalid entry, please try again')
+    return;
+  }
   if (board[row][column] !== ' ') {
-    console.log('Invalid entry');
+    console.log('That spot appears taken, please try again');
     return;
   } else {
     board[row][column] = playerTurn;
+    changePlayer();
+    if (playerTurn === 'O') {
+      row = Math.floor(Math.random() * 3);
+      column = Math.floor(Math.random() * 3);
+      ticTacToe(row, column);
+    }
+    checkForWin();
   }
   checkForWin();
   changePlayer();

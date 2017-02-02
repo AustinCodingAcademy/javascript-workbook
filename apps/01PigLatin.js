@@ -109,7 +109,6 @@ function pigLatin(word) {
   // }
 }
 
-
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log(pigLatin(answer));
