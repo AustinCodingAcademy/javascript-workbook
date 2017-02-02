@@ -12,6 +12,7 @@ var stacks = {
   b: [],
   c: []
 };
+var disk = stacks.a.length;
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -19,15 +20,23 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
+  // Your code here : move disks #n-1 from A to B, then move disk n to C. then move n-1 diss from B to C
+   var temp;
+
+    temp = stacks[startStack].pop();
+    stacks[endStack].push(temp);
+   }
+
+    
+
+  
+
+function isLegal(startStack, endStack) {
   // Your code here
 
 }
 
-function isLegal() {
-  // Your code here
-
-}
 
 function checkForWin() {
   // Your code here
@@ -36,7 +45,8 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  isLegal(startStack, endStack);
+  movePiece(startStack, endStack);
 }
 
 function getPrompt() {

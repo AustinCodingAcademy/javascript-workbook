@@ -12,6 +12,26 @@ var board = [
   [' ', ' ', ' ']
 ];
 
+function resetBoard(){
+ board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+return board;
+}
+
+function checkCell(){
+  var i = 0;
+    for(i = 0; i <= board.length; i++){
+      if(board[i][i] !== '' ){
+        baord[i][i] = board
+        return getPrompt();
+      }
+    return 0;
+  }
+};
+
 
 
 var playerTurn = 'X';
@@ -29,12 +49,13 @@ function printBoard() {
    function with return true; The value of horizontallWin() is now the boolean value of true*/
 function horizontalWin() {
   // Your code here
-  
+  if(
    (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || 
    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
-     
+  ){ 
  return true;
+  }
 }
 
 
@@ -43,11 +64,13 @@ of the columns, exit the function by returning true when the value of playerTurn
  three matching vertical cells*/
 function verticalWin() {
   // Your code here
+  if(
    (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
-   
+  ){
  return true;
+  }
 }
 
 /* Do the same as the first two tests, only change will be the cells we are searching. I searched
@@ -55,31 +78,35 @@ function verticalWin() {
   true to exit the function */
 function diagonalWin() {
   // Your code here
+  if(
    (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
    (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)
-
+  ){
  return true;
+  }
 }
 /* Test to see if any of the winning functions above are true, In the event they are, out to the console
    the player which has won. to exit this function, return the boolean value of true */
 function checkForWin() {
   // Your code here
   if(horizontalWin() === true || verticalWin() === true || diagonalWin() === true){
-  console.log('Player ' + playerTurn + ' Won!');
+     console.log('Player ' + playerTurn + ' Won!');
+  resetBoard();
+return true;
   }
- return true;
+
+
 }
 
-
-/*This is where the game will be played. playerTurn is default as 'X', assign it to the board and
+/* This is where the game will be played. playerTurn is default as 'X', assign it to the board and
   use the check for win function to test if the game has a winner, otherwise, change playerTurn to
-  'O' and continue to play Tic Tac Toe*/
+  'O' and continue to play Tic Tac Toe */
 function ticTacToe(row, column) {
   // Your code here
     board[row][column] = playerTurn; // add player to the board
     
-    checkForWin(); //test for a winning combination
-    
+    checkForWin() // test for a winning combination
+    checkCell();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X'; // switch between players
     
 }

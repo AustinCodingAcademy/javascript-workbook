@@ -10,6 +10,23 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) { // rock paper and scissors are hard coded
 
+// use a random number to allow a a psuedo like AI
+function AI(){
+ var computer = (Math.random());
+var result;
+  switch(computer){
+    case computer <= .33:
+       result = "scissors";
+       break;
+    case computer > .33 || computer <= .66:
+       result = 'paper';
+       break;
+    case computer > .66:
+       result = 'rock';
+      break;
+  }
+}
+
   // Write code here
 if(hand1 === 'paper' && hand2 === 'rock'){
   return "Hand1 Wins";
