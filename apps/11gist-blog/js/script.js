@@ -2,8 +2,8 @@
 
 $(document).ready(function() {
 
-    var PATH_TO_GISTS_JSON = 'api/gists.json';
-    //var PATH_TO_GISTS_JSON = 'https://api.github.com/users/arinaldi/gists';
+    //var PATH_TO_GISTS_JSON = 'api/gists.json';
+    var PATH_TO_GISTS_JSON = 'https://api.github.com/users/arinaldi/gists';
 
     var $posts = $('#posts');
     var $landing = $('#landing');

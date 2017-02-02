@@ -44,3 +44,8 @@ body {
 .comment {
 	margin-left: 15px;
 }
+
+img {
+	max-width: 100%;
+	box-sizing: border-box;
+}
