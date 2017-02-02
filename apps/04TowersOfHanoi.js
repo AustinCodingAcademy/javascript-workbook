@@ -21,7 +21,7 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  // Your code here : move disks #n-1 from A to B, then move disk n to C. then move n-1 diss from B to C
+  // Your code here : 
    var temp;
 
     temp = stacks[startStack].pop();
@@ -34,19 +34,26 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
   // Your code here
-
+  if(stacks[endStack].length === 0 || stacks[startStack] < stacks[endStack]){
+    return true;
+  }
+return false;
 }
 
-
-function checkForWin() {
+function checkForWin(){
   // Your code here
-
+  if(stacks[b].length === 3 || stacks[c].length === 3 ){
+    console.log("You Won!!!");
+    return true;
+  }
+return false;
 }
-
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  //checkForWin();
   isLegal(startStack, endStack);
   movePiece(startStack, endStack);
+  
 }
 
 function getPrompt() {
