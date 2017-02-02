@@ -26,7 +26,7 @@ function reset() {
  //reset the win and tie values
  detectWin = false;
  detectTie = false;
- console.log("\nNew Game! Please enter a value.");
+ console.log("\nNew Game! Please enter a value.\n");
 }
 
 function togglePlayerTurn() {
@@ -80,7 +80,7 @@ function diagonalWin() {
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log('Player ' + playerTurn + ' Won!');
+    console.log('\nPlayer ' + playerTurn + ' Won!');
     detectWin = true;
     return true;
   }
@@ -96,17 +96,19 @@ function checkForTie() {
     }
   }
   if (count === 9) {
-      console.log("It's a tie! New Game has started.");
+      console.log("\nIt's a tie! New Game has started.");
       detectTie = true;
   }
 }
 
 
 function ticTacToe(row, column) {
+  var validValues = [0,1,2];
+  if ((row in validValues) && (column in validValues)) {
   //check duplicate
   // if ((board[row][column] === "O") || (board[row][column] === "X")) { 
   if (board[row][column]!== ' ') {
-  console.log("Spot already taken!!! Please restart.");
+  console.log("\nSpot already taken!!! Please restart.\n");
   } else {
   //put the turn on the board
    board[row][column] = playerTurn;
@@ -116,6 +118,9 @@ function ticTacToe(row, column) {
   checkForTie();
   //switch the players
   togglePlayerTurn();
+   }
+  } else {
+    console.log("Please enter a valid value between 0 and 2!!!\n")
   }
 }
 
@@ -123,12 +128,12 @@ function getPrompt() {
   printBoard();
   if (detectWin === false) {
     if (detectTie === false) {
-  console.log("It's Player " + playerTurn + "'s turn.");
+  console.log("\nIt's Player " + playerTurn + "'s turn.\n");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
       getPrompt();
-    });
+    }, ' \n');
     });} else {
       reset();
       getPrompt();
