@@ -50,7 +50,27 @@ function diagonalWin() {
   }
 }
 
+function checkTie() {
+  var i = 0;
+  if (board[0][0] !== ' ' && board[0][1] !== ' ' && board[0][2] !== ' ' && board[1][0] !== ' ' && board[1][1] !== ' ' && board[1][2] !== ' ' && board[2][0] !== ' ' && board[2][1] !== ' ' && board[2][2] !== ' ') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function checkForWin() {
+  if (checkTie()) {
+    tie++;
+    console.log('It is a tie! Resetting Board. Changing player.');
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    console.log('Current score X: ' + playerX + '   O: ' + playerO + '   Tie: ' + tie);
+    return true;
+  }
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' wins! Resetting Board.');
     board = [
@@ -94,6 +114,7 @@ function ticTacToe(row, column) {
   if (board[row][column] !== ' ') {
     console.log('That spot appears taken, please try again');
     //the following two functions make the AI make a random move until it finds a spot that isnt taken
+    checkForWin();
     randomAiMove(playerTurn, row, column);
     getPrompt();
     return;
