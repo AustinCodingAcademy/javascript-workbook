@@ -28,7 +28,7 @@ function horizontalWin() {
   if((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
   (board[1][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
   (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
-  return true;
+    return true;
   };
 };
 
@@ -61,8 +61,8 @@ function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' Won!');
     newGame();
-    return true;
-  } else {
+    return true;}
+  else {
     return false;
   };
 };
@@ -71,8 +71,11 @@ function checkForWin() {
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   checkForWin();
+    if (board[row][column] != ' ') {
+      console.log ('Please select another space');
+    }
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-  
+
 };
 
 function getPrompt() {
