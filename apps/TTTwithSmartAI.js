@@ -12,6 +12,11 @@ var board = [
   [' ', ' ', ' ']
 ];
 
+var blankBoard = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
 var playerTurn = 'X';
 var playerO = 0;
 var playerX = 0;
@@ -220,8 +225,7 @@ function AImove(playerTurn, row, column) {
       ticTacToe(0, 0);
     } else if (board[2][0] === ' ' && ((board[2][1] === 'X' || board[1][0] === 'X' || board[0][0] === 'X') && board[0][2] !== 'X')) {
       ticTacToe(0, 2);
-    }
-    else if (board[0][0] === ' ' && board[1][1] === 'X') {
+    } else if (board[0][0] === ' ' && board[1][1] === 'X') {
       ticTacToe(0, 0);
     }
     //take optimal side 
@@ -335,4 +339,15 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
+}
+
+function masterMove(board, blankBoard, playerTurn, row, column) {
+  if (board === blankBoard) {
+    ticTacToe(0, 0);
+  }
+  if (board === [['O', ' ', ' '],['X', ' ', ' '],[' ', ' ', ' ']] || board === [['O', ' ', ' '],[' ', ' ', ' '],['X', ' ', ' ']] ) {
+    ticTacToe(0, 2);
+  }else if (board === [['O', 'X', ' '],[' ', ' ', ' '],[' ', ' ', ' ']] || board === [['O', ' ', 'X'],[' ', ' ', ' '],[' ', ' ', ' ']]){
+    ticTacToe(1, 0);
+  }
 }
