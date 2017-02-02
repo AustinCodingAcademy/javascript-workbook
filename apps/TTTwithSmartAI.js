@@ -69,6 +69,7 @@ function checkForWin() {
       [' ', ' ', ' ']
     ];
     console.log('Current score X: ' + playerX + '   O: ' + playerO + '   Tie: ' + tie);
+    //changePlayer();
     return true;
   }
   if (horizontalWin() || verticalWin() || diagonalWin()) {
@@ -84,6 +85,7 @@ function checkForWin() {
       playerO++;
     }
     console.log('Current score X: ' + playerX + '   O: ' + playerO + '   Tie: ' + tie);
+    //changePlayer();
     return true;
   }
 
@@ -99,64 +101,140 @@ function changePlayer() {
 
 function AImove(playerTurn, row, column) {
   if (playerTurn === 'O') {
-    if(board[1][1] === ' '){
+    if (board[1][1] === ' ') {
       ticTacToe(1, 1);
-      //take win horizontal
-    }else if (board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === ' '){
+    }
+    //take win horizontal
+    else if (board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === ' ') {
       ticTacToe(0, 2);
-    }else if (board[0][0] === 'O' && board[0][1] === ' ' && board[0][2] === 'O'){
+    } else if (board[0][0] === 'O' && board[0][1] === ' ' && board[0][2] === 'O') {
       ticTacToe(0, 1);
-    }else if (board[0][0] === ' ' && board[0][1] === 'O' && board[0][2] === 'O'){
+    } else if (board[0][0] === ' ' && board[0][1] === 'O' && board[0][2] === 'O') {
       ticTacToe(0, 0);
-    }else if (board[1][0] === 'O' && board[1][1] === 'O' && board[1][2] === ' '){
+    } else if (board[1][0] === 'O' && board[1][1] === 'O' && board[1][2] === ' ') {
       ticTacToe(1, 2);
-    }else if (board[1][0] === 'O' && board[1][1] === ' ' && board[1][2] === 'O'){
+    } else if (board[1][0] === 'O' && board[1][1] === ' ' && board[1][2] === 'O') {
       ticTacToe(1, 1);
-    }else if (board[1][0] === ' ' && board[1][1] === 'O' && board[1][2] === 'O'){
+    } else if (board[1][0] === ' ' && board[1][1] === 'O' && board[1][2] === 'O') {
       ticTacToe(1, 0);
-    }else if (board[2][0] === 'O' && board[2][1] === 'O' && board[2][2] === ' '){
+    } else if (board[2][0] === 'O' && board[2][1] === 'O' && board[2][2] === ' ') {
       ticTacToe(2, 2);
-    }else if (board[2][0] === 'O' && board[2][1] === ' ' && board[2][2] === 'O'){
+    } else if (board[2][0] === 'O' && board[2][1] === ' ' && board[2][2] === 'O') {
       ticTacToe(2, 1);
-    }else if (board[2][0] === ' ' && board[2][1] === 'O' && board[2][2] === 'O'){
+    } else if (board[2][0] === ' ' && board[2][1] === 'O' && board[2][2] === 'O') {
       ticTacToe(2, 0);
     }
     //take win vertical
-    }else if (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === ' '){
+    else if (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === ' ') {
       ticTacToe(2, 0);
-    }else if (board[0][0] === 'O' && board[1][0] === ' ' && board[2][0] === 'O'){
+    } else if (board[0][0] === 'O' && board[1][0] === ' ' && board[2][0] === 'O') {
       ticTacToe(1, 0);
-    }else if (board[0][0] === ' ' && board[1][0] === 'O' && board[2][0] === 'O'){
+    } else if (board[0][0] === ' ' && board[1][0] === 'O' && board[2][0] === 'O') {
       ticTacToe(0, 0);
-    }else if (board[0][1] === 'O' && board[1][1] === 'O' && board[2][1] === ' '){
+    } else if (board[0][1] === 'O' && board[1][1] === 'O' && board[2][1] === ' ') {
       ticTacToe(2, 1);
-    }else if (board[0][1] === 'O' && board[1][1] === ' ' && board[2][1] === 'O'){
+    } else if (board[0][1] === 'O' && board[1][1] === ' ' && board[2][1] === 'O') {
       ticTacToe(1, 1);
-    }else if (board[0][1] === ' ' && board[1][1] === 'O' && board[2][1] === 'O'){
+    } else if (board[0][1] === ' ' && board[1][1] === 'O' && board[2][1] === 'O') {
       ticTacToe(0, 1);
-    }else if (board[0][2] === 'O' && board[1][2] === 'O' && board[2][2] === ' '){
+    } else if (board[0][2] === 'O' && board[1][2] === 'O' && board[2][2] === ' ') {
       ticTacToe(2, 2);
-    }else if (board[0][2] === 'O' && board[1][2] === ' ' && board[2][2] === 'O'){
+    } else if (board[0][2] === 'O' && board[1][2] === ' ' && board[2][2] === 'O') {
       ticTacToe(1, 2);
-    }else if (board[0][2] === ' ' && board[1][2] === 'O' && board[2][2] === 'O'){
+    } else if (board[0][2] === ' ' && board[1][2] === 'O' && board[2][2] === 'O') {
       ticTacToe(0, 2);
     }
     //take win diaginol
-    else if (board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === ' '){
+    else if (board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === ' ') {
       ticTacToe(2, 2);
-    }else if (board[0][0] === 'O' && board[1][1] === ' ' && board[2][2] === 'O'){
+    } else if (board[0][0] === 'O' && board[1][1] === ' ' && board[2][2] === 'O') {
       ticTacToe(1, 1);
-    }else if (board[0][0] === ' ' && board[1][1] === 'O' && board[2][2] === 'O'){
+    } else if (board[0][0] === ' ' && board[1][1] === 'O' && board[2][2] === 'O') {
       ticTacToe(0, 0);
-    }else if (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === ' '){
+    } else if (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === ' ') {
       ticTacToe(2, 0);
-    }else if (board[0][0] === 'O' && board[1][0] === ' ' && board[2][0] === 'O'){
+    } else if (board[0][0] === 'O' && board[1][0] === ' ' && board[2][0] === 'O') {
       ticTacToe(1, 0);
-    }else if (board[0][0] === ' ' && board[1][0] === 'O' && board[2][0] === 'O'){
+    } else if (board[0][0] === ' ' && board[1][0] === 'O' && board[2][0] === 'O') {
       ticTacToe(0, 0);
     }
+    //block win horizontal
+    else if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === ' ') {
+      ticTacToe(0, 2);
+    } else if (board[0][0] === 'X' && board[0][1] === ' ' && board[0][2] === 'X') {
+      ticTacToe(0, 1);
+    } else if (board[0][0] === ' ' && board[0][1] === 'X' && board[0][2] === 'X') {
+      ticTacToe(0, 0);
+    } else if (board[1][0] === 'X' && board[1][1] === 'X' && board[1][2] === ' ') {
+      ticTacToe(1, 2);
+    } else if (board[1][0] === 'X' && board[1][1] === ' ' && board[1][2] === 'X') {
+      ticTacToe(1, 1);
+    } else if (board[1][0] === ' ' && board[1][1] === 'X' && board[1][2] === 'X') {
+      ticTacToe(1, 0);
+    } else if (board[2][0] === 'X' && board[2][1] === 'X' && board[2][2] === ' ') {
+      ticTacToe(2, 2);
+    } else if (board[2][0] === 'X' && board[2][1] === ' ' && board[2][2] === 'X') {
+      ticTacToe(2, 1);
+    } else if (board[2][0] === ' ' && board[2][1] === 'X' && board[2][2] === 'X') {
+      ticTacToe(2, 0);
+    }
+    //block win vertical
+    else if (board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === ' ') {
+      ticTacToe(2, 0);
+    } else if (board[0][0] === 'X' && board[1][0] === ' ' && board[2][0] === 'X') {
+      ticTacToe(1, 0);
+    } else if (board[0][0] === ' ' && board[1][0] === 'X' && board[2][0] === 'X') {
+      ticTacToe(0, 0);
+    } else if (board[0][1] === 'X' && board[1][1] === 'X' && board[2][1] === ' ') {
+      ticTacToe(2, 1);
+    } else if (board[0][1] === 'X' && board[1][1] === ' ' && board[2][1] === 'X') {
+      ticTacToe(1, 1);
+    } else if (board[0][1] === ' ' && board[1][1] === 'X' && board[2][1] === 'X') {
+      ticTacToe(0, 1);
+    } else if (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === ' ') {
+      ticTacToe(2, 2);
+    } else if (board[0][2] === 'X' && board[1][2] === ' ' && board[2][2] === 'X') {
+      ticTacToe(1, 2);
+    } else if (board[0][2] === ' ' && board[1][2] === 'X' && board[2][2] === 'X') {
+      ticTacToe(0, 2);
+    }
+    //block win diaginol
+    else if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === ' ') {
+      ticTacToe(2, 2);
+    } else if (board[0][0] === 'X' && board[1][1] === ' ' && board[2][2] === 'X') {
+      ticTacToe(1, 1);
+    } else if (board[0][0] === ' ' && board[1][1] === 'X' && board[2][2] === 'X') {
+      ticTacToe(0, 0);
+    } else if (board[2][0] === 'X' && board[1][1] === 'X' && board[0][2] === ' ') {
+      ticTacToe(0, 2);
+    } else if (board[2][0] === 'X' && board[1][1] === ' ' && board[0][2] === 'X') {
+      ticTacToe(1, 1);
+    } else if (board[2][0] === ' ' && board[1][1] === 'X' && board[0][2] === 'X') {
+      ticTacToe(2, 0);
+    }
+    //take corner
+    else if (board[0][0] === ' ' && ((board[0][1] === 'X' || board[1][0] === 'X') || board[2][2] === ' ')) {
+      ticTacToe(0, 0);
+    } else if (board[0][2] === ' ' && ((board[0][1] === 'X' || board[1][2] === 'X') || board[2][0] === ' ')) {
+      ticTacToe(0, 2);
+    } else if (board[2][2] === ' ' && ((board[1][2] === 'X' || board[2][1] === 'X') || board[0][0] === ' ')) {
+      ticTacToe(2, 2);
+    } else if (board[2][0] === ' ' && ((board[2][1] === 'X' || board[1][0] === 'X') || board[0][2] === ' ')) {
+      ticTacToe(2, 0);
+    }else if (board[0][0] === ' ' && board[1][1] === 'X'){
+      ticTacToe(0, 0);
+    }
+    //no other moves
+    else if (board [0][0] === 'X' || board [0][2] === 'X' || board [2][2] === 'X' || board [2][0] === 'X'){
+      row = Math.floor(Math.random() * 3);
+      column = Math.floor(Math.random() * 3);
+      ticTacToe(row, column);
+    }else {
+      row = Math.floor(Math.random() * 3);
+      column = Math.floor(Math.random() * 3);
+      ticTacToe(row, column);
+    }
   }
-  // ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn))
 }
 
 function ticTacToe(row, column) {
