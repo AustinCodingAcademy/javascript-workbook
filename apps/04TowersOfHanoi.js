@@ -35,12 +35,16 @@ function isLegal(startStack, endStack) {
     return startArray[startArray.length - 1] 
     < endArray[endArray.length - 1];
   }
-}
+};
 
 function checkForWin() {
-  // Your code here
-
-}
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+    console.log("You Won!");
+    return true;
+  } else {
+    return false;
+  }
+};
 
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
@@ -51,7 +55,7 @@ function towersOfHanoi(startStack, endStack) {
   if (checkForWin()) {
     process.exit();
   }
-}
+};
 
 function getPrompt() {
   printStacks();
