@@ -78,7 +78,8 @@ function changePlayer() {
 
 function ticTacToe(row, column) {
   if (!(row == 0 || row == 1 || row == 2) || !(column == 0 || column == 1 || column == 2)) {
-    console.log('Invalid entry, please try again')
+    console.log('Invalid entry, please try again');
+    //other terninary here
     return;
   }
   if (board[row][column] !== ' ') {
@@ -86,6 +87,15 @@ function ticTacToe(row, column) {
     return;
   } else {
     board[row][column] = playerTurn;
+    changePlayer();
+    //beggining of AI
+    //maybe write a terninary here or up there that switch back and forth to force the game to keep trying
+    if (playerTurn === 'O') {
+      row = Math.floor(Math.random() * 3);
+      column = Math.floor(Math.random() * 3);
+      ticTacToe(row, column);
+    }
+    checkForWin();
   }
   checkForWin();
   changePlayer();
