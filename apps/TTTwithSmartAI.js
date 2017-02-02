@@ -51,7 +51,6 @@ function diagonalWin() {
 }
 
 function checkTie() {
-  var i = 0;
   if (board[0][0] !== ' ' && board[0][1] !== ' ' && board[0][2] !== ' ' && board[1][0] !== ' ' && board[1][1] !== ' ' && board[1][2] !== ' ' && board[2][0] !== ' ' && board[2][1] !== ' ' && board[2][2] !== ' ') {
     return true;
   } else {
@@ -144,19 +143,19 @@ function AImove(playerTurn, row, column) {
     } else if (board[0][2] === ' ' && board[1][2] === 'O' && board[2][2] === 'O') {
       ticTacToe(0, 2);
     }
-    //take win diaginol
+    //take win diagonal
     else if (board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === ' ') {
       ticTacToe(2, 2);
     } else if (board[0][0] === 'O' && board[1][1] === ' ' && board[2][2] === 'O') {
       ticTacToe(1, 1);
     } else if (board[0][0] === ' ' && board[1][1] === 'O' && board[2][2] === 'O') {
       ticTacToe(0, 0);
-    } else if (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === ' ') {
+    } else if (board[0][2] === 'O' && board[1][1] === 'O' && board[2][0] === ' ') {
       ticTacToe(2, 0);
-    } else if (board[0][0] === 'O' && board[1][0] === ' ' && board[2][0] === 'O') {
-      ticTacToe(1, 0);
-    } else if (board[0][0] === ' ' && board[1][0] === 'O' && board[2][0] === 'O') {
-      ticTacToe(0, 0);
+    } else if (board[0][2] === 'O' && board[1][1] === ' ' && board[2][0] === 'O') {
+      ticTacToe(1, 1);
+    } else if (board[0][2] === ' ' && board[1][1] === 'O' && board[2][0] === 'O') {
+      ticTacToe(0, 2);
     }
     //block win horizontal
     else if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === ' ') {
@@ -198,7 +197,7 @@ function AImove(playerTurn, row, column) {
     } else if (board[0][2] === ' ' && board[1][2] === 'X' && board[2][2] === 'X') {
       ticTacToe(0, 2);
     }
-    //block win diaginol
+    //block win diagonal
     else if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === ' ') {
       ticTacToe(2, 2);
     } else if (board[0][0] === 'X' && board[1][1] === ' ' && board[2][2] === 'X') {
@@ -213,23 +212,34 @@ function AImove(playerTurn, row, column) {
       ticTacToe(2, 0);
     }
     //take corner
-    else if (board[0][0] === ' ' && ((board[0][1] === 'X' || board[1][0] === 'X') || board[2][2] === ' ')) {
-      ticTacToe(0, 0);
-    } else if (board[0][2] === ' ' && ((board[0][1] === 'X' || board[1][2] === 'X') || board[2][0] === ' ')) {
-      ticTacToe(0, 2);
-    } else if (board[2][2] === ' ' && ((board[1][2] === 'X' || board[2][1] === 'X') || board[0][0] === ' ')) {
+    else if (board[0][0] === ' ' && ((board[0][1] === 'X' || board[1][0] === 'X' || board[1][2] === 'X') && board[2][2] !== 'X')) {
       ticTacToe(2, 2);
-    } else if (board[2][0] === ' ' && ((board[2][1] === 'X' || board[1][0] === 'X') || board[0][2] === ' ')) {
+    } else if (board[0][2] === ' ' && ((board[0][1] === 'X' || board[1][2] === 'X' || board[2][1] === 'X') && board[2][0] !== 'X')) {
       ticTacToe(2, 0);
-    }else if (board[0][0] === ' ' && board[1][1] === 'X'){
+    } else if (board[2][2] === ' ' && ((board[1][2] === 'X' || board[2][1] === 'X' || board[1][0] === 'X') && board[0][0] !== 'X')) {
+      ticTacToe(0, 0);
+    } else if (board[2][0] === ' ' && ((board[2][1] === 'X' || board[1][0] === 'X' || board[0][0] === 'X') && board[0][2] !== 'X')) {
+      ticTacToe(0, 2);
+    }
+    else if (board[0][0] === ' ' && board[1][1] === 'X') {
       ticTacToe(0, 0);
     }
+    //take optimal side 
+    else if (board[0][1] === ' ' && ((board[0][0] === 'X' || board[0][2] === 'X') && board[2][1] !== 'X')) {
+      ticTacToe(0, 1);
+    } else if (board[1][2] === ' ' && ((board[0][2] === 'X' || board[2][2] === 'X') && board[1][0] !== 'X')) {
+      ticTacToe(1, 2);
+    } else if (board[2][1] === ' ' && ((board[0][2] === 'X' || board[0][0] === 'X') && board[0][1] !== 'X')) {
+      ticTacToe(2, 1);
+    } else if (board[1][0] === ' ' && ((board[2][2] === 'X' || board[0][2] === 'X') && board[1][2] !== 'X')) {
+      ticTacToe(1, 0);
+    }
     //no other moves
-    else if (board [0][0] === 'X' || board [0][2] === 'X' || board [2][2] === 'X' || board [2][0] === 'X'){
+    else if (board[0][0] === 'X' || board[0][2] === 'X' || board[2][2] === 'X' || board[2][0] === 'X') {
       row = Math.floor(Math.random() * 3);
       column = Math.floor(Math.random() * 3);
       ticTacToe(row, column);
-    }else {
+    } else {
       row = Math.floor(Math.random() * 3);
       column = Math.floor(Math.random() * 3);
       ticTacToe(row, column);
@@ -239,7 +249,7 @@ function AImove(playerTurn, row, column) {
 
 function ticTacToe(row, column) {
   checkForWin();
-  if (!(row === '0' || row === '1' || row === '2') || !(column === '0' || column === '1' || column === '2')) {
+  if (!(row == 0 || row == 1 || row == 2) || !(column == 0 || column == 1 || column == 2)) {
     console.log('Invalid entry, please try again')
     return;
   }

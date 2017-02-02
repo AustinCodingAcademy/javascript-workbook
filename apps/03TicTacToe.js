@@ -13,6 +13,9 @@ var board = [
 ];
 
 var playerTurn = 'X';
+var playerO = 0;
+var playerX = 0;
+var tie = 0;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -47,9 +50,27 @@ function diagonalWin() {
   }
 }
 
+function checkTie() {
+  var i = 0;
+  if (board[0][0] !== ' ' && board[0][1] !== ' ' && board[0][2] !== ' ' && board[1][0] !== ' ' && board[1][1] !== ' ' && board[1][2] !== ' ' && board[2][0] !== ' ' && board[2][1] !== ' ' && board[2][2] !== ' ') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function checkForWin() {
-  var playerO = 0;
-  var playerX = 0;
+  if (checkTie()) {
+    tie++;
+    console.log('It is a tie! Resetting Board. Changing player.');
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    console.log('Current score- X: ' + playerX + '   O: ' + playerO + '   Tie: ' + tie);
+    return true;
+  }
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' wins! Resetting Board.');
     board = [
@@ -62,7 +83,7 @@ function checkForWin() {
     } else {
       playerO++;
     }
-    console.log('Current score X: ' + playerX + '   O: ' + playerO);
+    console.log('Current score X: ' + playerX + '   O: ' + playerO + '   Tie: ' + tie);
     return true;
   }
 
@@ -77,7 +98,7 @@ function changePlayer() {
 }
 
 function ticTacToe(row, column) {
-  if (!(row === '0' || row === '1' || row === '2') || !(column === '0' || column === '1' || column === '2')) {
+  if (!(row == 0 || row == 1 || row == 2) || !(column == 0 || column == 1 || column == 2)) {
     console.log('Invalid entry, please try again')
     return;
   }
