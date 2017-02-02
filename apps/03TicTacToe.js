@@ -72,8 +72,8 @@ function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   checkForWin();
   if (board[row][column] != ' ') {
-      console.log ('Please select another space');
-    }
+    console.log ('Please select another space');
+  }
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 
 };
