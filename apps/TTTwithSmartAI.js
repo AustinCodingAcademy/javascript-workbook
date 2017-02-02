@@ -239,7 +239,7 @@ function AImove(playerTurn, row, column) {
 
 function ticTacToe(row, column) {
   checkForWin();
-  if (!(row == 0 || row == 1 || row == 2) || !(column == 0 || column == 1 || column == 2)) {
+  if (!(row === '0' || row === '1' || row === '2') || !(column === '0' || column === '1' || column === '2')) {
     console.log('Invalid entry, please try again')
     return;
   }
