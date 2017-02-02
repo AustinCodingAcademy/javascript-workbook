@@ -72,7 +72,12 @@ function ticTacToe(row, column) {
     console.log("Invalid input.");
     return false;
   }
-  
+
+  if(board[row][column] !== ' ') {
+    console.log("Place has already been marked. Try again.");
+    return false;
+  }
+
   board[row][column] = playerTurn;
   checkForWin();
   //switches between players
