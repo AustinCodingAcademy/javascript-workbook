@@ -86,7 +86,19 @@ function getPrompt() {
 
 }
 
+/*  unedited getPrompt in case I need it.
+function getPrompt() {
+  printBoard();
+  console.log("It's Player " + playerTurn + "'s turn.");
+  rl.question('row: ', (row) => {
+    rl.question('column: ', (column) => {
+      ticTacToe(row, column);
+      getPrompt();
+    });
+  });
 
+}
+*/
 
 // Tests
 
