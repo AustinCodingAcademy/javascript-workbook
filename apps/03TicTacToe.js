@@ -49,11 +49,13 @@ function diagonalWin() {
 function checkForWin() {
   if ((horizontalWin() || verticalWin() || diagonalWin()) === true ){
     console.log('Player ' + playerTurn + ' Won!');
+    startOver();
     return true;
   }
 }
 
 function ticTacToe(row, column) {
+  
   board[row][column] = playerTurn;
   checkForWin();
   playerTurn = (playerTurn === 'O') ? 'X' : 'O';
@@ -71,19 +73,26 @@ function getPrompt() {
 }
 
 function startOver() {
-  if (checkForWin(true)) {
-    var board = [
-    [' ', ' ', ' '],
-    [' ', ' ', ' '],
-    [' ', ' ', ' ']
-  ];
-    getPrompt();
-  }
+  board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']];
+  return board;
 }
+
+// function checkIfPiece() {
+//   if ( !== 0,1,2) {
+//     return console.log('Not a valid turn. Choose "X" or "O".');
+//   }
+//   if ( !== 0,1,2) {
+//     return console.log('Not a valid turn. Choose "X" or "O".');
+//   }
+// }
 
 // Tests
 
 if (typeof describe === 'function') {
+
 
   describe('#ticTacToe()', function () {
     it('should place mark on the board', function () {
