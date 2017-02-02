@@ -73,9 +73,10 @@ function ticTacToe(row, column) {
     return false;
   }
 
+  //Can't select space that's already been marked
   if(board[row][column] !== ' ') {
     console.log("Place has already been marked. Try again.");
-    return false;
+    return true;
   }
 
   board[row][column] = playerTurn;
