@@ -32,20 +32,7 @@ function printBoard() {
 }
 function checkForWin() {
   // All Win functions are inside this function.  
-// if    (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn ||
-//       board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn ||
-//       board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn ||
-//       board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn ||
-//       board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ||
-//       board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn ||
-//       board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn ||
-//       board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ||
-//       board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
-//         return true;
-//   }
-//   else { 
-//     return false;
-//   }
+
 if (horizontalWin() || verticalWin() || diagonalWin()) {
   return true;
 }
