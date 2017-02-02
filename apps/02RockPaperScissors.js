@@ -7,10 +7,9 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-  // Hand one is just a variable that will just have the word Rock Paper or Scissor in it!
+  // Hand one is a variable that will just have the word Rock Paper or Scissor in it!
 
   //Spec 1 - If it's a tie, return "It's a tie!" It must be exactly "It's a tie!" for the tests to pass
-  // Write code here
 
 
 function rockPaperScissors(hand1, hand2) {

@@ -48,6 +48,7 @@ function diagonalWin() {
   };
 };
 
+// New game function will reset the board variable after any of the wins return true.
 function newGame() {
   board = [
   [' ', ' ', ' '],

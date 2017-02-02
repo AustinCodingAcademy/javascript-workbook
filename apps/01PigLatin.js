@@ -45,6 +45,8 @@ function pigLatin(word) {
   var firstPart = word.slice(0, vowelIndex);
   var restWord  = word.slice(vowelIndex, word.length)
 
+//Conditional added to notify the user if anything other than a word is input.
+
   if(vowelIndex > 0) {
     return restWord + firstPart + 'ay';
   } else if (vowelIndex === 0) {
