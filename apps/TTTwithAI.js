@@ -13,6 +13,9 @@ var board = [
 ];
 
 var playerTurn = 'X';
+var playerO = 0;
+var playerX = 0;
+var tie = 0;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -48,8 +51,6 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  var playerO = 0;
-  var playerX = 0;
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' wins! Resetting Board.');
     board = [
@@ -62,7 +63,7 @@ function checkForWin() {
     } else {
       playerO++;
     }
-    console.log('Current score X: ' + playerX + '   O: ' + playerO);
+    console.log('Current score X: ' + playerX + '   O: ' + playerO + '   Tie: ' + tie);
     return true;
   }
 
@@ -76,6 +77,14 @@ function changePlayer() {
   }
 }
 
+function randomAiMove(playerTurn, row, column) {
+  if (playerTurn === 'O') {
+    row = Math.floor(Math.random() * 3);
+    column = Math.floor(Math.random() * 3);
+    ticTacToe(row, column);
+  }
+}
+
 function ticTacToe(row, column) {
   if (!(row == 0 || row == 1 || row == 2) || !(column == 0 || column == 1 || column == 2)) {
     console.log('Invalid entry, please try again');
@@ -84,17 +93,15 @@ function ticTacToe(row, column) {
   }
   if (board[row][column] !== ' ') {
     console.log('That spot appears taken, please try again');
+    //the following two functions make the AI make a random move until it finds a spot that isnt taken
+    randomAiMove(playerTurn, row, column);
+    getPrompt();
     return;
   } else {
     board[row][column] = playerTurn;
     changePlayer();
-    //beggining of AI
-    //maybe write a terninary here or up there that switch back and forth to force the game to keep trying
-    if (playerTurn === 'O') {
-      row = Math.floor(Math.random() * 3);
-      column = Math.floor(Math.random() * 3);
-      ticTacToe(row, column);
-    }
+    //calls AI functin to make a random move
+    randomAiMove(playerTurn, row, column);
     checkForWin();
   }
   checkForWin();
