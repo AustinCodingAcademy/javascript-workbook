@@ -68,6 +68,16 @@ function ticTacToe(row, column) {
   checkForWin();
   //switches between players
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+
+// checks for invalid input
+  if(row > 2 || isNaN(row)) {
+    console.log("Invalid input.");
+    return false;
+  } else if(column > 2 || isNaN(column)) {
+    console.log("Invalid input.");
+    return false;
+  }
+
   
 }
 
