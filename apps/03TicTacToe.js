@@ -22,6 +22,14 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
+//starting a new game after a win
+function newGame() {
+  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+}
 
 //finding a horizontal win from players
 function horizontalWin() {
@@ -50,6 +58,7 @@ function diagonalWin() {
 function checkForWin() {
   if(horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
     console.log("Player " + playerTurn + " is the winner!");
+    newGame();
     return true;
   }
 }
