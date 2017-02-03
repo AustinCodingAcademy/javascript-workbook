@@ -19,11 +19,12 @@ function printFullName() {
 var firstName = 'susan';
 
 // Problem 1:
-// What is the value of firstName at this point in the file?
+// What is the value of firstName at this point in the file?  susan
+
 var valueOfFirstName = 'susan';
 
 // Problem 2:
-// What is the value of lastName at this point in the file?
+// What is the value of lastName at this point in the file? plaid
 var valueOfLastName = 'plaid';
 
 // Problem 3:
