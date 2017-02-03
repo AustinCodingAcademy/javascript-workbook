@@ -9,13 +9,11 @@
 
     <link rel="stylesheet" href="css/normalize.css">
   	<link rel="stylesheet" href="css/skeleton.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<!-- <div class="three columns"></div> -->
 			<div class="twelve columns">
 				<h1 id="title">Tony's Gist Blog</h1>
 			</div>
@@ -49,10 +47,9 @@
 		<li>
 			<img class="avatar" src="{{avatar}}" />
 			<span class="user">{{user}}</span>
-			<span class="date">{{date}}</span>
+			<span class="date">{{date}} at {{time}}</span>
 			<br />
-			<span class="comment">{{body}}</span>
-			<span class="date">{{time}}</span>
+			<div class="comment">{{{body}}}</div>
 		</li>
 	</template>
 

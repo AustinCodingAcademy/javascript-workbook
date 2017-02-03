@@ -84,7 +84,7 @@ $(document).ready(function() {
                     avatar: comment.user.avatar_url,
                     user: comment.user.login,
                     date: date,
-                    body: comment.body,
+                    body: marked(comment.body),
                     time: time
                 };
 

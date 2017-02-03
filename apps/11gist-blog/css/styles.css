@@ -34,7 +34,7 @@ body {
 .user {
 	float: left;
 	font-weight: 600;
-	margin-left: 15px;
+	margin-left: 5px;
 }
 
 .date {
@@ -42,7 +42,9 @@ body {
 }
 
 .comment {
-	margin-left: 15px;
+	margin-left: 5px;
+	padding-left: 50px;
+    padding-top: 5px;
 }
 
 img {
