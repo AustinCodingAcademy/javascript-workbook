@@ -54,8 +54,6 @@ function diagonalWin() {
 
 function checkForWin() {
   // Your code here
-  //if checkForWin === false and there are no free spaces === tie
-  //prevent overwriting
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' won!');
     return true;
@@ -68,6 +66,7 @@ function isSpaceAvailable(row, column) {
   return (board[row][column] !== 'O' && board[row][column] !== 'X');
 }
 
+
 function ticTacToe(row, column) {
   // Your code here
   // check for availability
@@ -79,22 +78,13 @@ function ticTacToe(row, column) {
   }
 }
 
+
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       // checking for win
-      if (winMessage === 'Player ' + playerTurn + ' won!') {
-        rl.question('Play Again? ', function (answer3) {
-          if (answer3 === 'yes') {
-            ticTacToe.reset();
-          } else {
-            console.log('later loser');
-            process.exit()
-          }
-        });
-      }
       checkForWin();
       ticTacToe(row, column);
       getPrompt();
