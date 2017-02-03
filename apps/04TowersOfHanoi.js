@@ -28,9 +28,7 @@ function movePiece(startStack, endStack) {
     stacks[endStack].push(temp);
    }
 
-    
-
-  
+    // penguins are the best
 
 function isLegal(startStack, endStack) {
   // Your code here
@@ -42,18 +40,20 @@ return false;
 
 function checkForWin(){
   // Your code here
-  if(stacks[b].length === 3 || stacks[c].length === 3 ){
-    console.log("You Won!!!");
+if(stacks['b'].length === 4 || stacks['c'].length === 4){
     return true;
   }
+  
 return false;
+  
 }
+
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  //checkForWin();
+  
   isLegal(startStack, endStack);
   movePiece(startStack, endStack);
-  
+  checkForWin();
 }
 
 function getPrompt() {
