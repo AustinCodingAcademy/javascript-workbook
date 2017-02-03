@@ -31,18 +31,18 @@ body {
     margin-top: 5px;
 }
 
-.user {
-	float: left;
-	font-weight: 600;
-	margin-left: 5px;
-}
-
 .date {
 	float: right;
 }
 
+.user {
+	float: left;
+	font-weight: 600;
+	margin-left: 10px;
+}
+
 .comment {
-	margin-left: 5px;
+	margin-left: 10px;
 	padding-left: 50px;
     padding-top: 5px;
 }
