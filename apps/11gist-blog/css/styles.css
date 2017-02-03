@@ -10,7 +10,7 @@ body {
 	list-style: none;
 }
 
-#comments li {
+#comments li.borderline {
 	border-top: 1px solid #999;
 	margin-bottom: 30px;
 	margin-top: 10px;
