@@ -12,7 +12,7 @@ var stacks = {
   b: [],
   c: []
 };
-var disk = stacks.a.length;
+
 
 function printStacks() {
   console.log("a: " + stacks.a);
