@@ -49,10 +49,18 @@ function checkForWin() {
   return false;
 }
 
+function isSpaceAvailable(row, column) {
+  return (board[row][column] === "X" || board[row][column] === "O");
+}
+
 function ticTacToe(row, column) {
+  if (isSpaceAvailable(row, column)) {
+    console.log("Sorry, invalid move.");
+  } else {
   board[row][column] = playerTurn;
   checkForWin();
   toggleTurn();
+  }
 }
 
 function toggleTurn() {
