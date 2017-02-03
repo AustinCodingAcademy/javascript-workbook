@@ -22,7 +22,7 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-
+// win conditions
 function horizontalWin() {
   if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
     (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
@@ -45,18 +45,19 @@ function diagonalWin() {
     return true;
   }
 }
-
+//win condition check
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' Won!');
     return true;
   }
 }
-
+// checking for a full board
 function isSpaceAvailable(row, column) {
   return (board[row][column] === ' ');
 }
 
+//checking for a tie
 function checkForFullBoard() {
   for (var i = 0; i <= 2; i++) {
     for (var j = 0; j <= 2; j++) {
@@ -72,11 +73,12 @@ function checkForFullBoard() {
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
 
+  // exit if someone won
   if (checkForWin()) {
     process.exit();
     return;
   }
-
+  // exist if the board is full
   if (checkForFullBoard()) {
     process.exit();
     return;
@@ -85,6 +87,7 @@ function ticTacToe(row, column) {
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
+//checks for win conditions and if a space is taken while it executes the game
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
@@ -101,8 +104,6 @@ function getPrompt() {
   });
 
 }
-
-
 
 // Tests
 
