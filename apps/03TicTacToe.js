@@ -53,10 +53,8 @@ function checkForWin() {
   }
 }
 
-function checkForTakenSquare(row, column) {
-  if (board[row][column] !== ' ') {
-    return true;
-  }
+function isSpaceAvailable(row, column) {
+  return (board[row][column] === ' ');
 }
 
 function checkForFullBoard() {
@@ -92,11 +90,11 @@ function getPrompt() {
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
-      if (checkForTakenSquare(row, column)) {
-        console.log('Square taken, try again');
+      if (isSpaceAvailable(row, column)) {
+        ticTacToe(row, column);
         getPrompt();
       } else {
-        ticTacToe(row, column);
+        console.log('Square taken, try again');
         getPrompt();
       }
     });
@@ -116,7 +114,10 @@ if (typeof describe === 'function') {
       assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
     });
     it('should detect a taken square', function () {
-      assert.equal(checkForTakenSquare(1, 1), true);
+      assert.equal(isSpaceAvailable(1, 1), false);
+    });
+    it('should detect a free square', function () {
+      assert.equal(isSpaceAvailable(2, 2), true);
     });
     it('should alternate between players', function () {
       ticTacToe(0, 0);
