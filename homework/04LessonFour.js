@@ -76,12 +76,14 @@ var problemNineObject = {
 // update city so that its value is austin
 problemNineObject['fav food'] = "tacos"
 problemNineObject['city'] = "austin"
-// Problem 10:
-// DON'T EDIT nestedObjects!!!!
+  // Problem 10:
+  // DON'T EDIT nestedObjects!!!!
 var nestedObjects = {
   someNumbers: [1, 2, 3.14159, 4, 5, 6],
-  users: {    'fred astaire':
-  {      hometown: 'Omaha'    },
+  users: {
+    'fred astaire': {
+      hometown: 'Omaha'
+    },
     'bob roberts': {
       starring: 'John Cusack'
     }
@@ -89,16 +91,16 @@ var nestedObjects = {
 };
 // update the starring property to have the value 'Tim Robbins'
 nestedObjects['users']['bob roberts']['starring'] = "Tim Robbins"
-// ****
-// Concept Checkpoint
-//
-// Write your answer in comments
-//
-// What is an associative array? What is the difference between an array and an associative array?
-//
-// Your Answer Goes Here:
-//
-//
+  // ****
+  // Concept Checkpoint
+  //
+  // Write your answer in comments
+  //
+  // What is an associative array? What is the difference between an array and an associative array?
+  //
+  // Your Answer Goes Here:
+  //
+  //
 
 // ****
 // Tests
