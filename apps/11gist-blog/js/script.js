@@ -6,7 +6,7 @@ $(document).ready(function() {
     var PATH_TO_GISTS_JSON = 'https://api.github.com/users/arinaldi/gists';
 
     var $posts = $('#posts');
-    var $landing = $('#landing');
+    //var $landing = $('#landing');
     var $post = $('#post');
     var $commentsHeader = $('#comments-header');
     var $comments = $('#comments');
@@ -19,8 +19,8 @@ $(document).ready(function() {
         $posts.append(Mustache.render(postListTemplate, post));
     }
 
-    function populateCommentsTotal(total) {
-    	$commentsHeader.append(Mustache.render(commentsTotalTemplate, total));
+    function populateCommentsData(data) {
+    	$commentsHeader.append(Mustache.render(commentsTotalTemplate, data));
     }
 
     function populateComments(comment) {
@@ -38,7 +38,6 @@ $(document).ready(function() {
                         url: post.url,
                         title: postTitle
                     };
-
                     populatePostList(postListData);
                 }
             });
@@ -47,9 +46,10 @@ $(document).ready(function() {
                 e.preventDefault();
                 var dataUrl = $(this).data('url');
 
-				$landing.hide();
+				//$landing.hide();
                 $.ajax(dataUrl, postContentSettings);
             });
+            $links[0].click();
         }
 	};
 
@@ -57,15 +57,16 @@ $(document).ready(function() {
 		success: function(res) {
 			var content = res.files["post.md"].content;
 			var commentsUrl = res.comments_url;
-			var commentsTotalData = {
-				total: res.comments
+			var commentsData = {
+				total: res.comments,
+                url: res.html_url
 			}
 
 			$post.empty();
 			$post.append(marked(content));
 
 			$commentsHeader.empty();
-			populateCommentsTotal(commentsTotalData);
+			populateCommentsData(commentsData);
 
 			$.ajax(commentsUrl, commentListSettings);
 		}

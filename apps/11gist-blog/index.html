@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Tony's Gist Blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-	<link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
+	<!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="css/normalize.css">
   	<link rel="stylesheet" href="css/skeleton.css">
@@ -21,11 +21,16 @@
   		<div class="row">
   			<div class="three columns">
   				<ul id="posts"></ul>
+  				<hr class="sidebar" />
+  				<ul id="links">
+  					<li><a class="social-links" href="https://www.instagram.com/tony_sleeves/">Instagram</a></li>
+  					<li><a class="social-links" href="https://github.com/arinaldi">GitHub</a></li>
+  				</ul> 
   			</div>
 			<div class="nine columns">
-				<div id="landing">
+				<!-- <div id="landing">
 					<p>Welcome to my site. Click a post to start reading.</p>
-				</div>
+				</div> -->
 				<div id="post"></div>
 				<div id="comments-header"></div>
 				<ul id="comments"></ul>
@@ -40,13 +45,18 @@
 	</template>
 
 	<template id="comments-total-template">
-		<h5>Comments ({{total}})</h5>
+		<div class="flex-container">
+			<h5 class="comments-total">Comments ({{total}})</h5>
+			<a class="button" href="{{url}}" target="_blank">Add a comment</a>
+		</div>
 	</template>
 
 	<template id="comment-template">
 		<li class="borderline">
 			<img class="avatar" src="{{avatar}}" />
-			<span class="user">{{user}}</span>
+			<span class="user">
+				<a class="user-links" href="https://github.com/{{user}}">{{user}}</a>
+			</span>
 			<span class="date">{{date}} at {{time}}</span>
 			<br />
 			<div class="comment">{{{body}}}</div>

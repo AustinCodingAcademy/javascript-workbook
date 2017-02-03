@@ -1,13 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+
 body {
 	margin-top: 5%;
 }
 
 #title {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
-#posts, #comments {
+.post-links, .social-links {
+	text-decoration: none;
+}
+
+.social-links:visited {
+	text-decoration: none;
+}
+
+.sidebar {
+	margin-bottom: 25px;
+	margin-top: 0px;
+}
+
+#posts, #links, #comments {
 	list-style: none;
+}
+
+.flex-container {
+	display: flex;
+	justify-content: space-between;
 }
 
 #comments li.borderline {
@@ -41,13 +61,18 @@ body {
 	margin-left: 10px;
 }
 
+.user-links {
+	color: black;
+	text-decoration: none;
+}
+
 .comment {
 	margin-left: 10px;
 	padding-left: 50px;
     padding-top: 5px;
 }
 
-img {
-	max-width: 100%;
+#post img {
 	box-sizing: border-box;
+	max-width: 100%;
 }
