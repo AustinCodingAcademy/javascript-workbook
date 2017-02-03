@@ -24,23 +24,80 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+
+//  Your code here
+  if ((board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X' ) || (board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O')) {
+      console.log(playerTurn + " !!! WINS!!!    ...Resetting Game");
+
+        return  board = [
+          [' ', ' ', ' '],
+          [' ', ' ', ' '],
+          [' ', ' ', ' ']
+        ];
+
+  } else
+  return false;
 }
 
 function verticalWin() {
-  // Your code here
+        if  ((board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X' )
+          || (board[0][1] === 'X' && board[1][1] === 'X' && board[1][2] === 'X')
+          || (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X')
+          || (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === 'O')
+          || (board[0][1] === 'O' && board[1][1] === 'O' && board[1][2] === 'O')
+          || (board[0][2] === 'O' && board[1][2] === 'O' && board[2][2] === 'O'))  {
+      console.log(playerTurn + " !!! WINS!!!    ...Resetting Game.");
+
+        return  board = [
+          [' ', ' ', ' '],
+          [' ', ' ', ' '],
+          [' ', ' ', ' ']
+        ];
+
+  } else
+  return false;
 }
 
 function diagonalWin() {
   // Your code here
+  if  ((board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X' )
+    || (board[0][2] === 'X' && board[1][1] === 'X' && board[0][0] === 'X')
+    || (board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === 'O')
+    || (board[0][2] === 'O' && board[1][1] === 'O' && board[0][0] === 'O')) {
+  console.log(playerTurn + " !!! WINS!!!    ...Resetting Game.");
+
+  return  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+
+} else
+return false;
 }
 
 function checkForWin() {
   // Your code here
+  console.log("run 1");
+  horizontalWin();
+  verticalWin();
+  diagonalWin()
 }
 
 function ticTacToe(row, column) {
   // Your code here
+    if (playerTurn === 'X'){
+      board[row][column] = 'X';
+
+        checkForWin();
+        playerTurn = (playerTurn==='X') ? 'O':'X';
+        //  playerTurn = 'O';
+    } else {
+      board[row][column] = 'O';
+      checkForWin();
+      //return playerTurn = 'X';
+      playerTurn = (playerTurn==='O') ? 'X':'O';
+    }
 }
 
 function getPrompt() {
