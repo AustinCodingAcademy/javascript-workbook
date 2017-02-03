@@ -24,7 +24,7 @@ function movePiece(startStack, endStack) {
 
   stacks[endStack].push(stacks[startStack].pop());
 
-  checkForWin();
+
 }
 
 function isLegal(startStack, endStack) {
@@ -63,6 +63,7 @@ function towersOfHanoi(startStack, endStack) {
 
 function getPrompt() {
   printStacks();
+  checkForWin();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
