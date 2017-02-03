@@ -26,11 +26,7 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
-  if (argument1 === argument2) {
-    return true;
-  } else {
-    return false;
-  }
+  return (argument1 === argument2);
 
 }
 

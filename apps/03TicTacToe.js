@@ -59,29 +59,22 @@ function checkForWin() {
   }
 }
 
-function ticTacToe(row, column) {
-  // Your code here
-  board[row][column] = playerTurn;
-
-
-
-  /*if (checkSpace(row, column)) {
-    board[row][column] = playerTurn; // is either X or O
-  } else {
-    console.log('try again');
-    return;
-  }*/
+function isSpaceAvailable(row, column) {
+  return (board[row][column] !== 'O' && board[row][column] !== 'X');
 }
 
-function checkSpace(row, column) {
-  if ((board[row][column] === 'X') || (board[row][column] === 'O')) {
-    console.log('space taken!');
-    getPrompt();
+function ticTacToe(row, column) {
+  // Your code here
+  // check for availability
+  if (isSpaceAvailable(row, column)) {
+    board[row][column] = playerTurn;
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  } else {
+    console.log('space taken');
   }
 }
 
 function getPrompt() {
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
@@ -89,7 +82,6 @@ function getPrompt() {
       // checking for win
       checkForWin();
       ticTacToe(row, column);
-      // checkSpace(); this is killing the app
       getPrompt();
     });
   });
