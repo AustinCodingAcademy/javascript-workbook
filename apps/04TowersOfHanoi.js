@@ -19,9 +19,8 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+stacks[endStack].push(stacks[startStack].pop());
 }
 
 function isLegal() {
