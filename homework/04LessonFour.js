@@ -92,8 +92,8 @@ nestedObjects.users['bob roberts'] = {'starring':'Tim Robbins'};
 // What is an associative array? What is the difference between an array and an associative array?
 //
 // Your Answer Goes Here:
-//
-//
+//  An Array is a way to store multiple things into a variable.  A 'normal' array uses a numerical index to track it's way such as: var student[0] = 'nick';
+//  An associative array uses keys (names) to track it's way through the array such as:  var student = {name: nick}
 
 // ****
 // Tests
