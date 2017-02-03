@@ -12,14 +12,7 @@ var board = [
   [' ', ' ', ' ']
 ];
 
-// switching players
 var playerTurn = 'X';
-
-// function togglePlayer(turn) {
-//   return playerTurn === 'X' ? playerTurn = 'O' : playerTurn = 'X';
-// }
-//
-// togglePlayer();
 
 function printBoard() {
   console.log('   0  1  2');
@@ -69,17 +62,34 @@ function checkForWin() {
 function ticTacToe(row, column) {
   // Your code here
   board[row][column] = playerTurn;
-  checkForWin();
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 
+
+
+  /*if (checkSpace(row, column)) {
+    board[row][column] = playerTurn; // is either X or O
+  } else {
+    console.log('try again');
+    return;
+  }*/
+}
+
+function checkSpace(row, column) {
+  if ((board[row][column] === 'X') || (board[row][column] === 'O')) {
+    console.log('space taken!');
+    getPrompt();
+  }
 }
 
 function getPrompt() {
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
+      // checking for win
+      checkForWin();
       ticTacToe(row, column);
+      // checkSpace(); this is killing the app
       getPrompt();
     });
   });
@@ -98,6 +108,27 @@ function getPrompt() {
   });
 
 }
+from the rock paper scissors app
+function getPrompt() {
+  rl.question('hand1: ', (answer1) => {
+    rl.question('hand2: ', (answer2) => {
+      // checking for win conditionals
+      var winMessage = rockPaperScissors(answer1, answer2);
+      console.log(winMessage);
+      if (winMessage === 'Hand two wins!' || winMessage === 'Hand one wins!') {
+        rl.question('Play Again? ', function (answer3) {
+          if (answer3 === 'yes') {
+            getPrompt();
+          } else {
+            console.log('later loser');
+            process.exit()
+          }
+        });
+      }
+    });
+  });
+}
+
 */
 
 // Tests
