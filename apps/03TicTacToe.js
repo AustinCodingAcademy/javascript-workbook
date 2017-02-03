@@ -59,11 +59,7 @@ function checkForWin() {
 }
 
 var isSpaceAvailable = function(row, column) {
-  if ( board[row][column] === ' ' ) {
-    return true;
-  } else {
-    return false;
-  }
+  return ( board[row][column] === ' ' );
 }
 
 function ticTacToe(row, column) {
