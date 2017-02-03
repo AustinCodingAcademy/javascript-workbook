@@ -69,22 +69,21 @@ function checkForWin() {
   return true;
 }
 
-function isSpaceAvailable(row, column){
+function isSpaceAvailable(row, column) {
   return (board[row][column] === ' ');
 }
 
 
 function ticTacToe(row, column) {
   // Your code here
-  if(isSpaceAvailable(row, column)){
-  board[row][column] = playerTurn;
-  checkForWin();
+  if (isSpaceAvailable(row, column)) {
+    board[row][column] = playerTurn;
+    checkForWin();
 
-  playerTurn = (playerTurn === 'O') ? 'X' : 'O';
-}
-else{
-  console.log( "try again");
-}
+    playerTurn = (playerTurn === 'O') ? 'X' : 'O';
+  } else {
+    console.log("try again");
+  }
 
 }
 
