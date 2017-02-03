@@ -58,11 +58,23 @@ function checkForWin() {
   }
 }
 
+var isSpaceAvailable = function(row, column) {
+  if ( board[row][column] === ' ' ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function ticTacToe(row, column) {
   // Your code here
-  board[row][column] = playerTurn;
-  checkForWin();
-  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  if (isSpaceAvailable(row, column)) {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  } else {
+    console.log('This space is already taken. Try another space, loser.');
+  }
 }
 
 function getPrompt() {
