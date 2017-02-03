@@ -28,8 +28,9 @@ function horizontalWin() {
   if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
     (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
     (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
-    return true;
+    console.log('game over!')
   }
+  return true;
 }
 
 function verticalWin() {
@@ -37,16 +38,18 @@ function verticalWin() {
   if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
     (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
     (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
-    return true;
+    console.log('game over!')
   }
+  return true;
 }
 
 function diagonalWin() {
   // Your code here
   if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
     (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
-    return true;
+    console.log('game over!');
   }
+  return true;
 }
 
 function checkForWin() {
@@ -56,6 +59,8 @@ function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player ' + playerTurn + ' won!');
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -80,6 +85,16 @@ function getPrompt() {
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       // checking for win
+      if (winMessage === 'Player ' + playerTurn + ' won!') {
+        rl.question('Play Again? ', function (answer3) {
+          if (answer3 === 'yes') {
+            ticTacToe.reset();
+          } else {
+            console.log('later loser');
+            process.exit()
+          }
+        });
+      }
       checkForWin();
       ticTacToe(row, column);
       getPrompt();
@@ -87,42 +102,6 @@ function getPrompt() {
   });
 
 }
-
-/*  unedited getPrompt in case I need it.
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
-
-}
-from the rock paper scissors app
-function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      // checking for win conditionals
-      var winMessage = rockPaperScissors(answer1, answer2);
-      console.log(winMessage);
-      if (winMessage === 'Hand two wins!' || winMessage === 'Hand one wins!') {
-        rl.question('Play Again? ', function (answer3) {
-          if (answer3 === 'yes') {
-            getPrompt();
-          } else {
-            console.log('later loser');
-            process.exit()
-          }
-        });
-      }
-    });
-  });
-}
-
-*/
-
 // Tests
 
 if (typeof describe === 'function') {
