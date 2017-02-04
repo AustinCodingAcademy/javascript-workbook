@@ -100,28 +100,33 @@ function getPrompt() {
         console.log('Square taken, try again');
         getPrompt();
       }
-      // console.log('test');
-      var winMessage = ticTacToe(row, column);
-      console.log(winMessage);
-      if (winMessage === "'Player ' + playerTurn + ' Won!'") {
-        rl.question('Play Again?', function (answer3) {
-          if (answer3 === 'yes') {
-            getPrompt();
-          } else {
-            console.log('peace');
-            process.exit()
-          }
-        })
-      }
     });
   });
 
 }
 
 
-/*
-unbroken getPrompt
 
+
+function winMesage() {
+  winMessage = ticTacToe(row, column);
+  console.log(winMessage);
+  if (winMessage === "'Player ' + playerTurn + ' Won!'") {
+    rl.question('Play Again?', function (answer3) {
+      if (answer3 === 'yes') {
+        getPrompt();
+      } else {
+        console.log('peace');
+        process.exit()
+      }
+    });
+  }
+
+}
+
+
+// unbroken getPrompt
+/*
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
@@ -137,20 +142,6 @@ function getPrompt() {
     });
   });
 
-}
-*/
-/*
-var winMessage = rockPaperScissors(answer1, answer2);
-console.log(winMessage);
-if (winMessage === 'Hand two wins!' || winMessage === 'Hand one wins!') {
-  rl.question('Play Again? ', function (answer3) {
-    if (answer3 === 'yes') {
-      getPrompt();
-    } else {
-      console.log('later loser');
-      process.exit()
-    }
-  });
 }
 */
 
