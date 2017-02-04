@@ -25,6 +25,8 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 };
 
+// below are functions to check a win in the game. It lists all possibilites of wins horizontally, vertically, and diagonally.
+
 function horizontalWin() {
   if((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || 
   (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || 
@@ -56,7 +58,7 @@ function diagonalWin() {
 
 // var possibleMoves = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
 
-
+// below is a function of a board that has been cleared. 
 
 function clearBoard() {
   board = [
@@ -66,7 +68,9 @@ function clearBoard() {
   ];
 };
 
-
+// function below checks to see if there is a win horizontally, vertically, and diagonally after every player turn. If there is a win, it prints the winner. 
+// after that, it clears the board for the next game to begin. 
+// if there is no winner, the game proceeds.
 
 function checkForWin() {
   if(horizontalWin() || verticalWin() || diagonalWin()) {
@@ -80,7 +84,7 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   
-  // check for invalid input
+  // checks for invalid input
   
   if(row > 2) {
     console.log('Invalid User Input');
@@ -96,6 +100,8 @@ function ticTacToe(row, column) {
     console.log('Already Been Played!');
     return true;
   }
+
+  // the section below marks a move on the board from user input, checks for a win, and toggles to the next player if there isn't a win. 
   
   board[row][column] = playerTurn;
   checkForWin();
