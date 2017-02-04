@@ -27,26 +27,49 @@ stacks[endStack].push(token);
 }
 
 function isLegal(startStack, endStack) {
-// Ask if the column is blank and if so it a valid move.
+  // Check to see if the input is a valid stack : a, b or c
+if (( startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c')) 
+{
+  // These variables are the length of the stacks being pulled from and the one being stacked on.
+  var lengthOfStartStack = stacks[startStack].length;
+  var lengthOfEndStack = stacks[endStack].length;
 
-  //  // Declares the value of the token being moved
-  // var startToken = stacks[startStack].pop();
+// Check to see if the stack being pulled from, startStack, has tokens/donuts to pull from. If so, continue.
+  if (lengthOfStartStack > 0) {
+    // this var donut is the value of the token being taken off of the stack. 
+    var donut = stacks[startStack][(lengthOfStartStack - 1)];
+    // this if checks to see whether the length of the stacke-on is <0 OR|| if the value of the donut/token is less than 
+    // the value of the last number in the array lengthOfEndStack-1 of endStack of stacks. 
+    // we subtract 1 from the lengthOfEndStack because the index begins with 0 while the length of an array starts with 1
+    // So we have to subract one from the length else we would call on a numbe that isn't in the array, giving us "undefined"
+    if ((lengthOfEndStack === 0) || (donut < stacks[endStack][(lengthOfEndStack - 1)])){
+     return true; 
+    }
+    else {
+      console.log("Try again.")
+      return false;
 
-  // // Declares the value of the token being put on
-  // var endToken = stacks[endStack][endStack.length()-1];
+    }
 
 
-
-  if (endToken < startToken) {
-    console.log("Try again!");
-    return false;
-  } 
-  if (endToken === undefined) {
-    return true;
   }
-  else {
-    return true;
-  }
+
+
+
+}
+
+
+
+  // if (endToken < startToken) {
+  //   console.log("Try again!");
+  //   return false;
+  // } 
+  // if (endToken === undefined) {
+  //   return true;
+  // }
+  // else {
+  //   return true;
+  // }
 
   /*from Alex's code:
   if (stacks[endStack].length < 1) {
@@ -66,7 +89,13 @@ function isLegal(startStack, endStack) {
     }
   }
   */
+// Ask if the column is blank and if so it a valid move.
 
+  //  // Declares the value of the token being moved
+  // var startToken = stacks[startStack].pop();
+
+  // // Declares the value of the token being put on
+  // var endToken = stacks[endStack][endStack.length()-1];
 // else if ()
 //   if (endToken === undefined){ 
 //     return true;
@@ -83,10 +112,10 @@ function isLegal(startStack, endStack) {
 //   }
 
    // Declares the value of the token being moved
-  var startToken = stacks[startStack].pop();
+  // var startToken = stacks[startStack].pop();
 
   // Declares the value of the token being put on
-  var endToken = stacks[endStack][(endStack.length()-1)];
+  // var endToken = stacks[endStack][(endStack.length()-1)];
 
 
 
@@ -104,7 +133,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Will run to see if the move is legeal before the move is made:
-  if (isLegal(startStack, endStack) === true) {
+  if (isLegal(startStack, endStack)) {
 
   // This runs movePiece 
   movePiece(startStack, endStack);
