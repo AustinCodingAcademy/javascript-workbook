@@ -27,16 +27,23 @@ function movePiece(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
+  var startPiece = (stacks[startStack][(stacks[startStack].length-1)]);
+  var endPiece = (stacks[endStack][(stacks[endStack].length-1)]);
  
-   if  (stacks[endStack].length < 1) {
+   if  (endPiece === undefined) {
      console.log("bacon")
     return true;
   }
-  
-   if (endPiece > startPiece) {
-    console.log("ham")
-    return true;
+
+  else if (startPiece < endPiece) {
+     console.log('ham')
+     return true;
   }
+  
+  //  else if (endPiece > startPiece) {
+  //   console.log("ham")
+  //   return true;
+  // }
  
   
   // you done messed up
@@ -45,9 +52,6 @@ function isLegal(startStack, endStack) {
     return false;
   }
   
-  var startPiece = stacks[startStack][(stacks[startStack].length-1)];
-  var endPiece = stacks[endStack][(stacks[endStack].length-1)];
-
 }
 
 function checkForWin() {
