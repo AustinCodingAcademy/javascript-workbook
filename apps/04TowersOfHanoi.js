@@ -19,14 +19,50 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  var starting = stacks[startStack];
+  var startPiece = starting.pop();
+  var end = stacks[endStack];
+  console.log(end);
+  console.log(end.pop());
+  if (startPiece >= end.length -1 ){
+    var ending = end.push(startPiece);
+  }
+  console.log(end.pop());
+  //console.log(stacks.a.length);
+  //console.log(startPiece);
+  //console.log(end);
 
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
+  if (stacks[startStack].pop() >= stacks[endStack].pop()){
+    console.log('valid');
+    return true;
+  }else {
+    console.log('nooooooope');
+    return false;
+  }
 
+}
+
+function verifyInput(startStack, endStack){
+  startStack = startStack.toLowerCase();
+  endStack = endStack.toLowerCase();
+  if (startStack === 'a' || startStack === 'b' || startStack === 'c'){
+    console.log(startStack);
+  }else {
+    return console.log('invalid');
+  }
+  if (endStack === 'a' || endStack === 'b' || endStack === 'c'){
+    console.log(endStack);
+  }else {
+    return console.log('invalid');
+  }
+  return startStack;
+  return endStack;
 }
 
 function checkForWin() {
@@ -36,6 +72,11 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  verifyInput(startStack, endStack);
+  //isLegal(startStack, endStack)
+  movePiece(startStack, endStack);
+  
+  checkForWin();
 
 }
 
