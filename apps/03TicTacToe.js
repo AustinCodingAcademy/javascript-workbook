@@ -75,16 +75,30 @@ function ticTacToe(row, column) {
 
   // exit if someone won
   if (checkForWin()) {
-    process.exit();
+    winMesage();
     return;
   }
-  // exist if the board is full
+  // exit if the board is full
   if (checkForFullBoard()) {
     process.exit();
     return;
   }
 
   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+}
+
+
+function winMesage() {
+  rl.question('Play Again?', function (answer3) {
+    if (answer3 === 'yes' || answer3 === 'y') {
+      process.reset();
+    } else {
+      console.log('peace');
+      process.exit()
+    }
+  });
+
+
 }
 
 //checks for win conditions and if a space is taken while it executes the game
@@ -100,6 +114,7 @@ function getPrompt() {
         console.log('Square taken, try again');
         getPrompt();
       }
+
     });
   });
 
@@ -107,24 +122,28 @@ function getPrompt() {
 
 
 
-
-function winMesage() {
-  winMessage = ticTacToe(row, column);
-  console.log(winMessage);
-  if (winMessage === "'Player ' + playerTurn + ' Won!'") {
-    rl.question('Play Again?', function (answer3) {
-      if (answer3 === 'yes') {
-        getPrompt();
-      } else {
-        console.log('peace');
-        process.exit()
+// rock paper scissors getPrompt
+/*
+function getPrompt() {
+  rl.question('hand1: ', (answer1) => {
+    rl.question('hand2: ', (answer2) => {
+      // checking for win conditionals
+      var winMessage = rockPaperScissors(answer1, answer2);
+      console.log(winMessage);
+      if (winMessage === 'Hand two wins!' || winMessage === 'Hand one wins!') {
+        rl.question('Play Again? ', function (answer3) {
+          if (answer3 === 'yes') {
+            getPrompt();
+          } else {
+            console.log('later loser');
+            process.exit()
+          }
+        });
       }
     });
-  }
-
+  });
 }
-
-
+/*
 // unbroken getPrompt
 /*
 function getPrompt() {
