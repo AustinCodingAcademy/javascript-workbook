@@ -65,6 +65,12 @@ function diagonalWin() {
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player' + playerTurn + 'Won!');
+
+    board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
     return true;
   }
 }
@@ -73,6 +79,7 @@ function ticTacToe(row, column) {
   board[row][column] = playerTurn
   checkForWin();
   togglePlayerTurn();
+
 }
 
 function getPrompt() {
