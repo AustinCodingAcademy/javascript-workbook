@@ -14,30 +14,31 @@ var numberArray = [1, 2, 3, 4, 5];
 
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
-var numberArrayAfterPop = [];
+var numberArrayAfterPop = [1, 2, 3, 4];
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
-var numberArrayAfterShift = [];
+var numberArrayAfterShift = [2, 3, 4, 5];
 
 // Problem 3:
 // Show what numberArray would look like if we called numberArray.push(6)
-var numberArrayAfterPush = [];
+var numberArrayAfterPush = [1, 2, 3, 4, 5, 6];
 
 // Problem 4:
 // Show what numberArray would look like if we called numberArray.unshift(0)
-var numberArrayAfterUnshift = [];
+var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
-
+bravestWarriors.pop(Impossibear);
+bravestWarriors.shift();
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-
+fuit.push('mango');
 // ****
 // Objects (Associative Arrays)
 // ****
