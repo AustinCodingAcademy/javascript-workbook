@@ -27,33 +27,33 @@ function horizontalWin() {
 
 //  Your code here
   if ((board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X' ) || (board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O')) {
-      console.log(playerTurn + " !!! WINS!!!    ...Resetting Game");
+      //console.log(playerTurn + " !!! WINS!!!    ...Resetting Game");
 
-        return  board = [
+        board = [
           [' ', ' ', ' '],
           [' ', ' ', ' '],
           [' ', ' ', ' ']
         ];
-
+return true;
   } else
   return false;
 }
 
 function verticalWin() {
         if  ((board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X' )
-          || (board[0][1] === 'X' && board[1][1] === 'X' && board[1][2] === 'X')
+          || (board[0][1] === 'X' && board[1][1] === 'X' && board[2][1] === 'X')
           || (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X')
           || (board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === 'O')
-          || (board[0][1] === 'O' && board[1][1] === 'O' && board[1][2] === 'O')
+          || (board[0][1] === 'O' && board[1][1] === 'O' && board[2][1] === 'O')
           || (board[0][2] === 'O' && board[1][2] === 'O' && board[2][2] === 'O'))  {
-      console.log(playerTurn + " !!! WINS!!!    ...Resetting Game.");
+      //console.log(playerTurn + " !!! WINS!!!    ...Resetting Game.");
 
-        return  board = [
+        board = [
           [' ', ' ', ' '],
           [' ', ' ', ' '],
           [' ', ' ', ' ']
         ];
-
+  return true;
   } else
   return false;
 }
@@ -64,24 +64,25 @@ function diagonalWin() {
     || (board[0][2] === 'X' && board[1][1] === 'X' && board[0][0] === 'X')
     || (board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === 'O')
     || (board[0][2] === 'O' && board[1][1] === 'O' && board[0][0] === 'O')) {
-  console.log(playerTurn + " !!! WINS!!!    ...Resetting Game.");
+  //console.log(playerTurn + " !!! WINS!!!    ...Resetting Game.");
 
-  return  board = [
+   board = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
     [' ', ' ', ' ']
   ];
-
+return true;
 } else
 return false;
 }
 
 function checkForWin() {
   // Your code here
-  console.log("run 1");
+  //console.log("run 1");
   horizontalWin();
   verticalWin();
   diagonalWin()
+  return true;
 }
 
 function ticTacToe(row, column) {
