@@ -47,12 +47,14 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   // Your code here
 
-  if (stacks.c.length === 4) {
+  if (stacks.c.length === 4 || stacks.b.length === 4) {
     console.log("You Won!!")
-
-    process.exit();
+return true;
+    // process.exit();
+  }else {
+    return false;
   }
-  return true;
+
 }
 
 function towersOfHanoi(startStack, endStack) {
