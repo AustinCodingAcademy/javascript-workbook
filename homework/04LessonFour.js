@@ -32,20 +32,22 @@ var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
-bravestWarriors.pop(Impossibear);
-bravestWarriors.shift();
+ bravestWarriors.pop('Impossibear');
+ bravestWarriors.shift('Catbug');
+
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-fuit.push('mango');
+fruit.push('mango');
+fruit.unshift('banana');
 // ****
 // Objects (Associative Arrays)
 // ****
 
 // Problem 7:
 // Create an empty object
-var emptyObject;
+var emptyObject={};
 
 // Problem 8:
 // Create an object with the following key, value pairs:
@@ -53,7 +55,12 @@ var emptyObject;
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
-var problemEightObject;
+var problemEightObject={
+  emptyObject:{},
+  emptyArray: [],
+  name: 'bob',
+  number: 42
+};
 
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
@@ -63,7 +70,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-
+problemNineObject['fav food']='tacos';
+problemNineObject['city']='austin';
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
 var nestedObjects = {
@@ -78,7 +86,7 @@ var nestedObjects = {
   }
 };
 // update the starring property to have the value 'Tim Robbins'
-
+nestedObjects['users']['bob roberts']['starring']='Tim Robbins';
 
 // ****
 // Concept Checkpoint
@@ -88,7 +96,7 @@ var nestedObjects = {
 // What is an associative array? What is the difference between an array and an associative array?
 //
 // Your Answer Goes Here:
-//
+//It is an object. The diffence is how it is organized. Arrays have an implicit index starting from 0. Objects have an explicit "index" called a key, with an associated value.
 //
 
 // ****
