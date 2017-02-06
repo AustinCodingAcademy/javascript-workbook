@@ -19,14 +19,28 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+  
+  var block = stacks[startStack].pop();
 
+  stacks[endStack].push(block);
+
+  if (isLegal()) {
+    //do something;
+  } else {
+    return false;
+  }
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startStack, endStack) {
+  // isLegal() takes two arguments, startStack and endStack,
+  // and will check to see if the block being moved, from startStack
+  // is smaller than last block in endStack. return true if it is allowed,
+  // otherwise, return false. Also, don't forget to think about if the
+  // endStack is empty, you may put any block there. Put this check before your
+  // movePiece() function.
 
+  if (block <= stacks.endStack[-1]);
 }
 
 function checkForWin() {
@@ -35,7 +49,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  movePiece();
 
 }
 
