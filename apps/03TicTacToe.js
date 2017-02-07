@@ -54,11 +54,24 @@ function checkForWin() {
   }
 }
 
+function togglePlayerTurn() {
+  var playerOne = 'O';
+  var playerTwo = 'X';
+  playerTurn = (playerTurn === playerOne) ? playerTwo : playerOne;
+}
+
 function ticTacToe(row, column) {
-  
-  board[row][column] = playerTurn;
-  checkForWin();
-  playerTurn = (playerTurn === 'O') ? 'X' : 'O';
+  var validMoves = [0,1,2];
+  if ((row in validMoves) && (column in validMoves)) {
+    if (board[row][column]!== ' ') {
+    console.log('Not a valid move! Spot already taken!');
+  }
+    else {
+      board[row][column] = playerTurn;
+      checkForWin();
+      togglePlayerTurn();
+    }
+  }
 }
 
 function getPrompt() {
