@@ -60,16 +60,8 @@ function ticTacToe(row, column) {
 }
 
 
-
-
-//function isSpaceAvailable(row, column) {
-    // Return a
-//    if board[row][column] === '0' || board[row][column] === 'X'; }
-//
-
 function getPrompt() {
-    printBoard();
-    console.log("It's Player " + playerTurn + "'s turn.");
+re1e11d1    console.log("It's Player " + playerTurn + "'s turn.");
     rl.question('row: ', (row) => {
         rl.question('column: ', (column) => {
             ticTacToe(row, column);
