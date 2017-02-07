@@ -7,6 +7,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+
 var stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -29,23 +30,17 @@ function movePiece(startStack, endStack) {
 function isLegal(startStack, endStack) {
   var startPiece = (stacks[startStack][(stacks[startStack].length-1)]);
   var endPiece = (stacks[endStack][(stacks[endStack].length-1)]);
- 
+ // if array is empty it will return undefined
    if  (endPiece === undefined) {
      console.log("bacon")
     return true;
   }
-
+// check to see if the piece is smaller than the one it is moving on top of
   else if (startPiece < endPiece) {
      console.log('ham')
      return true;
   }
-  
-  //  else if (endPiece > startPiece) {
-  //   console.log("ham")
-  //   return true;
-  // }
- 
-  
+    
   // you done messed up
   else {
     console.log("This is not a valid move");
