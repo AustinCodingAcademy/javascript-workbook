@@ -47,6 +47,41 @@ function checkTie() {
   return (board[0][0] !== ' ' && board[0][1] !== ' ' && board[0][2] !== ' ' && board[1][0] !== ' ' && board[1][1] !== ' ' && board[1][2] !== ' ' && board[2][0] !== ' ' && board[2][1] !== ' ' && board[2][2] !== ' ');
 }
 
+// let index = null;
+// let win = null;
+// let playerTurn = 'X'
+
+// function checkForWin(playerTurn) {
+// 	for (let i = 0; i < board.length; i++) {
+// 		for (let j = 0; j < board[i].length; j++) {
+// 			index += board[i][j].indexOf(' ')
+// 			if (index === -9) {
+// 				win = 'tie'
+// 			}
+// 		}
+// 		if (!board[0][i].indexOf(playerTurn)) {
+// 			if (!board[1][i].indexOf(playerTurn)) {
+// 				if (!board[2][i].indexOf(playerTurn)) {
+// 					win = 'vertically'
+// 				}
+// 			}
+// 		}
+// 		if (!board[i][0].indexOf(playerTurn)) {
+// 			if (!board[i][1].indexOf(playerTurn)) {
+// 				if (!board[i][2].indexOf(playerTurn)) {
+// 					win = 'horizontally'
+// 				}
+// 			}
+// 		}
+// 		if (i % 2 === 0) {
+// 			if (board[i][0].includes(playerTurn) && board[1][1].includes(playerTurn)) {
+// 				win = 'diagonally'
+// 			}
+// 		}
+// 	}
+// 	return win
+// }
+
 function checkForWin() {
   if (checkTie()) {
     tie++;

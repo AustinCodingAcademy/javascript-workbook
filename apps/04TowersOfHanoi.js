@@ -26,7 +26,7 @@ function movePiece(startStack, endStack) {
   var end = stacks[endStack];
   console.log(end);
   console.log(end.pop());
-  if (startPiece >= end.length -1 ){
+  if (startPiece >= end.pop() ){
     var ending = end.push(startPiece);
   }
   console.log(end.pop());
@@ -72,7 +72,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  verifyInput(startStack, endStack);
+  //verifyInput(startStack, endStack);
   //isLegal(startStack, endStack)
   movePiece(startStack, endStack);
   
