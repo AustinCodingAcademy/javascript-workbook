@@ -27,7 +27,7 @@ function movePiece(startStack, endStack) {
 }
 
   // If first number (startStack) is bigger than second number (endStack) return false.
-  //If first number (startStack) is smaller return true
+  // If first number (startStack) is smaller return true.
 
 function isEmpty(startStack, endStack) {
   return stacks[endStack].length === 0
