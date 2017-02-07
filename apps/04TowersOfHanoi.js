@@ -20,27 +20,31 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  
   var block = stacks[startStack].pop();
-
   stacks[endStack].push(block);
+  return stacks;
 
-  if (isLegal()) {
-    //do something;
-  } else {
-    return false;
-  }
+}
+
+  // If first number (startStack) is bigger than second number (endStack) return false.
+  //If first number (startStack) is smaller return true
+
+function isEmpty(startStack, endStack) {
+  return stacks[endStack].length === 0
 }
 
 function isLegal(startStack, endStack) {
-  // isLegal() takes two arguments, startStack and endStack,
-  // and will check to see if the block being moved, from startStack
-  // is smaller than last block in endStack. return true if it is allowed,
-  // otherwise, return false. Also, don't forget to think about if the
-  // endStack is empty, you may put any block there. Put this check before your
-  // movePiece() function.
-
-  if (block <= stacks.endStack[-1]);
+  var start = stacks[startStack];
+  var end = stacks[endStack];
+  if (isEmpty(startStack, endStack)) {
+    return true;
+  }
+  if (stacks[startStack].slice(-1) <= stacks[endStack].slice(-1)) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 function checkForWin() {
@@ -49,7 +53,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  movePiece();
+  movePiece(startStack, endStack);
 
 }
 
