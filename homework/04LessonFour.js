@@ -32,15 +32,15 @@ var numberArrayAfterUnshift = [0, 1, 2, 3, 4, 5];
 // Use pop() and shift() to make the array bravestWarriors look like this:
 // ['Danny', 'Chris', 'Beth', 'Wallow']
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
-    bravestWarriors.shift();
-    bravestWarriors.pop();
+bravestWarriors.shift();
+bravestWarriors.pop();
 
 // Problem 6:
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-    fruit.push('mango');
-    fruit.unshift('banana');
+fruit.push('mango');
+fruit.unshift('banana');
 
 
 // ****
