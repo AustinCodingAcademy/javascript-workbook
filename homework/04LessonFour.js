@@ -39,6 +39,8 @@ bravestWarriors.shift('Catbug');
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
+fruit.push('mango');
+fruit.unshift('banana');
 
 // ****
 // Objects (Associative Arrays)
@@ -46,7 +48,9 @@ var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
 
 // Problem 7:
 // Create an empty object
-var emptyObject;
+var emptyObject = {
+
+};
 
 // Problem 8:
 // Create an object with the following key, value pairs:
@@ -54,7 +58,12 @@ var emptyObject;
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
-var problemEightObject;
+var problemEightObject = {
+  emptyObject: {},
+  emptyArray: [],
+  name: 'bob',
+  number: 42
+};
 
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
@@ -62,6 +71,10 @@ var problemNineObject = {
   'fav food': 'pizza',
   city:       'houston'
 };
+
+problemNineObject['fav food'] = 'tacos';
+problemNineObject.city = 'austin';
+
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
 
@@ -78,6 +91,9 @@ var nestedObjects = {
     }
   }
 };
+
+nestedObjects["users"]["bob roberts"]["starring"] = 'Tim Robbins';
+
 // update the starring property to have the value 'Tim Robbins'
 
 
@@ -88,7 +104,7 @@ var nestedObjects = {
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: An associative array is an array of keys with an associated value. It is essentially an array of variable with values for each.
 //
 //
 
