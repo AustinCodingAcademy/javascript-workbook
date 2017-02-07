@@ -47,14 +47,23 @@ function isLegal(startStack, endStack) {
   }
 }
 
+// In checkForWin(), you can simply check if the b stack or c stack has a .length of 4,
+// then consoleing out a message like "You Won!!!" and returning true if a win is detected, or a false if not.
+
 function checkForWin() {
-  // Your code here
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log('You Won! Great Job!');
+    return true;
+  }
+  else {
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   movePiece(startStack, endStack);
-
+  checkForWin();
 }
 
 function getPrompt() {
