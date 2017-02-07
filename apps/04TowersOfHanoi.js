@@ -19,19 +19,22 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+/* function movePiece will handle moving the user selected stacks from startStack to endStack */
 function movePiece(startStack, endStack) {
   // Your code here : 
-   var temp;
+   var temp; // store the popped stack value here, temp
 
-    temp = stacks[startStack].pop();
-    stacks[endStack].push(temp);
+    temp = stacks[startStack].pop(); // pop the user selected stack and store value in temp
+    stacks[endStack].push(temp); // push temp onto the user selected endstack
    }
 
-    // penguins are the best
+    // penguins are the best (wmy ife requested something about penguins)
 
+/* isLegal will check to see if the user input stack push was legal*/
 function isLegal(startStack, endStack) {
   // Your code here
+  /* check if the the endStack is empty, or check if the stack being pushed is less than the
+     stack already on endStack */
   if(stacks[endStack].length === 0 || stacks[startStack] < stacks[endStack]){
     return true;
   }
@@ -40,7 +43,9 @@ return false;
 
 function checkForWin(){
   // Your code here
-if(stacks['b'].length === 4 || stacks['c'].length === 4){
+/* checks if the length of stacks 'b' or 'c' is 4, or, a completed game, provided all moves
+  were legal */
+if(stacks['b'].length === 4 || stacks['c'].length === 4){ 
     return true;
   }
   
@@ -50,10 +55,9 @@ return false;
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  
-  isLegal(startStack, endStack);
-  movePiece(startStack, endStack);
-  checkForWin();
+  isLegal(startStack, endStack); //call isLegal to check if moves done have passed true
+  movePiece(startStack, endStack); // call movePiece to allow user to move stacks
+  checkForWin(); // test for a win here
 }
 
 function getPrompt() {
