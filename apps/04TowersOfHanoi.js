@@ -23,20 +23,20 @@ function movePiece(startStack, endStack) {
     // Your code here
     var len1 = stacks[endStack].length;
     var  token = stacks[startStack].pop();
-
+console.log(startStack +" " + endStack)
     if (isEmpty(endStack)) {
 
         stacks[endStack].push(token);
-        console.log(token + " was pop'd as token");
+        //console.log(token + " was pop'd as token");
     } else if (isLegal(startStack, endStack, token)) {
         stacks[endStack].push(token);
-        console.log('islegal is true');
+        //console.log('islegal is true');
     } else {
-        console.log('not legal and not empty')
-        console.log(token + "   this is token when not legal or empty")
+        //console.log('not legal and not empty')
+        //console.log(token + "   this is token when not legal or empty")
         stacks[startStack].push(token);
-        console.log(startStack);
-        console.log(stacks[startStack] + "  value of start stack when illegal ");
+        //console.log(startStack);
+        //console.log(stacks[startStack] + "  value of start stack when illegal ");
         return false;
     }
 
@@ -62,26 +62,31 @@ function isLegal(startStack, endStack, token) {
         console.log("  token < position");
         return true;
     } else {
-        console.log("  not token < position")
-        console.log(token + " token value");
-        console.log (position + "  position value")
-        console.log(stacks[endStack][position] + "   ---Position");
-        console.log(endStack);
-        console.log(startStack);
+        // console.log("  not token < position")
+        // console.log(token + " token value");
+        // console.log (position + "  position value")
+        // console.log(stacks[endStack][position] + "   ---Position");
+        // console.log(endStack);
+        // console.log(startStack);
         return false;
     }
-
+return false;
 }
 
 function checkForWin() {
     // Your code here
-
-}
+console.log(stacks.c.length + "  lenght of C")
+if (stacks.c.length >4){
+console.log ("you win!")
+}else {
+  return false;
+}}
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
 
     movePiece(startStack, endStack);
+    checkForWin();
 
 }
 
