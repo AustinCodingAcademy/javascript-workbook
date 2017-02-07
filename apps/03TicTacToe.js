@@ -72,8 +72,7 @@ function checkForFullBoard() {
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-
-  // exit if someone won
+  // if someone won
   if (checkForWin()) {
     winMesage();
     return;
@@ -91,17 +90,25 @@ function ticTacToe(row, column) {
 function winMesage() {
   rl.question('Play Again?', function (answer3) {
     if (answer3 === 'yes' || answer3 === 'y') {
-      process.reset();
+      resetBoard();
+      console.log('have fun!')
+      getPrompt();
     } else {
       console.log('peace');
       process.exit()
     }
   });
-
-
 }
 
-//checks for win conditions and if a space is taken while it executes the game
+function resetBoard() {
+  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+}
+
+//checks for win conditions and if a space is taken while it executes the game; resets board if there is a win detected.
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
