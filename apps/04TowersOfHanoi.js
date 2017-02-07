@@ -58,7 +58,7 @@ function towersOfHanoi(startStack, endStack) {
     movePiece(startStack, endStack);
     return true;
   }
-checkForWin();
+  checkForWin();
 }
 
 function getPrompt() {
