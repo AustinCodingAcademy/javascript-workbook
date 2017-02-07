@@ -14,6 +14,8 @@ var stacks = {
 };
 
 var totalMoves=0;
+var minimalMoves = Math.pow(2, stacks['a'].length) - 1;
+console.log("Minimal moves is "+minimalMoves)
 
 function printStacks() {
   console.log("a: " + stacks.a);
