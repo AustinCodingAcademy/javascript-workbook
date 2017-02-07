@@ -79,7 +79,7 @@ function ticTacToe(row, column) {
   }
   // exit if the board is full
   if (checkForFullBoard()) {
-    process.exit();
+    winMesage();
     return;
   }
 
