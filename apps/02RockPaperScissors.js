@@ -35,9 +35,9 @@ function rockPaperScissors(hand1, hand2) {
 
     if (hand1 === 'scissors') {
         if (hand2 === 'paper') {
-            return 'Hand one wins!';
+            return 'Hand One wins!';
         }
-        return 'Hand two wins!';
+        return 'Hand Two wins!';
 
     }
 
