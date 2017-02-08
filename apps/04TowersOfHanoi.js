@@ -19,12 +19,14 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack,endStack) {
   // Your code here
+
+
 
 }
 
-function isLegal() {
+function isLegal(startStack,endStack) {
   // Your code here
 
 }
