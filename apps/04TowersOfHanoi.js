@@ -20,63 +20,58 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  // Your code here
   var starting = stacks[startStack];
   var startPiece = starting.pop();
   var end = stacks[endStack];
-  console.log(end);
-  console.log(end.pop());
-  if (startPiece >= end.pop() ){
-    var ending = end.push(startPiece);
-  }
-  console.log(end.pop());
-  //console.log(stacks.a.length);
-  //console.log(startPiece);
-  //console.log(end);
-
+  var ending = null;
+  ending = end.push(startPiece);
 }
 
 function isLegal(startStack, endStack) {
-  // Your code here
-  if (stacks[startStack].pop() >= stacks[endStack].pop()){
-    console.log('valid');
-    return true;
-  }else {
-    console.log('nooooooope');
+  var starting = stacks[startStack];
+  var end = stacks[endStack];
+  var ending = null;
+  if (starting[starting.length - 1] > end[end.length - 1]) {
+    console.log("invalid move.");
     return false;
+  } else {
+    return true;
   }
-
 }
 
-function verifyInput(startStack, endStack){
-  startStack = startStack.toLowerCase();
-  endStack = endStack.toLowerCase();
-  if (startStack === 'a' || startStack === 'b' || startStack === 'c'){
-    console.log(startStack);
-  }else {
-    return console.log('invalid');
+function verifyInput(startStack, endStack) {
+  if ((startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c')) {
+    return true;
+  } else {
+    console.log('Invalid entry');
+    return false;
   }
-  if (endStack === 'a' || endStack === 'b' || endStack === 'c'){
-    console.log(endStack);
-  }else {
-    return console.log('invalid');
-  }
-  return startStack;
-  return endStack;
 }
 
 function checkForWin() {
-  // Your code here
-
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log('you win');
+    stacks = {
+      a: [4, 3, 2, 1],
+      b: [],
+      c: []
+    };
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-  //verifyInput(startStack, endStack);
-  //isLegal(startStack, endStack)
-  movePiece(startStack, endStack);
-  
-  checkForWin();
+  startStack = startStack.toLowerCase();
+  endStack = endStack.toLowerCase();
+  if (verifyInput(startStack, endStack)) {
+    if (isLegal(startStack, endStack)) {
+      movePiece(startStack, endStack);
+      checkForWin();
+    };
+  };
+
 
 }
 
@@ -97,7 +92,11 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', function () {
     it('should be able to move a block', function () {
       towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      });
     });
   });
 
@@ -121,9 +120,17 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', function () {
     it('should detect a win', function () {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = {
+        a: [],
+        b: [4, 3, 2, 1],
+        c: []
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = {
+        a: [1],
+        b: [4, 3, 2],
+        c: []
+      };
       assert.equal(checkForWin(), false);
     });
   });
