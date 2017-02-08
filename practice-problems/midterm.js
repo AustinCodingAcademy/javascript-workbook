@@ -37,7 +37,7 @@
 
 
 
-//6. Write the code to  print out the length of the string “I love JS”.
+//6. Write the code to  print out the length of the string "I love JS".
 
 //Answer:
 
@@ -146,14 +146,14 @@
 
 
 
-//20. What’s the difference between == and ===?
+//20. What's the difference between == and ===?
 
 //Answer:
 
 
 
 
-//21. What’s the difference between != and !==?
+//21. What's the difference between != and !==?
 
 //Answer:
 
@@ -174,14 +174,14 @@
 
 
 
-//24. Write a conditional statement that prints out “good job” if the variable answer is true and “try again” if the variable answer is false.
+//24. Write a conditional statement that prints out "good job" if the variable answer is true and "try again" if the variable answer is false.
 
 //Answer:
 
 
 
 
-//25. Write a conditional statement that prints out “divisible by 2”, “divisible by 3”, “divisible by 4”, or “divisible by 5” if a number is divisible by each of these numbers, respectively.
+//25. Write a conditional statement that prints out "divisible by 2", "divisible by 3", "divisible by 4", or "divisible by 5" if a number is divisible by each of these numbers, respectively.
 
 //Answer:
 
@@ -200,7 +200,7 @@ var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 
 
 
-//27. Write code to add the color ‘dark-violet’ to the 'colors' array.
+//27. Write code to add the color 'dark-violet' to the 'colors' array.
 
 //Answer:
 
@@ -214,7 +214,7 @@ var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 
 
 
-//29. Write the code to delete ‘orange’ from the array.
+//29. Write the code to delete 'orange' from the array.
 
 //Answer:
 
@@ -350,7 +350,7 @@ console.log(num);
 
 //44. Review the code below.
 
-var colors = ['red', 'blue', 'green' 'yellow']
+var colors = ['red', 'blue', 'green', 'yellow']
 var certainColor = 'green'
 var currentColor = colors[0];
 var i = 0;
@@ -409,18 +409,18 @@ toggleLight();
 
 
 
-//49. Create an object called “bob”. Assign the object “bob” the following properties:
+//49. Create an object called "bob". Assign the object "bob" the following properties:
 //name: "Bob Smith",
 //age: 30
 
-//Then print out bob’s full name by accessing the properties within the object.
+//Then print out bob's full name by accessing the properties within the object.
 
 //Answer:
 
 
 
 
-//50. Create a method called “aging” that adds 20 years to bob’s age. Then print out bob's new age.
+//50. Create a method called "aging" that adds 20 years to bob's age. Then print out bob's new age.
 
 //Answer:
 
@@ -428,18 +428,18 @@ toggleLight();
 
 
 
-//Bonus: Suppose you’re working for twitter and you have the following arrays available.
+//Bonus: Suppose you're working for twitter and you have the following arrays available.
 
-var username = [‘JoeQuery’, ‘CLofton’, ‘mistakevin’]
-var tweet = [‘You are my sunshine’, ‘Amarillo by morning, up from San Anton’, ‘giggidy giggidy’]
-var date = [ “07/24/2015” , “09/25/2015”, “10/25/2015” ]
+var username = ['JoeQuery', 'CLofton', 'mistakevin']
+var tweet = ['You are my sunshine', 'Amarillo by morning, up from San Anton', 'giggidy giggidy']
+var date = [ "07/24/2015" , "09/25/2015", "10/25/2015" ]
 
 //Generate an ordered list of tweets of the following form:
 
-<ul>
-<li>@JoeQuery - You are my sunshine - Posted on 07/24/2015</li>
-<li>@CLofton - Amarillo by morning, up from San Antone - Posted on 09/25/2015</li>
-<li>@mistakevin - giggidy giggidy - Posted on 10/25/2015</li>
-</ul>
+// <ul>
+// <li>@JoeQuery - You are my sunshine - Posted on 07/24/2015</li>
+// <li>@CLofton - Amarillo by morning, up from San Antone - Posted on 09/25/2015</li>
+// <li>@mistakevin - giggidy giggidy - Posted on 10/25/2015</li>
+// </ul>
 
 //Answer:
