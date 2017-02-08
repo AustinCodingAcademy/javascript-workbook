@@ -100,9 +100,9 @@ nestedObjects['users']['bob roberts']['starring'] = 'Tim Robbins';
 //
 // Your Answer Goes Here:
 //
-//Associotive arrays are arrays that use named indexes. JavaScript does not support Associotive arrays
-//JavaScript only uses arrays that are numbered. 
-//The difference between an associotive array and an array is the indexing options. Arrays are numbered, associotive can be named.
+//Associative arrays are objects, and the primary differences between an array and an object are how they are organized.
+//Arrys have an implicit index starting at 0.
+//Objects have an explicit index called a key with an associated value.
 
 // ****
 // Tests
