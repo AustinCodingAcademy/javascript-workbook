@@ -14,6 +14,8 @@ var stacks = {
   c: []
 };
 
+var moves = 1;
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -25,6 +27,9 @@ function movePiece(startStack, endStack) {
   var piece = stacks[startStack].pop();
   //Place piece
   stacks[endStack].push(piece);
+  
+  
+  
 }
 
 function isLegal(startStack, endStack) {
@@ -32,12 +37,12 @@ function isLegal(startStack, endStack) {
   var endPiece = (stacks[endStack][(stacks[endStack].length-1)]);
  // if array is empty it will return undefined
    if  (endPiece === undefined) {
-     console.log("bacon")
+     
     return true;
   }
 // check to see if the piece is smaller than the one it is moving on top of
   else if (startPiece < endPiece) {
-     console.log('ham')
+     
      return true;
   }
     
@@ -71,8 +76,7 @@ function towersOfHanoi(startStack, endStack) {
   }
   checkForWin(); 
     
-    
-  
+  console.log('Moves = ' + moves++);
 }
 
 function getPrompt() {
