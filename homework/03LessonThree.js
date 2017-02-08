@@ -100,7 +100,7 @@ var nameArray = ['bob', 'fred', 'susan'];
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
 
-var nameArray[1] = 'george'
+nameArray[1] = 'george';
 
 // DO NOT MODIFY
 var threeByThreeArray = [
@@ -112,15 +112,12 @@ var threeByThreeArray = [
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
 
-var threeByThreeArray {
-  1,
-  1
-} = 5;
+threeByThreeArray[1][1] = 9;
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
 var twoByTwoArray = [
-  [1, 2]
+  [0, 1],
   [3, 4]
 ];
 
