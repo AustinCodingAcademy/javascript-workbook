@@ -21,7 +21,7 @@ function resetBoard(){
 return board;
 }
 
-function checkCell(){
+/*function checkCell(){
   var i = 0;
     for(i = 0; i <= board.length; i++){
       if(board[i][i] !== '' ){
@@ -30,7 +30,7 @@ function checkCell(){
       }
     return 0;
   }
-};
+};*/
 
 
 
@@ -106,7 +106,7 @@ function ticTacToe(row, column) {
     board[row][column] = playerTurn; // add player to the board
     
     checkForWin() // test for a winning combination
-    checkCell();
+    //checkCell();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X'; // switch between players
     
 }
