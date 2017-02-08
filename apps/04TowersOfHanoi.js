@@ -37,6 +37,7 @@ function isLegal(startStack, endStack) {
   var lastElementOfStartStack = start[start.length - 1];
   var lastElementOfEndStack = end[end.length - 1];
 
+  
 //if the startStack doesnt have anything there, nothing can be moved from it
   if (start.length === 0) {
     return false;
@@ -58,7 +59,7 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   // Your code here
   if (stacks.b.length === 4 || stacks.c.length === 4) {
-    console.log('You Won!');
+    console.log('You Won!!!');
     return true
   } else {
     return false
