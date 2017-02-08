@@ -21,6 +21,7 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
   // Your code here
+  //putting popped index item in a variable so that it can be pushed onto endStack once it has been popped
   var poppedItem = stacks[startStack].pop();
   stacks[endStack].push(poppedItem);
 }
@@ -30,13 +31,17 @@ function isLegal(startStack, endStack) {
 
   var start = stacks[startStack];
   var end = stacks[endStack];
+
+  //getting the last element of the array, to be ready for comparison in later 'if' statements
+
   var lastElementOfStartStack = start[start.length - 1];
   var lastElementOfEndStack = end[end.length - 1];
 
+//if the startStack doesnt have anything there, nothing can be moved from it
   if (start.length === 0) {
     return false;
   }
-
+// if endstack is empty, you can place something there
   if (end.length === 0) {
     return true;
   }
@@ -44,7 +49,7 @@ function isLegal(startStack, endStack) {
   if (lastElementOfStartStack > lastElementOfEndStack) {
     return false;
   }
-
+// added this because if i did not, it would not meet any of the above criteria... it needed to have a true outcome in order to do anything
   if (lastElementOfStartStack < lastElementOfEndStack) {
     return true;
   }
