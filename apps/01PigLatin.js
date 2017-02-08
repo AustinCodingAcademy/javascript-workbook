@@ -9,18 +9,18 @@ var rl = readline.createInterface({
 
 
 function pigLatin(word) {
-word=word.toLowerCase();
+  word=word.toLowerCase();
   // Your code here
   console.log(word[0]);
   var firstletter=word[0];
 
-  var vowelIndex = -1; // Set it to assume there are no vowels
+  var vowelIndex = -1;
 
-if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+if(( word.indexOf('a')>-1 && word.indexOf('a') < vowelIndex )|| vowelIndex === -1 ) {
     vowelIndex = word.indexOf('a');
 }
 
-if ( ( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+if(( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex )|| vowelIndex === -1 ) {
     vowelIndex = word.indexOf('e');
 }
 

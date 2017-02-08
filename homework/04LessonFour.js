@@ -14,7 +14,7 @@ var numberArray = [1, 2, 3, 4, 5];
 
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
-var numberArrayAfterPop = [];
+var numberArrayAfterPop = [1, 2, 3, 4];
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
@@ -30,7 +30,7 @@ var numberArrayAfterUnshift = [];
 
 // Problem 5:
 // Use pop() and shift() to make the array bravestWarriors look like this:
-// ['Danny', 'Chris', 'Beth', 'Wallow']
+// ['Danny', 'Chris', 'Beth', 'Wallow']-Use Pop and SHIFT
 var bravestWarriors = ['Catbug', 'Danny', 'Chris', 'Beth', 'Wallow', 'Impossibear'];
 
 // Problem 6:
@@ -44,7 +44,7 @@ var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
 
 // Problem 7:
 // Create an empty object
-var emptyObject;
+var emptyObject = {};
 
 // Problem 8:
 // Create an object with the following key, value pairs:
