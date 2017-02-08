@@ -21,25 +21,19 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
     // Your code here
-    var sameVal = 0;
+
+
     //check for legal move first.  if not return false then pop/push
-    var answer = isLegal(startStack, endStack, sameVal);
-    console.log(sameVal);
-    console.log(answer);
-    if (answer != false && sameVal !=1) {
-console.log(sameVal + " may diff")
+    var answer = isLegal(startStack, endStack);
+
+      if (answer != false) {
         var token = stacks[startStack].pop();
         stacks[endStack].push(token);
         checkForWin();
 
-// cannot be from same column
-    } else if (sameVal === 1) {
-    //    console.log("\n same tower is not allowed")
-        return 'same towner is not allowed';
-
         // all other rules fail
     } else {
-        console.log("\n Sorry buster, not allowed! Rules are that startStack < EndStack ")
+        console.log("Sorry buster, not allowed! Rules are that startStack < EndStack & can't be empty ")
         return false;
     }
 }
@@ -49,29 +43,29 @@ function isLegal(startStack, endStack, sameVal) {
     var value1 = stacks[startStack].length - 1;
     var value2 = stacks[endStack].length - 1;
 
+// evaluate if startStack is empty
     if (value1 === -1) {
-        console.log(" you can't move an empty stack")
+        console.log("You can't move an empty stack")
         return false;
-    }
+    }  // evaluate whether or not the Enstack is same
+        else if (startStack === endStack) {
+            console.log("\n Sorry same tower is not allowed")
+            return false;
+        }
+        // endstack is empty
+        else if (value2 === -1) {
+            return true;
 
-    // evaluate whether or not the Enstack is Empty
-    else if (startStack === endStack) {
-        console.log("\n Sorry same tower is not allowed")
+            //Assuming endStack is not empty but passes rules
+        } else if (stacks[startStack][value1] < stacks[endStack][value2]) {
+            //  console.log('true')
+            return true;
 
-        return sameVal = 1;
-    }
-
-    else if (value2 === -1) {
-        return true;
-        //Assuming endStack is not empty but passes rules
-    } else if (stacks[startStack][value1] < stacks[endStack][value2]) {
-        //  console.log('true')
-        return true;
-        //does not pass rules and returns false to MovePiece function
-    } else {
-        //    console.log('fail')
-        return false;
-    }
+            //does not pass rules and returns false to MovePiece function
+        } else {
+            //    console.log('fail')
+            return false;
+        }
 
 
 }
@@ -88,7 +82,7 @@ function checkForWin() {
             a: [4, 3, 2, 1],
             b: [],
             c: []
-        };
+        }; return true;
 
     } else {
         //console.log("not a winner")
