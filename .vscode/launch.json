@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // ${workspaceRoot} /*-c-1",*/
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "/Users/claytonberger/Documents/Projects/javascript-workbook/apps//04TowersOfHanoi.js",
+            "cwd": "/Users/claytonberger/Documents/Projects/javascript-workbook/apps/",
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Process",
+            "port": 5858
+        }
+    ]
+}
+
