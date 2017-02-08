@@ -44,7 +44,7 @@ function pigLatin(word) {
         return word + 'yay'; //concatenate if word begins with vowel
     }
 
-console.log(word);
+//console.log(word);
     var firstPart = word.slice(0, vowelIndex); // start at point first vowel
     var restWord = word.slice(vowelIndex, word.length); //put rest of word after vowel
 
