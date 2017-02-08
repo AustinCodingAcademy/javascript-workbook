@@ -23,7 +23,6 @@ function movePiece(startStack, endStack) {
   var block = stacks[startStack].pop();
   stacks[endStack].push(block);
   return stacks;
-
 }
 
   // If first number (startStack) is bigger than second number (endStack) return false.
@@ -43,6 +42,7 @@ function isLegal(startStack, endStack) {
     return true;
   }
   else {
+    console.log('Illegal Move! The block being moved must be smaller than the block on which it is placed!');
     return false;
   }
 }
@@ -62,6 +62,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
+  isLegal(startStack, endStack);
   movePiece(startStack, endStack);
   checkForWin();
 }
