@@ -28,25 +28,25 @@ $(document).ready(function() {
 
   var postListSettings = {
     success: function(res) {
-        res.forEach(function(post) {
-          if (post.description.startsWith('#post')) {
-            var hashTag = '#post ';
-            var postTitle = post.description.substring(hashTag.length);
+      res.forEach(function(post) {
+        if (post.description.startsWith('#post')) {
+          var hashTag = '#post ';
+          var postTitle = post.description.substring(hashTag.length);
 
-            var postListData = {
-              url: post.url,
-              title: postTitle
-            };
-            populatePostList(postListData);
-          }
-        });
-        var $links = $('.post-links');
-        $links.click(function(e) {
-          e.preventDefault();
-          var dataUrl = $(this).data('url');
-          $.ajax(dataUrl, postContentSettings);
-        });
-        $links[0].click();
+          var postListData = {
+            url: post.url,
+            title: postTitle
+          };
+          populatePostList(postListData);
+        }
+      });
+      var $links = $('.post-links');
+      $links.click(function(e) {
+        e.preventDefault();
+        var dataUrl = $(this).data('url');
+        $.ajax(dataUrl, postContentSettings);
+      });
+      $links[0].click();
     }
   };
 
@@ -73,21 +73,20 @@ $(document).ready(function() {
     success: function(res) {
       $comments.empty();
 
-        res.forEach(function(comment) {
-          var createdDate = new Date(comment.created_at);
-          var date = createdDate.toDateString().substring(4);
-          var time = createdDate.toLocaleTimeString();
+      res.forEach(function(comment) {
+        var createdDate = new Date(comment.created_at);
+        var date = createdDate.toDateString().substring(4);
+        var time = createdDate.toLocaleTimeString();
 
-          var commentData = {
-            avatar: comment.user.avatar_url,
-            user: comment.user.login,
-            date: date,
-            body: marked(comment.body),
-            time: time
-          };
-
-          populateComments(commentData);
-        });
+        var commentData = {
+          avatar: comment.user.avatar_url,
+          user: comment.user.login,
+          date: date,
+          body: marked(comment.body),
+          time: time
+        };
+        populateComments(commentData);
+      });
     }
   };
 
