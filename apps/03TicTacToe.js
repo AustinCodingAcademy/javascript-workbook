@@ -58,13 +58,31 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-    // Your code here
+if (horizontalWin()) {
+  return true;
+} else if (verticalWin()) {
+  return true;
+} else if (diagonalWin()) {
+  return true;
+} else {
+  return false;
 }
-
+// console.log('Player ' + playerTurn + ' Won!')
+}
+function isSpaceAvailable (row, column) {
+  return (board[row][column] === ' ');
+}
 function ticTacToe(row, column) {
-    board[row][column] = playerTurn;
+    if (isSpaceAvailable(row, column)) {
+      board[row][column] = playerTurn;
+    } else {
+      console.log('no mam');
+    }
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    console.log(horizontalWin());
+    if (checkForWin()){
+      console.log('Player ' + playerTurn + ' Won!')
+    }
+    console.log(checkForWin());
 }
 
 function getPrompt() {
