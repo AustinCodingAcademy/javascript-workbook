@@ -37,7 +37,8 @@ function newGame() {
 function movePiece(startStack, endStack) {
   var move = stacks[startStack].pop();
   stacks[endStack].push(move);
-  counter = counter + 1;
+  //number of moves increases by 1
+  counter++;
   return true;
 }
 
