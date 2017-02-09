@@ -38,7 +38,14 @@ function isLegal(startStack, endStack) {
   if(stacks[endStack].length === 0 || stacks[startStack] < stacks[endStack]){
     return true;
   }
+  else{
+   // send invalid moves back
+    var temp = stacks[endStack].pop();
+    stacks[startStack].push(temp);
+    console.log("invalid move Try Again");
+    
 return false;
+  }
 }
 
 function checkForWin(){
