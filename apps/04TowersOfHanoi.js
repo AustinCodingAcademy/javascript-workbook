@@ -33,8 +33,10 @@ function isEmpty(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  var start = stacks[startStack];
-  var end = stacks[endStack];
+  // These 2 variables are not necessary. They are from a previous approach that didn't work. 
+  // var start = stacks[startStack];
+  // var end = stacks[endStack];
+  
   if (isEmpty(startStack, endStack)) {
     return true;
   }
@@ -62,9 +64,13 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  isLegal(startStack, endStack);
-  movePiece(startStack, endStack);
-  checkForWin();
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin();
+  } else {
+    return false;
+  }
+  
 }
 
 function getPrompt() {
