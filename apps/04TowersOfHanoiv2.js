@@ -8,7 +8,7 @@ var rl = readline.createInterface({
 });
 
 var stacks = {
-    a: [4, 3, 2, 1],
+    a: [4,3,2,1],
     b: [],
     c: []
 };

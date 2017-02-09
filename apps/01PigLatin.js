@@ -15,7 +15,6 @@ function pigLatin(word) {
     word = word.toLowerCase();     //spec 1 - ensure word is converted to lower case
 
     var firstLetter = word[0]; ///track the first character
-
     var vowelIndex = -1; // Set it to assume there are no vowels & -1 is the default value of index0f when not found
 
     if ((word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex) || vowelIndex === -1) {

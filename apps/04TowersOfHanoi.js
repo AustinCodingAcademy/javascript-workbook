@@ -7,8 +7,9 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
+var num = 0;
 var stacks = {
-    a: [4, 3, 2, 1],
+    a: [4,3,2,1],
     b: [],
     c: []
 };
@@ -21,78 +22,89 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
     // Your code here
-    var len1 = stacks[endStack].length;
-    var  token = stacks[startStack].pop();
-console.log(startStack +" " + endStack)
-    if (isEmpty(endStack)) {
 
+    //check for legal move first.
+    var answer = isLegal(startStack, endStack);
+    //if return is NOT false then pop/push
+      if (answer != false) {
+        var token = stacks[startStack].pop();
         stacks[endStack].push(token);
-        //console.log(token + " was pop'd as token");
-    } else if (isLegal(startStack, endStack, token)) {
-        stacks[endStack].push(token);
-        //console.log('islegal is true');
-    } else {
-        //console.log('not legal and not empty')
-        //console.log(token + "   this is token when not legal or empty")
-        stacks[startStack].push(token);
-        //console.log(startStack);
-        //console.log(stacks[startStack] + "  value of start stack when illegal ");
-        return false;
-    }
+        countMove();
+        checkForWin();
 
-}
-
-function isEmpty(endStack) {
-    var arr1 = stacks[endStack].length - 1;
-    //console.log(arr1);
-    if (arr1 < 0) {
-        console.log("made it true to isEmpty")
-        return true;
+        // if all other rules fail
     } else {
+      countMove();
+        console.log("Sorry buster, not allowed! Rules are that startStack < EndStack & can't be empty ")
         return false;
     }
 }
 
-function isLegal(startStack, endStack, token) {
+function countMove(){
+    num++;
+    console.log(num + ' Number of Moves thus far');
+    return true;
+}
+
+function isLegal(startStack, endStack, sameVal) {
     // Your code here
-    console.log(token + "  initial token value in isLegal")
-    var position = stacks[endStack].length - 1
-    if (token < stacks[endStack][position]) {
 
-        console.log("  token < position");
-        return true;
-    } else {
-        // console.log("  not token < position")
-        // console.log(token + " token value");
-        // console.log (position + "  position value")
-        // console.log(stacks[endStack][position] + "   ---Position");
-        // console.log(endStack);
-        // console.log(startStack);
+    var value1 = stacks[startStack].length - 1; //assign value of the array startStack
+    var value2 = stacks[endStack].length - 1; //assign value of the array endStack
+
+// evaluate if startStack is empty
+    if (value1 === -1) {
+        console.log("You can't move an empty stack")
         return false;
-    }
-return false;
+    }  // evaluate whether or not the Enstack is same
+        else if (startStack === endStack) {
+            console.log("\n Sorry same tower is not allowed")
+            return false;
+        }
+        // endstack is empty
+        else if (value2 === -1) {
+            return true;
+
+            //Assuming endStack is not empty but passes rules
+        } else if (stacks[startStack][value1] < stacks[endStack][value2]) {
+            //  console.log('true')
+            return true;
+
+            //does not pass rules and returns false to MovePiece function
+        } else {
+            //    console.log('fail')
+            return false;
+        }
+
+
 }
 
-function checkForWin() {
+function checkForWin() {   // spec 2
     // Your code here
-console.log(stacks.c.length + "  lenght of C")
-if (stacks.c.length >4){
-console.log ("you win!")
-}else {
-  return false;
-}}
+    //checks if another stack is a winner
+    if (stacks.b.length === 4 || stacks.c.length === 4) {
+
+        console.log("YOU WIN, Woohoo!!!")
+
+        //reset the game after win
+        stacks = {
+            a: [4, 3, 2, 1],
+            b: [],
+            c: []
+        }; return true;
+
+    } else { /// not a Win - Spec 3
+        //console.log("not a winner")
+        return false;
+    }
+
+}
 
 function towersOfHanoi(startStack, endStack) {
     // Your code here
-
+    //  isLegal(startStack, endStack);
     movePiece(startStack, endStack);
-    checkForWin();
-
 }
-
-
-
-
 
 function getPrompt() {
     printStacks();
