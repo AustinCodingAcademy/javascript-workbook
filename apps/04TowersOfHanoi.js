@@ -23,7 +23,7 @@ function newGame() {
   stacks = {
     a: [4, 3, 2, 1],
     b: [],
-    c:[]
+    c: []
   };
   return stacks;
 }
@@ -54,6 +54,7 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   if(stacks['b'].length === 4 || stacks['c'].length === 4) {
     console.log("You Won!");
+    newGame();
     return true;
   } else {
     return false;
@@ -65,9 +66,9 @@ function towersOfHanoi(startStack, endStack) {
   //if the move is legal, move the piece
   if(isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
+    checkForWin();
     return true;
   }
-  checkForWin();
 }
 
 function getPrompt() {
