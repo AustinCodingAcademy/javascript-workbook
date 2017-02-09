@@ -13,6 +13,15 @@ var stacks = {
   c: []
 };
 
+//reset board when game is won
+function reset() {
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+}
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -66,7 +75,19 @@ function checkForWin(startStack, endStack) {
   //cannot check .length of an undefined
   
   if (stacks.b.length === 4 || stacks.c.length === 4){
-    console.log("winner winner chicken dinner!!")
+    console.log(" ");
+    console.log("********************************");
+    console.log("*                              *")
+    console.log("*Winner Winner Chicken Dinner!!*");
+    console.log("*           \\\\                 *")
+    console.log("*           (0>                *")
+    console.log("*        \\\\_/\/\)                *")
+    console.log("*         \\_/\/\                 *")
+    console.log("*          _|_                 *")
+    console.log("********************************");
+    console.log(" ");
+    console.log("New Game: ")
+    reset();
     return true;
   }
   else{
@@ -84,7 +105,12 @@ function towersOfHanoi(startStack, endStack) {
    checkForWin(startStack, endStack);
   }
   else{
-    console.log("fuck yourself, try again.");
+    console.log(" ")
+    console.log("****************************");
+    console.log("* That move is not allowed *");
+    console.log("*        Try again.        *");
+    console.log("****************************");
+    console.log(" ");
   }
 }
 
