@@ -53,12 +53,14 @@ function isLegal(startStack, endStack) {
 
     }
 
-}
+
 
 // This ELSE returns if the user inputs a wrong column !== a, b or c
 else {
   console.log("Please input a valid stack, a, b or c.");
   return false;
+}
+
 }
 
 }
@@ -73,7 +75,7 @@ function checkForWin() {
   }
 
   else {
-    console.log('Try again.');
+    console.log('Keep Going.');
     return false;
   }
 
@@ -97,7 +99,7 @@ function towersOfHanoi(startStack, endStack) {
     else {
     console.log("pooh. You didn't enter a legal move.");
     }
-
+}
 
 var counter = 0;
 
