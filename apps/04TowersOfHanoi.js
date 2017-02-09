@@ -13,6 +13,14 @@ var stacks = {
   c: []
 };
 
+function newGame() {
+  stacks = {
+  a: [4, 3, 2, 1],
+  b: [],
+  c: []
+  }
+};
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -33,14 +41,14 @@ function isEmpty(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  // These 2 variables are not necessary. They are from a previous approach that didn't work. 
-  // var start = stacks[startStack];
-  // var end = stacks[endStack];
+  // These 2 variables are not necessary in this method. They are from a previous approach I tried that didn't work. 
+  //   var start = stacks[startStack];
+  //   var end = stacks[endStack];
   
   if (isEmpty(startStack, endStack)) {
     return true;
   }
-  if (stacks[startStack].slice(-1) <= stacks[endStack].slice(-1)) {
+  if (stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {
     return true;
   }
   else {
@@ -54,7 +62,8 @@ function isLegal(startStack, endStack) {
 
 function checkForWin() {
   if (stacks.b.length === 4 || stacks.c.length === 4) {
-    console.log('You Won! Great Job!');
+    console.log('You Won! Great Job! Try again!');
+    newGame();
     return true;
   }
   else {
