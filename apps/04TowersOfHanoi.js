@@ -26,14 +26,15 @@ function movePiece(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  if  (stacks[startStack[startStack.length - 1]] < stacks[endStack[endStack.length - 1]] || stacks[endStack].length === 0) {
+  var startStackLength = stacks[startStack].length;
+  var endStackLength = stacks[endStack].length;
+  if (stacks[endStack].length === 0 || stacks[startStack][startStackLength - 1] < stacks[endStack][endStackLength - 1]) {
     movePiece(startStack, endStack);
     return true;
   } else {
     console.log("Invalid move. Try again.");
     return false;
   }
-
 }
 
 function checkForWin() {
