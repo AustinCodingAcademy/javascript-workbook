@@ -127,50 +127,6 @@ function getPrompt() {
 
 }
 
-
-
-// rock paper scissors getPrompt
-/*
-function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      // checking for win conditionals
-      var winMessage = rockPaperScissors(answer1, answer2);
-      console.log(winMessage);
-      if (winMessage === 'Hand two wins!' || winMessage === 'Hand one wins!') {
-        rl.question('Play Again? ', function (answer3) {
-          if (answer3 === 'yes') {
-            getPrompt();
-          } else {
-            console.log('later loser');
-            process.exit()
-          }
-        });
-      }
-    });
-  });
-}
-/*
-// unbroken getPrompt
-/*
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      if (isSpaceAvailable(row, column)) {
-        ticTacToe(row, column);
-        getPrompt();
-      } else {
-        console.log('Square taken, try again');
-        getPrompt();
-      }
-    });
-  });
-
-}
-*/
-
 // Tests
 
 if (typeof describe === 'function') {
