@@ -15,9 +15,9 @@ var stacks = {
 
 function newGame() {
   stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
   }
 };
 
