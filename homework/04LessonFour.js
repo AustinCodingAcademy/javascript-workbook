@@ -99,7 +99,7 @@ nestedObjects['users']['bob roberts']['starring'] = 'Tim Robbins';
 // What is an associative array? What is the difference between an array and an associative array?
 //
 // Your Answer Goes Here:
-//
+//Associative arrays (also referred to as Objects) are similiar to arrays in that they are a collection of data. The big diffence is how it is organized. Arrays have an implicit index starting from 0. Objects have an explicit "index" called a key, with an associated value.
 //
 
 // ****
