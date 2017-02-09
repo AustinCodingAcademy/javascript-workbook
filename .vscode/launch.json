@@ -9,8 +9,9 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "/Users/claytonberger/Documents/Projects/javascript-workbook/apps//04TowersOfHanoi.js",
-            "cwd": "/Users/claytonberger/Documents/Projects/javascript-workbook/apps/",
+            "program": "/Users/claytonberger/Documents/Projects/javascript-workbook/test.js",
+            "cwd": "${workspaceRoot}",
+            "console": "externalTerminal"
         },
         {
             "type": "node",
