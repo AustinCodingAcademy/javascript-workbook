@@ -44,11 +44,13 @@ function movePiece(startStack, endStack) {
 
 
 function isLegal(startStack, endStack) {
+  var startLength = stacks[startStack].length;
+  var endLength = stacks[endStack].length;
   //if the end stack is empty, any piece can go there.
   if(stacks[endStack].length < 1) {
     return true;
   //if the piece being moved is smaller than the piece on the end stack, it is a legal move.
-  } else if((stacks[startStack][(stacks[startStack].length - 1)]) < (stacks[endStack][(stacks[endStack].length - 1)])) {
+  } else if((stacks[startStack][startLength - 1]) < (stacks[endStack][endLength - 1])) {
     return true;
   //otherwise illegal
   } else {
