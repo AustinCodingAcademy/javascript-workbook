@@ -74,6 +74,14 @@ function ticTacToe(row, column) {
   }
 }
 
+function startOver() {
+  board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']];
+  return board;
+}
+
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
@@ -85,13 +93,7 @@ function getPrompt() {
   });
 }
 
-function startOver() {
-  board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']];
-  return board;
-}
+
 
 // function checkIfPiece() {
 //   if ( !== 0,1,2) {
