@@ -69,7 +69,7 @@ var forLoopArrayResult = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 // Concept Checkpoint
 //
 // Write your answer in comments
-// Alexandra Garcia
+// 
 // What are loops? Why do we use them?
 // Loops help us iterate through a statement or a group of statements multiple times, 
 // usually checking a condition to see when to stop the loop. Otherwise you'll have an infinite loop! 
