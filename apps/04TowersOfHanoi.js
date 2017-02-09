@@ -13,18 +13,23 @@ var stacks = {
   c: []
 };
 
+var counter = 0;
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
+// starts a new game when won.
 function newGame() {
   stacks = {
     a: [4, 3, 2, 1],
     b: [],
     c: []
   };
+  //resets the amount of moves the user makes in the new game.
+  counter = 0;
   return stacks;
 }
 
@@ -32,7 +37,8 @@ function newGame() {
 function movePiece(startStack, endStack) {
   var move = stacks[startStack].pop();
   stacks[endStack].push(move);
-
+  counter = counter + 1;
+  return true;
 }
 
 
@@ -51,6 +57,7 @@ function isLegal(startStack, endStack) {
 
 }
 
+//checks if the user has won.
 function checkForWin() {
   if(stacks['b'].length === 4 || stacks['c'].length === 4) {
     console.log("You Won!");
@@ -66,6 +73,8 @@ function towersOfHanoi(startStack, endStack) {
   //if the move is legal, move the piece
   if(isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
+    // Prints out how many moves user makes.
+    console.log("Number of moves: " + counter);
     checkForWin();
     return true;
   }
