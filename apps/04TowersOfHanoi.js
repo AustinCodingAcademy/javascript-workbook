@@ -48,9 +48,33 @@ function isLegal(startStack, endStack) {
   }
 }
 
+//a,b, or c
+//numbers
+//capital letters
+//strings vs variables
+function isInputValid(startStack, endStack) {
+  //convert to lowercase and check for right input
+  let start = startStack.toLowerCase();
+  let end = endStack.toLowerCase();
+  if (start === 'a' || start === 'b' || start === 'c') {
+
+  } else if (end === 'a' || end === 'b' || end === 'c') {
+    return true;
+  }
+  return false;
+}
+
+
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  if (isInputValid(startStack, endStack)) {
+    getPrompt();
+  } else {
+    console.log('not a valid selection, try again');
+    return false;
+  }
+
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
   }
