@@ -57,6 +57,11 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
     console.log("Congratulations! You Won!!!");
+    stacks = {
+      a: [4, 3, 2, 1],
+      b: [],
+      c: []
+    };
     return true;
   } else {
     return false;
