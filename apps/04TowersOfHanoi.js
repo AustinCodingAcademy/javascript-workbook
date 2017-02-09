@@ -19,6 +19,15 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+function newGame() {
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c:[]
+  };
+  return stacks;
+}
+
 //Moving a piece from one stack to another
 function movePiece(startStack, endStack) {
   var move = stacks[startStack].pop();
@@ -32,11 +41,11 @@ function isLegal(startStack, endStack) {
   if(stacks[endStack].length < 1) {
     return true;
   //if the piece being moved is smaller than the piece on the end stack, it is a legal move.
-  } else if((stacks[startStack][(stacks[startStack].length)]) < (stacks[endStack][(stacks[endStack].length)])) {
+  } else if((stacks[startStack][(stacks[startStack].length - 1)]) < (stacks[endStack][(stacks[endStack].length - 1)])) {
     return true;
   //otherwise illegal
   } else {
-    console.log("Not a valid move. Try again!")
+    console.log("Not a valid move. Try again!");
     return false;
   }
 
