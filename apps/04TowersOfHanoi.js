@@ -31,13 +31,19 @@ function movePiece(startStack, endStack) {
 };
 
 // The function below is an if/else statement checking to see if the user's move is legal. Two different variables were created to store values. 
+// If the start stack array is empty, the function will return false and prompt the user to choose again. 
+// If the end stack array is empty, the function will return true. 
+// Also, if the piece number of the start stack is less than the piece number of the end stack, then the move is legal.
 
 function isLegal(startStack, endStack) {
+  
   var startArray = stacks[startStack];
   var endArray = stacks[endStack];
-  if (startArray.length === 0) {
+  
+  if (startArray == '') {
+    console.log("This stack is empty. Please choose again.");
     return false;
-  } else if (endArray.length === 0) {
+  } else if (endArray == '') {
     return true;
   } else {
     return startArray[startArray.length - 1]
@@ -68,7 +74,7 @@ function towersOfHanoi(startStack, endStack) {
     console.log('Invalid move. Please try again.');
   }
   if (checkForWin()) {
-    process.exit();
+    return true;
   } else {
     return false;
   };
