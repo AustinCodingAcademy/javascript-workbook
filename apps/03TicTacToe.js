@@ -29,6 +29,7 @@ function horizontalWin() {
     (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
     return true;
   }
+
 }
 
 function verticalWin() {

@@ -17,6 +17,7 @@ var six = 6;
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
 var onePlusPlus;
+var two = 1++;
 
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
