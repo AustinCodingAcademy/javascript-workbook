@@ -13,6 +13,8 @@ var stacks = {
   c: []
 };
 
+var moves = 0;
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -24,7 +26,15 @@ function movePiece(startStack, endStack) {
 
   // popping an item from the startStack into the endStack
   var block = stacks[startStack].pop();
+  console.log('popped block', block);
   stacks[endStack].push(block);
+
+  moves++;
+  if (moves < 2) {
+    console.log('you made ' + moves + " move")
+  } else {
+    console.log('you made ' + moves + " moves");
+  }
 }
 
 function isLegal(startStack, endStack) {
@@ -56,11 +66,10 @@ function isInputValid(startStack, endStack) {
   //convert to lowercase and check for right input
   let start = startStack.toLowerCase();
   let end = endStack.toLowerCase();
-  if (start === 'a' || start === 'b' || start === 'c') {
-
-  } else if (end === 'a' || end === 'b' || end === 'c') {
-    return true;
-  }
+  if (start === 'a' || start === 'b' || start === 'c')
+    if (end === 'a' || end === 'b' || end === 'c') {
+      return true;
+    }
   return false;
 }
 
