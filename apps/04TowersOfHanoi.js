@@ -74,18 +74,6 @@ function towersOfHanoi(startStack, endStack) {
 }
 
 function isInputValid(startStack, endStack) {
-  // convert non-strings to strings
-  if (typeof(startStack) !== 'string') {
-    startStack = startStack.toString();
-  }
-  if (typeof(endStack) !== 'string') {
-    endStack = endStack.toString();
-  }
-
-  // scrub uppercase input
-  startStack = startStack.toLowerCase();
-  endStack = endStack.toLowerCase();
-
   // make sure input is a, b, or c
   var allowedInput = ['a', 'b', 'c'];
   if (allowedInput.indexOf(startStack) < 0 || allowedInput.indexOf(endStack) < 0) {
@@ -100,7 +88,7 @@ function getPrompt() {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       if (isInputValid(startStack, endStack)) {
-        towersOfHanoi(startStack.toLowerCase(), endStack.toLowerCase());
+        towersOfHanoi(startStack, endStack);
         getPrompt();
       } else {
         getPrompt();
@@ -113,13 +101,8 @@ function getPrompt() {
 
 if (typeof describe === 'function') {
 
-  //Add new tests
+  //Add new test
   describe('#isInputValid()', function () {
-    it('should scrub input', function () {
-      assert.equal(isInputValid('A', 'b'), true);
-      assert.equal(isInputValid('b', 'C'), true);
-      assert.equal(isInputValid('A', 'C'), true);
-    });
     it('should validate input', function () {
       assert.equal(isInputValid('d', 'e'), false);
       assert.equal(isInputValid(1, 2), false);
