@@ -60,13 +60,13 @@ function sophi() {
 //will keep same variable from intial intialization
  
   if (soph >= 0 && soph <= 0.333333333333333) {
-	comp = "rock";
+    comp = "rock";
   } 
   else if (soph >= 0.333333333333334 && soph <= 0.666666666666666) {
-	comp = "scissors";
+	  comp = "scissors";
   } 
   else if (soph >= 0.666666666666667 && soph <= 1) {
-	comp = "paper";
+	  comp = "paper";
   } 
 // console.log(soph);
 // ^-- prints the generated computer number
@@ -78,7 +78,7 @@ function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     console.log( rockPaperScissors(answer1) );
     getPrompt();
-    });
+  });
 }
 
 // Tests

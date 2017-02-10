@@ -103,8 +103,8 @@ function towersOfHanoi(startStack, endStack) {
   // Your code here
   // check for legality
   if (isLegal(startStack, endStack)) {
-   movePiece(startStack, endStack);
-   checkForWin(startStack, endStack);
+    movePiece(startStack, endStack);
+    checkForWin(startStack, endStack);
   }
   else{
     //if move is illegal, will imform player and return to game.
