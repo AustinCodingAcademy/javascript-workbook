@@ -26,30 +26,37 @@ stacks[endStack].push(begin);
 
 }
 
-function isLegal(start, end) {
-  if (start === 'a' || start === 'b' || start === 'c') {
-    if (end === 'a' || end === 'b' || end === 'c') {
-      return true
-    }
-  }
-  else {
-    return false
-  }
+
+function isLegal(startStack, endStack) {
+     var start = stacks[startStack].slice(-1)
+     var end = stacks[endStack].slice(-1)
+	 if (stacks[endStack].length === 0) {
+	 	return true
+	 }
+	 return start < end
 }
 
 function checkForWin() {
+  console.log("You Win!");
   return stacks.b.length === 4 || stacks.c.length === 4
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack)
+    getPrompt();
+  }
+  else {
+    console.log("That's not a valid move")
+    getPrompt();
+  }
 }
 
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
+      checkForWin();
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
