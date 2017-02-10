@@ -20,14 +20,26 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
+  //stores the last item in arrays 'a' 'b' or 'c'
   var store = stacks[startStack].pop();
+  //pushes the stored item to 'a' 'b' or 'c'
   stacks[endStack].push(store);
 
 }
+//makes sure the only valid user inputs are 'a' 'b' or 'c'
+function validInput(startStack, endStack) {
+  if ((startStack === "a" || startStack === "b" || startStack === "c") && (endStack === "a" || endStack === "b" || endStack === "c")) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function isLegal(startStack, endStack) {
+  //stores the length of 'a' 'b' or 'c'
   var startStackLength = stacks[startStack].length;
   var endStackLength = stacks[endStack].length;
+  //checks to make sure startStack is smaller than endStack and run movePiece function if so
   if (stacks[endStack].length === 0 || stacks[startStack][startStackLength - 1] < stacks[endStack][endStackLength - 1]) {
     movePiece(startStack, endStack);
     return true;
@@ -38,6 +50,7 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
+  //checks lengths of 'b' or 'c' to see if win condition is met
   if (stacks["b"].length === 4 || stacks["c"].length === 4) {
     console.log("You won!");
     return true;
@@ -47,8 +60,13 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  isLegal(startStack, endStack);
-  checkForWin();
+  if (validInput(startStack, endStack) === true) {
+    isLegal(startStack, endStack);
+    checkForWin();
+  } else if (validInput(startStack, endStack) === false) {
+    console.log("Invalid input. Try again.");
+    return false;
+  }
 }
 
 function getPrompt() {
