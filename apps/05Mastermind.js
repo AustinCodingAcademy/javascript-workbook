@@ -31,23 +31,23 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(guess, solution) {
+function generateHint(solution, guess) {
   // your code here
   var solutionArray = solution.split('')
   var guessArray = guess.split('')
-  console.log(guessArray);
-  console.log(solutionArray);
+    // console.log(guessArray);
+    // console.log(solutionArray);
 
   var correctLetterLocations = 0;
-  console.log(correctLetterLocations)
+  // console.log(correctLetterLocations)
 
   for (var i = 0; i < guess.length; i++) {
     if (guessArray[i] === solutionArray[i]) {
       solutionArray[i] = null;
       correctLetterLocations = correctLetterLocations + 1;
 
-      console.log(correctLetterLocations);
-      console.log(solutionArray);
+      // console.log(correctLetterLocations);
+      // console.log(solutionArray);
       // return correctLetterLocations;
     }
     // else{
@@ -63,14 +63,16 @@ function generateHint(guess, solution) {
       solutionArray[targetIndex] = null;
       correctLetters++;
 
-      console.log(targetIndex);
-      console.log(correctLetters);
-      console.log(solutionArray);
+      // console.log(targetIndex);
+      // console.log(correctLetters);
+      // console.log(solutionArray);
 
-      console.log((colors.red(correctLetterLocations)) + (colors.white(correctLetters)));
+      // console.log((colors.red(correctLetterLocations)) + (colors.white(correctLetters)));
+
     }
 
   }
+return ((correctLetterLocations) + '-' + (correctLetters));
 }
 
 function mastermind(guess) {
@@ -79,6 +81,8 @@ function mastermind(guess) {
   if (guess === solution) {
     return "You guessed it!";
   }
+  var hint = generateHint(solution, guess);
+  board.push(guess + ' ' + hint);
 }
 
 
