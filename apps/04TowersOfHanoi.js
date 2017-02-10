@@ -19,14 +19,22 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+var begin = stacks[startStack].pop();
+stacks[endStack].push(begin);
 
 }
 
-function isLegal() {
-  // Your code here
-
+function isLegal(start, end) {
+  if (start === 'a' || start === 'b' || start === 'c') {
+    if (end === 'a' || end === 'b' || end === 'c') {
+      return true
+    }
+  }
+  else {
+    return false
+  }
 }
 
 function checkForWin() {
