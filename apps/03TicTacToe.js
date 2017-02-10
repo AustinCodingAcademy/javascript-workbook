@@ -59,6 +59,7 @@ function checkForWin() {
   if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
     console.log('Player ' + playerTurn + ' Won!');
     newGame();
+    return true;
   }
 }
 
