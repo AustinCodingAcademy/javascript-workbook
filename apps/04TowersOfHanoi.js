@@ -41,16 +41,21 @@ function isLegal(startStack, endStack) {
   //check for endStack value
   var check = stacks[endStack];
   var check2 = check[check.length-1];
-
-  var zeroCheck = check.length;
+  //added console.log to see what value was being produced
   //console.log("isLegal end ", check2);
+  
+  //create zeroCheck value in order to clear an undefined value production later on
+  var zeroCheck = check.length;
 
   //check for startStack value
   var cheek = stacks[startStack];
   var cheek2 = cheek[cheek.length-1];
+  //value check again, commented out when program was finished
   //console.log('start ', cheek2);
   
   //check to see if end spot is bigger that start stop
+  //test for zero, was getting an undefined value here
+  //created zeroCheck to specifically check for zero and not undefined. 
   if (zeroCheck === 0){
     //console.log('true');
     return true;
@@ -69,11 +74,8 @@ function isLegal(startStack, endStack) {
 
 function checkForWin(startStack, endStack) {
   // Your code here
-  
 
-  //PROBLEM HERE 
-  //cannot check .length of an undefined
-  
+  //created chicken game winning print when game is completed.
   if (stacks.b.length === 4 || stacks.c.length === 4){
     console.log(" ");
     console.log("********************************");
@@ -105,6 +107,7 @@ function towersOfHanoi(startStack, endStack) {
    checkForWin(startStack, endStack);
   }
   else{
+    //if move is illegal, will imform player and return to game.
     console.log(" ")
     console.log("****************************");
     console.log("* That move is not allowed *");
