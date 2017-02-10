@@ -72,7 +72,7 @@ function generateHint(solution, guess) {
     }
 
   }
-return ((correctLetterLocations) + '-' + (correctLetters));
+  return ((correctLetterLocations) + '-' + (correctLetters));
 }
 
 function mastermind(guess) {
