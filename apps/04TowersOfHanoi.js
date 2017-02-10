@@ -55,11 +55,12 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
+  //checking to see if the endStack equals 4
   var hasWon = stacks.b.length === 4 || stacks.c.length === 4;
-
+// Letting them know you won
   if(hasWon) {
     console.log('Whoooooopie!!');
-
+//Resetting the board
       stacks = {
     a: [4, 3, 2, 1],
     b: [],
@@ -71,11 +72,13 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
+  // bringing it together if the move is leagal move the piece
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
   }
+  //check to see if a player has won
   checkForWin(); 
-    
+   // move counter 
   console.log('Moves = ' + moves++);
 }
 
