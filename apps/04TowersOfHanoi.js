@@ -28,7 +28,7 @@ function movePiece(startStack, endStack) {
 function isLegal(startStack, endStack) {
   // Both startBlock and endBlock are defined to determine the index of a specific block within the nested arrays by finding the length of the specific stack within the stacks array and subtracting that number by 1 to find the last item in that particular stack's array.
   // I used only if statements below instead of else if statements, as else if statements tend to depend on each other.
-  // I defined legal as false first just in case something went wrong within the function. This would not allow the player to move forward. Within my if statements, legal changes to true if all of the correct conditions are met.
+  // I defined legal as false and made the function return legal at the end just in case something went wrong within the function. This would not allow the player to move forward. Within my if statements, legal changes to true if all of the correct conditions are met.
   var legal = false
   var startBlock = stacks[startStack][stacks[startStack].length - 1]
   var endBlock = stacks[endStack][stacks[endStack].length - 1]
