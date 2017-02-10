@@ -37,12 +37,12 @@ function isLegal(startStack, endStack) {
   var lastElementOfStartStack = start[start.length - 1];
   var lastElementOfEndStack = end[end.length - 1];
 
-  
-//if the startStack doesnt have anything there, nothing can be moved from it
+
+  //if the startStack doesnt have anything there, nothing can be moved from it
   if (start.length === 0) {
     return false;
   }
-// if endstack is empty, you can place something there
+  // if endstack is empty, you can place something there
   if (end.length === 0) {
     return true;
   }
@@ -50,7 +50,7 @@ function isLegal(startStack, endStack) {
   if (lastElementOfStartStack > lastElementOfEndStack) {
     return false;
   }
-// added this because if i did not, it would not meet any of the above criteria... it needed to have a true outcome in order to do anything
+  // added this because if i did not, it would not meet any of the above criteria... it needed to have a true outcome in order to do anything
   if (lastElementOfStartStack < lastElementOfEndStack) {
     return true;
   }

@@ -34,6 +34,7 @@ function horizontalWin() {
     (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
     return true;
   }
+  return false;
 }
 
 function verticalWin() {
@@ -45,8 +46,8 @@ function verticalWin() {
     // last vert col
     (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
     return true;
-
   }
+  return false;
 }
 
 function diagonalWin() {
@@ -58,6 +59,7 @@ function diagonalWin() {
   ) {
     return true;
   }
+  return false;
 }
 
 function checkForWin() {
@@ -66,6 +68,7 @@ function checkForWin() {
     console.log('Player ' + playerTurn + 'Won!');
     return true;
   }
+  return false;
 }
 
 
