@@ -12,9 +12,7 @@ function pigLatin(word) {
 word = word.toLowerCase();
 var firstVowel = -1;
 
-if (firstVowel === 0) {
-  return word + "yay";
-}
+
 
 if ( ( word.indexOf('a') > -1 && word.indexOf('a') < firstVowel ) || firstVowel === -1 ) {
   firstVowel = word.indexOf('a');
@@ -39,7 +37,9 @@ if ( ( word.indexOf('y') > -1 && word.indexOf('y') < firstVowel ) || firstVowel 
 var firstPart = word.slice(0, firstVowel);
 var restWord = word.slice(firstVowel, word.length);
 
-
+if (firstVowel === 0) {
+  return word + "yay";
+}
 
 return restWord + firstPart + "ay";
 //leave the curly brace below alone

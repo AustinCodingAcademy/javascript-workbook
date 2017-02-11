@@ -68,7 +68,6 @@ function mastermind(guess) {
     return ('You ran out of turns! The solution was ' + solution);
   }
   else {
-    
     var hint = generateHint(solution, guess);
     board.push(hint +' '+ guess);
     return ('Guess again');
