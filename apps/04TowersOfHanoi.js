@@ -52,6 +52,7 @@ function isLegal(startStack, endStack) {
 };
 
 // This function is checking to see if there is a win, meaning all four pieces have been moved to another tower.  
+// It also restarts the game to the original stack formation for the next game.
 // If not, the function will return false.
 
 function checkForWin() {
