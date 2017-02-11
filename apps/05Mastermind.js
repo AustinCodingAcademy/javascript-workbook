@@ -12,6 +12,7 @@ var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 var colors = require('colors/safe');
+
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -31,31 +32,30 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
   // your code here
-  solutionArray = solution.split();
-  guessArray = guess.split();
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
-  var hint = (solution, guess);
-  for (var i = 0; i <= solutionArray.length; i++) {
-    for (var j = 0; j <= guessArray.length; j++) {
-      if (solutionArray[i] === guessArray[j]) {
-        correctLetterLocations++;
-        solutionArray[''] = null;
-      }
+  //var hint = (solution, guess);
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;  
     }
-    console.log('ham')
+    
   }
-  for (i = 0; solutionArray <= 5; i++ ) {
-    var targetIndex = (guessArray.indexOf === solutionArray[i]);
-    console.log('bacon')
+  for (i = 0; i <= solutionArray.length; i++ ) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    //console.log('bacon')
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[i] = null;
+      //console.log('feet')
+    }
   }
-  if (targetIndex > -1) {
-    correctLetters++;
-    solutionArray[''] = null;
-    console.log('feet')
-  }
-  return (colors.red(correctLetterLocations) - (colors.white(correctLetters)));
-  board.push(hint, guess);
+  
+
+  return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
@@ -64,10 +64,13 @@ function mastermind(guess) {
   if (guess === solution) {
     return ('You guessed it!');
   }
-  if (board.length = 10) {
-    return ('You ran out of turns! The solution was' + solution);
+  if (board.length === 10) {
+    return ('You ran out of turns! The solution was ' + solution);
   }
   else {
+    
+    var hint = generateHint(solution, guess);
+    board.push(hint +' '+ guess);
     return ('Guess again');
   }
 }
