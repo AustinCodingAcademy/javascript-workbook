@@ -18,8 +18,6 @@ function togglePlayerTurn() {
   playerTurn = (playerTurn === 'X') ? 'X' : 'O';
 }
 
-togglePlayerTurn();
-
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
