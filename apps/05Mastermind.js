@@ -33,6 +33,7 @@ function generateHint(solution, guess) {
   var solutionArray = solution.split('');
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
+  var correctLetters = 0;
 
   for (var i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
@@ -41,16 +42,15 @@ function generateHint(solution, guess) {
     }
   }
 
-  var correctLetters = 0;
-
   for (var i = 0; i < solutionArray.length; i++) {
-    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
     if (targetIndex > -1) {
       correctLetters++;
       solutionArray[targetIndex] = null;
-      return correctLetterLocations + '-' + correctLetters;
     } 
   }
+
+  return correctLetterLocations + '-' + correctLetters;
 
   var hint = generateHint(solution, guess);
   board.push(hint, guess);
