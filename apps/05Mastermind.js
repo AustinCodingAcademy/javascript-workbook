@@ -36,7 +36,6 @@ function generateHint(solution, guess) {
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
-  //var hint = (solution, guess);
   for (var i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
       correctLetterLocations++;
@@ -46,16 +45,16 @@ function generateHint(solution, guess) {
   }
   for (i = 0; i <= solutionArray.length; i++ ) {
     var targetIndex = guessArray.indexOf(solutionArray[i]);
-    //console.log('bacon')
+   
     if (targetIndex > -1) {
       correctLetters++;
       solutionArray[i] = null;
-      //console.log('feet')
+     
     }
   }
   
 
-  return correctLetterLocations + "-" + correctLetters;
+  return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
 }
 
 function mastermind(guess) {
