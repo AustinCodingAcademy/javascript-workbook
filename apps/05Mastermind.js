@@ -32,7 +32,26 @@ function getRandomInt(min, max) {
 function generateHint(solution, guess) {
   var solutionArray = solution.split('');
   var guessArray = guess.split('');
-}
+  var correctLetterLocations = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+  var correctLetters = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+      return correctLetterLocations + '-' + correctLetters;
+    } 
+  }
+};
 
 function mastermind(guess) {
   solution = 'abcd';
