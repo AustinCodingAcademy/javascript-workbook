@@ -51,6 +51,15 @@ function generateHint(solution, guess) {
       return correctLetterLocations + '-' + correctLetters;
     } 
   }
+
+  var hint = generateHint(solution, guess);
+  board.push(hint, guess);
+
+  if (board.length === 10) {
+    return 'You ran out of turns! The solution was ' + solution;
+  } else {
+    return 'Guess again.';
+  }
 };
 
 function mastermind(guess) {
