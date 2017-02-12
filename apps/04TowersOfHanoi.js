@@ -41,7 +41,7 @@ function isEmpty(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  // These 2 variables are not necessary in this method. They are from a previous approach I tried that didn't work. 
+  // The 2 variables commented out below are not necessary in this method. They are from a previous approach I tried that didn't work. 
   //   var start = stacks[startStack];
   //   var end = stacks[endStack];
   
@@ -73,13 +73,18 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
+  // I used the .toLowerCase method to scrub the input data like we did in Pig Latin.
+
+  startStack = startStack.toLowerCase();
+  endStack = endStack.toLowerCase();
+  
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
     checkForWin();
-  } else {
+  } 
+  else {
     return false;
-  }
-  
+  };
 }
 
 function getPrompt() {
