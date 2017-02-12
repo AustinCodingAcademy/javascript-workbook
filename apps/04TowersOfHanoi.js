@@ -73,7 +73,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  //if the move is legal, move the piece
+  //data scrubbing
   if(startStack !== 'a' || startStack !== 'b' || startStack !== 'c') {
     console.log("Invalid input. Try again.");
     return false;
@@ -82,7 +82,7 @@ function towersOfHanoi(startStack, endStack) {
     return false;
   }
 
-  if(endStack !== 'a' || endStack !== 'b' || endStack !== 'c') {
+  if(endStack !== 'a' || endStack !== 'b' || endStack !== 'c' ) {
     console.log("Invalid input. Try again.");
     return false;
   } else if(endStack !== isNaN) {
@@ -92,7 +92,7 @@ function towersOfHanoi(startStack, endStack) {
 
   startStack = startStack.toLowerCase();
   endStack = endStack.toLowerCase();
-
+//if the move is legal, move the piece
   if(isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
     // Prints out how many moves user makes.
