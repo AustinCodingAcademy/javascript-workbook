@@ -35,24 +35,13 @@ function generateHint(solution, guess) {
   // your code here
   var solutionArray = solution.split('')
   var guessArray = guess.split('')
-    // console.log(guessArray);
-    // console.log(solutionArray);
-
   var correctLetterLocations = 0;
-  // console.log(correctLetterLocations)
-
   for (var i = 0; i < guess.length; i++) {
     if (guessArray[i] === solutionArray[i]) {
       solutionArray[i] = null;
       correctLetterLocations = correctLetterLocations + 1;
-
-      // console.log(correctLetterLocations);
-      // console.log(solutionArray);
-      // return correctLetterLocations;
     }
-    // else{
-    //   return correctLetterLocations;
-    // }
+
   }
 
   var correctLetters = 0;
@@ -62,13 +51,6 @@ function generateHint(solution, guess) {
     if (targetIndex > -1) {
       solutionArray[targetIndex] = null;
       correctLetters++;
-
-      // console.log(targetIndex);
-      // console.log(correctLetters);
-      // console.log(solutionArray);
-
-      // console.log((colors.red(correctLetterLocations)) + (colors.white(correctLetters)));
-
     }
 
   }
@@ -79,10 +61,18 @@ function mastermind(guess) {
   // your code here
   solution = 'abcd';
   if (guess === solution) {
+    // process.exit();
     return "You guessed it!";
+
   }
   var hint = generateHint(solution, guess);
   board.push(guess + ' ' + hint);
+  if (board.length === 10){
+    return 'You ran out of turns!  The solution was' + solution;
+  }
+  else {
+    return 'Guess again.'
+  }
 }
 
 
