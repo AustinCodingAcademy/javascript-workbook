@@ -74,6 +74,25 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   //if the move is legal, move the piece
+  if(startStack !== 'a' || startStack !== 'b' || startStack !== 'c') {
+    console.log("Invalid input. Try again.");
+    return false;
+  } else if(startStack !== isNaN) {
+    console.log("Invalid input. Try again.");
+    return false;
+  }
+
+  if(endStack !== 'a' || endStack !== 'b' || endStack !== 'c') {
+    console.log("Invalid input. Try again.");
+    return false;
+  } else if(endStack !== isNaN) {
+    console.log("Invalid input. Try again.");
+    return false;
+  }
+
+  startStack = startStack.toLowerCase();
+  endStack = endStack.toLowerCase();
+
   if(isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
     // Prints out how many moves user makes.
