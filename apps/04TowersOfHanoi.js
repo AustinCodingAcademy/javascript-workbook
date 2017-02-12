@@ -7,12 +7,14 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+//object containing each stack
 var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
 
+//print the stacks to the console
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -24,15 +26,15 @@ function movePiece(startStack, endStack) {
   var store = stacks[startStack].pop();
   //pushes the stored item to 'a' 'b' or 'c'
   stacks[endStack].push(store);
-
 }
+
 //makes sure the only valid user inputs are 'a' 'b' or 'c'
 function validInput(startStack, endStack) {
   if ((startStack === "a" || startStack === "b" || startStack === "c") && (endStack === "a" || endStack === "b" || endStack === "c")) {
     return true;
   } else {
     return false;
-  }
+  };
 }
 
 function isLegal(startStack, endStack) {
@@ -46,7 +48,7 @@ function isLegal(startStack, endStack) {
   } else {
     console.log("Invalid move. Try again.");
     return false;
-  }
+  };
 }
 
 function checkForWin() {
@@ -59,6 +61,7 @@ function checkForWin() {
   };
 }
 
+//main fuction
 function towersOfHanoi(startStack, endStack) {
   if (validInput(startStack, endStack) === true) {
     isLegal(startStack, endStack);
@@ -66,7 +69,7 @@ function towersOfHanoi(startStack, endStack) {
   } else if (validInput(startStack, endStack) === false) {
     console.log("Invalid input. Try again.");
     return false;
-  }
+  };
 }
 
 function getPrompt() {
