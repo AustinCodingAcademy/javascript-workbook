@@ -20,12 +20,12 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-    // Your code here
+    // Function that moves the pieces
     stacks[endStack].push(stacks[startStack].pop());
 }
 
 function isLegal(startStack, endStack) {
-    // Your code here
+    // This checks if the move you choose legal or not.
     var startBlock = stacks[startStack][stacks[startStack].length - 1];
     var endBlock = stacks[endStack][stacks[endStack].length - 1];
     if (startBlock < endBlock || endBlock === undefined) {
@@ -38,7 +38,7 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-    // Your code here
+    // This will check to see if you won by checking if the rows have 4
     if ( stacks.c.length === 4 || stacks.b.length === 4)
     { console.log("You Won !");
     return true;
@@ -54,7 +54,7 @@ function checkForWin() {
 
 
 function towersOfHanoi(startStack, endStack) {
-    // Your code here
+    // This will check to see if the move is legal then moves if it is.
     isLegal(startStack,endStack)
 
 }
