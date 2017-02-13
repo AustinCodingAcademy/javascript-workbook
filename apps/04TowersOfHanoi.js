@@ -44,7 +44,7 @@ function isLegal(startStack, endStack) {
   // The 2 variables commented out below are not necessary in this method. They are from a previous approach I tried that didn't work. 
   //   var start = stacks[startStack];
   //   var end = stacks[endStack];
-  
+
   if (isEmpty(startStack, endStack)) {
     return true;
   }
@@ -58,7 +58,7 @@ function isLegal(startStack, endStack) {
 }
 
 // In checkForWin(), you can simply check if the b stack or c stack has a .length of 4,
-// then consoleing out a message like "You Won!!!" and returning true if a win is detected, or a false if not.
+// then console out a message like "You Won!!!" and return true if a win is detected, or a false if not.
 
 function checkForWin() {
   if (stacks.b.length === 4 || stacks.c.length === 4) {
