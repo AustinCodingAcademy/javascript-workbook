@@ -25,6 +25,7 @@ console.log(numberArrayAfterShift);
 // Problem 3:
 // Show what numberArray would look like if we called numberArray.push(6)
 var numberArrayAfterPush = [];
+var numberArrayAfterPush = [1, 2, 3, 4, 5, 6];
 
 // Problem 4:
 // Show what numberArray would look like if we called numberArray.unshift(0)
@@ -80,8 +81,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-problemNineObject['fav food'] = 'tacos';
-problemNineObject['city'] = 'Austin';
+problemNineObject['fav food']='tacos';
+problemNineObject['city']='austin';
 
 
 // Problem 10:
@@ -98,7 +99,7 @@ var nestedObjects = {
     }
 };
 // update the starring property to have the value 'Tim Robbins'
-[nestedObject['users']['bob roberts']['starring'] = 'Tim Robbins'
+nestedObjects['users']['bob roberts']['starring']='Tim Robbins';
 
 
 // ****
