@@ -19,9 +19,14 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+function movePiece(startStack, endStack) {
+  var pieceBeingMoved = stacks[startStack].pop();
+  stacks[endStack].push(pieceBeingMoved);
+}
+
 function isLegal(startStack, endStack) {
-  var startBlock = stacks[startStack][(stacks[startStack].length-1)];
-  var endBlock = stacks[endStack][(stacks[endStack].length-1)];
+  var startBlock = stacks[startStack][(stacks[startStack].length - 1)];
+  var endBlock = stacks[endStack][(stacks[endStack].length - 1)];
 
   if (startBlock < endBlock) {
     return true;
@@ -33,12 +38,6 @@ function isLegal(startStack, endStack) {
     return false;
   }
 }
-
-function movePiece(startStack, endStack) {
-  var pieceBeingMoved = stacks[startStack].pop();
-  stacks[endStack].push(pieceBeingMoved);
-}
-
 
 function checkForWin() {
   if ((stacks['b'].length === 4) || (stacks['c'].length === 4)) {
