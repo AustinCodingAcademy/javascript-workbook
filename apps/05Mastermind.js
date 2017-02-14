@@ -11,6 +11,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var hint = '';
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -51,21 +52,26 @@ function generateHint(solution, guess) {
     } 
   }
 
-  var hint = '';
   board.push(guess + ' ' + hint);
   return hint = correctLetterLocations + '-' + correctLetters;
 };
 
-  
-  
- 
+function newGame() {
+  return board = [];
+}
 
-  // if (board.length === 10) {
-  //   return 'You ran out of turns! The solution was ' + solution;
-  // } else {
-  //   return 'Guess again.';
-  // }
+function checkForTen() {
+  if (board.length >= 10) {
+    console.log('You ran out of turns! The solution was ' + solution + '. Start Over.');
+    return newGame();
+  } else {
+    return 'Guess Again';
+  }
+};
 
+// function invalidEntry() {
+//   if (guess !== )
+// }
 
 
 function mastermind(guess) {
@@ -74,7 +80,6 @@ function mastermind(guess) {
     return "You guessed it!";
   } else {
     generateHint(solution, guess);
-    // return false;
   }
 };
 
@@ -83,6 +88,7 @@ function getPrompt() {
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
+    checkForTen();
     getPrompt();
   });
 }
