@@ -20,16 +20,16 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName = undefined;
+var valueOfFirstName = 'susan';
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName = undefined;
+var valueOfLastName = 'plaid';
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
 function returnTheFirstArgument(firstArgument) {
-  return (returnTheFirstArgument);
+  return (firstArgument);
 }
 
 // ****
@@ -109,7 +109,7 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-threeByThreeArray[[1][1]] = 'hello';
+threeByThreeArray[1][1] = 'hello';
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
 var twoByTwoArray = [
