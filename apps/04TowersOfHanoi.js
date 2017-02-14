@@ -36,13 +36,11 @@ function isLegal(startStack, endStack) {
   var startPiece = (stacks[startStack][(stacks[startStack].length-1)]);
   var endPiece = (stacks[endStack][(stacks[endStack].length-1)]);
  // if array is empty it will return undefined
-   if  (endPiece === undefined) {
-     
+  if  (endPiece === undefined) {  
     return true;
   }
 // check to see if the piece is smaller than the one it is moving on top of
-  else if (startPiece < endPiece) {
-     
+  else if (startPiece < endPiece) { 
      return true;
   }
     
@@ -61,7 +59,7 @@ function checkForWin() {
   if(hasWon) {
     console.log('Whoooooopie!!');
 //Resetting the board
-      stacks = {
+    stacks = {
     a: [4, 3, 2, 1],
     b: [],
     c: []
