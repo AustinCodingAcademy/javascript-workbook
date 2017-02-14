@@ -53,7 +53,7 @@ function generateHint(solution, guess) {
     var targetIndex = guessArray.indexOf(solutionArray[i]);
    //if the targetIndex is at spot zero or higher 
     if (targetIndex > -1) {
-      //
+      
       correctLetters++;
       solutionArray[i] = null;
      
@@ -61,7 +61,7 @@ function generateHint(solution, guess) {
   }
   
 
-  return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
+   return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {

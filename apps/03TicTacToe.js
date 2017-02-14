@@ -14,9 +14,9 @@ var board = [
 
 var playerTurn = 'X';
 
-function togglePlayerTurn() {
-  playerTurn = (playerTurn === 'X') ? 'X' : 'O';
-}
+
+  
+
 
 function printBoard() {
   console.log('   0  1  2');
@@ -63,7 +63,7 @@ function diagonalWin() {
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player' + playerTurn + 'Won!');
-
+    playerTurn = (playerTurn === 'X') ? 'X' : 'O';
     board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
