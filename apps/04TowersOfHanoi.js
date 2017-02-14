@@ -30,7 +30,7 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-// Pops from start stack and then pushes onto end stack
+  // Pops from start stack and then pushes onto end stack
   stacks[endStack].push(stacks[startStack].pop());
 }
 
