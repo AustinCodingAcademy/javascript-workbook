@@ -18,11 +18,11 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+// This code below enables the user to move the peices in the array
 function movePiece(startStack, endStack) {
   stacks[endStack].push(stacks[startStack].pop());
 }
-
+// This code below checks to see if the users move was legal
 function isLegal(startStack, endStack) {
   // Your code here
   var startBlock = stacks[startStack][stacks[startStack].length - 1];
@@ -35,7 +35,7 @@ function isLegal(startStack, endStack) {
     return false;
   }
 }
-
+// This code below checks for a in - if the stack equals 4
 function checkForWin() {
   // Your code here
   if (stacks.c.length === 4 || stacks.b.length === 4) {
@@ -46,7 +46,7 @@ function checkForWin() {
     // console.log("Try Again");
   }
 }
-
+// The code below checks to see if they move is legal and if it is, then it permits it.
 function towersOfHanoi(startStack, endStack) {
   // Your code here
   isLegal(startStack, endStack)
