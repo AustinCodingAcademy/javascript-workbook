@@ -36,17 +36,24 @@ function generateHint(solution, guess) {
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
+  //loop through the array
   for (var i = 0; i < solutionArray.length; i++) {
+    //comparing the guess against the answer
     if (solutionArray[i] === guessArray[i]) {
+      //counting number of correct answers
       correctLetterLocations++;
+      //the correct answer is taken out of the mix
       solutionArray[i] = null;  
     }
     
   }
+  //loop through the array again
   for (i = 0; i <= solutionArray.length; i++ ) {
+    // settign targetIndex to the correct letters in the wrong place
     var targetIndex = guessArray.indexOf(solutionArray[i]);
-   
+   //if the targetIndex is at spot zero or higher 
     if (targetIndex > -1) {
+      //
       correctLetters++;
       solutionArray[i] = null;
      
@@ -59,7 +66,7 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
   // your code here
-  solution = 'abcd';
+  
   if (guess === solution) {
     return ('You guessed it!');
   }
