@@ -37,6 +37,12 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
   // Your code here
+  //if (startStack != 'a' || startStack != 'b' || startStack != 'c' || endStack != 'a' || endStack != 'b' || endStack != 'c'){
+  //  return false;
+  //}
+  //else{
+  //  return true;
+  //}
 
   //check for endStack value
   var check = stacks[endStack];
@@ -102,6 +108,9 @@ function checkForWin(startStack, endStack) {
 function towersOfHanoi(startStack, endStack) {
   // Your code here
   // check for legality
+  startStack = startStack.toLowerCase();
+  endStack = endStack.toLowerCase();
+
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
     checkForWin(startStack, endStack);
