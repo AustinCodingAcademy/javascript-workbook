@@ -50,7 +50,7 @@ function isLegal(startStack, endStack) {
   else {
     var wrongMove = stacks[endStack].pop();
     stacks[startStack].push(wrongMove);
-    console.log('Invalid move. Pick again.')
+    console.log('Invalid move. Pick again.');
     return false;
   }
 }
@@ -105,8 +105,8 @@ function towersOfHanoi(startStack, endStack) {
 
 function getPrompt() {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
+  rl.question('start position: ', (startStack) => {
+    rl.question('end position: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
       getPrompt ();
     });
