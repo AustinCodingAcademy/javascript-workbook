@@ -126,7 +126,7 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
-  if character (character === 'scooby') {
+  if (character === 'scooby') {
     return ('dog');
   } else if (character === 'garfield') {
   return ('cat');
