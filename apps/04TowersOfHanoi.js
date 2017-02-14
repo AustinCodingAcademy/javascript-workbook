@@ -30,11 +30,11 @@ function isLegal(startStack, endStack) {
   if (startBlock < endBlock || endBlock === undefined) {
     movePiece(startStack, endStack);
     return true;
+  } else if (startBlock > endBlock) {
+    console.log("Try Again");
+    return false;
   }
-else if (startBlock > endBlock) {
-  console.log("Try Again");
-  return false;
-  }
+
 }
 // This code below checks for a in - if the stack equals 4
 function checkForWin() {
