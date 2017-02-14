@@ -51,27 +51,11 @@ function isLegal(startStack, endStack) {
     return true;
   //if the piece being moved is smaller than the piece on the end stack, it is a legal move.
   } else if((stacks[startStack][startLength - 1]) < (stacks[endStack][endLength - 1])) {
-      if(startStack !== 'a' || startStack !== 'b' || startStack !== 'c') {
-        console.log("Invalid input. Try again.");
-        return false;
-      } else if(startStack !== isNaN) {
-        console.log("Invalid input. Try again.");
-        return false;
-      } 
-
-      if(endStack !== 'a' || endStack !== 'b' || endStack !== 'c' ) {
-        console.log("Invalid input. Try again.");
-        return false;
-      } else if(endStack !== isNaN) {
-        console.log("Invalid input. Try again.");
-        return false;
-      }
-
       return true;
   //otherwise illegal
   } else {
     console.log("Not a valid move. Try again!");
-    return false;
+      return false;
   }
 }
 
@@ -88,7 +72,6 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-
   startStack = startStack.toLowerCase();
   endStack = endStack.toLowerCase();
 //if the move is legal, move the piece
