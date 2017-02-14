@@ -30,7 +30,8 @@ function isLegal(startStack, endStack) {
   if (startBlock < endBlock || endBlock === undefined) {
     movePiece(startStack, endStack);
     return true;
-  } else if (startBlock > endBlock) {
+  }
+  else if (startBlock > endBlock) {
     console.log("Try Again");
     return false;
   }
@@ -41,7 +42,8 @@ function checkForWin() {
   if (stacks.c.length === 4 || stacks.b.length === 4) {
     return true;
     console.log("You Won!!!");
-  } else {
+  }
+  else {
     return false;
     // console.log("Try Again");
   }
