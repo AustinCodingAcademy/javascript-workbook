@@ -17,27 +17,27 @@ var six = 6;
 // Problem 1:
 // What is the result of applying the increment (++) operator to var one?
 var onePlusPlus;
-
+onePlusPlus = 2;
 // Problem 2:
 // What is the result of applying the decrement (--) operator to var two?
 var twoMinusMinus;
-
+twoMinusMinus = 1;
 // Problem 3:
 // What is the result of three += 3?
 var threePlusAssignmentThree;
-
+threePlusAssignmentThree = 6;
 // Problem 4:
 // What is the result of four -= 3?
 var fourMinusAssignmentThree;
-
+fourMinusAssignmentThree = 1;
 // Problem 5:
 // What is the result of five *= 2?
 var fiveMultiplicationAssignmentTwo;
-
+fiveMultiplicationAssignmentTwo = 10;
 // Problem 6:
 // What is the result of six /= 3?
 var sixDivisionAssignmentThree;
-
+sixDivisionAssignmentThree = 2;
 // ****
 // Loops
 // ****
@@ -71,7 +71,7 @@ var forLoopArrayResult = [];
 // Write your answer in comments
 //
 // What are loops? Why do we use them?
-//
+// Loops can execute a block of code multiple times. We use them if we need to run the same code over and over again.
 
 // ****
 // Tests
