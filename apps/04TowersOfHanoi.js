@@ -103,6 +103,12 @@ function checkForWin() {   // spec 2
 function towersOfHanoi(startStack, endStack) {
     // Your code here
     //  isLegal(startStack, endStack);
+
+//enforce all lower case
+startStack = startStack.toLowerCase();
+endStack = endStack.toLowerCase();
+
+
     movePiece(startStack, endStack);
 }
 
