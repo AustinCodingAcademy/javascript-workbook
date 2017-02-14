@@ -29,12 +29,24 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  var correctLetters = 0
+  
+  for (var i = 0; i < solutionArray.length; i++){
+     
+  }
+    
 }
 
 function mastermind(guess) {
-  // your code here
+  solution = 'abcd';
+  if (guess === solution) {
+    return 'You guessed it!';
+  }
 }
 
 
