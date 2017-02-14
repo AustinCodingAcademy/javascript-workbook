@@ -29,12 +29,48 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  //split the solution and guess into seperate arrays
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  //variable to store number of correct locations found 
+  var correctLetterLocations = 0;
+  //variable to store the number of correct letters found
+  var correctLetters = 0;
+
+  //loop through arrays to see if any guessed letters match the location of the letters in the solution 
+  for (var i = 0; i < 4; i++) {
+    //store both arrays in variables
+    var solutionLetter = solutionArray[i];
+    var guessLetter = guessArray[i];
+
+    if (solutionLetter === guessLetter) {
+      //if letters match, increment correctLetterLocations
+      correctLetterLocations++;
+      //set that specific letter to null so the loop will not look for it again
+      solutionArray[i] = null;
+    };
+  };
+  
+  //loop through arrays to see if any guessed letters match the solution letters
+  for (i = 0; i < 4; i++) {
+    var guessLetter = guessArray[i];
+    var targetIndex = solutionArray.indexOf(guessLetter);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    };
+  };
+  return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
-  // your code here
+  generateSolution();
+  var hint = generateHint(solution, guess);
+  board.push(guess + " " + hint)
+  if (guess === solution) {
+    return "You guessed it!"; 
+  }
 }
 
 
