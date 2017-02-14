@@ -51,11 +51,11 @@ function isLegal(startStack, endStack) {
     return true;
   //if the piece being moved is smaller than the piece on the end stack, it is a legal move.
   } else if((stacks[startStack][startLength - 1]) < (stacks[endStack][endLength - 1])) {
-      return true;
+    return true;
   //otherwise illegal
   } else {
     console.log("Not a valid move. Try again!");
-      return false;
+    return false;
   }
 }
 
