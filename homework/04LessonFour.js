@@ -48,7 +48,7 @@ var fruitAfterUnshift = fruit.unshift();
 // Problem 7:
 // Create an empty object
 var emptyObject = {
-  return ('');
+  console.log('');
 
 };
 
@@ -58,7 +58,12 @@ var emptyObject = {
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
-var problemEightObject;
+var problemEightObject {
+  emptyObject : {},
+  emptyArray : [],
+  name : 'bob',
+  number : 42
+};
 
 // Problem 9:
 // DON'T EDIT problemNineObject!!!!
@@ -68,6 +73,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
+problemNineObject ['fav food']: 'tacos',
+problemNineObject ['city'] : 'austin';
 
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
@@ -83,7 +90,8 @@ var nestedObjects = {
   }
 };
 // update the starring property to have the value 'Tim Robbins'
-
+someNumbers: [1, 2, 3.14159, 4, 5, 6],
+nestedObjects['users']['bob roberts']['starring'] = 'Tim Robbins';
 
 // ****
 // Concept Checkpoint
@@ -92,7 +100,7 @@ var nestedObjects = {
 //
 // What is an associative array? What is the difference between an array and an associative array?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Associative arrays (also referred to as Objects) are similiar to arrays in that they are a collection of data. The big diffence is how it is organized. Arrays have an implicit index starting from 0. Objects have an explicit "index" called a key, with an associated value.
 //
 //
 
