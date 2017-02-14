@@ -19,11 +19,16 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+// Removes the last item of the startStack array,
+// and places it on the end of the endStack array
 function movePiece(startStack, endStack) {
   var pieceBeingMoved = stacks[startStack].pop();
   stacks[endStack].push(pieceBeingMoved);
 }
 
+// Does not allow larger blocks to be placed on top of
+// smaller blocks; Also permits any block to be placed on
+// an empty stack
 function isLegal(startStack, endStack) {
   var startBlock = stacks[startStack][(stacks[startStack].length - 1)];
   var endBlock = stacks[endStack][(stacks[endStack].length - 1)];
@@ -39,6 +44,8 @@ function isLegal(startStack, endStack) {
   }
 }
 
+// Checks if either stack b or stack c has 4 blocks,
+// either of which counts as a win
 function checkForWin() {
   if ((stacks['b'].length === 4) || (stacks['c'].length === 4)) {
     console.log('You Win!')
@@ -49,11 +56,10 @@ function checkForWin() {
 
 }
 
+// Checks if the move is legal, and, if it is, moves the piece
 function towersOfHanoi(startStack, endStack) {
   isLegal(startStack, endStack);
   movePiece(startStack, endStack);
-
-
 }
 
 function getPrompt() {
