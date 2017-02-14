@@ -34,6 +34,7 @@ function generateHint(solution, guess) {
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
+  
 
   for (var i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
@@ -42,32 +43,40 @@ function generateHint(solution, guess) {
     }
   }
 
-  for (var i = 0; i < solutionArray.length; i++) {
-    var targetIndex = solutionArray.indexOf(guessArray[i]);
+  for (i = 0; i < solutionArray.length; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
     if (targetIndex > -1) {
       correctLetters++;
-      solutionArray[targetIndex] = null;
+      solutionArray[i] = null;
     } 
   }
 
-  return correctLetterLocations + '-' + correctLetters;
-
-  var hint = generateHint(solution, guess);
-  board.push(hint, guess);
-
-  if (board.length === 10) {
-    return 'You ran out of turns! The solution was ' + solution;
-  } else {
-    return 'Guess again.';
-  }
+  var hint = '';
+  board.push(guess + ' ' + hint);
+  return hint = correctLetterLocations + '-' + correctLetters;
 };
+
+  
+  
+ 
+
+  // if (board.length === 10) {
+  //   return 'You ran out of turns! The solution was ' + solution;
+  // } else {
+  //   return 'Guess again.';
+  // }
+
+
 
 function mastermind(guess) {
   solution = 'abcd';
   if (guess === solution) {
     return "You guessed it!";
+  } else {
+    generateHint(solution, guess);
+    // return false;
   }
-}
+};
 
 
 function getPrompt() {
@@ -100,7 +109,6 @@ if (typeof describe === 'function') {
     it('should generate hints if solution has duplicates', function () {
       assert.equal(generateHint('abcd', 'aabb'), '1-1');
     });
-
   });
 
 } else {
