@@ -11,7 +11,7 @@ var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
-};
+}
 
 function newGame() {
   stacks = {
@@ -19,7 +19,7 @@ function newGame() {
     b: [],
     c: []
   }
-};
+}
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -69,7 +69,6 @@ function checkForWin() {
   else {
     return false;
   }
-
 }
 
 function towersOfHanoi(startStack, endStack) {
@@ -84,7 +83,7 @@ function towersOfHanoi(startStack, endStack) {
   } 
   else {
     return false;
-  };
+  }
 }
 
 function getPrompt() {
