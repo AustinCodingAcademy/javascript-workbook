@@ -36,8 +36,8 @@ function movePiece(startStack, endStack) {
   // If first number (startStack) is bigger than second number (endStack) return false.
   // If first number (startStack) is smaller return true.
 
-function isEmpty(startStack, endStack) {
-  return stacks[endStack].length === 0
+function isEmpty(endStack) {
+  return stacks[endStack].length === 0;
 }
 
 function isLegal(startStack, endStack) {
@@ -45,7 +45,7 @@ function isLegal(startStack, endStack) {
   //   var start = stacks[startStack];
   //   var end = stacks[endStack];
 
-  if (isEmpty(startStack, endStack)) {
+  if (isEmpty(endStack)) {
     return true;
   }
   if (stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {
