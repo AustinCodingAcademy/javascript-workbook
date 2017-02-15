@@ -56,19 +56,17 @@ function generateHint(solution, guess) {
   return (correctLetterLocations + '-' + correctLetters);
 }
 
-/*
 function checkForWin() {
-  if (solution = 'abcd') {
-    console.log('You Won!');
-    return true;
-  }
+  winMesage();
 }
-*/
+
 function mastermind(guess) {
   // your code here
   solution = 'abcd';
   if (guess === solution) {
-    return ('You guessed it!')
+    checkForWin();
+    // console.log('penis');
+    return (' ')
     //check to see if the board is at a legnth of 10 or more and then log it as a loss and display the solution
   } else if (board.length === 10) {
     return ('You ran out of Turns! The solution was' + ' ' + solution)
@@ -79,26 +77,15 @@ function mastermind(guess) {
     board.push(guess + ' ' + hint)
     return ('Guess again.')
   }
-  //checking for a win and then ask to reset the board
-  if (checkForWin()) {
-    winMesage();
-    return;
-  }
-
-}
-
-function resetBoard() {
-
 }
 
 function winMesage() {
-  rl.question('Play Again?', function (answer3) {
+  rl.question('You Won! Play Again?', function (answer3) {
     if (answer3 === 'yes' || answer3 === 'y') {
-      resetBoard();
       console.log('have fun!')
       getPrompt();
     } else {
-      console.log('later');
+      console.log('Later');
       process.exit()
     }
   });
