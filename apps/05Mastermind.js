@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 var assert = require('assert');
 var colors = require('colors/safe');
 var readline = require('readline');
@@ -29,14 +31,49 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
-}
+
+
+function generateHint(solution, guess) {
+    // your code here
+   var solutionArray = solution.split('');
+   var guessArray = guess.split('');
+   var correctLetterLocations = 0;
+   var correctLetters = 0;
+ 
+   for (var i = 0; i < 4; i++) {
+     if (solutionArray[i] === guessArray[i]) {
+       correctLetterLocations++;
+       solutionArray[i] = null;
+     }
+   }
+ 
+   for (var i = 0; i < 4; i++) {
+     var targetIndex = solutionArray.indexOf(guessArray[i]);
+ 
+     if (targetIndex > -1) {
+       correctLetters++;
+       solutionArray[targetIndex] = null;
+     }
+   }
+  return (correctLetters+'-'+correctLetterLocations);
+  }
+  
 
 function mastermind(guess) {
   // your code here
+  if (guess === solution) {
+     return ('You guessed it!');
+   } else if (board.length === 10) {
+     return ('You ran out of turns! The solution was ' + solution + '.')
+   }
+   else {
+     var hint = generateHint(solution, guess);
+     board.push(hint + ' ' +guess);
+     return ('Guess again');
+   }
+  generateHint(guess);
+  
 }
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
