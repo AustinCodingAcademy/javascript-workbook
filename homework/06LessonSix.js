@@ -4,6 +4,7 @@ var assert = require('assert');
 
 // ****
 // Are you down with OOP?
+// yeah you know me
 // ****
 
 
@@ -12,6 +13,8 @@ var assert = require('assert');
 // Add properties x: 1, y: 2 to point to make it a point
 // in two dimensional space.
 var point = {
+  x: 1,
+  y: 2
 };
 
 // Problem 2:
@@ -21,6 +24,8 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
+  this.x = x;
+  this.y = y;
 }
 
 // Problem 3:
@@ -28,7 +33,9 @@ function Point(x, y) {
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
 var anotherPoint;
-
+new Point(undefined);
+anotherPoint.x === 5;
+anotherPoint.y === -3;
 // ****
 // Concept Checkpoint
 //
@@ -56,16 +63,16 @@ var anotherPoint;
 function ConferenceRoom() {
   this.people = [];
 
-  this.enter = function(person) {
+  this.enter = function (person) {
     this.people.push(person);
   };
 
-  this.clearRoom = function() {
+  this.clearRoom = function () {
     this.people = [];
   };
 
-  this.sayHi = function() {
-    for(var index = 0; index < this.people.length; index++) {
+  this.sayHi = function () {
+    for (var index = 0; index < this.people.length; index++) {
       console.log(this.people[index].sayHi());
     }
   };
@@ -110,7 +117,10 @@ describe('Lesson 6 Homework', function () {
 
     describe('Problem 1: Associative Array Refresh', function () {
       it('should be { x: 1, y: 2 }', function () {
-        assert.deepStrictEqual(point, { x: 1, y: 2 });
+        assert.deepStrictEqual(point, {
+          x: 1,
+          y: 2
+        });
       });
     });
 
