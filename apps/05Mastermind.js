@@ -71,12 +71,16 @@ function checkForTen() {
 };
 
 // function invalidEntry() {
-//   if (guess !== )
+//   if (guess === letters.indexOf) {
+//     return true;
+//   } else {
+//     console.log("Invalid Input. Guess Again.");
+//   }
 // }
 
 
 function mastermind(guess) {
-  solution = 'abcd';
+  // solution = 'abcd';
   if (guess === solution) {
     return "You guessed it!";
   } else {
