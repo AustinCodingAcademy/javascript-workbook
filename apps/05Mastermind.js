@@ -37,10 +37,10 @@ function generateHint(solution, guess) {
   var correctLetters = 0;
 
   for (var i = 0; i < solutionArray.length; i++) {
-     if (solutionArray[i] === guessArray[i]) {
+    if (solutionArray[i] === guessArray[i]) {
        correctLetterLocations++;
        solutionArray[i] = null;
-     }
+    }
   }
 
   for (i = 0; i <= solutionArray.length; i++) {
