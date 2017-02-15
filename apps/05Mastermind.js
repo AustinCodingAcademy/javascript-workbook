@@ -29,12 +29,51 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+  var targetIndex = null;
+
+  for (var i = 0; i < guess.length; i = i + 1 ) {
+    //Check if index x for solutionArray === index x for guessArray?
+    if (guessArray[i] === solutionArray[i]) {
+      solutionArray[i] = null;
+      correctLetterLocations = correctLetterLocations + 1 ;
+    }
+  }
+
+  for (var j = 0; j < guess.length; j = j + 1) {
+    //Check if guessArray is found at any index of solutionArray
+    //Need to return location of guessArray within solutionArray's index
+    targetIndex = (solutionArray.indexOf(guessArray[j]));
+    if (targetIndex > -1) {
+      correctLetters = correctLetters + 1;
+      solutionArray[targetIndex] = null;
+    }
+  }
+  return (correctLetterLocations + '-' + correctLetters);
 }
 
 function mastermind(guess) {
-  // your code here
+  solution = 'abcd';
+
+  if (guess === solution) {
+    return ("You guessed it!");
+  }
+
+  var hint = generateHint(solution, guess);
+  board.push(guess + ' ' + hint);
+
+  if (board.length === 10) {
+    return ('You ran out of turns! The solution was ' + ' ' + solution);
+  }
+
+  else {
+    return ('Guess again.');
+  }
 }
 
 
