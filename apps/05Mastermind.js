@@ -38,8 +38,8 @@ function generateHint(solution, guess) {
 
   for (var i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
-       correctLetterLocations++;
-       solutionArray[i] = null;
+      correctLetterLocations++;
+      solutionArray[i] = null;
     }
   }
 
@@ -51,7 +51,8 @@ function generateHint(solution, guess) {
     }
   }
 
-  return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
+//Colors package not working. Had to remove it to get all the tests to pass.
+  return correctLetterLocations + "-" + correctLetters;
     
 }
 
