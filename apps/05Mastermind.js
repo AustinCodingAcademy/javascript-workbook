@@ -31,10 +31,18 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
+  var solutionArray = solution.split ('');
+  var guessArray = guess.split ('');
+  var correctLetterLocation = 0;
+for ( 
+
+)
 }
 
 function mastermind(guess) {
   // your code here
+if (guess === solution)
+return 'You guessed it!'
 }
 
 

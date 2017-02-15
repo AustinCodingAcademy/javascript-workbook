@@ -50,9 +50,11 @@ while (whileLoopCounter < 10) {
   whileLoopCounter++;
 }
 
+
 // Problem 7:
 // Fill in whileLoopArrayResult so that it matches whileLoopArray
-var whileLoopArrayResult = [];
+var whileLoopArrayResult = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 
 // DO NOT MODIFY
 var forLoopArray = [];
@@ -63,7 +65,7 @@ for (forLoopCounter = 0; forLoopCounter > -10; forLoopCounter--) {
 
 // Problem 8:
 // Fill in forLoopArrayResult so that it matches forLoopArray
-var forLoopArrayResult = [];
+var forLoopArrayResult = [ 0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 
 // ****
 // Concept Checkpoint
