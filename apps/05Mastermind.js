@@ -11,7 +11,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-var hint = '';
+var colors = require('colors');
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -52,8 +52,9 @@ function generateHint(solution, guess) {
     } 
   }
 
+  var hint = correctLetterLocations + '-' + correctLetters;
   board.push(guess + ' ' + hint);
-  return hint = correctLetterLocations + '-' + correctLetters;
+  return hint;
 };
 
 function newGame() {
@@ -86,8 +87,11 @@ function mastermind(guess) {
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
+    console.log('\n' + 'Guess:');
+    console.log( mastermind(guess) + '\n');
+    console.log('Board:')
     printBoard();
+    // console.log('\n' + 'Solution: ' + solution + '\n');
     checkForTen();
     getPrompt();
   });
