@@ -33,6 +33,7 @@ function isLegal(startStack, endStack) {
   } else if (startBlock > endBlock) {
     console.log("Try Again");
     return false;
+
   }
 
 }
