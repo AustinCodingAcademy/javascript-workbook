@@ -33,7 +33,7 @@ function isLegal(startStack, endStack) {
     return true;
   }
   // Check if the number in endStack is smaller than the piece being moved. If so, it is a legal move.
-  else if ((stacks[startStack][(stacks[startStack].length-1)]) < (stacks[endStack][(stacks[endStack].length-1)])) {
+  else if ((stacks[startStack][(stacks[startStack].length - 1)]) < (stacks[endStack][(stacks[endStack].length - 1)])) {
     return true;
   }
   // If not, the move is illegal.
@@ -56,7 +56,7 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
-}
+  }
   checkForWin();
 }
 
