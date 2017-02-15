@@ -32,13 +32,13 @@ function isLegal(startStack, endStack) {
   var topEndStack = stacks[endStack][stacks[endStack].length - 1];
   if (stacks[endStack].length === 0) {
         return true;
-} else if (stacks[startStack].length === 0) {
+  } else if (stacks[startStack].length === 0) {
         console.log("This is an empty stack");
         return false;
-} else {
+  } else {
         console.log("Value of topStart Stack: " + topStartStack + ", Value of topEndStack: " + topEndStack);
         return (topStartStack <= topEndStack);
-    }
+  }
 }
 
 function checkForWin() {
@@ -47,7 +47,7 @@ function checkForWin() {
         return true;
 } else {
         return false;
-    }
+  }
 }
 
 // When checking for a win, check and see if the b stack or c stack have a .length of 4,
@@ -60,7 +60,7 @@ function towersOfHanoi(startStack, endStack) {
         checkForWin();
 } else {
         return false;
-    }
+  }
 }
 
 function getPrompt() {
