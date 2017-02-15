@@ -34,18 +34,39 @@ function generateHint(solution, guess) {
   var solutionArray = solution.split('');
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
-  var correctLetters = 0
-  
-  for (var i = 0; i < solutionArray.length; i++){
-     
+  var correctLetters = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+     if (solutionArray[i] === guessArray[i]) {
+       correctLetterLocations++;
+       solutionArray[i] = null;
+     }
   }
+
+  for (i = 0; i <= solutionArray.length; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[i] = null;
+    }
+  }
+
+  return colors.red(correctLetterLocations) + "-" + colors.white(correctLetters);
     
 }
 
 function mastermind(guess) {
-  solution = 'abcd';
+  
   if (guess === solution) {
     return 'You guessed it!';
+  }
+  if (board.length === 10) {
+    return ('You ran out of turns! The solution was ' + solution);
+  }
+  else {
+    var hint = generateHint(solution, guess);
+    board.push(hint +' '+ guess);
+    return ('Guess again');
   }
 }
 
