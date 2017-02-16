@@ -58,8 +58,7 @@ function mastermind(guess) {
     return 'You guessed it!';
   } else {
       var hint = generateHint(solution, guess);
-      board.push(guess +' '+ hint);
-      return true;
+      return board.push(guess +' '+ hint);
   }
 }
 
