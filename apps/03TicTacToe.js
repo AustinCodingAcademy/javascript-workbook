@@ -15,9 +15,6 @@ var board = [
 var playerTurn = 'X';
 
 
-  
-
-
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -63,7 +60,7 @@ function diagonalWin() {
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log('Player' + playerTurn + 'Won!');
-    playerTurn = (playerTurn === 'X') ? 'X' : 'O';
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -74,10 +71,10 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn
+  board[row][column] = playerTurn;
   checkForWin();
-  togglePlayerTurn();
-
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  
 }
 
 function getPrompt() {
