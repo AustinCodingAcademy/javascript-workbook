@@ -43,19 +43,16 @@ function generateHint(solution, guess) {
   var correctLetters = 0;
 
   for(var i = 0; i < solutionArray.length; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
     if(solutionArray[i] === guessArray[i]) {
       correctLetterLocations++;
       solutionArray[i] = null;
     }
-  }
-
-  for(var i = 0; i < solutionArray.length; i++) {
-    var targetIndex = solutionArray.indexOf(guessArray[i]);
-    if(targetIndex > -1) {
+    else if(targetIndex > -1) {
       correctLetters++;
       solutionArray[targetIndex] = null;
     }
-  } 
+  }
 
   return correctLetterLocations + '-' + correctLetters;
 } 
