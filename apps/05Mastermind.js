@@ -12,6 +12,7 @@ var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 var colors = require('colors/safe');
+var solutionLength = 4;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -20,7 +21,7 @@ function printBoard() {
 }
 
 function generateSolution() {
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < solutionLength; i++) {
     var randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
   }
@@ -31,6 +32,9 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
+  //transfer to lower case
+  var solution = solution.toLowerCase();
+  var guess = guess.toLowerCase();
   // split the string into individual letters for indexing later
   var solutionArray = solution.split("");
   var guessArray = guess.split("");
@@ -52,7 +56,9 @@ function generateHint(solution, guess) {
     //detect if the target index item exists in the solution array 
     var targetIndex = solutionArray.indexOf(guessArray[j]);
     if (targetIndex !== -1) {
+      //increment through the solution array 
       correctLetters ++;
+      //nullify the target item in the solution array
       solutionArray[targetIndex] = null;
     }
   }
@@ -61,6 +67,7 @@ function generateHint(solution, guess) {
 }
 
 function endGame() {
+  //see if the player runs out of turns
   if (board.length === 10) {
     console.log("You ran out of turns! The solution was " + solution);
   } else {
@@ -77,15 +84,19 @@ function mastermind(guess) {
     return "You guessed it!";
   }
   endGame();
+  return guess;
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
-    printBoard();
-    getPrompt();
-  });
+    rl.question('guess: ', (guess) => {
+        console.log('\n' + 'Guess:');
+        console.log( mastermind(guess) + '\n');
+        console.log('Board:');
+        printBoard();
+        console.log('\n' + 'Solution: ' + solution + '\n');
+        getPrompt();
+    });
 }
 
 // Tests
