@@ -40,24 +40,19 @@ function generateHint(solution, guess) {
    var correctLetterLocations = 0;
    var correctLetters = 0;
  
-   for (var i = 0; i < 4; i++) {
+   for (var i = 0; i < solutionArray.length; i++) {
      if (solutionArray[i] === guessArray[i]) {
        correctLetterLocations++;
        solutionArray[i] = null;
      }
-   }
- 
-   for (var i = 0; i < 4; i++) {
-     var targetIndex = solutionArray.indexOf(guessArray[i]);
- 
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
      if (targetIndex > -1) {
-       correctLetters++;
-       solutionArray[targetIndex] = null;
+        correctLetters++;
+        solutionArray[targetIndex] = null;
      }
    }
-  return (correctLetters+'-'+correctLetterLocations);
+   return (correctLetters+'-'+correctLetterLocations);
   }
-  
 
 function mastermind(guess) {
   // your code here
