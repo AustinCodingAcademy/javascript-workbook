@@ -13,6 +13,7 @@ var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 var colors = require('colors/safe');
 var solutionLength = 4;
+var count = 0;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -20,10 +21,13 @@ function printBoard() {
   }
 }
 
-function generateSolution() {
-  for (var i = 0; i < solutionLength; i++) {
-    var randomIndex = getRandomInt(0, letters.length);
-    solution += letters[randomIndex];
+function generateSolution(solutionLength) {
+  if (solutionLength !== 4) {
+    for (var i = 0; i < solutionLength; i++) {
+      var randomIndex = getRandomInt(0, letters.length);
+      solution += letters[randomIndex];
+    }
+  count ++;
   }
 }
 
@@ -89,14 +93,25 @@ function mastermind(guess) {
 
 
 function getPrompt() {
-    rl.question('guess: ', (guess) => {
-        console.log('\n' + 'Guess:');
-        console.log( mastermind(guess) + '\n');
-        console.log('Board:');
-        printBoard();
-        console.log('\n' + 'Solution: ' + solution + '\n');
-        getPrompt();
-    });
+  //question() syntax: rl.question(query, callback) query is a statement written to the output, callback is the function that it calls
+  //rl is a Node.js module, question() is the built-in method within that rl module 
+  //User input is passed into the callback function as its parameter
+  // rl.question('Set solution length: ', (solutionLength) => {
+  rl.question('guess: ', (guess) => {
+      console.log('\n' + 'Guess:');
+      console.log( mastermind(guess) + '\n');
+      console.log('Board:');
+      printBoard();
+      console.log('\n' + 'Solution: ' + solution + '\n');
+      getPrompt();
+  });
+}
+
+function setSolutionLength() {
+   rl.question('Set solution length: ', (solutionLength) => {
+    generateSolution(solutionLength);
+    getPrompt();
+   });
 }
 
 // Tests
@@ -126,6 +141,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  generateSolution();
-  getPrompt();
+  setSolutionLength();
+  // generateSolution(solutionLength);
 }
