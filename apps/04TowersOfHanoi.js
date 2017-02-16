@@ -20,8 +20,8 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
- var piece = stacks[startStack].pop();
- stacks[endStack].push(piece);
+  var piece = stacks[startStack].pop();
+  stacks[endStack].push(piece);
 }
 
   // You will get a return of false if the startStack is bigger than the endStack.
@@ -32,10 +32,12 @@ function isLegal(startStack, endStack) {
   var topEndStack = stacks[endStack][stacks[endStack].length - 1];
   if (stacks[endStack].length === 0) {
     return true;
-} else if (stacks[startStack].length === 0) {
-    console.log("This is an empty stack");
-    return false;
-} else {
+} 
+else if (stacks[startStack].length === 0) {
+  console.log("This is an empty stack");
+  return false;
+} 
+else {
     console.log("Value of topStart Stack: " + topStartStack + ", Value of topEndStack: " + topEndStack);
     return (topStartStack <= topEndStack);
   }
