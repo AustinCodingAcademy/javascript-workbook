@@ -51,8 +51,7 @@ function generateHint(solution, guess) {
       solutionArray[i] = null;
     } 
   }
-
-  return correctLetterLocations + '-' + correctLetters;;
+  return correctLetterLocations + '-' + correctLetters;
 };
 
 function newGame() {
