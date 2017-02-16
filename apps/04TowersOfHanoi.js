@@ -82,6 +82,7 @@ function towersOfHanoi(startStack, endStack) {
     checkForWin();
   } 
   else {
+    // This false is not necessary. The final function is only responsible for running the other functions that have already been created. 
     return false;
   }
 }
