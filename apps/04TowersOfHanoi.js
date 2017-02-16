@@ -60,17 +60,17 @@ function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
     checkForWin();
-} else {
+  } else {
     return false;
   }
 }
 
 function getPrompt() {
   printStacks();
-    rl.question('start stack: ', (startStack) => {
-        rl.question('end stack: ', (endStack) => {
-            towersOfHanoi(startStack, endStack);
-            getPrompt();
+  rl.question('start stack: ', (startStack) => {
+  rl.question('end stack: ', (endStack) => {
+  towersOfHanoi(startStack, endStack);
+  getPrompt();
         });
     });
 }
