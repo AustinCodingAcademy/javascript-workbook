@@ -41,8 +41,7 @@ function generateHint(solution,guess) {
     var solutionLetter=solutionArray[i];
     var guessLetter=guessArray[i];
 
-    if (solutionLetter === guessLetter)
-      {
+    if (solutionLetter === guessLetter) {
       correctLetterLocations++;
       solutionArray[i]=null;
       }
@@ -53,8 +52,7 @@ function generateHint(solution,guess) {
   for (i=0; i<4; i++) {
     var guessLetter=guessArray[i];
     var targetIndex=solutionArray.indexOf(guessLetter);
-    if (targetIndex!==-1 && targetIndex!==null)
-      {
+    if (targetIndex!==-1 && targetIndex!==null) {
         solutionArray[targetIndex]=null;
         correctLetters++;
       }

@@ -36,8 +36,7 @@ function movePiece(startStack,endStack) {
 
 function isLegal(startStack,endStack) {
   // Your code here
-  if ((startStack==='a' || startStack==='b' || startStack==='c') && (endStack==='a' || endStack==='b' || endStack==='c'))
-    {
+  if ((startStack==='a' || startStack==='b' || startStack==='c') && (endStack==='a' || endStack==='b' || endStack==='c')) {
     //I have a valid input of a b or c.
     var startStackLength=stacks[startStack].length;
     var endStackLength=stacks[endStack].length;
