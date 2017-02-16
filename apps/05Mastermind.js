@@ -10,7 +10,7 @@ var rl = readline.createInterface({
 
 var board = [];
 var solution = '';
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var letters = ['a', 'b', 'c', 'd'];
 var colors = require('colors');
 
 function printBoard() {
@@ -52,9 +52,7 @@ function generateHint(solution, guess) {
     } 
   }
 
-  var hint = correctLetterLocations + '-' + correctLetters;
-  board.push(guess + ' ' + hint);
-  return hint;
+  return correctLetterLocations + '-' + correctLetters;;
 };
 
 function newGame() {
@@ -71,8 +69,8 @@ function checkForTen() {
 };
 
 // function invalidEntry() {
-//   if (guess === letters.indexOf) {
-//     return true;
+//   if (letters in guess) {
+//     mastermind();
 //   } else {
 //     console.log("Invalid Input. Guess Again.");
 //   }
@@ -84,14 +82,15 @@ function mastermind(guess) {
   if (guess === solution) {
     return "You guessed it!";
   } else {
-    generateHint(solution, guess);
+      var hint = generateHint(solution, guess);
+      return board.push(guess + ' ' + hint);
   }
 };
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log('\n' + 'Guess:');
+    // console.log('\n' + 'Guess:');
     console.log( mastermind(guess) + '\n');
     console.log('Board:')
     printBoard();
