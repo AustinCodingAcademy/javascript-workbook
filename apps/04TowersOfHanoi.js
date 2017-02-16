@@ -68,9 +68,9 @@ function towersOfHanoi(startStack, endStack) {
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
-    towersOfHanoi(startStack, endStack);
-    getPrompt();
+  rl.question('end stack: ', (endStack) => {
+  towersOfHanoi(startStack, endStack);
+  getPrompt();
   });
   });
 }
