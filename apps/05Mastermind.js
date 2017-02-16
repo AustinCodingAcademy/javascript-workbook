@@ -13,6 +13,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var counter = 10;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -48,29 +49,29 @@ function validate(guess) {
 
 function generateHint(solution, guess) {
   var solutionArray = solution.split('');
-  console.log('solution array:', solutionArray);
+  //console.log('solution array:', solutionArray);
   var guessArray = guess.split('');
-  console.log('guess array:', guessArray);
+  //console.log('guess array:', guessArray);
   var correctLetterLocations = 0;
   for (var i = 0; i < solutionArray.length; i++) {
     if (guessArray[i] === solutionArray[i]) {
       solutionArray[i] = null;
-      console.log('solution array:', solutionArray);
+      //console.log('solution array:', solutionArray);
       correctLetterLocations++;
-      console.log('correct letter location count:', correctLetterLocations);
+      //console.log('correct letter location count:', correctLetterLocations);
     }
   }
   var correctLetters = 0;
   for (var i = 0; i < solutionArray.length; i++) {
     console.log('guessArray.indexOf(i):', guessArray.indexOf(i));
-    console.log('solutionArray[guessArray.indexOf(i)]', solutionArray[guessArray.indexOf(i)])
+    console.log('solutionArray[guessArray.indexOf(i)]', solutionArray[guessArray.indexOf(i)]);
     var targetIndex = solutionArray.indexOf(guessArray[i]);
     console.log('target index:', targetIndex);
     if (targetIndex > -1) {
-      correctLetters++;
-      console.log('correctLetter:', correctLetters);
       solutionArray[targetIndex] = null;
       console.log('solution array:', solutionArray);
+      correctLetters++;
+      console.log('correctLetter:', correctLetters);
       console.log('******************');
     }
   }
@@ -80,16 +81,30 @@ function generateHint(solution, guess) {
 
 
 function mastermind(guess) {
-  //if (validate(guess)) {
-  //solution = 'abcd';
-  if (guess === solution) {
-    board = [];
-    return 'You guessed it!';
-  } else {
-    var hint = generateHint(solution, guess);
-    board.push(guess, hint);
-  }
-  //}
+  // if (validate(guess)) {
+    solution = 'abcd';
+    if (guess === solution) {
+      board = [];
+      solution = '';
+      generateSolution();
+      counter = 10;
+      return 'You guessed it!';
+    } else {
+      var hint = generateHint(solution, guess);
+      board.push(guess + hint);
+    }
+    if (board.length === 10) {
+      console.log('You ran out of turns! The solution was ' + solution + '!');
+      board = [];
+      solution = '';
+      generateSolution();
+      counter = 10;
+    } else {
+      counter--;
+      console.log("Turns remaining: " + counter);
+      return 'Guess again.';
+    }
+  // }
 }
 
 
