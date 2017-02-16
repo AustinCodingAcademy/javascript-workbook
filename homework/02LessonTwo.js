@@ -25,8 +25,8 @@ var alwaysTrue = function () {
 // return a boolean expression that is true when
 // argument1 is equal to argument2
 
-  function equals(argument1, argument2) {
-  if (argument1 === argument2){
+function equals(argument1, argument2) {
+    if (argument1 === argument2){
     return true; }
     else {
     return false;
@@ -38,14 +38,14 @@ var alwaysTrue = function () {
 // return a boolean expression that is true when
 // parameter1 is less than or equal to parameter2
 
-  function lessThanOrEqualTo(parameter1, parameter2) {
-  if (parameter1 <= parameter2){
+function lessThanOrEqualTo(parameter1, parameter2) {
+    if (parameter1 <= parameter2){
     return true;
-}
-  else {
-  return false;
-      }
-} 
+  }
+    else {
+    return false;
+  }
+  } 
 
 
 // Problem 3:
@@ -107,11 +107,11 @@ function addThree (number1, number2, number3) {
 
 var number = 8
 function isEven(number) {
-    if (number % 2 === 0) {
-        return true;
+  if (number % 2 === 0) {
+      return true;
     }
-    else {
-        return false;
+  else {
+      return false;
     }
 }
 // Problem 6:
@@ -122,11 +122,11 @@ function isEven(number) {
 
 var number = 9;
 function isDivisibleByThree(number) {
-    if (number % 3 === 0) {
-        return true;
+  if (number % 3 === 0) {
+      return true;
     }
-    else {
-        return false;
+  else {
+      return false;
     }
 }
 // ****
@@ -144,17 +144,17 @@ function isDivisibleByThree(number) {
 var character = 'scooby';
 
 function whichSpecies(character) {
-    if (character === 'scooby') {
-        return ('dog');
+  if (character === 'scooby') {
+      return ('dog');
     }
-    else if (character === 'garfield') {
-         return ('cat');
+  else if (character === 'garfield') {
+      return ('cat');
     }
-    else if (character === 'nemo') {
-         return ('fish');
+  else if (character === 'nemo') {
+      return ('fish');
     }
-    else {
-        return false;
+  else {
+      return false;
     }
 }
 // Problem 8:
@@ -166,17 +166,17 @@ function whichSpecies(character) {
 // return the string "divisible by 5" when number % 5 === 0
 var number = 8;
 function testNumber(number){
-    if (number % 4 === 0){
-        return ('divisible by 4');
+  if (number % 4 === 0){
+      return ('divisible by 4');
     }
-    else if (number % 2 === 0){
-        return ('divisible by 2');
+  else if (number % 2 === 0){
+      return ('divisible by 2');
     }
-    else if (number % 3 === 0){
-        return ('divisible by 3');
+  else if (number % 3 === 0){
+      return ('divisible by 3');
     }
-    else if (number % 5 === 0){
-        return ('divisible by 5');
+  else if (number % 5 === 0){
+      return ('divisible by 5');
     }
 }
 
