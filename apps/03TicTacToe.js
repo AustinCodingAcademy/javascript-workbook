@@ -44,10 +44,10 @@ function diagonalWin() {
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
-      console.log('Player ' + playerTurn + ' Won!');
-      stopGame = true;
-      return true;
-    }
+    console.log('Player ' + playerTurn + ' Won!');
+    stopGame = true;
+    return true;
+  }
 }
 
 
