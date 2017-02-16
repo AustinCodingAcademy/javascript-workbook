@@ -40,14 +40,14 @@ function isLegal(startStack, endStack) {
     return true;
   } else {
       console.log('Ahh Ahh Ah, you didnt say the magic word!!')
-        return false;
+      return false;
   }
 }
 
 function checkForWin() {
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
     console.log('ERES EL GANADORRRRR!!!');
-      return true;
+    return true;
   } else {
       return false;
   }
@@ -56,7 +56,7 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
-      checkForWin();
+    checkForWin();
   }
 }
 
