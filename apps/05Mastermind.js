@@ -58,7 +58,7 @@ function generateHint(solution, guess) {
   } 
 
   return correctLetterLocations + '-' + correctLetters;
- } 
+} 
 
 function mastermind(guess) {
   var hint = generateHint(solution, guess);
