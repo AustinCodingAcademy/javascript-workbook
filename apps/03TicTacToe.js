@@ -30,6 +30,7 @@ function horizontalWin() {
   (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
     return true;
   };
+  return false;
 };
 
 function verticalWin() {
@@ -38,7 +39,7 @@ function verticalWin() {
   (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
     return true; 
   };
-
+  return false;
 };
 
 function diagonalWin() {
@@ -46,6 +47,7 @@ function diagonalWin() {
   (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
     return true;
   };
+  return false;
 };
 
 // New game function will reset the board variable after any of the wins return true.
