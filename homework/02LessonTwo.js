@@ -26,12 +26,12 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
-    if (argument1 === argument2){
-    return true; }
-    else {
-    return false;
-  }
-  }
+  if (argument1 === argument2){
+      return true; }
+  else {
+      return false;
+    }
+}
 
 // Problem 2:
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
