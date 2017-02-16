@@ -95,10 +95,11 @@ function startOver() {
 
 // Executes the function towersOfHanoi with startStack and endStack passed through.
 function towersOfHanoi(startStack, endStack) {  
-  isLegal(startStack,endStack);
-  movePiece(startStack,endStack);
-  checkForWin();
-  moveCounter();
+  if (isLegal(startStack,endStack)) {
+    movePiece(startStack,endStack);
+    checkForWin();
+    moveCounter();
+  }  
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
