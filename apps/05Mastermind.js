@@ -32,8 +32,10 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
   // your code here
+  // splitting the solution and guess into individual letters
   var solutionArray = solution.split('');
   var guessArray = guess.split('');
+  //setting the correct answers to 0 
   var correctLetterLocations = 0;
   var correctLetters = 0;
   //loop through the array
@@ -78,6 +80,7 @@ function mastermind(guess) {
     board.push(hint +' '+ guess);
     return ('Guess again');
   }
+  board;
 }
 
 
