@@ -60,7 +60,7 @@ function mastermind(guess) {
       var hint = generateHint(solution, guess);
       board.push(guess +' '+ hint);
       return true;
-    }
+  }
 }
 
 
