@@ -104,7 +104,8 @@ conferenceRoom.sayHi();
 // Write your answer in comments
 //
 // What is a method?
-// Method is like a function in an object to execute a statement or fulfill a command
+// Method is like a function in an object to execute a statement or fulfill a command;
+// Specifically, method is a function associated with an object; it also has access to the data in the object's constructor
 //
 
 // ****
