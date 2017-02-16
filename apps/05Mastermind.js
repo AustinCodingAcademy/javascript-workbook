@@ -38,44 +38,46 @@ function generateHint(solution, guess) {
   var targetIndex = null;
 
   for (var i = 0; i < guess.length; i = i + 1 ) {
-    //Check if index x for solutionArray === index x for guessArray?
+    //Check if index x for solutionArray === index x for guessArray
     if (guessArray[i] === solutionArray[i]) {
-      solutionArray[i] = null;
       correctLetterLocations = correctLetterLocations + 1 ;
+      solutionArray[i] = null;
     }
   }
 
   for (var j = 0; j < guess.length; j = j + 1) {
     //Check if guessArray is found at any index of solutionArray
-    //Need to return location of guessArray within solutionArray's index
-    targetIndex = (solutionArray.indexOf(guessArray[j]));
+    //Return location of guessArray within solutionArray's index
+    targetIndex = solutionArray.indexOf(guessArray[j]);
     if (targetIndex > -1) {
       correctLetters = correctLetters + 1;
       solutionArray[targetIndex] = null;
     }
   }
-  return (correctLetterLocations + '-' + correctLetters);
+  return correctLetterLocations + '-' + correctLetters;
 }
 
 function mastermind(guess) {
-  solution = 'abcd';
-
-  if (guess === solution) {
-    return ("You guessed it!");
-  }
+  // Tests passing with or without this hard-coded solution
+  // in here, but that doesn't make sense to me so I'm taking
+  // it out of commission for now
+  // solution = 'abcd';
 
   var hint = generateHint(solution, guess);
   board.push(guess + ' ' + hint);
 
+  if (guess === solution) {
+    return "You guessed it!";
+  }
+
   if (board.length === 10) {
-    return ('You ran out of turns! The solution was ' + ' ' + solution);
+    return 'You ran out of turns! The solution was ' + ' ' + solution;
   }
 
   else {
-    return ('Guess again.');
+    return 'Guess again.';
   }
 }
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
