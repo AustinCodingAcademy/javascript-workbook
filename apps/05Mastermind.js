@@ -54,22 +54,30 @@ function generateHint(solution, guess) {
   
   //loop through arrays to see if any guessed letters match the solution letters
   for (i = 0; i < 4; i++) {
+    //store letter
     var guessLetter = guessArray[i];
+    //store guessLetter to targetIndex if it's found in solutionArray
     var targetIndex = solutionArray.indexOf(guessLetter);
+    //if it is, add it to correctLetters and set the position in which it was found to null
     if (targetIndex > -1) {
       correctLetters++;
       solutionArray[targetIndex] = null;
     };
   };
+  //print the current correctLetterLocations and correctLetters to the console
   return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
-  generateSolution();
   var hint = generateHint(solution, guess);
   board.push(guess + " " + hint)
   if (guess === solution) {
     return "You guessed it!"; 
+  }
+  if (board.length === 10) {
+    return "You ran out of turns! The solution was" + " " + solution + ".";
+  } else {
+    return "Guess again!";
   }
 }
 
