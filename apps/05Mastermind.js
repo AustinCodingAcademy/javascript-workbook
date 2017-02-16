@@ -11,6 +11,8 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var correctLetterLocations = 0;
+var correctLetters = 0;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -29,12 +31,48 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
-}
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var i = 0;
+
+  for(i; i < solutionArray.length; i++) {
+    if(solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+
+  for(i; i < solutionArray.length; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    if(targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    }
+  } 
+
+  return correctLetterLocations + '-' + correctLetters;
+
+ } 
 
 function mastermind(guess) {
-  // your code here
+  generateSolution();
+  if(guess === solution) {
+    console.log("You guessed it!");
+    return true;
+  }
+  else if(board.length === 10) {
+    console.log("You ran out of turns! The solution was " + solution + ".");
+    return false;
+  }
+  else {
+    console.log("Guess again!");
+    generateHint(solution, guess);
+    return true;
+  }
+
+
+
 }
 
 
