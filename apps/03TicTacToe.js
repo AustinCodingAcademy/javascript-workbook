@@ -57,9 +57,9 @@ function ticTacToe(row, column) {
   if (isSpaceAvailable(row, column)) {
     console.log("Sorry, invalid move.");
   } else {
-      board[row][column] = playerTurn;
-      checkForWin();
-      toggleTurn();
+    board[row][column] = playerTurn;
+    checkForWin();
+    toggleTurn();
   }
 }
 
