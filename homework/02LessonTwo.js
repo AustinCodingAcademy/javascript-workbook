@@ -27,10 +27,10 @@ var alwaysTrue = function () {
 
 function equals(argument1, argument2) {
   if (argument1 === argument2){
-      return true; }
+    return true; }
   else {
-      return false;
-    }
+    return false;
+  }
 }
 
 // Problem 2:
@@ -39,13 +39,13 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
-    if (parameter1 <= parameter2){
-    return true;
+  if (parameter1 <= parameter2){
+      return true;
   }
-    else {
-    return false;
-  }
-  } 
+  else {
+      return false;
+    }
+} 
 
 
 // Problem 3:
@@ -108,11 +108,11 @@ function addThree (number1, number2, number3) {
 var number = 8
 function isEven(number) {
   if (number % 2 === 0) {
-      return true;
-    }
+    return true;
+  }
   else {
-      return false;
-    }
+    return false;
+  }
 }
 // Problem 6:
 // isDivisibleByThree(number) is a function that
