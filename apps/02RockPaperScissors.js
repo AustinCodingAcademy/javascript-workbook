@@ -40,8 +40,8 @@ function rockPaperScissors(hand1, hand2) {
     }
     if (hand2 === 'paper') {
       return 'Hand one wins!'
-  }
     }
+  }
 }
 
 function getPrompt() {
