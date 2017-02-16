@@ -40,11 +40,11 @@ function equals(argument1, argument2) {
 
 function lessThanOrEqualTo(parameter1, parameter2) {
   if (parameter1 <= parameter2){
-      return true;
+    return true;
   }
   else {
-      return false;
-    }
+    return false;
+  }
 } 
 
 
@@ -123,11 +123,11 @@ function isEven(number) {
 var number = 9;
 function isDivisibleByThree(number) {
   if (number % 3 === 0) {
-      return true;
-    }
+    return true;
+  }
   else {
-      return false;
-    }
+    return false;
+  }
 }
 // ****
 // Conditionals
@@ -145,17 +145,17 @@ var character = 'scooby';
 
 function whichSpecies(character) {
   if (character === 'scooby') {
-      return ('dog');
-    }
+    return ('dog');
+  }
   else if (character === 'garfield') {
-      return ('cat');
-    }
+    return ('cat');
+  }
   else if (character === 'nemo') {
-      return ('fish');
-    }
+    return ('fish');
+  }
   else {
-      return false;
-    }
+    return false;
+  }
 }
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
@@ -167,17 +167,17 @@ function whichSpecies(character) {
 var number = 8;
 function testNumber(number){
   if (number % 4 === 0){
-      return ('divisible by 4');
-    }
+    return ('divisible by 4');
+  }
   else if (number % 2 === 0){
-      return ('divisible by 2');
-    }
+    return ('divisible by 2');
+  }
   else if (number % 3 === 0){
-      return ('divisible by 3');
-    }
+    return ('divisible by 3');
+  }
   else if (number % 5 === 0){
-      return ('divisible by 5');
-    }
+    return ('divisible by 5');
+  }
 }
 
 // ****
