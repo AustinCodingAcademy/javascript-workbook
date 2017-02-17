@@ -58,14 +58,13 @@ function generateHint(solution, guess) {
 
 
 function mastermind(guess) {
-  solution = 'abcd';
   if (guess === solution) {
     // this return prompts the playAgain() function
     return 'You guessed it!';
     //check to see if the board is at a legnth of 10 or more and then log it as a loss and display the solution
   } else if (board.length === 10) {
     console.log('You ran out of Turns! The solution was' + ' ' + solution);
-    playAgain();
+    return 'Game Over';
   } else {
     //generate a hint based on the positions of the pieces
     var hint = generateHint(solution, guess)
@@ -77,22 +76,36 @@ function mastermind(guess) {
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    // console.log(mastermind(guess));
-    if (mastermind(guess) === 'You guessed it!') {
+    var gameOutcome = mastermind(guess)
+    if (gameOutcome === 'You guessed it!') {
       return playAgain();
-    }
-    printBoard();
-    getPrompt();
-    // will I need to return?
+    } else
+    if (gameOutcome === 'Game Over') {
+      return playAgain();
+    } else {
+
+
+      printBoard();
+      getPrompt();
+    } // will I need to return?
   });
 }
 
+/*
+rl.question('turns: ', (board) => {
+    if (mastermind(guess) === 'You ran out of Turns! The solution was' + ' ' + solution) {
+      return playAgain();
+    }
+*/
 function playAgain() {
   rl.question('Play Again?', function (answer4) {
     if (answer4 === 'yes' || answer4 === 'y') {
       board = [];
+      solution = '';
+      //clearing the console
+      // process.stdout.write('\x1B[2J\x1B[0f\u001b[0;0H');
       console.log('Have Fun!');
-      process.stdout.write('\x1B[2J\x1B[0f\u001b[0;0H');
+      generateSolution();
       getPrompt();
     } else {
       console.log('Later');
