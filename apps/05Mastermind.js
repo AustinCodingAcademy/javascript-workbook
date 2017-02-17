@@ -29,12 +29,34 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  // This is determining correct letter locations
+  var solutionArray = solutionArraySplit.split('');
+  var guessArray = guessArraySplit.split('');
+  var correctLetterLocations = 0;
+  for (var i = 0; i < 4; i++) {
+    if (solutionArray[i] === guessArray[i]){
+        correctLetterLocations++;
+        solutionArray[i] = null;
+    }
+  } 
+  // This determines correct letters
+  var correctLetters = 0;
+  var targetIndex = guessArray[i].indexOf(solutionArray[i]);
+  for (var i = 0; i < 4; i++){
+    if (targetIndex > -1) {
+        correctLetters++;
+        solutionArray[i] = null;
+    }
+  }
 }
 
 function mastermind(guess) {
-  // your code here
+  // default solution to test against
+  solution = 'abcd';
+  if (guess === solution){
+      return 'You guessed it!';
+  }
 }
 
 

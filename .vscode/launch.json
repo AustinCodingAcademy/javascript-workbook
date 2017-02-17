@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/apps/04TowersOfHanoi.js",
+            "program": "${workspaceRoot}/apps/05Mastermind.js",
             "cwd": "${workspaceRoot}",
             "console": "externalTerminal"
         },
