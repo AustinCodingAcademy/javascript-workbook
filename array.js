@@ -1,14 +1,37 @@
+//how would i write a list out in plain english
 
-    //how would i write a list out in plain english
-
-
-
-    //how do i turn this list into javascript code as an array
+['wash car', 'get groceries', 'taking dog to vet']
 
 
 
 
-    //what is wrong with this how it is
+
+
+//how do i turn this list into javascript code as an array
+
+
+
+
+
+
+
+//what is wrong with this how it is
+
+
+
+
+//i want to know the 3rd thing on my list
+
+
+
+// i need to change the 4th thing on my list
+
+
+
+    
+
+
+
 
 
 
