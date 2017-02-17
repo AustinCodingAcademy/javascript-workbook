@@ -29,15 +29,16 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// Check to see if the guessed letters equal solution letters' location
-var correctLetterLocation = 0;
-//  Checks to see if any of the guessed letters equal the solutions letters in ANY location.
-var correctLetters  = 0;
-// 
-var hint = generateHint(); 
+
+//
+// var hint = generateHint(); Needs parameters!!
 
 
 function generateHint(solution, guess) {
+  // Check to see if the guessed letters equal solution letters' location
+  var correctLetterLocation = 0;
+  //  Checks to see if any of the guessed letters equal the solutions letters in ANY location.
+  var correctLetters  = 0;
   // the .split splits an array by what ever character is put in-between the "" and creates a substring and returns them as an array.
   // this var is assigned the sub string , , , , of the solution array
   console.log(solution);
@@ -57,8 +58,9 @@ function generateHint(solution, guess) {
     var targetIndex = solutionArray.indexOf(guessArray[i]);
     // Evaluates if the container targetIndex is > -1 (meaning, it exists in the solutionArray), if so it adds a count to correctLetters and sets the value to null.
     if (targetIndex > -1 ){
-    correctLetters++;
-    solutionArray = null;
+      solutionArray[i] = null;
+      correctLetters++;
+    
     }
   }
 
