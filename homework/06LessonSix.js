@@ -12,6 +12,8 @@ var assert = require('assert');
 // Add properties x: 1, y: 2 to point to make it a point
 // in two dimensional space.
 var point = {
+  x: 1,
+  y: 2
 };
 
 // Problem 2:
@@ -21,13 +23,15 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
+  this.x = x;
+  this.y = y;
 }
 
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint;
+var anotherPoint = new Point(5,-3);
 
 // ****
 // Concept Checkpoint
@@ -36,7 +40,7 @@ var anotherPoint;
 //
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
-//
+// point defines key value pairs, and anotherPoint calls point and passes in new values.
 //
 
 // ****
@@ -76,11 +80,14 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi = function () {
+    return "Hi, I'm " + this.name + '!';
+  }
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
+var jen = new Person('Jen');
 
 // Problem 6:
 // add jen to the conferenceRoom
@@ -88,7 +95,7 @@ var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
-
+conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
