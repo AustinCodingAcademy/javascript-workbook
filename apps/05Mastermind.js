@@ -67,13 +67,12 @@ function mastermind(guess) {
   // This checks for how many turns you have used. If the length goes to 10 then you have no more turns
   var hint = generateHint(solution, guess);
   board.push(guess + ' ' + hint);
-  if (board.length === 10){
+  if (board.length === 10) {
     return 'You ran out of turns! The solution was ' + solution;
 
+  } else {
+    return 'Guess again.'
   }
-  else {
-  return 'Guess again.'
-}
 }
 
 
