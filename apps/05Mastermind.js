@@ -30,14 +30,14 @@ function getRandomInt(min, max) {
 }
 
 
-//
-// var hint = generateHint(); Needs parameters!!
+ //
+ // var hint = generateHint(); Needs parameters!!
  // Check to see if the guessed letters equal solution letters' location
   var correctLetterLocations = 0;
   //  Checks to see if any of the guessed letters equal the solutions letters in ANY location.
   var correctLetters = 0;
 
-  // var hint = generateHint();
+ 
 
 function generateHint(solution, guess) {
  
@@ -54,10 +54,15 @@ function generateHint(solution, guess) {
       // else leave it alone.
     }
   }
-  console.log(solutionArray);
+
+  // This console.log was used to ensure the array was splitting. Its not needed for the game.
+  // console.log(solutionArray);
+
   for (var i = 0; i < solutionArray.length; i++) {
+
     // This targetIndex is a temporary container that holds the value of i in guessArray and evaluates the .indexOf it in solutionArray. 
     var targetIndex = solutionArray.indexOf(guessArray[i]);
+
     // Evaluates if the container targetIndex is > -1 (meaning, it exists in the solutionArray), if so it adds a count to correctLetters and sets the value to null.
     if (targetIndex > -1 ){
       solutionArray[i] = null;
@@ -66,38 +71,44 @@ function generateHint(solution, guess) {
     }
   }
 
-  
-  // board.push(guess + hint);
+  // creates a variable to hold the correct Letter and locations to be used later.
+  var hint = colors.red(correctLetterLocations) + " - " + colors.blue(correctLetters);
 
-  return "Correct Letter Locations" + correctLetterLocations + " - " + "Correct Letters" + correctLetters;
- 
-  
+  // pushes the vars of guess and hint into the board to be printed out each time a guess(move) is made.
+  board.push(guess + " " + hint);
 }
+
+
 
 function mastermind(guess) {
   // This is a test line to make sure my function is working. it currently equals 'abcd'
-  solution = "abcd";
+  // solution = "abcd";
 
-  if  (guess === solution) {
+  if (board.length === 10) {
+    console.log("You ran out of turns");
+  }
+
+  else {
+    if  (guess === solution) {
     console.log ('You guessed it!');
     return true;
-  }
-  else {
-    // Take this next line out for the real game. 
-    console.log(solution);
+    }
+
+    else {
     generateHint(solution, guess);
-    // console.log("Correct Letter and Location: " + correctLetterLocations);
-    // console.log("Correct Letter(s), wrong location: " + correctLetters);
+    }
+  
+    console.log("guess again");
+
+
+
   }
-
-
-
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
+    console.log( "checkers" + mastermind(guess) );
     printBoard();
     getPrompt();
   });
