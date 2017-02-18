@@ -32,29 +32,31 @@ function getRandomInt(min, max) {
 
 //
 // var hint = generateHint(); Needs parameters!!
+ // Check to see if the guessed letters equal solution letters' location
+  var correctLetterLocations = 0;
+  //  Checks to see if any of the guessed letters equal the solutions letters in ANY location.
+  var correctLetters = 0;
 
+  // var hint = generateHint();
 
 function generateHint(solution, guess) {
-  // Check to see if the guessed letters equal solution letters' location
-  var correctLetterLocation = 0;
-  //  Checks to see if any of the guessed letters equal the solutions letters in ANY location.
-  var correctLetters  = 0;
+ 
   // the .split splits an array by what ever character is put in-between the "" and creates a substring and returns them as an array.
   // this var is assigned the sub string , , , , of the solution array
-  console.log(solution);
   var solutionArray = solution.split("");
   // this var is assigned the sub string , , , , of the guess array
   var guessArray = guess.split("");
   
   for (var i = 0; i < solutionArray.length; i++) {
     if (guessArray[i] === solutionArray[i]) {
-      correctLetterLocation++;
+      correctLetterLocations++;
       solutionArray[i] = null;
+      // else leave it alone.
     }
   }
-  // console.log(solutionArray);
+  console.log(solutionArray);
   for (var i = 0; i < solutionArray.length; i++) {
-    // This targetIndex is a temporary container the holds the value of i in guessArray and evaluates the .indexOf it in solutionArray. 
+    // This targetIndex is a temporary container that holds the value of i in guessArray and evaluates the .indexOf it in solutionArray. 
     var targetIndex = solutionArray.indexOf(guessArray[i]);
     // Evaluates if the container targetIndex is > -1 (meaning, it exists in the solutionArray), if so it adds a count to correctLetters and sets the value to null.
     if (targetIndex > -1 ){
@@ -64,25 +66,28 @@ function generateHint(solution, guess) {
     }
   }
 
+  
   // board.push(guess + hint);
 
-  // return correctLetterLocation + " - " + correctLetters;
+  return "Correct Letter Locations" + correctLetterLocations + " - " + "Correct Letters" + correctLetters;
  
   
 }
 
 function mastermind(guess) {
   // This is a test line to make sure my function is working. it currently equals 'abcd'
-  // solution = "abcd";
+  solution = "abcd";
 
   if  (guess === solution) {
     console.log ('You guessed it!');
     return true;
   }
   else {
+    // Take this next line out for the real game. 
     console.log(solution);
     generateHint(solution, guess);
-    console.log(correctLetterLocation);
+    // console.log("Correct Letter and Location: " + correctLetterLocations);
+    // console.log("Correct Letter(s), wrong location: " + correctLetters);
   }
 
 
