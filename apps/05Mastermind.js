@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var colors = require('colors/safe');
+var colors = require('colors');
 var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin,
@@ -10,6 +10,8 @@ var rl = readline.createInterface({
 
 var board = [];
 var solution = '';
+var guess;
+var turn = 1;
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -29,25 +31,65 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) { 
+  // Separate letters into an array.
+  var solutionArray = solution.split("");
+  var guessArray = guess.split("");
+  var correctLetters = 0;
+  var correctLetterLocations = 0;
+  var correctLettersArray = [];
+  // This is where the magic happens.
+  // Compares guess array to solution array and identifies correct letters and locations.
+  for (var j = 0; j < 4; j++){
+    for(var i = 0; i < 4; i++){
+      if(guessArray[j] === solutionArray[i]){ // compares first letter in guess with all letters in solution
+        correctLettersArray[j] = guessArray[j]; // add guess letter to correctLetterArray
+        if(j === i){ // compares position guess index with solution index
+          correctLetterLocations++;  // add number to correct position
+        }
+        else{
+          correctLetters++; // if its not in the same position, just add ++ to correctLetters
+          if(correctLettersArray.length > 0){ //checks if there is a similar letter in the array
+            if(correctLettersArray[j] === correctLettersArray[j-1]){
+              correctLetters--; // if there is a similar letter in the array, correctLetters--
+            }
+          }
+        }
+      }
+    }
+  }
+  return correctLetterLocations + "-" + correctLetters; // After both for loops, it returns all the letters that it found.
 }
 
 function mastermind(guess) {
-  // your code here
+  // If guess is equal to solution, you guessed it!
+  if (guess === solution){
+    return 'You guessed it!';
+  }
+  // Else, if your board length is less than 10, keep playing!
+  else if (board.length < 10){
+    var hint = generateHint(solution, guess);
+    board.push(hint +' '+ guess);
+  }
+  // Else, you are out!
+  else{
+    turn = 0;
+    board = [];
+    return 'Game over, guess again!';
+  }
 }
 
-
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
+  rl.question('This is your ' + turn + ' turn, guess (a,b,c,d,e,f,g,h): ', (guess) => {
+    mastermind(guess);
+    turn++;
     printBoard();
     getPrompt();
   });
 }
 
-// Tests
 
+// Tests
 if (typeof describe === 'function') {
 
   describe('#mastermind()', function () {
