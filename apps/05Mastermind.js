@@ -36,6 +36,7 @@ function generateHint(solution, guess) {
   var correctLetterLocations = 0;
   for (var i = 0; i < guess.length; i++) {
     // This is checking for is the correct spot and letter
+    // if the guess equals the solution then return the remainder
     if (guessArray[i] === solutionArray[i]) {
       solutionArray[i] = null;
       correctLetterLocations = correctLetterLocations + 1;
@@ -44,6 +45,8 @@ function generateHint(solution, guess) {
   }
   var correctLetters = 0;
   var targetIndex = null;
+  // this loop goes throught the lenght of the array and finds if the guess matched the solution
+  // and when if it doesnt it will return a number greater than -1
   for (var j = 0; j < guess.length; j++) {
     targetIndex = (solutionArray.indexOf(guessArray[j]));
     if (targetIndex > -1) {
@@ -54,13 +57,14 @@ function generateHint(solution, guess) {
   }
   return ((correctLetterLocations) + '-' + (correctLetters));
 }
-
+// this give the solution we set 'abcd'and returns a win if they are equal
 function mastermind(guess) {
   // your code here
   solution = 'abcd';
   if (guess === solution) {
     return "You guessed it!"
   }
+  // This checks for how many turns you have used. If the length goes to 10 then you have no more turns
   var hint = generateHint(solution, guess);
   board.push(guess + ' ' + hint);
   if (board.length === 10){
