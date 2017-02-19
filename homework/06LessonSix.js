@@ -32,10 +32,7 @@ function Point(x, y) {
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint;
-new Point(undefined);
-anotherPoint.x === 5;
-anotherPoint.y === -3;
+var anotherPoint = new Point(5, -3);
 // ****
 // Concept Checkpoint
 //
@@ -43,7 +40,7 @@ anotherPoint.y === -3;
 //
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
-//
+// definitions pertaining to defining an array versus defining a string.
 //
 
 // ****
@@ -83,18 +80,20 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi = function () {
+    return "Hi, I'm " + this.name + '!';
+  }
 }
-
 // Problem 5:
 // create a new Person named Jen
-var jen;
-
+var jen = new Person('jen');
 // Problem 6:
 // add jen to the conferenceRoom
 var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
+conferenceRoom.enter(jen);
 
 
 // ****
