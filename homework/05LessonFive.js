@@ -79,7 +79,7 @@ for (forLoopCounterResult = 0; forLoopCounterResult > -10; forLoopCounterResult-
 //
 // Write your answer in comments
 //
-// What are loops? Why do we use them?
+// What are loops? Why do we use them? Loops are a way to repeat functions that would otherwise need to be called manually and individually. This is useful for functions that excuted hundreds and thousands of times within a program.
 //
 
 // ****
