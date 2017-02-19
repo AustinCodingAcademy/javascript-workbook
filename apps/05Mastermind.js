@@ -29,18 +29,11 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
- //
- // var hint = generateHint(); Needs parameters!!
- // Check to see if the guessed letters equal solution letters' location
+function generateHint(solution, guess) {
+  // Check to see if the guessed letters equal solution letters' location
   var correctLetterLocations = 0;
   //  Checks to see if any of the guessed letters equal the solutions letters in ANY location.
   var correctLetters = 0;
-
- 
-
-function generateHint(solution, guess) {
- 
   // the .split splits an array by what ever character is put in-between the "" and creates a substring and returns them as an array.
   // this var is assigned the sub string , , , , of the solution array
   var solutionArray = solution.split("");
@@ -55,34 +48,26 @@ function generateHint(solution, guess) {
     }
   }
 
-  // This console.log was used to ensure the array was splitting. Its not needed for the game.
-  // console.log(solutionArray);
-
   for (var i = 0; i < solutionArray.length; i++) {
 
     // This targetIndex is a temporary container that holds the value of i in guessArray and evaluates the .indexOf it in solutionArray. 
-    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    // Switched these to test. 
 
     // Evaluates if the container targetIndex is > -1 (meaning, it exists in the solutionArray), if so it adds a count to correctLetters and sets the value to null.
     if (targetIndex > -1 ){
-      solutionArray[i] = null;
       correctLetters++;
-    
+      solutionArray[i] = null;
     }
   }
 
-  // creates a variable to hold the correct Letter and locations to be used later.
-  var hint = colors.red(correctLetterLocations) + " - " + colors.blue(correctLetters);
-
-  // pushes the vars of guess and hint into the board to be printed out each time a guess(move) is made.
-  board.push(guess + " " + hint);
+    // creates a variable to hold the correct Letter and locations to be used later.
+    return correctLetterLocations + "-" + correctLetters;
 }
-
-
 
 function mastermind(guess) {
   // This is a test line to make sure my function is working. it currently equals 'abcd'
-  // solution = "abcd";
+  solution = "abcd";
 
   if (board.length === 10) {
     console.log("You ran out of turns");
@@ -90,25 +75,24 @@ function mastermind(guess) {
 
   else {
     if  (guess === solution) {
-    console.log ('You guessed it!');
-    return true;
+    return ('You guessed it!');
     }
 
     else {
-    generateHint(solution, guess);
+    var hint = generateHint(solution, guess);
+    // pushes the vars of guess and hint into the board to be printed out each time a guess(move) is made.
+    board.push(guess + " " + hint);
+    return ("guess again");
     }
   
-    console.log("guess again");
-
-
-
+    
   }
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    console.log( "checkers" + mastermind(guess) );
+    console.log(mastermind(guess) );
     printBoard();
     getPrompt();
   });
