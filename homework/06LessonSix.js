@@ -102,8 +102,8 @@ conferenceRoom.enter(jen);
 // Write your answer in comments
 //
 // What is a method?
-//
-//
+// JavaScript methods are the actions that can be performed on objects. It's a shortening of JS rules.
+//  I want to die.
 
 // ****
 // Tests
