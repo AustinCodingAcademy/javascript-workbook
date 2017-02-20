@@ -84,7 +84,7 @@ function Person(name) {
   this.name = name;
   this.sayHi = function() {
     return "Hi I'm " + this.name + "!";
-    }
+  }
 }
 
 // Problem 5:
@@ -94,17 +94,19 @@ var jen = new Person("jen");
 // Problem 6:
 // add jen to the conferenceRoom
 var conferenceRoom = new ConferenceRoom();
+
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
 
+conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
 //
 // Write your answer in comments
 //
-// What is a method?
+// What is a method? A method is an action that can be performed on a function.
 //
 //
 
