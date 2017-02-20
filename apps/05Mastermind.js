@@ -9,8 +9,9 @@ var rl = readline.createInterface({
 });
 
 var board = [];
-var solution = '';
+var solution = 'abcd';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var product = [];
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -29,12 +30,34 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess,solution) {
   // your code here
 }
 
 function mastermind(guess) {
   // your code here
+  //console.log(guess);
+solution = solution.toLowerCase();
+
+  //checkArray(guess);
+
+  // if (guess === solution) {
+  //   console.log("you win")
+  //   return guess;
+  // }
+}
+
+function stringToArray(str){
+}
+
+function checkArray(guess){
+    // for (var i=0; i <guess.length; i++){
+    //     if (guess[i] === solution[i]){
+    //         product.push(guess[i]);
+    //     } else {
+    //       product.push('z');
+    //     }
+    // }
 }
 
 
