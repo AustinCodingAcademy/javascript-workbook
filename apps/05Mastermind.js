@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var colors = require('colors/safe');
+
 var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin,
@@ -31,24 +31,26 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
   // This is determining correct letter locations
-  var solutionArray = solutionArraySplit.split('');
-  var guessArray = guessArraySplit.split('');
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
   var correctLetterLocations = 0;
-  for (var i = 0; i < 4; i++) {
+  var correctLetters = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]){
         correctLetterLocations++;
         solutionArray[i] = null;
     }
   } 
   // This determines correct letters
-  var correctLetters = 0;
-  var targetIndex = guessArray[i].indexOf(solutionArray[i]);
-  for (var i = 0; i < 4; i++){
+  for (i = 0; i <= solutionArray.length; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
     if (targetIndex > -1) {
-        correctLetters++;
-        solutionArray[i] = null;
+      correctLetters++;
+      solutionArray[i] = null;
     }
   }
+   return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
@@ -57,6 +59,16 @@ function mastermind(guess) {
   if (guess === solution){
       return 'You guessed it!';
   }
+  
+  // This will end the game after 10 incorrect guesses 
+  if (board.length === 10) {
+    return 'Your ran out of turns.  The solution is:  ' + solution;
+  } else {
+    var hint = generateHint(solution, guess);
+    board.push(hint + ' ' + guess);
+    return 'Guess again';
+  } 
+
 }
 
 
