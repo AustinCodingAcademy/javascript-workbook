@@ -50,14 +50,13 @@ function generateHint(solution, guess) {
       solutionArray[i] = null;
     }
   }
-
 //Colors package not working. Had to remove it to get all the tests to pass.
   return correctLetterLocations + "-" + correctLetters;
     
 }
 
 function mastermind(guess) {
-  
+ // solution = 'abcd';
   if (guess === solution) {
     return 'You guessed it!';
   }
