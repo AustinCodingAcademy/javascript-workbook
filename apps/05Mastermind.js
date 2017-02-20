@@ -44,22 +44,11 @@ function generateHint(solution, guess) {
     }
     for (var i = 0; i > solutionArray.length; i++) {
       if (solutionArray.includes(guessArray)[i]) {
-      correctLetterLocation += 1;
+        correctLetterLocation += 1;
+      }
     }
+    return correctLetterLocation + '   -  ' + correctLetter;
   }
-  return correctLetterLocation + '   -  ' + correctLetter;
-}
-}
-
-var hint = generateHint(solution, guess)
-board.push['guess' + 'hint'];
-
-
-
-if (board.length == 10) {
-return 'You ran out of turns! The solution was ' + solution}
-
- return ' Guess again';
 }
 
 
@@ -67,15 +56,25 @@ return 'You ran out of turns! The solution was ' + solution}
 
 
 
-function mastermind(guess,solution) {
+function mastermind(guess) {
   // your code here
-  if (guess === solution)
+  if (guess === solution) {
     return 'You guessed it!'
+  }
+  var hint = generateHint(solution, guess)
+  board.push('guess' + 'hint');
+
+  if (board.length == 10) {
+    return 'You ran out of turns! The solution was ' + solution
+  }
+
+  return ' Guess again';
+
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
+  rl.question('guess:', (guess) => {
     console.log(mastermind(guess));
     printBoard();
     getPrompt();
