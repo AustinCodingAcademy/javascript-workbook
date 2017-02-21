@@ -44,9 +44,11 @@ function generateHint(solution, guess) {
   }
 
   for (i = 0; i <= solutionArray.length; i++) {
+    // Tried to switch guessArray and solutionArray below and tests failed.
     var targetIndex = guessArray.indexOf(solutionArray[i]);
     if (targetIndex > -1) {
       correctLetters++;
+      // Should use targetindex below here. Tried this as well but tests failed.
       solutionArray[i] = null;
     }
   }
