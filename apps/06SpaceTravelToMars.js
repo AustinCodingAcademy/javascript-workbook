@@ -20,20 +20,24 @@ function CrewMember(name, job, specialSkill){
   }
 }
 
-// var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-// rick;
 
 function Ship(name, type, ability) {
-  //var this = {}
   this.name = name;
   this.type = type;
   this.ability = ability;
   this.crew = [];
+  this.missionStatement = function() {
+    var missionStatus = "Can't perform a mission yet.";
+    for (var i = 0; i < this.crew.length; i++) {
+      if (jobTypes[this.crew[i].job] === this.type || this.crew[i].job === 'programmer') {
+        missionStatus = this.ability;
+      }
+    }
+    return missionStatus;
+  }
 }
 
-this.missionStatement = function(){
-  console.log(this) //how do i log out the name
-}
+
 
 
 
