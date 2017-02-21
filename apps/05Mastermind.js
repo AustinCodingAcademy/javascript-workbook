@@ -20,6 +20,7 @@ function printBoard() {
   }
 }
 
+
 function generateSolution() {
   for (var i = 0; i < 4; i++) {
     var randomIndex = getRandomInt(0, letters.length);
