@@ -29,19 +29,15 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-/*function newGame() {
-  printBoard();
-  getRandomInt();
-  generateSolution();
-  return "New Game!";
-} */
 
 function generateHint(solution, guess) {
+  // turning solution and guess into an array
   var solutionArray = solution.split('');
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
 
+ // looping through solution and guess to find letter matches
   for(var i = 0; i < solutionArray.length; i++) {
     var targetIndex = solutionArray.indexOf(guessArray[i]);
     if(solutionArray[i] === guessArray[i]) {
@@ -58,15 +54,19 @@ function generateHint(solution, guess) {
 } 
 
 function mastermind(guess) {
+  // setting hint equal to the return value of generateHint
   var hint = generateHint(solution, guess);
   board.push(guess + " " + hint); 
 
+  //looking for win
   if(guess === solution) {
     return "You guessed it!";
   }
+  //game ends when user runs out of turns
   else if(board.length === 10) {
     return "You ran out of turns! The solution was " + solution + ".";
   }
+  // user didn't win, guess again
   else {
     return "Guess again!";
   }
