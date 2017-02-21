@@ -13,7 +13,7 @@ var assert = require('assert');
 // in two dimensional space.
 var point = {
   x: 1,
-  y: 2,
+  y: 2
 };
 
 // Problem 2:
@@ -41,7 +41,7 @@ var anotherPoint = new Point(5, -3);
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
 //
-//
+// Point is the class constructor that organizes and holds the data that needs to be inputed (like a blueprint).. and anotherPoint is a new variable that is created and can be applied usint the class constructor Point.
 
 // ****
 // Methods
@@ -89,7 +89,7 @@ function Person(name) {
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
+var jen = new Person('Jen');
 
 // Problem 6:
 // add jen to the conferenceRoom
@@ -97,6 +97,7 @@ var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
+conferenceRoom.enter(jen);
 
 
 // ****
@@ -106,8 +107,8 @@ var conferenceRoom = new ConferenceRoom();
 //
 // What is a method?
 //
-//
-
+// A method is a piece of code that is called by a name that is associated with an object. A method is identical to a function except that it is used on an object. They are functions that belong to a class. Functions can be on any other scope of the code.  
+// 
 // ****
 // Tests
 // DO NOT MODIFY CODE BELOW!!!!!
