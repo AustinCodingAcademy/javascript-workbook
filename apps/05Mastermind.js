@@ -32,41 +32,43 @@ function getRandomInt(min, max) {
 }
 
 
-
+// function gnerateHint will take the computer generated solution and the user guess input and pass it
+// as perameters to be tested aainst eachother
 function generateHint(solution, guess) {
     // your code here
-   var solutionArray = solution.split('');
-   var guessArray = guess.split('');
-   var correctLetterLocations = 0;
-   var correctLetters = 0;
+   var solutionArray = solution.split(''); // turn the RNG solution into an array, split up by blank strings
+   var guessArray = guess.split(''); // user input into an array, split by empty strings
+   var correctLetterLocations = 0; //index for the ammount of correct locations of a letter by the user
+   var correctLetters = 0; //index of correct letters in the array by the user
  
-   for (var i = 0; i < solutionArray.length; i++) {
-     if (solutionArray[i] === guessArray[i]) {
-       correctLetterLocations++;
-       solutionArray[i] = null;
+   for (var i = 0; i < solutionArray.length; i++) { // loop over the solutionArray using index i
+     if (solutionArray[i] === guessArray[i]) { //if the character found at index i matches in both arrays, you have a match!
+       correctLetterLocations++; // add 1 to correctLetterLocations, this will be returned 
+       solutionArray[i] = null; // null out the position in solutonArray index i, as to not be repeated
      }
-    var targetIndex = solutionArray.indexOf(guessArray[i]);
-     if (targetIndex > -1) {
-        correctLetters++;
-        solutionArray[targetIndex] = null;
+    var targetIndex = solutionArray.indexOf(guessArray[i]); // check to see if any of the letters in guess array exist in solution array
+     if (targetIndex > -1) {// if matches were found, return true
+        correctLetters++; //add 1 to correctLetters, return this value as well
+        solutionArray[targetIndex] = null; // null out the value at target index in solution array
      }
    }
-   return (correctLetters+'-'+correctLetterLocations);
+   return (correctLetters+'-'+correctLetterLocations); // return the values needed for user to see the hint
   }
 
-function mastermind(guess) {
+// game play function,
+function mastermind(guess) { 
   // your code here
-  if (guess === solution) {
-     return ('You guessed it!');
-   } else if (board.length === 10) {
-     return ('You ran out of turns! The solution was ' + solution + '.')
+  if (guess === solution) { // check to see if user guessed the puzzle correctly
+     return ('You guessed it!'); //end game here  with winning message
+   } else if (board.length === 10) { // check to see if  max number of turns has been reached
+     return ('You ran out of turns! The solution was ' + solution + '.') //end game if max turns has been reached
    }
    else {
-     var hint = generateHint(solution, guess);
-     board.push(hint + ' ' +guess);
+     var hint = generateHint(solution, guess); // apply the return values of generateHint() to the variable hint
+     board.push(hint + ' ' +guess); // push onto the board both the hint you just created and the guess
      return ('Guess again');
    }
-  generateHint(guess);
+  generateHint(guess); // run the generate hint function if game continues
   
 }
 
