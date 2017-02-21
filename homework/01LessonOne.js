@@ -6,6 +6,7 @@ var assert = require('assert');
 // Basic Data Types
 // ****
 
+
 // Problem 0:
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.

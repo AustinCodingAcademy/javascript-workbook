@@ -6,6 +6,7 @@ var assert = require('assert');
 // Scope
 // ****
 
+ 
 // DO NOT MODIFY
 var lastName = 'plaid';
 
