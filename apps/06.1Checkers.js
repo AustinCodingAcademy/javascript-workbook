@@ -8,8 +8,14 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  // Set the symbol for the checker
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
+
 }
 
 function Board() {
@@ -24,8 +30,7 @@ function Board() {
         this.grid[row].push(null);
       }
     }
-  };
-
+};
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
@@ -47,21 +52,74 @@ function Board() {
       // join the rowOfCheckers array to a string, separated by a space
       string += rowOfCheckers.join(' ');
       // add a 'new line'
-      string += "\n";
-    }
+      string += "\n"; 
     console.log(string);
+    }
   };
-
   // Your code here
-}
+  this.checkers = [];
+  this.createCheckers = function() {
+    //define the white and black position array as given in the specs
+    var whitePositions = [
+      [0, 1], [0, 3], [0, 5], [0, 7], 
+      [1, 0], [1, 2], [1, 4], [1, 6], 
+      [2, 1], [2, 3], [2, 5], [2, 7],
+    ];
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6], 
+      [6, 1], [6, 3], [6, 5], [6, 7], 
+      [7, 0], [7, 2], [7, 4], [7, 6],
+    ];
+    for (var i = 0; i <= 11; i++) {
+      //instantiate a white checker
+      var whiteChecker = new Checker('white');
+      //place the checker on the grid at the corresponding index 
+      this.grid[whitePositions[i][0]][whitePositions[i][1]] = whiteChecker;
+      //push the checkers into the checker array 
+      this.checkers.push(whiteChecker);
+      //do the same thing for the black checker 
+      var blackChecker = new Checker('black');
+      this.grid[blackPositions[i][0]][blackPositions[i][1]] = blackChecker;
+      this.checkers.push(blackChecker);
+    }
+  }
+  //help function for selecting checkers on board
+  this.selectChecker = function(checkerPosition) {
+    var row = checkerPosition[0];
+    var column = checkerPosition[1];
+    return this.grid[row][column];
+  }
+  //helper function for killing a checker 
+  this.killChecker = function(position) {
+    //get the checker using the helper function 
+    var checkerForKill = this.selectChecker(position);
+    //get the index of the checker to be killed 
+    var killPosition = this.checkers.indexOf(checkerForKill);
+    //remove the checker from the array 
+    this.checkers.splice(killPosition,1);
+    //assign the checker's position on the grid to null 
+    this.grid[position[0]][position[1]] = null;
+    }
+};
+
 function Game() {
-
   this.board = new Board();
-
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
+  this.moveChecker = (start, end) => {
+    var checker = this.board.selectChecker(start);
+    this.board.grid[start[0]][start[1]] = null; 
+    this.board.grid[end[0]][end[1]] = checker;
+    // this.board.selectChecker(end) = checker;
+    // why didn't the above line work? said "invalid left-hand assignment"
+    if (Math.abs(end[0]-start[0]) === 2) {
+        var killPosition = [(parseInt(end[0]) + parseInt(start[0]))/2, (parseInt(end[1]) + parseInt(start[1]))/2];
+        this.board.killChecker(killPosition);
+    }
+  }
 }
 
 function getPrompt() {
