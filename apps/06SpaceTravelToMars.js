@@ -9,7 +9,55 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+var jobMatch = false; 
+
 // Your code here
+
+//create the crewMember class
+class CrewMember{
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.jobType = jobTypes[this.job];
+    this.specialSkill = specialSkill;
+    this.ship = null;
+    this.enterShip = function(Ship) {
+//assign the ship to the crewmember class's property
+    this.ship = Ship;
+//push the crew member into the ship class's crew array 
+    Ship.crew.push(this);
+    }
+  } 
+}
+
+// var Xilin = new CrewMember('Xilin', 'mechanic', 'mess up stuff');
+
+//create the ship class
+class Ship{
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  this.missionStatement = function() {
+  //see if any of this ship's crew member's special skill matches the ship's type 
+    for (var crewStaff of this.crew) {
+      if (crewStaff.jobType === this.type) {
+        jobMatch = true;
+        return this.ability;
+      } 
+   } if (jobMatch === false) {
+   return "Can't perform a mission yet."; 
+   }
+  }
+ }
+}
+  
+
+// var Flagship = new Ship('Flagship', 'Repair Ship', 'Get the ship fixed');
+// Xilin.enterShip(Flagship);
+// Flagship.missionStatement();
+
 
 //tests
 if (typeof describe === 'function'){
