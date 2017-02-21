@@ -11,6 +11,50 @@ var jobTypes = {
 
 // Your code here
 
+function CrewMember(name, job, specialSkill, enterShip){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(){
+    console.log(this.name);
+  }
+}
+
+// var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+// rick;
+
+function Ship(name, type, ability, crewMember1) {
+  //var this = {}
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.crewMember1 = function(){
+    console.log(this.name);
+  }
+}
+
+this.missionStatement = function(){
+  console.log(this) //how do i log out the name
+}
+
+
+
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// mav;
+
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+// rick.enterShip(mav);
+// console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+// console.log(mav.crew.length); //=> 1
+// console.log(mav.crew[0].name); //=> 'Rick Martinez'
+// console.log(rick.ship === mav); //=> true
+// console.log(mav.crew.indexOf(rick) === 0); //=> true
+
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
