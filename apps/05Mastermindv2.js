@@ -23,6 +23,7 @@ function generateSolution() {
         var randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
     }
+  //  console.log(solution);  tell user the solution
 }
 
 function getRandomInt(min, max) {
@@ -38,6 +39,7 @@ function generateHint(solution, guess) {
   var correctLetters = 0;
 
   for (var i = 0; i < solutionArray.length; i++) {
+    console.log('value of i ' + i)
     if (solutionArray[i] === guessArray[i]) {
       correctLetterLocations++;
       solutionArray[i] = null;
@@ -45,40 +47,39 @@ function generateHint(solution, guess) {
   }
 
   for (i = 0; i <= solutionArray.length; i++) {
-    console.log('target index each time pre: '+ targetIndex)
     var targetIndex = guessArray.indexOf(solutionArray[i]);
-      console.log('target index number indexOf found:' + targetIndex)
+    console.log(targetIndex + "target Index");
     if (targetIndex > -1) {
-      console.log ('match found')
       correctLetters++;
       solutionArray[i] = null;
     }
   }
-  return num + '. ' + correctLetterLocations + '-' + correctLetters;
+  return num + '. ' + correctLetterLocations + '-' + correctLetters;    //returns nth guess + number of correct letters + correct location
 
 }
 
 function mastermind(guess) {
     // your code here
-  var solution = 'abcd' //temp hard code
-  //console.log(guess + ' guess');  // user input 'guess' that was passed
-  //console.log(solution + ' solution')  // solution for the sake of showoing what is saved
-
+ var solution = 'aaaa' //temp hard code
   if (guess === solution) {
-    board = [];
+    board = [];  //clears the board
+    solution = '';  //reset solutuion to empty
+    generateSolution(); //generates a new solution
     return 'You guessed it!' //when guess is ame as solution.  Spec 2
   }
 
-  if (board.length === 10) {
+  if (board.length === 10) {  // reset the board if more than 10 tryes
     board = [];
+    num = 0;
+    //solution = '';
+    //generateSolution();
     return 'Your ran out of turns.  The solution is:  ' + solution;
   } else {
-    console.log(guess + ' my guess');
     var hint = generateHint(solution, guess);
     board.push(hint + ' ' + guess);
     return ('Guess again');
-  } //end of if statement
-} //end of function
+  }
+}
 
 
 function getPrompt() {

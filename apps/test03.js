@@ -11,8 +11,6 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-var num = 0;
-var guess ='';
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -33,60 +31,50 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
   // your code here
-  var solutionArray = solution.split('');  //adds guess to solution format
-  var guessArray = guess.split('');  //add guess to Array format
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
-  var i = 0;
 
-// determine correct letter location
-  for (i=0; i<solutionArray.length; i++){
-    if (solutionArray[i] === guessArray[i]){
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
       correctLetterLocations++;
       solutionArray[i] = null;
-    } //end of if
-  } //end of for loop
+    }
+  }
 
-//determine correct letters
-  for (i=0; i<solutionArray.length; i++){
-    var targetIndex = solutionArray.indexOf(guessArray[i])
-    if (targetIndex > -1){
+  for (var i = 0; i < solutionArray.length; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1) {
       correctLetters++;
       solutionArray[targetIndex] = null;
-    } //end of if
+    }
+  }
 
-  } //end of for loop
-  return correctLetterLocations + '-' + correctLetters;
+  return correctLetterLocations + "-" + correctLetters; // I omitted the color stuff because it makes the tests fail.
+
 }
 
 function mastermind(guess) {
   // your code here
-  num++;  //used to count number of moves....doesn't work in test
-//  var solution = 'aaaa';
+  var hint;
 
-
-  if (guess === solution){  //compares for exact match
-  //  board = [];   //resets the board....doesn't work in test
-  //  num = 0;  // counts number of moves....doesnt work in test
+  if (guess === solution) {
     return 'You guessed it!';
+  } else {
+    hint = generateHint(solution, guess);  //nth guess & result of matches
+    board.push(guess + hint);
   }
-
-  if (board.length === 10) {  //compare for 10 or less tries
-    //board = [];  //resets the board....doesn't work in test
-    //num = 0;  //resets the board...doesnt' work in test
-    return ('You ran out of turns! The solution was ' + solution);
-  } else {  // gives hint on the board
-    var hint = generateHint(solution, guess);
-    board.push(hint +' '+ guess);
-    return ('Guess again');
+  if (board.length === 10) {
+    return 'You ran out of turns! The solution was ' + solution;
   }
+  return 'Guess again.';
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
-    console.log(solution)
     printBoard();
     getPrompt();
   });

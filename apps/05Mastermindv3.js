@@ -61,19 +61,19 @@ function generateHint(solution, guess) {
 
 function mastermind(guess) {
   // your code here
-  num++;
-  var solution = 'aaaa';
-  //var hint = generateHint(solution,guess)
+  num++;  //used to count number of moves....doesn't work in test
+//  var solution = 'aaaa';
+
 
   if (guess === solution){  //compares for exact match
-    board = [];
-    num = 0;
+  //  board = [];   //resets the board....doesn't work in test
+  //  num = 0;  // counts number of moves....doesnt work in test
     return 'You guessed it!';
   }
 
   if (board.length === 10) {  //compare for 10 or less tries
-    board = [];
-    num = 0;
+    //board = [];  //resets the board....doesn't work in test
+    //num = 0;  //resets the board...doesnt' work in test
     return ('You ran out of turns! The solution was ' + solution);
   } else {  // gives hint on the board
     var hint = generateHint(solution, guess);
@@ -86,6 +86,7 @@ function mastermind(guess) {
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
+    console.log(solution)
     printBoard();
     getPrompt();
   });
