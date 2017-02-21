@@ -10,6 +10,34 @@ var jobTypes = {
 };
 
 // Your code here
+//**NOTE: EXECUTE THE CODE YOURSELF TO GET IT STARTED ** HINT: CALL THE METHOD
+
+class CrewMember {
+  constructor(name, job, specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+    this.enterShip = function(Ship) {
+      Ship.crew.push(this);
+      this.ship = Ship;
+    };
+  }
+}
+
+class Ship {
+  constructor(name, type, ability){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+
+rick.enterShip(mav);
 
 //tests
 if (typeof describe === 'function'){
