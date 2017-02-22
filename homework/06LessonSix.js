@@ -102,7 +102,7 @@ conferenceRoom.enter(jen);
 // Write your answer in comments
 //
 // What is a method?
-//
+// Methods are actions we can perform on our objects
 //
 
 // ****
