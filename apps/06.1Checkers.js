@@ -7,9 +7,14 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+var colors = {
+  white: String.fromCharCode(0x125CB),
+  black: String.fromCharCode(0x125CF)
+}
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  return colors[color];
 }
 
 function Board() {
