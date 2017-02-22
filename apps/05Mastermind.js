@@ -63,19 +63,19 @@ function generateHint(solution, guess) {
   }
   var correctLetters = 0;
   for (var i = 0; i < solutionArray.length; i++) {
-    console.log('guessArray.indexOf(i):', guessArray.indexOf(i));
-    console.log('solutionArray[guessArray.indexOf(i)]', solutionArray[guessArray.indexOf(i)]);
+    // console.log('guessArray.indexOf(i):', guessArray.indexOf(i));
+    // console.log('solutionArray[guessArray.indexOf(i)]', solutionArray[guessArray.indexOf(i)]);
     var targetIndex = solutionArray.indexOf(guessArray[i]);
-    console.log('target index:', targetIndex);
+    // console.log('target index:', targetIndex);
     if (targetIndex > -1) {
       solutionArray[targetIndex] = null;
       console.log('solution array:', solutionArray);
       correctLetters++;
-      console.log('correctLetter:', correctLetters);
-      console.log('******************');
+      // console.log('correctLetter:', correctLetters);
+      // console.log('******************');
     }
   }
-  console.log('*correct letter locations: ' + correctLetterLocations + '\n' + ' *correct amount of letter in wrong location: ' + correctLetters);
+  // console.log('*correct letter locations: ' + correctLetterLocations + '\n' + ' *correct amount of letter in wrong location: ' + correctLetters);
   return correctLetterLocations + '-' + correctLetters;
 }
 
