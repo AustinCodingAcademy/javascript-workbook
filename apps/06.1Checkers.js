@@ -8,14 +8,20 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  if color = 'white' {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
+  if color = 'black' {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
   this.grid = [];
   // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
+  this.createGrid = function () {
     // loop to create the 8 rows
     for (var row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -27,7 +33,7 @@ function Board() {
   };
 
   // prints out the board
-  this.viewGrid = function() {
+  this.viewGrid = function () {
     // add our column numbers
     var string = "  0 1 2 3 4 5 6 7\n";
     for (var row = 0; row < 8; row++) {
@@ -54,11 +60,12 @@ function Board() {
 
   // Your code here
 }
+
 function Game() {
 
   this.board = new Board();
 
-  this.start = function() {
+  this.start = function () {
     this.board.createGrid();
     // Your code here
   };
@@ -81,11 +88,11 @@ game.start();
 // Tests
 
 if (typeof describe === 'function') {
-  describe('Game', function() {
-    it('should have a board', function() {
+  describe('Game', function () {
+    it('should have a board', function () {
       assert.equal(game.board.constructor.name, 'Board');
     });
-    it('board should have 24 checkers', function() {
+    it('board should have 24 checkers', function () {
       assert.equal(game.board.checkers.length, 24);
     });
   });
@@ -100,7 +107,7 @@ if (typeof describe === 'function') {
       game.moveChecker('52', '43');
       assert(game.board.grid[4][3]);
     });
-    it('should be able to jump over and kill another checker', function() {
+    it('should be able to jump over and kill another checker', function () {
       game.moveChecker('30', '52');
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
