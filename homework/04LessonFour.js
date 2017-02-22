@@ -14,7 +14,7 @@ var numberArray = [1, 2, 3, 4, 5];
 
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
-var numberArrayAfterPop = [1,2,3];
+var numberArrayAfterPop = [1,2,3,4];
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
@@ -39,8 +39,8 @@ var bravestWarriorsAfterShift = bravestWarriors.shift();
 // Use push() and unshift to make the array fruit look like this:
 // ['banana', 'kiwi', 'apple', 'orange', 'grapes', 'mango']
 var fruit = ['kiwi', 'apple', 'orange', 'grapes'];
-var fruitAfterPush = fruit.push();
-var fruitAfterUnshift = fruit.unshift();
+fruit.push('mango');
+fruit.unshift('banana');
 // ****
 // Objects (Associative Arrays)
 // ****
@@ -48,7 +48,6 @@ var fruitAfterUnshift = fruit.unshift();
 // Problem 7:
 // Create an empty object
 var emptyObject = {
-  console.log('');
 
 };
 
@@ -58,7 +57,7 @@ var emptyObject = {
 // 2) emptyArray:   []
 // 3) name:         'bob'
 // 4) number:       42
-var problemEightObject {
+var problemEightObject = {
   emptyObject : {},
   emptyArray : [],
   name : 'bob',
@@ -73,8 +72,8 @@ var problemNineObject = {
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
-problemNineObject ['fav food']: 'tacos',
-problemNineObject ['city'] : 'austin';
+problemNineObject ['fav food'] = 'tacos',
+problemNineObject ['city'] = 'austin';
 
 // Problem 10:
 // DON'T EDIT nestedObjects!!!!
