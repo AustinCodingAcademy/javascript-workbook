@@ -1,4 +1,4 @@
-
+debugger;
 var studentjonsinformation = "'smith', 33,3,'555555555'"
 //print out jons grade. uhhhh???
 
