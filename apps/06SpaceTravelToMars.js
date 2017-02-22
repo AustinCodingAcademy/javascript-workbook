@@ -11,6 +11,52 @@ var jobTypes = {
 
 // Your code here
 
+//CrewMember Class that creates a Crewmember and assigns properties about
+//Crewmember like name, job, skill & ship
+class CrewMember {
+  constructor(name,job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;  ///assigned ship such as MAV, 'Main Ship',
+  }
+  // enterShip method.
+  // pushes crew member into an arry if the Crewmember is assigned a ship
+  // example passed value is 'mav' type of ship (example: var mav = new ship('MAV');
+  enterShip(shipchoice) {
+    // "this.ship" is assigned the value shipchoice (ex. mav)
+    //example:   var mav = new ship('MAV');
+    this.ship = shipchoice;
+    //Now, this.ship for all purposes is the var 'mav'.  We now get to access
+    // the properties of the class object 'mav'.   (ex. this.ship.crew.push() )
+    //Next, we are placing the entire value of "this" as it relates to CrewMember
+    // (example: var rick = new Crewmember) into the "crew" array of Ship.
+    this.ship.crew.push(this); // REMEMBER:  this line is like writing, mav.crew.push();
+
+  }
+}
+
+
+//create a Class for Ships.  Assign properties about name, type, ability
+//and add crewmembers
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+}
+
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry'); //create a CrewMember named 'rick'
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit'); //create a ship named 'mav'
+
+rick.enterShip(mav);
+console.log(rick);
+console.log(mav);
+
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
