@@ -10,6 +10,27 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(ship);
+  this.Ship.push(CrewMember);
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
 
 //tests
 if (typeof describe === 'function'){
