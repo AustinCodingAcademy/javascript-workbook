@@ -36,10 +36,21 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function () {
-    for (var i = 0; i < this.crew.length; i++) {
-      jobTypes[this.crew[i].job]
+    var correctJob = false;
+
+    this.crew.forEach(item => {
+      if (this.type === jobTypes[item.job]) {
+        correctJob = true;
+      }
+    });
+
+    if (correctJob) {
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet.";
     }
-  }
+
+  };
 }
 
 
@@ -88,4 +99,4 @@ if (typeof describe === 'function') {
       assert.equal(hermes.missionStatement(), "Interplanetary Space Travel");
     });
   });
-};
+}
