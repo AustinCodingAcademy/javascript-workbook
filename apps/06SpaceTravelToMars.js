@@ -37,13 +37,15 @@ function Ship(name, type, ability) {
   this.crew = [];
   this.missionStatement = function () {
     var correctJob = false;
+    //setting the correct job to false to check
 
+    //checking to see if the crew member has the correct jobType
     this.crew.forEach(item => {
       if (this.type === jobTypes[item.job]) {
         correctJob = true;
       }
     });
-
+    //if correctJob evaluates to true, then retun their ability; if not retrun that string.
     if (correctJob) {
       return this.ability;
     } else {
