@@ -41,13 +41,17 @@ class Ship{
     this.crew = [];
   this.missionStatement = function() {
   //see if any of this ship's crew member's special skill matches the ship's type 
+    var shipType = this.type;
+    var shipAbility = this.ability;
     for (var crewStaff of this.crew) {
+    // this.crew.forEach(function(crewStaff){
+      // why doesn't forEach() method work? 
       //look for the type match 
-      if (crewStaff.jobType === this.type) {
+      if (crewStaff.jobType === shipType) {
         // return the ship's ability
-        return this.ability;
+        return shipAbility;
       } 
-    }
+    };
     //otherwise, just print out the error message 
     return "Can't perform a mission yet."; 
     }
