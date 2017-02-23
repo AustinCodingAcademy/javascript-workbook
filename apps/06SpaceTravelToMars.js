@@ -9,14 +9,16 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-function CrewMember(name, job, specialSkill){
-  this.name = name;
-  this.job = job;
-  this.specialSkill = specialSkill;
-  this.ship = null;
-  this.enterShip = function(newShip){
-    this.ship = newShip;
-    this.ship.crew.push(this);
+class CrewMember{
+  constructor(name, job, specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+    this.enterShip = function(newShip){
+      this.ship = newShip;
+      this.ship.crew.push(this);
+    }
   }
 }
 
