@@ -39,7 +39,7 @@ function Ship(name, type, ability) {
     var correctJob = false;
     //setting the correct job to false to check
 
-    //checking to see if the crew member has the correct jobType
+    //checking to see if the crew member has the correct jobType (item)
     this.crew.forEach(item => {
       if (this.type === jobTypes[item.job]) {
         correctJob = true;
