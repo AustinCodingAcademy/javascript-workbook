@@ -12,10 +12,21 @@ var colors = {
   black: String.fromCharCode(0x125CF)
 }
 
-function Checker(color) {
-  // Your code here
-  return colors[color];
+// if the color is 'white, set this.symbol equal to String.fromCharCode(0x125CB),
+// otherwise set it equal to String.fromCharCode(0x125CF)
+
+class Checker{
+  constructor (color){
+    if (color === white){
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+    else {
+      this.symbol = String.fromCharCode(0x125CF);
+    }
+    return colors[color];
+  }
 }
+
 
 function Board() {
   this.grid = [];
@@ -57,16 +68,26 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  var whitePositions = [row, column];
+  var blackPositions = [row, column];
+// //In a for loop, iterate over the range from 0 - 11, with each index you want to:
+// Instantiate a 'white' Checker
+// Place that checker on the grid at the position corresponding with the index in the positions array
+// Push the checker into your this.checkers array
+// Do all three steps above for a 'black' checker
+// In your Game class, in the this.start method, add this.board.createCheckers().
+
 }
-function Game() {
+class Game{
+  constructor(){
 
-  this.board = new Board();
+    this.board = new Board();
 
-  this.start = function() {
-    this.board.createGrid();
-    // Your code here
-  };
+    this.start = function() {
+      this.board.createGrid();
+      // Your code here
+    };
+  }
 }
 
 function getPrompt() {
