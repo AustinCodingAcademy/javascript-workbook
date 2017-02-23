@@ -32,7 +32,6 @@ class CrewMember {
     //Next, we are placing the entire value of "this" as it relates to CrewMember
     // (example: var rick = new Crewmember) into the "crew" array of Ship.
     this.ship.crew.push(this); // REMEMBER:  this line is like writing, mav.crew.push();
-
   }
 }
 
@@ -46,15 +45,31 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
-}
-
+  missionStatement(){
+    //console.log(myship)
+    for (var i=0; i< this.crew.length; i++){
+      var individualcrewmember = this.crew[i];
+      var jobofthecrewmember = individualcrewmember.job;
+      var shiptypethatthiscrewmembercanfly = jobTypes[jobofthecrewmember];
+      if(this.type===shiptypethatthiscrewmembercanfly){
+        console.log(this.ability);
+        return this.ability
+      } //end of if
+    } //end of for loop
+    return "Can't perform a mission yet.";
+  } //end of missionStatement
+} //end of class
 
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry'); //create a CrewMember named 'rick'
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit'); //create a ship named 'mav'
 
-rick.enterShip(mav);
-console.log(rick);
-console.log(mav);
+// TESTS FOR DEBUGGING 
+//rick.enterShip(mav);
+//console.log(rick);
+//console.log(mav);
+//mav.missionStatement();
+//console.log('######');
+//console.log(mav); //must use it like a function not a method!
 
 
 //tests
