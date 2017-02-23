@@ -18,6 +18,7 @@ class CrewMember {
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
+//ADDED METHOD PER SPECS TO PUSH CREWMEMBER TO SHIP'S CREW ARRAY
     this.enterShip = function(Ship) {
       Ship.crew.push(this);
       this.ship = Ship;
@@ -31,13 +32,24 @@ class Ship {
     this.type = type;
     this.ability = ability;
     this.crew = [];
+//ADDED THIS METHOD PER THE SPECS TO COMPARE SHIP'S TYPE AND CREW'S JOBS
+    this.missionStatement = function() {
+      for (var i = 0; i < this.crew.length; i++) {
+        if (jobTypes[this.crew[i].job] === this.type) {
+          return this.ability;
+        }
+      }  
+      return "Can't perform a mission yet."; 
+    }
   }
 }
+//MY PROGRESS TESTS
+// var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 
-var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-
-rick.enterShip(mav);
+// rick.enterShip(mav);
+// mav.missionStatement()
+// console.log(jobTypes[mav.crew[0].job]);
 
 //tests
 if (typeof describe === 'function'){
