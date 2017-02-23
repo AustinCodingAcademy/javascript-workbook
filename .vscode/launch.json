@@ -9,10 +9,11 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/apps/04TowersOfHanoi.js",
+            "program": "${workspaceRoot}/apps/06.1Checkers.js",
             "cwd": "${workspaceRoot}",
             "outFiles": [],
-            "sourceMaps": true
+            "sourceMaps": true,
+            "console":"externalTerminal"
         },
         {
             "type": "node",
