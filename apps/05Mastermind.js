@@ -11,6 +11,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var colors = require('colors');
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -30,6 +31,7 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
+  var colors = require('colors');
   var solutionArray = solution.split("");
   var guessArray = guess.split("");
   var correctLetterLocations = 0;
@@ -41,21 +43,35 @@ function generateHint(solution, guess) {
   }
   var correctLetters = 0
   for (var i = 0; i < 4; i++) {
-  if (guessArray.indexOf(i)) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1) {
       correctLetters++;
-      solutionArray[i] = null;
+      solutionArray[targetIndex] = null;
     }
   }
-  console.log(correctLetterLocations, correctLetters);
+  // correctLetterLocations = correctLetterLocations.toString();
+  // correctLetters = correctLetters.toString();
+  var hint = correctLetterLocations + '-' + correctLetters;
+  var move = guess + ' ' + hint;
+  board.push(move);
+  console.log(move);
+  return hint;
+}
+
+function endGame() {
+  if (board.length === 10) {
+    console.log('You ran out of turns! The solution was ' + solution);
+  }
+  console.log('Guess again!');
 }
 
 function mastermind(guess) {
-  solution = 'abcd';
   if (guess === solution) {
-    console.log('You guessed it!');
-    return true;
+    return 'You guessed it!';
   }
   generateHint(solution, guess);
+  endGame();
+  console.log(board);
 }
 
 

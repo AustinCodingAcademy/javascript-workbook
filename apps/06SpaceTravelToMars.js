@@ -9,7 +9,25 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember() {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip(myShip) = function() {
+    this.Ship = myShip;
+    this.Ship.crew.push(this);
+  }
+}
+
+function Ship() {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+
+
 
 //tests
 if (typeof describe === 'function'){
