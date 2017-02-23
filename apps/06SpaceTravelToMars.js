@@ -16,7 +16,7 @@ function CrewMember(name, job, specialSkill){
   this.ship = null;
   this.enterShip = function(newShip){
     this.ship = newShip;
-    newShip.crew.push(this);
+    this.ship.crew.push(this);
   }
 }
 
