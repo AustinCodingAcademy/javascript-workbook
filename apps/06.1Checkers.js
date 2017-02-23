@@ -9,7 +9,7 @@ var rl = readline.createInterface({
 
 
 function Checker(color) {
-  // Set the symbol for the checker
+  // Set the symbols for the checker
   if (color === 'white') {
     this.symbol = String.fromCharCode(0x125CB);
   } else {
@@ -85,9 +85,14 @@ function Board() {
   }
   //help function for selecting checkers on board
   this.selectChecker = function(checkerPosition) {
+    //get the row and column indexes of the position passed in 
     var row = checkerPosition[0];
     var column = checkerPosition[1];
-    return this.grid[row][column];
+    //put the checker in the variable c 
+    var c = this.grid[row][column];
+    //nullify the checker on board
+    this.grid[row][column] = null;
+    return c;
   }
   //helper function for killing a checker 
   this.killChecker = function(position) {
@@ -106,17 +111,22 @@ function Game() {
   this.board = new Board();
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    // Call the createCheckers() function and map out all the checkers on the grid 
     this.board.createCheckers();
   };
   this.moveChecker = (start, end) => {
+    //select the checker and put it into the 'checker' variable 
     var checker = this.board.selectChecker(start);
-    this.board.grid[start[0]][start[1]] = null; 
+    // this.board.grid[start[0]][start[1]] = null; 
+    // assign the checker to the end position 
     this.board.grid[end[0]][end[1]] = checker;
     // this.board.selectChecker(end) = checker;
     // why didn't the above line work? said "invalid left-hand assignment"
+    // check if the vertical distance between the start and end positions is 2
     if (Math.abs(end[0]-start[0]) === 2) {
+        //get the midpoint position by adding both coordinates up, and divide the result by 2 
         var killPosition = [(parseInt(end[0]) + parseInt(start[0]))/2, (parseInt(end[1]) + parseInt(start[1]))/2];
+        //kill the checker on board and from the array 
         this.board.killChecker(killPosition);
     }
   }
