@@ -17,9 +17,9 @@ class CrewMember {
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null; 
-    this.enterShip = function(ship) {
-      this.ship = ship;
-      ship.crew.push(this);
+    this.enterShip = function(myship) {
+      this.ship = myship;
+      myship.crew.push(this);
     }
   }
 }
@@ -30,6 +30,16 @@ class Ship {
     this.type = type; 
     this.ability = ability;
     this.crew = [];
+    this.missionStatement = function() {
+      for (var i = 0; i < this.crew.length; i++) {
+        if (jobTypes[this.crew[i].job] === this.type) { 
+          return this.ability;
+        }
+      }
+
+      // If I get here, that means we have gone through the whole loop without finding a crew member with the correct job type for that ship type. 
+      return "Can't perform a mission yet.";
+    }
   }
 }
 
@@ -37,7 +47,7 @@ var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 
 
-
+rick.enterShip(mav);
 
 
 
