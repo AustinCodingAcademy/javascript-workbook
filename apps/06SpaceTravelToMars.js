@@ -9,13 +9,14 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-var jobMatch = false; 
+// var jobMatch = false; //don't have to do this: could just use the return statement's feature (jumping out of the loop)
 
 // Your code here
 
 //create the crewMember class
 class CrewMember{
   constructor(name, job, specialSkill) {
+//assign the parameters to the newly-created propeties of the crewMember class 
     this.name = name;
     this.job = job;
     this.jobType = jobTypes[this.job];
@@ -30,11 +31,10 @@ class CrewMember{
   } 
 }
 
-// var Xilin = new CrewMember('Xilin', 'mechanic', 'mess up stuff');
-
 //create the ship class
 class Ship{
   constructor(name, type, ability) {
+    //assign the parameters to the newly-created propeties of the ship class 
     this.name = name;
     this.type = type;
     this.ability = ability;
@@ -42,22 +42,17 @@ class Ship{
   this.missionStatement = function() {
   //see if any of this ship's crew member's special skill matches the ship's type 
     for (var crewStaff of this.crew) {
+      //look for the type match 
       if (crewStaff.jobType === this.type) {
-        jobMatch = true;
+        // return the ship's ability
         return this.ability;
       } 
-   } if (jobMatch === false) {
-   return "Can't perform a mission yet."; 
-   }
+    }
+    //otherwise, just print out the error message 
+    return "Can't perform a mission yet."; 
+    }
   }
- }
 }
-  
-
-// var Flagship = new Ship('Flagship', 'Repair Ship', 'Get the ship fixed');
-// Xilin.enterShip(Flagship);
-// Flagship.missionStatement();
-
 
 //tests
 if (typeof describe === 'function'){
