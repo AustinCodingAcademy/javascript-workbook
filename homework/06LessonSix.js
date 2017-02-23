@@ -41,7 +41,8 @@ var anotherPoint = new Point(5,-3);
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
 //
-//
+//Once the constructor is run and a point is created from the Point class it works effectively the same. The difference is
+//that point is defined statically coded whereas the constructor can create new points with any value you want at any time.
 
 // ****
 // Methods
@@ -103,7 +104,7 @@ conferenceRoom.enter(jen)
 // Write your answer in comments
 //
 // What is a method?
-//
+// A method is a function within an object that allows you to perform specific actions on that object. 
 //
 
 // ****
