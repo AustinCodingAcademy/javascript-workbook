@@ -10,6 +10,49 @@ var jobTypes = {
 };
 
 // Your code here
+// oh my zshh
+
+class CrewMember {
+  constructor (name, job, specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+    this.enterShip = function(myship) {
+      this.ship = myship;
+      this.ship.crew.push(this);
+    }
+  }
+}
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+var ava = new CrewMember('Ava Gore', 'programmer', 'Anatomy');
+var dick = new CrewMember('Dirty Sanchez', 'mechanic', 'geology');
+var sophi = new CrewMember('Sophi', 'commander', 'bubble blowing');
+
+
+
+class Ship {
+  constructor (name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+}
+
+function enterShip(crewMember, myShip) {
+  crewMember.ship = myShip;
+  myShip.crew.push(crewMember);
+}
+
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascent into low orbit');
+console.log(mav);
+enterShip(rick, mav);
+console.log('rick');
+console.log(rick);
+console.log('ship');
+console.log(mav);
 
 //tests
 if (typeof describe === 'function'){
