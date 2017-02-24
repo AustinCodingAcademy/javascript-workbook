@@ -1,7 +1,7 @@
 'use strict';
 //require assert
 var assert = require('assert');
-
+// All the job types
 var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
@@ -9,8 +9,43 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Object for thr CrewMembers
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function (newShip) {
+    this.ship = newShip;
+    newShip.crew.push(this)
+  }
+}
 
+
+// Object for the Ship
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+
+
+var rick = new crewMember1('Rick Martinez', 'pilot', 'chemistry');
+rick;
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+// Check to see if they can enter the ship
+CrewMember.enterShip(name){
+  t
+
+
+
+
+
+
+}
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){

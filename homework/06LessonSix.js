@@ -22,22 +22,16 @@ var point = {
 // In order to do this, you should add parameters x and y
 // as properties to "this".
 // example: this.propName = propValue;
-function Point(x, y) {
-
-  this.point = x,y ;
+function Point(X, Y) {
+  this.X = X;
+  this.Y = Y;
 }
 
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint;{
-  new point(x,y){
-    x: 5,
-    y: -3,
-  }
-}
-
+var anotherPoint = new Point(5, -3)
 // ****
 // Concept Checkpoint
 //
@@ -45,7 +39,8 @@ var anotherPoint;{
 //
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
-//
+// Object literals are comma-seprated list of a name-value pairs that are wrapped in
+// curly braces.
 //
 
 // ****
@@ -74,7 +69,7 @@ function ConferenceRoom() {
   };
 
   this.sayHi = function() {
-    for(var index = 0; index < this.people.length; index++) {
+    for (var index = 0; index < this.people.length; index++) {
       console.log(this.people[index].sayHi());
     }
   };
@@ -85,11 +80,14 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi(name) = function() {
+    return "Hi, I'm " + this.name + '!'
+  }
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
+var jen = new Person('Jen')
 
 // Problem 6:
 // add jen to the conferenceRoom
@@ -98,6 +96,9 @@ var conferenceRoom = new ConferenceRoom();
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
 
+conferenceRoom.enter(jen)
+
+
 
 // ****
 // Concept Checkpoint
@@ -105,7 +106,7 @@ var conferenceRoom = new ConferenceRoom();
 // Write your answer in comments
 //
 // What is a method?
-//
+// A method is a property containing a function definition. The are also functions stores as object properties.
 //
 
 // ****
@@ -113,26 +114,29 @@ var conferenceRoom = new ConferenceRoom();
 // DO NOT MODIFY CODE BELOW!!!!!
 // ****
 
-describe('Lesson 6 Homework', function () {
+describe('Lesson 6 Homework', function() {
 
-  describe('Are you down with OOP?', function () {
+  describe('Are you down with OOP?', function() {
 
-    describe('Problem 1: Associative Array Refresh', function () {
-      it('should be { x: 1, y: 2 }', function () {
-        assert.deepStrictEqual(point, { x: 1, y: 2 });
+    describe('Problem 1: Associative Array Refresh', function() {
+      it('should be { x: 1, y: 2 }', function() {
+        assert.deepStrictEqual(point, {
+          x: 1,
+          y: 2
+        });
       });
     });
 
-    describe('Problem 2: Finish Point class', function () {
-      it('should generate points with properties x and y', function () {
+    describe('Problem 2: Finish Point class', function() {
+      it('should generate points with properties x and y', function() {
         var myPoint = new Point(4, 4);
         assert.equal(myPoint.x, 4);
         assert.equal(myPoint.y, 4);
       });
     });
 
-    describe('Problem 3: another good point', function () {
-      it('should be anotherPoint.x === 5, anotherPoint.y === -3', function () {
+    describe('Problem 3: another good point', function() {
+      it('should be anotherPoint.x === 5, anotherPoint.y === -3', function() {
         assert.equal(anotherPoint.x, 5);
         assert.equal(anotherPoint.y, -3);
       });
@@ -140,24 +144,24 @@ describe('Lesson 6 Homework', function () {
 
   });
 
-  describe('Methods', function () {
+  describe('Methods', function() {
 
-    describe('Problem 4: Finish Person class', function () {
-      it('should have method sayHi()', function () {
+    describe('Problem 4: Finish Person class', function() {
+      it('should have method sayHi()', function() {
         var instructor = new Person('Teach');
         assert(typeof instructor.sayHi === 'function');
         assert(typeof instructor.sayHi() === 'string');
       });
     });
 
-    describe('Problem 5: new Person Jen', function () {
-      it('should be a new Person Jen', function () {
+    describe('Problem 5: new Person Jen', function() {
+      it('should be a new Person Jen', function() {
         assert.equal(jen.name.toLowerCase(), 'jen');
       });
     });
 
-    describe('Problem 6: Conference of One', function () {
-      it('should be the case that conferenceRoom contains jen', function () {
+    describe('Problem 6: Conference of One', function() {
+      it('should be the case that conferenceRoom contains jen', function() {
         assert.equal(conferenceRoom.people.length, 1);
         assert.deepStrictEqual(jen, conferenceRoom.people[0]);
         conferenceRoom.sayHi();
@@ -165,6 +169,4 @@ describe('Lesson 6 Homework', function () {
     });
 
   });
-
-
 });
