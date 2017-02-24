@@ -54,11 +54,13 @@ function generateHint(solution, guess) {
   return (correctLetters + '-' + correctLetterLocations);
 }
 
-
+//Detects a solution
+//Detects end of turns
+//Generates a hint
 function mastermind(guess) {
   solution = 'abcd';
   if (guess === solution) {
-    return('You guessed it!');
+    return ('You guessed it!');
   } else if (board.length === 10) {
     return ('Looks like you ran out of turns! The solution was ' + solution + '...')
   } else {
