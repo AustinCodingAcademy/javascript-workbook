@@ -12,27 +12,25 @@ var window;
 
 // get jsdom ready before each test (and wait for document ready event)
 beforeEach(function (done) {
-  jsdom.env(
-    {
-      file: path.resolve(__dirname, 'index.html'),
-      scripts: [
-        path.resolve(__dirname, '../../vendor/jquery.js'),
-        path.resolve(__dirname, 'script.js')
-      ],
-      virtualConsole,
-      done(err, jsdomWindow) {
-        if (err) {
-          throw err;
-        }
-        document = jsdomWindow.document;
-        $ = jsdomWindow.$;
-        window = jsdomWindow;
-        $(document).on('ready', function () {
-          done();
-        });
+  jsdom.env({
+    file: path.resolve(__dirname, 'index.html'),
+    scripts: [
+      path.resolve(__dirname, '../../vendor/jquery.js'),
+      path.resolve(__dirname, 'script.js')
+    ],
+    virtualConsole,
+    done(err, jsdomWindow) {
+      if (err) {
+        throw err;
       }
+      document = jsdomWindow.document;
+      $ = jsdomWindow.$;
+      window = jsdomWindow;
+      $(document).on('ready', function () {
+        done();
+      });
     }
-  );
+  });
 });
 
 describe('Lesson 7 Homework', function () {

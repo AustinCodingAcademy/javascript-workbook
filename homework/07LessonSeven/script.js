@@ -13,7 +13,7 @@ $(document).on('ready', function () {
   // Problem 1:
   // select the h1 element
   // assign the selected jQuery object to the property window.h1
-  window.h1;
+  window.h1
   $('h1');
   // Problem 2:
   // select the p element
@@ -63,7 +63,7 @@ $(document).on('ready', function () {
   // Problem 8:
   // select the element with the data-price attribute
   // assign the selected jQuery object to the the property window.dataPrice
-  window.dataPrice;#
+  window.dataPrice;
   $('[data-price]');
 
   // ****
@@ -78,15 +78,17 @@ $(document).on('ready', function () {
   // Problem 10:
   // select the element with id="add-attribute"
   // add the attribute data-color="red" to that element
-  $('[id="add-attribute"]').data - color('color', 'red');
+  $('[id="add-attribute"]').color = "red";
 
   // Problem 11:
   // select the element with id="data-element"
   // and set window.dataIdValue to the value of the data-id attribute of the element
   // you can do this by calling .data() on the selected element
   window.dataIdValue;
+  $('[id="data-element"]').data();
 
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
+  $('[id="data-element"]').text("data-element");
 });
