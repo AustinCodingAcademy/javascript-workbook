@@ -36,3 +36,18 @@
   font-size: 50px;
   text-align: center;
 }
+
+body{
+    margin:0 auto;
+    overflow:hidden;
+}
+.wrapper {
+    transform: rotate(270deg);
+    transform-origin: right top 0px;
+    position: absolute;
+    top: 0px;
+    height: 100vw;
+    width: 100vh;
+    overflow: auto;
+    margin-left: -250px; 
+}
