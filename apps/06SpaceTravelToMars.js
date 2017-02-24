@@ -2,6 +2,8 @@
 //require assert
 var assert = require('assert');
 
+//object listing valid job types for each CrewMember
+
 var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
@@ -9,7 +11,59 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+//CrewMember class
+
+class CrewMember {
+  constructor (name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+    //method that will add crew member to a ship's crew
+    this.enterShip = function(ship) {
+      this.ship = ship;
+      this.ship.crew.push(this);
+    };
+  };
+};
+
+//Ship class
+
+class Ship {
+  constructor (name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+    //method to compare crew member job with ship type
+    this.missionStatement = function() {
+      for (var i = 0; i < this.crew.length; i++) {
+        //store crew member in variable
+        var crewmember = this.crew[i];
+        //loop through ships current crew and compare their job with the type of ship
+        if (jobTypes[crewmember.job] === this.type) {
+          return this.ability;
+        }
+      };
+      //if I reach the end of the loop, no match was found so return the following string:
+      return "Can't perform a mission yet."
+    };
+  };
+};
+
+//new crew member 'rick'
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+
+//new ship 'mav'
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+//add rick to the crew of the 'MAV'
+
+rick.enterShip(mav);
 
 //tests
 if (typeof describe === 'function'){
