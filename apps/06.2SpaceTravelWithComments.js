@@ -144,8 +144,8 @@ class Ship {
           //didn't have to do var individualcrewmember =  myship.crew[i];
           //crewmember variable is already the thing you want at the index
         if(jobTypes[crewmember.job] === this.type){
-            return this.ability;
-          }
+          return this.ability;
+        }
       }
       return "Can't Perform Mission Yet";
     }
