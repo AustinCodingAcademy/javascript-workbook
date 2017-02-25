@@ -22,16 +22,16 @@ var point = {
 // In order to do this, you should add parameters x and y
 // as properties to "this".
 // example: this.propName = propValue;
-function Point(X, Y) {
-  this.X = X;
-  this.Y = Y;
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
 }
 
 // Problem 3:
 // Create a new point using the class constructor Point.
 // Set x to 5, and y to -3
 // This can be done as follows: new Point(someX, someY)
-var anotherPoint = new Point(5, -3)
+var anotherPoint = new Point(5, -3);
 // ****
 // Concept Checkpoint
 //
@@ -80,8 +80,8 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
-  this.sayHi(name) = function() {
-    return "Hi, I'm " + this.name + '!'
+  this.sayHi = function() {
+    return "Hi, I'm " + this.name + '!';
   }
 }
 
