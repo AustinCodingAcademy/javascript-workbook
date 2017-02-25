@@ -30,7 +30,9 @@ class Ship {
     this.type = type; 
     this.ability = ability;
     this.crew = [];
-    this.missionStatement = function() {
+
+    // The method below iterates over the ship's crewmember array. In place is an if statement that compares each crewmember's job to the specific type of the ship that he/she is on. If there is a match, the method will return the ship's ability. 
+    this.missionStatement = function(myship) {
       for (var i = 0; i < this.crew.length; i++) {
         if (jobTypes[this.crew[i].job] === this.type) { 
           return this.ability;
@@ -43,11 +45,10 @@ class Ship {
   }
 }
 
+// Below are instances that can be used by the classes that have been created above.
+
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-
-
-rick.enterShip(mav);
 
 
 
