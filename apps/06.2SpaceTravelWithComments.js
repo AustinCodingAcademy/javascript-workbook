@@ -140,14 +140,14 @@ class Ship {
         //what does of do 
         //it simplifies a wordy pattern
         //get rid of a wordy for loop and we didn't have to get the index of the specific item in the array
-        for(var crewmember of this.crew){  // for(var i =0; i < myship.crew.length;i++)
+      for(var crewmember of this.crew){  // for(var i =0; i < myship.crew.length;i++)
           //didn't have to do var individualcrewmember =  myship.crew[i];
           //crewmember variable is already the thing you want at the index
           if(jobTypes[crewmember.job] === this.type){
             return this.ability;
           }
         }
-        return "Can't Perform Mission Yet";
+      return "Can't Perform Mission Yet";
     }
   }
 }
