@@ -143,10 +143,10 @@ class Ship {
       for(var crewmember of this.crew){  // for(var i =0; i < myship.crew.length;i++)
           //didn't have to do var individualcrewmember =  myship.crew[i];
           //crewmember variable is already the thing you want at the index
-          if(jobTypes[crewmember.job] === this.type){
+        if(jobTypes[crewmember.job] === this.type){
             return this.ability;
           }
-        }
+      }
       return "Can't Perform Mission Yet";
     }
   }

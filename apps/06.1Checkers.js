@@ -68,8 +68,8 @@ function Board() {
     console.log(string);
   };
 
-  var whitePositions = [row, column];
-  var blackPositions = [row, column];
+  var whitePositions = this.grid.symbol;
+  var blackPositions = this.grid.symbol;
 // //In a for loop, iterate over the range from 0 - 11, with each index you want to:
 // Instantiate a 'white' Checker
 // Place that checker on the grid at the position corresponding with the index in the positions array
