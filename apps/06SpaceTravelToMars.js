@@ -9,7 +9,50 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+//class CrewMember
+class CrewMember { // new CrewMember yay!
+  constructor (name, job, specialSkill) { 
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+    this.enterShip = function(ship) {
+      this.ship = ship;
+      this.ship.crew.push(this);
+    }
+  }
+}
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+//class Ship
+class Ship { // new Ship yay!
+  constructor (name, type, ability) { 
+    this.name = name;
+    this.type = type;
+    this.crew = [];
+    this.ability = ability;
+    this.missionStatement = function () { 
+    var statement = "Can't perform a mission yet."; // if none of the ship's crew has the correct job that matches this ship type 
+    for (var i = 0; i < this.crew.length; i++){
+      if (this.type === jobTypes[this.crew[i].job]){ // if the ship's crew has the correct job that matches this ship type
+        statement = this.ability;
+      }
+    }
+    return statement;
+    } 
+  }
+}
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+rick.enterShip(mav); // Crew member can enter a ship via the method enterShip. 
+/*
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
+*/
 
 //tests
 if (typeof describe === 'function'){
