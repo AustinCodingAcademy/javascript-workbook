@@ -38,7 +38,7 @@ class Ship {
     this.missionStatement = function() {
       var missionStatus = "Can't perform a mission yet.";
       for (var i = 0; i < this.crew.length; i++) {
-        if (jobTypes[this.crew[i].job] === this.type || this.crew[i].job === 'programmer') {
+        if (jobTypes[this.crew[i].job] === this.type || this.crew[i].job === 'web developer') {
           missionStatus = this.ability;
         }
       }
