@@ -70,13 +70,14 @@ $(document).on('ready', function () {
   // Problem 10:
   // select the element with id="add-attribute"
   // add the attribute data-color="red" to that element
-  $('[id="add-attribute"]').data('color:red')
+  // $('#add-attribute').data('color', 'red');
+  $('#add-attribute').attr('data-color', 'red');
   // Problem 11:
   // select the element with id="data-element"
   // and set window.dataIdValue to the value of the data-id attribute of the element
   // you can do this by calling .data() on the selected element
   window.dataIdValue;
-  $('[id="data-element"]').data();
+  $('[id="data-element"]').data('id');
 
   // Problem 12:
   // select the element with id="data-element"
