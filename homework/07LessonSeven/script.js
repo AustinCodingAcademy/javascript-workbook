@@ -76,7 +76,7 @@ $(document).on('ready', function() {
   // select the element with id="add-attribute"
   // add the attribute data-color="red" to that element
 
-$('#add-attribute').attr('data-color',('red'));
+  $('#add-attribute').attr('data-color', ('red'));
 
   // Problem 11:
   // select the element with id="data-element"
@@ -87,8 +87,8 @@ $('#add-attribute').attr('data-color',('red'));
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
-var content = $('#data-element').data('content');
+  var content = $('#data-element').data('content');
 
-$('#data-element').text(content);
+  $('#data-element').text(content);
 
 });
