@@ -6,7 +6,7 @@ $(document).on('ready', function() {
 
   $('[data-cell]').click(function() {
     if ($(this).text() === "") {
-      if (checkForWin() === false && $('.row').text().length < 63) {
+      if (checkForWin() === false && (($row1.length + $row2.length + $row3.length) !== 9)) {
         $('#announce-winner').empty();
         $(this).text(playerTurn);
         checkForWin();
@@ -17,7 +17,7 @@ $(document).on('ready', function() {
         $(this).text("");
       }
     } else {
-      if (checkForWin() === false && $('.row').text().length < 63) {
+      if (checkForWin() === false && (($row1.length + $row2.length + $row3.length) !== 9)) {
         $('#announce-winner').text("Already taken, try again");
       }
     }
@@ -29,7 +29,9 @@ $(document).on('ready', function() {
     playerTurn = 'X';
   });
 
-
+  var $row1 = $('.row1').text();
+  var $row2 = $('.row2').text();
+  var $row3 = $('.row3').text();
 
   function horizontalWin() {
     // Your code here
@@ -46,6 +48,7 @@ $(document).on('ready', function() {
 
   }
 
+
   function verticalWin() {
     // Your code here
 
@@ -61,10 +64,11 @@ $(document).on('ready', function() {
     return;
   }
 
+
   function diagonalWin() {
     // Your code here
     var $diag1 = $('.diag1').text();
-    var $diag2 = $('.diag2').text();
+  var $diag2 = $('.diag2').text();
 
     if ($diag1 === 'XXX' || $diag1 === 'OOO' || $diag2 === 'XXX' || $diag2 === 'OOO')
 
@@ -89,7 +93,7 @@ $(document).on('ready', function() {
       $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
       return true;
 
-    } else if ($('.row').text().length >= 63) {
+    } else if ($('.row').text().length >= 200) {
       $('#announce-winner').text('It was a tie!  Try Again.');
       return false;
     } else {
