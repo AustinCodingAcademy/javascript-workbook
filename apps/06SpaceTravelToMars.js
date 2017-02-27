@@ -10,31 +10,31 @@ var jobTypes = {
 };
 
 function CrewMember(name, job, specialSkill) {
-    this.name = name;
-    this.job = job;
-    this.specialSkill = specialSkill;
-    this.ship = null;
-    this.enterShip = function(theShip) {
-        this.ship = theShip;
-        this.ship.crew.push(this);
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(theShip) {
+      this.ship = theShip;
+      this.ship.crew.push(this);
     }
 };
 
 function Ship(name, type, ability) {
-    this.name = name;
-    this.type = type;
-    this.ability = ability;
-    this.crew = [];
-    this.missionStatement = function(theShip) {
-        for (var i = 0; i < this.crew.length; i++) {
-            var theJob = this.crew[i].job;
-            var typeOfShip = jobTypes[theJob];
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function(theShip) {
+      for(var i = 0; i < this.crew.length; i++) {
+          var theJob = this.crew[i].job;
+          var typeOfShip = jobTypes[theJob];
 
-            if (typeOfShip === this.type) {
-                return this.ability;
+          if (typeOfShip === this.type) {
+              return this.ability;
             }
         }
-        return "Can't perform a mission yet.";
+          return "Can't perform a mission yet.";
     };
 };
 
