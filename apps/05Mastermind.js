@@ -35,7 +35,7 @@ function generateHint(solution, guess) {
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
-// Compares both arrays to identify correct letters and locations.
+  // Compares both arrays to identify correct letters and locations.
   for (var i = 0; i < solutionArray.length; i++) {
     var targetIndex = solutionArray.indexOf(guessArray[i]);
     if (solutionArray[i] === guessArray[i]) {
@@ -53,20 +53,20 @@ function generateHint(solution, guess) {
 function mastermind(guess) {
   // your code here
   // If guess is equal to solution, you guessed it!
- if (guess === solution){
-   return 'You guessed it!';
- }
- // Else, if your board length is less than 10, keep playing!
- else if (board.length < 10){
-   var hint = generateHint(solution, guess);
-   board.push(hint +' '+ guess);
- }
- // Else, you are out!
- else{
-   turn = 0;
-   board = [];
-   return 'Game over, guess again!';
- }
+  if (guess === solution) {
+    return 'You guessed it!';
+  }
+  // Else, if your board length is less than 10, keep playing!
+  else if (board.length < 10) {
+    var hint = generateHint(solution, guess);
+    board.push(hint + ' ' + guess);
+  }
+  // Else, you are out!
+  else {
+    turn = 0;
+    board = [];
+    return 'Game over, guess again!';
+  }
 }
 
 
