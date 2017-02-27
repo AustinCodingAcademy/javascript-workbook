@@ -5,20 +5,16 @@ $(document).on('ready', function () {
   var playerTurn = 'X';
   var $dataCell = $('[data-cell]');
   $('[data-cell]').click(function () {
-    //if (validateMove() === false) {
-    $(this).text(playerTurn);
-    checkForWin();
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    //}
-    //   function validateMove() {
-    //   var $dataCell = $('[data-cell]');
-    //   if ($(this).text() == 'X' || $(this).text() == 'Y') {
-    //     console.log($(this).text());
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
+    //checks to make sure the spot isnt taken and then marks the spot
+    if ($(this).text() === "") {
+      $('#announce-winner').empty();
+      $(this).text(playerTurn);
+      checkForWin();
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    } else {
+      //occurs when the spot is taken
+      $('#announce-winner').text('That spot appears to be taken.');
+    }
   })
 
   function checkForWin() {
@@ -65,6 +61,6 @@ $(document).on('ready', function () {
   $('#clear').click(function () {
     $('[data-cell]').text('');
     playerTurn = 'X';
-    $('#announce-winner').text('');
+    $('#announce-winner').empty();
   })
 });
