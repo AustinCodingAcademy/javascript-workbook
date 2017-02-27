@@ -3,24 +3,47 @@
 $(document).on('ready', function() {
   // Put app logic in here
   var playerTurn = 'X';
+  var $row1 = $('.row1').text();
+  var $row2 = $('.row2').text();
+  var $row3 = $('.row3').text();
+  var $length = ($row1.length + $row2.length + $row3.length);
 
   $('[data-cell]').click(function() {
+
     if ($(this).text() === "") {
-      if (checkForWin() === false && (($row1.length + $row2.length + $row3.length) !== 9)) {
+
+      if ((checkForWin() !== true) && ($length != 9)) {
         $('#announce-winner').empty();
         $(this).text(playerTurn);
         checkForWin();
-        if (checkForWin() === false) {
+
+        if (checkForWin() !== true) {
           playerTurn = (playerTurn === 'O') ? 'X' : 'O';
         }
+
       } else {
         $(this).text("");
       }
-    } else {
-      if (checkForWin() === false && (($row1.length + $row2.length + $row3.length) !== 9)) {
+
+    } else if ($(this).text() !== "") {
+      checkForWin();
+      if (checkForWin() === true) {
+
+        return;
+      }
+      if ((checkForWin() !== true) && ($length != 9)) {
         $('#announce-winner').text("Already taken, try again");
       }
+
     }
+
+    // {
+    //   if (checkForWin() === false && (($row1.length + $row2.length + $row3.length) !== 9)) {
+    //     $('#announce-winner').text("Already taken, try again");
+    //   }
+    //
+    // }
+
   });
 
   $(":button").click(function() {
@@ -29,9 +52,7 @@ $(document).on('ready', function() {
     playerTurn = 'X';
   });
 
-  var $row1 = $('.row1').text();
-  var $row2 = $('.row2').text();
-  var $row3 = $('.row3').text();
+
 
   function horizontalWin() {
     // Your code here
@@ -46,7 +67,7 @@ $(document).on('ready', function() {
     }
     return;
 
-  }
+  };
 
 
   function verticalWin() {
@@ -62,13 +83,13 @@ $(document).on('ready', function() {
       return true;
     }
     return;
-  }
+  };
 
 
   function diagonalWin() {
     // Your code here
     var $diag1 = $('.diag1').text();
-  var $diag2 = $('.diag2').text();
+    var $diag2 = $('.diag2').text();
 
     if ($diag1 === 'XXX' || $diag1 === 'OOO' || $diag2 === 'XXX' || $diag2 === 'OOO')
 
@@ -77,7 +98,19 @@ $(document).on('ready', function() {
     }
     return;
 
-  }
+  };
+
+  function tie() {
+    var $row1 = $('.row1').text();
+    var $row2 = $('.row2').text();
+    var $row3 = $('.row3').text();
+    var $length = ($row1.length + $row2.length + $row3.length);
+
+    if ($length == 9) {
+      return true;
+    }
+    return;
+  };
 
   function checkForWin() {
     // Your code here
@@ -93,15 +126,18 @@ $(document).on('ready', function() {
       $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
       return true;
 
-    } else if ($('.row').text().length >= 200) {
+    }
+    if (tie() === true) {
       $('#announce-winner').text('It was a tie!  Try Again.');
-      return false;
+      return true;
     } else {
       return false;
     }
+    return;
 
 
-  }
+
+  };
 
 
 });
