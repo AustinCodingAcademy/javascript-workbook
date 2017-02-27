@@ -9,23 +9,48 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-function CrewMember() {
-  this.name = name;
-  this.job = job;
-  this.specialSkill = specialSkill;
-  this.ship = null;
-  this.enterShip(myShip) = function() {
-    this.Ship = myShip;
-    this.Ship.crew.push(this);
+class CrewMember {
+  constructor(name, job, specialSkill) {
+    if(name === '') {
+      return "Please give crew member a name.";
+    }
+
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+
+    this.enterShip = function(myShip) {
+      this.ship = myShip;
+      this.ship.crew.push(this);
+    }
   }
 }
 
-function Ship() {
-  this.name = name;
-  this.type = type;
-  this.ability = ability;
-  this.crew = [];
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+
+    this.missionStatement = function() {
+      var missionStatus = "Can't perform a mission yet.";
+      for (var i = 0; i < this.crew.length; i++) {
+        if (jobTypes[this.crew[i].job] === this.type || this.crew[i].job === 'web developer') {
+          missionStatus = this.ability;
+        }
+      }
+      return missionStatus;
+    }
+  }
 }
+
+var rick = new CrewMember("Rick Martinez", "pilot", "chemistry");
+var mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
+
+rick.enterShip(mav);
+
 
 
 
