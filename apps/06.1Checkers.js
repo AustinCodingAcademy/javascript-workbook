@@ -8,11 +8,77 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  };
+  if (color === 'black') {
+    this.symbol = String.fromCharCode(0x125CF);
+  };
 }
 
 function Board() {
+  // array to store checker pieces
+  this.checkers = [];
+  // method to create starting positions of the checkers on the grid
+  this.createCheckers = function() {
+    var whitePositions = [ 
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6], 
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ]
+
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ]
+
+    // loop that will place white checkers on the board
+
+    for (var spot of whitePositions) {
+      // 'spot' is a place on the board
+      // loop through whitePositions array and pick out each position
+      var row = spot[0];
+      var column = spot[1];
+      // new Checker "whtChecker"
+      var whtChecker = new Checker('white');
+      // place whtChecker at each position on the white side of the grid
+      this.grid[row][column] = whtChecker;
+      this.checkers.push(whtChecker);
+    };
+
+    // loop that will place black checkers on the board
+
+    for (var spot of blackPositions) {
+      // 'spot' is a place on the board
+      // loop through whitePositions array and pick out each position
+      var row = spot[0];
+      var column = spot[1];
+      // new Checker "blkChecker"
+      var blkChecker = new Checker('black');
+      // place whtChecker at each position on the white side of the grid
+      this.grid[row][column] = blkChecker;
+      this.checkers.push(blkChecker);
+    };
+
+  }
+
+  // method that will store the checker found at a specific spot on the grid
+  this.selectChecker = function(row, column){
+    return this.grid[row][column];
+  }
+
+  //method that will kill a checker
+
+  this.killChecker = function(position) {
+    // find the checker at the target position
+    var targetChecker = position.selectChecker(row, column);
+    // locate the index of the target checker in the checkers array
+    var ripChecker = this.checkers[targetChecker];
+  }
+
+  // array for grid
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -51,16 +117,30 @@ function Board() {
     }
     console.log(string);
   };
-
-  // Your code here
 }
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
+  };
+  // method for moving a checker
+  this.moveChecker = function(start, end) {
+    // store user's input for desired starting position
+    var sRow = start[0];
+    var sColumn = start[1];
+    // use selectChecker method to grab the checker at that position
+    var checker = this.board.selectChecker(sRow, sColumn);
+    // set that position to null
+    this.board.grid[sRow][sColumn] = null;
+    // store user's input for desired destination
+    var eRow = end[0];
+    var eColumn = end[1];
+    // place the stored checker in that position
+    this.board.grid[eRow][eColumn] = checker;
   };
 }
 
