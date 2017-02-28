@@ -41,7 +41,7 @@ var anotherPoint = new Point(5, -3);
 // What is the difference between point (an object literal, or associative array)
 // and anotherPoint (a point object constructed from the Point class)?
 //
-// Point is the class constructor that organizes and holds the data that needs to be inputed (like a blueprint).. and anotherPoint is a new variable that is created and can be applied usint the class constructor Point.
+// Point is the class constructor that organizes and holds the data that needs to be inputed (like a blueprint).. and anotherPoint is a new variable or instance that is created and can be applied using the class constructor Point.
 
 // ****
 // Methods

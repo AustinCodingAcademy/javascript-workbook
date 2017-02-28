@@ -9,11 +9,13 @@ var rl = readline.createInterface({
 
 
 function Checker(color) {
-  if (color === white) {
-    this.symbol === String.fromCharCode(0x125CB);
+  if (color === 'white') {
+    // this is the white symbol.
+    this.symbol = String.fromCharCode(0x125CB);
   } 
-  else {
-    this.symbol === String.fromCharCode(0x125CF);
+  if (color === 'black') {
+    // this is the black symbol.
+    this.symbol = String.fromCharCode(0x125CF);
   }
 }
 
@@ -60,26 +62,44 @@ function Board() {
   // Your code here
   this.checkers = [];
   this.createCheckers = function() {
-    var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
-                          [1, 0], [1, 2], [1, 4], [1, 6],
-                          [2, 1], [2, 3], [2, 5], [2, 7]
-      ];
-    var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
-                          [6, 1], [6, 3], [6, 5], [6, 7],
-                          [7, 0], [7, 2], [7, 4], [7, 6]
-      ];
+    var whiteCheckers = [
+    [0, 1], [0, 3], [0, 5], [0, 7],
+    [1, 0], [1, 2], [1, 4], [1, 6],
+    [2, 1], [2, 3], [2, 5], [2, 7]
+    ]
 
-  //   for (var i = 0; i < 12; i++) {
-  //     var newChecker = new Checker('white');
-  //     this.grid[whitePositions[i][0]][whitePositions[i][1]] = newChecker;
-  //     this.checkers.push(newChecker);
-  //   }
+    var blackCheckers = [
+    [5, 0], [5, 2], [5, 4], [5, 6],
+    [6, 1], [6, 3], [6, 5], [6, 7],
+    [7, 0], [7, 2], [7, 4], [7, 6]
+    ]
 
-  //   for (i = 0; i < 12; i++) {
-  //     var newChecker = new Checker('black');
-  //     this.grid[whitePositions[i][0]][whitePositions[i][1]] = newChecker;
-  //     this.checkers.push(newChecker);
-  //   }
+    for(var spot of whiteCheckers) {
+      // above is same as follows.
+      // for(var i = 0; i < whiteCheckers.length; i++) {
+      //   var spot = whiteCheckers[i];
+      // }
+      // spot is going to be an array.
+      // spot may look like [0,1];
+      var row = spot[0];
+      var column = spot[1];
+      var whitechecker = new Checker('white');
+      this.grid[row][column] = whitechecker;
+      this.checkers.push(whitechecker);
+    }
+
+    for(spot of blackCheckers) {
+      var row = spot[0];
+      var column = spot[1];
+      var blackchecker = new Checker('black');
+      this.grid[row][column] = blackchecker;
+      this.checkers.push(blackchecker);
+    }
+  }
+
+  this.selectChecker(row, column) {
+
+    
   }
 }
 
