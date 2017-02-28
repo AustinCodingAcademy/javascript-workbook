@@ -27,13 +27,13 @@ function Ship(name, type, ability) {
   this.crew = [];
   this.missionStatement = function(theShip) {
     for(var i = 0; i < this.crew.length; i++) {
-        var theJob = this.crew[i].job;
-        var typeOfShip = jobTypes[theJob];
+      var theJob = this.crew[i].job;
+      var typeOfShip = jobTypes[theJob];
 
-          if (typeOfShip === this.type) {
+      if (typeOfShip === this.type) {
             return this.ability;
           }
-      }
+    }
     return "Can't perform a mission yet.";
   };
 };
