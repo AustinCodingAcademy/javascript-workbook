@@ -1,3 +1,4 @@
+
 'use strict';
 
 var assert = require('assert');
@@ -53,8 +54,8 @@ function Board() {
       string += rowOfCheckers.join(' ');
       // add a 'new line'
       string += "\n"; 
+      }
     console.log(string);
-    }
   };
   // Your code here
   this.checkers = [];
@@ -70,6 +71,13 @@ function Board() {
       [6, 1], [6, 3], [6, 5], [6, 7], 
       [7, 0], [7, 2], [7, 4], [7, 6],
     ];
+    // a better way to loop through using for...of... loop
+    //for (var spot of whiteCheckers) {
+    //   var row = spot[0];
+    //   var column = spot[1];
+    //   var whiteChecker = new Checker('white');
+    //   this.grid[row][column] = whiteChecker;
+    // }
     for (var i = 0; i <= 11; i++) {
       //instantiate a white checker
       var whiteChecker = new Checker('white');
