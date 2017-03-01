@@ -8,9 +8,15 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
-}
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
+  else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
+};
 
 function Board() {
   this.grid = [];
@@ -53,7 +59,102 @@ function Board() {
   };
 
   // Your code here
-}
+  this.checkers = [];
+  this.createCheckers = function () {
+    var whitePositions = [ 
+    [0, 1], [0, 3], [0, 5], [0, 7],
+    [1, 0], [1, 2], [1, 4], [1, 6],
+    [2, 1], [2, 3], [2, 5], [2, 7] 
+    ] ;
+
+    var blackPositions = [
+    [5, 0], [5, 2], [5, 4], [5, 6],
+    [6, 1], [6, 3], [6, 5], [6, 7],
+    [7, 0], [7, 2], [7, 4], [7, 6]
+    ] ;
+
+
+    //for loop shit
+    // **IN CLASS**
+    /*for(var i = 0; i < whiteCheckers.length ; i ++){
+      var spot = whiteCheckers[i];
+    }*/
+
+
+    for (var spot of whitePositions){
+      //what is spot
+      //spot is going to be an array
+      //spot may look like [0,1];
+      //spot can be named whatever you want
+      
+      var row = spot[0];
+      var column = spot[1];
+      //row may have a 0 in it
+      //column may have a 1 in it
+      var whitechecker = new Checker('white');
+      //var aThing = this.gred[row][column];
+      //what is the opposite of the above code
+      this.grid[row][column] = whitechecker;
+      this.checkers.push(whitechecker);
+    }
+
+    for (var spot of blackPositions){
+      var row = spot[0];
+      var column = spot[1];
+      var blackchecker = new Checker('black');
+      this.grid[row][column] = blackchecker;
+      this.checkers.push(blackchecker);
+    }
+
+
+    //console.log(this.whitePositions[1]);
+    //console.log(this.whitePositions.idexOf[1]);
+    
+    //my code here
+    //**EDIT AT HOME */
+    
+    /*var testPiece = new Checker('white');
+    var testPiece2 = new Checker('black');
+    console.log('test piece');
+    console.log(testPiece);
+    console.log(' ')
+    console.log('test piece black');
+    console.log(testPiece2);
+  
+    for (var i = 0; i < 12; i++) {
+      //var pieceW = new Checker('white');
+      //var pieceW2 = this.whitePositions[i];
+      //console.log(pieceW2);
+      if (i < 12) {
+        //whats the difference between using pieceW, pieceW2 and using pieceB method
+        var pieceW = new Checker('white');
+        var pieceWhite = pieceW[whitePositions[i]];
+        this.checkers.push(pieceWhite);
+        console.log('create white piece check');
+        console.log(pieceW);
+      }
+    }
+    console.log('white checkers');
+    console.log(this.checkers);
+    for (var c = 0; c < 12; c++) {
+      // whats the difference between putting pieceB and inside and outside
+      if (c < 12) {
+        var pieceB = new Checker('black');
+        var pieceBlack = pieceB[blackPositions[c]];
+        this.checkers.push(pieceBlack);
+      }
+    }
+    console.log('all checkers');
+    console.log(this.checkers);
+  */
+  }
+
+  this.selectChecker = function (row, column) {
+    return this.grid[row][column];
+  }
+
+
+};
 function Game() {
 
   this.board = new Board();
@@ -61,7 +162,23 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
+  
+  this.moveChecker = function (start, end) {
+    var startRow = start[0];
+    var startColumn = start[1];
+    var endRow = end[0];
+    var endColumn = end[1];
+
+    var checker = this.board.selectChecker(startRow, startColumn);
+    this.board.grid[startRow][startColumn] = null;
+    this.board.grid[endRow][endColumn] = checker;
+    
+
+    console.log(checker);
+  }
+
 }
 
 function getPrompt() {
