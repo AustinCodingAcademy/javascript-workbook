@@ -3,16 +3,13 @@
 $(document).on('ready', function() {
   // Put app logic in here
   var playerTurn = 'X';
-  var $row1 = $('.row1').text();
-  var $row2 = $('.row2').text();
-  var $row3 = $('.row3').text();
-  var $length = ($row1.length + $row2.length + $row3.length);
+
 
   $('[data-cell]').click(function() {
 
     if ($(this).text() === "") {
 
-      if ((checkForWin() !== true) && ($length != 9)) {
+      if (checkForWin() !== true)  {
         $('#announce-winner').empty();
         $(this).text(playerTurn);
         checkForWin();
@@ -31,18 +28,13 @@ $(document).on('ready', function() {
 
         return;
       }
-      if ((checkForWin() !== true) && ($length != 9)) {
+      if (checkForWin() !== true) {
         $('#announce-winner').text("Already taken, try again");
       }
 
     }
 
-    // {
-    //   if (checkForWin() === false && (($row1.length + $row2.length + $row3.length) !== 9)) {
-    //     $('#announce-winner').text("Already taken, try again");
-    //   }
-    //
-    // }
+
 
   });
 
@@ -72,7 +64,7 @@ $(document).on('ready', function() {
 
   function verticalWin() {
     // Your code here
-
+    //
     var $col1 = $('.col1').text();
     var $col2 = $('.col2').text();
     var $col3 = $('.col3').text();
