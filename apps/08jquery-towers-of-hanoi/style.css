@@ -32,7 +32,8 @@
   background-color: yellow;
 }
 
-#announce-game-won {
+#moves-made, #announce-game-won {
+  font-family: sans-serif;
   font-size: 50px;
   text-align: center;
 }
