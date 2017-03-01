@@ -45,7 +45,7 @@ function Ship(name, type, ability) {
 
 
 
-var rick = new crewMember1('Rick Martinez', 'pilot', 'chemistry');
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 rick;
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 mav;
@@ -59,8 +59,6 @@ console.log(mav.crew[0].name); //=> 'Rick Martinez'
 console.log(rick.ship === mav); //=> true
 console.log(mav.crew.indexOf(rick) === 0); //=> true
 
-
-}
 //tests
 if (typeof describe === 'function') {
   describe('CrewMember', function() {
