@@ -13,7 +13,7 @@ $(document).on('ready', function() {
   // Problem 1:
   // select the h1 element
   // assign the selected jQuery object to the property window.h1
-  window.h1; $('h1');7
+  window.h1 = $('h1');
 
   // Problem 2:
   // select the p element
