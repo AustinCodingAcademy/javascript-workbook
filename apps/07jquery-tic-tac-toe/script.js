@@ -2,19 +2,35 @@
 
 $(document).on('ready', function () {
   // Put app logic in here
+
   var playerTurn = 'X';
   $('div[data-cell]').on('click', function () {
     if (isSpaceAvailable(this)) {
       $(this).text(playerTurn);
+      //checks for win each time there is a click
+      checkForWin();
       playerTurn = (playerTurn === 'X') ? 'O' : 'X'
     }
   });
-  // $('div[data-cell]').on('mousemove', function () {
-  //   checkForWin();
-  // });
+  //trying to prevent more clicks after a win
+  $('div[data-cell]').on('click', function () {
+    if (checkForWin()) {
+      $('div[onclick]').each(function () {
+        $(this).data('onclick', this.onclick);
+
+        this.onclick = function (event) {
+          if ($(this).attr('disabled')) { // HERE
+            return false;
+          };
+
+          $(this).data('onclick').call(this, event || window.event);
+        };
+      });
+    }
+  });
 
   function checkForWin() {
-    //get the text for 0 1 2
+    //checking for that win
     if (
       $('div[data-cell=0]').text() === playerTurn &&
       $('div[data-cell=1]').text() === playerTurn &&
@@ -49,7 +65,7 @@ $(document).on('ready', function () {
     $('div[data-cell]').text('');
     $('#announce-winner').text('');
   })
-
+  //checking to see if the space is available
   function isSpaceAvailable(target) {
     if ($(target).text() === '') {
       $('#announce-winner').text(' ')
