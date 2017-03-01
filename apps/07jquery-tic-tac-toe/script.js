@@ -13,21 +13,13 @@ $(document).on('ready', function () {
     }
   });
   //trying to prevent more clicks after a win
-  $('div[data-cell]').on('click', function () {
-    if (checkForWin()) {
-      $('div[onclick]').each(function () {
-        $(this).data('onclick', this.onclick);
-
-        this.onclick = function (event) {
-          if ($(this).attr('disabled')) { // HERE
-            return false;
-          };
-
-          $(this).data('onclick').call(this, event || window.event);
-        };
-      });
-    }
-  });
+  // $('div[data-cell]').on('click', function () {
+  //   if ('#announce-winner') {
+  //     $('div[data-cell]').off('click');
+  //     console.log('cheese');
+  //     return false;
+  //   }
+  // });
 
   function checkForWin() {
     //checking for that win
@@ -57,8 +49,13 @@ $(document).on('ready', function () {
       $('div[data-cell=4]').text() === playerTurn &&
       $('div[data-cell=6]').text() === playerTurn
     ) {
-      $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+      winMessage();
     };
+  }
+  // returns who won and stops the game from playing
+  function winMessage() {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+    $('div[data-cell]').off('click');
   }
   //clear and remove the message
   $('#clear').on('click', function clearBoard() {
@@ -68,13 +65,12 @@ $(document).on('ready', function () {
   //checking to see if the space is available
   function isSpaceAvailable(target) {
     if ($(target).text() === '') {
-      $('#announce-winner').text(' ')
+      $('#announce-winner').text(' ');
       return true;
     } else {
-      $('#announce-winner').text('That space is taken!')
+      $('#announce-winner').text('That space is taken!');
       return false;
     }
   }
-  //$('div[data-cell]').on('click', () => {console.log($(this))})
 
 });
