@@ -79,19 +79,23 @@ function ConferenceRoom() {
 // Add a method called sayHi() that returns "Hi, I'm " + this.name + '!';
 function Person(name) {
   this.name = name;
+  this.sayHi = function(){
+    return "Hi, I'm " + this.name + '!';
+  }
+
 }
 
 // Problem 5:
 // create a new Person named Jen
-var jen;
-dddd
+var jen = new Person('Jen');
+
 // Problem 6:
 // add jen to the conferenceRoom
 var conferenceRoom = new ConferenceRoom();
 // you can do this by calling the method enter() as follows:
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
-
+conferenceRoom.enter(jen);
 
 // ****
 // Concept Checkpoint
@@ -99,7 +103,7 @@ var conferenceRoom = new ConferenceRoom();
 // Write your answer in comments
 //
 // What is a method?
-//
+// is a function inside of a class.
 //
 
 // ****
