@@ -99,11 +99,10 @@ function Board() {
   }
 
   this.killChecker = function(position) {
-    position = [0, 5];
-    var checker = this.selectChecker(position);
-    var find = this.board.checkers.indexOf(position);
-    find.splice('');
-    this.grid(position) = null;
+    var checkerPosition = this.selectChecker(position[0], position[1]);
+    var find = this.checkers.indexOf(checkerPosition);
+      this.checkers.splice(find, 1);
+      this.grid[position[0]][position[1]] = null;
   }
 }
 
@@ -117,15 +116,22 @@ function Game() {
   };
 
   this.moveChecker = function(start, end) {
-    var startRow = start[0];
-    var startColumn = start[1];
-    var endRow = end[0];
-    var endColumn = end[1];
+    var startRow = Number(start[0]);
+    var startColumn = Number(start[1]);
+    var endRow = Number(end[0]);
+    var endColumn = Number(end[1]);
     var checker = this.board.selectChecker(startRow, startColumn);
     this.board.grid[startRow][startColumn] = null;
     this.board.grid[endRow][endColumn] = checker;
     
-    var distance = Math.abs(start - row);
+    var distance = Math.abs(startRow - endRow);
+    var midRow = (startRow + endRow) / 2;
+    var midCol = (startColumn + endColumn) / 2;
+    var killPosition = [midRow, midCol];
+
+    if(distance === 2) {
+      this.board.killChecker(killPosition);
+    }
     
   }
 }
