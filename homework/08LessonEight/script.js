@@ -26,7 +26,7 @@ $(document).on('ready', function() {
   // Problem 3:
   // Now use the .detach() method on window.firstListChildren to
   // remove those elements from the document
-window.firstListChildren = $(firstListChildren).detach();
+  window.firstListChildren = $(firstListChildren).detach();
 
   // Problem 4:
   // Now use the .detach() method on window.secondListChildren to
