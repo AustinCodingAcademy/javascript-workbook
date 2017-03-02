@@ -7,6 +7,9 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+//testinnnggg
+//your attention plethhh
+
 
 function Checker(color) {
   // Your code here
