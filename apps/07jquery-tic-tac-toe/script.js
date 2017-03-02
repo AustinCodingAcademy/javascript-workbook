@@ -3,14 +3,17 @@
 $(document).on('ready', function () {
   // Put app logic in here
 
+  var moves = 0;
+
   function gameOn(x) {
     var $this = x;
     if (isSpaceAvailable($this)) {
-      console.log("SUCCESS");
       $this.text(playerTurn);
-      //checks for win each time there is a click
+      //checks for win/tie each time there is a click
+      checkForFullBoard();
       checkForWin();
       playerTurn = (playerTurn === 'X') ? 'O' : 'X'
+      moves++;
     }
   }
 
@@ -78,20 +81,20 @@ $(document).on('ready', function () {
   function winMessage() {
     $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
     $('div[data-cell]').unbind('click');
+    moves = 0;
   }
   //clear and remove the message
   $('#clear').on('click', function clearBoard() {
     $('div[data-cell]').text('');
-    $('#announce-winner').text('');
-    console.log('ding');
-    // $('div[data-cell]').bind('click');
+    $('#announce-winner').text(' ');
+    moves = 0;
     $('div[data-cell]').on('click', function () {
       gameOn($(this));
     });
-    console.log('dong');
   })
   //checking to see if the space is available
   function isSpaceAvailable(target) {
+    console.log($(target).text());
     if ($(target).text() === '') {
       $('#announce-winner').text(' ');
       return true;
@@ -100,15 +103,11 @@ $(document).on('ready', function () {
       return false;
     }
   }
-
-  //checking to see if the space is available
-  function isSpaceAvailable(target) {
-    if ($(target).text() === '') {
-      $('#announce-winner').text(' ');
-      return true;
-    } else {
-      $('#announce-winner').text('That space is taken!');
-      return false;
+  // check to see if the board is full
+  function checkForFullBoard() {
+    console.log($(moves));
+    if (moves === 8) {
+      $('#announce-winner').text("It's a tie");
     }
   }
 
