@@ -89,6 +89,7 @@ $(document).on('ready', function() {
   // and set its text (.text()) to the value of the data-content attribute
   var content = $('#data-element').data('content');
 
+
   $('#data-element').text(content);
 
 });
