@@ -65,17 +65,21 @@ function Board() {
   }
 
   // method that will store the checker found at a specific spot on the grid
-  this.selectChecker = function(row, column){
+  this.selectChecker = function(row, column) {
     return this.grid[row][column];
   }
 
   //method that will kill a checker
 
-  this.killChecker = function(position) {
-    // find the checker at the target position
-    var targetChecker = position.selectChecker(row, column);
+  this.killChecker = function(row, column) {
+    // find and store the checker at the target position
+    var targetChecker = this.selectChecker(row, column);
     // locate the index of the target checker in the checkers array
-    var ripChecker = this.checkers[targetChecker];
+    var ripChecker = this.checkers.indexOf(targetChecker);
+    // set the spot where the checker was to null
+    this.grid[row][column] = null;
+    // remove target checker from checkers array
+    this.checkers.splice(ripChecker, 1);
   }
 
   // array for grid
@@ -129,18 +133,34 @@ function Game() {
   };
   // method for moving a checker
   this.moveChecker = function(start, end) {
-    // store user's input for desired starting position
+    // store user's input for desired start/end position
     var sRow = start[0];
     var sColumn = start[1];
-    // use selectChecker method to grab the checker at that position
-    var checker = this.board.selectChecker(sRow, sColumn);
-    // set that position to null
-    this.board.grid[sRow][sColumn] = null;
-    // store user's input for desired destination
     var eRow = end[0];
     var eColumn = end[1];
-    // place the stored checker in that position
-    this.board.grid[eRow][eColumn] = checker;
+    // use selectChecker method to grab the checker at start position
+    var checker = this.board.selectChecker(sRow, sColumn);
+    if (checker != null) {
+      // distance is the difference between the start row and end row values
+      var distance = Math.abs(sRow - eRow);
+      // set start position to null
+      this.board.grid[sRow][sColumn] = null;
+      // place the stored checker in end position
+      this.board.grid[eRow][eColumn] = checker;
+      // if the distance is 2, kill checkers between start/end positions
+      if (distance === 2) {
+        // convert user input to integers
+        var startRowNumber = Number(sRow);
+        var startColumnNumber = Number(sColumn);
+        var endRowNumber = Number(eRow);
+        var endColumnNumber = Number(eColumn);
+        // midpoint calculation
+        var killRow = (startRowNumber + endRowNumber) / 2;
+        var killColumn = (startColumnNumber + endColumnNumber) / 2;
+        // kill the checker
+        this.board.killChecker(killRow, killColumn);
+      }
+    }
   };
 }
 
