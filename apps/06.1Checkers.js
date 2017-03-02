@@ -101,8 +101,8 @@ function Board() {
   this.killChecker = function(position) {
     var checkerPosition = this.selectChecker(position[0], position[1]);
     var find = this.checkers.indexOf(checkerPosition);
-      this.checkers.splice(find, 1);
-      this.grid[position[0]][position[1]] = null;
+    this.checkers.splice(find, 1);
+    this.grid[position[0]][position[1]] = null;
   }
 }
 
