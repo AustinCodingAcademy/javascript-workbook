@@ -105,8 +105,11 @@ function Board() {
     return (this.grid[row][column])
   }
 
-  this.killChecker = function (position) {
-    
+  this.killChecker = function (row, column) {
+    var checkerToKill = this.selectChecker(row,column);
+    var checkerIndex = this.checkers.indexOf(checkerToKill);
+    this.grid[row][column] = null;
+    this.checkers.splice(checkerIndex,1);
   }
 }
 function Game() {
@@ -138,6 +141,8 @@ function Game() {
         var kill_y = (num_start_y + num_end_y) / 2;
         console.log('Start is '+start[0] + ',' + start[1] + ' End is '+end[0]+','+end[1])
         console.log('Kill X is ' + kill_x + ' Kill Y is '+kill_y)
+
+        this.board.killChecker(kill_x,kill_y)
       }
     }
   }
