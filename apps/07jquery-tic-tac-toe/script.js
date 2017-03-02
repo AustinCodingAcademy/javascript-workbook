@@ -65,18 +65,6 @@ $(document).on('ready', function () {
       winMessage();
     };
   }
-
-  /*
-
-    $("#someElement").click(function(){
-    $(this).unbind('click');
-    $('#anotherElement').show();
-  });
-
-  $('#anotherElement').click(function(){
-    $("#someElement").bind('click');
-  });
-    */
   // returns who won and stops the game from playing
   function winMessage() {
     $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
@@ -96,7 +84,7 @@ $(document).on('ready', function () {
   function isSpaceAvailable(target) {
     console.log($(target).text());
     if ($(target).text() === '') {
-      $('#announce-winner').text(' ');
+      $('#announce-winner').text('');
       return true;
     } else {
       $('#announce-winner').text('That space is taken!');
@@ -105,9 +93,10 @@ $(document).on('ready', function () {
   }
   // check to see if the board is full
   function checkForFullBoard() {
-    console.log($(moves));
+    // console.log($(moves));
     if (moves === 8) {
       $('#announce-winner').text("It's a tie");
+      $('div[data-cell]').unbind('click');
     }
   }
 
