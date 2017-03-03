@@ -103,7 +103,7 @@ function Board() {
       //row may have a 1 in it
       var whiteChecker = new Checker('white');
       this.grid[row][column] = whiteChecker;
-      // this.checkers.push(whiteChecker);
+      this.checkers.push(whiteChecker);
     }
 
     for(var spot of blackCheckers){
@@ -115,7 +115,7 @@ function Board() {
       //row may have a 1 in it
       var blackChecker = new Checker('black');
       this.grid[row][column] = blackChecker;
-      // this.checkers.push(blackChecker);
+      this.checkers.push(blackChecker);
     }  
 
   }
@@ -142,7 +142,6 @@ function Game() {
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
     this.board.createCheckers();
   };
 
