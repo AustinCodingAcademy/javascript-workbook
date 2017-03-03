@@ -78,7 +78,6 @@ function Board() {
       // above is same as follows.
       // for(var i = 0; i < whiteCheckers.length; i++) {
       //   var spot = whiteCheckers[i];
-      // }
       // spot is going to be an array.
       // spot may look like [0,1];
       var row = spot[0];
@@ -97,9 +96,16 @@ function Board() {
     }
   }
 
-  this.selectChecker(row, column) {
+  this.selectChecker = function(row, column) {
+    var myChecker = this.grid[row][column];
+    return myChecker;
+  }
 
-    
+  this.killChecker = function(row, column) {
+    var checkerToKill = this.selectChecker(row, column);
+    var checkerIndex = this.checkers.indexOf(checkerToKill);
+    this.grid[row][column] = null;
+    this.checkers.splice(checkerIndex,1);
   }
 }
 
@@ -112,6 +118,29 @@ function Game() {
     // Your code here
     this.board.createCheckers();
   };
+
+  this.moveChecker = function(start, end) {
+    var checker = this.board.selectChecker(start[0], start[1]);
+    if (checker != null) {
+      var distance_moved = Math.abs(start[0]-end[0]);
+      this.board.grid[start[0]][start[1]] = null;
+      this.board.grid[end[0]][end[1]] = checker;
+
+      console.log('Moved ' + distance_moved + ' tiles')
+      if (distance_moved === 2) {
+        var num_start_x=Number(start[0]);
+        var num_start_y=Number(start[1]);
+        var num_end_x=Number(end[0]);
+        var num_end_y=Number(end[1]);
+        var kill_x = (num_start_x + num_end_x) / 2;
+        var kill_y = (num_start_y + num_end_y) / 2;
+        console.log('Start is '+start[0] + ',' + start[1] + ' End is '+end[0]+','+end[1])
+        console.log('Kill X is ' + kill_x + ' Kill Y is '+kill_y)
+
+        this.board.killChecker(kill_x,kill_y)
+      }
+    }
+  }
 }
 
 function getPrompt() {
