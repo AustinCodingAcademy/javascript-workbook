@@ -9,7 +9,7 @@ $(document).on('ready', function() {
   // ****
   // element selectors
   // ****
-
+  //Had to switch node versions
   // Problem 1:
   // select the h1 element
   // assign the selected jQuery object to the property window.h1
