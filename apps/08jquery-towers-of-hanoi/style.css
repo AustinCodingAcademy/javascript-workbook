@@ -35,6 +35,9 @@
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 body{
@@ -42,7 +45,7 @@ body{
     overflow:hidden;
 }
 .wrapper {
-    transform: rotate(270deg);
+    transform: rotate(-90deg);
     transform-origin: right top 0px;
     position: absolute;
     top: 0px;

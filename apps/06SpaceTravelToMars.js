@@ -32,9 +32,8 @@ function Ship(name, type, ability) {
       var canFly = jobTypes[theJob];
       if (this.type === canFly) {
         return this.ability;
-      } else {
-        return "Can't perform a mission yet.";
       }
+      return "Can't perform a mission yet.";
     }
   }
 }
