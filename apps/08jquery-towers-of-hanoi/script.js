@@ -2,36 +2,39 @@
 
 $(document).ready(function() {
   // Put app logic here
-  var $lastItemFrom = 0;
+  var pieceInHand = false;
   var $block = null;
 
 
   $('[data-stack]').click(function() {
 
-    //set $block to the last item on the clicked data-stack
+    //clean up flag name and boolean
+
+
 
     // var $lastItemTo = $(this).length;
 
-    if ($lastItemFrom !== 1 && $(this).children().length !== 0) {
+    if (!pieceInHand && $(this).children().length > 0) {
 
-      $block = $(this).children().last();
-      $block.detach();
-      $lastItemFrom += 1;
+      $block = $(this).children().last(); //set $block to the last item on the clicked data-stack
+      $block.detach(); //detach the $block from the data-stack
+      pieceInHand = true; //change the value of lastItemFrom to skip to the else statement
 
 
-    } else if ($lastItemFrom !== 1 && $(this).children().length === 0) {
+    } else if (!pieceInHand && $(this).children().length === 0) {
       $('#announce-game-won').text("Select another stack");
       return;
     } else
     // &&  $block.data("block") < $(this).children().last().data("block") )
     {
-      if (($(this).children().last().data("block")) === undefined || $block.data("block") < ($(this).children().last().data("block"))) {
+      if ($(this).children().length === 0 || $block.data("block") < ($(this).children().last().data("block"))) {
         $('#announce-game-won').empty();
         // console.log($block.data());
-        $lastItemFrom -= 1;
+
         // console.log("it works");
         $(this).append($block);
-        $block = null;
+        pieceInHand = false;
+
         checkForWin();
 
       } else {
