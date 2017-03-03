@@ -6,6 +6,7 @@ $(document).ready(function () {
       //picks up the block
       if (!$block){
         $block = $(this).children().last().detach();
+        $('div#announce-game-won').empty();
       } 
       //puts down the block if holding the block
       else {
@@ -13,6 +14,8 @@ $(document).ready(function () {
           $(this).append($block);
           $block = null;
           checkForWin();
+        }else {
+          $('div#announce-game-won').text('That spot is invalid.');
         }
       }
     })
