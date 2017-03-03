@@ -42,5 +42,4 @@ $(document).on('ready', function() {
   // use $finalList.append() to put window.secondListChildren
   // at the end of #final-list
   $finalList.append(secondListChildren);
-
 });
