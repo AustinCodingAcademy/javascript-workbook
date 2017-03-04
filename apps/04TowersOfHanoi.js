@@ -34,8 +34,9 @@ function isLegal(startStack, endStack) {
 
   // console.log(lastItemFrom);
   // console.log(lastItemTo);
-  if (lastItemFrom < lastItemTo || lastItemTo === undefined) {
+  if (lastItemTo === undefined || lastItemFrom < lastItemTo) {
     movePiece(startStack, endStack);
+    checkForWin();
     return true
   } else if (lastItemFrom > lastItemTo) {
     console.log("Opps, try again");
@@ -48,7 +49,8 @@ function checkForWin() {
   // Your code here
 
   if (stacks.c.length === 4 || stacks.b.length === 4) {
-    console.log("You Won!!")
+      printStacks();
+    console.log("You Won!!");
     return true;
     // process.exit();
   } else {
@@ -65,7 +67,7 @@ function towersOfHanoi(startStack, endStack) {
 
 function getPrompt() {
   printStacks();
-  checkForWin();
+
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
