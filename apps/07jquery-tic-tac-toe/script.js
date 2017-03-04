@@ -26,6 +26,10 @@ $(document).on('ready', function () {
     $('div[data-cell]').off('click');
   };
 
+  // function clearBox(target) {
+  //   document.getElementById('div[data-cell]').innerHTML = '';
+  // }
+
   function checkForWin() {
     //checking for that win
     if (
@@ -85,7 +89,6 @@ $(document).on('ready', function () {
   }
   // check to see if the board is full
   function checkForFullBoard() {
-    // console.log($(moves));
     if (moves === 8) {
       $('#announce-winner').text("It's a tie");
       $('div[data-cell]').unbind('click');
