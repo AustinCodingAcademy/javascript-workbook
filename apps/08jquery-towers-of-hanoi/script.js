@@ -13,6 +13,9 @@ $(document).ready(function() {
     //the last block on the data-stack
 
     if (!pieceInHand && $(this).children().length > 0) {
+      //empty the announce-game-won.  In case the user selects an
+      //empty data-stack
+      $('#announce-game-won').empty();
       //set $block to the last item on the clicked data-stack
       $block = $(this).children().last();
       //detach the $block from the data-stack
@@ -38,8 +41,7 @@ $(document).ready(function() {
       //the one being held by $block, append $block to the data-stack
 
       if ($(this).children().length === 0 || $block.data("block") < ($(this).children().last().data("block"))) {
-        //empty the announce-game-won.  This in case the user selects an
-        //empty data-stack, or places the block on top of a smaller block
+        //empty the announce-game-won.  This in case the user selects places the block on top of a smaller block
         $('#announce-game-won').empty();
         //append $block to the data-stack
         $(this).append($block);
@@ -64,8 +66,11 @@ $(document).ready(function() {
     if ($('[data-stack=2]').children().length === 4 || $('[data-stack=3]').children().length === 4) {
       //update the text of the announce-game-won id
       $('#announce-game-won').text("You won!");
+      return;
+
       //if the data-stacks 2 or 3 do not contain 4 children,
       //run the else statement.
+
     } else {
       return;
     }
