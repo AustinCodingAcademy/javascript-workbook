@@ -61,9 +61,8 @@ $(document).on('ready', function () {
   function winMessage() {
     moves = 0;
     $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
-    // $('div[data-cell]').unbind('click');    check how to fix this
   }
-  //clear and remove the message
+  //clear and remove the message/cell data
   $('button#clear').on('click', function () {
     $('div#announce-winner').empty();
     $('div[data-cell]').empty();
@@ -76,18 +75,10 @@ $(document).on('ready', function () {
     }
     return false
   }
-  /*
-  $('#announce-winner').text('');
-  return true;
-
-  $('#announce-winner').text('That space is taken!');
-  return false;
-  */
   // check to see if the board is full
   function checkForFullBoard() {
     if (moves === 8) {
       $('#announce-winner').text("It's a tie");
-      // $('div[data-cell]').unbind('click');
     }
   }
 
