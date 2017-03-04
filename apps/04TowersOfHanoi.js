@@ -49,7 +49,7 @@ function checkForWin() {
   // Your code here
 
   if (stacks.c.length === 4 || stacks.b.length === 4) {
-      printStacks();
+    printStacks();
     console.log("You Won!!");
     return true;
     // process.exit();
