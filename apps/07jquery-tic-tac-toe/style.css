@@ -1,12 +1,16 @@
 div[data-cell] {
     width: 100px;
     height: 100px;
-    background-color: #f2f2f2;
+    background-color: hsla(0, 0%, 0%, 0.05);
     float: left;
-    border: 1px solid #000;
+    border: 1px solid hsla(0, 0%, 0%, .65);
     font-size: 100px;
     font-family: helvetica;
     text-align: center;
+}
+
+div[data-cell].animated.fadeInUp:active {
+    position: relative;
 }
 
 .row {
@@ -14,7 +18,9 @@ div[data-cell] {
 }
 
 #announce-winner {
+    position: relative;
+    padding: .5%;
     clear: both;
-    font-size: 250%;
+    font-size: 225%;
     font-family: helvetica, sans-serif;
 }

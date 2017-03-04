@@ -21,14 +21,6 @@ $(document).on('ready', function () {
   $('div[data-cell]').on('click', function () {
     gameOn($(this));
   });
-
-  // if (isSpaceAvailable(this)) {
-  //   $(this).text(playerTurn);
-  //   //checks for win each time there is a click
-  //   checkForWin();
-  //   playerTurn = (playerTurn === 'X') ? 'O' : 'X'
-  // }
-  // });
   // //trying to enable clicks after the board is cleared
   function enableClicks() {
     $('div[data-cell]').off('click');
