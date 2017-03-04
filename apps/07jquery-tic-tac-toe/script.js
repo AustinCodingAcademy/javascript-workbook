@@ -7,7 +7,7 @@ $(document).on('ready', function () {
 
   function gameOn(x) {
     var $this = x;
-    if (isSpaceAvailable($this)) {
+    if (!isSpaceAvailable($this)) {
       $this.text(playerTurn);
       //checks for win/tie each time there is a click
       checkForFullBoard();
@@ -23,12 +23,8 @@ $(document).on('ready', function () {
   });
   // //trying to enable clicks after the board is cleared
   function enableClicks() {
-    $('div[data-cell]').off('click');
+    $('div[data-cell]').on('click');
   };
-
-  // function clearBox(target) {
-  //   document.getElementById('div[data-cell]').innerHTML = '';
-  // }
 
   function checkForWin() {
     //checking for that win
@@ -59,39 +55,39 @@ $(document).on('ready', function () {
       $('div[data-cell=6]').text() === playerTurn
     ) {
       winMessage();
-    };
+    }
   }
   // returns who won and stops the game from playing
   function winMessage() {
-    $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
-    $('div[data-cell]').unbind('click');
     moves = 0;
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+    // $('div[data-cell]').unbind('click');    check how to fix this
   }
   //clear and remove the message
-  $('#clear').on('click', function clearBoard() {
-    $('div[data-cell]').text('');
-    $('#announce-winner').text(' ');
+  $('button#clear').on('click', function () {
+    $('div#announce-winner').empty();
+    $('div[data-cell]').empty();
     moves = 0;
-    $('div[data-cell]').on('click', function () {
-      gameOn($(this));
-    });
   })
   //checking to see if the space is available
   function isSpaceAvailable(target) {
-    console.log($(target).text());
-    if ($(target).text() === '') {
-      $('#announce-winner').text('');
-      return true;
-    } else {
-      $('#announce-winner').text('That space is taken!');
-      return false;
+    if ($(target).text() !== '') {
+      return $('#announce-winner').text('That space is taken!')
     }
+    return false
   }
+  /*
+  $('#announce-winner').text('');
+  return true;
+
+  $('#announce-winner').text('That space is taken!');
+  return false;
+  */
   // check to see if the board is full
   function checkForFullBoard() {
     if (moves === 8) {
       $('#announce-winner').text("It's a tie");
-      $('div[data-cell]').unbind('click');
+      // $('div[data-cell]').unbind('click');
     }
   }
 
