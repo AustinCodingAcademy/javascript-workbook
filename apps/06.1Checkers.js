@@ -127,12 +127,12 @@ function Board() {
   };
 
   this.killChecker = function(position) {
-      var selectedChecker = this.selectChecker(position[0],position[1]);
-      var checkerIndex = this.checkers.indexOf(selectedChecker);
+    var selectedChecker = this.selectChecker(position[0],position[1]);
+    var checkerIndex = this.checkers.indexOf(selectedChecker);
 
-      this.checkers.splice(checkerIndex,1);
-      this.grid[position[0]][position[1]] = null;
-    };
+    this.checkers.splice(checkerIndex,1);
+    this.grid[position[0]][position[1]] = null;
+  };
 
 }
 
