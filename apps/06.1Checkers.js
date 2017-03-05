@@ -38,7 +38,7 @@ class Checker{
 
 function Board() {
 
-   this.grid = [];
+  this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -46,7 +46,7 @@ function Board() {
       this.grid[row] = [];
       // push in 8 columns of nulls
       for (var column = 0; column < 8; column++) {
-      this.grid[row].push(null);
+        this.grid[row].push(null);
       }
     }
   };
@@ -124,14 +124,14 @@ function Board() {
 
   this.selectChecker = function (row, column) {
     return this.grid[row][column];
-    };
+  };
 
-    this.killChecker = function(position) {
-    var selectedChecker = this.selectChecker(position[0],position[1]);
-    var checkerIndex = this.checkers.indexOf(selectedChecker);
+  this.killChecker = function(position) {
+      var selectedChecker = this.selectChecker(position[0],position[1]);
+      var checkerIndex = this.checkers.indexOf(selectedChecker);
 
-    this.checkers.splice(checkerIndex,1);
-    this.grid[position[0]][position[1]] = null;
+      this.checkers.splice(checkerIndex,1);
+      this.grid[position[0]][position[1]] = null;
     };
 
 }
