@@ -62,7 +62,7 @@ $(document).on('ready', function () {
     moves = 0;
     $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
   }
-  //clear and remove the message/cell data
+  //clear and remove the message/cell data 
   $('button#clear').on('click', function () {
     $('div#announce-winner').empty();
     $('div[data-cell]').empty();
