@@ -10,14 +10,14 @@ var rl = readline.createInterface({
 //create a class Checker
 function Checker(color) {
     if (color === "white") {
-        this.symbol = String.fromCharCode(0x125CB);
+     this.symbol = String.fromCharCode(0x125CB);
     } else {
-        this.symbol = String.fromCharCode(0x125CF);
+         this.symbol = String.fromCharCode(0x125CF);
+        }
     }
-}
 //create the Board class
 function Board() {
-    this.grid = [];
+     this.grid = [];
     // creates an 8x8 array, filled with null values
     this.createGrid = function () {
         // loop to create the 8 rows
@@ -32,17 +32,17 @@ function Board() {
 
     // prints out the board
     this.viewGrid = function () {
-        // add our column numbers
-        var string = "  0 1 2 3 4 5 6 7\n";
-        for (var row = 0; row < 8; row++) {
-            // we start with our row number in our array
-            var rowOfCheckers = [row];
-            // a loop within a loop
-            for (var column = 0; column < 8; column++) {
-                // if the location is "truthy" (contains a checker piece, in this case)
-                if (this.grid[row][column]) {
+// add our column numbers
+var string = "  0 1 2 3 4 5 6 7\n";
+for (var row = 0; row < 8; row++) {
+ // we start with our row number in our array
+ var rowOfCheckers = [row];
+// a loop within a loop
+for (var column = 0; column < 8; column++) {
+// if the location is "truthy" (contains a checker piece, in this case)
+if (this.grid[row][column]) {
                     // push the symbol of the check in that location into the array
-                    rowOfCheckers.push(this.grid[row][column].symbol);
+                     rowOfCheckers.push(this.grid[row][column].symbol);
                 } else {
                     // just push in a blank space
                     rowOfCheckers.push(' ');
