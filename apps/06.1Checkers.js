@@ -38,7 +38,7 @@ function Board() {
  // we start with our row number in our array
     var rowOfCheckers = [row];
 // a loop within a loop
-f   or (var column = 0; column < 8; column++) {
+    for (var column = 0; column < 8; column++) {
 // if the location is "truthy" (contains a checker piece, in this case)
     if (this.grid[row][column]) {
                     // push the symbol of the check in that location into the array
