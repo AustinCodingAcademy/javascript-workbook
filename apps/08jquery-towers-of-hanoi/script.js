@@ -3,6 +3,7 @@
 var $block = null;
 $(document).ready(function () {
   // Put app logic here
+  var movesCount = 0;
   $('[data-stack]').click(
     function () {
 
@@ -15,6 +16,10 @@ $(document).ready(function () {
         if ($legalMove) {
           $(this).append($block);
           $block = null;
+          //Track the number of moves made
+          movesCount++;
+          $('#moves-made').text('Moves: ' + movesCount);
+          $('div#announce-game-won').empty();
         } else {
 
           $('#announce-game-won').text("Illegal Move");
