@@ -20,8 +20,7 @@ $(document).ready(function() {
 
         //setting the $block back to null so we can continue to play the game.
         $block = null;
-      } else {
-      }
+      } else {}
     }
 
     checkForWin();

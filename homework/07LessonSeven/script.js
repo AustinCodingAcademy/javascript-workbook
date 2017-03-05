@@ -69,7 +69,7 @@ $(document).on('ready', function() {
   // Problem 9:
   // select the element with id="insert-text"
   // then set the text of this element to "Text Has Been Inserted"
-$('#insert-text').text("Text Has Been Inserted");
+  $('#insert-text').text("Text Has Been Inserted");
 
   // Problem 10:
   // select the element with id="add-attribute"
