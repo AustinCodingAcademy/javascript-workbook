@@ -43,7 +43,7 @@ function Board() {
     if (this.grid[row][column]) {
                     // push the symbol of the check in that location into the array
     rowOfCheckers.push(this.grid[row][column].symbol);
-} else {
+}   else {
                     // just push in a blank space
     rowOfCheckers.push(' ');
 }
