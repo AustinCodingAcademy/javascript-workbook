@@ -2,12 +2,12 @@
 
 $(document).on('ready', function() {
   // Put app logic in here
-  clickX();
+  runThisCodeOnce();
 });
 
 function setup(){
   $('#box').click(function(){
-    this;
+    this.text('X');
   });
 
 }
