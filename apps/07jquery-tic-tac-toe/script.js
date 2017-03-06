@@ -37,7 +37,7 @@ function horizontalWin() {
   if (($cell1.text() === playerTurn && $cell2.text() === playerTurn && $cell3.text() === playerTurn) ||
      ($cell4.text() === playerTurn && $cell5.text() === playerTurn && $cell6.text() === playerTurn) ||
      ($cell7.text() === playerTurn && $cell8.text() === playerTurn && $cell9.text() === playerTurn)) {
-       return true;
+    return true;
   };
 }
 
@@ -46,7 +46,7 @@ function verticalWin() {
   if (($cell1.text() === playerTurn && $cell4.text() === playerTurn && $cell7.text() === playerTurn) ||
      ($cell2.text() === playerTurn && $cell5.text() === playerTurn && $cell8.text() === playerTurn) ||
      ($cell3.text() === playerTurn && $cell6.text() === playerTurn && $cell9.text() === playerTurn)) {
-       return true;
+    return true;
   };
 }
 
@@ -54,7 +54,7 @@ function verticalWin() {
 function diagonalWin() {
   if (($cell1.text() === playerTurn && $cell5.text() === playerTurn && $cell9.text() === playerTurn) ||
      ($cell3.text() === playerTurn && $cell5.text() === playerTurn && $cell7.text() === playerTurn)) {
-       return true;
+    return true;
   };
 }
 
