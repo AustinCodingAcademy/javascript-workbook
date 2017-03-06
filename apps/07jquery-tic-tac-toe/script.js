@@ -2,24 +2,28 @@
 
 $(document).on('ready', function() {
   // Put app logic in here
-  runThisCodeOnce();
-});
+  var playerTurn = 'X';
+  var $dataCell = $('[data-cell]');
+  $('[data-cell]').click(function(){
+    $(this).text(playerTurn);
 
-function setup(){
-  $('#box').click(function(){
-    this.text('X');
+
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+
   });
 
-}
+});
 
-function runThisCodeOnce(){
-  $('[data-cell]').click(handleDataCellDivClick);
-  $(this).text('X');
-}
+// function setup(){
+//   $('data-cell').click(function(){
+//     this.text(playerTurn);
+//   });
+
+// }
+
+// function runThisCodeOnce(){
+//   $('[data-cell]').click(handleDataCellDivClick);
+//   $(this).text('X');
+// }
 
 // this variable will represent which of the divs are clicked on!!!
-
-function clickX(){
-  $('[data-cell]').click(handleDataCellDivClick);
-  $(this).text('X');
-}
