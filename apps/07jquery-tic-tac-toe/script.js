@@ -26,7 +26,8 @@ function newGame() {
 }
 
 function clearBoard() {
-  $('div[data-cell]').text(' ');
+  //returns each cell to empty
+  $('div[data-cell]').text('');
 }
 
 function checkForWin() {
