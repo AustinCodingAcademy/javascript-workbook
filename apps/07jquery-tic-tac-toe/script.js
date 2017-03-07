@@ -21,54 +21,54 @@ $(document).on('ready', function() {
   clearBoard();
 
   function checkForWin() {
-  if(horizontalWin() || verticalWin() || diagonalWin()) {
-    $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
-    return true;
-  }
-}
-
-function horizontalWin() {
-  if((boxZero.text() === playerTurn) && (boxOne.text() === playerTurn) && (boxTwo.text() === playerTurn)) {
-    return true;
-  }
-  if((boxThree.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxFive.text() === playerTurn)) {
-    return true;
-  }
-  if((boxSix.text() === playerTurn) && (boxSeven.text() === playerTurn) && (boxEight.text() === playerTurn)) {
-    return true;
-  }
-}
-
-function verticalWin() {
-  if((boxZero.text() === playerTurn) && (boxThree.text() === playerTurn) && (boxSix.text() === playerTurn)) {
-    return true;
-  }
-  if((boxOne.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxSeven.text() === playerTurn)) {
-    return true;
-  }
-  if((boxTwo.text() === playerTurn) && (boxFive.text() === playerTurn) && (boxEight.text() === playerTurn)) {
-    return true;
+    if(horizontalWin() || verticalWin() || diagonalWin()) {
+      $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+      return true;
+    }
   }
 
-}
-
-function diagonalWin() {
-  if((boxZero.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxEight.text() === playerTurn)) {
-    return true;
+  function horizontalWin() {
+    if((boxZero.text() === playerTurn) && (boxOne.text() === playerTurn) && (boxTwo.text() === playerTurn)) {
+      return true;
+    }
+    if((boxThree.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxFive.text() === playerTurn)) {
+      return true;
+    }
+    if((boxSix.text() === playerTurn) && (boxSeven.text() === playerTurn) && (boxEight.text() === playerTurn)) {
+      return true;
+    }
   }
-  if((boxTwo.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxSix.text() === playerTurn)) {
-    return true;
+
+  function verticalWin() {
+    if((boxZero.text() === playerTurn) && (boxThree.text() === playerTurn) && (boxSix.text() === playerTurn)) {
+      return true;
+    }
+    if((boxOne.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxSeven.text() === playerTurn)) {
+      return true;
+    }
+    if((boxTwo.text() === playerTurn) && (boxFive.text() === playerTurn) && (boxEight.text() === playerTurn)) {
+      return true;
+    }
+
   }
 
-}
+  function diagonalWin() {
+    if((boxZero.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxEight.text() === playerTurn)) {
+      return true;
+    }
+    if((boxTwo.text() === playerTurn) && (boxFour.text() === playerTurn) && (boxSix.text() === playerTurn)) {
+      return true;
+    }
 
-function clearBoard() {
-  playerTurn = 'X';
-  $('#clear').click(function() {
-    $('[data-cell]').text(" ");
-    $('#announce-winner').text(" ");
-  })
-}
+  }
 
-});
+  function clearBoard() {
+    playerTurn = 'X';
+    $('#clear').click(function() {
+      $('[data-cell]').text(" ");
+      $('#announce-winner').text(" ");
+    })
+  }
+
+  });
 
