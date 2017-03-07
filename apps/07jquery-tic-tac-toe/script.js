@@ -11,7 +11,7 @@ $(document).on('ready', function() {
   $('[data-cell]').click(function() {
     // this if statement extracts the text of the '[data-cell]' that was clicked and compares it to "X" or "O"
     // if it equals either on you will get an .alert that says "Choos another spot"
-    if($(this).text() === "X" || $(this) === "O" ) {
+    if($(this).text() === "X" || $(this).text() === "O" ) {
       // prevent move
       alert("Choose another spot!");
     }
