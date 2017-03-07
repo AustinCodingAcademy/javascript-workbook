@@ -32,8 +32,31 @@
   background-color: yellow;
 }
 
-#moves-made, #announce-game-won {
+#information {
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  justify-content: space-between;
+  align-items: center;
+  height: 250px;
+}
+
+#moves-made, #announce-game-won, #perfect-score {
   font-family: sans-serif;
   font-size: 49px;
   text-align: center;
+  display: flex;
+}
+
+#resetButton {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 40px;
+  font-size: 30px;
+  border-radius: 29px;
+  background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+
 }

@@ -27,16 +27,24 @@ $(document).ready(function () {
       }
       checkForWin();
     });
+  var perfectScore = '15';
 
   function checkForWin() {
     // checking legnth of data-stack's 2 and 3 for a win
     if ($('[data-stack="2"]').children().length === 4 || $('[data-stack="3"]').children().length === 4) {
       $('#announce-game-won').text("You Won!");
-      //diabling clicks and movement of pieces after a win
+      //diabling clicks and movement of pieces after a win by removing the game screen
       $('[data-stack]').css('display', 'none');
-    } else {
-      return false;
+      // displaying what a perfect score would be
+      if (movesCount === perfectScore) {
+        $('#perfect-score').text(`You got a perfect score!`);
+      } else {
+        $('#perfect-score').text(`A perfect score would of been ${perfectScore} moves.`);
+        return false;
+      }
     }
   }
-
+  $('#resetButton').click(function () {
+    location.reload(true);
+  });
 });
