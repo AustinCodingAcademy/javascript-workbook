@@ -10,10 +10,10 @@ $(document).on('ready', function() {
   //click datacell to run all the info in this function
    $('[data-cell]').click(function() {
         //ensuring the spot is open
-        if ($(this).text === 'X' || $(this).text() === 'O') {
+        if ($(this).text() === 'X' || $(this).text() === 'O') {
           alert('This spot is taken!');
         } 
-        //
+        
         else {
           //allowing the player to make a move
           $(this).text(playerTurn);
