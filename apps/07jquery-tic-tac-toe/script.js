@@ -61,8 +61,8 @@ function diagonalWin() {
 // clear board function
 function clearBoard() {
   $('#clear').click(function(){
-    $('[data-cell]').text(" ");
-    $('#announce-winner').text(" ");
+    $('[data-cell]').empty();
+    $('#announce-winner').empty();
     playerTurn = "X";
   });
 }
