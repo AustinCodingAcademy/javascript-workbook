@@ -6,6 +6,7 @@ $(document).on('ready', function () {
     $(this).text(playerTurn);
     checkForWin();
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    newGame();
     
   })
 
@@ -47,11 +48,17 @@ $(document).on('ready', function () {
 
 // Add a button with an id="clear" that will not only clear the board, but reset the player to player 'X'
 
-  $('#clear').click(function () {
+
+  function newGame(){
+    $('#clear').click(function () {
     $('[data-cell]').empty();
     playerTurn = 'X';
     $('#announce-winner').empty();
   })
+
+}
+
+
 });
 
   
