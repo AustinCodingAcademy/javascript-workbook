@@ -18,14 +18,12 @@ $(document).on('ready', function() {
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   })
 
-  clearBoard();
+  $('#clear').click(function() {
+    $('[data-cell]').text("");
+    $('#announce-winner').text("");
+    playerTurn = 'X';
+  })
 
-  function checkForWin() {
-    if(horizontalWin() || verticalWin() || diagonalWin()) {
-      $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
-      return true;
-    }
-  }
 
   function horizontalWin() {
     if((boxZero.text() === playerTurn) && (boxOne.text() === playerTurn) && (boxTwo.text() === playerTurn)) {
@@ -62,13 +60,13 @@ $(document).on('ready', function() {
 
   }
 
-  function clearBoard() {
-    playerTurn = 'X';
-    $('#clear').click(function() {
-      $('[data-cell]').text(" ");
-      $('#announce-winner').text(" ");
-    })
+  function checkForWin() {
+    if(horizontalWin() || verticalWin() || diagonalWin()) {
+      $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+      return true;
+    }
   }
+
 
 });
 
