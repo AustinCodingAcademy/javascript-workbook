@@ -3,16 +3,24 @@
 var playerTurn = 'X';
 
 $(document).on('ready', function(){
+  
   // Put app logic in here
+  
   $('[data-cell]').click(function(){
     $(this).text(playerTurn);
+    
+    // if statement checking to see if there is a winner. If so, the winner is displayed.
     
     if (checkForWin()){
     $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
     }
     
+    // ternary operator below to toggle between player X and player O.
+    
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   });
+
+  // Below is a click function to clear the board by clicking the clear button. 
 
   $('#clear').click(function(){
     $('[data-cell]').text('');
@@ -74,6 +82,4 @@ $(document).on('ready', function(){
           return true;
         }
   }
-
-  
 });
