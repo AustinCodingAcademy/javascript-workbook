@@ -16,9 +16,9 @@ $(document).ready(function() {
         // drop the block on $targetStack
         $($block).data('block') < $(this).children().last().data('block') ||
         $(this).children().length === 0) {
-          $(this).append($block);
-          $block = null;
-        }
+        $(this).append($block);
+        $block = null;
+      }
     }
     // run this function AFTER each player move
     checkForWin();
