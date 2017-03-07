@@ -51,12 +51,12 @@ $(document).on('ready', function () {
 
   function newGame(){
     $('#clear').click(function () {
-    $('[data-cell]').empty();
-    playerTurn = 'X';
-    $('#announce-winner').empty();
-  })
+      $('[data-cell]').empty();
+      playerTurn = 'X';
+      $('#announce-winner').empty();
+    })
 
-}
+  }
 
 
 });
