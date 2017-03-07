@@ -82,13 +82,17 @@ $(document).on('ready', function() {
   // select the element with id="data-element"
   // and set window.dataIdValue to the value of the data-id attribute of the element
   // you can do this by calling .data() on the selected element
-  var $dataElement = $('data-element');
-  
-  window.dataIdValue = $dataElement.data('id');
+  var div = $('#data-element');
+  window.dataIdValue = div.data('id');
 
   // Problem 12:
   // select the element with id="data-element"
   // and set its text (.text()) to the value of the data-content attribute
-  $dataElement.text($dataElement.data('content'))
+  
+  
+  var content = $('#data-element').data('content');
+
+
+  $('#data-element').text(content);
 
 });
