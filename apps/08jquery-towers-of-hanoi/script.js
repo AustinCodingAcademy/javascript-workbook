@@ -44,7 +44,7 @@ $(document).ready(function () {
       }
     }
   }
-  $('#resetButton').click(function () {
+  $('#reset-button').click(function () {
     location.reload(true);
   });
 });
