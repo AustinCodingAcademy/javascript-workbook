@@ -24,8 +24,8 @@ function movePiece(startPile, endPile) {
   stacks[endPile].push(stacks[startPile].pop());
 }
 // Checks to see if the move is legal or not
-function isLegal(startPilek, endPile) {
-  // Your code here
+function isLegal(startPile, endPile) {
+  // Checks to see if the move is legal
   var lastItemFrom = stacks[startPile][stacks[startPile].length - 1];
   var lastItemTo = stacks[endPile][stacks[endPile].length - 1];
   if (lastItemTo === undefined || lastItemFrom < lastItemTo) {
@@ -52,7 +52,6 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startPile, endPile) {
-  // Your code here
   isLegal(startPile, endPile);
 
 }
