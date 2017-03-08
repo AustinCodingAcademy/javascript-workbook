@@ -27,7 +27,7 @@ $(document).ready(function () {
       }
       checkForWin();
     });
-  var perfectScore = '15';
+  var perfectScore = 15;
 
   function checkForWin() {
     // checking legnth of data-stack's 2 and 3 for a win
@@ -36,7 +36,7 @@ $(document).ready(function () {
       //diabling clicks and movement of pieces after a win by removing the game screen
       $('[data-stack]').css('display', 'none');
       // displaying what a perfect score would be
-      if (movesCount === perfectScore) {
+      if (movesCount == perfectScore) {
         $('#perfect-score').text(`You got a perfect score!`);
       } else {
         $('#perfect-score').text(`A perfect score would of been ${perfectScore} moves.`);
