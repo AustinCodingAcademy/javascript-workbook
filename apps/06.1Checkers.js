@@ -1,5 +1,6 @@
 'use strict';
 
+var colors = require('colors');
 var assert = require('assert');
 var readline = require('readline');
 var rl = readline.createInterface({
@@ -8,12 +9,18 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
+  this.checkers = [];
   this.grid = [];
+  
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -25,7 +32,32 @@ function Board() {
       }
     }
   };
+  //METHOD TO POPULATE BOARD WITH SYMBOLS 
+  this.createCheckers = function () {
+    var whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
+    var blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
 
+    // for (var i = 0; i < 11; i++) {
+      // var index = whitePositions[i]
+  // }
+    //^^INTRODUCED NEW FOR-LOOP SYNTAX:
+    for (var index of whitePositions) {
+      //INDEX IS GOING TO BE AN ARRAY
+      //INDEX WILL HAVE THIS FORMAT: [0, 1];
+      var row = index[0];
+      var column = index[1];
+      var whitechecker = new Checker('white');
+      this.grid[row][column] = whitechecker;
+    } 
+    for (var index of blackPositions) {
+      //SPOT IS GOING TO BE AN ARRAY
+      //SPOT WILL HAVE THIS FORMAT: [0, 1];
+      var row = index[0];
+      var column = index[1];
+      var blackchecker = new Checker('black');
+      this.grid[row][column] = blackchecker;
+    } 
+  }; 
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
@@ -52,21 +84,47 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  //SPEC 2.2A VERBATIM
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column];
+  };
+
+  //SPEC 3 - KILLING A CHECKER
+  // this.killChecker = function(start, end) {
+
+  // }
 }
+
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
+  };
+  
+  //SPEC 2.2B
+  this.moveChecker = function(start, end) {
+    var startRow = start[0];
+    var startColumn = start[1];
+    var endRow = end[0];
+    var endColumn = end[1];
+    var checker = this.board.selectChecker(start[0], start[1]);
+    this.board.grid[startRow][startColumn] = null;
+    this.board.grid[endRow][endColumn] = checker;
+    var distance = Math.abs(start[0] - end[0]);
+    // if (distance == 2 ) {
+    //   var killPosition =      // <-----------
+    // }
   };
 }
 
 function getPrompt() {
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
+    console.log(whichPiece[0] === 5)
     rl.question('to where?: ', (toWhere) => {
       game.moveChecker(whichPiece, toWhere);
       getPrompt();
@@ -110,3 +168,8 @@ if (typeof describe === 'function') {
 } else {
   getPrompt();
 }
+
+
+//OLD CODE
+// for (var i = 0; i < 11; i++) {
+//       this.grid[whitePositions[i][0]][whitePositions[i][1]].push(String.fromCharCode(0x125CB)); 
