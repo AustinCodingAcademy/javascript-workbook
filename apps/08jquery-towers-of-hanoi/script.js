@@ -1,68 +1,31 @@
 'use strict';
 
-var assert = require('assert');
-var readline = require('readline');
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-var stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
-};
-
-function printNewStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
-}
-
-function movePiece(startPile, endPile) {
-  // Moves the Pieces to the Pile
-  stacks[endPile].push(stacks[startPile].pop());
-}
-// Checks to see if the move is legal or not
-function isLegal(startPile, endPile) {
-  // Checks to see if the move is legal
-  var lastItemFrom = stacks[startPile][stacks[startPile].length - 1];
-  var lastItemTo = stacks[endPile][stacks[endPile].length - 1];
-  if (lastItemTo === undefined || lastItemFrom < lastItemTo) {
-    movePiece(startPile, endPile);
+var $block = null;
+$(document).ready(function() {
+  //On Click for game play
+  $('[data-stack]').on('click', function() {
+    if ($block === 'null') {
+      $block = $(this).children().last().detach();
+    } else {
+      if (
+        //This will move the blocks
+        $($block).data('block') < $(this).children().last().data('block') ||
+        $(this).children().length === 0) {
+        $(this).append($block);
+        $block = null;
+      }
+    }
+    //Checks to see if you have won  ..... What checks it each time after you have moved the block
     checkForWin();
-    return true
-  } else if (lastItemFrom > lastItemTo) {
-    console.log("Opps, try again");
-    return false
+  })
+
+  function checkForWin() {
+    //Will check to see if you have won
+    if (
+      $('[data-stack="2"]').children().length === 4 ||
+      $('[data-stack="3"]').children().length === 4
+    ) {
+      $('#announce-game-won').text('You have Won!');
+    }
   }
-
-}
-
-function checkForWin() {
-  // Checks to see if you won or not
-  if (stacks.c.length === 4 || stacks.b.length === 4) {
-    printStacks();
-    console.log("You Won!!");
-    return true;
-  } else {
-    return false;
-  }
-
-}
-
-function towersOfHanoi(startPile, endPile) {
-  isLegal(startPile, endPile);
-
-}
-
-function getPrompt() {
-  printStacks();
-
-  rl.question('start stack: ', (startPile) => {
-    rl.question('end stack: ', (endPile) => {
-      towersOfHanoi(startPile, endPile);
-      getPrompt();
-    });
-  });
-}
+});
