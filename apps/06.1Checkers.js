@@ -48,6 +48,8 @@ function Board() {
       var column = index[1];
       var whitechecker = new Checker('white');
       this.grid[row][column] = whitechecker;
+      //TO COUNT CHECKERS ON THE BOARD
+      this.checkers.push(whitechecker);
     } 
     for (var index of blackPositions) {
       //SPOT IS GOING TO BE AN ARRAY
@@ -56,6 +58,7 @@ function Board() {
       var column = index[1];
       var blackchecker = new Checker('black');
       this.grid[row][column] = blackchecker;
+      this.checkers.push(blackchecker);
     } 
   }; 
   // prints out the board
@@ -90,9 +93,12 @@ function Board() {
   };
 
   //SPEC 3 - KILLING A CHECKER
-  // this.killChecker = function(start, end) {
-
-  // }
+  this.killChecker = function(position) {
+    var deadChecker = this.selectChecker(position[0], position[1]);
+    var checkerIndex = this.checkers.indexOf(deadChecker);
+    this.checkers.splice(checkerIndex, 1);
+    this.grid[position[0]][position[1]] = null;
+  }
 }
 
 
@@ -114,10 +120,19 @@ function Game() {
     var checker = this.board.selectChecker(start[0], start[1]);
     this.board.grid[startRow][startColumn] = null;
     this.board.grid[endRow][endColumn] = checker;
+    //DETERMIN HOW FAR A CHECKER HAS MOVED
     var distance = Math.abs(start[0] - end[0]);
-    // if (distance == 2 ) {
-    //   var killPosition =      // <-----------
-    // }
+    //IF IT JUMPS A CHECKER, SELECT THAT CHECKER WITH MIDPOINT FORMULA AND KILL IT
+    if (distance === 2 ) {
+      var x1 = Number(start[0]);
+      var y1 = Number(start[1]);
+      var x2 = Number(end[0]);
+      var y2 = Number(end[1]);
+      var x3 = (x1 + x2) / 2;
+      var y3 = (y1 + y2) / 2;
+      var jumpedChecker = [x3, y3];
+      this.board.killChecker(jumpedChecker);
+    }
   };
 }
 
