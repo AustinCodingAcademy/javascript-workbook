@@ -10,7 +10,31 @@ var assert = require('assert');
 // .add should take one argument, car. If the length of this.cars is less than this.size, push the car into this.cars, else return "Not enough space!"
 // .remove should also take one argument, car. look for the index of the car in this.cars. If it is found, splice it out of this.cars. If it isn't found, return "That car isn't here!"
 
-// Your code here
+function Car(color) {
+    this.color = color;
+}
+
+function Garage(size) {
+    this.size = size;
+    this.cars = [];
+    this.add = function(car) {
+        if (this.cars.length > this.size) {
+            this.cars.push(car);
+        }
+        else {
+            return "Not enough space!";
+        }
+    };
+    this.remove = function(car) {
+        if (this.cars.indexOf(car) > -1) {
+            this.car.splice(-1, 1);
+        }
+        else if (this.cars.indexOf(car) == -1) {
+            return "That car isn't here!"
+        }
+    };
+}
+
 
 // Tests
 
