@@ -3,13 +3,13 @@
 var assert = require('assert');
 var readline = require('readline');
 var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+  input: process.stdin,
+  output: process.stdout
 });
 
 //create a class Checker
 function Checker(color) {
-    if (color === "white") {
+  if (color === "white") {
       this.symbol = String.fromCharCode(0x125CB);
     } else {
       this.symbol = String.fromCharCode(0x125CF);
@@ -21,7 +21,7 @@ function Board() {
     // creates an 8x8 array, filled with null values
   this.createGrid = function () {
         // loop to create the 8 rows
-        for (var row = 0; row < 8; row++) {
+    for (var row = 0; row < 8; row++) {
             this.grid[row] = [];
             // push in 8 columns of nulls
             for (var column = 0; column < 8; column++) {
