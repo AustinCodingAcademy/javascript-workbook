@@ -9,6 +9,7 @@ $(document).ready(function() {
 
   $('[data-stack]').click(function () {
     // $block = $(this).children().last().detach();
+      // The above variable and methods were moved to the else statement below
     
     if($block) {
       var $lastBlock = $(this).children().last();
@@ -21,6 +22,7 @@ $(document).ready(function() {
         
         $(this).append($block);
         $block = null;
+        checkForWin();
       }
               
     } else {
@@ -30,18 +32,16 @@ $(document).ready(function() {
 
   });
 
+  function checkForWin(){
+    if( $('[data-stack="2"]').children().size() === 4 || $('[data-stack="3"]').children().size() === 4 ){
+      // announce-game-won here
+      $('#announce-game-won').text('you won!');
+    }
+  }
+
 });
 
 
-// $(document).ready(function() {
-//   // Put app logic here
-   
-//   $('[data-stack]').click(function () {
-//     $block = $(this).children().last().detach();
-                      //the above technique is called a train or training
-    
-//   });
 
-// });
 
 
