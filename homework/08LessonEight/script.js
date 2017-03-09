@@ -17,7 +17,7 @@ $(document).on('ready', function() {
 
   // Problem 1:
   // Get the children of #first-list using the .children() method
-  window.firstListChildren = $firstList.childred();
+  window.firstListChildren = $firstList.children();
 
   // Problem 2:
   // Get the children of #second-list using the .children() method
