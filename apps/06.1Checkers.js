@@ -10,16 +10,16 @@ var rl = readline.createInterface({
 //create a class Checker
 function Checker(color) {
     if (color === "white") {
-        this.symbol = String.fromCharCode(0x125CB);
+      this.symbol = String.fromCharCode(0x125CB);
     } else {
-        this.symbol = String.fromCharCode(0x125CF);
+      this.symbol = String.fromCharCode(0x125CF);
     }
 }
 //create the Board class
 function Board() {
-    this.grid = [];
+  this.grid = [];
     // creates an 8x8 array, filled with null values
-    this.createGrid = function () {
+  this.createGrid = function () {
         // loop to create the 8 rows
         for (var row = 0; row < 8; row++) {
             this.grid[row] = [];
