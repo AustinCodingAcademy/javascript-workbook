@@ -12,6 +12,8 @@ var assert = require('assert');
 // Add properties x: 1, y: 2 to point to make it a point
 // in two dimensional space.
 var point = {
+  x: 1,
+  y: 2
 };
 
 // Problem 2:
@@ -21,6 +23,8 @@ var point = {
 // as properties to "this".
 // example: this.propName = propValue;
 function Point(x, y) {
+  this.x = x,
+  this.y = y
 }
 
 // Problem 3:
