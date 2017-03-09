@@ -36,9 +36,9 @@ $(document).on('ready', function() {
             ($('[data-cell=2]').text() === playerTurn))) {
               // console.log('yay!');
               // debugger;
-        return $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
-      } else if (($('[data-cell=0]').text() !== '')&&($('[data-cell=1]').text() !== '')&&($('[data-cell=2]').text() !== '')&&($('[data-cell=3]').text() !== '')&&($('[data-cell=4]').text() !== '')&&($('[data-cell=5]').text() !== '')&&($('[data-cell=6]').text() !== '')&&($('[data-cell=6]').text() !== '')&&($('[data-cell=8]').text() !== '')){
-          return $('#announce-winner').text('You Loose, You Loser!');
+      return $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+    } else if (($('[data-cell=0]').text() !== '')&&($('[data-cell=1]').text() !== '')&&($('[data-cell=2]').text() !== '')&&($('[data-cell=3]').text() !== '')&&($('[data-cell=4]').text() !== '')&&($('[data-cell=5]').text() !== '')&&($('[data-cell=6]').text() !== '')&&($('[data-cell=6]').text() !==       '')&&($('[data-cell=8]').text() !== '')){
+      return $('#announce-winner').text('You Loose, You Loser!');
         }
   }
 
