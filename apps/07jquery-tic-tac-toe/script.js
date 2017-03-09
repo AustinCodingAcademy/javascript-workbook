@@ -5,7 +5,7 @@ $(document).on('ready', function() {
   // where am i?
   var playerTurn='X';
 
-  jQuery('div[data-cell]').on('click',function(){
+  $('div[data-cell]').on('click',function(){
 
     $(this).text(playerTurn);
     checkForWin();
@@ -17,20 +17,66 @@ $(document).on('ready', function() {
 //returna boolean
 function checkForWin(){
   // get the text for 0, 1, and 2
+  //horizontal win
   if(
   $('div[data-cell=0]').text() === playerTurn &&
-  $('div[data-cell=0]').text() === playerTurn &&
-  $('div[data-cell=0]').text() === playerTurn
+  $('div[data-cell=1]').text() === playerTurn &&
+  $('div[data-cell=2]').text() === playerTurn
 ) {
-    console.log ('win in first row');
-    clearBoard();
-    }
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } else if (
+    $('div[data-cell=3]').text() === playerTurn &&
+    $('div[data-cell=4]').text() === playerTurn &&
+    $('div[data-cell=5]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } else if (
+    $('div[data-cell=6]').text() === playerTurn &&
+    $('div[data-cell=7]').text() === playerTurn &&
+    $('div[data-cell=8]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } //vertical win
+  else if (
+    $('div[data-cell=0]').text() === playerTurn &&
+    $('div[data-cell=3]').text() === playerTurn &&
+    $('div[data-cell=6]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } else if (
+    $('div[data-cell=1]').text() === playerTurn &&
+    $('div[data-cell=4]').text() === playerTurn &&
+    $('div[data-cell=7]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } else if (
+    $('div[data-cell=2]').text() === playerTurn &&
+    $('div[data-cell=5]').text() === playerTurn &&
+    $('div[data-cell=8]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } //diagonal win
+  else if (
+    $('div[data-cell=0]').text() === playerTurn &&
+    $('div[data-cell=4]').text() === playerTurn &&
+    $('div[data-cell=8]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  } else if (
+    $('div[data-cell=2]').text() === playerTurn &&
+    $('div[data-cell=4]').text() === playerTurn &&
+    $('div[data-cell=6]').text() === playerTurn
+  ) {
+    $('#announce-winner').text('Player ' + playerTurn + ' Wins!')
+  }
 
 
-  };
+  }
 
-  function clearBoard(){
-    $('[data-cell]').text('');
+  $('#clear').on('click', function() {
+    $('div[data-cell]').text('');
+    playerTurn = 'X';
+  })
 
   }
 });
