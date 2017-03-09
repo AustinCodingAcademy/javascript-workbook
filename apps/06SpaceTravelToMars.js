@@ -33,20 +33,18 @@ function Ship(name,type,crew,ability){
   this.crew = [];
   this.missionStatement = function(){
 
-      for (var i = 0; i < this.crew.length; i++) {
+    console.log(this.crew)
+    for (var i = 0; i < this.crew.length; i++) {
 
-        var currentCrewMember = this.crew[i].job
+      var currentCrewMemberJob = this.crew[i].job
 
-      if (jobTypes[currentCrewMember] === this.type) {
-
-        return this.ability;
+      if (jobTypes[currentCrewMemberJob] === this.type) {
+        return this.ability
       }
-
     }
     return "Can't perform a mission yet."
-
-   }
- }
+  }
+ };
 
 
  var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
