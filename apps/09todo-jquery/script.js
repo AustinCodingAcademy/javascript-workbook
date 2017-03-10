@@ -1,9 +1,9 @@
 'use strict';
 
 $(document).ready(function() {
-	var $todoList = $('#todo-list');
-	$todoList.sortable();
-	$('#todo').focus();
+  var $todoList = $('#todo-list');
+  $todoList.sortable();
+  $('#todo').focus();
 
   $('form').submit(function(event) {
   	event.preventDefault();

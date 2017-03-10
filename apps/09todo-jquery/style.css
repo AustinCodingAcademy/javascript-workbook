@@ -56,6 +56,10 @@ input[type="submit"] {
   width: 20%;
 }
 
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
 input[type=text] {
   padding: 6px;
   border: 1px solid #ccc;
@@ -73,4 +77,8 @@ input[type=checkbox] {
   float: right;
   margin-right: 10px;
   color: red;
+}
+
+#todo-list li input[type=button]:hover {
+  cursor: pointer;
 }

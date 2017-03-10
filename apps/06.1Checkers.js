@@ -109,9 +109,9 @@ function Game() {
 
   this.moveChecker = function(start, end) {
     var startX = parseInt(start.substring(0, 1)),
-        startY = parseInt(start.substring(1)),
-        endX = parseInt(end.substring(0, 1)),
-        endY = parseInt(end.substring(1));
+    startY = parseInt(start.substring(1)),
+    endX = parseInt(end.substring(0, 1)),
+    endY = parseInt(end.substring(1));
 
     var checker = this.board.selectChecker(startX, startY);
     this.board.grid[startX][startY] = null;
