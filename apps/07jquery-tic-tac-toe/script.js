@@ -22,7 +22,7 @@ $(document).on('ready', function() {
   	    checkForTie();
   	    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   	  }
-    });
+  });
   }
 
   function horizontalWin() {
