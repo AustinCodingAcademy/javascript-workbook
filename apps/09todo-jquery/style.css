@@ -24,6 +24,9 @@ form {
   text-align: center;
 }
 
+button {
+  float: right;
+}
 #todo-list li {
   display: table;
   margin: 10px auto;
