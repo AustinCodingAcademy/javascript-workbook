@@ -2,19 +2,55 @@
 //require assert
 var assert = require('assert');
 
+
+// Spec 1- Creating a crewmember
+
+function CrewMember(name, job, specialSkill, ship) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  // Spec 3- Crew Member can enter Ship
+  this.enterShip = function(newShip) {
+    this.ship = newShip
+    newShip.crew.push(this)
+  }
+}
+
+//Spec 2- Creating a ship
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  //Spec 4- Mission Statement
+  this.missionStatement = function() {
+    for (var i = 0; i < this.crew.length; i++) {
+      var currentCrewMember = this.crew[i].job
+      if (jobTypes[currentCrewMember] === this.type) {
+        return this.ability;
+      }
+    }
+    return "Can't perform a mission yet."
+  }
+}
+
+
+//Job Assignments
 var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
   commander: 'Main Ship',
   programmer: 'Any Ship!'
-};
+}
 
-// Your code here
+
+
 
 //tests
-if (typeof describe === 'function'){
-  describe('CrewMember', function(){
-    it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
+if (typeof describe === 'function') {
+  describe('CrewMember', function() {
+    it('should have a name, a job, a specialSkill and ship upon instantiation', function() {
       var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       assert.equal(crewMember1.name, 'Rick Martinez');
       assert.equal(crewMember1.job, 'pilot');
@@ -22,7 +58,7 @@ if (typeof describe === 'function'){
       assert.equal(crewMember1.ship, null);
     });
 
-    it('can enter a ship', function(){
+    it('can enter a ship', function() {
       var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
       var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       crewMember1.enterShip(mav);
@@ -32,8 +68,8 @@ if (typeof describe === 'function'){
     });
   });
 
-  describe('Ship', function(){
-    it('should have a name, a type, an ability and an empty crew upon instantiation', function(){
+  describe('Ship', function() {
+    it('should have a name, a type, an ability and an empty crew upon instantiation', function() {
       var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
       assert.equal(mav.name, 'Mars Ascent Vehicle');
       assert.equal(mav.type, 'MAV');
@@ -41,7 +77,7 @@ if (typeof describe === 'function'){
       assert.equal(mav.crew.length, 0);
     });
 
-    it('can return a mission statement correctly', function(){
+    it('can return a mission statement correctly', function() {
       var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
       var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       var hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
