@@ -10,11 +10,12 @@
 [data-block] {
   width: 25px;
   float: left;
+  border: solid black 2px;
 }
 
 [data-block="25"] {
   height: 25px;
-  background-color: blue;
+  background-color: purple;
 }
 
 [data-block="50"] {
@@ -58,4 +59,11 @@ p{
 
 #moving-div {
   position: absolute;
+  pointer-events: none;
+  /*background: url('your_transparent.png');*/
 }
+
+.buttonBar {
+  margin: 10px auto;
+}
+

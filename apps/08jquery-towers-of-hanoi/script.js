@@ -21,7 +21,7 @@ function handleWhatWasClicked(){
     if($(this).children().length > 0){
       // pick one up.
       block = $(this).children().last().detach(); //instead of .detach() just set he block to be there then detach when we click on the second tower. 
-      // **** $("#moving-div").append(block); ******
+         $("#moving-div").append(block);
       // but if there isn't anything in the stack tell them to choose a different stack 
     } else if($(this).children().length === 0){
         alert("Please choose a stack with pieces to play.");
@@ -81,6 +81,8 @@ function checkForWIn() {
     pushCounter();
     // Must clear the current piece
     block = null;
+    // Clear the winner banner
+    $("#announce-game-won").empty();
  } 
 
  //  Must be global because its used by multiple functions to display the current move count.
@@ -88,9 +90,9 @@ function checkForWIn() {
    $('#move-count').text("Total moves " + counter);
  }
 
-  // $(document).on('mousemove', function(e){
-  //   $('#moving-div').css({
-  //     left:  e.pageX,
-  //     top:   e.pageY
-  //    });
-  // });
+ $(document).on('mousemove', function(e){
+    $('#moving-div').offset({
+      left:  e.pageX,
+      top:   e.pageY 
+     });
+  });
