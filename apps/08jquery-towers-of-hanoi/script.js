@@ -13,7 +13,7 @@ $(document).ready(function() {
   $('#clear').click( clearTowers);
 });
 
-// This function takes current var as arguments to decide what to do with the information.
+// This function takes current vars as arguments to decide what to do with the information.
 function handleWhatWasClicked(){
   // If there are no pieced picked up we should pick one up with this click
   if(block === null){

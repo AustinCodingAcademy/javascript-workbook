@@ -6,22 +6,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div data-stack="1">
-    <div data-block="100"></div>
-    <div data-block="75"></div>
-    <div data-block="50"></div>
-    <div data-block="25"></div>
+  <h3>Towers of Hanoi</h3>
+  <div class="flexAcross" >
+    <div data-stack="1">
+      <div data-block="100"></div>
+      <div data-block="75"></div>
+      <div data-block="50"></div>
+      <div data-block="25"></div>
+    </div>
+    <div data-stack="2">
+    </div>
+    <div data-stack="3">
+    </div>  
   </div>
-  <div data-stack="2">
-  </div>
-  <div data-stack="3">
-  </div>
+      <div class="buttonBar">
+      <button id="clear"> Reset </button>
+      <p id="move-count"></p>
+    </div> 
   <div id="announce-game-won"></div>
-  <div class="buttonBar">
-    <button id="clear"> Reset </button>
-    <p id="move-count"></p>
-  </div> 
-  <div id="moving-div"></div>  
+  <div id="moving-div"></div> 
   <script type="text/javascript" src="../../vendor/jquery.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="script.js"></script>
