@@ -3,11 +3,12 @@ var block = null;
 var counter = 0;
 
 $(document).ready(function() {
+  pushCounter();
   $("[data-stack]").click(handleWhatWasClicked);
+  $('#clear').click( clearTowers);
 });
 
 function handleWhatWasClicked(){
-
   if(block === null){
     if($(this).children().length > 0){
       block = $(this).children().last().detach();
@@ -29,12 +30,9 @@ function handleWhatWasClicked(){
           // add in logic here to place the piece back on the stack it came from 
         } 
     }
-    checkForWIn();
-  
-// Build reset button
-// Build counter
+    pushCounter();
+    checkForWIn(); 
 // Display counter
-
 } //<-- last } in handleWhatWasClicked
 
 function checkForWIn() {
@@ -44,5 +42,18 @@ function checkForWIn() {
   if (lengthOfLastStack === 4 || lengthOfSecondStack === 4) {
     $('#announce-game-won').text("You Won!");
   }
-
 }
+
+ function clearTowers() {
+    block = null;
+    counter = 0;
+    $('[data-stack = "1"]').append($('[data-block = "100"]'));
+    $('[data-stack= "1"]').append($('[data-block = "75"]'));
+    $('[data-stack= "1"]').append($('[data-block = "50"]'));
+    $('[data-stack= "1"]').append($('[data-block = "25"]'));
+    pushCounter();
+ } 
+
+ function pushCounter(){
+   $('#move-count').text("Total moves " + counter);
+ }
