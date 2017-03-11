@@ -43,7 +43,6 @@ button {
   border: solid 1px black;
   border-radius: 3px;
   padding: 4px 8px;
-  
 }
 
 p{
@@ -55,4 +54,8 @@ p{
   height: 40px;
   text-align: center;
   color: black;
+}
+
+#moving-div {
+  position: absolute;
 }
