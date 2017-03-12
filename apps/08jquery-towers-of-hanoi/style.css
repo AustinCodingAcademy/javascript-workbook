@@ -23,21 +23,51 @@ h3 {
   align-items: center;
   height: 303px;
   width: 200px;
-  background-color: black;
+  background: linear-gradient(    
+     rgba(0, 0, 0, 0.5) 40%,
+     rgba(255, 255, 255, 0) );
+  /*background-image: linear-gradient(
+  rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, 0) 80%);*/
   margin: 25px auto;
   display: flex;
   flex-direction: column-reverse;
   border-radius: 7px;
+  border: solid black 1px;
 }
 
-[data-block] {
+[data-block], #token1, #token2, #token3, #token4 {
   /*float: left;*/
   border:solid black 2px;
   border-radius: 7px;
-  /*position: absolute;*/
+  background-image: linear-gradient(
+  rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 95%);
 }
 
 [data-block="25"] {
+  height: 10px;
+  width: 25px;
+  background-color: #7AAD5D;
+}
+
+#token1 {
+  height: 10px;
+  width: 25px;
+  background-color: #7AAD5D;
+}
+
+#token2 {
+  height: 10px;
+  width: 25px;
+  background-color: #7AAD5D;
+}
+
+#token3 {
+  height: 10px;
+  width: 25px;
+  background-color: #7AAD5D;
+}
+
+#token4 {
   height: 10px;
   width: 25px;
   background-color: #7AAD5D;
@@ -68,7 +98,7 @@ h3 {
 #announce-game-won {
   font-size: 50px;
   text-align: center;
-  background: green;
+  background: #C39C54;
   font-family: inherit;
 }
 
@@ -78,6 +108,7 @@ button {
   border-radius: 3px;
   padding: 4px 8px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #C39C54;
 }
 
 p{

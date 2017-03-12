@@ -7,24 +7,31 @@
 </head>
 <body>
   <h3>Towers of Hanoi</h3>
-  <div class="flexAcross" >
-    <div data-stack="1">
+  <div class="flexAcross">
+    <div data-stack="1" id="play-Sound" id="stack-One">
       <div data-block="100"></div>
       <div data-block="75"></div>
       <div data-block="50"></div>
       <div data-block="25"></div>
     </div>
-    <div data-stack="2">
+    <div data-stack="2" id="play-Sound">
     </div>
-    <div data-stack="3">
+    <div data-stack="3" id="play-Sound">
     </div>  
   </div>
-      <div class="buttonBar">
-      <button id="clear"> Reset </button>
-      <p id="move-count"></p>
-    </div> 
   <div id="announce-game-won"></div>
+  <div class="buttonBar">
+    <form id="number-Increase">
+      How many blocks? 
+      <input id="number-Value" type="number" name="numberOfBlocks"><br>
+      <input id="input-Submit" type="button" value="Submit"></input>
+    </form>
+    <button id="clear"> Reset </button>
+    <p id="move-count"></p>
+    <p id="block-Counter"></p>
+  </div> 
   <div id="moving-div"></div> 
+  <audio id="audio" src="audio/click.mp3" autostart="false" ></audio>
   <script type="text/javascript" src="../../vendor/jquery.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="script.js"></script>
