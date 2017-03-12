@@ -1,33 +1,50 @@
 'use strict';
 
-// selector variable for "data-stack" attr.
-var $stack = $('[data-stack]');
-// $block variable to store block starts as null
-var $block = null;
+// // selector variable for "data-stack" attr.
+// var $stack = $('[data-stack]');
+// // $block variable to store block starts as null
+// var $block = null;
 
 $(document).ready(function() {
-  $stack.click(handleGetBlock);
 
-});
+  // selector variable for "data-stack" attr.
+  var $stack = $('[data-stack]');
+  // $block variable to store block starts as null
+  var $block = null;
 
-// function to handle grabbing a block
-function handleGetBlock() {
-  $(this).click(function() {
+  // click listener for $stack
+  $stack.click(function() {
     // variable to return all children in this stack
     var $stack_children = $(this).children();
-    // variable to return the last child in this stack in variable "$last_child"
+    // variable to return the last child in this stack in variable $last_child
     var $last_child = $stack_children.last();
-    // if there isn't a block currently stored...
-    if ($block === null) {
-      // ...detach $last_child from stack and store in variable "$block"
+    // if $block is empty...
+    if ($block === null && $last_child.length !== 0) {
+      // ...detach $last_child from stack and store in variable $block
       $block = $last_child.detach();
     }
+    // if $block contains a block...
+    else if ($block !== null) {
+      // variable to contain data attribute of $block
+      var $dataAttribute = $block.data('block');
+      // variable to contain data attribute of $last_child
+      var $lastChildData = $last_child.data('block');
+      ///...add the block to the end of the stack and set $block to null
+      if ($stack_children.length === 0 || $lastChildData > $dataAttribute) {
+        $(this).append($block);
+        $block = null;
+        checkForWin();
+      }
+    }
   });
-}
 
-// function handleMoveBlock() {
-  //   if ($block !== null) {
-  //     $stack.append($block);
-  //     $block = null;
-  //   };
-  // }
+  function checkForWin() {
+    var $stack2 = $('[data-stack = "2"]').children().length;
+    var $stack3 = $('[data-stack = "3"]').children().length;
+    if ($stack2 === 4 || $stack3 === 4) {
+      $('#announce-game-won').text("You won!");
+    }
+  }
+
+
+});
