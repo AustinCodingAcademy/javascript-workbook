@@ -29,22 +29,26 @@ $(document).ready(function() {
       var $dataAttribute = $block.data('block');
       // variable to contain data attribute of $last_child
       var $lastChildData = $last_child.data('block');
-      ///...add the block to the end of the stack and set $block to null
+      // ...add the block to the end of the stack and set $block to null...
       if ($stack_children.length === 0 || $lastChildData > $dataAttribute) {
         $(this).append($block);
         $block = null;
+      // ...and run checkForWin function
         checkForWin();
       }
     }
   });
 
+  // function containing win conditions
   function checkForWin() {
+    // variables containing lengths of stacks 2 and 3
     var $stack2 = $('[data-stack = "2"]').children().length;
     var $stack3 = $('[data-stack = "3"]').children().length;
+    // if stacks 2 or 3 contain 4 blocks...
     if ($stack2 === 4 || $stack3 === 4) {
+    // ...changed text of the following div to "You Won!"
       $('#announce-game-won').text("You won!");
     }
   }
-
-
+  
 });
