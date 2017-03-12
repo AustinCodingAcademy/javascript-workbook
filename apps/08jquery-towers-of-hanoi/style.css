@@ -1,4 +1,63 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
 [data-stack] {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  height: 101px;
+  background-color: aliceblue;
+  margin: 25px;
+  width: 33%;
+  height: 250px;
+}
+
+[data-block] {
+  height: 50px;
+  align-self: center;
+}
+
+[data-block="25"] {
+  width: 50px;
+  background-color: dodgerblue;
+}
+
+[data-block="50"] {
+  width: 100px;
+  background-color: blueviolet;
+}
+
+[data-block="75"] {
+  width: 150px;
+  background-color: purple;
+}
+
+[data-block="100"] {
+  width: 200px;
+  background-color: deeppink;
+}
+
+#announce-game-won {
+  font-size: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+.description {
+  color: purple;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+/*[data-stack] {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -14,25 +73,31 @@
 
 [data-block="25"] {
   height: 25px;
-  background-color: blue;
+  background-color: dodgerblue;
 }
 
 [data-block="50"] {
   height: 50px;
-  background-color: green;
+  background-color: blueviolet;
 }
 
 [data-block="75"] {
   height: 75px;
-  background-color: red;
+  background-color: purple;
 }
 
 [data-block="100"] {
   height: 100px;
-  background-color: yellow;
+  background-color: deeppink;
 }
 
 #announce-game-won {
   font-size: 50px;
   text-align: center;
 }
+
+.description {
+  color: purple;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}*/
