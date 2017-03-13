@@ -33,7 +33,11 @@ $(document).ready(function() {
   });
 
   function checkForWin(){
-    if( $('[data-stack="2"]').children().size() === 4 || $('[data-stack="3"]').children().size() === 4 ){
+      // I decided to try the train of .children() and .size() to determine the value of the individual data-stack divs.
+      // if( $('[data-stack="2"]').children().size() === 4 || $('[data-stack="3"]').children().size() === 4 )
+      // After reading some threads on stack overflow I decided to use the children method combined with the length property.
+      // There were numerous reasons listed for not using the .size() method.
+      if( $('[data-stack="2"]').children().length === 4 || $('[data-stack="3"]').children().length === 4 ){
       // announce-game-won here
       $('#announce-game-won').text('you won!');
     }
