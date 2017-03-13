@@ -18,8 +18,6 @@ h3 {
 }
 
 [data-stack] {
-  /*display: flex;
-  justify-content: left;*/
   align-items: center;
   height: 303px;
   width: 200px;
@@ -37,7 +35,7 @@ h3 {
 
 [data-block], #token1, #token2, #token3, #token4 {
   /*float: left;*/
-  border:solid black 2px;
+  /*border:solid black 2px;*/
   border-radius: 7px;
   background-image: linear-gradient(
   rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 95%);
@@ -99,6 +97,7 @@ h3 {
   font-size: 50px;
   text-align: center;
   background: #C39C54;
+  background: url(img/congrats.png);
   font-family: inherit;
 }
 
@@ -106,13 +105,12 @@ button {
   margin: 25px auto;
   border: solid 1px black;
   border-radius: 3px;
-  padding: 4px 8px;
+  padding: 2px 8px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: #C39C54;
 }
 
-p{
-
+p {
   margin: 25px auto;
   border: solid 1px black;
   border-radius: 3px;
@@ -126,13 +124,60 @@ p{
 #moving-div {
   position: absolute;
   pointer-events: none;
-  /*background: url('your_transparent.png');*/
 }
 
 .buttonBar {
-  margin: 10px auto;
+  width: 250px;
+  height: 303px;
+  background-image: linear-gradient(
+  rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 95%);
+  margin: 25px auto auto 45px;
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  flex-direction: column-reverse;
+  border-radius: 10px;
+  /*border: solid black 1px;*/
+  padding: 0;
 }
+
+.button-Pan {
+  margin:  10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#push-Counters {
+  margin: -5px auto 50px auto;
+  /*color: white;*/
+}
+
+#number-Increase {
+  font-size: 14px;
+  /*color: white;*/
+}
+
+#number-Value {
+  width: 50px;
+  background: transparent;
+  /*color: white;*/
+}
+
+#move-count {
+  margin-right: 10px;
+  /*color: white;*/
+}
+
+#input-Submit {
+  margin: auto 10px auto 20px;
+}
+
+#block-Counter, #clear{
+  margin-left: 10px;
+  
+}
+
+/*#input-Submit, #clear {
+  margin: auto 10px;
+}*/
+
 

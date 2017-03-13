@@ -68,8 +68,10 @@ function checkForWIn() {
   // compares the values of the arrays to 4 because we have 4 game pieces.
   if (lengthOfLastStack === 4 || lengthOfSecondStack === 4) {
     // if either are true we congratulate the winner.
+    $('#announce-game-won').height(75);
     $('#announce-game-won').text("You Won!");
   }
+//****Need to end the game and reset after a certain time or find a way to jump out of the loop.**** 
 }
 
  // needs to be global so it can be used at anytime. 
@@ -124,6 +126,8 @@ function generateBlocks(){
         var newDiv = document.createElement('div');
         // sets the ID of that new element to token + the current number in the loop
         newDiv.id = "token" + i;
+        newDiv.data = Number(25 + i);
+        //('[data-block = "100"]'));
         // .appends the new element to the first stack. 
         $('[data-stack = "1"]').append($(newDiv));
       }
@@ -134,3 +138,6 @@ function generateBlocks(){
 }
 
   // john@digitaldownbeat.com
+  // added this line as a test
+
+  // Line 128, added in the data attribute to each new div. I can use this value to compare to find if the move is legal.
