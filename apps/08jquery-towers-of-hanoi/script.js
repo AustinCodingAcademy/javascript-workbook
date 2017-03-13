@@ -39,8 +39,8 @@ $(document).ready(function() {
       // There were numerous reasons listed for not using the .size() method.
     if( $('[data-stack="2"]').children().length === 4 || $('[data-stack="3"]').children().length === 4 ){
       // announce-game-won here
-        $('#announce-game-won').text('you won!');
-      }
+      $('#announce-game-won').text('you won!');
+    }
   }
 
 });
