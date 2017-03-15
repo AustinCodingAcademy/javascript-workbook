@@ -1,38 +1,55 @@
+.stackBody {
+  width: 500px;;
+  height: 400px;
+  display: flex;
+  margin: auto;
+}
+
 [data-stack] {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: left;
   align-items: center;
-  height: 101px;
+  /*height: 300px;*/
   background-color: aliceblue;
   margin: 25px;
+  width: 300px
 }
 
 [data-block] {
-  width: 25px;
+  height: 25px;
   float: left;
 }
 
 [data-block="25"] {
-  height: 25px;
+  width: 25px;
   background-color: blue;
 }
 
 [data-block="50"] {
-  height: 50px;
+  width: 50px;
   background-color: green;
 }
 
 [data-block="75"] {
-  height: 75px;
+  width: 75px;
   background-color: red;
 }
 
 [data-block="100"] {
-  height: 100px;
+  width: 100px;
   background-color: yellow;
 }
 
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+}
+
+.rainbow {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
