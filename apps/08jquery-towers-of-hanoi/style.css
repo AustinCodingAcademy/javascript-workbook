@@ -33,12 +33,10 @@ h3 {
   border: solid black 1px;
 }
 
-[data-block], #token1, #token2, #token3, #token4 {
-  /*float: left;*/
-  /*border:solid black 2px;*/
+[data-block], #token1, #token2, #token3, #token4, #token5  {
   border-radius: 7px;
   background-image: linear-gradient(
-  rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 95%);
+  rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
 [data-block="25"] {
@@ -47,29 +45,29 @@ h3 {
   background-color: #7AAD5D;
 }
 
-#token1 {
+/*#token5 {
   height: 10px;
   width: 25px;
   background-color: #7AAD5D;
 }
 
-#token2 {
+#token6 {
   height: 10px;
   width: 25px;
   background-color: #7AAD5D;
 }
 
-#token3 {
+#token7 {
   height: 10px;
   width: 25px;
   background-color: #7AAD5D;
 }
 
-#token4 {
+#token8 {
   height: 10px;
   width: 25px;
   background-color: #7AAD5D;
-}
+}*/
 
 [data-block="50"] {
   border-radius: 8px;
@@ -85,12 +83,39 @@ h3 {
   background-color: #353844;
 }
 
-[data-block="100"] {
+[data-block="101"] {
   border-radius: 12px;
   height: 16px;
   width: 100px;
   background-color: #13681F;
-  /*bottom: 0;*/
+}
+
+[data-block = "102"] {
+  border-radius: 14px;
+  height: 13px;
+  width: 125px;
+  background-color: #D2B96C;
+}
+
+[data-block = "103"] {
+  border-radius: 16px;
+  height: 18px;
+  width: 150px;
+  background-color: #002201;
+}
+
+[data-block = "104"] {
+  border-radius: 18px;
+  height: 18.5px;
+  width: 175px;
+  background-color: #2E5921;
+}
+
+[data-block = "105"] {
+  border-radius: 20px;
+  height: 19px;
+  width: 195px;
+  background-color: #0D2B02;
 }
 
 #announce-game-won {
@@ -148,23 +173,19 @@ p {
 
 #push-Counters {
   margin: -5px auto 50px auto;
-  /*color: white;*/
 }
 
 #number-Increase {
   font-size: 14px;
-  /*color: white;*/
 }
 
 #number-Value {
   width: 50px;
   background: transparent;
-  /*color: white;*/
 }
 
 #move-count {
   margin-right: 10px;
-  /*color: white;*/
 }
 
 #input-Submit {
@@ -175,9 +196,5 @@ p {
   margin-left: 10px;
   
 }
-
-/*#input-Submit, #clear {
-  margin: auto 10px;
-}*/
 
 
