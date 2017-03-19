@@ -9,21 +9,24 @@ var blocksToCount = 3;//tried using this to hold the value of what was in the st
 $(document).ready(function() {
   // Calls the pushCounter to display 0 amount of moves
   pushCounter();
-  pushMinimum();
+  pushMinimum(toWinValue);
   // listens for the click on a [data-stack] then runs the function to deal with that click
   $("[data-stack]").click(handleWhatWasClicked);
   $("[data-stack]").click(playSound);
-  $("#input-Submit").click(function() {
-    if(blocksToCount === 3){
-      generateBlocks(); 
-    } else {
-        $('[data-stack= "1"]').empty();
-        clearTowers();
-        generateBlocks();
-      } 
-  });
+  $("#input-Submit").click( function () {
+    var j = 1;
+    do{
+      $('#token' + j).remove();
+      j++;
+    }
+    while (j <= 5){
+      j++;
+    }
+    generateBlocks();  
+  });  
+  
   // listens for the click on the clear button then runs the function to deal with that click
-  $('#clear').click(clearTowers);
+  $('#clear').click(clearTowers); 
 });
 
 // This function takes current vars as arguments to decide what to do with the information.
@@ -34,7 +37,7 @@ function handleWhatWasClicked(){
     if($(this).children().length > 0){
       // pick one up.
       block = $(this).children().last().detach(); //instead of .detach() just set he block to be there then detach when we click on the second tower. 
-         $("#moving-div").append(block);
+      $("#moving-div").append(block);
       // but if there isn't anything in the stack tell them to choose a different stack 
     } else if($(this).children().length === 0){
         alert("Please choose a stack with pieces to play.");
@@ -73,7 +76,7 @@ function checkForWIn() {
   var lengthOfLastStack = $('[data-stack = "3"]').children().length;
   var lengthOfSecondStack = $('[data-stack = "2"]').children().length;
 
-  // compares the values of the arrays to 4 because we have 4 game pieces.
+  // compares the values of the arrays to the number of game pieces.
   if (lengthOfLastStack === toWinValue || lengthOfSecondStack === toWinValue) {
     // if either are true we congratulate the winner.
     $('#announce-game-won').height(90);
@@ -87,9 +90,9 @@ function clearTowers() {
   // Must clear the counter
   counter = 0;
   // Must replace all stacks to their original states
-  $('[data-stack= "1"]').append($('[data-block = "75"]'));
-  $('[data-stack= "1"]').append($('[data-block = "50"]'));
-  $('[data-stack= "1"]').append($('[data-block = "25"]')); 
+  $('[data-stack= "1"]').append($(div.attr("data-block", 75)));
+  $('[data-stack= "1"]').append($(div.attr("data-block", 50)));
+  $('[data-stack= "1"]').append($(div.attr("data-block", 25)));
   // refresh the Move Counter
   pushCounter();
   // Must clear the current piece
@@ -120,7 +123,7 @@ function playSound() {
 }
 
 // creates new blocks based on the user's input
-function generateBlocks(){
+function generateBlocks() {
     var numberOfBlocks = ($("#number-Value").val());
     blocksToCount = numberOfBlocks;
       // Keeps the blocks within legal limits of the game 
@@ -136,16 +139,16 @@ function generateBlocks(){
           $('[data-stack = "1"]').prepend($(newDiv));
           $('#token' + i).attr("data-block", 100 + i);
           toWinValue++;
-          pushMinimum();
+          pushMinimum($('[data-stack = "1"]').children().length);
         }
        } else{
             // tells the user their number is outside the legal limits of the game
-            alert("Please input a number between 4 and 8.");
+            alert("Please input a number between 4 and 8."); 
           }
 }  // <--- last } in generateBlocks  
 
 // returns the value of the number needed to win and pushes the value to a div.
-function pushMinimum() {
-  $("#block-Counter").text("Min # of moves " + (Math.pow(2, toWinValue) - 1));
+function pushMinimum(discs) {
+  $("#block-Counter").text("Min # of moves " + (Math.pow(2, discs) - 1));
 }
   // john@digitaldownbeat.com

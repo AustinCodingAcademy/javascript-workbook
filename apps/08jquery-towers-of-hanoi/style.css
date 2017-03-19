@@ -45,30 +45,6 @@ h3 {
   background-color: #7AAD5D;
 }
 
-/*#token5 {
-  height: 10px;
-  width: 25px;
-  background-color: #7AAD5D;
-}
-
-#token6 {
-  height: 10px;
-  width: 25px;
-  background-color: #7AAD5D;
-}
-
-#token7 {
-  height: 10px;
-  width: 25px;
-  background-color: #7AAD5D;
-}
-
-#token8 {
-  height: 10px;
-  width: 25px;
-  background-color: #7AAD5D;
-}*/
-
 [data-block="50"] {
   border-radius: 8px;
   height: 12px;
@@ -173,6 +149,7 @@ p {
 
 #push-Counters {
   margin: -5px auto 50px auto;
+  /*height: auto;*/
 }
 
 #number-Increase {
