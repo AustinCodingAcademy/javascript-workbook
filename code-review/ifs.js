@@ -5,15 +5,20 @@
 var age = 66;
 if(age >  16)
 {
-    console.log("i can drive");
+  console.log("i can drive");
 }
 else if( age > 18)
 {
-    console.log("i can vote");
+  console.log("i can vote");
 }
 else{
-    console.log("i am too young to do anything");
+  console.log("i am too young to do anything");
 }
+
+
+
+
+
 
 
 
@@ -24,11 +29,11 @@ else{
 //whats wrong here
 if(age > 65)
 {
-    console.log('you must retire');
+  console.log('you must retire');
 }
-else if(age > 18)
+if(age > 18)
 {
-    console.log('you must continue working');
+  console.log('you must continue working');
 }
 
 

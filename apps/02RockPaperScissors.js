@@ -10,16 +10,52 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-
   //Write code here
   //take it for granted that the variable hand1 will have whatever value the user types in at the prompt "hand1:"
   //take it for granted that the variable hand2 will have whatever value the user types in at the prompt "hand2:"
-  //after the user types in a value for hand2 and hits the enter key, the computer will execute line 17 so start your first line of code there
+  //after the user types in a value for hand2 and hits the enter key, the computer will execute line 12 so start your first line of code there
 
-  // Write code here
-   if(hand1){
-   //does this indentation of 3 break the build?  
-   }  
+  /**
+   * Spec 1 - If it's a tie, return "It's a tie!"
+   * It must be exactly "It's a tie!" for the tests to pass
+   */   
+  // this says "if" so obviously i need to use an if statement
+  //how do you check for a tie that will result in a true or false
+  if(){
+    //i don't know what return "Its's a tie!" means
+    //but this part of the spec is in gray highlight which means to copy and paste this literally directly into the code
+    return "Its's a tie!"
+  }
+   
+   
+  //O, look at this. I was given most of the code exactly as it should be. how nice of ACA
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  }
+
+  if (hand1 === 'rock') {
+    if (hand2 === 'scissors') {
+      return 'Hand one wins!';
+    }
+    // If we reach here, player 2 must have dealt paper
+    return 'Hand two wins!';
+  }
+
+  if (hand1 === 'paper') {
+    // fill this in using the logic above
+
+  }
+
+  if (hand1 === 'scissors') {
+    // fill this in using the logic above  
+
+  }
+
+
+
+
+
+
 
 
 

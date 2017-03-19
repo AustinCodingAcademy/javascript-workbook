@@ -4,47 +4,52 @@ console.log("hello",name);
 console.log("hola",name);
 console.log("bonjour",name);
 
-name = "sarah";
-
-console.log("hello",name);
-console.log("hola",name);
-console.log("bonjour",name);
-
-
-function greet(name){ 
-    console.log("hello ",name);
-    console.log("hola ",name);
-    console.log("bonjour ",name);
-}
-greet("jon");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //without using any other part of javascript language
 //what would i do if i now said i want to print these 3 greetings for sarah also
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 name = "sarah";
 
 console.log("hello",name);
 console.log("hola",name);
 console.log("bonjour",name);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //lets make a recipe to do some steps
 /*

@@ -164,3 +164,32 @@ function printArrayItems(arry){
 
 
 printArrayItems(['arnold','lou','frank','ronnie']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//create a function that counts the number of times a word exists in an array
+//don't use loops
+
+
+function sum(){
+
+}
+
+console.log(['rage','against','the','machine','the']);
+//{rage:1,against:1,the:2,machine:1}
+
+
+
+

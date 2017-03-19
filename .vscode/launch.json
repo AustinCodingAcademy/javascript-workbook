@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/apps/06.1Checkers.js",
+            "program": "${workspaceRoot}/code-review/weekone.js",
             "cwd": "${workspaceRoot}",
             "console":"internalConsole"
             

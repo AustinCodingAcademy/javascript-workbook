@@ -59,7 +59,7 @@
     var username = getUserName();
 
     function getUserName(){
-        var username = 'username' + Math.random(); //pretned this is coming from user input
+        var username = 'username' + Math.random(); //pretend this is coming from user input
         return username;
 
     }

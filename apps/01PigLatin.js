@@ -9,6 +9,12 @@ function pigLatin(word) {
   //take it for granted that the variable word will have whatever the user typed into it
   //your code goes here
   word = word.toLowerCase();
+
+
+
+
+
+  
 //do not type any code below this line. Do not remove this curly brace
 }
 //why is this function called getPrompt - what is a prompt
