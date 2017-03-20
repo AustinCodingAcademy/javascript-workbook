@@ -8,71 +8,75 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-var board = [];
-var solution = '';
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+var solution = "blue,red,yellow,black";
+
+
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
     console.log(board[i]);
   }
 }
-
-function generateSolution() {
-  for (var i = 0; i < 4; i++) {
-    var randomIndex = getRandomInt(0, letters.length);
-    solution += letters[randomIndex];
-  }
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function generateHint() {
-  // your code here
-}
-
-function mastermind(guess) {
-  // your code here
-}
-
+//ask the user to type in the colors they want in order seperated by commas.
+//"blue,red,yellow,blue"
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
-    printBoard();
-    getPrompt();
-  });
+  rl.question('Please type in the colors you want to choose in order seperated by commas: ', (guess) => {
+  
+          var guessAsArray = guess.split(',');
+          var solutionAsArray = solution.split(",");
+          var spot1 = guessAsArray[0];
+
+          if(solution === guess){
+            console.log('win');
+            return;
+          }
+
+
+          //being at this line of code means we didnt win
+          //what are our hints
+          // correct colors in the right spot
+          // correct colors in the wrong spot
+
+          var correctspots = 0;
+          var wrongspots = 0;
+          //[blue,red,yellow,black]
+          for(var i = 0; i < solutionAsArray.length; i ++){
+            if(guessAsArray[i] === solutionAsArray[i]){
+              correctspots ++;
+              solutionAsArray[i] = null;
+            }
+
+          }
+          //[null,red,yellow,black]
+
+          for(var i = 0; i < solutionAsArray.length; i ++){
+            var targetindex = solutionAsArray.indexOf(guessAsArray[i]);
+            if(targetindex > -1){
+              wrongspots++;    
+            }
+          }
+       
+
+          console.log('there are this many colors in the correct spot: ' + correctspots);
+          consoel.log("there are this many colors in the wrong spot: " + wrongspots);
+
+
+
+
+
+
+          //else{  
+            //console.log('lose');
+          //}
+
+
+
+          getPrompt();
+        });
 }
+console.log("colors to choose from are: blue, red, yellow... etc")
+getPrompt();
 
 // Tests
-
-if (typeof describe === 'function') {
-
-  describe('#mastermind()', function () {
-    it('should register a guess and generate hints', function () {
-      solution = 'abcd';
-      mastermind('aabb');
-      assert.equal(board.length, 1);
-    });
-    it('should be able to detect a win', function () {
-      assert.equal(mastermind(solution), 'You guessed it!');
-    });
-  });
-
-  describe('#generateHint()', function () {
-    it('should generate hints', function () {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
-    });
-    it('should generate hints if solution has duplicates', function () {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
-    });
-
-  });
-
-} else {
-
-  generateSolution();
-  getPrompt();
-}

@@ -20,7 +20,7 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = "xxx";
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
@@ -57,7 +57,7 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer= "xx";
 
 // Problem 5:
 // What is the value of ternaryResult2
@@ -113,7 +113,7 @@ var threeByThreeArray = [
 
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = xx;
 
 // ****
 // Tests
