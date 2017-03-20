@@ -29,11 +29,11 @@ $(document).ready(function() {
   })
 
   function checkForWin() {
-    var $stackTwoLength = $("[data-stack='2']").length;
-    var $stackThreeLength = $("[data-stack='3']").length;
+    var $stackTwoLength = $("[data-stack='2']").children().length;
+    var $stackThreeLength = $("[data-stack='3']").children().length;
     //checking to see if user won the game.
     if(($stackTwoLength === 4) || ($stackThreeLength === 4)) {
-      ('div #announce-game-won').text("you won!");
+      $('#announce-game-won').text("You won!");
       return true;
     }
   }
