@@ -1,8 +1,8 @@
 function reduce(arr, fn, initial) {
   // SOLUTION GOES HERE
-  return function ()
-}, 0)
-module.exports = reduce
+  return function ();
+}, 0);
+module.exports = reduce;
 
 
 /*
