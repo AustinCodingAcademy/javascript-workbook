@@ -19,7 +19,9 @@ $(document).on('ready', function() {
   jQuery('div[data-cell]').on('click', function() {
     //When data cells are clicked make a mark
     $(this).text(playerTurn);
-    //
+
+
+
     //
     checkForWin();
     playerTurn = playerTurn === 'X' ? 'O' : 'X';
@@ -32,6 +34,7 @@ $(document).on('ready', function() {
       $('div[data-cell=1]').text() === playerTurn &&
       $('div[data-cell=2]').text() === playerTurn) {
       console.log('Win in first row');
+    $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 3,4,5
@@ -39,6 +42,7 @@ $(document).on('ready', function() {
       $('div[data-cell=4]').text() === playerTurn &&
       $('div[data-cell=5]').text() === playerTurn) {
       console.log('Win in second row');
+    $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 6,7,8
@@ -46,6 +50,7 @@ $(document).on('ready', function() {
       $('div[data-cell=7]').text() === playerTurn &&
       $('div[data-cell=8]').text() === playerTurn) {
       console.log('Win in third row');
+    $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 0,3,6 Vert
@@ -53,6 +58,7 @@ $(document).on('ready', function() {
       $('div[data-cell=3]').text() === playerTurn &&
       $('div[data-cell=6]').text() === playerTurn) {
       console.log('Win in first column');
+    $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 1,4,7 Vert
@@ -60,6 +66,7 @@ $(document).on('ready', function() {
       $('div[data-cell=4]').text() === playerTurn &&
       $('div[data-cell=7]').text() === playerTurn) {
       console.log('Win in second column');
+  $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 2,5,8 Vert
@@ -67,6 +74,7 @@ $(document).on('ready', function() {
       $('div[data-cell=5]').text() === playerTurn &&
       $('div[data-cell=8]').text() === playerTurn) {
       console.log('Win in third column');
+    $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 0,4,8 Diag
@@ -74,6 +82,7 @@ $(document).on('ready', function() {
       $('div[data-cell=4]').text() === playerTurn &&
       $('div[data-cell=8]').text() === playerTurn) {
       console.log('Win Diag');
+    $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
     // Get text for 2,4,6 Diag
@@ -81,6 +90,7 @@ $(document).on('ready', function() {
       $('div[data-cell=4]').text() === playerTurn &&
       $('div[data-cell=6]').text() === playerTurn) {
       console.log('Win Diag');
+  $('#announce-winner').text('player ' + playerTurn + ' Wins!');
     //  clearBoard();
     };
   };
