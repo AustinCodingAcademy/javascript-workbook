@@ -43,7 +43,7 @@ $(document).ready(function () {
         return false;
       }
     }
-  } // reset the game 
+  } // reset the game
   $('#reset-button').click(function () {
     location.reload(true);
   });
