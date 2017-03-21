@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var colors = require('colors/safe');
+
 var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin,
@@ -29,12 +29,46 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  // This is determining correct letter locations
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]){
+        correctLetterLocations++;
+        solutionArray[i] = null;
+    }
+  } 
+  // This determines correct letters
+  for (i = 0; i <= solutionArray.length; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[i] = null;
+    }
+  }
+   return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
-  // your code here
+  // default solution to test against
+  solution = 'abcd';
+  if (guess === solution){
+      return 'You guessed it!';
+  }
+  
+  // This will end the game after 10 incorrect guesses 
+  if (board.length === 10) {
+    return 'Your ran out of turns.  The solution is:  ' + solution;
+  } else {
+    var hint = generateHint(solution, guess);
+    board.push(hint + ' ' + guess);
+    return 'Guess again';
+  } 
+
 }
 
 

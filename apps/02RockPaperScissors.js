@@ -11,7 +11,43 @@ var rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  if (hand1.toLowerCase() === hand2.toLowerCase()) {
+  return 'It\'s a tie!';
+  }
 
+  if (hand1.toLowerCase() === 'rock'){
+
+     if (hand2.toLowerCase() === 'scissors') {
+          return 'Hand one wins!';
+        }
+
+   
+        // If we reach here, player 2 must have dealt paper
+          return 'Hand two wins!';
+      
+  }
+
+    if (hand1.toLowerCase() === 'paper') {
+
+      if (hand2.toLowerCase() === 'rock') {
+        // fill this in using the logic above
+        return 'Hand one wins!';
+      }
+
+        
+         return 'Hand two wins!';
+    
+  }
+
+if (hand1.toLowerCase() === 'scissors') {
+  if (hand2.toLowerCase() === 'paper') {
+    // fill this in using the logic above  
+    return 'Hand one wins!';
+  }
+
+    return 'Hand two wins!';
+
+}
 }
 
 function getPrompt() {
