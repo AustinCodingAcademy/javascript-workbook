@@ -27,7 +27,9 @@ $(document).ready(function() {
     $.ajax(url,{
       success: function(user) {
         // grab the information from API
-        var str = "<div><h3>" + user['first_name'] + " " + user['last_name'] + "</h3><h4>" + user.occupation + "</h4><p>" + user.phone + "</p><p>" + user.address +'</p><img src="' + user.avatar + '"></div>';
+        var phoneNumber = user.phone.toString();
+        phoneNumber = phoneNumber.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/g,'+$1 ($2) $3-$4');
+        var str = "<div><h3>" + user['first_name'] + " " + user['last_name'] + "</h3><h4>" + user.occupation + "</h4><p>" + phoneNumber + "</p><p>" + user.address +'</p><img src="' + user.avatar + '"></div>';
         // remove all the elements in the #details section
         $('#details').empty();
         // append the HTML to #details DOM
@@ -35,4 +37,6 @@ $(document).ready(function() {
       }
     });
   });
+  // make the table sortable 
+  $('tbody').sortable();
 });
