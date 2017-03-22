@@ -4,11 +4,13 @@ $(document).on('ready', function () {
   // Put app logic in here
   var playerTurn = 'X';
   var $dataCell = $('[data-cell]');
+  var counter = 0;
   $('[data-cell]').click(function () {
     //checks to make sure the spot isnt taken and then marks the spot
     if ($(this).text() === "") {
       $('#announce-winner').empty();
       $(this).text(playerTurn);
+      counter++;
       checkForWin();
       playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     } else {
@@ -54,6 +56,9 @@ $(document).on('ready', function () {
     if ($cell2 === playerTurn && $cell4 === playerTurn && $cell6 === playerTurn) {
       $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
     }
+    if(counter === 9){
+      $('#announce-winner').text('It is a tie!');
+    }
 
   }
 
@@ -64,3 +69,5 @@ $(document).on('ready', function () {
     $('#announce-winner').empty();
   })
 });
+
+//NEED TO CHECK FOR FULL BOARD
