@@ -18,7 +18,7 @@ function clickOfDataStack(){
     var dataAttributeOfLastBlock = lastBlockOfTheStack.data("block");
     var dataAttributeOfBlockWeAreMoving = block.data("block");
     
-    // This is an if/else statement deciding whether or not the move is legal. If so, the block is moved.
+    // This is an if statement deciding whether or not the move is legal. If so, the block is moved.
     if (dataAttributeOfLastBlock > dataAttributeOfBlockWeAreMoving || lastBlockOfTheStack.length === 0){
       $(this).append(block);
       block = null;
