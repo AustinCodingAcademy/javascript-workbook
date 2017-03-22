@@ -59,3 +59,16 @@ input[type=text] {
   border-radius: 0px;
   width: 65%;
 }
+
+#basic-checkbox {
+  margin-left: 8px;
+  float: left;
+}
+
+label {
+  margin-left: -8px;
+}
+
+#todo-list li:hover {
+  background: orange;
+}
