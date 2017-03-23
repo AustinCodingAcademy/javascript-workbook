@@ -17,6 +17,7 @@ $(document).ready(function() {
   });
    // individual ajax calls
   $('body').on("click", "a", function(event){
+    if ($(this).data("id") !== "map") {
     // prevent the event from defaulting
     event.preventDefault();
     // grab the url and id
@@ -29,14 +30,16 @@ $(document).ready(function() {
       success: function(user) {
         // grab the information from API
         var phoneNumber = user.phone.toString();
+        // format the phone number with regular expression 
         phoneNumber = phoneNumber.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/g,'+$1 ($2) $3-$4');
-        var str = "<div><h3>" + user['first_name'] + " " + user['last_name'] + "</h3><h4>" + user.occupation + "</h4><p>" + phoneNumber + "</p><p>" + user.address +'</p><img src="' + user.avatar + '"></div>';
+        var str = "<div><h3>" + user['first_name'] + " " + user['last_name'] + "</h3><h4>" + user.occupation + "</h4><p>" + phoneNumber + '</p><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank">' + user.address + '</a><br/><img src="' + user.avatar + '" style="margin-top:20px"></div>';
         // remove all the elements in the #details section
         $('#details').empty();
         // append the HTML to #details DOM
         $('#details').append(str);
       }
     });
+   }
   });
   // make the table sortable 
   $('tbody').sortable();
