@@ -6,7 +6,7 @@ $(document).ready(function() {
   var $post = $('#post');
 
   $.ajax(pathToGistBlog, {
-		success: function(response) {
+    success: function(response) {
       response.forEach(function(post) {
         if (post.description.startsWith('#post')) {
           var $hashTag = '#post ';
@@ -17,7 +17,7 @@ $(document).ready(function() {
           //   url: post.url,
           //   title: postTitle
           // };
-          
+
           $posts.append(`<li>${postTitle}</li>`);
           // $post.append(`<li>${postContent}</li>`);
         }
