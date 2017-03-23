@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function() {
+  var search = "";
   // start the ajax request
   $.ajax('https://reqres-api.herokuapp.com/api/users',{
     // if success, pass in a function to grab the response object
@@ -39,4 +40,26 @@ $(document).ready(function() {
   });
   // make the table sortable 
   $('tbody').sortable();
+  // filter results 
+  $('form').submit(function(event){
+    // prevent the event from defaulting
+    event.preventDefault();
+    // show every table row for editting later
+    $('tr').show();
+    // create a variable to store the user input 
+    search = $('#search').val();
+    // loop through each table row
+    $('tbody').children().each(function(){
+      // create a variable to store the HTML of the row
+      var thValue = $(this).html();
+      // check if the HTML contains the user input 
+      var valid = thValue.indexOf(search);
+      // jump out of the loop if yes 
+      if (valid > 0) {
+        return valid;
+      }
+      // hide the row if not 
+      $(this).hide();
+    });
+  });
 });
