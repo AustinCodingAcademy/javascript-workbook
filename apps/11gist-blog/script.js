@@ -11,12 +11,15 @@ $(document).ready(function() {
         if (post.description.startsWith('#post')) {
           var $hashTag = '#post ';
           var postTitle = post.description.substring(6);
-          console.log(postTitle);
-          var postListData = {
-              url: post.url,
-              title: postTitle
-          };
-          $('#posts').append(`<li> ${postTitle} </li>`);
+          // var postContent = post.files[post.md];
+
+          // var postListData = {
+          //   url: post.url,
+          //   title: postTitle
+          // };
+          
+          $posts.append(`<li>${postTitle}</li>`);
+          // $post.append(`<li>${postContent}</li>`);
         }
       });
     }
