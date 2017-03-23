@@ -32,8 +32,45 @@ $(document).ready(function() {
       //console.log(theData)
     });
 
+  /////
   $('body').on("click", "tr td a", function() {
     event.preventDefault();
-    });
+    var theID=$(this).data('id');
+    var theURL='https://reqres-api.herokuapp.com/api/users' + '/' + theID;
+    console.log(theURL)
 
+    /////
+    $.ajax(theURL, {
+        success: function(currentUser) {
+          console.log(currentUser)
+          
+            
+            var firstName = currentUser.first_name;
+            var lastName = currentUser.last_name;
+            var studentID = currentUser.id;
+            var address = currentUser.address;
+            var phone = currentUser.phone;
+            var occupation = currentUser.occupation;
+            var avatarAddress = currentUser.avatar;
+
+            var theURL = 'https://reqres-api.herokuapp.com/api/users' + '/' + studentID;
+
+            var theHTML=   
+            '<div id="details">' +
+              '<h3>' + firstName + ' ' + lastName + '</h3>' +
+              '<h4>' + occupation + '</h4>' +
+              '<p>' + phone + '</p>' +
+              '<p>' + address + '</p>' +
+              '<img src="' + avatarAddress + '">' +
+            '</div>';
+
+            console.log(theHTML)
+            $('#details').replaceWith(theHTML)
+          
+        }
+      });
+    /////
+
+    });
+  /////
 });
