@@ -51,3 +51,5 @@ $(document).ready(function() {
   $('tbody').on('click', '[data-id]', clickAction); // end of click Jquery call
 
 });
+
+// nnnend of file
