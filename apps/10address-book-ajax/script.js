@@ -44,7 +44,7 @@ $(document).ready(function () {
             console.log(user.avatar);
             $('#details').append(
               // find the needle
-              $('<p>' + user.id + '</p>' + '<h3>' + user.first_name + ' ' + user.last_name + '</h3>' + '<h4>' + user.occupation + '</h4>' + '<p>' + user.phone + '</p>' + '<p>' + user.address + '</p>' + '<img src="' + user.avatar + '" /> '));
+              $('<p> user ID: ' + user.id + '</p>' + '<h3> Name: ' + user.first_name + ' ' + user.last_name + '</h3>' + '<h4> Occupation: ' + user.occupation + '</h4>' + '<p> Phone Number: ' + user.phone + '</p>' + '<p> Address: ' + user.address + '</p>' + '<img src="' + user.avatar + '" /> '));
           }
         })
       })
