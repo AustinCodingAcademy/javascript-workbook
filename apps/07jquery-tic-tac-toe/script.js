@@ -69,5 +69,3 @@ $(document).on('ready', function () {
     $('#announce-winner').empty();
   })
 });
-
-//NEED TO CHECK FOR FULL BOARD
