@@ -25,7 +25,7 @@ var specificUser = {
       '<p>' + user.address + '</p>' +
       '<img src="' + user.avatar + '">' +
       '</div>');
-      $('#details').replaceWith(str);
+    $('#details').replaceWith(str);
   }
 }
 
@@ -37,5 +37,4 @@ $(document).ready(function() {
     var theUrl = 'https://reqres-api.herokuapp.com/api/users' + '/' + userID;
     $.ajax(theUrl, specificUser);
   });
-
 });
