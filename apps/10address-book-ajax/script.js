@@ -39,8 +39,7 @@ $(document).ready(function() {
         var occupation = cap(user.occupation);
         // format the phone number with regular expression 
         phoneNumber = phoneNumber.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/g,'+$1 ($2) $3-$4');
-        // var str = "<div><h1>" + user['first_name'] + " " + user['last_name'] + "</h1><h3>" + user.occupation + "</h3><p>" + phoneNumber + '</p><img src="Google-Maps-Icon.png"><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/><img src="' + user.avatar + '"></div>';
-        var str = "<div><h1>" + fn + " " + ln + "</h1><h3>" + occupation + "</h3><p>" + phoneNumber + '</p><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/><img src="' + user.avatar + '"></div>';
+        var str = "<div><h1>" + fn + " " + ln + "</h1><h3>" + occupation + "</h3><p>" + phoneNumber + '</p><img src="Google-Maps-Icon.png"><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/><img src="' + user.avatar + '"></div>';
         // remove all the elements in the #details section
         $('#details').empty();
         // append the HTML to #details DOM
