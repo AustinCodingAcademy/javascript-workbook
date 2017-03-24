@@ -6,26 +6,37 @@ $(document).ready(function () {
       response.forEach(function (post) {
         var $description = post.description;
         var $url = post.url;
+        var $comments = post.comments_url;
         if ($description.substring(0, 6) === '#post ') {
-          var $str = `<li><a href='#' data-url=${$url}>${$description.replace('#post', '')}</a></li>`
+          var $str = `<li><a href='#' data-comments=${$comments} data-url=${$url}>${$description.replace('#post', '')}</a></li>`
           $('#posts').append($str);
         }
         //this section below here does not appear to be working.
-        $('#posts a').on('click', function (link) {
-          link.preventDefault();
-          console.log('default prevented.');
-          //prevent default appears to work
-          //this vvv appears broken
-          $.ajax($.data('url'), {
-            success: function (clicked) {
-              var $content = marked(clicked['files']['post.md']['content']);
-              console.log($content);
-              console.log('hello');
-              $('#post').append($content);
-            }
-          })
+      })
+      $('#posts a').on('click', function (link) {
+        link.preventDefault();
+        console.log('default prevented.');
+        //prevent default appears to work
+        $.ajax($(this).data('url'), {
+          success: function (clicked) {
+            var $content = marked(clicked['files']['post.md']['content']);
+            $('#post').append($content);
+          }
+        })
+        $.ajax($(this).data('comments'), {
+          success: function(commentFetch){
+            //var $userName = marked(commentFetch.user.login);
+            var $postContent = marked(commentFetch.body);
+            var $str3 = `
+            <li>${$userNAme}</li>
+            <li>${$postContent}</li>
+            `;
+            $('#comments').append($str3);
+          }
         })
       })
     }
   })
 });
+
+//need to add section for comments for second section

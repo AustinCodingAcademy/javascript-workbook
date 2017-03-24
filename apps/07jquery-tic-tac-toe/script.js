@@ -8,9 +8,9 @@ $(document).on('ready', function () {
   $('[data-cell]').click(function () {
     //checks to make sure the spot isnt taken and then marks the spot
     if ($(this).text() === "") {
-      $('#announce-winner').empty();
       $(this).text(playerTurn);
       counter++;
+      // $('#announce-winner').empty();
       checkForWin();
       playerTurn = (playerTurn === 'X') ? 'O' : 'X';
     } else {
@@ -31,7 +31,7 @@ $(document).on('ready', function () {
     var $cell8 = $('[data-cell="8"]').text();
     //horizontal win
     if ($cell0 === playerTurn && $cell1 === playerTurn && $cell2 === playerTurn) {
-      $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
+      $('#announce-winner').text('player ' + playerTurn + ' wins!');
     }
     if ($cell3 === playerTurn && $cell4 === playerTurn && $cell5 === playerTurn) {
       $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
@@ -56,7 +56,7 @@ $(document).on('ready', function () {
     if ($cell2 === playerTurn && $cell4 === playerTurn && $cell6 === playerTurn) {
       $('#announce-winner').text('Player ' + playerTurn + ' Wins!');
     }
-    if(counter === 9){
+    if (counter === 9) {
       $('#announce-winner').text('It is a tie!');
     }
 
