@@ -34,9 +34,9 @@ function generateHint(solution,guess) {
   var solutionArray=solution.split('');
   //console.log(solutionArray+" is the answer.")
   var guessArray=guess.split('');
-
   var correctLetterLocations=0;
   var i;
+
   for (i=0; i<4; i++) {
     var solutionLetter=solutionArray[i];
     var guessLetter=guessArray[i];
@@ -52,7 +52,7 @@ function generateHint(solution,guess) {
   for (i=0; i<4; i++) {
     var guessLetter=guessArray[i];
     var targetIndex=solutionArray.indexOf(guessLetter);
-    if (targetIndex!==-1 && targetIndex!==null) {
+    if (targetIndex!==-1) {
         solutionArray[targetIndex]=null;
         correctLetters++;
       }
@@ -75,12 +75,12 @@ function mastermind(guess) {
     if (board.length===10) {
       return ('You ran out of turns! The solution was '+solution)
       }
-    else  
+    else
       {
       return ('Guess again!')
       }
     }
-  
+
 }
 
 

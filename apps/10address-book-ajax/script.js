@@ -12,7 +12,7 @@ $(document).ready(function() {
         var studentID = users[i].id;
         var theURL = 'https://reqres-api.herokuapp.com/api/users' + '/' + studentID;
 
-        var theHTML=      
+        var theHTML=
           '<tr>' +
             '<td>' + studentID + '</td>' +
             '<td>' + firstName + '</td>' +
@@ -42,9 +42,6 @@ $(document).ready(function() {
     /////
     $.ajax(theURL, {
         success: function(currentUser) {
-          console.log(currentUser)
-          
-            
             var firstName = currentUser.first_name;
             var lastName = currentUser.last_name;
             var studentID = currentUser.id;
@@ -55,7 +52,7 @@ $(document).ready(function() {
 
             var theURL = 'https://reqres-api.herokuapp.com/api/users' + '/' + studentID;
 
-            var theHTML=   
+            var theHTML=
             '<div id="details">' +
               '<h3>' + firstName + ' ' + lastName + '</h3>' +
               '<h4>' + occupation + '</h4>' +
@@ -66,7 +63,7 @@ $(document).ready(function() {
 
             console.log(theHTML)
             $('#details').replaceWith(theHTML)
-          
+
         }
       });
     /////
