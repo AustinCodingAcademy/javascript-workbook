@@ -46,7 +46,7 @@ $(document).on('ready', function() {
   // Problem 6:
   // select the elements with class="item"
   // assign the selected jQuery object to the the property window.items
-  window.items = $('item');
+  window.items = $('.item');
 
   // ****
   // attribute selectors
