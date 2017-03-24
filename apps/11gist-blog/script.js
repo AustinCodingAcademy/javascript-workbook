@@ -8,7 +8,12 @@ $(document).ready(function () {
         var $url = post.url;
         var $comments = post.comments_url;
         if ($description.substring(0, 6) === '#post ') {
-          var $str = `<li><a href='#' data-comments=${$comments} data-url=${$url}>${$description.replace('#post', '')}</a></li>`
+          var $str = `
+          <li>
+            <a href='#' data-comments=${$comments} data-url=${$url}>${$description.replace('#post', '')}
+            </a>
+          </li>
+          `;
           $('#posts').append($str);
         }
         //this section below here does not appear to be working.
@@ -19,19 +24,27 @@ $(document).ready(function () {
         //prevent default appears to work
         $.ajax($(this).data('url'), {
           success: function (clicked) {
+            $('#post').empty();
+            $('#comments').empty();
             var $content = marked(clicked['files']['post.md']['content']);
             $('#post').append($content);
           }
         })
         $.ajax($(this).data('comments'), {
-          success: function(commentFetch){
-            //var $userName = marked(commentFetch.user.login);
-            var $postContent = marked(commentFetch.body);
-            var $str3 = `
-            <li>${$userNAme}</li>
-            <li>${$postContent}</li>
-            `;
-            $('#comments').append($str3);
+          success: function (commentFetch) {
+            commentFetch.forEach(function (comment) {
+              var $userLogin = comment.user.login;
+              var $commentBody = comment.body;
+              var $userComment = `
+              <ul>
+                <li>${$userLogin}:</li>
+                <ul>
+                  <li>${$commentBody}</li>
+                </ul>
+              </ul>
+              `;
+              $('#comments').append($userComment);
+            })
           }
         })
       })
@@ -40,3 +53,4 @@ $(document).ready(function () {
 });
 
 //need to add section for comments for second section
+
