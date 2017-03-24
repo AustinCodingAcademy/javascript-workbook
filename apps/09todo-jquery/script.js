@@ -6,12 +6,24 @@ $(document).ready(function() {
 
     // assigns the value of the input field to toDoText to be used later
     var toDoText = $(this).find('#todo').val();
-    //var newItem = document.createElement("li");
-    $('#todo-list').append('<li>' + toDoText + '</li>');
+    $("#todo-list").append("<li>" + toDoText + "</li>");
+    $("#todo-list").sortable();
   })
-
-
-
 });
 
-// Construct a string containing a list item <li></li> with your todoText in the middle. .append() the html string to the end of your #todo-list.
+    // did not work.
+    // $('#draggable').draggable();
+    // var newLI = document.createElement("li");
+    // newLI.id = "draggable";
+    // newLI.innerHTML = toDoText;
+    // $('#todo-list').append(newLI);
+    // $("#draggable").classList.add('');
+    // , 'ui-draggable', 'ui-draggable-handle'
+    // $('#todo-list').append(newLI);
+    //'<li>' + toDoText + '</li>'
+    //$('<li />', {html: text}).appendTo('ul.justList')
+    // $('<li />', toDoText).appendTo($('#todo-list'));
+    // $("#yourUL").append("<li>" + $("#yourinputtextbox").val() + "</li>");
+    // $( "#sortable" ).sortable();
+    // $( "#sortable" ).disableSelection();
+    // $("long-List").sortable();
