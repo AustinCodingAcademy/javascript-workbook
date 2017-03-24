@@ -1,6 +1,8 @@
 'use strict';
 
 $(document).ready(function() {
+  // call the tablesorter API 
+  $('#sheet').tablesorter();
   var search = "";
   // start the ajax request
   $.ajax('https://reqres-api.herokuapp.com/api/users',{
@@ -12,6 +14,8 @@ $(document).ready(function() {
         var str = "<tr><td>" + user.id + "</td><td>" + user['first_name'] + "</td><td>" + user['last_name'] + '</td><td><a href="#" data-id="' + user.id + '">view</a></td></tr>"';
         // append the HTML to DOM 
         $('tbody').append(str);
+        // update the tablesorter 
+        $('#sheet').trigger("update");
       });
     }
   });
@@ -28,11 +32,15 @@ $(document).ready(function() {
     // pass the URL to the ajax call 
     $.ajax(url,{
       success: function(user) {
-        // grab the information from API
+        // grab the information from API and call the capitalize function
         var phoneNumber = user.phone.toString();
+        var fn = cap(user['first_name']);
+        var ln = cap(user['last_name']);
+        var occupation = cap(user.occupation);
         // format the phone number with regular expression 
         phoneNumber = phoneNumber.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/g,'+$1 ($2) $3-$4');
-        var str = "<div><h3>" + user['first_name'] + " " + user['last_name'] + "</h3><h4>" + user.occupation + "</h4><p>" + phoneNumber + '</p><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank">' + user.address + '</a><br/><img src="' + user.avatar + '" style="margin-top:20px"></div>';
+        // var str = "<div><h1>" + user['first_name'] + " " + user['last_name'] + "</h1><h3>" + user.occupation + "</h3><p>" + phoneNumber + '</p><img src="Google-Maps-Icon.png"><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/><img src="' + user.avatar + '"></div>';
+        var str = "<div><h1>" + fn + " " + ln + "</h1><h3>" + occupation + "</h3><p>" + phoneNumber + '</p><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/><img src="' + user.avatar + '"></div>';
         // remove all the elements in the #details section
         $('#details').empty();
         // append the HTML to #details DOM
@@ -65,4 +73,8 @@ $(document).ready(function() {
       $(this).hide();
     });
   });
+  // A function to capitalize the first letter of a string
+  function cap(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 });
