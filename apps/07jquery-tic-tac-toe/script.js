@@ -4,7 +4,7 @@ var playerTurn = 'X' //Setting the variable from spec 1.
 
 $(document).on('ready', function() {
 
-  $('[data-cell]').click(function() { //click listener from spec one.
+  $('[data-cell]').click(function() { //click listener from spec one. i had my single quotes in the wrong place initially.  fixed now.
     $(this).text(playerTurn);
 
 
@@ -15,14 +15,14 @@ $(document).on('ready', function() {
     playerTurn = (playerTurn === 'X') ? 'O' : 'X'; //this flips the playerTurn from X to O depending on the last click.
   })
 
-  $('#clear').click(function(){
+  $('#clear').click(function(){// this clears the board.
 		     $('[data-cell]').text('');
 		   });
 
 });
 		 function checkForWin() {
        //horizontal wins
-       
+
        if ($("[data-cell='0']").text() === playerTurn &&
            $("[data-cell='1']").text() === playerTurn &&
            $("[data-cell='2']").text() === playerTurn) {
