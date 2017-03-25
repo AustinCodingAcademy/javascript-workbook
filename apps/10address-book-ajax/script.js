@@ -53,23 +53,3 @@ $(document).ready(function () {
 
 
 });
-
-
-/*
-('#details').append(
-  $("<p></p>").text(
-    user['data']['children'][1]['data']['id']
-  )
-)
-
-('#details').append(
-  $('<img src="' +
-  user['data']['children'][1]['data']['avatar']
-  + '"/>')
-
-)
-
-Spec 3 - Individiual AJAX calls
-
-You should have produced links for each row. Put a click listener on each link, and in the callback, prevent the default event from occuring. Create a var url that starts as a string 'https://reqres-api.herokuapp.com/api/users/'. Now grab the data-id value from the link using the .data method, and attach it to the end of the url. Now make an .ajax with that url, and in a success callback, pass in user as the response. Build another str that builds an html string that matches the default markup in the div#details element.
-*/
