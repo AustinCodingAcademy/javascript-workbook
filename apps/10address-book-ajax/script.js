@@ -15,11 +15,11 @@ $(document).ready(function() {
         }
     });
 
-  $('a').click(function (event) { // target the form, and put a submit event listener on it. We can capture and pass in the event for us to use
-      event.preventDefault(); // this tells the browser to "prevent" the "default" "event" from occuring (sending and refreshing)
-      //var theData = $(this).data;
-      //console.log(theData)
-    });
+    //$('a').click(function (event) { // target the form, and put a submit event listener on it. We can capture and pass in the event for us to use
+        //event.preventDefault(); // this tells the browser to "prevent" the "default" "event" from occuring (sending and refreshing)
+        //var theData = $(this).data;
+        //console.log(theData)
+      //});
 
   /////
   $('body').on("click", "tr td a", function(event) {
