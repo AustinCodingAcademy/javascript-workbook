@@ -1,8 +1,8 @@
 'use strict';
 
 $(document).ready(function() {
-// You code here
-$.ajax('https://reqres-api.herokuapp.com/api/users/', {
+  // You code here
+  $.ajax('https://reqres-api.herokuapp.com/api/users/', {
     success: function(response) {
       response.forEach(function(user) {
         var str = $("tbody").append(($('<tr>' + '<td>' + user.id + '</td>' +
@@ -12,8 +12,7 @@ $.ajax('https://reqres-api.herokuapp.com/api/users/', {
         console.log(user);
         return str;
         //$(`<img src="${'thing'}">`);
-      }
-    );
+      });
       $("a").on('click', function(event) {
         event.preventDefault();
         console.log($(event.target).children());
@@ -28,9 +27,10 @@ $.ajax('https://reqres-api.herokuapp.com/api/users/', {
           }
         });
 
+
       });
     }
-    });
+  });
 
 });
 //Now make an .ajax with that url, and in a success callback, pass in user as the response. Build another str that builds an html string that matches the default markup in the div#details element.
