@@ -25,6 +25,7 @@ body {
   height: 100%;
   width: 90%;
   margin: auto;
+  overflow: hidden;
 }
 
 h1 {
@@ -80,6 +81,8 @@ a:hover {
   width: 45%;
   border-radius: 25px;
   padding: 15px;
+  border: 2px solid #A5CBC3;
+  opacity: .8;
 }
 
 #table-wrapper {
@@ -92,7 +95,7 @@ a:hover {
 }
 
 #details-wrapper:hover, #table-wrapper:hover {
-  opacity: .9;
+  opacity: 1;
 }
 
 .table-header {

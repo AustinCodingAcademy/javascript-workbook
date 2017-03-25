@@ -6,6 +6,14 @@ $(document).ready(function() {
 
   queryPage(sortType)
 
+  $.fn.extend({
+        animateCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
 
   $('a').click(function (event) { // target the form, and put a submit event listener on it. We can capture and pass in the event for us to use
       event.preventDefault(); // this tells the browser to "prevent" the "default" "event" from occuring (sending and refreshing)
@@ -14,10 +22,12 @@ $(document).ready(function() {
     });
 
   /////
-  $('body').on("click", "tr td a", function() {
+  $('body').on("click", "tr td a", function(event) {
     event.preventDefault();
     var theID=$(this).data('id');
     var theURL='https://reqres-api.herokuapp.com/api/users' + '/' + theID;
+
+    $('#details-wrapper').animateCss('bounceInRight');
 
     /////
     $.ajax(theURL, {
@@ -45,6 +55,7 @@ $(document).ready(function() {
         }
       });
     /////
+
 
     });
   /////
