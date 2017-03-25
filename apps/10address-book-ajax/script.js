@@ -1,7 +1,7 @@
 'use strict';
 
 $(document).ready(function() {
-   var settings = { 
+  var settings = { 
     success: function(users) { 
       users.forEach(function(person) {
         var str = ('<tr>' +
