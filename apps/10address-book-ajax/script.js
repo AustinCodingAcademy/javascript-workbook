@@ -17,8 +17,7 @@ $(document).ready(function () {
         console.log(string);
         $('tbody').append(string);
       })
-      $('a[data-id]').on('click', function () {
-
+      $('a[data-id]').on('click', function (event) {
         //prevent the page from refreshing
         event.preventDefault();
         var dataID = $(this).data('id');
@@ -42,8 +41,8 @@ $(document).ready(function () {
             console.log(user);
             console.log(user.first_name);
             console.log(user.avatar);
+            $('#details').empty();
             $('#details').append(
-              // find the needle
               $('<p> user ID: ' + user.id + '</p>' + '<h3> Name: ' + user.first_name + ' ' + user.last_name + '</h3>' + '<h4> Occupation: ' + user.occupation + '</h4>' + '<p> Phone Number: ' + user.phone + '</p>' + '<p> Address: ' + user.address + '</p>' + '<img src="' + user.avatar + '" /> '));
           }
         })
