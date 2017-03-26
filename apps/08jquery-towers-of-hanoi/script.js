@@ -9,7 +9,6 @@ $(document).ready(function() {
     if ($block == null) {
       //setting the announcement text to nothing in case the player made an illegal move previously
       $('#announce-game-won').text('');
-      return false;
       $block = $(this).children().last().detach();
       //'this' is the data stack that was clicked on and will return the jquery object that we need
       //we are picking up a block
