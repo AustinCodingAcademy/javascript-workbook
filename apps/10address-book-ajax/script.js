@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
   // You code here
-  $.ajax('https://reqres-api.herokuapp.com/api/users/', {
+  $.ajax('https://reqres-api.herokuapp.com/api/users', {
     success: function(response) {
       response.forEach(function(user) {
         var str = $("tbody").append(($('<tr>' + '<td>' + user.id + '</td>' +
