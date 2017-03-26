@@ -7,7 +7,7 @@ $(document).ready(function () {
   $('[data-stack]').click(
     function () {
 
-      if ($block == null) {
+      if ($block === null) {
         //datastck that was clicked has its last child detached
         $block = $(this).children().last().detach();
       } else {
