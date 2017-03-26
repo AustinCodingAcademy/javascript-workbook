@@ -17,11 +17,11 @@ $(document).on('ready', function() {
 
   // Problem 1:
   // Get the children of #first-list using the .children() method
-  window.firstListChildren = $firstlist.children();
+  window.firstListChildren = $('#first-list').children();
 
   // Problem 2:
   // Get the children of #second-list using the .children() method
-  window.secondListChildren = $secondlist.children();
+  window.secondListChildren = $('#second-list').children();
 
   // Problem 3:
   // Now use the .detach() method on window.firstListChildren to
@@ -31,7 +31,7 @@ $(document).on('ready', function() {
   // Problem 4:
   // Now use the .detach() method on window.secondListChildren to
   // remove those elements from the document
-  window.secondListChildren.detach();
+  window.secondListChildren;
 
   // Problem 5:
   // use $finalList.prepend() to put window.firstListChildren
