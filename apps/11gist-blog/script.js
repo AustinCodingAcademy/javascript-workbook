@@ -24,7 +24,17 @@ $(document).ready(function () {
         $('a[href="#"]').on('click', function (event) {
           //prevent the page from refreshing
           event.preventDefault();
-          $.ajax(`${each.id}.json`);
+          //populate the data
+          $.ajax(`http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json`, {
+            success: function (user) {
+              console.log(user);
+              console.log(user.first_name);
+              console.log(user.avatar);
+              $('#details').empty();
+              $('#details').append(
+                $('<p> user ID: ' + user.id + '</p>' + '<h3> Name: ' + user.first_name + ' ' + user.last_name + '</h3>' + '<h4> Occupation: ' + user.occupation + '</h4>' + '<p> Phone Number: ' + user.phone + '</p>' + '<p> Address: ' + user.address + '</p>' + '<img src="' + user.avatar + '" /> '));
+            }
+          })
         })
       })
     }
@@ -38,5 +48,16 @@ $(document).ready(function () {
 href http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json
 
 data-id ${each.id}
+
+$.ajax(url, {
+  success: function (user) {
+    console.log(user);
+    console.log(user.first_name);
+    console.log(user.avatar);
+    $('#details').empty();
+    $('#details').append(
+      $('<p> user ID: ' + user.id + '</p>' + '<h3> Name: ' + user.first_name + ' ' + user.last_name + '</h3>' + '<h4> Occupation: ' + user.occupation + '</h4>' + '<p> Phone Number: ' + user.phone + '</p>' + '<p> Address: ' + user.address + '</p>' + '<img src="' + user.avatar + '" /> '));
+  }
+})
 
 */
