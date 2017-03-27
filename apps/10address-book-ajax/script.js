@@ -26,7 +26,7 @@ $(document).ready(function () {
                 <p>${user.occupation}</p>
                 <p>${user.address}</p>
                 <img src='${user.avatar}'>`;
-                console.log(str2);
+              console.log(str2);
               $('#details').html(str2);
             }
           })
