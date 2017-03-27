@@ -24,6 +24,7 @@ $(document).ready(function() {
       '<p>' + user.address + '</p>' +
       '<img src="' + user.avatar + '">')
 
+      $('#details').empty();
       $('#details').append(str2);
     }
   }
