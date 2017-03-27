@@ -17,10 +17,14 @@ $(document).ready(function () {
         var string = `
            <div>
              <li>${filterPosts(each.description)}</li>
-             <li><a href="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json" data-id="${each.id}">view</a></li>
+             <li><a href="#" data-id="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json">view</a></li>
            </div>`;
         console.log(string);
         $('#posts').append(string);
+      })
+      $('a[href="#"]').on('click', function (event) {
+        //prevent the page from refreshing
+        event.preventDefault();
       })
     }
   })
@@ -30,6 +34,8 @@ $(document).ready(function () {
 
 /*
 
+href http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json
 
+data-id ${each.id}
 
 */
