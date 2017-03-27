@@ -21,10 +21,11 @@ $(document).ready(function () {
            </div>`;
         console.log(string);
         $('#posts').append(string);
-      })
-      $('a[href="#"]').on('click', function (event) {
-        //prevent the page from refreshing
-        event.preventDefault();
+        $('a[href="#"]').on('click', function (event) {
+          //prevent the page from refreshing
+          event.preventDefault();
+          $.ajax(`${each.id}.json`);
+        })
       })
     }
   })
