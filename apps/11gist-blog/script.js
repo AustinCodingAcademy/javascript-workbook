@@ -28,6 +28,8 @@ var getContent = {
   success: function(gist) {
     // variable to store the value of the content property
     var content = gist.files['post.md']['content'];
+    // variable to store the property "comments_url"
+    var commentURL = gist["comments_url"];
     // variable to store paragraph containing content (converted to html using marked function)
     var str = 
     ('<div id="post">' +
@@ -35,22 +37,23 @@ var getContent = {
     '</div>')
     // add the content to div with id "post"
     $('#post').replaceWith(str);
+    var getComments = {
+      success: function(comments) {
+        comments.forEach(function(comment) {
+          var userName = comment["user"]["login"];
+          var userComment = comment["body"];
+          var str = 
+          ('<ul id="comments">' + 
+          '<li>' + userName + '</li>' +
+          '<li>' + userComment + '</li>' +
+          '</ul>')
+          $('#comments').html(str);
+        });
+      }
+    }
+    $.ajax(commentURL, getComments);
   }
 };
-
-// callback to get the comments url of the gist that was clicked
-var getComments = {
-  success: function(gist) {
-    var comment = gist.comments_url;
-    console.log(comment);
-  //   var str = 
-  //   ('<ul id="comments">' + 
-  //   '<li>' + username + '</li>' +
-  //   '<li>' + comment + '</li>' +
-  //   '</ul>')
-  //   $('#comments').append(str);
-  }
-}
 
 
 $(document).ready(function() {
@@ -63,6 +66,5 @@ $(document).ready(function() {
     var gistURL = $(this).data('url');
     // ajax call on that specific url
     $.ajax(gistURL, getContent);
-    $.ajax(gistURL, getComments);
   });
 });
