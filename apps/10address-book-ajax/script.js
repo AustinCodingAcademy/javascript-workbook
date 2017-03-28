@@ -24,6 +24,7 @@ $(document).ready(function () {
               `<h3>${user.first_name}</h3>
                 <h4>${user.last_name}</h4>
                 <p>${user.occupation}</p>
+                <p>${user.phone}</p>
                 <p>${user.address}</p>
                 <img src='${user.avatar}'>`;
             console.log(str2);
