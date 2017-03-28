@@ -24,24 +24,56 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || 
+      (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || 
+      (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  } 
 }
 
 function verticalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || 
+      (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || 
+      (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  } 
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||  
+      (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+    return true;
+  } 
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin() ) {
+//CELEBRATION FOR THE WINNER
+    console.log('Player ' + playerTurn + ' Won!');
+    console.log('Player ' + playerTurn + ' Won!');
+    console.log('Player ' + playerTurn + ' Won!');
+    console.log('WAY TO GO PLAYER ' + playerTurn + '!');
+//SHOW THE WINNING BOARD
+    printBoard();
+//RESET THE BOARD FOR THE NEXT GAME
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']];
+  }
+//DETECT THE WINNER
+   return true;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+//PRINT TO BOARD
+  board[row][column] = playerTurn;
+//DETERMIN IF THERE IS A WINNER
+  checkForWin()
+//TOGGLE PLAYERS
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
+
 
 function getPrompt() {
   printBoard();

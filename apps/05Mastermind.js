@@ -29,12 +29,37 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+//CHECK IF ITEMS LINE UP PERFECTLY IN EACH ARRAY
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+//CHECK IF GUESSED ITEMS APPEAR IN SOLUTION
+  for (i = 0; i < solutionArray.length; i++) {
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+    if (targetIndex > -1) {
+       correctLetters++;
+       solutionArray[i] = null;
+    }
+  }
+  return correctLetterLocations + '-' + correctLetters;
 }
 
 function mastermind(guess) {
-  // your code here
+  solution = 'abcd';
+  if (guess === solution) {
+    return 'You guessed it!';
+  } else {
+      var hint = generateHint(solution, guess);
+      return board.push(guess +' '+ hint);
+  }
 }
 
 

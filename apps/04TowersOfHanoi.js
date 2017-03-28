@@ -12,6 +12,7 @@ var stacks = {
   b: [],
   c: []
 };
+// var popped = stacks[startStack].pop();
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -19,24 +20,44 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+//VARIABLE TO HOLD POPPED ITEM
+  var popped = stacks[startStack].pop();
+//ADD THAT ITEM TO USER SELECTED STACK
+  stacks[endStack].push(popped);
 }
 
-function isLegal() {
-  // Your code here
-
+function isLegal(startStack, endStack) {
+//CREATE NEW VARIABLES TO REDUCE AMOUNT OF CODE TO TYPE IN THE LONG RUN
+  var tower1 = stacks[startStack];
+  var tower2 = stacks[endStack];
+//ALLOW ANY PIECE TO BE PLACED IN AN EMPTY STACK
+  if (tower2 == '') {
+    return true;
+  }
+//CHECK TO SEE IF START PIECE IS SMALLER THAN END PIECE THAT IT IS BEING PLACED ON
+  if (tower1[tower1.length - 1] < tower2[tower2.length-1]) {
+    return true;
+  } else {
+      console.log('Ahh Ahh Ah, you didnt say the magic word!!')
+      return false;
+  }
 }
 
 function checkForWin() {
-  // Your code here
-
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+    console.log('ERES EL GANADORRRRR!!!');
+    return true;
+  } else {
+      return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin();
+  }
 }
 
 function getPrompt() {
