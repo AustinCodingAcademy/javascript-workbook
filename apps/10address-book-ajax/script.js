@@ -3,10 +3,9 @@ var sortType = "id";
 var reverseSort = false;
 
 $(document).ready(function() {
-  // You code here
-
   queryPage(sortType)
 
+  //Create a method that animates a div and adds a listener to remove the animation class when finished.
   $.fn.extend({
         animateCss: function (animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
@@ -16,13 +15,7 @@ $(document).ready(function() {
         }
     });
 
-    //$('a').click(function (event) { // target the form, and put a submit event listener on it. We can capture and pass in the event for us to use
-        //event.preventDefault(); // this tells the browser to "prevent" the "default" "event" from occuring (sending and refreshing)
-        //var theData = $(this).data;
-        //console.log(theData)
-      //});
-
-  /////
+  //Handle clicks of links to individual users.
   $('body').on("click", "tr td a", function(event) {
     event.preventDefault();
     var theID=$(this).data('id');
@@ -30,7 +23,6 @@ $(document).ready(function() {
 
     $('#details-wrapper').animateCss('bounceInRight');
 
-    /////
     $.ajax(theURL, {
         success: function(currentUser) {
             var firstName = currentUser.first_name;
@@ -55,12 +47,9 @@ $(document).ready(function() {
             $('#details').replaceWith(theHTML)
         }
       });
-    /////
-
-
     });
-  /////
 
+  //Handle sorting when a sort link is pressed.
   $('body').on("click", "a.sort", function() {
     if ($(this).hasClass("id")) {
       (sortType === "id") ? ((reverseSort) ? reverseSort = false : reverseSort = true) : reverseSort = false;
@@ -117,7 +106,6 @@ function queryPage(theSort) {
 
       if (reverseSort === true) {
         users.reverse();
-
       }
 
       for (var i = 0; i < users.length; i++) {
