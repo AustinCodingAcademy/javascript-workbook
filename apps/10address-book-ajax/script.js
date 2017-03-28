@@ -3,6 +3,7 @@
 $(document).ready(function() {
   // call the tablesorter API 
   $('#sheet').tablesorter();
+  var search = "";
   var result = "";
   var lat = "";
   var lng = "";
