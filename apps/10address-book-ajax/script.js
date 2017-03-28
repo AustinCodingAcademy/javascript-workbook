@@ -1,5 +1,6 @@
 'use strict';
 var sortType = "id";
+var reverseSort = false;
 
 $(document).ready(function() {
   // You code here
@@ -62,15 +63,18 @@ $(document).ready(function() {
 
   $('body').on("click", "a.sort", function() {
     if ($(this).hasClass("id")) {
-      sortType="id"
+      (sortType === "id") ? ((reverseSort) ? reverseSort = false : reverseSort = true) : reverseSort = false;
+      sortType = "id";
     }
 
     if ($(this).hasClass("fname")) {
-      sortType="fname"
+      (sortType === "fname") ? ((reverseSort) ? reverseSort = false : reverseSort = true) : reverseSort = false;
+      sortType = "fname";
     }
 
     if ($(this).hasClass("lname")) {
-      sortType="lname"
+      (sortType === "lname") ? ((reverseSort) ? reverseSort = false : reverseSort = true) : reverseSort = false;
+      sortType = "lname";
     }
 
     queryPage(sortType)
@@ -109,6 +113,11 @@ function queryPage(theSort) {
             return 0;
           })
           break;
+      }
+
+      if (reverseSort === true) {
+        users.reverse();
+
       }
 
       for (var i = 0; i < users.length; i++) {
