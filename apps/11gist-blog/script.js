@@ -16,28 +16,38 @@ $(document).ready(function () {
       //log the filtered posts
       console.log(filtered);
       filtered.forEach(function (each) {
+        console.log(each);
         var string = `
            <div>
              <li>${filterPosts(each.description)}</li>
-             <li><a href="#" data-id="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json">view</a></li>
+             <li><a href="#" data-url="${each.url}" data-id="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json">view</a></li>
            </div>`;
         console.log(string);
         //populate the page with content matching the filter
         $('#posts').append(string);
-        //on click event to show the comments
-        $('a[href="#"]').on('click', function (event) {
-          //prevent the page from refreshing
-          event.preventDefault();
-          //populate the data
-          $.ajax(`http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json`, {
+
+
+      })
+      //on click event to show the comments
+      $('a[href="#"]').on('click', function (event) {
+        console.log('whatever');
+        //prevent the page from refreshing
+        event.preventDefault();
+        //populate the data
+        //this is the link that was clicked
+        // ajaz function call
+        $.ajax(
+          $(this).data('url'), {
             success: function (post) {
               console.log(post);
+              console.log(postLog);
+              var postLog = post['files']['post.md'].content
               $('#post').empty();
               $('#post').append(
-                $($.data(each.id)));
+                postLog);
             }
-          })
-        })
+          }
+        )
       })
     }
   })
