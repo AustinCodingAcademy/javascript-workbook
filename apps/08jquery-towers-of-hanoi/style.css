@@ -35,4 +35,22 @@
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body{
+    margin:0 auto;
+    overflow:hidden;
+}
+.wrapper {
+    transform: rotate(-90deg);
+    transform-origin: right top 0px;
+    position: absolute;
+    top: 0px;
+    height: 100vw;
+    width: 100vh;
+    overflow: auto;
+    margin-left: -250px; 
 }
