@@ -1,0 +1,103 @@
+@font-face {
+  font-family: ostrich; src: url("../fonts/ostrich-regular.ttf");
+}
+
+@font-face {
+  font-family: ostrichbold; src: url("../fonts/OstrichSans-Heavy.otf");
+}
+
+.ostrich {
+  font-size: 28px;
+  font-family: ostrich;
+}
+
+.ostrich-bold {
+  font-size: 32px;
+  font-family: ostrichbold;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: black;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 35px;
+  text-align: center;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: skyblue;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+a:hover {
+  text-shadow:
+    -1px -1px 0 #575A4B,
+    1px -1px 0 #575A4B,
+    -1px 1px 0 #575A4B,
+    1px 1px 0 #575A4B;
+}
+
+#body-wrapper {
+  background-color: #232020;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  font-size: 18px;
+  font-family: ostrichbold;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+}
+
+#book-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+}
+
+#table-wrapper, #details-wrapper {
+  width: 45%;
+  border-radius: 25px;
+  padding: 15px;
+  border: 2px solid #A5CBC3;
+  opacity: .9;
+}
+
+#table-wrapper {
+  background: #73AD21;
+}
+
+#details-wrapper {
+  /*background-color: #955E42; */
+  background-color: #427AA1;
+}
+
+#details-wrapper:hover, #table-wrapper:hover {
+  opacity: 1;
+}
+
+.table-header {
+  font-size: 21px;
+}

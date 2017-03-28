@@ -13,30 +13,90 @@ var stacks = {
   c: []
 };
 
+var totalMoves=0;
+var minimalMoves = Math.pow(2, stacks['a'].length) - 1;
+console.log("Minimal moves is "+minimalMoves)
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack,endStack) {
   // Your code here
+  //Remove from the first stack.
+  
+  var moveChar=stacks[startStack].pop();
+  //Place on the ending stack.
+  stacks[endStack].push(moveChar)
 
+  totalMoves++;
 }
 
-function isLegal() {
+function isLegal(startStack,endStack) {
   // Your code here
+  if ((startStack==='a' || startStack==='b' || startStack==='c') && (endStack==='a' || endStack==='b' || endStack==='c')) {
+    //I have a valid input of a b or c.
+    var startStackLength=stacks[startStack].length;
+    var endStackLength=stacks[endStack].length;
+    if (startStackLength>0)
+      {
+      //There's stuff in this stack, so it is a valid starting stack.
+      var startStackChar=stacks[startStack][(startStackLength-1)];
+      if ((endStackLength===0) || (startStackChar<(stacks[endStack][(endStackLength-1)])))
+        {
+        //The destination stack is empty or is otherwise valid. I can move the piece to the new location.
+        return true;
+        }
+      else  
+        {
+        return false;
+        }
+      console.log(startStackChar);
+      }    
+    }
+  else
+    {
+    //Invalid move due to no A B or C entered.
+    return false;
+    }
 
 }
 
 function checkForWin() {
   // Your code here
-
+  if (stacks['b'].length===4 || stacks['c'].length===4)
+    {
+    return true;
+    }
+  else
+    {
+    return false;
+    }
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  if (isLegal(startStack,endStack))
+    {
+    movePiece(startStack,endStack);
 
+    if (checkForWin())
+      {
+      console.log('You won in ' + totalMoves + ' moves!!')
+      }
+    else
+      {
+      console.log(totalMoves + ' moves so far.')
+      }
+    }
+  else
+    {
+    console.log("//////////////////////////////////")
+    console.log("// Can't move there, try again! //")
+    console.log("//////////////////////////////////")
+    }
 }
 
 function getPrompt() {
