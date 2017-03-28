@@ -1,16 +1,18 @@
 'use strict';
 
 $(document).ready(function () {
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+  $.ajax('https://api.github.com/users/JamesPuckett/gists', { //http://127.0.0.1:8080/apps/11gist-blog/api/gists.json
     success: function (response) {
       response.forEach(function (post) {
         var $description = post.description;
         var $url = post.url;
         var $comments = post.comments_url;
+        //only uses posts that start with '#post ' and removes the string '#post '
+        //creates a link that has to data attritubutes so i can reference them later with ajax calls
         if ($description.substring(0, 6) === '#post ') {
           var $str = `
           <li>
-            <a href='#' data-comments=${$comments} data-url=${$url}>${$description.replace('#post', '')}
+            <a href='#' data-comments=${$comments} data-url=${$url}>${$description.replace('#post ', '')}
             </a>
           </li>
           `;

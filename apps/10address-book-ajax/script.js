@@ -20,11 +20,10 @@ $(document).ready(function () {
         $.ajax(url, {
           success: function (user) {
             var str2 = `
-                <h3>${user.first_name}</h3>
-                <h4>${user.last_name}</h4>
-                <p>${user.occupation}</p>
-                <p>${user.address}</p>
+                <h3>${user.first_name} ${user.last_name}</h3>
+                <h4>${user.occupation}</h4>
                 <p>${user.phone}</p>
+                <p>${user.address}</p>
                 <img src='${user.avatar}'>
                 `;
             console.log(str2);
