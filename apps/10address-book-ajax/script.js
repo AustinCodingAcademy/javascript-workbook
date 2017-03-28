@@ -3,15 +3,20 @@
 $(document).ready(function() {
   // call the tablesorter API 
   $('#sheet').tablesorter();
-  var search = "";
+  var result = "";
+  var lat = "";
+  var lng = "";
   // start the ajax request
   $.ajax('https://reqres-api.herokuapp.com/api/users',{
     // if success, pass in a function to grab the response object
     success: function(response) {
       // loop through the array of response objects
       response.forEach(function(user){
+        // grab the information from API and call the capitalize function
+        var fn = cap(user['first_name']);
+        var ln = cap(user['last_name']);
         // use single quotes to escape the attribute (user.id) since we already have a set of double quote; and then concatenate within the HTML
-        var str = "<tr><td>" + user.id + "</td><td>" + user['first_name'] + "</td><td>" + user['last_name'] + '</td><td><a href="#" data-id="' + user.id + '">view</a></td></tr>"';
+        var str = "<tr><td>" + user.id + "</td><td>" + fn + "</td><td>" + ln + '</td><td><a href="#" data-id="' + user.id + '">view</a></td></tr>"';
         // append the HTML to DOM 
         $('tbody').append(str);
         // update the tablesorter 
@@ -39,11 +44,33 @@ $(document).ready(function() {
         var occupation = cap(user.occupation);
         // format the phone number with regular expression 
         phoneNumber = phoneNumber.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/g,'+$1 ($2) $3-$4');
-        var str = "<div><h1>" + fn + " " + ln + "</h1><h3>" + occupation + "</h3><p>" + phoneNumber + '</p><img src="Google-Maps-Icon.png"><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/><img src="' + user.avatar + '"></div>';
+        var map = '<div id="googleMap"></div>';
+        var str = "<div><h1>" + fn + " " + ln + "</h1><h3>" + occupation + "</h3><p>" + phoneNumber + '</p><img src="Google-Maps-Icon.png"><a href="http://maps.google.com/?q=' + user.address + '"data-id="map" target="_blank" style="margin-bottom=30px">' + user.address + '</a><br/>' + map + '<br/><img src="' + user.avatar + '"></div>';
+        // combine the address, google API key and the given url to the mapurl for later AJAX call
+        var mapurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + user.address + "&key=AIzaSyC7wl1k4rxE_8cw0cVElpn8o0zxODkSV_0";
+        $.ajax(mapurl, {
+          success: function(mresponse) {
+            // retrieve the latitude and longtitude data from the JSON object
+            lat = mresponse.results[0].geometry.location.lat;
+            lng = mresponse.results[0].geometry.location.lng;
+            // display the map in DOM 
+            getMap();
+          }
+        });
         // remove all the elements in the #details section
         $('#details').empty();
         // append the HTML to #details DOM
         $('#details').append(str);
+        // attach the Google map
+        // A function to use Google Map API 
+        function getMap() {
+          var gmap = new google.maps.Map(document.getElementById('googleMap'), {
+            center: {lat: lat, lng: lng},
+            scrollwheel: true,
+            gestureHandling: 'cooperative',
+            zoom: 15
+          });
+        }
       }
     });
    }
