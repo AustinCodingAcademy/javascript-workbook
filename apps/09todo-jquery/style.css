@@ -82,3 +82,8 @@ input[type=checkbox] {
 #todo-list li input[type=button]:hover {
   cursor: pointer;
 }
+
+#error {
+  text-align: center;
+  color: red;
+}

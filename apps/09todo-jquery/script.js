@@ -1,17 +1,25 @@
 'use strict';
 
 $(document).ready(function() {
+  var $todo = $('#todo');
   var $todoList = $('#todo-list');
+  var $errorText = $('#error');
+
   $todoList.sortable();
-  $('#todo').focus();
+  $todo.focus();
 
   $('form').submit(function(event) {
   	event.preventDefault();
-  	var $todoText = $(this).find('input[type="text"]').val();
+  	var $todoText = $todo.val();
 
-  	$todoList.append('<li><input type="checkbox" />' + $todoText + '<input type="button" class="delete-button" value="X" /></li>');
+    if (!$todoText) {
+      $errorText.text('Text required');
+    } else {
+      $errorText.text('');
+      $todoList.append(`<li><input type="checkbox" />${$todoText}<input type="button" class="delete-button" value="X" /></li>`);
+    }
 
-  	$(this).find('input[type="text"]').val('');
+  	$todo.val('');
 
   	$('.delete-button').click(function(event) {
   		$(this).parent().remove();
