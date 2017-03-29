@@ -24,8 +24,7 @@ var gistContent = {
     var commentURL = gist["comments_url"];
     var str = 
     ('<div id="post">' +
-    '<p>' + marked(content) + '</p>' +
-    '</div>')
+    '<p>' + marked(content) + '</p>' + '</div>')
     $('#post').replaceWith(str);
     var getComments = {
       success: function(comments) {
