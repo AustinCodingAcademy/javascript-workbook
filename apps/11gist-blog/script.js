@@ -47,7 +47,16 @@ $(document).ready(function () {
                 postLog);
             }
           }
-        )
+        ) //fix this
+        $.ajax($(this).data('comments'), {
+          success: function (comments) {
+            $('#comments').empty();
+            comments.forEach(function (comment) {
+              var $comment = $('<li>' + comment.user.login + ' ' + comment.body + '</li>');
+              $('#comments').append($comment);
+            })
+          }
+        })
       })
     }
   })
