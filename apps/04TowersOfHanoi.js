@@ -39,8 +39,9 @@ function isLegal(startStack, endStack) {
      stack already on endStack */
   var end = stacks[endStack].length; // store length of endStack in end;
   var start = stacks[startStack].length; // store length of startStack in start;
-  if(stacks[endStack].length === 0 || stacks[startStack][start - 1] < stacks[endStack][end - 1]){
-    legalMoveCount++; // add 1 to legal move counter here
+    if(stacks[endStack].length === 0 || stacks[startStack][start - 1] < stacks[endStack][end - 1]){
+      legalMoveCount++; // add 1 to legal move counter here
+      moveCount++;
     return true;
   
 }
@@ -49,7 +50,7 @@ function isLegal(startStack, endStack) {
     var temp = stacks[endStack].pop();
     stacks[startStack].push(temp);
     console.log("invalid move Try Again");
-
+    moveCount++;
 return false;
   }
 }
@@ -65,6 +66,8 @@ if(stacks['b'].length === 4 || stacks['c'].length === 4){
   b: [],
   c: []
 };
+  legalMoveCount = 0;
+  
 return true; 
 }
   

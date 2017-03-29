@@ -71,7 +71,8 @@ function verticalWin() {
   ){
  return true;
   }
-}
+return false;
+
 
 /* Do the same as the first two tests, only change will be the cells we are searching. I searched
    from top left to bottom right diagonal, and bottom left , top right diagonal. Once again return
@@ -84,6 +85,7 @@ function diagonalWin() {
   ){
  return true;
   }
+return false;
 }
 /* Test to see if any of the winning functions above are true, In the event they are, out to the console
    the player which has won. to exit this function, return the boolean value of true */
@@ -95,7 +97,7 @@ function checkForWin() {
 return true;
   }
 
-
+return false;
 }
 
 /* This is where the game will be played. playerTurn is default as 'X', assign it to the board and
