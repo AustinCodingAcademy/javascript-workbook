@@ -2,9 +2,15 @@
 <html>
 <head>
   <title>Address Book</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
-  <table>
+  <form>  
+    <input type="text" id="search">
+    <input type="submit" value="Search">
+  </form>
+  <table id="sheet" class="tablesorter">
     <thead>
       <tr>
         <th>ID</th>
@@ -14,24 +20,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>0</td>
-        <td>first</td>
-        <td>last</td>
-        <td><a href="#" data-id="0">view</a></td>
-      </tr>
     </tbody>
   </table>
   <div id="details">
-    <h3>first last</h3>
-    <h4>student</h4>
-    <p>5551234567</p>
-    <p>
-      123 Whatever Street, Austin, TX 78701
-    </p>
+    <h1>First Last</h1>
+    <h3>Student</h3>
+    <p >5551234567</p>
+    <p style="margin-bottom:5px">123 Whatever Street, Austin, TX 78701</p>
     <img src="https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg">
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

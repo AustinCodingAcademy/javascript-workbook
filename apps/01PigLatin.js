@@ -7,13 +7,35 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+// console.log("Xilin has coded this function.");
 
 function pigLatin(word) {
+//initiate variables 
+var vowelArray = ['a', 'e', 'i', 'o', 'u', 'y'];
+var vowelIndex = -1;
+var word = word.toLowerCase();
 
-  // Your code here
-
+//make a loop to get the vowel index
+for (var i = 0; i < vowelArray.length; i++ ) {
+	var position = word.indexOf(vowelArray[i]);
+  //check if the vowelIndex is less than the current position, assign it the new value if so
+  //ultimately, we want to find the minimum position, and assign it to vowelIndex
+	if ((position > -1 && position < vowelIndex)|| vowelIndex === -1) {
+    vowelIndex = position;
+    }
 }
-
+//directly print if the first letter is a vowel
+if (vowelIndex === 0) {
+	return(word + 'yay');
+}
+//go through the standard procedure otherwise
+else {
+  //break down the word into two parts and flip them
+	var firstpart = word.slice(0, vowelIndex);
+	var latterpart = word.slice(vowelIndex, word.length);
+  return (latterpart + firstpart + 'ay');
+    }
+}
 
 function getPrompt() {
   rl.question('word ', (answer) => {

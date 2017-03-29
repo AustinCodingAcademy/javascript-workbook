@@ -13,30 +13,65 @@ var stacks = {
   c: []
 };
 
+var move = 0;
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+  //take out the last piece of start stack
+  var piece = stacks[startStack].pop();
+  //push it to the end stack
+  stacks[endStack].push(piece);
+  move += 1;
 }
 
-function isLegal() {
-  // Your code here
-
+function isLegal(startStack, endStack) {
+  // Declare an array of valid inputs
+  var stackCollection = ['a', 'b', 'c'];
+  // Verify inputs 
+  if ((stackCollection.indexOf(startStack) !== -1) && (stackCollection.indexOf(endStack) !== -1)) {
+  // Check if endstack is empty  
+    if (stacks[endStack].length === 0) {
+      return true;
+    } else {
+  //get the index of the last item on each array, and then compare the two items
+        var lastStartIndex = stacks[startStack].length -1;
+        var lastEndIndex = stacks[endStack].length - 1;
+        var firstItem = stacks[startStack][lastStartIndex];
+        var lastItem = stacks[endStack][lastEndIndex];
+    if (firstItem < lastItem) {
+       return true;
+  } else {
+          console.log("Not a valid move!");
+          return false;
+        }
+    }
+  }
+  else {
+    console.log("Please enter a valid value: a, b, or c!");
+  }
 }
 
 function checkForWin() {
-  // Your code here
-
+  // Verify if either stack b or stack c is full. If so, then game over. 
+   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+     console.log("You won!! You have used " + move + " moves. Congratulations!");
+     stacks = { a: [4, 3, 2, 1], b: [],c: []};
+     return true; 
+   } else {
+     return false;
+   }
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+    if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin();
+    }
 }
 
 function getPrompt() {

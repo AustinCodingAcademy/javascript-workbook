@@ -13,6 +13,25 @@ var board = [
 ];
 
 var playerTurn = 'X';
+var detectWin = false;
+var detectTie = false;
+
+function reset() {
+  //clear the board
+  board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+ //reset the win and tie values
+ detectWin = false;
+ detectTie = false;
+ console.log("\nNew Game! Please enter a value.\n");
+}
+
+function togglePlayerTurn() {
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+}
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,35 +43,105 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+   //check for horizontal win
+  if ((board [0][0] === playerTurn) && (board [0][1] === playerTurn) && (board [0][2] === playerTurn)) {
+    return true;
+  }
+  if ((board [1][0] === playerTurn) && (board [1][1] === playerTurn) && (board [1][2] === playerTurn)) {
+    return true;
+  }
+  if ((board [2][0] === playerTurn) && (board [2][1] === playerTurn) && (board [2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  //check for vertical win
+  if ((board [0][0] === playerTurn) && (board [1][0] === playerTurn) && (board [2][0] === playerTurn)) {
+    return true;
+  }
+  if ((board [0][1] === playerTurn) && (board [1][1] === playerTurn) && (board [2][1] === playerTurn)) {
+    return true;
+  }
+  if ((board [0][2] === playerTurn) && (board [1][2] === playerTurn) && (board [2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  //check for diagonal win
+  if ((board [0][0] === playerTurn) && (board [1][1] === playerTurn) && (board [2][2] === playerTurn)) {
+    return true;
+  }
+  if ((board [0][2] === playerTurn) && (board [1][1] === playerTurn) && (board [2][0] === playerTurn)) {
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('\nPlayer ' + playerTurn + ' Won!');
+    detectWin = true;
+    return true;
+  }
 }
 
+function checkForTie() {
+  var count = 0;
+  for (var i=0;i<3;i++) {
+    for (var j=0;j<3;j++) {
+      if (board[i][j] !== ' ') {
+        count += 1;
+      }
+    }
+  }
+  if (count === 9) {
+      console.log("\nIt's a tie! New Game has started.");
+      detectTie = true;
+  }
+}
+
+
 function ticTacToe(row, column) {
-  // Your code here
+  var validValues = [0,1,2];
+  if ((row in validValues) && (column in validValues)) {
+  //check duplicate
+  // if ((board[row][column] === "O") || (board[row][column] === "X")) { 
+  if (board[row][column]!== ' ') {
+  console.log("\nSpot already taken!!! Please restart.\n");
+  } else {
+  //put the turn on the board
+   board[row][column] = playerTurn;
+  //check for win
+  checkForWin();
+  //check for tie 
+  checkForTie();
+  //switch the players
+  togglePlayerTurn();
+   }
+  } else {
+    console.log("Please enter a valid value between 0 and 2!!!\n")
+  }
 }
 
 function getPrompt() {
   printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
+  if (detectWin === false) {
+    if (detectTie === false) {
+  console.log("\nIt's Player " + playerTurn + "'s turn.\n");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
       getPrompt();
-    });
-  });
-
+    }, ' \n');
+    });} else {
+      reset();
+      getPrompt();
+    }
+  } else {
+    reset();
+    getPrompt();
+  }
 }
 
 
