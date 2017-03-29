@@ -15,7 +15,7 @@ $(document).ready(function() {
           // store the comment_url into a variable for later usage 
           var curl = link["comments_url"];
           // set the href and data-url attributes, and then put all those together into a link object 
-          var dtext = "<a href="+ '#' + " data-url=" + link.url + " data-curl=" + curl + ">" + d2 + "</a><br/>";
+          var dtext = '<a href='+ "#" + " data-url=" + link.url + " data-curl=" + curl + ">" + d2 + "</a><br/>";
           // append the object to DOM 
           $('#posts').append(dtext);
         }
@@ -49,7 +49,7 @@ $(document).ready(function() {
         var commentUser = comment.user.login;
         var commentBody = comment.body;
         // put everything together into a HTML string
-        var commentHTML = "<h3><b>" + commentUser + "</b></h3><p><i>" + commentBody + "</i></p>";
+        var commentHTML = "<h4><b>" + commentUser + "</b></h4><p><i>" + commentBody + "</i></p>";
         // append the comment HTML to DOM 
         $('#comments').append(commentHTML);
       });     
