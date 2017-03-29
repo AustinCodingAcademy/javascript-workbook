@@ -35,7 +35,7 @@ $(document).ready(function() {
 
             var cont = content['files']['post.md'].content;
             console.log(cont);
-            $('#post').append(($('<div class="date">' + subdate + '</div>' + marked(cont))));
+            $('#post').append(($('<div class="date">' + subdate + '</div>' + '<div class="marked">' + marked(cont) + '</div>')));
             console.log(subdate);
 
           }

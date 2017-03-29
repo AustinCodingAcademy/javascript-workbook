@@ -44,6 +44,10 @@ ul {
   list-style-type: none;
 }
 
+.marked {
+  padding-top: 1px;
+}
+
 .user {
   float: left;
   margin-left: 5%;
