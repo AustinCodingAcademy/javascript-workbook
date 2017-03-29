@@ -58,9 +58,10 @@ p {
     font-size: 17px;
     float: left;
     width: 100%;
-    border: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
     padding: 10px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     box-sizing: border-box;
 }
 

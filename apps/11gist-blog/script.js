@@ -70,5 +70,5 @@ $(document).ready(function() {
     $.ajax(url, set);
   })
   
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', settings);
+  $.ajax('https://api.github.com/users/avagore/gists', settings);
 });
