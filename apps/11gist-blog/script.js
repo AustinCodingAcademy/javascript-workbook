@@ -20,7 +20,7 @@ $(document).ready(function () {
         var string = `
            <div>
              <li>${filterPosts(each.description)}</li>
-             <li><a href="#" data-url="${each.url}" data-id="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json">view</a></li>
+             <li><a href="#" data-url="${each.url}" data-comments="${each.comments_url}" data-id="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json">view</a></li>
            </div>`;
         console.log(string);
         //populate the page with content matching the filter
@@ -35,28 +35,30 @@ $(document).ready(function () {
         event.preventDefault();
         //populate the data
         //this is the link that was clicked
-        // ajaz function call
+        // ajax function call
         $.ajax(
           $(this).data('url'), {
             success: function (post) {
               console.log(post);
-              console.log(postLog);
               var postLog = post['files']['post.md'].content
               $('#post').empty();
               $('#post').append(
                 postLog);
             }
           }
-        ) //fix this
-        $.ajax($(this).data('comments'), {
-          success: function (comments) {
-            $('#comments').empty();
-            comments.forEach(function (comment) {
-              var $comment = $('<li>' + comment.user.login + ' ' + comment.body + '</li>');
-              $('#comments').append($comment);
-            })
-          }
-        })
+        ) //show the comments
+        $.ajax(
+          $(this).data('comments'), {
+            success: function (posts) {
+              console.log(posts);
+              console.log(comments);
+              posts.forEach(function (post) {
+                var comment = $('<li>' + post.user.login + ' ' + post.body + '</li>');
+                $('#comments').append(comment);
+
+              })
+            }
+          })
       })
     }
   })
@@ -65,43 +67,5 @@ $(document).ready(function () {
 
 
 /*
-
-href http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json
-
-data-id ${each.id}
-
-'use strict';
-
-$(document).ready(function() {
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
-    success: function(posts) {
-      posts.forEach(function(post) {
-        if (post.description.startsWith('#post')) {
-          var strPostDescription = post.description.slice(5);
-          var $post = $('<li><a href="#" data-url="' + post.url + '" data-comments="' + post.comments_url + '">' + strPostDescription + '</a></li>');
-          $('#posts').append($post);
-        };
-      })
-      $('body').on('click', 'a', function(event) {
-        event.preventDefault();
-        $.ajax($(this).data('url'), {
-          success: function(post) {
-            var postContent = post.files['post.md'].content;
-            $('#post').empty().append(marked(postContent))
-          }
-        });
-        $.ajax($(this).data('comments'), {
-          success: function(comments) {
-            $('#comments').empty();
-            comments.forEach(function(comment) {
-              var $comment = $('<li>' + comment.user.login + ' ' + comment.body + '</li>');
-              $('#comments').append($comment);
-            })
-          }
-        })
-      });
-    }
-  });
-});
 
 */
