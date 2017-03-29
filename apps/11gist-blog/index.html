@@ -1,14 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Gist Blog</title>
+  <meta charset="UTF-8">
+  <title>Tony's Gist Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns"><h1 id="title">Tony's Gist Blog</h1></div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <hr class="sidebar" />
+        <h5>Posts</h5>
+        <ul id="posts"></ul>
+        <hr class="sidebar" />
+        <h5>Links</h5>
+        <ul id="links">
+          <li><a class="social-links" href="https://www.instagram.com/tony_sleeves/">Instagram</a></li>
+          <li><a class="social-links" href="https://github.com/arinaldi">GitHub</a></li>
+        </ul> 
+        <hr class="sidebar" />
+      </div>
+      <div class="nine columns">
+        <div id="post"></div>
+        <div id="comments-header"></div>
+        <ul id="comments"></ul>
+      </div>
+    </div>
+  </div>
+
+  <template id="post-list-template">
+    <li><a class="post-links" href="#" data-url="{{url}}">{{title}}</a></li>
+  </template>
+
+  <template id="comments-total-template">
+    <div class="flex-container">
+      <h5 class="comments-total">Comments ({{total}})</h5>
+      <a class="button" href="{{url}}" target="_blank">Add a comment</a>
+    </div>
+  </template>
+
+  <template id="comment-template">
+    <li class="borderline">
+      <img class="avatar" src="{{avatar}}" />
+      <span class="user"><a class="user-links" href="https://github.com/{{user}}">{{user}}</a></span>
+      <span class="date">{{date}} at {{time}}</span>
+      <br />
+      <div class="comment">{{{body}}}</div>
+    </li>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

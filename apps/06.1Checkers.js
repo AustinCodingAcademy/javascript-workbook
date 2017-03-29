@@ -8,8 +8,12 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
@@ -52,16 +56,75 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.checkers = [];
+  this.createCheckers = function() {
+    var whitePositions = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+
+    function populateCheckers(color, position, grid, checkers) {
+      for (var i = 0; i < 12; i++) {
+        var checker = new Checker(color);
+        var coords = position[i];
+        var row = coords[0];
+        var column = coords[1];
+
+        grid[row][column] = checker;
+        checkers.push(checker);
+      }
+    };
+
+    populateCheckers('white', whitePositions, this.grid, this.checkers);
+    populateCheckers('black', blackPositions, this.grid, this.checkers);
+
+    this.selectChecker = function(row, column) {
+      return this.grid[row][column];
+    };
+
+    this.killChecker = function(position) {
+      var checker = this.selectChecker(position[0], position[1]);
+      var index = this.checkers.indexOf(checker);
+      this.checkers.splice(index, 1);
+      this.grid[position[0]][position[1]] = null;
+    };
+  }
+
 }
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
   };
+
+  this.moveChecker = function(start, end) {
+    var startX = parseInt(start.substring(0, 1)),
+      startY = parseInt(start.substring(1)),
+      endX = parseInt(end.substring(0, 1)),
+      endY = parseInt(end.substring(1));
+
+    var checker = this.board.selectChecker(startX, startY);
+    this.board.grid[startX][startY] = null;
+    this.board.grid[endX][endY] = checker;
+
+    var distance = Math.abs(startX - endX);
+    if (distance === 2) {
+      var midpointX = (startX + endX) / 2;
+      var midpointY = (startY + endY) / 2;
+      var killPosition = [midpointX, midpointY];
+      this.board.killChecker(killPosition);
+    }
+  }
 }
 
 function getPrompt() {

@@ -24,23 +24,55 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  return ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn)
+    || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn)
+    || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn));
 }
 
 function verticalWin() {
-  // Your code here
+  return ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn)
+    || (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn)
+    || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn));
 }
 
 function diagonalWin() {
-  // Your code here
+  return ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn)
+    || (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn));
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + ' Won!');
+    return true;
+  }
+  return false;
+}
+
+function isSpaceAvailable(row, column) {
+  return (board[row][column] === ' ');
+}
+
+function checkForFullBoard() {
+  for (var i = 0; i <= 2; i++) {
+    for (var j = 0; j <= 2; j++) {
+      if (board[i][j] === ' ') {
+        return false;
+      }
+    }
+  }
+  console.log('It\'s a tie');
+  return true;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+
+  if (checkForWin() || checkForFullBoard()) {
+    process.exit();
+    return;
+  }
+
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
 }
 
 function getPrompt() {
@@ -48,8 +80,13 @@ function getPrompt() {
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
+      if (isSpaceAvailable(row, column)) {
+        ticTacToe(row, column);
+        getPrompt();
+      } else {
+        console.log('Square taken, try again');
+        getPrompt();
+      }
     });
   });
 
@@ -65,6 +102,12 @@ if (typeof describe === 'function') {
     it('should place mark on the board', function () {
       ticTacToe(1, 1);
       assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+    });
+    it('should detect a taken square', function () {
+      assert.equal(isSpaceAvailable(1, 1), false);
+    });
+    it('should detect a free square', function () {
+      assert.equal(isSpaceAvailable(2, 2), true);
     });
     it('should alternate between players', function () {
       ticTacToe(0, 0);
@@ -85,7 +128,12 @@ if (typeof describe === 'function') {
     it('should detect a win', function () {
       assert.equal(checkForWin(), true);
     });
+    it('should check for a tie', function () {
+      board = [ ['X', 'O', 'X'], ['X', 'O', 'O'], ['O', 'X', 'X'] ];
+      assert.equal(checkForFullBoard(), true);
+    });
   });
+
 } else {
 
   getPrompt();
