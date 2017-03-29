@@ -18,12 +18,13 @@ li {
     font-size: 15px;
     margin: 5px;
 }
-a {
-  text-decoration: none !important;
 
+a {
+    text-decoration: none !important;
 }
-a:hover, a:active{
-  font-weight: bold;
+
+a:hover, a:active {
+    font-weight: bold;
 }
 
 #posts h2 {
@@ -46,7 +47,7 @@ ul {
 .user {
     float: left;
     margin-left: 5%;
-      opacity: 0.5;
+    opacity: 0.5;
 }
 
 .date {
@@ -76,7 +77,6 @@ ul {
 #post p {
     padding: 15px 0px;
 }
-
 
 .comments {
     margin: 0 auto;

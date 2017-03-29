@@ -30,13 +30,13 @@ $(document).ready(function() {
             $('#post').empty();
             // Spec 3: Insert the "content" of the file named post.md into #post.
             // Spec 3.1: Since our "content" is written in Markdown, we can use the Marked.js library to convert the content to html. Simply call marked() on your content. e.g. marked(content).
-var date = new Date(content.created_at);
-var subdate = date.toLocaleDateString();
+            var date = new Date(content.created_at);
+            var subdate = date.toLocaleDateString();
 
-              var cont = content['files']['post.md'].content;
-              console.log(cont);
-            $('#post').append(( $( '<div class="date">' + subdate + '</div>' + marked(cont)) ));
-console.log(subdate);
+            var cont = content['files']['post.md'].content;
+            console.log(cont);
+            $('#post').append(($('<div class="date">' + subdate + '</div>' + marked(cont))));
+            console.log(subdate);
 
           }
         });
@@ -44,27 +44,25 @@ console.log(subdate);
           success: function(comments) {
             // Clear previous comments
             $('#comments').empty();
-          var sorted = comments.sort(function(commenta, commentb){
-            var younger = new Date(commenta.created_at);
-            var older = new Date(commentb.created_at);
-            if (younger < older){
-              return 1;
-            }
-            else if (younger > older){
-              return -1;
-            }
-            else{
-              return 0;
-            }
-          });
+            var sorted = comments.sort(function(commenta, commentb) {
+              var younger = new Date(commenta.created_at);
+              var older = new Date(commentb.created_at);
+              if (younger < older) {
+                return 1;
+              } else if (younger > older) {
+                return -1;
+              } else {
+                return 0;
+              }
+            });
             // Loop through the various comments
             for (var i = 0; i < sorted.length; i++) {
               // Inserted Date for comment reference
               var date = new Date(sorted[i].created_at);
-              var subdate = (date.toLocaleDateString() + ' '+ date.toLocaleTimeString() );
+              var subdate = (date.toLocaleDateString() + ' ' + date.toLocaleTimeString());
 
               // Spec 4: After inserting your content, make another ajax call using the "comments_url", and insert the ["user"]["login"] and "body" in a list in #comments.
-              $('#comments').append(($('<div class="entry">' + '<div class="comment">' + sorted[i]['body'] + '</div>'  + '<div class="user">' + sorted[i]['user']['login'] + '</div>' + '<div class="date">' + subdate + '</div>' +'</div>')));
+              $('#comments').append(($('<div class="entry">' + '<div class="comment">' + sorted[i]['body'] + '</div>' + '<div class="user">' + sorted[i]['user']['login'] + '</div>' + '<div class="date">' + subdate + '</div>' + '</div>')));
             }
           }
         });
