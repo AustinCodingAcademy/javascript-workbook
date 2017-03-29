@@ -10,7 +10,7 @@ var assert = require('assert');
 // Problem 1:
 // Associative Array Refresh
 // Add properties x: 1, y: 2 to point to make it a point
-// in two dimensional space.
+// in two dimensional space.  
 var point = {
   x: 1,
   y: 2

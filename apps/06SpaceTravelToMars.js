@@ -19,7 +19,7 @@ class CrewMember{
       this.jobType = jobTypes[this.job];
       this.enterShip = function(ship) {
         this.ship = ship;
-        ship.crew.push(this);
+        ship.crew.push(this);  
       }
   }
 }
