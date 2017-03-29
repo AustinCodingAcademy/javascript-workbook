@@ -24,7 +24,7 @@ $(document).ready(function() {
         $.ajax(url + $(this).data('id'), {
           success: function(user) {
             var $details = $('#details');
-            
+      
             // this is the string setup for the details for each user.
             var str2 = "<h3>" + user.first_name + " " + user.last_name + "</h3>" +
                        "<h4>" + user.occupation + "</h4>" +
@@ -37,6 +37,9 @@ $(document).ready(function() {
 
             // this will place the details string (str2) into the #details div.
             $details.append(str2);
+
+            // extra credit phone number
+            
           }
         });
       });
