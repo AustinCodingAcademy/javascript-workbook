@@ -35,7 +35,7 @@ var set = {
       '<p>' + marked(content) + '</p>'
     );
     //add the string to the id #post.
-    $('#post').replaceWith(str);
+    $('#post').html(str);
 
 
 
@@ -54,7 +54,7 @@ var set = {
             '<li id="comment">' + userComment + '</li>'
           )
           //adding user's comments to the id #comments.
-          $('#comments').append(str);
+          $('#comments').html(str);
         })
       }
     }
