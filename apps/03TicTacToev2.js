@@ -39,7 +39,7 @@ function horizontalWin() {
           [' ', ' ', ' '],
           [' ', ' ', ' ']
         ];
-return true;
+   return true;
   } else
   return false;
 }
@@ -76,23 +76,23 @@ function diagonalWin() {
     [' ', ' ', ' '],
     [' ', ' ', ' ']
   ];
-return true;
-} else
-return false;
-}
+    return true;
+  } else
+  return false;
+  }
 
 function checkForWin() {
   // Your code here
   //console.log("run 1");
-  horizontalWin();
-  verticalWin();
-  diagonalWin()
-  return true;
+  console.log(horizontalWin());
+  console.log(verticalWin());
+  console.log(diagonalWin());
+  return false;
 }
 
 function ticTacToe(row, column) {
   // Your code here
-
+if (checkForWin() === false){
     if (playerTurn === 'X'){
       board[row][column] = 'X';
         checkForWin();
@@ -100,10 +100,15 @@ function ticTacToe(row, column) {
         //  playerTurn = 'O';
     } else {
       board[row][column] = 'O';
+
       checkForWin();
+
       //return playerTurn = 'X';
       playerTurn = (playerTurn==='O') ? 'X':'O';
     }
+  }else {
+    return 'false';
+  }
 }
 
 function getPrompt() {

@@ -41,7 +41,6 @@ function resetBoard(){
     for (var i=0; i<9; i++){
       data2[i].innerText = '';
     } //end of for loop
-    $('#announce-winner').html(''); //removes the winner text
   }); //end of JQUERY click function -----------------
 } //end of resetBoard
 
@@ -63,7 +62,6 @@ function checkForWin(playerTurn){
       data2[0].innerText === playerTurn && data2[4].innerText === playerTurn && data2[8].innerText === playerTurn ){
 
     console.log('success!')
-    $('#announce-winner').html('Player ' + playerTurn + ' Wins!');
     return true;
   }//end of horizontal IF
 } //end of checkForWin function

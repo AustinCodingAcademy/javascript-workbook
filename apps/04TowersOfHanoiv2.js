@@ -7,7 +7,6 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-var num = 0;
 var stacks = {
     a: [4,3,2,1],
     b: [],
@@ -23,34 +22,26 @@ function printStacks() {
 function movePiece(startStack, endStack) {
     // Your code here
 
-    //check for legal move first.
+
+    //check for legal move first.  if not return false then pop/push
     var answer = isLegal(startStack, endStack);
-    //if return is NOT false then pop/push
+
       if (answer != false) {
         var token = stacks[startStack].pop();
         stacks[endStack].push(token);
-        countMove();
         checkForWin();
 
-        // if all other rules fail
+        // all other rules fail
     } else {
-      countMove();
         console.log("Sorry buster, not allowed! Rules are that startStack < EndStack & can't be empty ")
         return false;
     }
 }
 
-function countMove(){
-    num++;
-    console.log(num + ' Number of Moves thus far');
-    return true;
-}
-
 function isLegal(startStack, endStack, sameVal) {
     // Your code here
-
-    var value1 = stacks[startStack].length - 1; //assign value of the array startStack
-    var value2 = stacks[endStack].length - 1; //assign value of the array endStack
+    var value1 = stacks[startStack].length - 1;
+    var value2 = stacks[endStack].length - 1;
 
 // evaluate if startStack is empty
     if (value1 === -1) {
@@ -79,21 +70,21 @@ function isLegal(startStack, endStack, sameVal) {
 
 }
 
-function checkForWin() {   // spec 2
+function checkForWin() {
     // Your code here
     //checks if another stack is a winner
     if (stacks.b.length === 4 || stacks.c.length === 4) {
 
         console.log("YOU WIN, Woohoo!!!")
 
-        //reset the game after win
+        //reset the game
         stacks = {
             a: [4, 3, 2, 1],
             b: [],
             c: []
         }; return true;
 
-    } else { /// not a Win - Spec 3
+    } else {
         //console.log("not a winner")
         return false;
     }
@@ -104,10 +95,8 @@ function towersOfHanoi(startStack, endStack) {
     // Your code here
     //  isLegal(startStack, endStack);
 
-//enforce all lower case
-startStack = startStack.toLowerCase();
-endStack = endStack.toLowerCase();
-
+    // startStack = startStack.toLowerCase;
+    // endStack = endStack.toLowerCase;
 
     movePiece(startStack, endStack);
 }
