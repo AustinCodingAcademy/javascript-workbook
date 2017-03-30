@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
   // You code here
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+  $.ajax('https://api.github.com/users/UnimportantWank/gists', {
     success: function (description) {
       console.log(description);
       // fliltering out anything that isn't a #post
@@ -20,7 +20,7 @@ $(document).ready(function () {
         var string = `
            <div>
              <li>${filterPosts(each.description)}</li>
-             <li><a href="#" data-url="${each.url}" data-comments="${each.comments_url}" data-id="http://127.0.0.1:8080/apps/11gist-blog/api/${each.id}.json">view</a></li>
+             <li><a href="#" data-url="${each.url}" data-comments="${each.comments_url}" data-id="https://api.github.com/users/UnimportantWank/gists/${each.id}.json">view</a></li>
            </div>`;
         console.log(string);
         //populate the page with content matching the filter
@@ -53,7 +53,7 @@ $(document).ready(function () {
               console.log(posts);
               console.log(comments);
               posts.forEach(function (post) {
-                var comment = $('<li>' + post.user.login + ' ' + post.body + '</li>');
+                var comment = $('<li>' + post.user.login + ': ' + post.body + '</li>');
                 $('#comments').append(comment);
 
               })
