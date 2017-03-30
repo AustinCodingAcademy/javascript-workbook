@@ -50,6 +50,7 @@ $(document).ready(function () {
         $.ajax(
           $(this).data('comments'), {
             success: function (comments) {
+              //empty before you append
               $('#comments').empty()
               console.log(comments);
               comments.forEach(function (post) {
