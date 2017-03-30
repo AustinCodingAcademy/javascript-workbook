@@ -10,21 +10,46 @@ $(document).ready(function() {
   $('#make-it-cute').on('click', () => {
     $.ajax('https://www.reddit.com/r/aww.json?jsonp=', {
       success: (giantGodDamnMess) => {
-        $('#cute-landing-pad').append(
-          $('<img src="' + giantGodDamnMess['data']['children'][1]['data']['url'] + '" /> ')
+
+
+        giantGodDamnMess['data']['children']
+        .splice(1)
+        .forEach(
+          (currentChild) => {
+            $('#cute-landing-pad').append(
+              $("<p></p>").text(
+                currentChild['data']['title']
+              )
+            );
+
+            const thumbnailURL = currentChild['data']['thumbnail'];
+            // const $imgTag = $(`<img src="${thumbnailURL}"`)
+
+            $('#cute-landing-pad').append(
+              $(`<img src="${thumbnailURL}">`)
+            );
+
+          }
         );
+
+        $('img').on('click', () => {
+          console.log('I was clicked.');
+        });
 
       }
     });
   });
 
-  // $.ajax('https://www.reddit.com/r/aww.json', {
-  //   success: function(response) {
-  //     for (var i = 0; i < response.length; i++) {
-  //       console.log(response[i]['data']['children']['data']['preview']['images']);
-  //
-  //     }
-  //   }
-  // });
+  $.ajax('https://www.reddit.com/r/aww.json', {
+    success: function(response) {
+      for (var i = 0; i < response.length; i++) {
+        console.log(response[i]['data']['children']['data']['thumbnail']);
+
+      }
+    }
+  });
 
 });
+
+
+// $('<img src="' + giantGodDamnMess['data']['children'][1]['data']['url'] + '" /> ')
