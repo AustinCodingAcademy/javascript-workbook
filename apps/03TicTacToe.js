@@ -25,22 +25,70 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  // Top horizontal row
+  if (
+    (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+    // mid horizontal row
+    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+    // bottom horizontal row
+    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
+  return false;
 }
 
 function verticalWin() {
   // Your code here
+  if ( // first vert col
+    (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+    // mid vert col
+    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+    // last vert col
+    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
+  return false;
 }
 
 function diagonalWin() {
   // Your code here
+  if ( // top left to bottom right
+    (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+    // bottom left to top right
+    (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 function checkForWin() {
   // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + 'Won!');
+    return true;
+  }
+  return false;
+}
+
+
+var isSpaceAvailable = function(row, column) {
+  if (board[row][column] === ' ') {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  if (isSpaceAvailable(row, column)) {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  } else {
+    console.log('This space is already taken. Try another space, loser.');
+  }
 }
 
 function getPrompt() {
@@ -61,28 +109,48 @@ function getPrompt() {
 
 if (typeof describe === 'function') {
 
-  describe('#ticTacToe()', function () {
-    it('should place mark on the board', function () {
+  describe('#ticTacToe()', function() {
+    it('should place mark on the board', function() {
       ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        [' ', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
-    it('should alternate between players', function () {
+    it('should alternate between players', function() {
       ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        ['O', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
-    it('should check for vertical wins', function () {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+    it('should check for vertical wins', function() {
+      board = [
+        [' ', 'X', ' '],
+        [' ', 'X', ' '],
+        [' ', 'X', ' ']
+      ];
       assert.equal(verticalWin(), true);
     });
-    it('should check for horizontal wins', function () {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+    it('should check for horizontal wins', function() {
+      board = [
+        ['X', 'X', 'X'],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+      ];
       assert.equal(horizontalWin(), true);
     });
-    it('should check for diagonal wins', function () {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+    it('should check for diagonal wins', function() {
+      board = [
+        ['X', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', 'X']
+      ];
       assert.equal(diagonalWin(), true);
     });
-    it('should detect a win', function () {
+    it('should detect a win', function() {
       assert.equal(checkForWin(), true);
     });
   });
