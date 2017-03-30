@@ -8,8 +8,8 @@
 $(document).ready(function() {
 
   // Spec 1.1: Using jQuery to make an AJAX call, insert a list of links into #posts using JavaScript forEach with the "description" of each gist as the text.
-$.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
-  // $.ajax('https://api.github.com/users/morgakd/gists', {
+// $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+  $.ajax('https://api.github.com/users/morgakd/gists', {
     success: function(response) {
       console.log(response);
       response.forEach(function(posts) {
