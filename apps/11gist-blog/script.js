@@ -49,13 +49,12 @@ $(document).ready(function () {
         ) //show the comments
         $.ajax(
           $(this).data('comments'), {
-            success: function (posts) {
-              console.log(posts);
+            success: function (comments) {
+              $('#comments').empty()
               console.log(comments);
-              posts.forEach(function (post) {
+              comments.forEach(function (post) {
                 var comment = $('<li>' + post.user.login + ': ' + post.body + '</li>');
-                $('#comments').append(comment);
-
+                $('#comments').html(comment);
               })
             }
           })
