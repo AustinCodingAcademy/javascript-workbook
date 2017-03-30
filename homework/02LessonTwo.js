@@ -26,6 +26,12 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if(argument1 == argument2){ //test and compare argument values (==) return true if match
+      return true;
+      }
+  else{ // return false if arguments do not match
+    return false; 
+    }
 }
 
 // Problem 2:
@@ -34,17 +40,32 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if(parameter1 <= parameter2){ // check parameter1 is less than or equal to parameter2
+    return true; //return true only if condition is met
+  }
+  else{
+    return false; //return false if condition is not met
+  }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add(number1, number2){ //function add, takes in two arguments, number 1 and number 2
+   return number1 + number2; //returns the sum of those arguments;
+
+}
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(number1, number2, number3){ //addThree, accepts three arguments
+    return add(number1, number2) + number3; //returns sum of three arguments with add function
+
+
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +75,24 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+//A function is a block of code that preforms a particular task.
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+//return value allows you to cease execution of a block of code,
+// one can return value(s) or nothing at all.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+//you define a function with the keyword 'function' 
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+//I always saw peramters as a variable in the functions definitions
+// arguments would be the datatypes or values ,you pass through the variables
 // ****
 
 
@@ -84,7 +107,15 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+if(number % 2 == 0){
+  return true;
 }
+  else{
+    return false;
+  }
+}
+
+
 
 // Problem 6:
 // isDivisibleByThree(number) is a function that
@@ -93,7 +124,14 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+if(number % 3 == 0){
+  return true;
 }
+  else{
+    return false;
+  }
+}
+
 
 // ****
 // Conditionals
@@ -108,6 +146,16 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if(character === "scooby"){
+    return 'dog';
+  }
+  if(character === 'garfield'){
+    return 'cat';
+  }
+  if(character === 'nemo'){
+    return 'fish';
+  }
+  else return false;
 }
 
 // Problem 8:
@@ -118,16 +166,32 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number){
+  if(number % 4 == 0){
+    return 'divisible by 4';
+  }
 
+if(number % 2 == 0){
+    return 'divisible by 2';
+  }
+if(number % 3 == 0){
+    return 'divisible by 3';    
+}
+if(number % 5 == 0){
+    return 'divisible by 5';
+}
+}
 // ****
 // Concept Checkpoint
 //
 // Write your answer in comments
 //
 // In your own words, explain what conditionals do.
-//
+//Conditionals allow us to test and or compare two or more things (variables, return vales etc)
+// against eachother and create code to best solve answer our problem.
 // Your Answer Goes Here:
-//
+//Conditionals allow us to test and or compare two or more things (variables, return vales etc)
+// against eachother and create code to best solve answer our problem.
 //
 // ****
 
