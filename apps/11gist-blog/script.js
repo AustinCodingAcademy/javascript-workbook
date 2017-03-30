@@ -31,7 +31,7 @@ $(document).ready(function() {
 
       // DOM-manipulation assignments and related activities
       var $title = $('title').text();
-      var newTitle = $('<h1 class="sm-col-4">' + $title + '</h1>');
+      var newTitle = $('<h1>' + $title + '</h1>');
 
       $posts.before(newTitle);
       $posts.wrap('<aside class="small-12 medium-offset-1 medium-3"></aside>');
