@@ -11,12 +11,16 @@ ul {
   letter-spacing: 1.25px;
 }
 
+.gist-title {
+  letter-spacing: 1.25px;
+}
+
 #posts {
   border-right: 1px solid hsla(0, 100%, 0%, 0.5);
 }
 
 .posts-area {
-  padding: 2%;
+  padding: 3% 1%;
 }
 
 #comments {
