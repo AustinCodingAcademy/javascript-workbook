@@ -44,6 +44,7 @@ $(document).ready(function() {
           success: function(comments) {
             // Clear previous comments
             $('#comments').empty();
+            //sort the comments; newest first
             var sorted = comments.sort(function(commenta, commentb) {
               var younger = new Date(commenta.created_at);
               var older = new Date(commentb.created_at);
@@ -62,7 +63,7 @@ $(document).ready(function() {
               var subdate = (date.toLocaleDateString() + ' ' + date.toLocaleTimeString());
 
               // Spec 4: After inserting your content, make another ajax call using the "comments_url", and insert the ["user"]["login"] and "body" in a list in #comments.
-              $('#comments').append(($('<div class="entry">' + '<div class="comment">' + sorted[i]['body'] + '</div>' + '<div class="user">' + sorted[i]['user']['login'] + '</div>' + '<div class="date">' + subdate + '</div>' + '</div>')));
+              $('#comments').append(($('<div class="entry">' + '<div class="comment">' + marked(sorted[i]['body']) + '</div>' + '<div class="user">' + sorted[i]['user']['login'] + '</div>' + '<div class="date">' + subdate + '</div>' + '</div>')));
             }
           }
         });

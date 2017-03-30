@@ -39,7 +39,9 @@ a:hover, a:active {
   margin: 0 auto;
   padding-left: 0px;
 }
-
+/*div .comments{
+  list-style-type:   !important;
+}*/
 ul {
   list-style-type: none;
 }
