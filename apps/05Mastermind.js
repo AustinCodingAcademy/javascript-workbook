@@ -8,9 +8,11 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var solutionLength = null;
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -18,8 +20,8 @@ function printBoard() {
   }
 }
 
-function generateSolution() {
-  for (var i = 0; i < 4; i++) {
+function generateSolution(solutionLength) {
+  for (var i = 0; i < solutionLength; i++) {
     var randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
   }
@@ -30,13 +32,12 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
-  // your code here
   var solutionArray = solution.split('');
   var guessArray = guess.split('');
   var correctLetterLocations = 0;
   var correctLetters = 0;
 
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < solutionLength; i++) {
     if (solutionArray[i] === guessArray[i]) {
       correctLetterLocations++;
       solutionArray[i] = null;
@@ -44,7 +45,8 @@ function generateHint(solution, guess) {
 
   }
 
-  for (var j = 0; j <= 4; j++) {
+  for (var j = 0; j <= solutionLength; j++) {
+
     //If this is greater than -1 then the string has been found.
     var targetIndex = solutionArray.indexOf(guessArray[j]);
 
@@ -58,14 +60,19 @@ function generateHint(solution, guess) {
 }
 
 function mastermind(guess) {
-  // your code here
-  solution = 'abcd';
   if (guess === solution) {
-    return ('You guessed it!');
+    console.log('You guessed it!');
     process.exit();
     return true;
-  } else if (board.length === 10) {
-    return ('You ran out of turns! The solution was ' + solution + '.')
+  } else if (board.length === (solution.length * 2.5)) {
+    console.log('You ran out of turns! The solution was ' + solution + '.');
+    rl.question('Want to play again? Type yes or no: ', (playAgain) => {
+      if (playAgain.toLowerCase === 'yes') {
+        getPrompt();
+      } else {
+        process.end;
+      };
+    })
   } else {
     var hint = generateHint(solution, guess);
     board.push(hint + ': ' + guess);
@@ -73,13 +80,19 @@ function mastermind(guess) {
   }
 }
 
-
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log(mastermind(guess));
-    printBoard();
-    getPrompt();
-  });
+  if (!solution) {
+    rl.question('How long do you want the solution to be? 4, 6 or 8 characters: ', (solutionLength) => {
+      generateSolution(solutionLength);
+      getPrompt();
+    })
+  } else {
+    rl.question('guess: ', (guess) => {
+      console.log(mastermind(guess));
+      printBoard();
+      getPrompt();
+    });
+  }
 }
 
 // Tests

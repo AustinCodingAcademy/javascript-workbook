@@ -1,7 +1,7 @@
 'use strict';
 
 $(document).ready(function() {
-  $.ajax('https://api.github.com/users/desmond-ishmael/gists', {
+  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
     success: function(posts) {
       posts.forEach(function(post) {
         if (post.description.startsWith('#post')) {
@@ -22,11 +22,7 @@ $(document).ready(function() {
           success: function(comments) {
             $('#comments').empty();
             comments.forEach(function(comment) {
-              var date = new Date(comment.created_at)
-              var subdate = (date.toLocaleDateString() + ' ' + date.toLocaleTimeString() );
-              var $comment = $('<div class= comment-entry>' + '<div>' + comment.user.login + '</div>' +
-              '<div>' + comment.body + '</div>' +
-              '<div>' + subdate + '</div>' + '</div>');
+              var $comment = $('<li>' + comment.user.login + ' ' + comment.body + '</li>');
               $('#comments').append($comment);
             })
           }

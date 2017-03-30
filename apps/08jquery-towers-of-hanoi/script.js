@@ -6,7 +6,7 @@ $(document).ready(function() {
   $('[data-stack]').click(function() {
     //this is a listener for clicks!
 
-    if ($block == null) {
+    if ($block === null) {
       //setting the announcement text to nothing in case the player made an illegal move previously
       $('#announce-game-won').text('');
       $block = $(this).children().last().detach();

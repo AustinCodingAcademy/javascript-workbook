@@ -1,14 +1,11 @@
 'use strict';
 
 $(document).on('ready', function() {
-  // Put app logic in here
   var playerTurn = 'X';
   $('div[data-cell]').on('click', function() {
     $(this).text(playerTurn);
     checkForWin();
     playerTurn = (playerTurn === 'X' ? 'O' : 'X');
-
-
   });
 
   function checkForWin() {
