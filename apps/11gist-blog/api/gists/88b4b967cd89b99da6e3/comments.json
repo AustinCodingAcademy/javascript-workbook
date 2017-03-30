@@ -23,7 +23,7 @@
     },
     "created_at": "2016-01-17T16:37:05Z",
     "updated_at": "2016-01-17T16:37:05Z",
-    "body": "This is great!"
+    "body": "* This is **great!**"
   },
   {
     "url": "http://127.0.0.1:8080/apps/11gist-blog/api/gists/88b4b967cd89b99da6e3/comments/1672190",
@@ -49,6 +49,7 @@
     },
     "created_at": "2016-01-17T16:37:18Z",
     "updated_at": "2016-01-17T16:37:18Z",
-    "body": "You rock!"
+    "body": "* This is weird!\n 1. You rock!\n **sup**"
+
   }
 ]

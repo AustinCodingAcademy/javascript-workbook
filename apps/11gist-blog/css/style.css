@@ -42,7 +42,7 @@ a:hover, a:active {
 /*div .comments{
   list-style-type:   !important;
 }*/
-ul {
+ ul#posts {
   list-style-type: none;
 }
 
