@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Gist Blog</title>
+    <title>Gist Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+    <div class="container">
+        <h1 class="title">Functional Gist</h1>
+        <div class="row">
+            <h5 class="one column gist-title">Gists:</h5>
+        </div>
+        <div class="row">
+            <ul class="two columns" id="posts"></ul>
+            <div class="eight columns posts-area" id="post"></div>
+            <ul class="four columns" id="comments"></ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
 </body>
+
 </html>

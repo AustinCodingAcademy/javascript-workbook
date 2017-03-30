@@ -1,10 +1,11 @@
 div[data-cell] {
   width: 100px;
   height: 100px;
-  background-color: #f2f2f2;
+  background-color: hsla(0, 0%, 0%, 0.05);
   float: left;
-  border: 1px solid #808080;
+  border: 1px solid hsla(0, 0%, 0%, .65);
   font-size: 100px;
+  font-family: helvetica;
   text-align: center;
 }
 
@@ -12,7 +13,27 @@ div[data-cell] {
   clear: both;
 }
 
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  padding: 10px 20px;
+  background: -moz-linear-gradient( top, #ffffff 0%, #ffffff 50%, #d6d6d6);
+  background: -webkit-gradient( linear, left top, left bottom, from(#ffffff), color-stop(0.50, #ffffff), to(#d6d6d6));
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 3px solid #00ffaa;
+  -moz-box-shadow: 0px 1px 0px rgba(000, 000, 000, 0.5), inset 0px 0px 3px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 1px 0px rgba(000, 000, 000, 0.5), inset 0px 0px 3px rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 0px rgba(000, 000, 000, 0.5), inset 0px 0px 3px rgba(255, 255, 255, 1);
+  text-shadow: 0px 0px 0px rgba(000, 000, 000, 0), 0px 0px 0px rgba(255, 255, 255, 0);
+}
+
 #announce-winner {
+  position: relative;
+  padding: .5%;
   clear: both;
-  font-size: 50px;
+  font-size: 225%;
+  font-family: helvetica, sans-serif;
 }

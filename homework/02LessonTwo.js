@@ -26,6 +26,8 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  return (argument1 === argument2);
+
 }
 
 // Problem 2:
@@ -34,17 +36,31 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  if (parameter1 <= parameter2) {
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(x, y) {
+
+  return x + y;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
 
+function addThree(x, y, z) {
+  return x + y + z;
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +70,23 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
-//
+//  A function is how you tell javascript to do a certain action/group of actions.
+//  They do nothing until they're invoked
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+//  It stops the execution of the function.
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
-//
+//  myFunction () {} this function is now called myFunction
+//  then you can go on into defining what that function does.
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+//    Params are used to define functions; arguments are used to invoke/call the function.
+//   you define parameters, you make arguments.
 // ****
 
 
@@ -84,6 +101,11 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if ((number % 2) === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Problem 6:
@@ -93,6 +115,11 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  if ((number % 3) === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // ****
@@ -108,6 +135,17 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === 'scooby') {
+    return 'dog';
+  }
+  if (character === 'garfield') {
+    return 'cat';
+  }
+  if (character === 'nemo') {
+    return 'fish';
+  } else {
+    return false;
+  }
 }
 
 // Problem 8:
@@ -118,6 +156,22 @@ function whichSpecies(character) {
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
 
+function testNumber(number) {
+  if ((number % 4) === 0) {
+    return 'divisible by 4';
+  }
+  if ((number % 2) === 0) {
+    return 'divisible by 2';
+  }
+  if ((number % 3) === 0) {
+    return 'divisible by 3';
+  }
+  if ((number % 5) === 0) {
+    return 'divisible by 5';
+  } else {
+    return false;
+  }
+}
 
 // ****
 // Concept Checkpoint
@@ -127,8 +181,8 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
-//
+// If, else, and else if are used to tell a function where to go next if certain conditions are met/true or if they're false.
+//  It's like a roadmap for things to try in order to get the correct output.
 // ****
 
 // ****
@@ -207,7 +261,7 @@ describe('Lesson 2 Homework', function () {
     });
   });
 
-  describe('Conditionals', function() {
+  describe('Conditionals', function () {
     describe('Problem 7: whichSpecies(character)', function () {
       it('should return "dog" when character is scooby', function () {
         assert.equal(whichSpecies('scooby'), 'dog');
