@@ -9,7 +9,82 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+  this.missionStatement = function () {
+    for (var i = 0; i < (this.crew.length + 10); i = i + 1) {
+      if (typeof this.crew[i] === 'undefined') {
+        return "Can't perform a mission yet.";
+      } if ((Object.getOwnPropertyNames(jobTypes).includes(this.crew[i].job)) === true) {
+        return this.ability;
+      } else {
+        return "Can't perform a mission yet.";
+      }
+    }
+  }
+}
+
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function (ship) {
+    this.ship = ship;
+    ship.crew.push(this);
+  }
+}
+
+// ES6 Trials below...having syntax errors
+//
+// class CrewMember {
+//   constructor (name, job, specialSkill) {
+//     this.name = name;
+//     this.job = job;
+//     this.specialSkill = specialSkill;
+//     this.ship = null;
+//     enterShip (ship) {
+//      this.ship = ship;
+//      this.crew.push(this);
+//     }
+//   }
+// }
+//
+// class Ship {
+//   constructor (name, type, ability) {
+//     this.name = name;
+//     this.type = type;
+//     this.ability = ability;
+//     this.crew = [];
+//     missionStatement () {
+//        for (var i = 0; i < (this.crew.length + 10); i = i + 1) {
+//            if (typeof this.crew[i] === 'undefined') {
+//              return "Can't perform a mission yet.";
+//          } if ((Object.getOwnPropertyNames(jobTypes).includes(this.crew[i].job)) === true) {
+//            return this.ability;
+//            } else {
+//              return "Can't perform a mission yet.";
+//            }
+//        }
+//     }
+//   }
+// }
+
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+// var hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+// var crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+//
+// crewMember1.enterShip(mav);
+// // console.log(rick.ship.name);
+// console.log(mav.missionStatement);
 
 //tests
 if (typeof describe === 'function'){

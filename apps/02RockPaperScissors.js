@@ -10,15 +10,49 @@ var rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
 
+  var validOptions = ['rock', 'paper', 'scissors'];
+  if (validOptions.indexOf(hand1) < 0 || validOptions.indexOf(hand2) < 0) {
+    return 'Invalid entry, please try again.';
+  }
+
+  if (hand1 === hand2) {
+    return 'It\'s a tie!';
+  }
+
+  if (hand1 === 'rock') {
+    if (hand2 === 'scissors') {
+      return 'Hand one wins!';
+    }
+    return 'Hand two wins!';
+  }
+
+  if (hand1 === 'paper') {
+    if (hand2 === 'rock') {
+      return 'Hand one wins!';
+    }
+    return 'Hand two wins!';
+  }
+
+  if (hand1 === 'scissors') {
+    if (hand2 === 'paper') {
+      return 'Hand one wins!';
+    }
+    return 'Hand two wins!';
+  }
 }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
+
+      if (rockPaperScissors(answer1, answer2) !== 'It\'s a tie!') {
+        console.log('GAME OVER!');
+        process.exit();
+      } else getPrompt();
     });
   });
 }
