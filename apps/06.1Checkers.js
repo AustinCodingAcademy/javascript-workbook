@@ -8,12 +8,53 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker {
+  constructor(color) {
+    if(color === 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+    else {
+      this.symbol = String.fromCharCode(0x125CF);
+    }
+  }
 }
+
 
 function Board() {
   this.grid = [];
+  this.checkers = [];
+  this.createCheckers = function() {
+    var whitePositions = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+
+    //doing i = 0; i++ shit for you
+    //spot = whitePositions[i]
+    for(var spot of whitePositions) {
+      //spot is an array
+      //row, column [0, 1]
+      var row = spot[0];
+      var column = spot[1];
+      var whiteChecker = new Checker('white');
+      this.grid[row][column] = whiteChecker;
+      this.checkers.push(whiteChecker);
+    }
+
+    for(var spot of blackPositions) {
+      var row = spot[0];
+      var column = spot[1];
+      var blackChecker = new Checker('black');
+      this.grid[row][column] = blackChecker;
+      this.checkers.push(blackChecker);
+    }
+  }
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -53,15 +94,46 @@ function Board() {
   };
 
   // Your code here
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column];
+  }
+
+  this.killChecker = function(position) {
+    var checkerPosition = this.selectChecker(position[0], position[1]);
+    var find = this.checkers.indexOf(checkerPosition);
+    this.checkers.splice(find, 1);
+    this.grid[position[0]][position[1]] = null;
+  }
 }
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
   };
+
+  this.moveChecker = function(start, end) {
+    var startRow = Number(start[0]);
+    var startColumn = Number(start[1]);
+    var endRow = Number(end[0]);
+    var endColumn = Number(end[1]);
+    var checker = this.board.selectChecker(startRow, startColumn);
+    this.board.grid[startRow][startColumn] = null;
+    this.board.grid[endRow][endColumn] = checker;
+    
+    var distance = Math.abs(startRow - endRow);
+    var midRow = (startRow + endRow) / 2;
+    var midCol = (startColumn + endColumn) / 2;
+    var killPosition = [midRow, midCol];
+
+    if(distance === 2) {
+      this.board.killChecker(killPosition);
+    }
+    
+  }
 }
 
 function getPrompt() {

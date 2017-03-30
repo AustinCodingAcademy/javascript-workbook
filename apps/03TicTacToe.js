@@ -22,25 +22,71 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
+//starting a new game after a win
+function newGame() {
+  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+  return board;
+}
 
+//finding a horizontal win from players
 function horizontalWin() {
-  // Your code here
+  if((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || 
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
-
+//finding vertical win from players
 function verticalWin() {
-  // Your code here
+  if((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || 
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
-
+//finding diagonal win from players
 function diagonalWin() {
-  // Your code here
+  if((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+    return true;
+  }
 }
-
+//checking if a player has won
 function checkForWin() {
-  // Your code here
+  if(horizontalWin()|| verticalWin()|| diagonalWin()) {
+    console.log("Player " + playerTurn + " is the winner!");
+    
+    newGame();
+    return true;
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  // checks for invalid input
+  if(row > 2 || isNaN(row)) {
+    console.log("Invalid input.");
+    return false;
+  } else if(column > 2 || isNaN(column)) {
+    console.log("Invalid input.");
+    return false;
+  }
+
+  //Can't select space that's already been marked
+  if(board[row][column] !== ' ') {
+    console.log("Place has already been marked. Try again.");
+    return true;
+  }
+
+  board[row][column] = playerTurn;
+  checkForWin();
+  //switches between players
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+
+  
 }
 
 function getPrompt() {
