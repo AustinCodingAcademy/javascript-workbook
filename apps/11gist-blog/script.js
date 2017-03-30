@@ -46,15 +46,20 @@ var set = {
         comments.forEach(function(comment) {
           //finding the user's name and assigning it to a variable.
           var name = comment.user.login;
+          var id = comment.user.id;
           //assigning the user's comment to a variable.
           var userComment = comment.body;
+          var avatar = comment.user.avatar_url;
           //putting the user's name and their comment into a string.
           var str = (
-            '<li id="user">' + name + '</li>' +
+            '<div class="container-fluid commentsection">' +
+            '<img src="' + avatar + '" class="image">' +
+            '<li id="user">' + id + ' ' + name + '</li>' +
+            '</div>' +
             '<li id="comment">' + userComment + '</li>'
           )
           //adding user's comments to the id #comments.
-          $('#comments').html(str);
+          $('#comments').empty().append(str);
         })
       }
     }
