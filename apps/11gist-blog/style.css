@@ -1,5 +1,9 @@
-li {
-  list-style: none;
+/* E L E M E N T S */
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 40px;
 }
 
 aside {
@@ -7,18 +11,62 @@ aside {
 
 }
 
-#site_title {
-  text-align: center;
-  font-size: 35px;
-  width: 100%;
+ul {
+  margin-left: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+#post {
+  margin-bottom: 40px;
 }
 
 
 
-/* R E S P O N S I V E */
+/* T Y P O G R A P H Y */
 
-@media print, screen and (max-width: 40em){
-  aside ul {
-    display: none;
-  }
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #5e5e5e;
+}
+
+h6 {
+  letter-spacing: 1.5px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.post_dates {
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.comment-body {
+  color: #5e5e5e;
+  font-size: 13px;
+  line-height: 1;
 }
