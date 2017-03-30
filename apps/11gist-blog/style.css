@@ -1,3 +1,24 @@
 li {
   list-style: none;
 }
+
+aside {
+  float: right;
+
+}
+
+#site_title {
+  text-align: center;
+  font-size: 35px;
+  width: 100%;
+}
+
+
+
+/* R E S P O N S I V E */
+
+@media print, screen and (max-width: 40em){
+  aside ul {
+    display: none;
+  }
+}
