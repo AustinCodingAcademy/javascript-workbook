@@ -1,0 +1,96 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.head h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Amatic SC', cursive;
+  font-size: 80px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+li {
+  font-size: 15px;
+  margin: 5px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover, a:active {
+  font-weight: bold;
+}
+
+#posts h2 {
+  font-family: 'Amatic SC', cursive;
+  font-weight: normal;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+#comments {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 0px;
+}
+
+ul#posts {
+  list-style-type: none;
+}
+
+.marked {
+  padding-top: 1px;
+}
+
+.user {
+  float: left;
+  margin-left: 5%;
+  opacity: 0.5;
+}
+
+.date {
+  float: right;
+  font-size: 15px;
+  opacity: 0.5;
+}
+
+.comment {
+  background-color: rgb(250, 250, 250);
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+.entry {
+  background-color: rgb(240, 240, 240);
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 30px;
+}
+
+#post h3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+}
+
+#post p {
+  padding: 15px 0px;
+}
+
+.comments {
+  margin: 0 auto;
+}
+
+#posts {
+  margin-top: 20px;
+  padding: 0px;
+}
+
+#post {
+  margin: 50px 0px;
+}
