@@ -35,3 +35,19 @@ body{
   /*margin-left: 300px;*/
   text-align: center;
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+h1{
+  margin-right: 30px;
+}
+
+}
+
+@media (max-width: 767px) {
+
+post{
+  margin: 0px 30px;
+}
+
+ }
