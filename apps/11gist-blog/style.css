@@ -1,0 +1,53 @@
+h1{
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 30px;
+  text-shadow: 2px 2px gray;
+  letter-spacing: 2.5px;
+}
+
+#post{
+  font-family: 'Macondo', cursive;
+}
+
+#posts{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  line-height: 2.5;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border:1px solid #333333;
+  margin: 0px 400px;
+  list-style:none;;
+}
+
+#comments{
+  color:green;
+  text-align: center;
+  display: inline-block;
+
+font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+body{
+  /*margin-left: 300px;*/
+  text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+h1{
+  margin-right: 30px;
+}
+
+}
+
+@media (max-width: 767px) {
+
+post{
+  margin: 0px 30px;
+}
+
+ }

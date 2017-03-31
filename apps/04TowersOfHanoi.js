@@ -19,23 +19,71 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  // moving the block off the startStack and adding it to the endStack
+  var block = stacks[startStack].pop();
+  stacks[endStack].push(block);
 
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
+  //logging the various variables that will be used in this function
+  console.log('startStack', startStack);
+  console.log('endStack',endStack);
+  console.log('startArray',stacks[startStack]);
+  console.log('endArray',stacks[endStack]);
 
+// checking the value of the last number on the start and end stacks
+  var startArray = stacks[startStack];
+  var topOfStart = startArray[startArray.length -1];
+  console.log(topOfStart);
+
+  var endArray = stacks[endStack];
+  var topOfEnd = endArray[endArray.length -1];
+  console.log(topOfEnd);
+
+// checking legality of the move
+if(startArray.length === 0){
+  return false;
+}
+
+if(endArray.length === 0){
+  return true;
+}
+
+
+
+  if(topOfStart < topOfEnd){
+    return true;
+  }
+  else {
+    console.log("move is illegal");
+    return false;
+  }
 }
 
 function checkForWin() {
   // Your code here
+  // checking the lengths of either end stack to determine a win
+  if(stacks ['b'].length === 4 || stacks ['c'].length === 4 ){
+    console.log("You Win");
+    return true;
+  }else{
+    return false;
+  }
+
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  //order the gremlin will check the functions to run the game properly
+  isLegal(startStack, endStack);
+  movePiece(startStack, endStack);
+  console.log(stacks);
+  checkForWin(endStack);
 
 }
 
