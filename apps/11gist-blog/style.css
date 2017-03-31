@@ -1,0 +1,18 @@
+body {
+    background-image: url("http://kingofwallpapers.com/gradient/gradient-023.jpg");
+    color: black;
+    margin-top: 50px;
+    
+}
+
+a {
+    color: black;
+    font-family: sans-serif;
+    font-size: 50px;
+    text-decoration: none;
+    font-family: 'Spirax', cursive;
+}
+
+#post {
+    font-family: 'Spirax', cursive;
+}
