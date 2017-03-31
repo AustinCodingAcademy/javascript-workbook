@@ -22,8 +22,6 @@ $.ajax('https://reqres-api.herokuapp.com/api/users', {
     $('a[data-id]').on('click', function() {
         event.preventDefault();
         var dataID = $(this).data('id');
-
-
         var firstName = $(this).data('first_name');
         var lastName = $(this).data('last_name');
         var occupation = $(this).data('occupation');
