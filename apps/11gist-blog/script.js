@@ -11,13 +11,14 @@ var gistDescription = {
         gistDesc = gistDesc.replace("#post", "");
         var links = 
         ('<li>' + '<a href="#" data-url="' + gist.url + '">' + gistDesc + '</a>' + '</li>');
+        // this places the links variable string into the '#posts' unordered list
         $('#posts').append(links);
       };
     });
   }
 };
 
-// callback to get the content of the gist that was clicked
+// this is the callback to display content of the gist that was clicked
 var gistContent = {
   success: function(gist) {
     var content = gist.files['post.md']['content'];
@@ -25,6 +26,7 @@ var gistContent = {
     var str = 
     ('<div id="post">' +
     '<p>' + marked(content) + '</p>' + '</div>')
+    // places string above in the '#post' div
     $('#post').replaceWith(str);
     var getComments = {
       success: function(comments) {
@@ -36,6 +38,7 @@ var gistContent = {
           '<li>' + userName + '</li>' +
           '<li>' + userComment + '</li>' +
           '</ul>')
+          // puts the string in the comments id attribute.
           $('#comments').html(str);
         });
       }

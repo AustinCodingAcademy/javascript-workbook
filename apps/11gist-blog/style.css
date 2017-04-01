@@ -2,17 +2,27 @@ body {
     background-image: url("http://kingofwallpapers.com/gradient/gradient-023.jpg");
     color: black;
     margin-top: 50px;
+    margin-left: 50px;
+    font-size: 200px;
     
 }
 
-a {
+ul {
     color: black;
     font-family: sans-serif;
-    font-size: 50px;
+    font-size: 100px;
     text-decoration: none;
     font-family: 'Spirax', cursive;
 }
 
+a:hover {
+    -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
 #post {
+    color: #FFFFFF;
     font-family: 'Spirax', cursive;
 }
+
