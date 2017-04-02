@@ -9,7 +9,8 @@ var rl = readline.createInterface({
 
 
 function Checker() {
-  // Your code here
+  // attributes
+  this.symobl = 
 }
 
 function Board() {
