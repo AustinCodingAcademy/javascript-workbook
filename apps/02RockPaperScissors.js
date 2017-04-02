@@ -12,6 +12,40 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
+  // hand1 and hand2 will either be rock, paper, or scissors.
+
+  //.toLowerCase after parameter (good practice)
+
+  if (hand1 === hand2) {
+    return "It\'s a tie!";
+  }
+
+  if (hand1 === 'rock') {
+    if (hand2 === 'scissors') {
+      return "Hand one wins!";
+    } 
+    else {  
+      return "Hand two wins!";
+    }
+  }
+
+  if (hand1 === 'scissors') {
+    if (hand2 === 'rock') {
+      return "Hand two wins!";
+    } 
+    else {
+      return "Hand one wins!";
+    }
+  }
+
+  if (hand1 === 'paper') {
+    if (hand2 === 'rock') {
+      return "Hand one wins";
+    } 
+    else {
+      return "Hand two wins!";
+    }
+  }
 }
 
 function getPrompt() {

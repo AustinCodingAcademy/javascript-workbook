@@ -11,6 +11,47 @@ var jobTypes = {
 
 // Your code here
 
+class CrewMember {
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null; 
+    this.enterShip = function(myship) {
+      this.ship = myship;
+      myship.crew.push(this);
+    }
+  }
+}
+
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type; 
+    this.ability = ability;
+    this.crew = [];
+
+    // The method below iterates over the ship's crewmember array. In place is an if statement that compares each crewmember's job to the specific type of the ship that he/she is on. If there is a match, the method will return the ship's ability. 
+    this.missionStatement = function() {
+      for (var i = 0; i < this.crew.length; i++) {
+        if (jobTypes[this.crew[i].job] === this.type) { 
+          return this.ability;
+        }
+      }
+
+      // If I get here, that means we have gone through the whole loop without finding a crew member with the correct job type for that ship type. 
+      return "Can't perform a mission yet.";
+    }
+  }
+}
+
+// Below are instances that can be used by the classes that have been created above.
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+rick.enterShip(mav);
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
