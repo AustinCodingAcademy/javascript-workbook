@@ -1,0 +1,32 @@
+body {
+    padding: 10px 10px 10px 10px;
+    margin: 0 50px 0 50px;
+    background-color: lightseagreen;
+    color: white;
+}
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.recent {
+    border-right: 2px white solid;
+}
+.post {
+    padding-left: 50px;
+}
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: dimgray;
+}
+
+#avatar_img img {
+    height: 70px;
+}
+li {
+    list-style: none;
+    padding: 0;
+}

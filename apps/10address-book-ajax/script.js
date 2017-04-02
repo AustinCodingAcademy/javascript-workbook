@@ -13,6 +13,7 @@ $(document).ready(function() {
                   + '<td>' + user.last_name + '</td>'
                   + '<td><a href="user.id" data-id="'+user.id+'"> View </a></td>');
         //add the string we just created to tbody in the html document
+        //var{first_name, last_name, id} = users[i];
         $('tbody').append(str);
       })
     }
@@ -43,11 +44,5 @@ $(document).ready(function() {
       }
     });
   });
-
 });
-
-
-// $(document).ready(function() {
-//   $('[data-stack]').click(play); 
-// });
 

@@ -21,7 +21,7 @@ $(document).on('ready', function() {
     $('#announce-winner').empty();
   });
 
-  function horizontalWin() {
+  function aWin() {
     if (($('div[data-cell=0]').text() === playerTurn && $('div[data-cell=1]').text() === playerTurn && $('div[data-cell=2]').text() === playerTurn) || 
     ($('div[data-cell=3]').text() === playerTurn && $('div[data-cell=4]').text() === playerTurn && $('div[data-cell=5]').text() === playerTurn) ||
     ($('div[data-cell=6]').text() === playerTurn && $('div[data-cell=7]').text() === playerTurn && $('div[data-cell=8]').text() === playerTurn)){
@@ -45,7 +45,7 @@ $(document).on('ready', function() {
   }
 
   function checkForWin() {
-    if (horizontalWin() || verticalWin() || diagonalWin()){
+    if (aWin() || verticalWin() || diagonalWin()){
       return true;
     }
   }
