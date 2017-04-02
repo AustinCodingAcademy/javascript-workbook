@@ -18,11 +18,11 @@ $(document).ready(function () {
         $('tbody').append(string);
       })
       $('a[data-id]').on('click', function () {
-
-        //This will make it stay on the same page
         event.preventDefault();
-        var dataID = $(this).data('id');
 
+
+
+        var dataID = $(this).data('id');
         var firstName = $(this).data('first_name');
         var lastName = $(this).data('last_name');
         var occupation = $(this).data('occupation');
@@ -36,7 +36,7 @@ $(document).ready(function () {
         var fName = 'https://reqres-api.herokuapp.com/api/users/' + dataID + firstName;
         var lName = 'https://reqres-api.herokuapp.com/api/users/' + dataID + lastName;
         var occup = 'https://reqres-api.herokuapp.com/api/users/' + dataID + occupation;
-
+        
         $.ajax(url, {
           success: function (user) {
             console.log(user);
