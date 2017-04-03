@@ -37,17 +37,23 @@ var getContent = {
     '</div>')
     // add the content to div with id "post"
     $('#post').replaceWith(str);
+    // callback to get the comments
     var getComments = {
       success: function(comments) {
+        // loop through the array contained within the comments_url
         comments.forEach(function(comment) {
+          // store username in variable
           var userName = comment["user"]["login"];
+          // store user comment in variable
           var userComment = comment["body"];
+          // store username and comment in str variable and use HTML to format
           var str = 
           ('<ul id="comments">' + 
           '<li>' + userName + '</li>' +
           '<li>' + userComment + '</li>' +
           '</ul>')
-          $('#comments').html(str);
+          // add str variable to the #comments div
+          $('#comments').replaceWith(str);
         });
       }
     }

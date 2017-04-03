@@ -2,11 +2,29 @@
 <html>
 <head>
   <title>Gist Blog</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ceviche+One" rel="stylesheet">
 </head>
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+  <header>
+    <div class="header">
+      <h1 class="headerText text-center">It's Gist a Blog!</h1>
+    </div>
+  </header>
+  <main>
+    <section class="container-fluid postBox">
+      <h2>Posts!</h2>
+      <ul id="posts"></ul>
+    </section>
+    <section class="container-fluid">
+      <div id="post"></div>
+    </section>
+    <section class="container-fluid">
+      <ul id="comments"></ul>
+    </section>
+  </main>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
