@@ -1,4 +1,10 @@
 'use strict';
+//**questions for teach**//
+// do we need to declare?
+// why do we not need to declare var inside functions?
+
+
+
 
 var assert = require('assert');
 
@@ -26,24 +32,51 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+
+  if (argument1 == argument2){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // Problem 2:
+
 // lessThanOrEqualTo(parameter1, parameter2) is an empty function
 // return a boolean expression that is true when
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+
+  if (parameter1 <= parameter2){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(number1, number2){
+  return number1 + number2;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
+
+function addThree(number1, number2, number3){
+  return number1 + number2 + number3;
+}
+
+var x = addThree(6,9,6)
+console.log(x)
+
 
 
 // ****
@@ -54,22 +87,37 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+// a function is lines of code that accept an argument to produce a result
 //
 // What is a return value?
 //
 // Your Answer Goes Here:
-//
+// a return value returns the value of the function executed, ending all tasks in that function.
+// it returns anything you tell it to.
+// it can return a variable
+// and it can return the product of two variables
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
+// function namedFunction (parameter1, parameter2) {
+//      argument {
+//        goes here
+//      }
+// }
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
 //
+// a parameter is what goes inside the parentheses after the name of the function.
+// it is whats given in the function when the function is declared
+// 
+// the argument is whats passed when calling the function.
+// the variables that have been defined when calling the function.
+//
+// 
 // ****
 
 
@@ -84,6 +132,12 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  if (number % 2 === 0){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 // Problem 6:
@@ -93,8 +147,14 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
-}
+  if (number % 3 === 0 ) {
+    return true;
+  }
+  else{
+    return false;
+  }
 
+}
 // ****
 // Conditionals
 // ****
@@ -108,6 +168,18 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  if (character === "scooby"){
+    return "dog";
+  }
+  else if (character === "garfield"){
+    return "cat";
+  }
+  else if (character === "nemo"){
+    return "fish";
+  }
+  else{
+    return false;
+  }
 }
 
 // Problem 8:
@@ -117,6 +189,20 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
+function testNumber(number){
+  if (number % 4 === 0){
+    return "divisible by 4";
+  }
+  else if (number % 2 === 0){
+    return "divisible by 2";
+  }
+  else if (number % 3 === 0){
+    return "divisible by 3";
+  }
+  else if (number % 5 === 0){
+    return "divisible by 5";
+  }
+}
 
 
 // ****
@@ -128,6 +214,9 @@ function whichSpecies(character) {
 //
 // Your Answer Goes Here:
 //
+// conditionals perform specific tests that test the argument for values, and produce results.
+// certain values will give certain results, otherwise will perform other actions if conditions are not correctly met.
+// 
 //
 // ****
 
