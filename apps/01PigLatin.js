@@ -7,16 +7,38 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+function findVowel (vowelIndex,word,vowel) {
+  var indexOfSomething;
+  if ((word.indexOf(vowel) > -1 && word.indexOf(vowel) < vowelIndex) || vowelIndex === -1) {
+    vowelIndex = word.indexOf(vowel);
+  }
+  return vowelIndex;
+}
 
 function pigLatin(word) {
+  word = word.toLowerCase();
+  var vowelIndex = -1;
+  vowelIndex= findVowel(vowelIndex,word,"a");
+  vowelIndex= findVowel(vowelIndex,word,"e");
+  vowelIndex= findVowel(vowelIndex,word,"i");
+  vowelIndex= findVowel(vowelIndex,word,"o");
+  vowelIndex= findVowel(vowelIndex,word,"u");
 
-  // Your code here
-
+  var firstPart = word.slice(0, vowelIndex);
+  var restWord = word.slice(vowelIndex,word.length);
+  
+  if (vowelIndex === 0) {
+    return word + 'yay';
+  }
+  else {
+    return restWord + firstPart + 'ay';
+  }
 }
+  
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('Please type in a word to translate into Pig Latin: ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });

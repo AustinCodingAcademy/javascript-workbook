@@ -24,23 +24,62 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)){
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)){
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)){
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if ((horizontalWin() || verticalWin() || diagonalWin()) === true ){
+    console.log('Player ' + playerTurn + ' Won!');
+    startOver();
+    return true;
+  }
+}
+
+function togglePlayerTurn() {
+  var playerOne = 'O';
+  var playerTwo = 'X';
+  playerTurn = (playerTurn === playerOne) ? playerTwo : playerOne;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  var validMoves = [0,1,2];
+  if ((row in validMoves) && (column in validMoves)) {
+    if (board[row][column]!== ' ') {
+    console.log('Not a valid move! Spot already taken!');
+  }
+    else {
+      board[row][column] = playerTurn;
+      checkForWin();
+      togglePlayerTurn();
+    }
+  }
+}
+
+function startOver() {
+  board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']];
+  return board;
 }
 
 function getPrompt() {
@@ -52,14 +91,23 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
 
 
 
+// function checkIfPiece() {
+//   if ( !== 0,1,2) {
+//     return console.log('Not a valid turn. Choose "X" or "O".');
+//   }
+//   if ( !== 0,1,2) {
+//     return console.log('Not a valid turn. Choose "X" or "O".');
+//   }
+// }
+
 // Tests
 
 if (typeof describe === 'function') {
+
 
   describe('#ticTacToe()', function () {
     it('should place mark on the board', function () {

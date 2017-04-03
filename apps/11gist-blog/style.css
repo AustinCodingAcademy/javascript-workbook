@@ -1,0 +1,16 @@
+body {
+    background-color:red;
+}
+ul {
+    background-color:blue;
+    text-decoration: none;
+}
+
+li {
+    background-color: green;
+    text-decoration: none;
+}
+
+#post {
+    text-decoration: none;
+}

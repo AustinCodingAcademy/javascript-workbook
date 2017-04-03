@@ -12,7 +12,8 @@
 .header {
   text-align: center;
   margin: 20px;
-  font-size: 40px;
+  font-size: 50px;
+  font-family: Helvetica;
 }
 
 #todo-list {
