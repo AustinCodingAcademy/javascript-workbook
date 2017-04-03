@@ -9,9 +9,40 @@ var rl = readline.createInterface({
 
 
 function pigLatin(word) {
+word = word.toLowerCase();
+var firstVowel = -1;
 
-  // Your code here
 
+
+if ( ( word.indexOf('a') > -1 && word.indexOf('a') < firstVowel ) || firstVowel === -1 ) {
+  firstVowel = word.indexOf('a');
+}
+         
+if ( ( word.indexOf('e') > -1 && word.indexOf('e') < firstVowel ) || firstVowel === -1 ) {
+    firstVowel = word.indexOf('e');
+}
+if ( ( word.indexOf('i') > -1 && word.indexOf('i') < firstVowel ) || firstVowel === -1 ) {
+    firstVowel = word.indexOf('i');
+}
+if ( ( word.indexOf('o') > -1 && word.indexOf('o') < firstVowel ) || firstVowel === -1 ) {
+    firstVowel = word.indexOf('o');
+}
+if ( ( word.indexOf('u') > -1 && word.indexOf('u') < firstVowel ) || firstVowel === -1 ) {
+    firstVowel = word.indexOf('u');
+}
+if ( ( word.indexOf('y') > -1 && word.indexOf('y') < firstVowel ) || firstVowel === -1 ) {
+    firstVowel = word.indexOf('y');
+}
+
+var firstPart = word.slice(0, firstVowel);
+var restWord = word.slice(firstVowel, word.length);
+
+if (firstVowel === 0) {
+  return word + "yay";
+}
+
+return restWord + firstPart + "ay";
+//leave the curly brace below alone
 }
 
 

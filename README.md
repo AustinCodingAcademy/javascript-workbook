@@ -52,3 +52,4 @@ Tests are a great way to make sure you code works the way you planned it would, 
 
 ### Run a single test
 To run a single test on an app, test, or a kata, simply run `npm test apps/01PigLatin.js`, etc. If you've installed mocha globally (`npm install -g mocha`), you could run `mocha` directly, e.g. `mocha homework/01LessonOne.js`
+# saf0911.github.io

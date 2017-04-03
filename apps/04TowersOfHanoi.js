@@ -7,11 +7,14 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
+
 var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
+
+var moves = 1;
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -19,24 +22,62 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+  //Take peice 
+  var piece = stacks[startStack].pop();
+  //Place piece
+  stacks[endStack].push(piece);
+  
+  
+  
 }
 
-function isLegal() {
-  // Your code here
-
+function isLegal(startStack, endStack) {
+  var startPiece = (stacks[startStack][(stacks[startStack].length-1)]);
+  var endPiece = (stacks[endStack][(stacks[endStack].length-1)]);
+ // if array is empty it will return undefined
+  if  (endPiece === undefined) {  
+    return true;
+  }
+// check to see if the piece is smaller than the one it is moving on top of
+  else if (startPiece < endPiece) { 
+     return true;
+  }
+    
+  // you done messed up
+  else {
+    console.log("This is not a valid move");
+    return false;
+  }
+  
 }
 
 function checkForWin() {
-  // Your code here
+  //checking to see if the endStack equals 4
+  var hasWon = stacks.b.length === 4 || stacks.c.length === 4;
+// Letting them know you won
+  if(hasWon) {
+    console.log('Whoooooopie!!');
+//Resetting the board
+    stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+};
+  }
 
+   return hasWon;
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  // bringing it together if the move is leagal move the piece
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+  }
+  //check to see if a player has won
+  checkForWin(); 
+   // move counter 
+  console.log('Moves = ' + moves++);
 }
 
 function getPrompt() {

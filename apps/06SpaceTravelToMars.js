@@ -10,6 +10,54 @@ var jobTypes = {
 };
 
 // Your code here
+//create crewmember object
+class CrewMember {
+  constructor (name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  //make it so crewmember can enter the ship  
+    this.enterShip = function(ship) {
+      this.ship = ship;
+      this.ship.crew.push(this);
+}  
+  }
+}
+
+// create ship object
+class Ship  {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+ //missionstatement function   
+  this.missionStatement = function(){
+    //set announce to let it know it can't preform the mission
+    var announce = "Can't perform a mission yet.";
+//loop through the crew to see if there are any on the ship
+    for(var i = 0; i < this.crew.length; i++) {
+      //set variable to store this.crew[i]
+      var cm = this.crew[i];
+      // if the crewmember job is in jobtype and it is equal to a type in the ship
+      if(jobTypes[cm.job] === this.type) {
+        // announce the ability of the ship
+        announce = this.ability;
+      }
+    }
+    //return either announce
+    return announce;
+    }
+  } 
+}
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+
+rick.enterShip(mav);
 
 //tests
 if (typeof describe === 'function'){

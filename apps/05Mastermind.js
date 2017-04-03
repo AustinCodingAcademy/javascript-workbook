@@ -11,6 +11,7 @@ var rl = readline.createInterface({
 var board = [];
 var solution = '';
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var colors = require('colors/safe');
 
 function printBoard() {
   for (var i = 0; i < board.length; i++) {
@@ -29,12 +30,57 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(solution, guess) {
   // your code here
+  // splitting the solution and guess into individual letters
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  //setting the correct answers to 0 
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+  //loop through the array
+  for (var i = 0; i < solutionArray.length; i++) {
+    //comparing the guess against the answer
+    if (solutionArray[i] === guessArray[i]) {
+      //counting number of correct answers
+      correctLetterLocations++;
+      //the correct answer is taken out of the mix
+      solutionArray[i] = null;  
+    }
+    
+  }
+  //loop through the array again
+  for (i = 0; i <= solutionArray.length; i++ ) {
+    // settign targetIndex to the correct letters in the wrong place
+    var targetIndex = guessArray.indexOf(solutionArray[i]);
+   //if the targetIndex is at spot zero or higher 
+    if (targetIndex > -1) {
+      
+      correctLetters++;
+      solutionArray[i] = null;
+     
+    }
+  }
+  
+
+   return correctLetterLocations + "-" + correctLetters;
 }
 
 function mastermind(guess) {
   // your code here
+  
+  if (guess === solution) {
+    return ('You guessed it!');
+  }
+  if (board.length === 10) {
+    return ('You ran out of turns! The solution was ' + solution);
+  }
+  else {
+    var hint = generateHint(solution, guess);
+    board.push(hint +' '+ guess);
+    return ('Guess again');
+  }
+  board;
 }
 
 
