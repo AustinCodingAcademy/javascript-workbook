@@ -4,18 +4,52 @@
   <title>Gist Blog</title>
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/animate.css">
 </head>
 <body>
   <marquee>
     <h1>Scott's Super Great Blog</h1>
   </marquee>  
-  <ul id="posts"></ul> 
-  <div id="post"></div>
-  <ul id="comments"></ul>
+
+  <div class = "container-fluid animated bounceInDown">
+    <div class = "row" >
+      <div class = "posts-container col-md-12">
+        <div class = "posts col-md-12">
+          <ul id="posts"></ul> 
+        </div> 
+      </div> 
+    </div>
+  </div>  
+
+
+   <div class = "container-fluid animated rotateInUpRight">
+    <div class = "row" >
+      <div class = "post-container col-md-12"> 
+        <div class = "post col-md-10 col-md-offset-1"> 
+          <h2>Post:</h2>
+          <div id="post"></div>
+        </div>  
+      </div>
+     </div> 
+   </div>  
+
+    <div class = "container-fluid animated rotateInUpLeft">
+      <div class = "row" >
+        <div class = "comments-container col-md-12">  
+          <div class = "comments col-md-12 col-md-offset-2"> 
+            <h3>Comments:</h3>
+            <ul id="comments"></ul>
+          </div> 
+        </div>   
+      </div>
+    </div>  
+
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+ 
 </body>
 </html>
