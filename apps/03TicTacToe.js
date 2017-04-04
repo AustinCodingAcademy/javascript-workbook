@@ -14,6 +14,7 @@ var board = [
 
 var playerTurn = 'X';
 
+
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -21,27 +22,64 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-}
+};
 
 function horizontalWin() {
-  // Your code here
-}
+  if((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  };
+  return false;
+};
 
 function verticalWin() {
-  // Your code here
-}
+  if((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true; 
+  };
+  return false;
+};
 
 function diagonalWin() {
-  // Your code here
-}
+  if((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+    return true;
+  };
+  return false;
+};
+
+// New game function will reset the board variable after any of the wins return true.
+function newGame() {
+  board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+  ];
+
+};
 
 function checkForWin() {
-  // Your code here
-}
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log('Player ' + playerTurn + ' Won!');
+    newGame();
+    return true;}
+  else {
+    return false;
+  };
+};
+
 
 function ticTacToe(row, column) {
-  // Your code here
-}
+  board[row][column] = playerTurn;
+  checkForWin();
+  if (board[row][column] != ' ') {
+    console.log ('Please select another space');
+  }
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+
+};
 
 function getPrompt() {
   printBoard();
