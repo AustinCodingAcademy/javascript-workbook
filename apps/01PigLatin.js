@@ -8,9 +8,49 @@ var rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(word){
 
   // Your code here
+  word = word.toLowerCase()
+  //set to no vowels
+  var vowelIndex = -1; 
+
+
+  // Look for the vowelIndex --> a, e, i, o, u, y and compare it to -1
+  if ( ( word.indexOf('a') > -1 && word.indexOf('a') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('a');
+  }
+
+  if ( ( word.indexOf('e') > -1 && word.indexOf('e') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('e');
+  }
+
+  if ( ( word.indexOf('i') > -1 && word.indexOf('i') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('i');
+  }
+
+  if ( ( word.indexOf('o') > -1 && word.indexOf('o') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('o');
+  }
+
+  if ( ( word.indexOf('u') > -1 && word.indexOf('u') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('u');
+  }
+
+  if ( ( word.indexOf('y') > -1 && word.indexOf('y') < vowelIndex ) || vowelIndex === -1 ) {
+    vowelIndex = word.indexOf('y');
+  }
+
+//if there is no vowel just add 'yay' to the word
+  if (vowelIndex === 0 || vowelIndex === -1) { return word + 'yay'}
+
+// but if there is a vowel, create these vars with the index of that vowel
+  var firstPtWord = word.slice(0, vowelIndex);
+  var lastPtWord = word.slice(vowelIndex, word.length);
+
+//then put those vars together.
+  return lastPtWord + firstPtWord + "ay";
+ 
 
 }
 

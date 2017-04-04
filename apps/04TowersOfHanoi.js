@@ -19,27 +19,98 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+//this just moves the pieces around from one stack to the other. 
+  var garbonzobean = stacks[startStack].pop();
 
+  stacks[endStack].push(garbonzobean);
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startStack, endStack) {
+  // Check to see if the input is a valid stack : a, b or c
+  if (( startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c')) 
+  {
+    // These variables are the length of the stacks being pulled from and the one being stacked on.
+    var lengthOfStartStack = stacks[startStack].length;
+    var lengthOfEndStack = stacks[endStack].length;
+
+    // Check to see if the stack being pulled from, startStack, has tokens/donuts to pull from. If so, continue.
+    if (lengthOfStartStack > 0) {
+      // this var donut is the value of the token being taken off of the stack. 
+      var donut = stacks[startStack][(lengthOfStartStack - 1)];
+      // this if checks to see whether the length of the stacked-on is < 0 OR|| if the value of the donut is less than 
+      // the value of the last number in the array lengthOfEndStack-1 of endStack of stacks. 
+      // we subtract 1 from the lengthOfEndStack because the index begins with 0 while the length of an array starts with 1
+      // So we have to subract one from the length else we would call on a numbe that isn't in the array, giving us "undefined"
+      if ((lengthOfEndStack === 0) || (donut < stacks[endStack][(lengthOfEndStack - 1)])){
+      return true; 
+      }
+
+      else {
+        console.log("Try again. Be sure the token moved is smaller.");
+        return false;
+      }
+
+    }
+
+
+
+// This ELSE returns if the user inputs a wrong column !== a, b or c
+else {
+  console.log("Please input a valid stack, a, b or c.");
+  return false;
+}
+
+}
 
 }
 
 function checkForWin() {
-  // Your code here
+  var lengthOfC = stacks.c.length;
+  var lengthOfB = stacks.b.length;
+
+  if (lengthOfC === 4 || lengthOfB === 4){
+    console.log('Hooray! You won!');
+    return true;
+  }
+
+  else {
+    console.log('Keep Going.');
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
 
+    // Will run to see if the move is legal before the move is made: 
+    if (isLegal(startStack, endStack)) 
+    {
+
+    // This runs movePiece 
+    movePiece(startStack, endStack);
+  
+    // This runs a counter of moves to be displayed befor each new prompt.
+    counter ++;
+   
+  
+    }
+
+    else {
+    console.log("pooh. You didn't enter a legal move.");
+    }
 }
 
+var counter = 0;
+
+console.log("Welcome to the game TOWERS OF HANOI!!");
+console.log("To play simply type in the tower you'd like to move a token from");
+console.log("then type in the tower you'd like to place it.");
+console.log("Use only a, b or c and the token on top must always be smaller. Good Luck!");
+
 function getPrompt() {
+  console.log("Moves =" + " " + counter);
+  checkForWin();
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
