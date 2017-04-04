@@ -6,13 +6,22 @@ var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+
+
+//array to receive playerTurn values
+
 var board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
 ];
 
+//variable for mark on the board
+
 var playerTurn = 'X';
+
+//display the board
 
 function printBoard() {
   console.log('   0  1  2');
@@ -23,24 +32,71 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
-}
-
-function verticalWin() {
-  // Your code here
-}
-
-function diagonalWin() {
-  // Your code here
-}
-
-function checkForWin() {
-  // Your code here
-}
+// tic tac toe function
 
 function ticTacToe(row, column) {
-  // Your code here
+  //determine if the spot on the board is already taken
+
+  if (board[row][column] != " ") {
+    console.log("This space is taken. Please pick again.");
+
+  //if not...place mark, switch players and check for win
+
+  } else {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  };
+}
+
+// check for win function
+
+function checkForWin() {
+  if (horizontalWin() === true || verticalWin() === true || diagonalWin() === true) {
+    console.log('Player' + " " + playerTurn + " " + 'Wins!')
+    startOver();
+    return true;
+  };
+}
+
+// function to provide a clear board after a winner is found
+
+function startOver() {
+  board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+  return board;
+}
+
+// conditions for horizontal win
+
+function horizontalWin() {
+  if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn || 
+  board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn ||
+  board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
+    return true;
+  }
+}
+
+// conditions for vertical win
+
+function verticalWin() {
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn || 
+  board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ||
+  board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+    return true;
+  }
+}
+
+// conditions for diagonal win
+
+function diagonalWin() {
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn || 
+  board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    return true;
+  }
 }
 
 function getPrompt() {
@@ -52,7 +108,6 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
 
 

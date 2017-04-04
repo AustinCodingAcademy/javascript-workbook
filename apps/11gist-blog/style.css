@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+}
+
+.header{
+    border-bottom: solid 1px white;
+}
+
+.headerText {
+    font-size: 50px;
+    color: white;
+    font-family: 'Ceviche One', cursive;
+    padding-bottom: 10px;
+}
+
+.postBox {
+    margin-top: 20px;
+}
+
+section h2 {
+    font-family: 'Ceviche One', cursive;
+    font-size: 40px;
+    color:white;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+#posts {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#post {
+    color:white;
+}
+
+#comments {
+    margin-left: 40px;
+    color:white;
+}
