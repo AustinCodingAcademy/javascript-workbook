@@ -8,8 +8,15 @@ var rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  // a checker has one concern.  its color
+  //Either its white or its black.
+  if(color === 'white'){
+  this.symbol = String.fromCharCode(0x125CB);//white
+  }
+  else {
+  this.symbol = String.fromCharCode(0x125CF)//black
+  }
 }
 
 function Board() {
@@ -52,7 +59,52 @@ function Board() {
     console.log(string);
   };
 
+  this.checkers = [];
+
+
+
+
+
+
+
+  this.createCheckers = function() {
+
   // Your code here
+  var whiteCheckers =[
+    [0, 1], [0, 3], [0, 5], [0, 7],
+    [1, 0], [1, 2], [1, 4], [1, 6],
+    [2, 1], [2, 3], [2, 5], [2, 7]
+  ];
+  var blackCheckers =[
+    [5, 0], [5, 2], [5, 4], [5, 6],
+    [6, 1], [6, 3], [6, 5], [6, 7],
+    [7, 0], [7, 2], [7, 4], [7, 6]
+  ];
+  for(var spot of whiteCheckers){
+
+    //what is spot
+    //spot is going to be an array
+    var row = spot [0];
+    var column = spot[1];
+    var whitechecker = new Checker('white')
+    this.grid[row][column] = whitechecker;
+    this.checkers.push(whitechecker);
+  }
+
+    for(var spot of blackCheckers){
+
+    //what is spot
+    //spot is going to be an array
+    var row = spot [0];
+    var column = spot[1];
+    var blackchecker = new Checker('black')
+    this.grid[row][column] = blackchecker;
+    this.checkers.push(blackchecker);
+    }
+  }
+  this.selectChecker = function(row, column){
+    return this.grid[row][column];
+  }
 }
 function Game() {
 
@@ -60,8 +112,35 @@ function Game() {
 
   this.start = function() {
     this.board.createGrid();
+    this.board.createCheckers();
     // Your code here
-  };
+  // };
+  // this.board.createCheckers();
+  //   this.moveChecker = function(start, end) {
+  //   var checker = this.board.selectChecker(start[0], start[1]);
+  //   this.board.grid[start[0]][start[1]] = null;
+  //   this.board.grid[end[0]][end[1]] = checker;
+  //   if (Math.abs(start[0] - end[0]) === 2) {
+  //     var killPosition = [(parseInt(start[0],10) + parseInt(end[0],10)) / 2 , (parseInt(start[1],10) + parseInt(end[1],10)) / 2];
+  //     this.board.killChecker(killPosition);
+  //     };
+  //   };
+  this.moveChecker = function(start,end) {
+  var startRow = start[0];
+  var StartColumn = start[1];
+  var endRow = end[0];
+  var endColumn = end[1];
+  this.board.grid[startRow][StartColumn] = null;
+  this.board.grid[endRow][endColumn] = null;
+  var checker = this.selectChecker(startRow, StartColumn);
+  var distance = Math.abs(startRow - endRow);
+  if (distance == 2){
+
+  var midRow = startRow + endRow /2;
+  var midColumn = StartColumn = endColumn /2;
+  }
+    //this.board.grid[][] = checker;
+  }
 }
 
 function getPrompt() {
@@ -110,3 +189,4 @@ if (typeof describe === 'function') {
 } else {
   getPrompt();
 }
+

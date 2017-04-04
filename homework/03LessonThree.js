@@ -20,16 +20,16 @@ var firstName = 'susan';
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
-var valueOfFirstName;
+var valueOfFirstName = firstName;
 
 // Problem 2:
 // What is the value of lastName at this point in the file?
-var valueOfLastName;
+var valueOfLastName = lastName;
 
 // Problem 3:
 // Fix the following function so that it returns the first argument
+var firstArgument = 'bob';
 function returnTheFirstArgument(firstArgument) {
-  var firstArgument = 'bob';
   return firstArgument;
 }
 
@@ -40,7 +40,13 @@ function returnTheFirstArgument(firstArgument) {
 //
 // What is scope?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Scope refers to the 
+//aspect of avariable that determines where it 
+//can be used in a program.  If variable is created 
+//inside a function it is a local variable and can 
+//only be used inside the function in which it was created.
+//If a variable is created outside of a function it is considered
+//to have global scope.  It is available to all functions.
 //
 //
 
@@ -57,19 +63,19 @@ var ternaryResult4 = "" ? 'first' : 'second';
 
 // Problem 4:
 // What is the value of ternaryResult1
-var problemFourAnswer;
+var problemFourAnswer = ternaryResult1;
 
 // Problem 5:
 // What is the value of ternaryResult2
-var problemFiveAnswer;
+var problemFiveAnswer = ternaryResult2;
 
 // Problem 6:
 // What is the value of ternaryResult3
-var problemSixAnswer;
+var problemSixAnswer = ternaryResult3;
 
 // Problem 7:
 // What is the value of ternaryResult4
-var problemSevenAnswer;
+var problemSevenAnswer = ternaryResult4;
 
 // ****
 // Concept Checkpoint
@@ -78,7 +84,8 @@ var problemSevenAnswer;
 //
 // What is the ternary operator?  How does it differ from normal conditional statements?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here:  It is a third type of conditional that deals with toggling 
+//between 2 values.
 //
 //
 
@@ -89,18 +96,18 @@ var problemSevenAnswer;
 
 // Problem 8:
 // Create an empty array
-var emptyArray;
+var emptyArray = [];
 
 // Problem 9:
 // Create an array with 5 elements in it
-var lengthFiveArray;
+var lengthFiveArray = [1, 2, 3, 4, 5];
 
 // DO NOT MODIFY
 var nameArray = ['bob', 'fred', 'susan'];
 
 // Problem 10:
 // Replace the value 'fred' in nameArray with 'george'
-
+nameArray[1] = 'george';
 // DO NOT MODIFY
 var threeByThreeArray = [
   [1, 2, 3],
@@ -110,10 +117,13 @@ var threeByThreeArray = [
 
 // Problem 11:
 // Replace the center element of threeByThreeArray, which is 5, with something else.
-
+threeByThreeArray[1][1] = 3;
 // Problem 12:
 // create a 2 by 2 (2 rows, 2 columns) nested array
-var twoByTwoArray;
+var twoByTwoArray = [
+  [1, 2], 
+  [3, 4]
+];
 
 // ****
 // Tests

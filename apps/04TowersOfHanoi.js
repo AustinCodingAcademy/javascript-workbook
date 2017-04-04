@@ -18,24 +18,38 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
-function movePiece() {
-  // Your code here
-
+// this creates a varable that stores a pop so that you can push that value to aother stack
+function movePiece(startStack, endStack) {
+  var storage = stacks[startStack].pop();
+  stacks[endStack].push(storage);
 }
-
-function isLegal() {
-  // Your code here
-
+//this determines a leagal move.  it compares lentgh values from the peices to be moved.  If the piece that is getting moved 
+//is smaller than the piece that you are putting it on.  or if the stack is empty. if so the move is legal.  if not them you 
+//cant make that move.
+function isLegal(startStack, endStack) {
+  if  (stacks[startStack[startStack.length - 1]] < stacks[endStack[endStack.length - 1]] || stacks[endStack].length === 0) {
+    return true;
+  } 
+  else {
+    console.log("Invalid move. Try again.");
+    return false;
+  }
 }
-
+//this simply checks for the lenght of the stack.  if it reaches 4 in lengthe then you are a winner.
 function checkForWin() {
-  // Your code here
+  if (stacks["b"].length === 4 || stacks["c"].length === 4) {
+    console.log("You won!");
+    return true;
+  } else {
+    return false;
+  }
 
 }
-
+//all the functions come together. Is the move legal?  move piece.  check for win.
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  isLegal(startStack, endStack);
+  movePiece(startStack, endStack);
+  checkForWin();
 
 }
 
