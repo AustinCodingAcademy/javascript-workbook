@@ -26,6 +26,11 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  if (argument1 === argument2){
+    return true; }
+  else {
+    return false;
+  }
 }
 
 // Problem 2:
@@ -34,16 +39,32 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
-}
+  if (parameter1 <= parameter2){
+    return true;
+  }
+  else {
+    return false;
+  }
+} 
+
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
+function add( number1, number2) {
+  return number1 + number2;
+}
+
 
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
+
+function addThree (number1, number2, number3) {
+  return number1 + number2 + number3;
+
+}
 
 
 // ****
@@ -51,24 +72,25 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 //
 // Write your answer in comments
 //
-// What is a function? How do you define a function in Javascript?
+// What is a function? How do you define a function in Javascript? .
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Functions let you group a series of statements together to perform a specific task. To declare something a function you have to put function in front of it
 //
 //
-// What is a return value?
+// What is a return value? 
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: When you write a function and you expect it to provide you with an answer, the response is know as a return value.
 //
 //
 // How do you define a named function?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: You can define function with the following code: function myFirstFunction(parameter1, parameter2)
 //
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Function parameters are the names listed in the parentheses in a function definition.
+// Function arguments are the values given to those parameters.
 //
 // ****
 
@@ -83,18 +105,30 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // else returns false
 // complete isEven() by returning a boolean expression
 
+var number = 8
 function isEven(number) {
+  if (number % 2 === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
-
 // Problem 6:
 // isDivisibleByThree(number) is a function that
 // returns true if number is divisible by 3,
 // else returns false
 // complete isDivisibleByThree() by returning a boolean expression
 
+var number = 9;
 function isDivisibleByThree(number) {
+  if (number % 3 === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
-
 // ****
 // Conditionals
 // ****
@@ -107,9 +141,22 @@ function isDivisibleByThree(number) {
 // should return "fish" when character is 'nemo'
 // should return false if character is anything else
 
-function whichSpecies(character) {
-}
+var character = 'scooby';
 
+function whichSpecies(character) {
+  if (character === 'scooby') {
+    return ('dog');
+  }
+  else if (character === 'garfield') {
+    return ('cat');
+  }
+  else if (character === 'nemo') {
+    return ('fish');
+  }
+  else {
+    return false;
+  }
+}
 // Problem 8:
 // write a function named testNumber(number) with the following requirements.
 // The function should:
@@ -117,7 +164,21 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
-
+var number = 8;
+function testNumber(number){
+  if (number % 4 === 0){
+    return ('divisible by 4');
+  }
+  else if (number % 2 === 0){
+    return ('divisible by 2');
+  }
+  else if (number % 3 === 0){
+    return ('divisible by 3');
+  }
+  else if (number % 5 === 0){
+    return ('divisible by 5');
+  }
+}
 
 // ****
 // Concept Checkpoint
@@ -126,7 +187,8 @@ function whichSpecies(character) {
 //
 // In your own words, explain what conditionals do.
 //
-// Your Answer Goes Here:
+// Your Answer Goes Here: Conditional statements are Javascript statements that instruct code to perform a certain action.
+// 
 //
 //
 // ****
