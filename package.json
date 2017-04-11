@@ -10,7 +10,8 @@
     "lint": "htmllint {*.html,./**/*.html} && stylelint ./**/*.css && eslint .",
     "test": "mocha",
     "start": "cd . && http-server -c-1",
-    "javascripting": "javascripting"
+    "javascripting": "javascripting",
+    "functional-javascript": "functional-javascript"
   },
   "author": "Kevin Colten",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "stylelint": "^7.7.1"
   },
   "dependencies": {
+    "functional-javascript-workshop": "^1.0.6",
     "javascripting": "^2.6.1"
   }
 }
