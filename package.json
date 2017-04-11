@@ -1,30 +1,32 @@
 {
   "name": "javascript-workbook",
-  "version": "2.0.0",
-  "description": "Workbook for Austin Coding Academy Javascript Course",
+  "version": "1.0.0",
+  "description": "Austin Coding Academy - JavaScript Workbook",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AustinCodingAcademy/javascript-workbook.git"
   },
-  "author": "Kevin Colten",
   "scripts": {
+    "lint": "htmllint {*.html,./**/*.html} && stylelint ./**/*.css && eslint .",
     "test": "mocha",
-    "start": "cd . && http-server -c-1"
+    "start": "cd . && http-server -c-1",
+    "javascripting": "javascripting"
   },
+  "author": "Kevin Colten",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/AustinCodingAcademy/javascript-workbook/issues"
   },
   "homepage": "https://github.com/AustinCodingAcademy/javascript-workbook#readme",
-  "dependencies": {
-    "colors": "^1.1.2"
-  },
   "devDependencies": {
-    "eslint": "^3.12.2",
-    "htmllint-cli": "^0.0.5",
+    "eslint": "^3.19.0",
+    "htmllint-cli": "github:kevincolten/htmllint-cli",
     "http-server": "^0.9.0",
-    "jsdom": "^9.4.2",
-    "mocha": "^2.4.5",
-    "nock": "^8.0.0",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.2.0",
     "stylelint": "^7.7.1"
+  },
+  "dependencies": {
+    "javascripting": "^2.6.1"
   }
 }

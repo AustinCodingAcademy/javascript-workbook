@@ -1,10 +1,11 @@
 [![CircleCI](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages.svg?style=svg)](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages)
 
-![](https://raw.githubusercontent.com/AustinCodingAcademy/campus-manager/develop/public/img/aca-logo-header.png)
+![](http://en.gravatar.com/userimage/107370100/a08594145564536138dfaaf072c7b241.png)
+# Austin Coding Academy
 
-# Javascript Workbook
+## Javascript Workbook
 
-## Claiming your workbook
+### Claiming your workbook
 1. Click the 'Fork' button (choose your account if prompted).
 1. If you haven't set up your SSH keys yet, follow these helpful [instructions](https://help.github.com/articles/generating-an-ssh-key/)
 1. Copy the SSH clone URL (don't use the default HTTPS URL) from your forked repository
@@ -46,9 +47,9 @@ upstream    git@github.com:AustinCodingAcademy/javascript-workbook.git (push)
 
 ![Contributing workflow](https://docs.google.com/drawings/d/1WeKQxOHgPKfwjy_eKtlJO62Fu4XTCWFeqkAh1oIqICM/pub?w=960&h=720)
 
-## Running Tests
+### Running Tests
 Tests are a great way to make sure you code works the way you planned it would, and to make sure you don't break something in the future. We will be using them to test our understanding of the lesson. It's also our main way to assign grades for an assignment.
 
 
-### Run a single test
+#### Run a single test
 To run a single test on an app, test, or a kata, simply run `npm test apps/01PigLatin.js`, etc. If you've installed mocha globally (`npm install -g mocha`), you could run `mocha` directly, e.g. `mocha homework/01LessonOne.js`
