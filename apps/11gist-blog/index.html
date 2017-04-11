@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gist Blog</title>
+  <title>Cruz's Gist Blog</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-  <ul id="posts"></ul>
-  <div id="post"></div>
-  <ul id="comments"></ul>
+  <ul id="posts" style="background-color: #f2f2f2; line-height: 30px; font-weight: bolder; padding: 15px 15px"></ul>
+    <div class="row">
+      <div id="post" class="col-sm-8 col-sm-offset-1" style="border: 1px solid black"></div>
+      <ul id="comments" class="col-sm-3" style="list-style: none"></ul>
+    </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
   <script type="text/javascript" src="script.js"></script>

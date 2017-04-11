@@ -1,30 +1,49 @@
 'use strict';
 
 $(document).ready(function() {
-  $.ajax('http://127.0.0.1:8080/apps/11gist-blog/api/gists.json', {
+  $.ajax('https://api.github.com/users/cruzmndz/gists', {
     success: function(userPosts) {
       userPosts.forEach(function(userGist) {
         var userSubstr = userGist.description; 
-        var postString = "<li>" + 
-                         "<a href='#' data-url='" + userGist.url + "'>" + userGist.description.substring(6,userSubstr.length) + "</a>" + 
-                         "</li>";
-        $('#posts').append(postString);
+        //VARIABLE TO POPULATE DOM WITH MODIFIED POST TITLE
+        var postTitle = "<li>" + 
+                        "<a href='#' data-url='" + userGist.url + "'>" + userGist.description.substring(6,userSubstr.length) + "</a>" + 
+                        "</li>";
+        $('#posts').append(postTitle);
       })
+      //CALL viewGIST FUNCTION ONLY AFTER AJAX REQUEST HAS COMPLETED
       viewGist();
     }
   })
 });
 
+//FUNCTION TO INITIATE EVENT LISTENER ON ALL LINKS
 function viewGist() {
   $('a').click(function() {
     event.preventDefault();
-    var gistURL = $(this).data('url');
-    console.log('url was clicked');   
+    var gistURL = $(this).data('url'); 
     $.ajax(gistURL, {
-      success: function(gistContent) {
-        var postText = "<p>" + gistContent.content + "</p>";
+      success: function(gistContent){
+        //CLEAR THE DIV TO PREVENT POSTS STACKING
+        $('#post').empty();
+        var postText = marked(('<p>' + (gistContent.files['post.md']['content']) + '<p>'))
+        //APPEND POST
         $('#post').append(postText);
+        //START UP THE AJAX MOTOR FOR COMMENTS
+        $.ajax(gistContent.comments_url, {
+          success: function(userComments){
+            $('#comments').empty();
+            userComments.forEach(function(login) {
+              var buildComments = marked(('<li>' + '<strong>' + login.user['login'] + '</strong>' + '</li>' +
+              '<li>' + login.body + '</li>'));
+              //APPEND COMMENT
+              $('#comments').append(buildComments);
+            });         
+          }
+        });
       }
     });
   });
 }
+
+
