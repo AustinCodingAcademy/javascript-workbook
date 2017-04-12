@@ -3,7 +3,7 @@
 ![](http://en.gravatar.com/userimage/107370100/a08594145564536138dfaaf072c7b241.png)
 # Austin Coding Academy
 
-## Javascript Workbook
+## JavaScript Workbook
 
 ### Claiming your workbook
 1. Click the 'Fork' button (choose your account if prompted).
@@ -68,10 +68,9 @@ to test our understanding of the lesson. It's also our main way to assign grades
 for an assignment.
 
 To run a the tests on a file] run `npm test path/to/file.js`, etc.
-
-### Running the linter
+### Running the Linter
 Simply run `npm run lint`
 
-#### Running the server
+#### Running the Server
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
