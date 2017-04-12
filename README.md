@@ -35,13 +35,13 @@ node modules we use in this class
 the top level directory. Change `Hello World!` to `Hello <your name>!`
 1. When you're finished, stage your file, commit your changes, and push to
 GitHub using the following commands:
-
   ```bash
   git status
   git add .
   git commit -m "Initial Commit"
   git push origin gh-pages
   ```
+
 1. Now go to your forked repository on GitHub (at
   https://github.com/your-username/javascript-workbook). A little yellow box
   should have popped up asking you to make a Pull Request. Click to review.
