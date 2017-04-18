@@ -1,5 +1,4 @@
-function upperCaser(input) {
-  return input.toUpperCase();
+function upperCaser(x) {
+  return x.toUpperCase();
 }
-
 module.exports = upperCaser
