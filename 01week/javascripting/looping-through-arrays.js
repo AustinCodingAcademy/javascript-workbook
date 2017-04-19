@@ -5,3 +5,5 @@ for (var i = 0; i < pets.length; i++) {
 }
 
 console.log(pets);
+
+// i+=3 increase by 3, for example, i+=1 is the same as i++
