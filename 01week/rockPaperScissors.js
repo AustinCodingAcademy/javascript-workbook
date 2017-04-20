@@ -2,22 +2,20 @@
 
 const assert = require('assert');
 const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
   if ((hand1.toUpperCase() != "ROCK") &&
-      (hand1.toUpperCase() != "PAPER") &&
-      (hand1.toUpperCase() != "SCISSORS")){
+  (hand1.toUpperCase() != "PAPER") &&
+  (hand1.toUpperCase() != "SCISSORS")){
     return "Hands weren't entered properly";
   } else if ((hand2.toUpperCase() != "ROCK") &&
-             (hand2.toUpperCase() != "PAPER") &&
-             (hand2.toUpperCase() != "SCISSORS")){
+  (hand2.toUpperCase() != "PAPER") &&
+  (hand2.toUpperCase() != "SCISSORS")){
     return "Hands weren't entered properly";
   } else if (hand1.toUpperCase() === hand2.toUpperCase() ) {
     return "It's a tie!";
@@ -40,6 +38,29 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand one wins!";
     }
   }
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function computerGame(){
+  const choices = ['ROCK', 'PAPER', 'SCISSORS'];
+  var scoreComp1 = 0;
+  for (var i = 0; i <= 100; i++ ){
+    let computerHand1 = choices[getRandomIntInclusive(0,2)];
+    let computerHand2 = choices[getRandomIntInclusive(0,2)];
+    //let computerHand1 = 'SCISSORS';
+    //let computerHand2 = 'ROCK';
+    console.log(computerHand1);
+    //console.log(computerHand2);
+    if (rockPaperScissors(computerHand1, computerHand2) == "Hand one wins!"){
+      scoreComp1++;
+    }
+  }
+  return "Computer 1's score out of 100 games: " + scoreComp1;
 }
 
 function getPrompt() {
@@ -68,7 +89,8 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-
-  getPrompt();
+  console.log("computerGame called");
+  console.log(computerGame());
+  //getPrompt();
 
 }
