@@ -11,7 +11,29 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-
+  if ((hand1.toUpperCase() != "ROCK") &&
+      (hand1.toUpperCase() != "PAPER") &&
+      (hand1.toUpperCase() != "SCISSORS")){
+    return "Hands weren't entered properly";
+  } else if ((hand2.toUpperCase() != "ROCK") &&
+             (hand2.toUpperCase() != "PAPER") &&
+             (hand2.toUpperCase() != "SCISSORS")){
+    return "Hands weren't entered properly";
+  } else if (hand1.toUpperCase() === hand2.toUpperCase() ) {
+    return "It's a tie!";
+  } else if (hand1.toUpperCase() === "ROCK" && hand2.toUpperCase() === "PAPER"){
+    return "Hand two wins!";
+  } else if (hand1.toUpperCase() === "ROCK" && hand2.toUpperCase() === "SCISSORS"){
+    return "Hand one wins!";
+  } else if (hand1.toUpperCase() === "PAPER" && hand2.toUpperCase() === "ROCK"){
+    return "Hand one wins!";
+  } else if (hand1.toUpperCase() === "PAPER" && hand2.toUpperCase() === "SCISSORS"){
+    return "Hand two wins!";
+  } else if (hand1.toUpperCase() === "SCISSORS" && hand2.toUpperCase() === "ROCK"){
+    return "Hand two wins!";
+  } else if (hand1.toUpperCase() === "SCISSORS" && hand2.toUpperCase() === "PAPER"){
+    return "Hand one wins!";
+  }
 }
 
 function getPrompt() {
