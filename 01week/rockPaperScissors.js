@@ -18,7 +18,7 @@ function rockPaperScissors(hand1, hand2) {
   }else if((hand1 === 'rock' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'rock')){
     return 'Hand two wins!';
   }else if((hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 ==='paper') || (hand1 === 'rock' && hand2 === 'scissors'))
-  return 'Hand one wins!';
+    return 'Hand one wins!';
 }
 
 function getPrompt() {
