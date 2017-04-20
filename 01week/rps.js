@@ -8,12 +8,17 @@ const rl = readline.createInterface({
 });
 
 
+// ifthisistrue ? dothis : otherwise this ;
+
+
 function rockPaperScissors(hand1, hand2) {
 
   const h1 = hand1;
   const h2 = hand2;
+  if (!h1 || !h2) {return "Bad input";}
   const h1w = "Hand one wins!";
   const h2w = "Hand two wins!";
+
   if (h1 === h2) {
     return "It's a tie!";
   } else {
@@ -33,7 +38,7 @@ function rockPaperScissors(hand1, hand2) {
 }
 
 function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
+  rl.question('\nhand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
       getPrompt();
