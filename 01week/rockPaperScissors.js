@@ -7,11 +7,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
-
   // Write code here
+  if (isValid(hand1, hand2)) {
+    if (hand1 === hand2) return 'It\'s a tie!'
+    if (hand1 === 'rock') {
+      return ((hand2 === 'paper') ? 'Hand two wins!' : 'Hand one wins!');
+    } else if (hand1 === 'paper') {
+      return ((hand2 === 'rock') ? 'Hand one wins!' : 'Hand two wins!');
+    } else if (hand1 === 'scissors') {
+      return ((hand2 === 'paper') ? 'Hand one wins!' : 'Hand two wins!');
+    }
+  } else {
+    return 'You must type paper, rock, or scissors. You typed- ' + hand1 + ' ' + hand2;
+  }
+}
 
+function isValid(test1, test2) {
+  var temp = [ 'rock', 'paper', 'scissors', 'ROCK', 'PAPER', 'SCISSORS', 'Rock', 'Paper', 'Scissors' ];
+  return (temp.includes(test1) && temp.includes(test2));
 }
 
 function getPrompt() {
