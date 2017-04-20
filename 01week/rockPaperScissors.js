@@ -8,16 +8,12 @@ const rl = readline.createInterface({
 });
 
 var hand2 = Math.random();
-console.log(hand2)
 if (hand2 < .34) {
     hand2 = 'rock'
-    console.log(hand2)
   } else if (hand2 > .66) {
     hand2 = 'scissors'
-    console.log(hand2)
   } else {
     hand2 = 'paper'
-    console.log(hand2)
   }
 
 function rockPaperScissors(hand1, hand2) {
