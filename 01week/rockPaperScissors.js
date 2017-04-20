@@ -12,14 +12,31 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
+
+if(hand1 === hand2){
+  return "It's a tie!";
+}else if((hand1 === 'rock' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'rock')){
+  return 'Hand two wins!';
+}else if((hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 ==='paper') || (hand1 === 'rock' && hand2 === 'scissors'))
+  return 'Hand one wins!';
 }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+    var number = Math.random();
+    var computer = null;
+    if(number <= 0.33){
+      computer = 'rock';
+    }else if(number <= 0.66){
+      computer = 'paper';
+    }else{
+      computer = 'scissors';
+    }
+      console.log('hand2:', (computer));
+      console.log( rockPaperScissors(answer1, computer) );
+
       getPrompt();
-    });
+
   });
 }
 
