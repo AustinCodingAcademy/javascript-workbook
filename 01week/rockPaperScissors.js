@@ -9,34 +9,34 @@ const rl = readline.createInterface({
 
 var hand2 = Math.random();
 if (hand2 < .34) {
-    hand2 = 'rock'
-  } else if (hand2 > .66) {
-    hand2 = 'scissors'
-  } else {
-    hand2 = 'paper'
-  }
+  hand2 = 'rock'
+} else if (hand2 > .66) {
+  hand2 = 'scissors'
+} else {
+  hand2 = 'paper'
+}
 
 function rockPaperScissors(hand1, hand2) {
   if (hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') {
     // Had to use && ^here^ instead of ||
-  return 'Invalid entry.  Please enter rock, paper, or scissors.';
-} else if ((hand1 === 'rock' && hand2 === 'rock') || (hand1 === 'scissors' && hand2
-  === 'scissors') || (hand1 === 'paper' && hand2 === 'paper')) {
+    return 'Invalid entry.  Please enter rock, paper, or scissors.';
+  } else if ((hand1 === 'rock' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 ===
+      'scissors') || (hand1 === 'paper' && hand2 === 'paper')) {
     return 'It\'s a tie!'
   } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' &&
-  hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
+      hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
     return 'Hand one wins!'
   } else if ((hand1 === 'rock' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'rock'))
     return 'Hand two wins!'
-  }
+}
 
 
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     // rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, hand2) );
-      getPrompt();
+    console.log(rockPaperScissors(answer1, hand2));
+    getPrompt();
     // });
   });
 }
