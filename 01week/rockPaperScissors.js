@@ -18,13 +18,13 @@ function rockPaperScissors(hand1, hand2) {
     return "It's a tie!";
   } else {
     switch (h1) {
-      case 'rock':
+    case 'rock':
       return (h2==='scissors'?h1w:h2w);
-      case 'paper':
+    case 'paper':
       return (h2==='rock'?h1w:h2w);
-      case 'scissors':
+    case 'scissors':
       return (h2==='paper'?h1w:h2w);
-      default:
+    default:
       console.log('something broke');
       break;
     }
