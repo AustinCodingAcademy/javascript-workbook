@@ -19,14 +19,14 @@ function rockPaperScissors(hand1, hand2) {
   } else {
     switch (h1) {
       case 'rock':
-        return (h2==='scissors'?h1w:h2w);
+      return (h2==='scissors'?h1w:h2w);
       case 'paper':
-        return (h2==='rock'?h1w:h2w);
+      return (h2==='rock'?h1w:h2w);
       case 'scissors':
-        return (h2==='paper'?h1w:h2w);
+      return (h2==='paper'?h1w:h2w);
       default:
-        console.log('something broke');
-        break;
+      console.log('something broke');
+      break;
     }
   }
 
