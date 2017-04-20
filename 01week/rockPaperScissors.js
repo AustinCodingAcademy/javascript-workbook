@@ -8,25 +8,25 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(computerChoice, hand2) {
+function rockPaperScissors(hand1, computerChoice) {
 
 
 
-  if (computerChoice === hand2) {
+  if (hand1 === computerChoice) {
     return 'It\'s a tie!';}
-  if (computerChoice === 'rock' && hand2 === 'scissors') {
+  if (hand1 === 'rock' && computerChoice === 'scissors') {
     return 'Hand one wins!';
   }
   else {
     return 'Hand two wins!';
   }
-  if (computerChoice === 'scissors' && hand2 === 'paper') {
+  if (hand1 === 'scissors' && computerChoice === 'paper') {
     return 'Hand one wins!';
   }
   else {
     return 'Hand two wins!';
   }
-  if (computerChoice === 'paper' && hand2 === 'scissors') {
+  if (hand1 === 'paper' && computerChoice === 'scissors') {
     return 'Hand two wins!';
   }
   else {
@@ -41,15 +41,16 @@ function rockPaperScissors(computerChoice, hand2) {
 //prompt cycles each time this is why computer choice is here
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
-    // rl.question('hand2: ', (answer2) => {
+  rl.write('computer: ') [randomNumber] => {
     var computerChoices = ['rock', 'paper', 'scissors']
     var randomNumber = Math.floor(Math.random()*computerChoices.length);
     const computerChoice = computerChoices[randomNumber];
     console.log(computerChoice);
-    console.log( rockPaperScissors(answer1, computerChoice) );
+    console.log(rockPaperScissors(answer1, computerChoice));
     getPrompt();
     // });
   });
+ };
 }
 
 // Tests
