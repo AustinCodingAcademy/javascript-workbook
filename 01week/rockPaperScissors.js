@@ -10,9 +10,35 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  if (hand1 === hand2) {
+    return 'It\'s a tie!';}
+  if (hand1 === 'rock' && hand2 === 'scissors') {
+    return 'Hand one wins!';
+  }
+  else {
+    return 'Hand two wins!';
+  }
+  if (hand1 === 'scissors' && hand2 === 'paper') {
+    return 'Hand one wins!';
+  }
+  else {
+    return 'Hand two wins!';
+  }
+  if (hand1 === 'paper' && hand2 === 'scissors') {
+    return 'Hand two wins!';
+  }
+  else {
+    return 'Hand one wins!';
+  }
 
 }
+
+//var computerChoice = ['rock','paper', 'scissors'];
+//var randomNumber = Math.floor(Math.random()*computerChoice.length); {
+//  return randomNumber;
+//}
+
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
