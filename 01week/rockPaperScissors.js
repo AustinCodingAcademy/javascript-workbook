@@ -41,16 +41,15 @@ function rockPaperScissors(hand1, computerChoice) {
 //prompt cycles each time this is why computer choice is here
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
-  rl.write('computer: ') [randomNumber] => {
+  //rl.prompt('computer: ') [randomNumber] => {
     var computerChoices = ['rock', 'paper', 'scissors']
     var randomNumber = Math.floor(Math.random()*computerChoices.length);
     const computerChoice = computerChoices[randomNumber];
-    console.log(computerChoice);
+    console.log('hand2:', computerChoice);
     console.log(rockPaperScissors(answer1, computerChoice));
     getPrompt();
     // });
   });
- };
 }
 
 // Tests
