@@ -13,7 +13,7 @@ function rockPaperScissors(hand1, hand2) {
   if (hand1 === hand2) {
     return "It's a tie!";
   };
-  else if (hand1 === 'rock') {
+  if (hand1 === 'rock') {
     if (hand2 === 'scissors') {
       return "Hand one wins!";
     };
@@ -21,7 +21,7 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand two wins!";
     };
   };
-  else if (hand1 === 'paper') {
+  if (hand1 === 'paper') {
     if (hand2 === 'rock') {
       return "Hand one wins!";
     };
@@ -29,7 +29,7 @@ function rockPaperScissors(hand1, hand2) {
       return "Hand two wins!";
     };
   };
-  else if (hand2 === 'scissors') {
+  if (hand2 === 'scissors') {
     if (hand2 === 'paper') {
       return "Hand one wins!";
     };
