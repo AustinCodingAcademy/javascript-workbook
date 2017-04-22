@@ -17,7 +17,7 @@ function rockPaperScissors(hand1, hand2) {
     if (hand2 === 'scissors') {
       return "Hand one wins!";
     };
-    else {
+    if (hand2 === 'scissors') {
       return "Hand two wins!";
     };
   };
