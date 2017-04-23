@@ -4,8 +4,8 @@ function reduce(arr, fn, initial) {
     if(index > arr.length - 1){
       return value;
     }
-  return reduceOne(arr[index] + 1, fn(value, arr[index], index, arr))
-    })
+    return reduceOne(arr[index] + 1, fn(value, arr[index], index, arr))
+  })
 };
 
 module.exports = reduce

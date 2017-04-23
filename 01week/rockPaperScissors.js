@@ -3,25 +3,25 @@
   const assert = require('assert');
   const readline = require('readline');
   const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+    input: process.stdin,
+    output: process.stdout
+  });
 
 // let player = {
 //   wins: 0
 // }
 // let h1 = new player;
   function robot(name) {
-  this.name = name;
-  this.wins = 0;
-}
+    this.name = name;
+    this.wins = 0;
+  }
   let turn = function() {
 // function turn(){
     let choice = (Math.random()*  3);
 
     if(choice<1) {
-    choice = "rock";
-  }
+      choice = "rock";
+    }
     else if (choice >= 1 && choice < 2) {
       choice = "paper";
     }
@@ -32,40 +32,40 @@
   };
 
   function win(){
-  this.wins +=1;
+    this.wins +=1;
   }
 
   function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-  if(hand1 === hand2){
-  return "It's a tie!";
-}
-  else if (hand1 ==='rock') {
-  return (hand2 ==='scissors') ? ('Hand one wins!') : ('Hand two wins!')
-}
-  else if (hand1 === 'paper') {
-  return (hand2 === 'rock') ? 'Hand one wins!' : 'Hand two wins!';
-}
-  else if (hand1 === 'scissors') {
-  return (hand2 === 'paper') ? 'Hand one wins!': 'Hand two wins!';
-};
-}
+    if(hand1 === hand2){
+      return "It's a tie!";
+  }
+    else if (hand1 ==='rock') {
+    return (hand2 ==='scissors') ? ('Hand one wins!') : ('Hand two wins!')
+  }
+    else if (hand1 === 'paper') {
+    return (hand2 === 'rock') ? 'Hand one wins!' : 'Hand two wins!';
+  }
+    else if (hand1 === 'scissors') {
+    return (hand2 === 'paper') ? 'Hand one wins!': 'Hand two wins!';
+  };
+  }
 
   function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
+    rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
       getPrompt();
     });
   });
-}
+  }
 
 // Tests
 
   if (typeof describe === 'function') {
 
-  describe('#rockPaperScissors()', () => {
+    describe('#rockPaperScissors()', () => {
     it('should detect a tie', () => {
       assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
       assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
@@ -77,8 +77,8 @@
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
   });
-}
+  }
   else {
 
     getPrompt();
-};
+  };
