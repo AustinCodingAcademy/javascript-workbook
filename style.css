@@ -1,0 +1,14 @@
+body {
+  background-image: url("background.jpg");
+  height: 1000px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 25% 50%;
+}
+body {
+  text-align: center;
+  color: gainsboro;
+  font-family: sans-serif;
+}
