@@ -7,6 +7,8 @@
 //   robot.win = function(){
 //     this.wins +=1;
 //   };
+
+//robot constructor, intially had the throw() as as a separate fcn but decided it made sense to combine them
 function robot(name){
   this.name = name;
   this.wins = 0;
