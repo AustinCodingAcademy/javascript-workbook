@@ -62,18 +62,18 @@ function game(){
   winner = (rockPaperScissors(rob1.throw(), rob2.throw()));
 
   if(winner != "It's a tie!"){
-      winner.win();
-      console.log(winner.name, winner.wins);
-    }
+    winner.win();
+    console.log(winner.name, winner.wins);
+  }
 
   else{
-      console.log("IT's a tie!");
-    };
+    console.log("IT's a tie!");
+  };
 };
 let turns = 10;
 for(var i = 0; i < turns; i++){
-       console.log(game());
-     }
+  console.log(game());
+}
 announceWinner(rob1, rob2);
 function announceWinner(rob1, rob2){
   if(rob1.wins > rob2.wins){

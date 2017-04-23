@@ -3,10 +3,10 @@ function getShortMessages(messages) {
   return messages.filter(function(each){
     return each.message.length < 50
   }).map(function(each){
-        return each.message
+    return each.message
 
-      });
-    };
+  });
+};
       //   .length < 50;
       // }).map(function(message){
       //       return message.length < 50;
