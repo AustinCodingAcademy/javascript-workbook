@@ -17,8 +17,8 @@ function robot(name){
   this.throw = function(){
     let choice = (Math.random()*3);
     if(choice<1) {
-        choice = "rock";
-      }
+      choice = "rock";
+    }
     else if (choice >= 1 && choice < 2){
       choice = "paper";
     }
@@ -56,26 +56,26 @@ function rockPaperScissors(throw1, throw2) {
 }
 //just need to button this up in a for loop and write a declare winner function
 function game(){
-    let winner = new Object();
-    winner = (rockPaperScissors(rob1.throw(), rob2.throw()));
+  let winner = new Object();
+  winner = (rockPaperScissors(rob1.throw(), rob2.throw()));
 
-    if(winner != "It's a tie!"){
+  if(winner != "It's a tie!"){
       winner.win();
       console.log(winner.name, winner.wins);
     }
 
-    else{
+  else{
       console.log("IT's a tie!");
     };
-  };
-     let turns = 10;
-     for(var i = 0; i < turns; i++){
-      console.log(game());
-    }
-    announceWinner(rob1, rob2);
+};
+let turns = 10;
+for(var i = 0; i < turns; i++){
+       console.log(game());
+     }
+announceWinner(rob1, rob2);
 function announceWinner(rob1, rob2){
   if(rob1.wins > rob2.wins){
-  console.log(rob1.name +' is the Champion!');
+    console.log(rob1.name +' is the Champion!');
   }
   else if(rob1.wins < rob2.wins){
     console.log(rob2.name + ' is the Champion!)')

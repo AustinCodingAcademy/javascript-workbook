@@ -30,8 +30,6 @@ function robot(name) {
     }
     return choice;
   };
-}
-
 
 function win(){
     this.wins +=1;
