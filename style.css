@@ -7,8 +7,36 @@ body {
   background-size: cover;
   background-position: 25% 50%;
 }
+
 body {
   text-align: center;
   color: gainsboro;
   font-family: sans-serif;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+img {
+  width: 100%;
+  border: 3px solid black;
+}
+
+.contain {
+  margin-top: 100px;
+}
+
+.week {
+  margin: auto;
+  width: 100%;
+  height: auto;
+  display: inline-flex;
+}
+
+.assignment {
+  width: 40%;
+  height: auto;
+  margin: auto;
+  padding: 10px;
 }
