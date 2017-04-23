@@ -1,36 +1,37 @@
-DOCTYPE HTML;
-<html>
-<head>
-</head>
-<body>
-<script>
-'use strict';
+  'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
+  });
 
-let player = {
-  wins: 0
-};
-
-let h1 = new Player;
-let h2 = new Player;
-
-function turn(){
-  let choice = (Math.random()*  3);
-  switch (choice) {
-    case choice < 1: choice = "rock";
-      break;
-    case choice >= 1 && choice > 2 : choice = "paper";
-      break;
-    case choice > 2: choice = "scissors"
-    default: choice = NaN;
-  }
+// let player = {
+//   wins: 0
+// }
+// let h1 = new player;
+function robot(name)  = {
+  this.name = name;
+  this.wins = 0;
 }
+  let turn = function(){
+// function turn(){
+  let choice = (Math.random()*  3);
+
+  if(choice<1) {
+    choice = "rock";
+   }
+    else if (choice >= 1 && choice < 2){
+      choice = "paper";
+    }
+    else if (choice > 2) {
+      choice = "scissors";
+    }
+    return choice;
+  };
+}
+
 
 function win(){
     this.wins +=1;
@@ -43,7 +44,7 @@ if(hand1 === hand2){
   return "It's a tie!";
 }
 else if (hand1 ==='rock') {
-  return (hand2 ==='scissors') ? ('Hand one wins!' h1.wins()) : ('Hand two wins!')
+  return (hand2 ==='scissors') ? ('Hand one wins!') : ('Hand two wins!')
   }
 else if (hand1 === 'paper') {
   return (hand2 === 'rock') ? 'Hand one wins!' : 'Hand two wins!';
@@ -54,8 +55,8 @@ else if (hand1 === 'scissors') {
 }
 
 function getPrompt() {
-  rl.question('hand1: ', (hand1.(h1.turn())) => {
-    rl.question('hand2: ', (hand2.(h2.turn())) => {
+  rl.question('hand1: ', (answer1) => {
+    rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
       getPrompt();
     });
@@ -77,12 +78,9 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
-  });
-} else {
-
-  getPrompt();
-
+});
 }
-</script>
-</body>
-</html>
+else {
+
+getPrompt();
+};
