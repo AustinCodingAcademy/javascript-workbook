@@ -11,18 +11,18 @@ const rl = readline.createInterface({
 //   wins: 0
 // }
 // let h1 = new player;
-function robot(name)  = {
+function robot(name) {
   this.name = name;
   this.wins = 0;
 }
-  let turn = function(){
+  let turn = function() {
 // function turn(){
   let choice = (Math.random()*  3);
 
   if(choice<1) {
     choice = "rock";
    }
-    else if (choice >= 1 && choice < 2){
+    else if (choice >= 1 && choice < 2) {
       choice = "paper";
     }
     else if (choice > 2) {
