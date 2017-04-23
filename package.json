@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "functional-javascript-workshop": "^1.0.6",
-    "javascripting": "^2.6.1"
+    "javascripting": "^2.6.1",
+    "mocha": "^3.2.0"
   }
 }
