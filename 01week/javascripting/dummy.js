@@ -31,6 +31,9 @@ function robot(name){
   };
 };
 
+let rob1 = new robot();
+let rob2 = new robot();
+
 // let rob1 = new robot();
 // let rob2 = new robot();
 
@@ -68,7 +71,7 @@ function game(){
 
   if(winner != "It's a tie!"){
     winner.win();
-    console.log(winner.name +' won the game and has '+ winner.wins +' wins!'/n);
+    console.log(winner.name +' won the game and has '+ winner.wins +' wins!');
   }
 
   else{
@@ -95,15 +98,15 @@ function getInfo() {
     rl.question('Robot 2 name: ', (name2) => {
       rl.question('Number of games: ', (gameNum) => {
 
-        let rob1 = new robot(name1);
-        let rob2 = new robot(name2);
+        rob1.name = (name1);
+        rob2.name = (name2);
         let turns = gameNum;
-        for(var i = 0; i < 5; i++){
+        for(var i = 0; i < turns; i++){
           game(rob1, rob2);
         }
         announceWinner(rob1, rob2);
         rl.close();
+        });
       });
-    });
-  })};
+    })};
 getInfo();

@@ -1,14 +1,17 @@
-  'use strict'
+<script>
+  'use strict';
 
-  const assert = require('assert');
+//  const assert = require('assert');
   const readline = require('readline');
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
-// I'm working on a version that has two robotic player objects that you pick the names of and decide how many
-//games between them. Then the winner is declared.  https://github.com/stefanbemelmans/javascript-workbook/blob/gh-pages/01week/javascripting/dummy.js
+// let player = {
+//   wins: 0
+// }
+// let h1 = new player;
   function robot(name) {
     this.name = name;
     this.wins = 0;
@@ -80,3 +83,4 @@
 
     getPrompt();
   };
+</script>
