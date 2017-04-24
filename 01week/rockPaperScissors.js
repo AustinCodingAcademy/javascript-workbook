@@ -34,7 +34,7 @@ function rockPaperScissors(hand1, hand2) {
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
-    // rl.question('hand2: ', (answer2) => {
+    console.log('Hand two is ' + (hand2)) // rl.question('hand2: ', (answer2) => {
     console.log(rockPaperScissors(answer1, hand2));
     getPrompt();
     // });
