@@ -30,20 +30,12 @@ function robot(name){
     return choice;
   };
 };
-
+// tried to instantiate these when getInfo() was called but it didn't seem to like it.
 let rob1 = new robot();
 let rob2 = new robot();
 
 // let rob1 = new robot();
 // let rob2 = new robot();
-
-/*
-Exception: SyntaxError: redeclaration of let rob1
-@Scratchpad/1:1:1
-*/
-
-// rob1.choice=turn();
-// rob2.choice=turn();
 
 function rockPaperScissors(hand1, hand2) {
 
