@@ -103,8 +103,7 @@ function getInfo() {
         }
         announceWinner(rob1, rob2);
         rl.close();
+      });
     });
-  });
-})};
-
- getInfo();
+  })};
+getInfo();
