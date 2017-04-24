@@ -19,9 +19,8 @@ function rockPaperScissors(hand1, hand2) {
   const h1w = "Hand one wins!";
   const h2w = "Hand two wins!";
 
-  if (h1 === h2) {
-    return "It's a tie!";
-  } else {
+  if (h1 === h2) {return "It's a tie!";}
+  else {
     switch (h1) {
     case 'rock':
       return (h2==='scissors'?h1w:h2w);

@@ -11,9 +11,11 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   const h1 = hand1;
+
   const all = ["rock","paper","scissors"];
   const h2 = all[Math.floor(Math.random() * 3)];
   console.log("The computer pics " + h2 + "!");
+
   if (!h1 || !h2) {console.log('Invalid input, yo');}
   const h1w = "Hand one wins!";
   const h2w = "Hand two wins!";

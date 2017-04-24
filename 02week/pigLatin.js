@@ -10,13 +10,29 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+  const x = word.toLowerCase();
+  const vwl = ["a","e","i","o","u","y"];
+  let pos = null;
+  let ind;
+  for (var i in vwl) {
+    ind = x.indexOf([vwl[i]]);
+    if ( ((pos === null) && (ind != -1)) || (pos > ind && (ind != -1)) ) {
+      pos = ind;
+    }
+  }
+  if (pos === null) {
+    return "Invalid entry";
+  } else if (pos === 0) {
+    return x + "yay";
+  } else {
+    return (x.slice(pos) + x.slice(0,pos) + 'ay');
+  }
 
 }
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('\nWord: ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
