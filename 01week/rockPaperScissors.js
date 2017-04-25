@@ -44,6 +44,7 @@ function getPrompt() {
   //rl.prompt('computer: ') [randomNumber] => {
     var computerChoices = ['rock', 'paper', 'scissors']
     var randomNumber = Math.floor(Math.random()*computerChoices.length);
+
     const computerChoice = computerChoices[randomNumber];
     console.log('hand2:', computerChoice);
     console.log(rockPaperScissors(answer1, computerChoice));
