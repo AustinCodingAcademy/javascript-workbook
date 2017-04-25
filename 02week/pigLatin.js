@@ -17,7 +17,7 @@ function nullNegativeIndex(letterIndex, word){
 }
 function pigLatinSentence(sentence){
   var sentenceArray = sentence.split(' ');
-  console.table(sentenceArray);
+  console.log(sentenceArray);
   var pigSentenceArray = sentenceArray.map( pigLatin);
   var pigSentence = pigSentenceArray.join(' ');
   return pigSentence;
@@ -54,7 +54,7 @@ function pigLatin(word) {
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log( pigLatinSentence(answer) );
     getPrompt();
   });
 }
