@@ -17,7 +17,7 @@ function nullNegativeIndex(letterIndex, word){
 }
 function pigLatinSentence(sentence){
   var sentenceArray = sentence.split(' ');
-  console.log(sentenceArray);
+  //console.log(sentenceArray);
   var pigSentenceArray = sentenceArray.map( pigLatin);
   var pigSentence = pigSentenceArray.join(' ');
   return pigSentence;
