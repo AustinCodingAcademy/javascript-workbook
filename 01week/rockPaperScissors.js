@@ -6,11 +6,17 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+//ignore above, not relevent to function below
 
+var hand1 = answer1;
+var hand2 = answer2;
 
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
+  // Rock>scissors
+  // Scissors>paper
+  // Paper>rock
+  //
+  if(hand1 == 'rock') && (hand2 == 'paper')
 
 }
 
