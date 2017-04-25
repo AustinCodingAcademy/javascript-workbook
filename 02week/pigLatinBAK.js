@@ -9,17 +9,25 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-  let x = word.toLowerCase();
+
+  const x = word.toLowerCase();
   const vwl = ["a","e","i","o","u","y"];
-  let pos = [];
-  for (var key in vwl) {
-    if (x.indexOf(vwl[key]) > -1) {
-      pos.push(x.indexOf(vwl[key]));
+  let pos = null;
+  let ind;
+  for (var i in vwl) {
+    ind = x.indexOf([vwl[i]]);
+    if ( ((pos === null) && (ind != -1)) || (pos > ind && (ind != -1)) ) {
+      pos = ind;
     }
   }
-  let lowest = Math.min.apply(null, pos);
-  let firstVwl = (lowest===0?'y':'');
-  return (x.slice(lowest) + x.slice(0,lowest) + firstVwl + 'ay');
+  if (pos === null) {
+    return "Invalid entry";
+  } else if (pos === 0) {
+    return x + "yay";
+  } else {
+    return (x.slice(pos) + x.slice(0,pos) + 'ay');
+  }
+
 }
 
 
