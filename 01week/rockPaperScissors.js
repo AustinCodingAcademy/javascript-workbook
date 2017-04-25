@@ -2,20 +2,17 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const choices = ['ROCK', 'PAPER', 'SCISSORS'];
 // const rl = readline.createInterface({
 //   input: process.stdin,
 //   output: process.stdout
 // });
 
 function rockPaperScissors(hand1, hand2) {
-
-  if ((hand1.toUpperCase() != "ROCK") &&
-  (hand1.toUpperCase() != "PAPER") &&
-  (hand1.toUpperCase() != "SCISSORS")){
+  
+  if (!choices.includes(hand1.toUpperCase())){
     return "Hands weren't entered properly";
-  } else if ((hand2.toUpperCase() != "ROCK") &&
-  (hand2.toUpperCase() != "PAPER") &&
-  (hand2.toUpperCase() != "SCISSORS")){
+  } else if (!choices.includes(hand1.toUpperCase())){
     return "Hands weren't entered properly";
   } else if (hand1.toUpperCase() === hand2.toUpperCase() ) {
     return "It's a tie!";
@@ -47,8 +44,11 @@ function getRandomIntInclusive(min, max) {
 }
 
 function computerGame(){
-  const choices = ['ROCK', 'PAPER', 'SCISSORS'];
+
   var scoreComp1 = 0;
+  var scoreComp2 = 0;
+  var ties = 0;
+
   for (var i = 0; i <= 100; i++ ){
     let computerHand1 = choices[getRandomIntInclusive(0,2)];
     let computerHand2 = choices[getRandomIntInclusive(0,2)];
@@ -58,9 +58,13 @@ function computerGame(){
     //console.log(computerHand2);
     if (rockPaperScissors(computerHand1, computerHand2) == "Hand one wins!"){
       scoreComp1++;
+    } else if(rockPaperScissors(computerHand1, computerHand2) == "Hand two wins!"){
+      scoreComp2++;
+    } else {
+      ties++;
     }
   }
-  return "Computer 1's score out of 100 games: " + scoreComp1;
+  return "Computer 1: " + scoreComp1 + "  Computer 2: " + scoreComp2 + "  Ties: " + ties;
 }
 
 function getPrompt() {

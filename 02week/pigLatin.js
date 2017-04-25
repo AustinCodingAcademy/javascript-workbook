@@ -7,11 +7,48 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+function nullNegativeIndex(letterIndex, word){
+  if (letterIndex < 0){
+    return word.length + 1;
+  } else {
+    return letterIndex;
+  }
+
+}
+function pigLatinSentence(sentence){
+  var sentenceArray = sentence.split(' ');
+  console.table(sentenceArray);
+  var pigSentenceArray = sentenceArray.map( pigLatin);
+  var pigSentence = pigSentenceArray.join(' ');
+  return pigSentence;
+}
 
 function pigLatin(word) {
-
+  word = word.toLowerCase();
   // Your code here
+  var aIndex = word.indexOf('a');
+  var eIndex = word.indexOf('e');
+  var iIndex = word.indexOf('i');
+  var oIndex = word.indexOf('o');
+  var uIndex = word.indexOf('u');
 
+
+  var finishedWord = '';
+
+  aIndex = nullNegativeIndex(aIndex, word);
+  eIndex = nullNegativeIndex(eIndex, word);
+  iIndex = nullNegativeIndex(iIndex, word);
+  oIndex = nullNegativeIndex(oIndex, word);
+  uIndex = nullNegativeIndex(uIndex, word);
+
+  var firstVowel = Math.min(aIndex, eIndex, iIndex, oIndex, uIndex);
+
+  //console.log((aIndex + eIndex + iIndex + oIndex + uIndex) / 5 );
+  if ( firstVowel === 0){
+    return word + 'yay';
+  } else {
+    return word.slice(firstVowel) +word.slice(0, firstVowel) + 'ay';
+  }
 }
 
 
