@@ -9,11 +9,25 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+let vowels = "aeiou";
+  for(let i = 0; i < word.length; i++){
 
-  // Your code here
+  }
 
 }
+let vowels = "aeiou";
+let word = "jumbotron";
+let dice = [];
 
+dice.push(word.indexOf('a'));
+dice.push(word.indexOf('e'));
+dice.push(word.indexOf('i'));
+dice.push(word.indexOf('o'));
+dice.push(word.indexOf('u'));
+
+let cutat =  Math.min.apply(null, dice);
+console.log(dice);
+console.log(cutat);
 
 function getPrompt() {
   rl.question('word ', (answer) => {
