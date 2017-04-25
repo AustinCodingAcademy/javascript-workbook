@@ -33,7 +33,7 @@ function pigLatin(word) {
   var uIndex = word.indexOf('u');
 
 
-  var finishedWord = '';
+  //var finishedWord = '';
 
   aIndex = nullNegativeIndex(aIndex, word);
   eIndex = nullNegativeIndex(eIndex, word);
@@ -47,13 +47,13 @@ function pigLatin(word) {
   if ( firstVowel === 0){
     return word + 'yay';
   } else {
-    return word.slice(firstVowel) +word.slice(0, firstVowel) + 'ay';
+    return word.slice(firstVowel) + word.slice(0, firstVowel) + 'ay';
   }
 }
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('Full sentence ', (answer) => {
     console.log( pigLatinSentence(answer) );
     getPrompt();
   });
