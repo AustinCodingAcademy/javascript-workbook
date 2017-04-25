@@ -13,11 +13,13 @@ function pigLatin(word) {
   // Your code here --- We are trying to determine how we can successfully utilize
   // the .toLowercase function right after input
 let vowel = ['a', 'e', 'i', 'o', 'u'];
-  if (vowel.includes(word[0].toLowerCase())) {
+word = word.toLowerCase()
+// Kevin suggested simplifying this to get the whole word caps
+  if (vowel.includes(word[0])) {
     return(word + 'yay');
   } else {
     for (var i = 0; i < word.length -1; i++) {
-      if (vowel.includes(word[i].toLowerCase())) {
+      if (vowel.includes(word[i])) {
         return (word.substring(i) + word.substring(0,i) + 'ay');
       }
     }
