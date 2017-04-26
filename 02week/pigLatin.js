@@ -8,41 +8,50 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
-
-  let lowestVowel = word.length
-
-  if (word.indexOf('a') > -1 && word.indexOf('a') < lowestVowel)
-  {lowestVowel = word.indexOf('a');
-  }
-  if (word.indexOf('e') > -1 && word.indexOf('e') < lowestVowel)
-  {lowestVowel = word.indexOf('e');
-  }
-  if (word.indexOf('i') > -1 && word.indexOf('i') < lowestVowel)
-  {lowestVowel = word.indexOf('i');
-  }
-  if (word.indexOf('o') > -1 && word.indexOf('o') < lowestVowel)
-  {lowestVowel = word.indexOf('o');
-  }
-  if (word.indexOf('u') > -1 && word.indexOf('u') < lowestVowel)
-  {lowestVowel = word.indexOf('u');
-  }
-
-
-
-  var first = word.slice(0, lowestVowel)
-  var mid = word.slice(lowestVowel)
-  console.log(mid + first + 'ay');
-
-}
-
-
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('word? ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
 }
+pigLatin('word')
+function pigLatin(input) {
+  var word = input.toLowerCase();
+  let lowestVowel = word.length;
+
+
+
+  if (word.indexOf('a')> -1 && word.indexOf('a') < lowestVowel) {
+    lowestVowel = word.indexOf('a')
+
+  }
+  if (word.indexOf('e')> -1 && word.indexOf('e') < lowestVowel)  {
+    lowestVowel = word.indexOf('e')
+
+  }
+  if (word.indexOf('i')> -1 && word.indexOf('i') < lowestVowel) {
+    lowestVowel = word.indexOf('i')
+  }
+  if (word.indexOf('o')> -1 && word.indexOf('o') < lowestVowel)  {
+    lowestVowel = word.indexOf('o')
+
+  }
+  if (word.indexOf('u')> -1 && word.indexOf('u') < lowestVowel)  {
+    lowestVowel = word.indexOf('u')
+
+  }
+  if (lowestVowel === 0){
+    return word + 'yay';
+  }
+  console.log(lowestVowel)
+  const firstPart = word.slice(0, lowestVowel);
+  const secondPart = word.slice(lowestVowel);
+  return secondPart + firstPart + 'ay';
+}
+
+
+
+
 
 // Tests
 
