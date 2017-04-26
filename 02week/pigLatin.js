@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 
 //pig Latin function. Made up Argument name = 'word'
-function pigLatin(.toLowerCase(word)){
+function pigLatin(word){
   // lowestVowel possible is 2 or the length of the word
 
 
@@ -42,11 +42,11 @@ console.log(lowestVowel)
 //if the lowestVowel found is at index 0, just add "yay" to end of word
 
 if(lowestVowel === 0){
-  return word + "yay";
+  return word.toLowerCase() + "yay";
 }
 //otherwise, remove any letters before the index of lowestVowel and add to end of word, then add "ay"
   else{
-    return word.slice (lowestVowel,word.length) + word.slice(0,lowestVowel) + "ay"
+    return word.toLowerCase().slice (lowestVowel,word.length) + word.toLowerCase().slice(0,lowestVowel) + "ay"
   }
 }
 
