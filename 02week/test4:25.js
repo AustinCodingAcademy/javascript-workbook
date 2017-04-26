@@ -7,63 +7,29 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function pigLatin(word) {
-
-  word = "baggi";
-
-  let lowestVowel = word.length;
-
-  if (word.charAt(0) === 'a')  {
-    console.log(word + 'yay') ;
+function getPrompt() {
+  rl.question('word ', (answer) => {
+    console.log(pigLatin(answer));
+    getPrompt();
+  });
+  var word = input.toLowerCase();
+  var vowels = "aeiouAEIOU";
+  let lowestVowel = word.length();
+  function pigLatin(input) {
+    for (i = 0; i < lowestVowel; i++) {
+        if (word.contains(""+vowels.charAt(i))) {
+            var prefix = input.substring(0, i);
+            var suffix = input.substring(i);
+            var answer = prefix + suffix + 'ay';
+            console.log(answer);
+          } else {break;
+        }
+      /*  else (word.charAt(0) === 'a' || word.charAt(0) === 'e' || word.charAt(0) === 'i' || word.charAt(0) === 'o'
+      || word.charAt(0) === 'u')  {
+          console.log(word + 'yay') ;
+        }*/
+    }
   }
-    else if (word.indexOf('a') >= 1 && word.indexOf('a') < lowestVowel)
-      {lowestVowel = word.indexOf('a');
-        first = word.slice(0, lowestVowel);
-        mid = word.slice(lowestVowel);
-    console.log(mid + first + 'ay');
-  }
-
-  if (word.charAt(0) === 'e')  {
-    console.log(word + 'yay') ;
-  }
-    else if (word.indexOf('e') >= 1 && word.indexOf('e') < lowestVowel)
-      {lowestVowel = word.indexOf('e');
-        first = word.slice(0, lowestVowel);
-        mid = word.slice(lowestVowel);
-    console.log(mid + first + 'ay');
-  }
-
-  if (word.charAt(0) === 'i')  {
-    console.log(word + 'yay') ;
-  }
-    else if (word.indexOf('i') >= 1 && word.indexOf('i') < lowestVowel)
-      {lowestVowel = word.indexOf('i');
-        first = word.slice(0, lowestVowel);
-        mid = word.slice(lowestVowel);
-    console.log(mid + first + 'ay');
-  }
-
-  if (word.charAt(0) === 'o')  {
-    console.log(word + 'yay') ;
-  }
-    else if (word.indexOf('o') >= 1 && word.indexOf('o') < lowestVowel)
-      {lowestVowel = word.indexOf('o');
-        first = word.slice(0, lowestVowel);
-        mid = word.slice(lowestVowel);
-    console.log(mid + first + 'ay');
-  }
-
-  if (word.charAt(0) === 'u')  {
-    console.log(word + 'yay') ;
-  }
-    else if (word.indexOf('u') >= 1 && word.indexOf('u') < lowestVowel)
-      {lowestVowel = word.indexOf('u');
-        first = word.slice(0, lowestVowel);
-        mid = word.slice(lowestVowel);
-    console.log(mid + first + 'ay');
-  }
-
 
 // Tests
 
@@ -91,4 +57,4 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
-}
+};
