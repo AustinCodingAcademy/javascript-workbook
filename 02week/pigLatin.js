@@ -8,10 +8,11 @@ const rl = readline.createInterface({
 });
 
 
-const word = 'cameron'.toLowerCase();
-let lowestVowel = word.length;
+
 
 function pigLatin(word) {
+  word = word.toLowerCase();
+  let lowestVowel = word.length;
   console.log('lowestVowel: ', lowestVowel);
 
   console.log(`a:`, word.indexOf('a'));
@@ -42,19 +43,86 @@ function pigLatin(word) {
     if (word.indexOf('u') > -1 && word.indexOf('u') < lowestVowel) {
       lowestVowel = word.indexOf('u');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   console.log('lowestVowel: ', lowestVowel);
 
 
   if (lowestVowel === 0) {
-    console.log(word + "-" + "yay")
+    return(word + "yay")
   } else {
   let sliced = word.slice(lowestVowel, word.length);
-  let leftover = word.slice([0], lowestVowel)
-  console.log(sliced + "-" + leftover + "ay")
-  };
-
-
+  let leftover = word.slice(0, lowestVowel)
+  return(sliced + leftover + "ay")
   }
+
+}
 // let vowels = "aeiou";
 // let word = "car";
 // let lowestVowel = 3;
