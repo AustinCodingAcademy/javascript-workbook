@@ -9,10 +9,66 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
   // Write code here
+if((hand1.toUpperCase() != "ROCK") &&
+  (hand1.toUpperCase() != "PAPER") &&
+  (hand1.toUpperCase() != "SCISSORS")){
+    return "Hand was entered incorrectly, try again!";
+  }
+ if((hand2.toUpperCase() != "ROCK") &&
+  (hand2.toUpperCase() != "PAPER") &&
+  (hand2.toUpperCase() != "SCISSORS")){
+    return "Hand was entered incorrectly, try again!";
+}
+
+  if(hand1.toUpperCase() === 'ROCK') {
+    if(hand2.toUpperCase() === 'PAPER') {
+      return "Hand two wins!";
+    }
+    if (hand2.toUpperCase() === 'SCISSORS') {
+      return "hand one wins!";
+    }
+    else {
+      return "It's a tie!";
+    }
+  }
+
+if (hand1.toUpperCase() === 'PAPER') {
+  if (hand2.toUpperCase() === 'ROCK') {
+    return "Hand one wins!";
+  }
+  if (hand2.toUpperCase() ==='SCISSORS') {
+    return "Hand two wins!";
+  }
+  else {
+    return "It's a tie!";
+  }
+}
+
+if (hand1.toUpperCase() === 'SCISSORS') {
+  if (hand2.toUpperCase() === 'ROCK') {
+    return "Hand two wins!";
+  }
+  if (hand2.toUpperCase() === 'PAPER') {
+    return "Hand one wins!";
+  }
+  else {
+    return "It's a tie!";
+  }
+}
+}
+
+Math.random()
+
+function game(){
+  const hands = ['ROCK', 'PAPER', 'SCISSORS'];
+  for( var i = 0; i < 100; i++) {
+    
+  }
+
 
 }
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
