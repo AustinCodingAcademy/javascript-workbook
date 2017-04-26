@@ -12,8 +12,8 @@ function pigLatin(word) {
 
   // Your code here --- We are trying to determine how we can successfully utilize
   // the .toLowercase function right after input
-let vowel = ['a', 'e', 'i', 'o', 'u'];
-word = word.toLowerCase()
+  let vowel = ['a', 'e', 'i', 'o', 'u'];
+  word = word.toLowerCase()
 // Kevin suggested simplifying this to get the whole word caps
   if (vowel.includes(word[0])) {
     return(word + 'yay');
