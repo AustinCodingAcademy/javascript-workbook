@@ -10,12 +10,12 @@ body {
 
 body {
   text-align: center;
-  color: gainsboro;
   font-family: sans-serif;
 }
 
 h1 {
   margin-top: 100px;
+    color: gainsboro;
 }
 
 img {
@@ -25,6 +25,10 @@ img {
 
 .contain {
   margin-top: 100px;
+  background: rgb(125, 127, 127); /* Fallback */
+  background: rgba(125, 127, 127, 0.5);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .week {
