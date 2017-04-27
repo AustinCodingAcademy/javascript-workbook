@@ -49,7 +49,7 @@ function checkForWin() {
 // Sensei told us how to assign something, in Row 44. Lines 46 and 47 could
 // be one line but this works better for me.
 function ticTacToe(row, column) {
-board [row][column] = playerTurn;
+  board [row][column] = playerTurn;
   checkForWin();
   // if (playerTurn === 'X');
   // playerTurn = 'O';
