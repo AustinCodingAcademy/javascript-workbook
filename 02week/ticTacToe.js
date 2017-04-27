@@ -70,7 +70,7 @@ function ticTacToe(row, column) {
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   } else {
     console.log('Sorry, that space is taken');
-    }
+  }
 }
 
 function getPrompt() {
