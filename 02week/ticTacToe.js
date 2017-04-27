@@ -32,7 +32,7 @@ function horizontalWin() {
 // } else {
 //   return false;
 //   }
-// }
+}
 
 function verticalWin() {
   // Your code here
