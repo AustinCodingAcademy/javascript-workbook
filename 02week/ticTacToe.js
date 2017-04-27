@@ -24,23 +24,55 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+//outer loop check each row
+  for (var i = 0; i < 3; i++) {
+//check each column in row
+    const j = 0;
+    if (board[i][j] === ' ') return false;
+    if (board[i][j] === board[i][j+1] && board[i][j] === board[i][j+2]) return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  //outer loop check each column
+    for (var i = 0; i < 3; i++) {
+  //check each row in column
+      const j = 0;
+      if (board[j][i] === ' ') return false;
+      if (board[j][i] === board[j+1][i] && board[j][i] === board[j+2][i]) return true;
+    }
 }
 
 function diagonalWin() {
-  // Your code here
+// check for diagonal win
+  const i = 0;
+  const j = 0;
+  if (board[i][j] === ' ' || board[i+2][j] === ' ') return false;
+  if ((board[i][j] === board[i+1][j+1] && board[i][j] === board[i+2][j+2]) ||
+    (board[i+2][j] === board[i+1][j+1] && board[i+2][j] === board[i][j+2])) {
+      return true;
+    }
 }
 
 function checkForWin() {
-  // Your code here
+//call 3 different directional functions to check if player has won
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log(`${playerTurn} wins!`);
+    printBoard();
+    process.exit();
+  }
+
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+//if cell taken, ask again; if not, place 'x' or 'o'
+  if (board[row][column] === ' ') {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  } else {
+    console.log('Sorry, that space is taken');
+    }
 }
 
 function getPrompt() {
