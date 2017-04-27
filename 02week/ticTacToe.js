@@ -23,6 +23,8 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+
+//Check for horizontal win
 function horizontalWin() {
   for (var i = 0; i < 3; i++) {
     if (board[i].join('') === 'XXX' || board[i].join('') === 'OOO') {
@@ -32,9 +34,11 @@ function horizontalWin() {
   }
 }
 
+//Check for vertical win
 function verticalWin() {
   let vertCheck;
   for (var i = 0; i < 3; i++) {
+    //Reset vertCheck to blank
     vertCheck = '';
     for (var x = 0; x < 3; x++) {
       vertCheck = vertCheck + board[x][i];
@@ -46,18 +50,24 @@ function verticalWin() {
   }
 }
 
+//Check for diagonal win
 function diagonalWin() {
+  //Set upLeft = to string of upper left to lower right
   let upLeft = board[0][0] + board[1][1] + board[2][2];
+  //Set upRight = to string of upper right to lower left
   let upRight = board[0][2] + board[1][1] + board[2][0];
+  //Check if upLeft or upRight are xxx or OOO
   if (
     upLeft === 'XXX' || upLeft === 'OOO' ||
     upRight === 'XXX' || upRight === 'OOO'
   ) {
+    //Log player win
     console.log(`\nPlayer ${board[1][1]} wins!`);
     return true;
   }
 }
 
+//Runs all directional win checks
 function checkForWin() {
   if (
     horizontalWin() === true ||
@@ -68,13 +78,12 @@ function checkForWin() {
   }
 }
 
+//Main TTT function
 function ticTacToe(row, column) {
   if (board[row][column] === ' ') {
-
     board[row][column] = playerTurn;
     playerTurn = (playerTurn==='X'?'O':'X');
     checkForWin();
-
   } else {
     console.log('\nInvalid location!');
   }
