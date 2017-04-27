@@ -24,23 +24,80 @@ function printBoard() {
 }
 
 function horizontalWin() {
+  //console.log("horizontalWin");
   // Your code here
+  for (let i = 0; i < 3; i++){
+
+    if ( (board[i][0] !== " ") &&(board[i][0] === board[i][1]) && (board[i][1] === board[i][2]) ){
+      console.log("Result row " +board[i][0]+" | "+board[i][1]+ " | " + board[i][2]);
+      return true;
+    }
+  }
+  //console.log("Horizon win false");
+  return false;
 }
 
 function verticalWin() {
+  //console.log("Checking verticalWin");
   // Your code here
+  for (let i = 0; i < 3; i++){
+
+    if (board[0][i] !== " " && board[0][i] === board[1][i] && board[1][i] === board[2][i]){
+      console.log(" " +board[0][i]+" | "+board[1][i]+ " | " + board[2][i]);
+      return true;
+    }
+  }
+  //console.log("vertWin false");
+  return false;
 }
 
 function diagonalWin() {
+  //console.log("checking diagonalWin");
   // Your code here
+  if (board[0][0] !== " " && board[0][0] === board[1][1] && board[1][1] === board[2][2]){
+    //console.log("Diag win " +board[0][0]+" | "+board[1][1]+ " | " + board[2][2]);
+    return true;
+  } else if (board[0][2] !== " " && board[0][2] === board[1][1] && board[1][1] === board[2][0]){
+    return true;
+  }
+
+  //console.log("daigwin false");
+  return false;
 }
 
 function checkForWin() {
+  //console.log("running checkForWin: Vert: " + verticalWin() + " diag: "+diagonalWin() + " hori: "+horizontalWin());
   // Your code here
+
+  if ( verticalWin() || diagonalWin() || horizontalWin() ){
+    //GAME OVER
+    console.log("!!!!!!!!!!!!!Game over, player " + playerTurn + " Wins\n\n\n\n");
+    process.exit();
+  }
+  //console.log(" checkForWin is false")
+  return false;
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  let spaceEmpty = (board[row][column] === " ");
+
+  if (!spaceEmpty) {
+    //return to prompt
+    console.log("That space is not empty! Try again");
+    return;
+  }
+
+  //set X or O on board
+  board[row][column] = playerTurn;
+  //check for wins
+  checkForWin();
+
+  if (playerTurn === "X") {
+    playerTurn = "O";
+  } else {
+    playerTurn = "X";
+  }
 }
 
 function getPrompt() {
