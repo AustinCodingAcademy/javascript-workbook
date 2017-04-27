@@ -67,3 +67,5 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+module.exports = pigLatin;
