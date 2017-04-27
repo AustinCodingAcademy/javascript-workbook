@@ -54,19 +54,18 @@ function diagonalWin() {
 
 function checkForWin() {
 //call 3 different directional functions to check if player has won
-  if (horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log(`${playerTurn} wins!`);
-    printBoard();
-    process.exit();
-  }
-
+  if (horizontalWin() || verticalWin() || diagonalWin()) return true;
 }
 
 function ticTacToe(row, column) {
 //if cell taken, ask again; if not, place 'x' or 'o'
   if (board[row][column] === ' ') {
     board[row][column] = playerTurn;
-    checkForWin();
+    if (checkForWin()) {
+      console.log(`${playerTurn} wins!`);
+      printBoard();
+      process.exit();
+    };
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   } else {
     console.log('Sorry, that space is taken');
