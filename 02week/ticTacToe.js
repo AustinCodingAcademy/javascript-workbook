@@ -24,7 +24,7 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  // will check for X or O in each row
   if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn)||
      (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn)||
      (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
@@ -35,7 +35,7 @@ function horizontalWin() {
 };
 
 function verticalWin() {
-  // Your code here
+  // will check for X or O in each column
   if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn)||
      (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn)||
      (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
@@ -46,7 +46,7 @@ function verticalWin() {
 };
 
 function diagonalWin() {
-  // Your code here
+  // will check for X or O diagonally
   if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn)||
      (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn)) {
     return true
@@ -56,7 +56,7 @@ function diagonalWin() {
 };
 
 function checkForWin() {
-  // Your code here
+  // checks if any of these functions returned true which will indicate a win
   if (diagonalWin() === true || verticalWin() === true || horizontalWin() === true) {
     return true;
   }
