@@ -3,13 +3,14 @@
 const assert = require('assert');
 const readline = require('readline');
 const choices = ['ROCK', 'PAPER', 'SCISSORS'];
+
 // const rl = readline.createInterface({
 //   input: process.stdin,
 //   output: process.stdout
 // });
 
 function rockPaperScissors(hand1, hand2) {
-  
+
   if (!choices.includes(hand1.toUpperCase())){
     return "Hands weren't entered properly";
   } else if (!choices.includes(hand1.toUpperCase())){
