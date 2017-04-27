@@ -10,6 +10,7 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+word = word.toLowerCase();
 
 var sa = word.search('a')
 var se = word.search('e')
@@ -33,6 +34,9 @@ if (so < lowestVowel && so != -1){
 }
 if (su < lowestVowel && su != -1){
   lowestVowel = su;
+}
+if (lowestVowel === 0){
+  return word + 'yay';
 }
 return word.slice(lowestVowel) + word.slice(0, lowestVowel) + 'ay';
 

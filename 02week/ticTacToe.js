@@ -70,14 +70,19 @@ function diagonalWin() {
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()){
+    console.log(playerTurn + 'Wins');
     return true;
+
   }
 }
 
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  checkForWin();
+  if(checkForWin()){
+    console.log(playerTurn + 'Wins')
+    process.exit();
+  };
   playerTurn =(playerTurn === 'X'?'O':'X');
 
 
