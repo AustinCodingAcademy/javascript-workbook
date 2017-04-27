@@ -1,0 +1,11 @@
+const cars = ["Ford", "Buick", "Toyota", "Audi"];
+console.log(car.length());
+const moreCars = ["Chevy", "BMW", "Kia", "Honda"];
+const totalCars = cars.concat(moreCars);
+console.log(totalCars);
+console.log(totalCars.indexOf("Honda"));
+console.log(totalCars.lastIndexOf("Ford"));
+const stringOfCars = totalCars.join();
+console.log(stringOfCars);
+const carsInReverse = totalCars.reverse();
+console.log(carsInReverse);
