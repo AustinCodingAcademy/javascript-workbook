@@ -54,7 +54,7 @@ board [row][column] = playerTurn;
   // if (playerTurn === 'X');
   // playerTurn = 'O';
   // The ternary here will allow x and o to toggle back and forth.
-playerTurn = (playerTurn === 'X') ? 'O' :'X';
+// playerTurn = (playerTurn === 'X') ? 'O' :'X';
 }
 
 function getPrompt() {
