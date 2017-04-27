@@ -18,7 +18,6 @@ function rockPaperScissors(hand1, hand2) {
   else {
     return "Hand two wins!"
   }
-
 };
   // Write code here
 
