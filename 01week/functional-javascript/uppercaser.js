@@ -1,5 +1,5 @@
 function upperCaser(loremipsum) {
- // Solution Goes Here
+    // Solution Goes Here
  return input.toUpperCase();
 }
 
