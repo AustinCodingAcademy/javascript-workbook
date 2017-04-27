@@ -25,14 +25,14 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
-if [0][0] = 'x'=== playerTurn &&
-   [0][1] = 'x'=== playerTurn &&
-   [0][2] = 'x'=== playerTurn &&
-  return true; {
-} else {
-  return false;
-  }
-}
+// if [0][0] = 'x'=== playerTurn &&
+//    [0][1] = 'x'=== playerTurn &&
+//    [0][2] = 'x'=== playerTurn &&
+//   return true; {
+// } else {
+//   return false;
+//   }
+// }
 
 function verticalWin() {
   // Your code here
