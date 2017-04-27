@@ -25,19 +25,30 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if[00,01,02][10,11,12][20,21,22]
+
+  x or O if true then
+  else false
+  playerTurn if any rows === x true across
+  else
+  }
+
 }
 
 function verticalWin() {
   // Your code here
+ [00,10,20][01,11,21][02,12,22]
 }
 
 function diagonalWin() {
   // Your code here
+[00,11,22][02,11,20]
 }
 
 function checkForWin() {
   // Your code here
 }
+
 
 function ticTacToe(row, column) {
   // Your code here
