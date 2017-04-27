@@ -16,10 +16,10 @@ function wordToPig(thing) {
       pos.push(x.indexOf(vwl[key]));
     }
   }
-  let lowest = Math.min.apply(null, pos);
-  let firstVwl = (lowest===0?'y':'');
+  let low = Math.min.apply(null, pos);
+  let firstVwl = (low===0?'y':'');
   return (
-    x.slice(lowest) + x.slice(0,lowest) + firstVwl + 'ay'
+    x.slice(low) + x.slice(0,low) + firstVwl + 'ay'
   );
 }
 
