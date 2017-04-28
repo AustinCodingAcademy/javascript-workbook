@@ -1,44 +1,35 @@
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
+var assert = require('assert');
+var readline = require('readline');
+var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
 
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
-if (hand1 === hand2) {
-  return "It's a tie!";
+  if (hand1 === "paper") {
+      if (hand2 === "rock") {
+          return "paper wins";
+      } else {
+          if (hand2 === "scissors") {
+              return "scissors wins";
+          }
+      }
+      if (hand1 === "scissors") {
+          if (hand2 === "rock") {
+              return "rock wins";
+          } else {
+              if (hand2 === "paper") {
+                  return "scissors wins";
+              }
+          }
+      }
   }
-  else if (hand1 === 'rock' {
-    if (hand2 === scissors) {
-      return "Hand one wins!";
-    }
-    else {
-      return "Hand two wins!";
-    }
-  }
-  else if (hand1 === 'paper') {
-    if (hand2 === 'rock') {
-      return "Hand one wins!";
-    }
-    else {
-      return "Hand two wins!";
-    }
-  }
-  else if (hand2 === 'scissors') {
-    if (hand2 === 'paper') {
-      return "Hand one wins!";
-    }
-    else {
-      return "Hand two wins!";
-    }
-  }  
+
 }
 
 function getPrompt() {
@@ -50,17 +41,18 @@ function getPrompt() {
   });
 }
 
+
 // Tests
 
 if (typeof describe === 'function') {
 
-  describe('#rockPaperScissors()', () => {
-    it('should detect a tie', () => {
+  describe('#rockPaperScissors()', function () {
+    it('should detect a tie', function () {
       assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
       assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
       assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
     });
-    it('should detect which hand won', () => {
+    it('should detect which hand won', function () {
       assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
       assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
@@ -70,4 +62,4 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
-}
+  }

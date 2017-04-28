@@ -1,0 +1,21 @@
+body {
+  background-color: yellow;
+}
+
+#hero {
+  padding-top: 80px;
+  margin-bottom: 25px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: monospace;
+  font-size: 48px;
+}
+
+h4 {
+  font-family: monospace;
+  font-size: 28px;
+}
