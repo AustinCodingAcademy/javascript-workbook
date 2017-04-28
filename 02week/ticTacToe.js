@@ -65,20 +65,34 @@ function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) return true;
 }
 
+function rowValValid(r) {
+  if (r === '0' || r === '1' || r === '2') return true;
+}
+
+function colValValid(c) {
+  if (c === '0' || c === '1' || c === '2') return true;
+
+}
+
 function ticTacToe(row, column) {
-//if cell taken, ask again; if not, place 'X' or 'O'
-  if (board[row][column] === ' ') {
-    board[row][column] = playerTurn;
-    //If winning combo, print win, and exit game
-    if (checkForWin()) {
-      console.log(`${playerTurn} wins!`);
-      printBoard();
-      process.exit();
-    };
-    //Toggle player
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  //Verify 0, 1, or 2 only
+  if (rowValValid(row) && colValValid(column)) {
+  //if cell taken, ask again; if not, place 'X' or 'O'
+    if (board[row][column] === ' ') {
+      board[row][column] = playerTurn;
+      //If winning combo, print win, and exit game
+      if (checkForWin()) {
+        console.log(`${playerTurn} wins!`);
+        printBoard();
+        process.exit();
+      };
+      //Toggle player
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    } else {
+      console.log('Sorry, that space is taken');
+    }
   } else {
-    console.log('Sorry, that space is taken');
+    console.log('You must type 0 1 or 2 only');
   }
 }
 
