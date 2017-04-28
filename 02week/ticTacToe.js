@@ -24,28 +24,36 @@ function printBoard() {
 }
 
 function horizontalWin() {
-//outer loop check each row
+  //outer loop check each row
   for (var i = 0; i < 3; i++) {
-//check each column in row
-    const j = 0;
-    if (board[i][j] === ' ') return false;
-    if (board[i][j] === board[i][j+1] && board[i][j] === board[i][j+2]) return true;
+    // If 3 in a row && NOT null, return true.
+    if ((board[i][0] === board[i][1] && board[i][0] === board[i][2]) && (board[i][0] !== ' ')) {
+      return true;
+    }
   }
+
+//Below: passed test, but was not correct.
+  // for (var i = 0; i < 3; i++) {
+  //   if (board[i][0] === ' ') return false;
+  //
+  //   if (board[i][0] === board[i][1] && board[i][0] === board[i][2]) return true;
+  // }
 }
 
 function verticalWin() {
   //outer loop check each column
   for (var i = 0; i < 3; i++) {
-  //check each row in column
-    const j = 0;
-    if (board[j][i] === ' ') return false;
-    if (board[j][i] === board[j+1][i] && board[j][i] === board[j+2][i]) return true;
+    //If 3 in a column && NOT null, return true.
+    if ((board[0][i] === board[1][i] && board[0][i] === board[2][i]) && (board[0][i] !== ' ')) {
+      return true;
+    }
   }
 }
 
 function diagonalWin() {
-// check for diagonal win
-  if (board[0][0] === ' ' || board[2][0] === ' ') return false;
+  // check for diagonal win
+  if (board[1][1] === ' ') return false;
+
   if ((board[0][0] === board[1][1] && board[0][0] === board[2][2]) ||
     (board[2][0] === board[1][1] && board[2][0] === board[0][2])) {
     return true;
@@ -53,19 +61,21 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-//call 3 different directional functions to check if player has won
+  //call 3 different directional functions to check if player has won
   if (horizontalWin() || verticalWin() || diagonalWin()) return true;
 }
 
 function ticTacToe(row, column) {
-//if cell taken, ask again; if not, place 'x' or 'o'
+//if cell taken, ask again; if not, place 'X' or 'O'
   if (board[row][column] === ' ') {
     board[row][column] = playerTurn;
+    //If winning combo, print win, and exit game
     if (checkForWin()) {
       console.log(`${playerTurn} wins!`);
       printBoard();
       process.exit();
     };
+    //Toggle player
     playerTurn = (playerTurn === 'X') ? 'O' : 'X';
   } else {
     console.log('Sorry, that space is taken');
