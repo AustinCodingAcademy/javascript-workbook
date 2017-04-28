@@ -66,11 +66,11 @@ function checkForWin() {
 }
 
 function rowValValid(r) {
-  if (r === '0' || r === '1' || r === '2') return true;
+  if (r === '0' || r === '1' || r === '2' || r === 0 || r === 1 || r === 2) return true;
 }
 
 function colValValid(c) {
-  if (c === '0' || c === '1' || c === '2') return true;
+  if (c === '0' || c === '1' || c === '2' || c === 0 || c === 1 || c === 2) return true;
 
 }
 
