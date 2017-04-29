@@ -69,11 +69,10 @@ console.log(carsInReverse);
 carsInReverse.pop(7);
 console.log(carsInReverse);
 //hyundai from the end was removed first try- later reattempted
-// =========================no longer true replit added porsche 2x and kept hyundai
+// =========================no longer true repl.it added porsche 2x and kept hyundai?
 
 
 //shift
-Use the shift method to remove and console.log the first item in the array carsInReverse.
 var shifted = carsInReverse.shift(0);
 console.log(shifted);
 //this returned the first element ["chevy"]
@@ -86,7 +85,16 @@ console.log(carsInReverse);
 
 
 //forEach
-var numbers = [23, 45, 0, 2];
+let numbers = [23, 45, 0, 2];
+let newNumbers = [];
 
-
-Create an array called numbers with the following items: 23, 45, 0, 2 Write code that will add 2 to each item in the array numbers.
+function AddToNewArray (elem) {
+    newNumbers.push (elem + 2);
+}
+if (numbers.forEach) {
+    numbers.forEach (AddToNewArray);
+    console.log(newNumbers);
+} else {
+    alert ("Your browser does not support forEach method");
+}
+//returns a row of [ 25, 47, 2, 4 ]
