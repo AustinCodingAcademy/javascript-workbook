@@ -10,38 +10,37 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-
-    if(hand1 === 'rock' && hand2 === 'paper'){
-      return 'Hand Two Wins';
-    }
-    if(hand1 === 'rock' && hand2 === 'scissors'){
-      return 'Hand One Wins';
-      //asdf//
-    }
-    if(hand1 === 'scissors' && hand2 === 'rock'){
-      return 'Hand Two Wins';
-    }
-    if(hand1 === 'scissors' && hand2 === 'paper'){
-      return 'Hand One Wins';
-      //asdf//
-    }
-    if(hand1 === 'paper' && hand2 === 'rock'){
-      return 'Hand One Wins';
-    }
-    if(hand1 === 'paper' && hand2 === 'scissors'){
-      return 'Hand Two Wins';
-    }
+  if(hand1 === 'rock' && hand2 === 'paper'){
+    return 'Hand Two Wins';
+  }
+  if(hand1 === 'rock' && hand2 === 'scissors'){
+    return 'Hand One Wins';
+    //asdf//
+  }
+  if(hand1 === 'scissors' && hand2 === 'rock'){
+    return 'Hand Two Wins';
+  }
+  if(hand1 === 'scissors' && hand2 === 'paper'){
+    return 'Hand One Wins';
+    //asdf//
+  }
+  if(hand1 === 'paper' && hand2 === 'rock'){
+    return 'Hand One Wins';
+  }
+  if(hand1 === 'paper' && hand2 === 'scissors'){
+    return 'Hand Two Wins';
+  }
 
     //asdf//
-    if(hand1 === 'paper' && hand2 === 'paper'){
-      return 'Its a tie!';
-    }
-    if(hand1 === 'rock' && hand2 === 'rock'){
-      return 'Its a tie!';
-    }
-    if(hand1 === 'scissors' && hand2 === 'scissors'){
-      return 'Its a tie!';
-    }
+  if(hand1 === 'paper' && hand2 === 'paper'){
+    return 'Its a tie!';
+  }
+  if(hand1 === 'rock' && hand2 === 'rock'){
+    return 'Its a tie!';
+  }
+  if(hand1 === 'scissors' && hand2 === 'scissors'){
+    return 'Its a tie!';
+  }
 
 }
 
