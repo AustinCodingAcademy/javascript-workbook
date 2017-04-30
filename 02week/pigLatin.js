@@ -9,10 +9,23 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  var pigLatin =''.toLowerCase();
+  // var lowerCase = pigLatin.toLowerCase();   I reckon this ain't necessary?
+  var startVowel = /[aeiou]/gi;
+//This figures out if word starts with a vowel.
+  if (str[0].match(startVowel)) {
+   pigLatin = str + 'way';
 
-  // Your code here
+ } else {
 
-}
+   // Find how many consonants before the first vowel.
+   var vowelIndice = str.indexOf(str.match(startVowel)[0]);
+
+   // Take the string from the first vowel to the last char
+   // then add the consonants that were previously omitted and add the ending.
+   pigLatin = str.substr(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
+ }
+
 
 
 function getPrompt() {

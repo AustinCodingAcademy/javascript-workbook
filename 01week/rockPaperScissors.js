@@ -8,16 +8,48 @@ const rl = readline.createInterface({
 });
 //ignore above, not relevent to function below
 
-var hand1 = answer1;
-var hand2 = answer2;
-
+//don't need to define hand 1?
 function rockPaperScissors(hand1, hand2) {
-  // Rock>scissors
-  // Scissors>paper
-  // Paper>rock
-  //
-  if(hand1 == 'rock') && (hand2 == 'paper')
+  console.log('Answer1: ' + hand1);
+  console.log('Answer2: ' + hand2);
 
+// Hand One wins
+  if (hand1 === 'rock' && hand2 === 'scissors') {
+    console.log(hand1 + 'wins!');
+  }
+  ||
+  if (hand1 === 'scissors' && hand2 === 'paper'){
+    console.log(hand1 + 'wins!');
+  }
+  ||
+  if (hand1 === 'paper' && hand2 === 'rock'){
+    console.log(hand1 + 'wins!');
+
+//Hand Two Wins
+  } else if (hand1 === 'rock' && hand2 === 'paper'){
+    console.log(hand2 + 'wins!');
+  }
+    ||
+    if (hand1 === 'scissors' && hand2 === 'rock'){
+      console.log(hand2 + 'wins!');
+    }
+    ||
+    if (hand1 === 'paper' && hand2 === 'scissors'){
+      console.log(hand2 + 'wins!');
+      //Tie Scenarios
+    } else if (hand1 ==='paper' && hand2 ==='paper'){
+      console.log('Tie!');
+    }
+    ||
+    if (hand1 === 'scissors' && hand2 === 'scissors'){
+      console.log('Tie!');
+    }
+    ||
+    if (hand1 === 'rock' && hand2 === 'rock'){
+      console.log('Tie!');
+    } else{
+      console.log('ERROR: Please type rock, paper, or scissors.');
+    }    
 }
 
 function getPrompt() {
