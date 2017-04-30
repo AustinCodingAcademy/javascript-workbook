@@ -66,7 +66,7 @@ function checkForWin() {
     verticalWin() === true ||
     diagonalWin() === true) {
     return (true);
-    }
+  }
 }
 
 function ticTacToe(row, column) {

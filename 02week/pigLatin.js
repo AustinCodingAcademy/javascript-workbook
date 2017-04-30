@@ -117,9 +117,9 @@ function pigLatin(word) {
   if (lowestVowel === 0) {
     return(word + "yay")
   } else {
-  let sliced = word.slice(lowestVowel, word.length);
-  let leftover = word.slice(0, lowestVowel)
-  return(sliced + leftover + "ay")
+    let sliced = word.slice(lowestVowel, word.length);
+    let leftover = word.slice(0, lowestVowel)
+    return(sliced + leftover + "ay")
   }
 
 }
