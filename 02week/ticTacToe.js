@@ -26,8 +26,8 @@ function printBoard() {
 function horizontalWin() {
   // Your code here
   if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
-  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
-  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
     return true
   } else {
     return false
@@ -37,8 +37,8 @@ function horizontalWin() {
 function verticalWin() {
   // Your code here
   if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
-  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
-  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
     return true
   } else {
     return false
@@ -48,7 +48,7 @@ function verticalWin() {
 function diagonalWin() {
   // Your code here
   if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
-  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+    (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
     return true
   } else {
     return false
@@ -58,13 +58,13 @@ function diagonalWin() {
 function checkForWin() {
   // Your code here
   if (diagonalWin() === true || horizontalWin() === true || verticalWin() === true) {
-  return true
+    return true
   }
 }
 
 function announce() {
   if (checkForWin() === true) {
-  return (playerTurn + ' wins!')
+    return (playerTurn + ' wins!')
   }
 }
 
@@ -100,22 +100,42 @@ if (typeof describe === 'function') {
   describe('#ticTacToe()', () => {
     it('should place mark on the board', () => {
       ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        [' ', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
     it('should alternate between players', () => {
       ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        ['O', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
     it('should check for vertical wins', () => {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+      board = [
+        [' ', 'X', ' '],
+        [' ', 'X', ' '],
+        [' ', 'X', ' ']
+      ];
       assert.equal(verticalWin(), true);
     });
     it('should check for horizontal wins', () => {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      board = [
+        ['X', 'X', 'X'],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+      ];
       assert.equal(horizontalWin(), true);
     });
     it('should check for diagonal wins', () => {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+      board = [
+        ['X', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', 'X']
+      ];
       assert.equal(diagonalWin(), true);
     });
     it('should detect a win', () => {
