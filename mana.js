@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-<script type="text/javascript" src="./mana.js"></script>
-<!-- 'use strict';
+'use strict';
 
 let coloredMana;
 let clearMana;
@@ -42,7 +35,7 @@ function canCast(mana, cost, option) {
       console.log(coloredCost);
       if(!isNaN(cost.charAt(1))){
         clearCost = cost.slice(0,2);
-        coloredMana = cost.slice(3).split('');
+        coloredCost = cost.slice(3).split('');
         console.log(coloredCost);
         console.log(clearCost);
       }
@@ -59,7 +52,7 @@ function canCast(mana, cost, option) {
   // (pointsLeft = coloredMana.length);
 
 
-    for(let i = 0; i < coloredCost.length; i ++){
+    for(let i = 0; i <= coloredCost.length; i ++){
      console.log(coloredMana);
      console.log(coloredMana.indexOf(coloredCost[i]));
 
@@ -80,36 +73,25 @@ function canCast(mana, cost, option) {
 
       // console.log(coloredMana.length);
     }
+    console.log(coloredMana.length);
+         if(coloredMana.length > 0){
+          clearMana = coloredMana.length + parseInt(clearMana);
+          console.log(clearMana);
+            if(clearMana >= clearCost){
+          console.log(true);
+            }
+            else{
+              // console.log(coloredMana, coloredCost);
+              console.log(false);
+            }
+
+           }
 
 
-    if(coloredMana.length > 0){
-      console.log((coloredMana.length + parseInt(clearMana)));
-        if(coloredMana - coloredCost >= 0){
-      return true;
-        }
-
-
-       }
-      else{
-        console.log(coloredMana, coloredCost);
-      }
   // let coloredMana = mana.slice(1);
   // console.log(coloredMana);
 
 }
 
 
-canCast('4TRXRWWW','8TRXRW'); -->
-
-
-</script>
-
-  <body>
-    <h1>Hello World!</h1>
-    <h1>My New Repo!</h1>
-    <p>
-      trying to push
-    </p>
-
-  </body>
-</html>
+canCast('W', 'W');

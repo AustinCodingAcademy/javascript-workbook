@@ -10,7 +10,7 @@ let totalCars = cars.concat(moreCars);
 // console.log(totalCars.lastIndexOf('Ford'));
 let stringOfCars = totalCars.join();
 console.log(stringOfCars);
-totalCars = stringOfCars.split();
+totalCars = stringOfCars.split(',');
 // console.log(totalCars);
 let carsInReverse;
 console.log(totalCars.reverse());
