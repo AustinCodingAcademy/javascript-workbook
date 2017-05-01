@@ -69,7 +69,7 @@ function checkForWin() {
 function playAgain(again){
   if(again !=='Y'){
     return false;
-    }
+  }
   else{
     return true;
   }
