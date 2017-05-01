@@ -84,9 +84,9 @@ function ticTacToe(row, column) {
     if(playerTurn === "X") {
       playerTurn = "O";
     } else {  // playerTurn must be 'O'
-    playerTurn = "X";
+      playerTurn = "X";
+    }
   }
-}
 }
 
 function getPrompt() {
