@@ -39,56 +39,41 @@ function ticTacToe(row, column) {
 
 
  function horizontalWin() {
-  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X'
-  || board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O' ){
-     console.log('player wins');
-   }
-  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X'
-  || board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O' ){
-     console.log('player wins');
-  }
-  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X'
-  || board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O' ){
-     console.log('player wins');
-  }
+  if (board[0][0] === 'playerTurn' && board[0][1] === 'playerTurn' && board[0][2] === 'playerTurn'
+  || board[1][0] === 'playerTurn' && board[1][1] === 'playerTurn' && board[2][2] === 'playerTurn'
+  || board[2][0] === 'playerTurn' && board[2][1] === 'playerTurn' && board [2][2] === 'playerTurn'){
+     return true;
+     }
+     else {
+       return false;
+     }
 }
 
 function verticalWin() {
-  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn){
-   console.log('player wins');
-  }
-  if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn){
-   console.log('player wins');
-  }
-  if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn){
-   console.log('player wins');
-  }
+  if (board[0][0] === 'playerTurn' && board[0][1] === 'playerTurn' && board[0][2] === 'playerTurn'
+  || board[1][0] === 'playerTurn' && board[1][1] === 'playerTurn' && board[1][2] === 'playerTurn'
+  || board[2][0] === 'playerTurn' && board[2][1] === 'playerTurn' && board [2][2] === 'playerTurn'){
+     return true;
+     }
+     else {
+       return false;
+     }
 }
 
 
 function diagonalWin() {
-     if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn){
-      console.log('player wins');
+  if (board[0][0] === 'playerTurn' && board[1][1] === 'playerTurn' && board[2][2] === 'playerTurn'
+  || board[2][0] === 'playerTurn' && board[1][1] === 'playerTurn' && board[0][2] === 'playerTurn'){
+     return true;
      }
-     if (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn){
-      console.log('player wins');
+     else {
+       return false;
      }
 }
 function checkForWin(){
-  if (horizontalWin === true){
-    console.log('Congratulations');
+  if (horizontalWin() || verticalWin()  || diagonalWin()){
+    return true;
    }
-   return;
-
-   if (verticalWin === true) {
-     console.log('Congratulations');
-   }
-   return;
-
-   if (diagonalWin === true) {
-     console.log('Congratulations');
- }
- return;
  }
 function getPrompt() {
   printBoard();
@@ -99,8 +84,9 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
+
+
 
 
 
