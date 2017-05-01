@@ -23,26 +23,73 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
+
+
+
+function ticTacToe(row, column) {
+   board[row][column] = playerTurn;
+  if (playerTurn === 'X') {
+    playerTurn = 'O';
+  } else {
+    playerTurn = 'X'
+ }
+}
+
+
+
+
+ function horizontalWin() {
+  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X'
+  || board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O' ){
+     console.log('player wins');
+   }
+  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X'
+  || board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O' ){
+     console.log('player wins');
+  }
+  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X'
+  || board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O' ){
+     console.log('player wins');
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn){
+   console.log('player wins');
+  }
+  if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn){
+   console.log('player wins');
+  }
+  if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn){
+   console.log('player wins');
+  }
 }
+
 
 function diagonalWin() {
-  // Your code here
+     if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn){
+      console.log('player wins');
+     }
+     if (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn){
+      console.log('player wins');
+     }
 }
+function checkForWin(){
+  if (horizontalWin === true){
+    console.log('Congratulations');
+   }
+   return;
 
-function checkForWin() {
-  // Your code here
-}
+   if (verticalWin === true) {
+     console.log('Congratulations');
+   }
+   return;
 
-function ticTacToe(row, column) {
-  // Your code here
-}
-
+   if (diagonalWin === true) {
+     console.log('Congratulations');
+ }
+ return;
+ }
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
