@@ -58,12 +58,24 @@ function diagonalWin() {
 
 //checking for all the wins
 function checkForWin() {
-  // Your code here
+  // trying to sort out the end of game function with option to play again, reset board....
   if((horizontalWin()) || (verticalWin()) || (diagonalWin()) ){
-    return true;
+    console.log('\n'+ playerTurn + ' Wins');
+    console.log('Would you like to play again?');
+    rl.question('y/n',(again) => {
+      if(playAgain(again)){
+        resetBoard();
+        playerTurn = 'X';
+         getPrompt();
+       }
+       else{
+         console.log('Goodbye');
+         process.exit(0);
+       }
+       return true;
+    })
   }
 }
-
 //Play again option
 
 function playAgain(again){
@@ -75,31 +87,32 @@ function playAgain(again){
   }
 }
 
-
+function resetBoard(){
+  board = [][];
+}
 
 //need to sort out the 'play again' function, perhaps separate it.
 
 //getting the move and win check method
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  if(checkForWin()){
-    printBoard();
-    console.log('\n'+ playerTurn + ' Wins');
-    console.log('Would you like to play again?');
-      // rl.question('Y/N', (again) => {
-      //   if(playAgain(again)){
-      //   playerTurn = 'X';
-      //   getPrompt();
-      // }
-    // }
+  printBoard();
+  checkForWin();
+
+
+     })
+    } ;
+playerTurn = (playerTurn === 'X') ?  'O' : 'X';
+}  // rl.question('Y/N', (again) => {
+      //
     // }
     //   else{
     //     console.log('Goodbye');
     //   }
-  };
-  playerTurn = (playerTurn === 'X') ?  'O' : 'X';
 
-}
+
+
+
 
 //prompt and move input
 function getPrompt() {
@@ -118,33 +131,31 @@ function getPrompt() {
 getPrompt();
 //Tests
 
-// if (typeof describe === 'function') {
-//
-//   describe('#ticTacToe()', () => {
-//     it('should place mark on the board', () => {
-//       ticTacToe(1, 1);
-//       assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-//     });
-//     it('should alternate between players', () => {
-//       ticTacToe(0, 0);
-//       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-//     });
-//     it('should check for vertical wins', () => {
-//       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-//       assert.equal(verticalWin(), true);
-//     });
-//     it('should check for horizontal wins', () => {
-//       board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-//       assert.equal(horizontalWin(), true);
-//     });
-//     it('should check for diagonal wins', () => {
-//       board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-//       assert.equal(diagonalWin(), true);
-//     });
-//     it('should detect a win', () => {
-//       assert.equal(checkForWin(), true);
-//     });
-//   });
-// } else {
-//
-// }
+if (typeof describe === 'function') {
+
+  describe('#ticTacToe()', () => {
+    it('should place mark on the board', () => {
+      ticTacToe(1, 1);
+      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+    });
+    it('should alternate between players', () => {
+      ticTacToe(0, 0);
+      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+    });
+    it('should check for vertical wins', () => {
+      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+      assert.equal(verticalWin(), true);
+    });
+    it('should check for horizontal wins', () => {
+      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for diagonal wins', () => {
+      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+      assert.equal(diagonalWin(), true);
+    });
+    it('should detect a win', () => {
+      assert.equal(checkForWin(), true);
+    });
+  });
+}
