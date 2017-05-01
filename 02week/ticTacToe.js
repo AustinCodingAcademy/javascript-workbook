@@ -68,11 +68,11 @@ function checkForWin() {
 
 function playAgain(again){
   if(again !=='Y'){
-      return false;
+    return false;
     }
   else{
-      return true;
-    }
+    return true;
+  }
 }
 
 
@@ -83,9 +83,9 @@ function playAgain(again){
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   if(checkForWin()){
-      printBoard();
-      console.log('\n'+ playerTurn + ' Wins');
-      console.log('Would you like to play again?');
+    printBoard();
+    console.log('\n'+ playerTurn + ' Wins');
+    console.log('Would you like to play again?');
       // rl.question('Y/N', (again) => {
       //   if(playAgain(again)){
       //   playerTurn = 'X';
@@ -96,7 +96,7 @@ function ticTacToe(row, column) {
     //   else{
     //     console.log('Goodbye');
     //   }
-    };
+  };
   playerTurn = (playerTurn === 'X') ?  'O' : 'X';
 
 }

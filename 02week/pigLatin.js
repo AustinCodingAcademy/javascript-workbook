@@ -30,7 +30,7 @@ function pigLatin(word){
     let latin = word.slice(fvind) + pig + 'ay';
     return latin;
   }
-  };
+};
 
 function getPrompt() {
   rl.question('word ', (word) => {
