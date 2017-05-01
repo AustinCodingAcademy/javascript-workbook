@@ -30,7 +30,7 @@ function horizontalWin() {
   if( (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn &&
    board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)){
 
-     return true;
+    return true;
 
   }
 }
@@ -41,7 +41,7 @@ function verticalWin() {
   if( (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn &&
    board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)){
 
-     return true;
+    return true;
 
   }
 }
@@ -52,8 +52,8 @@ function diagonalWin() {
   if( (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[2][0] === playerTurn &&
    board[1][1] === playerTurn && board[0][2])){
 
-     return true;
-   }
+    return true;
+  }
 }
 
 //checking for all the wins
@@ -67,22 +67,22 @@ function checkForWin() {
 //Play again option
 
 function playAgain(again){
-    if(again !=='Y'){
+  if(again !=='Y'){
       return false;
-      }
-    else{
+    }
+  else{
       return true;
     }
-  }
+}
 
 
 
-//need to sort out the 'play again' function, perhaps separate it. 
+//need to sort out the 'play again' function, perhaps separate it.
 
 //getting the move and win check method
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-    if(checkForWin()){
+  if(checkForWin()){
       printBoard();
       console.log('\n'+ playerTurn + ' Wins');
       console.log('Would you like to play again?');
@@ -96,7 +96,7 @@ function ticTacToe(row, column) {
     //   else{
     //     console.log('Goodbye');
     //   }
-};
+    };
   playerTurn = (playerTurn === 'X') ?  'O' : 'X';
 
 }

@@ -17,11 +17,11 @@ function pigLatin(word){
   let firstlet = word.charAt();
   if(firstlet === ('a'||'e'||'i'||'o'||'u'||'y')){
     console.log(word+'nay');
-    }
+  }
   else{
     for(var i = 0; i < vowels.length; i++){
-  dice.push(word.indexOf(vowels[i]));
-  }
+      dice.push(word.indexOf(vowels[i]));
+    }
 //filter the indexes and get the minimum, slice and rearrange. Send it.
     dice = dice.filter(x=>x>=0);
 
@@ -29,7 +29,7 @@ function pigLatin(word){
     let pig = word.slice(0, fvind);
     let latin = word.slice(fvind) + pig + 'ay';
     return latin;
-    }
+  }
   };
 
 function getPrompt() {
