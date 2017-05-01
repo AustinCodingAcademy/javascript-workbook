@@ -1,4 +1,4 @@
-'use strict';
+r'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
@@ -9,21 +9,20 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-  var pigLatin =''.toLowerCase();
-  // var lowerCase = pigLatin.toLowerCase();   I reckon this ain't necessary?
+  var pigLatin = '';
+  var lowerCase = pigLatin.toLowerCase();
   var startVowel = /[aeiou]/gi;
+  var startConst = /[bcdfghjklmnpqrstvwxyz]/gi;
+  var vowelIndice = str.indexOf(str.match(startVowel)[0]);
+
 //This figures out if word starts with a vowel.
-  if (str[0].match(startVowel)) {
-   pigLatin = str + 'way';
-
- } else {
-
-   // Find how many consonants before the first vowel.
-   var vowelIndice = str.indexOf(str.match(startVowel)[0]);
-
-   // Take the string from the first vowel to the last char
-   // then add the consonants that were previously omitted and add the ending.
-   pigLatin = str.substr(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
+if (str[0].match(startVowel)) {
+ return(lowerCase + 'way');
+ //figures out if word stars with consonant.
+ } else (str[0].match(startConst)){
+   return(string.substring(1,25));
+   return(string.substring(1,string.length)+string.charAt(0));
+   pigLatin = string.substring(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
  }
 
 
