@@ -7,20 +7,34 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
 function pigLatin(word) {
-// Your test code here
 
-//
+  word = prompt('Enter a word to be Pig Latined!');
+  // Create variables used to hold latinized word and identify vowels
+  let pigLatined = '';
+  let vowel = /["a", "e", "i", "o", "u", "y"]/gi;
 
+  // Check if the first character is a vowel
+  if (word[0].match(vowel)) {
+    pigLatined = word + 'yay';
 
+  } else {
+
+    // Find how many consonants before the first vowel.
+    let vowelIndex = word.indexOf(word.match(vowel)[0]);
+
+    // Take the string from the first vowel to the last char
+    // then add the consonants that were previously omitted and add the ending.
+    pigLatined = word.substr(vowelIndex) + word.substr(0, vowelIndex) + 'ay';
+  }
+
+  return pigLatined;
+}
+
+// test here
 pigLatin();
 
-function getPrompt() {
- rl.question('word ', (answer) => {
-     console.log( pigLatin(answer) );
-     getPrompt();
-   });
-}
 
 // Tests
 if (typeof describe === 'function') {
