@@ -40,16 +40,16 @@ function horizontalWin() {
 
 function verticalWin() {
 
- // [00,10,20][01,11,21][02,12,22]
-   if (
-   (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
-   (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
-   (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
- ) {
-   return true;
- } else {
-   return false;
- }
+  // [00,10,20][01,11,21][02,12,22]
+  if (
+    (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function diagonalWin() {
@@ -58,7 +58,7 @@ function diagonalWin() {
   if (
     (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
     (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)
-    ) {
+  ) {
     return true;
   } else {
     return false;
@@ -84,9 +84,9 @@ function ticTacToe(row, column) {
     if(playerTurn === "X") {
       playerTurn = "O";
     } else {  // playerTurn must be 'O'
-      playerTurn = "X";
-    }
+    playerTurn = "X";
   }
+}
 }
 
 function getPrompt() {
