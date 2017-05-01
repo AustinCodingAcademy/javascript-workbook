@@ -77,7 +77,7 @@ function playAgain(again){
 
 
 
-
+//need to sort out the 'play again' function, perhaps separate it. 
 
 //getting the move and win check method
 function ticTacToe(row, column) {
