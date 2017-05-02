@@ -73,8 +73,8 @@ function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   playerTurn = (playerTurn === 'X'?'O':'X');
   checkForWin();
-  if (checkForWin() === true) {
-    console.log('{playerTurn} wins!')
+  if (checkForWin()) {
+    console.log(`${playerTurn} wins!`)
   }
 }
 

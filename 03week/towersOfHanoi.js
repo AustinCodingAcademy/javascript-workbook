@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -20,17 +20,40 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+  let block = stacks.a.pop();
+  stacks.b.push(block);
 }
+
+movePiece();
+console.log(stacks.a.length-1)
+
 
 function isLegal() {
-  // Your code here
+  // let last = stacks.length-1
+  let block = stacks.a.pop();
 
+  let lasta = stacks.a.length-1
+
+  let lastb = stacks.b.length-1
+
+  let lastc = stacks.c.length-1
+
+
+  if ((block > stacks.a[lasta]) || (block > stacks.c[lastc])) {
+    return false;
+  }
+  else if ((block < stack.b.length-1) || (block < stacks.c.length-1) || (stacks.b.length === 0) || (stacks.c.length === 0)) {
+    return true;
+  }
 }
+  // Your code here
 
 function checkForWin() {
-  // Your code here
+  if ((b.length || c.length) === 4) {
+    return true
+  } else {
+    return false;
+  }// Your code here
 
 }
 
