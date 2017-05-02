@@ -7,11 +7,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
+
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -19,25 +20,42 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+  // will alow for the last block to be taken off and then added to a new stack
+  // startStack = where we first want to take a block from
+  // endStack = where we want to add it
+  var block = stacks[startStack].pop();
+  stacks[endStack].push(block);
+};
 
-}
 
-function isLegal() {
-  // Your code here
 
-}
+function isLegal(startStack, endStack) {
+  // we check if the stack where we want to put our block is empty
+  // or if the last block in that stack is greater than what we are about to push
+  if (stacks[endStack].length === 0 ||
+    stacks[startStack].length - 1 < stacks[endStack].length - 1) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 function checkForWin() {
-  // Your code here
+  // the only two ways to win the game is if there are four blocks in either b or c
+  // we check for the length on both those stacks
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
-}
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  movePiece(startStack, endStack);
+};
 
-}
 
 function getPrompt() {
   printStacks();
