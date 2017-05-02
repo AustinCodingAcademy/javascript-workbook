@@ -79,7 +79,7 @@ function checkForWin() {
 //Play again option
 
 function playAgain(again){
-  if(again !=='Y'){
+  if(again.toLowerCase() !=='y'){
     return false;
   }
   else{
@@ -88,7 +88,7 @@ function playAgain(again){
 }
 
 function resetBoard(){
-  board = [][];
+  board = [[],[]];
 }
 
 //need to sort out the 'play again' function, perhaps separate it.
@@ -98,12 +98,10 @@ function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   printBoard();
   checkForWin();
+  playerTurn = (playerTurn === 'X') ?  'O' : 'X';
+}
 
-
-     })
-    } ;
-playerTurn = (playerTurn === 'X') ?  'O' : 'X';
-}  // rl.question('Y/N', (again) => {
+  // rl.question('Y/N', (again) => {
       //
     // }
     //   else{

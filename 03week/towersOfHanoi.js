@@ -6,8 +6,9 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+let piece;
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -19,14 +20,30 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(piece, endStack) {
   // Your code here
+  stacks[endStack].push(piece);
+  printStacks();
 
 }
 
-function isLegal() {
+function isLegal(piece, endStack) {
   // Your code here
+    let last = stacks.endStack[stacks.endStack.length-1];
+  console.log(last+'last');
+  if(stacks.endStack.length === 0){
+    movePiece(piece, endStack);
+    }
+    else if(last > piece) {
+      movePiece(piece, endStack);
+    }
 
+  // else (piece < stacks[endStack[stacks[endStack.length-1]]]) {
+  //   stacks.endStack.push(piece);
+  // }
+  else{
+  return false;
+  }
 }
 
 function checkForWin() {
@@ -36,6 +53,12 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+
+  piece = stacks[startStack].pop();
+  isLegal(piece, endStack);
+
+  console.log(stacks[endStack]);
+
 
 }
 
