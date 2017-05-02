@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -18,25 +18,50 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
+// let block = stacks.a.pop();
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  const block = stacks[startStack].pop();
+  stacks[endStack].push(block);
+};
 
-}
+// movePiece();
+// isLegal();
 
-function isLegal() {
+function isLegal(startStack, endStack) {
+  if (stacks[startStack].length -1 < stacks[endStack].length -1 ||
+  stacks[endStack].length === 0) {
+    return true
+  } else {
+    return false
+  }
+
+  // (stacks[startStack].length -1 > stacks[endStack].length -1) {
+  //   return false
+  // } else if  {
+  //   return true
+  // };
   // Your code here
-
-}
+  // if (block > stacks.b.length -1 || block > stacks.c.length -1) {
+  //   return false;
+  // } else {
+  //   movePiece();
+  // }
+};
 
 function checkForWin() {
   // Your code here
-
-}
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  movePiece(startStack, endStack);
 }
 
 function getPrompt() {
