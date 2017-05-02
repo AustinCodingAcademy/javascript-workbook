@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
@@ -6,13 +6,53 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+/////
 
 
 function pigLatin(word) {
 
-  // Your code here
+  var letters = str.split("");
+  var vowelRegex =/[aeiou]/;
+  if (vowelRegex.test(letters[0])){
+    return letters.join("").toLowerCase+"yay";
+  }
+  while(true){
+    if(!vowelRegex.test(letters[0])){
+      letters.push(letters.splice(0,1));
+    }
+    else{
+      break;
+  }
+  }
+  str= letters.join("").toLowerCase+"ay";
+  return str;
 
-}
+
+
+ }
+
+ translate("eight");
+ "eightway"
+ var pigLatin = function (str){
+   var letters = str.split("");
+   var vowelRegex =/[aeiou]/;
+   if (vowelRegex.test(letters[0])){
+     return letters.join("").toLowerCase+"yay";
+   }
+   while(true){
+     if(!vowelRegex.test(letters[0])){
+       letters.push(letters.splice(0,1));
+     }
+     else{
+       break;
+   }
+ }
+   str= letters.join("").toLowerCase+"ay";
+   return str;
+ }
+
+
+
 
 
 function getPrompt() {
