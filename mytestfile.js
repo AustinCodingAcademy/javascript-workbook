@@ -15,7 +15,7 @@ function rockPaperScissors(hand1, hand2) {
   hand2 = hand2.prompt("Player2: Please enter either 'rock', 'paper' or 'scissors'").toLowerCase();
 
   if((hand1!== 'rock') || (hand1 !== 'paper') || (hand1 !== 'scissors') ||
-     (hand2!== 'rock') || (hand2 !== 'paper') || (hand2 !== 'scissors')){
+  (hand2!== 'rock') || (hand2 !== 'paper') || (hand2 !== 'scissors')){
     return false;
   }
 
@@ -27,34 +27,34 @@ function rockPaperScissors(hand1, hand2) {
     return 'Player2 wins!'
   }
 
-function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
+  function getPrompt() {
+    rl.question('hand1: ', (answer1) => {
+      rl.question('hand2: ', (answer2) => {
+        console.log( rockPaperScissors(answer1, answer2) );
+        getPrompt();
+      });
     });
-  });
-}
+  }
 
 
-// Tests
+  // Tests
 
-if (typeof describe === 'function') {
+  if (typeof describe === 'function') {
 
-  describe('#rockPaperScissors()', function () {
-    it('should detect a tie', function () {
-      assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
-      assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
-      assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
+    describe('#rockPaperScissors()', function () {
+      it('should detect a tie', function () {
+        assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
+        assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
+        assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
+      });
+      it('should detect which hand won', function () {
+        assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
+        assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
+        assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
+      });
     });
-    it('should detect which hand won', function () {
-      assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
-      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
-    });
-  });
-} else {
+  } else {
 
-  getPrompt();
+    getPrompt();
 
   }
