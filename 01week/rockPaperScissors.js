@@ -13,11 +13,11 @@ function rockPaperScissors(hand1, hand2) {
   // Write code here
 
 
-  if(hand1 === hand2){
+  if(hand1.toLowerCase() === hand2.toLowerCase()){
     return "It's a tie!";
-  }else if((hand1 === 'rock' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'rock')){
+  }else if((hand1.toLowerCase() === 'rock' && hand2.toLowerCase() === 'paper') || (hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'scissors') || (hand1.toLowerCase() === 'scissors' && hand2.toLowerCase() === 'rock')){
     return 'Hand two wins!';
-  }else if((hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 ==='paper') || (hand1 === 'rock' && hand2 === 'scissors'))
+  }else if((hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'rock') || (hand1.toLowerCase() === 'scissors' && hand2.toLowerCase() ==='paper') || (hand1.toLowerCase() === 'rock' && hand2.toLowerCase() === 'scissors'))
     return 'Hand one wins!';
 }
 
