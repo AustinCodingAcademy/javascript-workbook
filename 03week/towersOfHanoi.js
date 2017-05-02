@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -19,24 +19,39 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+  const block = stacks[startStack].pop();
+  stacks[endStack].push(block);
+}
+
+function isLegal(startStack, endStack) {
+
+  const startIndex = startStack.length - 1;
+  const startBlock = stacks[startStack][startIndex];
+  const endIndex = endStack.length - 1;
+  const endBlock = stacks[endStack][endIndex];
+
+
+  if (stacks[endStack].length === 0 || startIndex < endIndex) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
 
-function isLegal() {
-  // Your code here
-
-}
 
 function checkForWin() {
-  // Your code here
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  movePiece(startStack, endStack);
 }
 
 function getPrompt() {
@@ -56,7 +71,11 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      });
     });
   });
 
@@ -80,9 +99,17 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = {
+        a: [],
+        b: [4, 3, 2, 1],
+        c: []
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = {
+        a: [1],
+        b: [4, 3, 2],
+        c: []
+      };
       assert.equal(checkForWin(), false);
     });
   });
