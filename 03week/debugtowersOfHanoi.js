@@ -29,26 +29,34 @@ function movePiece(piece, stack) {
 
 function isLegal(piece, startStack, endStack) {
   // Your code here
-let topnum = stacks.endStack[stacks.endStack.length-1]
+  console.log(stacks[endStack].length);
     if(stacks[endStack].length !== 0){
-      piece < (stacks.endStack[stacks.endStack.length-1]) ? movePiece(piece, endStack) : movePiece(piece, startStack);
+      console.log(stacks[endStack][endStack.length-1]);
+      if(stacks[endStack][endStack.length-1] > piece){
+        movePiece(piece, endStack);
+        return true;
+        }
+      else{
+        movePiece(piece, startStack);
 
-    return true;
+        return false;
+        }
     }
-    else if(stacks.endStack[(endStack.length-1)] > piece) {
-      console.log(stacks.endStack[endStack.length-1]);
-      movePiece(piece, endStack);
+   else{
+
+    movePiece(piece, endStack);
       return true;
     }
+}
 
   // else (piece < stacks[endStack[stacks[endStack.length-1]]]) {
   //   stacks.endStack.push(piece);
   // }
-  else{
-    startStack.push(piece);
-  return false;
-  }
-}
+//   else{
+//     startStack.push(piece);
+//   return false;
+//   }
+// }
 
 function checkForWin() {
   // Your code here
@@ -70,7 +78,7 @@ function getPrompt() {
   printStacks();
   // rl.question('start stack: ', (startStack) => {
   //   rl.question('end stack: ', (endStack) => {
-      towersOfHanoi('b', 'a');
+      towersOfHanoi('a', 'c');
       // getPrompt();
     }
 //   });
