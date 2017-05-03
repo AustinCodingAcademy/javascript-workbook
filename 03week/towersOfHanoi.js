@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -19,24 +19,38 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  let block = stacks[startStack].pop();
+  stacks[endStack].push(block);
 
+  // stacks[endStack].push(block);
 }
 
-function isLegal() {
-  // Your code here
 
+function isLegal(startStack, endStack) {
+  if ((stacks[endStack].length === 0) || ((stacks[endStack][stacks[endStack].length - 1]) > (stacks[startStack][stacks[startStack].length -1]))) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function checkForWin() {
-  // Your code here
-
+function checkForWin(startStack, endStack) {
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+    return true;
+    console.log("You win!")
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  if(isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+  }
+  checkForWin();
 }
 
 function getPrompt() {
@@ -49,7 +63,7 @@ function getPrompt() {
   });
 }
 
-// Tests
+// Tests -----------------------------------
 
 if (typeof describe === 'function') {
 
