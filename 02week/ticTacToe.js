@@ -125,5 +125,4 @@ function checkForWin() {
   } else {
 
     getPrompt();
-
   }
