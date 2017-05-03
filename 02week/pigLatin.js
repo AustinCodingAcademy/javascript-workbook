@@ -13,7 +13,7 @@ function pigLatin(word) {
   // Your code here
   word = word.toLowerCase(); // first auto lowercase word before translation
   let vowels = ['a','e','i','o','u'], //declare all vowels in an array and assign to variable vowels
-      result = word.split(''); //split the string and assign to result
+    result = word.split(''); //split the string and assign to result
 
   if(vowels.includes(word.charAt(0))) { //if first letter is a vowel
     return word += 'yay'; // add yay to the end of the word
