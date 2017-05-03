@@ -22,8 +22,8 @@ function printStacks() {
 
 function movePiece(piece, stack) {
   // Your code here
-  stacks[stack].push(piece);
-  printStacks();
+      stacks[stack].push(piece);
+      printStacks();
 
 }
 
@@ -33,13 +33,15 @@ function isLegal(piece, startStack, endStack) {
     if(stacks[endStack].length !== 0){
       console.log(stacks[endStack][endStack.length-1]);
       if(stacks[endStack][endStack.length-1] > piece){
+        console.log('moving');
         movePiece(piece, endStack);
-        return true;
+
         }
       else{
+        console.log('not moving');
         movePiece(piece, startStack);
 
-        return false;
+
         }
     }
    else{
@@ -78,7 +80,7 @@ function getPrompt() {
   printStacks();
   // rl.question('start stack: ', (startStack) => {
   //   rl.question('end stack: ', (endStack) => {
-      towersOfHanoi('a', 'c');
+      towersOfHanoi('a', 'b');
       // getPrompt();
     }
 //   });
