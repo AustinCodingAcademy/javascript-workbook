@@ -27,29 +27,31 @@ function movePiece() {
 movePiece();
 console.log(stacks.a.length-1)
 
+function isLegal(startStack, endStack) {
+//   // let last = stacks.length-1
+//   let block = stacks.a.pop();
+//   let lasta = stacks.a.length-1
+//   let lastb = stacks.b.length-1
+//   let lastc = stacks.c.length-1
+//
+//   if ((block > stacks.b.length-1) || (block > stacks.c.length-1)) {
+//     return false;
+//   }
+//   if ((block < stacks[lastb]) || (block < stacks[lastc]) || (stacks[lastb] === 0) || (stacks[lastc] === 0)) {
+//     return true;
+//   }
+// }
 
-function isLegal() {
-  // let last = stacks.length-1
-  let block = stacks.a.pop();
-
-  let lasta = stacks.a.length-1
-
-  let lastb = stacks.b.length-1
-
-  let lastc = stacks.c.length-1
-
-
-  if ((block > stacks.a[lasta]) || (block > stacks.c[lastc])) {
-    return false;
-  }
-  else if ((block < stack.b.length-1) || (block < stacks.c.length-1) || (stacks.b.length === 0) || (stacks.c.length === 0)) {
-    return true;
-  }
-}
+if (stacks[endStack].length === 0 || stacks[startStack].length - 1 < stacks[endStack].length - 1) {
+ return true;
+ } else {
+  return false;
+ }
+ };
   // Your code here
 
 function checkForWin() {
-  if ((b.length || c.length) === 4) {
+  if ((stacks.b.length || stacks.c.length) === 4) {
     return true
   } else {
     return false;
