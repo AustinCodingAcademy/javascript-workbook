@@ -32,15 +32,15 @@ function isLegal(start, place) {
   // and make it last, no matter how many indices are in the array.
   if (stacks[place].length === 0) return true;
   else if ((stacks[start].length -1) > (stacks[place].length -1)) return false;
-    else return true;
+  else return true;
 }
 
 function checkForWin() {
 // Check for Win dept only has to determine if it is true. The rest will be done below.
-  if (stacks[b].length === 4 || stacks[c].length === 4) {
-   return true;
+  if (stacks['b'].length === 4 || stacks['c'].length === 4) {
+    return true;
   } else {
-   return false;
+    return false;
   }
 }
 
@@ -64,7 +64,7 @@ function towersOfHanoi(startStack, endStack) {
   } else {
     console.log('Nope! Try again!')
   }
-    getPrompt();
+  getPrompt();
 }
 
 function getPrompt() {
