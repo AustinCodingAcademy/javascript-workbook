@@ -1,46 +1,26 @@
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+function rps(){
+	var handOne = 'scissors';
+  var handTwo = 'paper';
+  var handTwoVictoryMessage = 'handTwo wins!';
+  var handOneVictoryMessage = 'handOne wins!';
 
-
-function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+  if (handOne === handTwo) {
+  	return 'It\'s a tie!';
+  } else if (handOne === 'scissors' && handTwo === 'rock') {
+		return handTwoVictoryMessage
+  } else if (handOne === 'rock' && handTwo === 'paper') {
+  	return handTwoVictoryMessage
+  } else if (handOne === 'paper' && handTwo === 'scissors') {
+  	return handTwoVictoryMessage
+  } else if (handOne === 'paper' && handTwo === 'rock') {
+		return handOneVictoryMessage
+  } else if (handOne === 'scissors' && handTwo === 'paper') {
+  	return handOneVictoryMessage
+  } else if (handOne === 'rock' && handTwo === 'scissors') {
+  	return handTwoVictoryMessage
+  }
 }
 
-function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
-    });
-  });
-}
-
-// Tests
-
-if (typeof describe === 'function') {
-
-  describe('#rockPaperScissors()', () => {
-    it('should detect a tie', () => {
-      assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
-      assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
-      assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
-    });
-    it('should detect which hand won', () => {
-      assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
-      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
-    });
-  });
-} else {
-
-  getPrompt();
-
-}
+console.log(rps());
