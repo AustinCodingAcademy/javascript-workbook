@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -19,14 +19,21 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+  var ring = stacks[startStack].pop();
+  stacks[endStack].push(ring);
+  return stacks;
 }
 
-function isLegal() {
-  // Your code here
+console.log(stacks);
+movePiece('a', 'c');
+console.log(stacks);
 
+function isLegal(startStack, endStack) {
+  var startStackLength =
+  if (stack[startStack].length -1 > stack[endStack.length -1]);
+    return false;
+  }
 }
 
 function checkForWin() {

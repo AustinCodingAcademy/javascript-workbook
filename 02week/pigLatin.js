@@ -8,20 +8,16 @@ const rl = readline.createInterface({
 });
 
 
-function translatePigLatin(str) {
+function translate(str) {
   // Create variables to be used
   var pigLatin = '';
   var regex = /[aeiou]/gi;
-
   // Check if the first character is a vowel
   if (str[0].match(regex)) {
     pigLatin = str + 'way';
-
   } else {
-
-    // Find how many consonants before the first vowel.
+    // Find how many consonants before the firs vowel.
     var vowelIndice = str.indexOf(str.match(regex)[0]);
-
     // Take the string from the first vowel to the last char
     // then add the consonants that were previously omitted and add the ending.
     pigLatin = str.substr(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
@@ -30,14 +26,6 @@ function translatePigLatin(str) {
   return pigLatin;
 }
 
-translatePigLatin("car");
-translatePigLatin("dog");
-translatePigLatin("create");
-translatePigLatin("valley");
-translatePigLatin("egg");
-translatePigLatin("emission");
-translatePigLatin("HeLlO");
-translatePigLatin("RoCkEt");
 
 function getPrompt() {
   rl.question('word ', (answer) => {
