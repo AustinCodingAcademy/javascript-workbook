@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
