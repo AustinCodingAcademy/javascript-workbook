@@ -25,6 +25,13 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+// if [0][0] = 'x'=== playerTurn &&
+//    [0][1] = 'x'=== playerTurn &&
+//    [0][2] = 'x'=== playerTurn &&
+//   return true; {
+// } else {
+//   return false;
+//   }
 }
 
 function verticalWin() {
@@ -39,8 +46,15 @@ function checkForWin() {
   // Your code here
 }
 
+// Sensei told us how to assign something, in Row 44. Lines 46 and 47 could
+// be one line but this works better for me.
 function ticTacToe(row, column) {
-  // Your code here
+  board [row][column] = playerTurn;
+  checkForWin();
+  // if (playerTurn === 'X');
+  // playerTurn = 'O';
+  // The ternary here will allow x and o to toggle back and forth.
+// playerTurn = (playerTurn === 'X') ? 'O' :'X';
 }
 
 function getPrompt() {

@@ -11,8 +11,40 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  }
+  if (hand1 === 'rock') {
+    if (hand2 === 'paper') {
+      return 'Hand two wins!';
+    } else return 'Hand one wins!';
+  }
 
+  if (hand1 === 'scissors') {
+    if (hand2 === 'paper') {
+      return 'Hand one wins!';
+    } else return 'Hand two wins!';
+  }
+
+  if (hand1 === 'paper') {
+    if (hand2 === 'rock') {
+      return 'Hand one wins!';
+    } else return 'Hand two wins!';
+  }
 }
+// // Ternary Way
+//   if (hand1 === 'rock') {
+//     return ((hand2 === 'paper') ? 'Hand two wins!' : 'Hand one wins!');
+//   } else {
+//     if (hand1 === 'scissors') {
+//       return ((hand2 === 'paper') ? 'Hand one wins!' : 'Hand two wins!');
+//     } else {
+//       if (hand1 === 'paper') {
+//         return ((hand2 === 'scissors') ? 'Hand two wins!' : 'Hand one wins!');
+//       }
+//     }
+//   }
+// }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
