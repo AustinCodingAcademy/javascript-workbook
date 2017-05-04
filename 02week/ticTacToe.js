@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-const board = [
+let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
@@ -24,23 +24,43 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-}
+  if ((board[0][0] && playerTurn === board[0][1] && playerTurn === board [0][2] && playerTurn)||
+      (board[1][0] && playerTurn === board[1][1] && playerTurn === board [1][2] && playerTurn)||
+      (board[2][0] && playerTurn === board[2][1] && playerTurn === board [2][2] && playerTurn)) {
+       return true;
+      }
+    }
 
 function verticalWin() {
-  // Your code here
-}
+  if ((board[0][0] && playerTurn === board[1][0] && playerTurn === board [2][0] && playerTurn)||
+      (board[0][1] && playerTurn === board[1][1] && playerTurn === board [2][1] && playerTurn)||
+      (board[0][2] && playerTurn === board[1][2] && playerTurn === board [2][2] && playerTurn)) {
+       return true;
+      }
+    }
 
 function diagonalWin() {
-  // Your code here
-}
+  if ((board[0][0] && playerTurn === board[1][1] && playerTurn === board [2][2] && playerTurn)||
+      (board[0][2] && playerTurn === board[1][1] && playerTurn === board [2][0] && playerTurn)) {
+       return true;
+      }
+    }
 
 function checkForWin() {
-  // Your code here
-}
+  if (horizontalWin() || verticalWin() || diagonalWin())
+    return true;
+  }
 
 function ticTacToe(row, column) {
-  // Your code here
+ board[row][column] = playerTurn;
+
+checkForWin();
+
+ if (playerTurn === 'X'){
+   playerTurn = 'O';
+ } else {
+   playerTurn = 'X';
+ }
 }
 
 function getPrompt() {
