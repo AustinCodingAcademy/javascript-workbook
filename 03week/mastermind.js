@@ -9,10 +9,13 @@ const rl = readline.createInterface({
 });
 
 const board = [];
-let solution = 'abcd';
-solution = solution.split('');
+let solution;
+solution = generateSolution();
 
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+// arrsolution = solution.split('');
+
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let leg = letters.length;
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -20,26 +23,34 @@ function printBoard() {
   }
 }
 
-function generateSolution() {
-  for (let i = 0; i < 4; i++) {
-    const randomIndex = getRandomInt(0, letters.length);
-    solution += letters[randomIndex];
+function generateSolution(letters){
+  for(let i = 0; i < 4; i++){
+    board.push(letters[getRandomInt(0,8)]);
+    console.log(board);
   }
 }
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return (Math.floor(Math.random() * (max - min)) + min);
 }
 
-function generateHint(guess, solution) {
+function generateHint(guess) {
   let exact = 0;
   let close = 0;
-  //foreach method?
   for(let letter in guess){
-    if(solution.includes(guess[letter])){
-      close ++;
+    if(guess[letter] === solution[letter]){
+      exact ++;
+      }
+      else if (solution.includes(guess[letter])) {
+        close ++;
+        console.log('exact '+ exact +'-'+close + ' close ');
+      }
     }
-
+  if(exact === 4){
+    console.log('You guessed it!');
+    return true;
+  }
+  console.log(guess.join('|'), close + '-' + exact);
     // if(guess[letter] === solution[letter]){
     //   exact ++;
     //   }
@@ -48,9 +59,9 @@ function generateHint(guess, solution) {
       //
       // }
     }
-
-  console.log(close +'-'+ exact);
-}// if
+// to check for repeats ==results = arr.filter(function(elem, pos) { return arr.indexOf(elem) == pos; })
+  // console.log(close +'-'+ exact);
+// if
   //   // for(let letter in guess){
   //   //   if(solution.includes(letter){
   //   //     close ++;
@@ -69,6 +80,7 @@ function mastermind(guess) {
 
 
 function getPrompt() {
+console.log(solution);
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();

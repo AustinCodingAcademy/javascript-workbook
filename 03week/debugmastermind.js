@@ -9,10 +9,13 @@
 // });
 
 const board = [];
-let solution = 'abcd';
-solution = solution.split('');
+let solution = generateSolution();
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let leg = letters.length;
+let list = letters;
+let x = getRandomInt(0, leg);
+console.log(x);
 
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -20,10 +23,10 @@ function printBoard() {
   }
 }
 
-function generateSolution() {
-  for (let i = 0; i < 4; i++) {
-    const randomIndex = getRandomInt(0, letters.length);
-    solution += letters[randomIndex];
+function generateSolution(list){
+  for(let i = 0; i < 4; i++){
+    board.push(list[getRandomInt(0,8)]);
+    console.log(board);
   }
 }
 
@@ -40,20 +43,15 @@ function generateHint(guess) {
       }
       else if (solution.includes(guess[letter])) {
         close ++;
-
+        console.log('exact '+ exact +'-'+close + ' close ');
       }
-
+    }
+  if(exact === 4){
+    console.log('You guessed it!');
+    return true;
   }
-  console.log(close +'-'+ exact);
-  // if
-  //   // for(let letter in guess){
-  //   //   if(solution.includes(letter){
-  //   //     close ++;
-  //   //     console.log(close);
-  //
-  //     }
-  //   }
-  //   console.log(close + '-' + exact);
+  console.log(guess.join('|'), close + '-' + exact);
+
 }
 
 function mastermind(guess) {
