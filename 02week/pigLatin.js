@@ -11,8 +11,29 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+  var vowel = ['a','e','i','o','u','y'];
+  var latin = word.toLowerCase();
+  var split = latin.split("");
 
-}
+  // Starts with vowel
+  if(vowel.includes(split[0])){
+    return(latin + "yay");
+  }
+
+  else if {split.length ===3}{
+    var body = small.slice(1)
+    return(body + split[0] + 'ay');
+  }
+
+  else if (vowel.inclues(split[1])){
+    var body = small.slice(1)
+    return(body + split[0] + 'ay');
+  }
+
+  else if(vowel.includes(split[2])){
+    var body = small slide(2)
+    return(body + split[0]+split[1]+"ay");
+  }
 
 
 function getPrompt() {
