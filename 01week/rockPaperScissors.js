@@ -15,41 +15,41 @@ function rockPaperScissors(hand1, hand2) {
 
 // Hand One wins
   if (hand1 === 'rock' && hand2 === 'scissors') {
-    console.log(hand1 + 'wins!');
+    return(hand1 + 'wins!');
   }
   ||
   if (hand1 === 'scissors' && hand2 === 'paper'){
-    console.log(hand1 + 'wins!');
+    return(hand1 + 'wins!');
   }
   ||
   if (hand1 === 'paper' && hand2 === 'rock'){
-    console.log(hand1 + 'wins!');
+    return(hand1 + 'wins!');
 
 //Hand Two Wins
   } else if (hand1 === 'rock' && hand2 === 'paper'){
-    console.log(hand2 + 'wins!');
+    return(hand2 + 'wins!');
   }
     ||
     if (hand1 === 'scissors' && hand2 === 'rock'){
-      console.log(hand2 + 'wins!');
+      return(hand2 + 'wins!');
     }
     ||
     if (hand1 === 'paper' && hand2 === 'scissors'){
-      console.log(hand2 + 'wins!');
+      return(hand2 + 'wins!');
       //Tie Scenarios
     } else if (hand1 ==='paper' && hand2 ==='paper'){
-      console.log('Tie!');
+      return('Tie!');
     }
     ||
     if (hand1 === 'scissors' && hand2 === 'scissors'){
-      console.log('Tie!');
+      return('Tie!');
     }
     ||
     if (hand1 === 'rock' && hand2 === 'rock'){
-      console.log('Tie!');
+      return('Tie!');
     } else{
-      console.log('ERROR: Please type rock, paper, or scissors.');
-    }    
+      return('ERROR: Please type rock, paper, or scissors.');
+    }
 }
 
 function getPrompt() {

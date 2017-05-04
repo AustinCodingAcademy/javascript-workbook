@@ -10,20 +10,73 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
   var pigLatin = '';
-  var lowerCase = pigLatin.toLowerCase();
   var startVowel = /[aeiou]/gi;
-  var startConst = /[bcdfghjklmnpqrstvwxyz]/gi;
-  var vowelIndice = str.indexOf(str.match(startVowel)[0]);
+  var cons = /[bcdfghjklmnpqrstvwxyz]/gi
 
-//This figures out if word starts with a vowel.
-if (str[0].match(startVowel)) {
- return(lowerCase + 'way');
- //figures out if word stars with consonant.
- } else (str[0].match(startConst)){
-   return(string.substring(1,25));
-   return(string.substring(1,string.length)+string.charAt(0));
-   pigLatin = string.substring(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
+//Step 1: Turn all letters to lowercase.
+  var lowerCase = word.toLowerCase();
+  var splitWord = lowerCase.split('');
+
+// Step 2: Find first letter, if vowel, then add 'way'
+if (lowerCase[0].match(startVowel)){
+    lowerCase = word.toLowerCase() + 'way';
+    return(lowerCase);
+  }
+
+// Step 3: split word. Then, remove first two letters. Then add it back.
+//Words that start with 4 consonants.
+  if (lowerCase[0].match(cons) && lowerCase[1].match(cons) && lowerCase[2].match(cons) && lowerCase[3].match(cons)){
+    var removeLetter = splitWord.shift();
+    var simpWord = splitWord.push(removeLetter);
+    var removeSecondLetter = splitWord.shift();
+    var secSimpWord = splitWord.push(removeSecondLetter);
+    var removeThirdLetter = splitWord.shift();
+    var thirdSimpWord = splitWord.push(removeThirdLetter);
+    var removeFourthLetter = splitWord.shift();
+    var FourthSimpWord = splitWord.push(removeFourthLetter);
+    var simpleWord = splitWord.join('');
+    simpleWord = simpleWord + 'ay';
+    return(simpleWord);
+  }
+//Words that start with 3 consonants.
+  else if (lowerCase[0].match(cons) && lowerCase[1].match(cons) && lowerCase[2].match(cons)){
+    var removeLetter = splitWord.shift();
+    var simpWord = splitWord.push(removeLetter);
+    var removeSecondLetter = splitWord.shift();
+    var secSimpWord = splitWord.push(removeSecondLetter);
+    var removeThirdLetter = splitWord.shift();
+    var thirdSimpWord = splitWord.push(removeThirdLetter);
+    var simpleWord = splitWord.join('');
+    simpleWord = simpleWord + 'ay';
+    return(simpleWord);
+  }
+//Words that start with 2 consonants.
+  else if (lowerCase[0].match(cons) && lowerCase[1].match(cons)){
+    var removeLetter = splitWord.shift();
+    var simpWord = splitWord.push(removeLetter);
+    var removeSecondLetter = splitWord.shift();
+    var secSimpWord = splitWord.push(removeSecondLetter);
+    var simpleWord = splitWord.join('');
+//     console.log(removeLetter);
+    simpleWord = simpleWord + 'ay';
+    return(simpleWord);
+  }
+//Words that start with 1 consonant.
+ else{
+   var removeLetter = splitWord.shift();
+    var simpWord = splitWord.push(removeLetter);
+    var simpleWord = splitWord.join('');
+//     console.log(removeLetter);
+    simpleWord = simpleWord + 'ay';
+    return(simpleWord);
  }
+
+};
+pigLatin('String');
+
+
+
+
 
 
 
