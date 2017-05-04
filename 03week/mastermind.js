@@ -48,10 +48,9 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
+  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
-      solution = 'abcd';
       mastermind('aabb');
       assert.equal(board.length, 1);
     });
@@ -62,10 +61,10 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
+      assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
+      assert.equal(generateHint('aabb'), '1-1');
     });
 
   });
