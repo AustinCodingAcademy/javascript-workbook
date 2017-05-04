@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
+// const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,7 +9,9 @@ const rl = readline.createInterface({
 });
 
 const board = [];
-let solution = '';
+let solution = 'abcd';
+solution = solution.split('');
+
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -29,12 +31,40 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
-}
+function generateHint(guess, solution) {
+  let exact = 0;
+  let close = 0;
+  //foreach method?
+  for(let letter in guess){
+    if(solution.includes(guess[letter])){
+      close ++;
+    }
+
+    // if(guess[letter] === solution[letter]){
+    //   exact ++;
+    //   }
+      // else if (solution.includes(letter)) {
+      //   close ++;
+      //
+      // }
+    }
+
+  console.log(close +'-'+ exact);
+}// if
+  //   // for(let letter in guess){
+  //   //   if(solution.includes(letter){
+  //   //     close ++;
+  //   //     console.log(close);
+  //
+  //     }
+  //   }
+  //   console.log(close + '-' + exact);
+
 
 function mastermind(guess) {
-  // your code here
+  guess = guess.split('');
+  console.log(guess);// your code here
+  generateHint(guess, solution);
 }
 
 
@@ -73,6 +103,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  generateSolution();
+  // generateSolution();
   getPrompt();
 }
