@@ -1,3 +1,5 @@
+//I'm going to keep working on this, but I'm submitting this now so it won't be late.
+
 'use strict';
 
 const assert = require('assert');
@@ -9,10 +11,22 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  var pigLatin = '';
+  var lowerCase = pigLatin.toLowerCase();
+  var startVowel = /[aeiou]/gi;
+  var startConst = /[bcdfghjklmnpqrstvwxyz]/gi;
+  var vowelIndice = str.indexOf(str.match(startVowel)[0]);
 
-  // Your code here
+//This figures out if word starts with a vowel.
+if (str[0].match(startVowel)) {
+ return(lowerCase + 'way');
+ //figures out if word stars with consonant.
+ } else (str[0].match(startConst)){
+   return(string.substring(1,25));
+   return(string.substring(1,string.length)+string.charAt(0));
+   pigLatin = string.substring(vowelIndice) + str.substr(0, vowelIndice) + 'ay';
+ }
 
-}
 
 
 function getPrompt() {
