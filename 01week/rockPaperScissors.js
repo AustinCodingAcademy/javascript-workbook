@@ -7,24 +7,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
 
-if (hand1 === hand2){
-console.log('tie');
-}
-
-elseif ((hand1 === 'rock' && hand2 === 'scissors')||
+if ((hand1 === 'rock' && hand2 === 'scissors')||
 (hand1 === 'paper' && hand2 === 'rock')||
-(hand1 === 'scissors' && hand2 === 'paper'));
+(hand1 === 'scissors' && hand2 === 'paper'));{
 console.log('Hand 1 wins!');
 }
 
-elseif ((hand1 === 'scissors' && hand2 === 'rock')||
+if((hand1 === 'scissors' && hand2 === 'rock')||
 (hand1 === 'rock' && hand2 === "paper")||
-(hand1 === 'paper' && hand2 === "scissors"));
+(hand1 === 'paper' && hand2 === "scissors"));{
 console.log('Hand 2 wins!');
-});
+}
+
+else if(hand1 === hand2){
+console.log('tie');
+}}
+
+rockPaperScissors(hand1,hand2)
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {

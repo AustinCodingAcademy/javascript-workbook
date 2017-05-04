@@ -19,15 +19,23 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
+  // Your code here
+   var pop = stacks[startStack].pop();
+   stacks[endStack].push(pop);
+   return stacks;
+  }
+
+  console.log(stacks);
+  console.log(movePiece('a', 'c'));
+
+function isLegal(startStack, endStack) {
   // Your code here
 
-}
+var stackLength = stacks.a.length -1;
+console.log(stacks.a[stacksLength]);
+//console.log(stacks.a.length)
 
-function isLegal() {
-  // Your code here
-
-}
 
 function checkForWin() {
   // Your code here
@@ -89,5 +97,29 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
+
+}
+
+/*const stacks = {
+  a: [4, 3, 2, 1],
+  b: [],
+  c: []
+};
+
+function movePiece(startStack, endStack) {
+  // Your code here
+   var pop = stacks[startStack].pop();
+   stacks[endStack].push(pop);
+   return stacks;
+  }
+
+  console.log(stacks);
+  console.log(movePiece('a', 'c'));
+
+var stackLength = stacks.a.length;
+console.log(stackLength - 1);
+//console.log(stacks.a.length)
+
+function isLegal(start, end){
 
 }

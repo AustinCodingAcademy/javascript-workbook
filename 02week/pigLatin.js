@@ -7,12 +7,33 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function pigLatin(word) {
+  //define input to lowercase
+var pig = word.toLowerCase();
+  //define array of vowels
+var vowels = [a, e, i, o, u];
+  //split input up
+var split = pig.split("");
+  //see if first letter is a vowel, if it is then delete it
+if(vowels.includes(split[0])){
+    return(pig + "yay");
+ }
 
-  // Your code here
+ else if (split.length === 3){
+   var newWord = pig.slice(1);
+   return (newWord + split[0] + 'ay');
+ }
 
+else if (vowels.includes(split[1])){
+  var newWord = pig.slice(1);
+  return (newWord + split[0] + 'ay')
 }
+
+else if (vowels.includes(split[2])){
+  var newWord = pig.slice(1);
+  return (newWord + split[0] + split[1] + 'ay')
+}
+
 
 
 function getPrompt() {
