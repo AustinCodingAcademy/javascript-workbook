@@ -14,8 +14,8 @@ solution = generateSolution();
 
 // arrsolution = solution.split('');
 
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-let leg = letters.length;
+// let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+// let leg = letters.length;
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -23,9 +23,10 @@ function printBoard() {
   }
 }
 
-function generateSolution(letters){
-  for(let i = 0; i < 4; i++){
-    board.push(letters[getRandomInt(0,8)]);
+  function generateSolution(letters){
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+      for(let i = 0; i < 4; i++){
+    board.push(letters[getRandomInt(0 - letters.length)]);
     console.log(board);
   }
 }

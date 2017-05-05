@@ -23,17 +23,17 @@ function printBoard() {
   }
 }
 
-function generateSolution(list){
-  for(let i = 0; i < 4; i++){
-    board.push(list[getRandomInt(0,8)]);
+function generateSolution(letters){
+  letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    for(let i = 0; i < 4; i++){
+    board.push(letters[getRandomInt(0 - letters.length)]);
     console.log(board);
-  }
+    }
 }
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+return (Math.floor(Math.random() * (max - min)) + min);
 }
-
 function generateHint(guess) {
   let exact = 0;
   let close = 0;
