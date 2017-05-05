@@ -1,4 +1,4 @@
-//I'm going to keep working on this, but I'm submitting this now so it won't be late.
+
 
 'use strict';
 
