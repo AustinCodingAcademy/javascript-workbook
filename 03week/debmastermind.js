@@ -15,8 +15,14 @@ let solution = generateSolution();
 // solution = generateSolution();
 
 // arrsolution = solution.split('');
+<<<<<<< HEAD
 // function getRandomInt(min, max) {
 //   return (Math.floor(Math.random() * (max - min)) + min);
+=======
+
+// let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+// let leg = letters.length;
+>>>>>>> origin/gh-pages
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -24,11 +30,19 @@ function printBoard() {
   }
 }
 
+<<<<<<< HEAD
 function generateSolution(){
   let sol = [];
   for(let i = 0; i < 4; i++){
     sol.push(letters[getRandomInt(0, leg)]);
     // console.log(solution);
+=======
+  function generateSolution(letters){
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+      for(let i = 0; i < 4; i++){
+    board.push(letters[getRandomInt(0 - letters.length)]);
+    console.log(board);
+>>>>>>> origin/gh-pages
   }
 //console.log(board);
  return sol;

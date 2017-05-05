@@ -23,6 +23,7 @@ function printBoard() {
   }
 }
 
+<<<<<<< HEAD
 function generateSolution(solution){
   for(let i = 0; i < 4; i++){
     solution.push(letters[getRandomInt(0, leg)]);
@@ -30,13 +31,20 @@ function generateSolution(solution){
   }
   return solution;
 //console.log(board);
+=======
+function generateSolution(letters){
+  letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    for(let i = 0; i < 4; i++){
+    board.push(letters[getRandomInt(0 - letters.length)]);
+    console.log(board);
+    }
+>>>>>>> origin/gh-pages
 }
 
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+return (Math.floor(Math.random() * (max - min)) + min);
 }
-
 function generateHint(guess) {
   let exact = 0;
   let close = 0;
