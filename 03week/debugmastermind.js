@@ -8,7 +8,7 @@
 //   output: process.stdout
 // });
 
-const board = [];
+let board = [];
 let solution = generateSolution();
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
@@ -23,12 +23,15 @@ function printBoard() {
   }
 }
 
-function generateSolution(list){
+function generateSolution(solution){
   for(let i = 0; i < 4; i++){
-    board.push(list[getRandomInt(0,8)]);
-    console.log(board);
+    solution.push(letters[getRandomInt(0, leg)]);
+    console.log(solution);
   }
+  return solution;
+//console.log(board);
 }
+
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;

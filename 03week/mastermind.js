@@ -8,14 +8,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const board = [];
-let solution;
-solution = generateSolution();
+let board = [];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let leg = letters.length;
+let solution = generateSolution();
+// solution = generateSolution();
 
 // arrsolution = solution.split('');
-
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-let leg = letters.length;
+// function getRandomInt(min, max) {
+//   return (Math.floor(Math.random() * (max - min)) + min);
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -23,34 +24,41 @@ function printBoard() {
   }
 }
 
-function generateSolution(letters){
+function generateSolution(){
+  let sol = [];
   for(let i = 0; i < 4; i++){
-    board.push(letters[getRandomInt(0,8)]);
-    console.log(board);
+    sol.push(letters[getRandomInt(0, leg)]);
+    // console.log(solution);
   }
+//console.log(board);
+ return sol;
 }
 
 function getRandomInt(min, max) {
   return (Math.floor(Math.random() * (max - min)) + min);
 }
-
-function generateHint(guess) {
+//hint method: guess/solution comparison, win check
+function generateHint(guess, solution) {
   let exact = 0;
   let close = 0;
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
-      exact ++;
+      console.log(exact +=1);
+      board.push("~colorRED~");
       }
       else if (solution.includes(guess[letter])) {
-        close ++;
+        close +=1;
         console.log('exact '+ exact +'-'+close + ' close ');
       }
+
     }
+
   if(exact === 4){
     console.log('You guessed it!');
     return true;
   }
-  console.log(guess.join('|'), close + '-' + exact);
+  console.log(guess.join('|'), close + '-' + exact + printBoard());
+
     // if(guess[letter] === solution[letter]){
     //   exact ++;
     //   }
@@ -71,16 +79,17 @@ function generateHint(guess) {
   //   }
   //   console.log(close + '-' + exact);
 
-
+//take the input and split into array & generate a solution
 function mastermind(guess) {
+  // solution = generateSolution();
   guess = guess.split('');
-  console.log(guess);// your code here
+  console.log(solution);// your code here
   generateHint(guess, solution);
 }
 
 
 function getPrompt() {
-console.log(solution);
+
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
