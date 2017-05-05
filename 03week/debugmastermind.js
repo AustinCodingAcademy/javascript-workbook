@@ -1,19 +1,17 @@
 'use strict';
 
-const assert = require('assert');
+// const assert = require('assert');
 // const colors = require('colors/safe');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 let board = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
 let solution = generateSolution();
-let exact;
-let close;
 // solution = generateSolution();
 
 // arrsolution = solution.split('');
@@ -45,9 +43,9 @@ function getRandomInt(min, max) {
 }
 //hint method: guess/solution comparison, win check
 function generateHint(guess, solution) {
-  board = [''];
-  exact = 0;
-  close = 0;
+  board = [];
+  let exact = 0;
+  let close = 0;
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
       console.log(exact +=1);
@@ -64,7 +62,7 @@ function generateHint(guess, solution) {
     console.log('You guessed it!');
     return true;
   }
-  console.log(close + '-' + exact);
+  console.log(guess.join('|'), close + '-' + exact + printBoard());
 
     // if(guess[letter] === solution[letter]){
     //   exact ++;
@@ -97,11 +95,11 @@ function mastermind(guess) {
 
 function getPrompt() {
 
-  rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
-    printBoard();
-    getPrompt();
-  });
+  // rl.question('guess: ', (guess) => {
+  //   console.log( mastermind(guess) );
+    // printBoard();
+    // getPrompt();
+  // });
 }
 
 // Tests
