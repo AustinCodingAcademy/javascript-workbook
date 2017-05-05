@@ -15,14 +15,11 @@ let solution = generateSolution();
 // solution = generateSolution();
 
 // arrsolution = solution.split('');
-<<<<<<< HEAD
+
 // function getRandomInt(min, max) {
 //   return (Math.floor(Math.random() * (max - min)) + min);
-=======
-
 // let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 // let leg = letters.length;
->>>>>>> origin/gh-pages
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -30,29 +27,23 @@ function printBoard() {
   }
 }
 
-<<<<<<< HEAD
+
 function generateSolution(){
   let sol = [];
   for(let i = 0; i < 4; i++){
     sol.push(letters[getRandomInt(0, leg)]);
     // console.log(solution);
-=======
-  function generateSolution(letters){
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-      for(let i = 0; i < 4; i++){
-    board.push(letters[getRandomInt(0 - letters.length)]);
-    console.log(board);
->>>>>>> origin/gh-pages
   }
-//console.log(board);
- return sol;
+  return sol;
 }
+
 
 function getRandomInt(min, max) {
   return (Math.floor(Math.random() * (max - min)) + min);
 }
 //hint method: guess/solution comparison, win check
 function generateHint(guess, solution) {
+  board = [''];
   let exact = 0;
   let close = 0;
   for(let letter in guess){
@@ -62,7 +53,7 @@ function generateHint(guess, solution) {
       }
       else if (solution.includes(guess[letter])) {
         close +=1;
-        console.log('exact '+ exact +'-'+close + ' close ');
+        // console.log('exact '+ exact +'-'+close + ' close ');
       }
 
     }
