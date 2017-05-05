@@ -12,6 +12,25 @@ const board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+//below is stuff that Zack showed us in class
+solution = 'adaa'
+let guess = 'adcb'
+function split(string){
+  return string.split('')
+}
+console.log('solution:$split(solution)}')
+console.log('guess: ${split(guess).indexOf('a')}')
+//you will get -1 if the .indexOf does not match
+
+solution = split(solution)
+for (let i = 0; i < split(solution); i++){
+  console.log (split(solution)[i])
+}
+//make two for loops. one for the remainder of guesses in the right place.
+
+
+//end of stuff
+
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -29,12 +48,18 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
 }
 
 function mastermind(guess) {
   // your code here
+if (/*guess is equal to solution*/){
+  //win condition
+  //game stops
+} else{
+  generateHint(guess)
+}
 }
 
 

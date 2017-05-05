@@ -30,23 +30,20 @@ console.log(stacks);
 
 function isLegal(startStack, endStack) {
   // Your code here
-
-  // function isLegal(startStack, endStack) {
-  //   var startStackLength = stacks[startStack].length;
-  //   if(stacks[startStack].length-1 > stacks[endStack.length-1]){
-  //     return false;
-  //   }
-  // }
+    var startStackLength = stacks[startStack].length;
+    if(stacks[startStack].length-1 > stacks[endStack.length-1]){
+      return false;
+    }
   }
 }
 
 function checkForWin() {
-  // Your code here
+  // Your code here -- make sure the the b or c stack has a length of 4
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // Your code here -- this is the overall function
 
 }
 
