@@ -8,8 +8,7 @@ function loops(){
   };
 
   //2. Write For..In Loop
-  var persons = [firstName='Jane', lastName='Doe', birthDate='Jan 5, 1925',
-  gender='female']
+  var persons = [firstName='Jane', lastName='Doe', birthDate='Jan 5, 1925', gender='female']
   for (var x in persons) {
     console.log(persons[x]);
   };
