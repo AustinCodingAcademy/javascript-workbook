@@ -7,11 +7,11 @@
 //   input: process.stdin,
 //   output: process.stdout
 // });
-
+let guess = ['a','b', 'c', 'c'];
 let board = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
-let solution = generateSolution();
+let solution = ['a','d','d','c'];
 // solution = generateSolution();
 
 // arrsolution = solution.split('');
@@ -42,42 +42,47 @@ function getRandomInt(min, max) {
   return (Math.floor(Math.random() * (max - min)) + min);
 }
 
-function dupesCount(){
-  console.log(-guess.length);
-for(let i = 0; i < guess.length; i ++){
-  console.log(guess[-2]);
-  for( let j = -i; j < -guess.length; i --){
-    console.log(guess[i], guess[j]);
-    if(guess[i] === guess[j]){
+function dupesCount(arr){
+  let dBoard = [];
+  console.log(arr.length);
+  for(let i = 0; i < arr.length; i ++){
+    console.log(arr[i]);
+    for(let j = i + 1; j < arr.length; j ++){
+      console.log(arr[i], arr[j]);
+      if(guess[i] === arr[j]){
 
-      board.push(guess[i]);
-      console.log("yup!"+ board);
+        dBoard.push(arr[i]);
+        console.log("yup!"+ board);
+        return dBoard;
+      }
     }
   }
 }
-}
-//hint method: guess/solution comparison, win check
+
 function generateHint(guess, solution) {
+  let dupes = dupesCount(guess);
   board = [];
-  let exact = 0;
-  let close = 0;
+ let exact = 0;
+ let close = 0;
+ //dupesCount();
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
       console.log(exact +=1);
       board.push("~colorRED~");
       }
-      else if (solution.includes(guess[letter])) {
+      else if (solution.includes(guess[letter]) && !dupes.includes(guess[letter])) {
         close +=1;
-        // console.log('exact '+ exact +'-'+close + ' close ');
+         console.log('exact '+ exact +'-'+close + ' close ');
       }
 
     }
 
-  if(exact === 4){
-    console.log('You guessed it!');
-    return true;
-  }
-  console.log(guess.join('|'), close + '-' + exact + printBoard());
+}
+// if(exact === 4){
+//   console.log('You guessed it!');
+//   return true;
+// }
+//console.log(guess.join('|'), close + '-' + exact + printBoard());
 
     // if(guess[letter] === solution[letter]){
     //   exact ++;
@@ -86,7 +91,7 @@ function generateHint(guess, solution) {
       //   close ++;
       //
       // }
-    }
+//    }
 // to check for repeats ==results = arr.filter(function(elem, pos) { return arr.indexOf(elem) == pos; })
   // console.log(close +'-'+ exact);
 // if
@@ -119,31 +124,31 @@ function getPrompt() {
 
 // Tests
 
-if (typeof describe === 'function') {
-
-  describe('#mastermind()', () => {
-    it('should register a guess and generate hints', () => {
-      solution = 'abcd';
-      mastermind('aabb');
-      assert.equal(board.length, 1);
-    });
-    it('should be able to detect a win', () => {
-      assert.equal(mastermind(solution), 'You guessed it!');
-    });
-  });
-
-  describe('#generateHint()', () => {
-    it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
-    });
-    it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
-    });
-
-  });
-
-} else {
-
-  // generateSolution();
-  getPrompt();
-}
+// if (typeof describe === 'function') {
+//
+//   describe('#mastermind()', () => {
+//     it('should register a guess and generate hints', () => {
+//       solution = 'abcd';
+//       mastermind('aabb');
+//       assert.equal(board.length, 1);
+//     });
+//     it('should be able to detect a win', () => {
+//       assert.equal(mastermind(solution), 'You guessed it!');
+//     });
+//   });
+//
+//   describe('#generateHint()', () => {
+//     it('should generate hints', () => {
+//       assert.equal(generateHint('abcd', 'abdc'), '2-2');
+//     });
+//     it('should generate hints if solution has duplicates', () => {
+//       assert.equal(generateHint('abcd', 'aabb'), '1-1');
+//     });
+//
+//   });
+//
+// } else {
+//
+//   // generateSolution();
+//   getPrompt();
+// }

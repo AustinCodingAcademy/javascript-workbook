@@ -84,7 +84,7 @@ function dupesCount(){
   console.log(-guess.length);
 for(let i = 0; i < guess.length; i ++){
   console.log(guess[-i]);
-  for( let j = guess.length-1; j >=0; j --){
+  for( let j = guess.length; j >=0; j --){
     console.log(guess[i], guess[j]);
     if(guess[i] === guess[j]){
 
