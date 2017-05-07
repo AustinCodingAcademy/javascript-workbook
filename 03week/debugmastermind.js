@@ -41,6 +41,21 @@ function generateSolution(){
 function getRandomInt(min, max) {
   return (Math.floor(Math.random() * (max - min)) + min);
 }
+
+function dupesCount(){
+  console.log(-guess.length);
+for(let i = 0; i < guess.length; i ++){
+  console.log(guess[-2]);
+  for( let j = -i; j < -guess.length; i --){
+    console.log(guess[i], guess[j]);
+    if(guess[i] === guess[j]){
+
+      board.push(guess[i]);
+      console.log("yup!"+ board);
+    }
+  }
+}
+}
 //hint method: guess/solution comparison, win check
 function generateHint(guess, solution) {
   board = [];

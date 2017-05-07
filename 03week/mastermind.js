@@ -45,7 +45,7 @@ function getRandomInt(min, max) {
 }
 //hint method: guess/solution comparison, win check
 function generateHint(guess, solution) {
-  board = [''];
+  board = [];
   exact = 0;
   close = 0;
   for(let letter in guess){
@@ -65,7 +65,7 @@ function generateHint(guess, solution) {
     return true;
   }
   console.log(close + '-' + exact);
-
+  return close + '-' + exact;
     // if(guess[letter] === solution[letter]){
     //   exact ++;
     //   }
@@ -74,6 +74,26 @@ function generateHint(guess, solution) {
       //
       // }
     }
+
+function dupeCount(ar){
+   try{ return ar.toLowerCase().split("").sort().join("").match(/(.)\1+/g).length; }
+   catch(e){ return 0; }
+
+   //dupesCount works without regex!
+function dupesCount(){
+  console.log(-guess.length);
+for(let i = 0; i < guess.length; i ++){
+  console.log(guess[-i]);
+  for( let j = guess.length-1; j >=0; j --){
+    console.log(guess[i], guess[j]);
+    if(guess[i] === guess[j]){
+
+      board.push(guess[i]);
+      console.log("yup!"+ board);
+    }
+  }
+}
+}
 // to check for repeats ==results = arr.filter(function(elem, pos) { return arr.indexOf(elem) == pos; })
   // console.log(close +'-'+ exact);
 // if
@@ -86,7 +106,7 @@ function generateHint(guess, solution) {
   //   }
   //   console.log(close + '-' + exact);
 
-//take the input and split into array & generate a solution
+//take the input and split into array & generate a solution to be compared
 function mastermind(guess) {
   // solution = generateSolution();
   guess = guess.split('');
