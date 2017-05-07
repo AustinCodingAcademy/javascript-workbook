@@ -27,7 +27,13 @@ console.log(totalCars.lastIndexOf('Ford'));
  console.log(carsInReverse.sort())
 
  // this code made everything in console move alert(carsInReverse.indexOf('Buick'));
+carsInReverse.slice(2,4);
 
-var removedCars = carsInReverse.slice(2, 4)
+var removedCars = carsInReverse.slice(2, 4);
 
 console.log(removedCars);
+
+carsInReverse.splice(3,4,'Ford','Honda');
+console.log(carsInReverse);
+
+carsInReverse.push(removedCars);

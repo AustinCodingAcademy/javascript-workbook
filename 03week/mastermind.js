@@ -12,6 +12,19 @@ const board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+//* solution = 'adaa'
+//let guess = 'adcb'
+//function split(string){
+//  return string.split('')
+//}
+//solution = split(solution)
+// for (let i = 0; i <solution.length; i++){
+//console.log(split(solution)[i])
+//}
+//console.log('solution:
+//${split(solution).indexOf('b')}')
+//console.log('guess: ${split(guess)}')
+
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -29,12 +42,19 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
 }
 
 function mastermind(guess) {
   // your code here
+  if (/*guess is equal to solution */){
+    //win condition
+    //game stops
+  }
+  else {
+    generateHint(guess)
+  }
 }
 
 
