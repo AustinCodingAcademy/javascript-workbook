@@ -11,7 +11,7 @@
 let board = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
-let guess = ['b','a','d','b']
+let guess = ['a','c','b','a']
 let solution = ['a','c','b','a'];
 let exact;
 let close;
@@ -49,6 +49,7 @@ function getRandomInt(min, max) {
 function generateHint(guess, solution) {
   let sDupes = dupesCount(solution);
   let gDupes = dupesCount(guess);
+  board = [];
   let exact = 0;
   let close = 0;
   for(let letter in guess){
@@ -62,16 +63,20 @@ function generateHint(guess, solution) {
     }
   }
 console.log(gDupes, sDupes);
-
+//going to have to make it capaable of multiple dupes.
 console.log(gDupes[0] !== sDupes[0]);
-
+  if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
         close --;
       }
-  console.log(exact+'-'+close);
-}
-
-
+    }
+  if(exact === 4){
+  return 'You guessed it!';
+    printBoard();
+  }
+  else{
+  return (exact+'-'+close);
+}}
 
 //regex dupeCount
 // function dupeCount(ar){
@@ -99,9 +104,9 @@ console.log(gDupes[0] !== sDupes[0]);
 }
 
 //take the input and split into array & generate a solution to be compared
-function mastermind(guess) {
+function mastermind() {
   // solution = generateSolution();
-  guess = guess.split('');
+  //guess = guess.split('');
   console.log(solution);// your code here
   generateHint(guess, solution);
 }
