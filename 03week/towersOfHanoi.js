@@ -19,13 +19,24 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+
+  var pop = stacks[startStack].pop();
+  stacks[endStack].push(pop);
+    return stacks;
+  }
+    console.log(stacks);
+    console.log(movePiece('a', 'c'));
+    console.log(stacks);
 
 }
 
 function isLegal() {
   // Your code here
+  var stackLength = stacks.a.length - 1;
+  console.log(stackLength - 1);
+  console.log(stacks.a[stackLength]);
 
 }
 
