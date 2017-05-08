@@ -58,8 +58,9 @@ if(gDupes.length){
       }
     }
   if(exact === 4){
+  printBoard();
   return 'You guessed it!';
-    printBoard();
+
   }
   else{
   return (exact+'-'+close);
