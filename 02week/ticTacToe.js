@@ -25,6 +25,16 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  // outer loop check each row
+  for (var i = 0; i < 3; i++) {
+    // If 3 in a row && NOT null, return true.
+    if ((board[i][0] === board[i][1] && board[i][0] === board[i][2]) && (board[i][0] !== ' ')) {
+  return true;
+ }
+}
+
+// This was working in class and passed test but was not right.
+//   }
 // if [0][0] = 'x'=== playerTurn &&
 //    [0][1] = 'x'=== playerTurn &&
 //    [0][2] = 'x'=== playerTurn &&
@@ -32,30 +42,77 @@ function horizontalWin() {
 // } else {
 //   return false;
 //   }
-}
+// }
 
 function verticalWin() {
-  // Your code here
+  //outer loop check each column
+  for (var i = 0; i < 3; i++) {
+    //If 3 in a column && NOT null, return true.
+    if ((board[0][i] === board[1][i] && board[0][i] === board[2][i]) && (board[0][i] !== ' ')) {
+      return true;
+    }
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  // check for diagonal win
+  if (board[1][1] === ' ') return false;
+
+  if ((board[0][0] === board[1][1] && board[0][0] === board[2][2]) ||
+    (board[2][0] === board[1][1] && board[2][0] === board[0][2])) {
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  //call 3 different directional functions to check if player has won
+  if (horizontalWin() || verticalWin() || diagonalWin()) return true;
 }
+
+function rowValValid(r) {
+  if (r === '0' || r === '1' || r === '2' || r === 0 || r === 1 || r === 2) return true;
+}
+
+function colValValid(c) {
+  if (c === '0' || c === '1' || c === '2' || c === 0 || c === 1 || c === 2) return true;
+
+}
+
+function ticTacToe(row, column) {
+  //Verify 0, 1, or 2 only
+  if (rowValValid(row) && colValValid(column)) {
+  //if cell taken, ask again; if not, place 'X' or 'O'
+    if (board[row][column] === ' ') {
+      board[row][column] = playerTurn;
+      //If winning combo, print win, and exit game
+      if (checkForWin()) {
+        console.log(`${playerTurn} wins!`);
+        printBoard();
+        process.exit();
+      };
+      //Toggle player
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    } else {
+      console.log('Sorry, that space is taken');
+    }
+  } else {
+    console.log('You must type 0 1 or 2 only');
+  }
+}
+
 
 // Sensei told us how to assign something, in Row 44. Lines 46 and 47 could
 // be one line but this works better for me.
-function ticTacToe(row, column) {
-  board [row][column] = playerTurn;
-  checkForWin();
-  // if (playerTurn === 'X');
-  // playerTurn = 'O';
-  // The ternary here will allow x and o to toggle back and forth.
+
+// Part of first attempt, but not needed.
+// function ticTacToe(row, column) {
+//   board [row][column] = playerTurn;
+//   checkForWin();
+//   if (playerTurn === 'X');
+//   playerTurn = 'O';
+//   The ternary here will allow x and o to toggle back and forth.
 // playerTurn = (playerTurn === 'X') ? 'O' :'X';
-}
+// }
 
 function getPrompt() {
   printBoard();
