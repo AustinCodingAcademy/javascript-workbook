@@ -53,30 +53,30 @@ function generateHint(guess, solution) {
   let exact = 0;
   let close = 0;
   for(let letter in guess){
-  if(guess[letter] === solution[letter]){
+   if(guess[letter] === solution[letter]){
     exact +=1;
     board.push(guess[letter]);
     console.log(exact + ' '+ guess[letter]);
-    }
+ }
     else if (solution.includes(guess[letter])) {
-        console.log(close + ' '+ guess[letter]);
+     console.log(close + ' '+ guess[letter]);
       close +=1;
     }
   }
 //going to have to make it capaable of multiple dupes.
-if(gDupes.length){
-    if(gDupes[0] !== sDupes[0]){
-        close --;
-      }
+  if(gDupes.length){
+  if(gDupes[0] !== sDupes[0]){
+      close --;
     }
+}
   if(exact === 4){
-  printBoard();
-  return 'You guessed it!';
+    printBoard();
+    return 'You guessed it!';
 
   }
   else{
-  return (exact+'-'+close);
-}}
+    return (exact+'-'+close);
+  }}
 
 
 //regex dupeCount
@@ -85,7 +85,7 @@ if(gDupes.length){
 //    catch(e){ return 0; }
 
    //dupesCount works without regex!
-   function dupesCount(arr){
+function dupesCount(arr){
      let dBoard = [];
      //arr = arr.split('');
      console.log(arr.length);
@@ -99,10 +99,10 @@ if(gDupes.length){
            console.log("yup!"+ dBoard);
            return dBoard;
          }
-        }
        }
+      }
      return dBoard;
-}
+   }
 
 //take the input and split into array & generate a solution to be compared
 function mastermind() {
