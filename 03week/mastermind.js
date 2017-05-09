@@ -43,23 +43,24 @@ function generateHint(guess, solution) {
   let exact = 0;
   let close = 0;
   for(let letter in guess){
-  if(guess[letter] === solution[letter]){
+    if(guess[letter] === solution[letter]){
     exact +=1;
     board.push(guess[letter]);
-    }
+  }
     else if (solution.includes(guess[letter])) {
       close +=1;
     }
   }
 //going to have to make it capaable of multiple dupes.
-if(gDupes.length){
-    if(gDupes[0] !== sDupes[0]){
-        close --;
-      }
+  if(gDupes.length){
+  if(gDupes[0] !== sDupes[0]){
+      close --;
     }
+}
   if(exact === 4){
-  return 'You guessed it!';
     printBoard();
+    return 'You guessed it!';
+
   }
   else{
   return (exact+'-'+close);
@@ -89,8 +90,9 @@ if(gDupes.length){
 //take the input and split into array & generate a solution to be compared
 function mastermind(guess) {
   guess = guess.split('');
-  return generateHint(guess, solution);
   console.log(generateHint);
+  return generateHint(guess, solution);
+
 }
 
 

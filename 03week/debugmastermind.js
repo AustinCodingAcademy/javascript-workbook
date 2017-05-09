@@ -53,11 +53,11 @@ function generateHint(guess, solution) {
   let exact = 0;
   let close = 0;
   for(let letter in guess){
-  if(guess[letter] === solution[letter]){
-    console.log(exact +=1);
+    if(guess[letter] === solution[letter]){
+     console.log(exact +=1);
     board.push(guess[letter]);
-    }
-    else if (solution.includes(guess[letter])) {
+     }
+   else if (solution.includes(guess[letter])) {
       close +=1;
       console.log('exact '+ exact +'-'+close + ' close ');
     }
@@ -65,10 +65,10 @@ function generateHint(guess, solution) {
 console.log(gDupes, sDupes);
 //going to have to make it capaable of multiple dupes.
 console.log(gDupes[0] !== sDupes[0]);
-  if(gDupes.length){
+    if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
-        close --;
-      }
+    close --;
+  }
     }
   if(exact === 4){
   return 'You guessed it!';
