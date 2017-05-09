@@ -31,10 +31,32 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
+  let numberRight = 0;
+  let numberClose = 0;
+  function split(string) {
+  return string.split('')
+}
+solution = split(solution)
+guess = split(guess)
+for (let i = 0; i < solution.length; i++) {
+  if(guess[i] === solution[i]){
+      numberRight += 1;
+    } else if (guess[i].includes(solution[i])) {
+      numberClose += 1;
+    }
+    let returnString = numberRight + '‐' + numberClose;
+    return returnString;
 }
 
 function mastermind(guess) {
   // your code here
+  (board.push(guess));
+  if(guess === solution) {
+    return "You guessed it!";
+  } else {
+    return generateHint(guess, solution);
+  }
+}
 }
 
 
