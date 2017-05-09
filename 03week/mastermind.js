@@ -1,14 +1,14 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
+// const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const board = [];
+let board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
@@ -29,12 +29,32 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+
+function generateHint(guess, solution) {
   // your code here
+  let numberRight = 0;
+  let numberClose = 0;
+  for (var i = 0; i < guess.length; i++){
+    if(guess[i] === solution[i]){
+      numberRight += 1;
+    } else if (guess[i].includes(solution[i])) {
+      numberClose += 1;
+    }
+  let returnString = numberRight + '‐' + numberClose;
+  return returnString;
+  }
+
 }
+// Missing something... thought these were written exactly as suggested but I still get errors when testing.
 
 function mastermind(guess) {
   // your code here
+  (board.push(guess));
+  if(guess === solution) {
+    return "You guessed it!";
+  } else {
+    return generateHint(guess, solution);
+  }
 }
 
 
