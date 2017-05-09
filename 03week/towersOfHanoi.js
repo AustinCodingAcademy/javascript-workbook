@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -20,8 +20,6 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
 }
 
 function isLegal() {
@@ -30,8 +28,9 @@ function isLegal() {
 }
 
 function checkForWin() {
-  // Your code here
-
+  if(stacks.b || stacks.c === [4,3,2,1]){
+    console.log('You Win')
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
