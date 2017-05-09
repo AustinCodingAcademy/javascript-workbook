@@ -13,15 +13,25 @@ for (i = 0; i < carsInReverse.length; ++i){
   var x;
 
   for (x in persons){
-    console.log(persons["birthDate"])
+    console.log(persons[x]);
   }
 
 
   //3. Write While Loop
-while(i=0; i<1001; ++i){
-  console.log(i);
+var a = true;
+
+while(a === true){
+  console.log(a);
+  a = false;
 }
+
+
   //4. Write Do While Loop
 
+  do{
+    console.log(1);
+  }
+
+  while(true);
 
 }

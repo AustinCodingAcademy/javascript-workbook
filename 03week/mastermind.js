@@ -10,7 +10,9 @@ const rl = readline.createInterface({
 
 const board = [];
 let solution = '';
+let guess = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
 
 //* solution = 'adaa'
 //let guess = 'adcb'
@@ -45,18 +47,51 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(guess) {
-  // your code here
+function generateHint(guess, solution) {
+
+    function split(string){
+      return string.split('');
+    }
+    solution = split(solution);
+    guess = split(guess);
+
+    let numberRight = 0;
+    let numberClose = 0;
+    let returnString = 0;
+
+    for(let i = 0; i < solution.length; i++){
+      console.log('solution: ${solution}')
+      console.log('guess: ${guess}')
+      if (solution[i]===guess[i]){ /*identifies letter and index correct*/
+        solution[i]= null;
+        console.log(solution);
+        numberRight += 1;
+      }
+      else if (solution.includes(guess[i])){ /*this identifies close matches*/
+        numberClose += 1;
+      }
+      let returnString = numberRight + '' + numberClose;
+      return returnString;
+    }
 }
 
-function mastermind(guess) {
+function mastermind(guess, solution) {
   // your code here
-  if (/*guess is equal to solution */){
+  function generateHint(guess, solution){
+  }
+  (board.push(guess));
+
+  if (guess === solution){
+    console.log('You guessed it!');
     //win condition
     //game stops
   }
   else {
-    generateHint(guess)
+    board.push(guess+': '+hint);
+    printBoard();
+    numberRight = 0;
+    numberClose = 0;
+    generateHint(guess, solution);
   }
 }
 
