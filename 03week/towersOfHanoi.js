@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -31,20 +31,34 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
   // Your code here
+var lengthStart = stacks[startStack].length;
+var lengthEnd = stacks[endStack].length;
+var start = stacks[startStack][lengthStart - 1]
+var end = stacks[endStack][lengthEnd - 1]
 
-var stackLength = stacks.a.length -1;
-console.log(stacks.a[stacksLength]);
-//console.log(stacks.a.length)
-
-
-function checkForWin() {
-  // Your code here
-
+if (start < end || end === undefined){
+  return true;
+}
+else{
+  return false;
+}
 }
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
+function checkForWin(startStack, endStack) {
+  if (stacks.b.length === 4 || stacks.c.length ==== 4){
+    return true "you win!";
+  }
+  else {
+    return false;
+  }
+}
 
+
+function towersOfHanoi(startStack, endStack) {
+  if (isLegal(startStack, endStack)){
+    movePiece(startStack, endStack);
+    checkForWin(startStack, endStack);
+  }
 }
 
 function getPrompt() {

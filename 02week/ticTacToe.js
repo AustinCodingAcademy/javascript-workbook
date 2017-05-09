@@ -6,19 +6,14 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-const board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
+
 
 var board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
-]
+];
 
-if playerTurn = 'X';
 
 
 function printBoard() {

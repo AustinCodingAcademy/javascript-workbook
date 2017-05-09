@@ -18,8 +18,11 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 //  return string.split('')
 //}
 //solution = split(solution)
+//guess = split(guess)
+//console.log(guess)
+//make two for loops one for guesses not right and one for remainder of guesses that will be in the right place
 // for (let i = 0; i <solution.length; i++){
-//console.log(split(solution)[i])
+//console.log(solution[i].indexOf(guess[i]))
 //}
 //console.log('solution:
 //${split(solution).indexOf('b')}')
