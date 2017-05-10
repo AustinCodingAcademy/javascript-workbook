@@ -7,9 +7,9 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const board = [];
+let board = [];
 let solution = '';
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
