@@ -63,6 +63,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  getPrompt();
+  console.log('Run the tests!')
 
 }
