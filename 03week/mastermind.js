@@ -4,75 +4,114 @@ const assert = require('assert');
 const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
-const board = [];
+let board = [];
 let solution = '';
+let hint = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
-  for (let i = 0; i < board.length; i++) {
-    console.log(board[i]);
-  }
+    for (let i = 0; i < board.length; i++) {
+        console.log(board[i]);
+    }
 }
 
 function generateSolution() {
-  for (let i = 0; i < 4; i++) {
-    const randomIndex = getRandomInt(0, letters.length);
-    solution += letters[randomIndex];
-  }
+    for (let i = 0; i < 4; i++) {
+        const randomIndex = getRandomInt(0, letters.length);
+        solution += letters[randomIndex];
+    }
 }
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
-}
+function generateHint(guess) {
+    // your code here
+    function split(string) {
+        return string.split('')
+    }
+    solutionArr = split(solution)
+    guessArr = split(guess)
 
-function mastermind(guess) {
-  // your code here
-}
+    let exact = 0;
+    let correct = 0;
+
+    for (let i = 0; i < solution.length; i++) {
+        if (solutionArr[i] === guessArr[i]) {
+            exact++
+        } else (solutionArr.includes(guessArr[i])) {
+            correct++
+        }
+    }
+
+    hint = `${exact}-${correct}`;
+    return hint;
 
 
-function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
-    printBoard();
-    getPrompt();
-  });
-}
 
-// Tests
+    function mastermind(guess) {
+        // your code here
+        // first push guess to the board
 
-if (typeof describe === 'function') {
+        generateHint(guess);
+        // this is checking if the count for exact is equal to 4 which would mean you won the game
 
-  describe('#mastermind()', () => {
-    it('should register a guess and generate hints', () => {
-      solution = 'abcd';
-      mastermind('aabb');
-      assert.equal(board.length, 1);
-    });
-    it('should be able to detect a win', () => {
-      assert.equal(mastermind(solution), 'You guessed it!');
-    });
-  });
+        if (exact === 4) {
+            console.log('You guessed it!');
+        }
+        //return board with guess and hint
+        else {
+            board.push(guess + ': ' + hint);
+            printBoard();
+            exact = 0;
+            correct = 0;
+        }
+    }
 
-  describe('#generateHint()', () => {
-    it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
-    });
-    it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
-    });
 
-  });
 
-} else {
+    function getPrompt() {
+        rl.question('guess: ', (guess) => {
+            console.log(mastermind(guess));
+            printBoard();
+            getPrompt();
+        });
+    }
 
-  generateSolution();
-  getPrompt();
-}
+    // Tests
+
+    if (typeof describe === 'function') {
+
+        describe('#mastermind()', () => {
+            it('should register a guess and generate hints', () => {
+                solution = 'abcd';
+                mastermind('aabb');
+                assert.equal(board.length, 1);
+            });
+            it('should be able to detect a win', () => {
+                assert.equal(mastermind(solution), 'You guessed it!');
+                //to pass the test you have to display the exact words 'You guessed it!'
+            });
+        });
+
+
+        describe('#generateHint()', () => {
+            it('should generate hints', () => {
+                assert.equal(generateHint('abcd', 'abdc'), '2-2');
+            });
+            it('should generate hints if solution has duplicates', () => {
+                assert.equal(generateHint('abcd', 'aabb'), '1-1');
+            });
+
+        });
+
+    } else {
+
+        generateSolution();
+        getPrompt();
+    }
