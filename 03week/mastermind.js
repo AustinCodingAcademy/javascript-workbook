@@ -58,8 +58,13 @@ function generateHint(guess, solution) {
     }
 }
   if(exact === 4){
+<<<<<<< HEAD
     printBoard();
     return 'You guessed it!';
+=======
+  printBoard();
+  return 'You guessed it!';
+>>>>>>> 326bac2ff6d1c056c73f1c6153ab2d63eb141fca
 
   }
   else{

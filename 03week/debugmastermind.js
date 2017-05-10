@@ -24,11 +24,11 @@ let close;
 // let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 // let leg = letters.length;
 
-// function printBoard() {
-//   for (let i = 0; i < board.length; i++) {
-//     console.log(board[i]);
-//   }
-// }
+function printBoard() {
+  for (let i = 0; i < board.length; i++) {
+    console.log(board[i]);
+  }
+}
 
 
 function generateSolution(){
@@ -53,30 +53,47 @@ function generateHint(guess, solution) {
   let exact = 0;
   let close = 0;
   for(let letter in guess){
+<<<<<<< HEAD
     if(guess[letter] === solution[letter]){
      console.log(exact +=1);
     board.push(guess[letter]);
      }
    else if (solution.includes(guess[letter])) {
+=======
+   if(guess[letter] === solution[letter]){
+    exact +=1;
+    board.push(guess[letter]);
+    console.log(exact + ' '+ guess[letter]);
+ }
+    else if (solution.includes(guess[letter])) {
+     console.log(close + ' '+ guess[letter]);
+>>>>>>> 326bac2ff6d1c056c73f1c6153ab2d63eb141fca
       close +=1;
-      console.log('exact '+ exact +'-'+close + ' close ');
     }
   }
-console.log(gDupes, sDupes);
 //going to have to make it capaable of multiple dupes.
+<<<<<<< HEAD
 console.log(gDupes[0] !== sDupes[0]);
     if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
     close --;
   }
+=======
+  if(gDupes.length){
+  if(gDupes[0] !== sDupes[0]){
+      close --;
+>>>>>>> 326bac2ff6d1c056c73f1c6153ab2d63eb141fca
     }
+}
   if(exact === 4){
-  return 'You guessed it!';
     printBoard();
+    return 'You guessed it!';
+
   }
   else{
-  return (exact+'-'+close);
-}}
+    return (exact+'-'+close);
+  }}
+
 
 //regex dupeCount
 // function dupeCount(ar){
@@ -84,7 +101,7 @@ console.log(gDupes[0] !== sDupes[0]);
 //    catch(e){ return 0; }
 
    //dupesCount works without regex!
-   function dupesCount(arr){
+function dupesCount(arr){
      let dBoard = [];
      //arr = arr.split('');
      console.log(arr.length);
@@ -98,10 +115,10 @@ console.log(gDupes[0] !== sDupes[0]);
            console.log("yup!"+ dBoard);
            return dBoard;
          }
-        }
        }
+      }
      return dBoard;
-}
+   }
 
 //take the input and split into array & generate a solution to be compared
 function mastermind() {
