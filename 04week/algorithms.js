@@ -73,7 +73,6 @@ function mergeSort(arr) {
 // CURRENTLY COPY PASTED
 // WRITE YOUR OWN CODE, NOOB
 function binarySearch(haystack, needle) {
-  haystack = mergeSort(haystack);
   // grab the middle index, rounding up if it isn't an integer
   let halfIdx = Math.ceil((haystack.length - 1) / 2);
   // set the needle index to keep track of absolute middle index value
@@ -145,7 +144,7 @@ if (typeof describe === 'function') {
 
   describe('#binarySearch()', () => {
     it('should return the index of given item if sorted array contains it', () => {
-      const idx = binarySearch([2, 1, 4, 3], 3);
+      const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
     });
     it('should return false if item not in sorted array', () => {
