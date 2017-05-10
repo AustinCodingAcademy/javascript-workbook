@@ -37,18 +37,24 @@ function mastermind(guess) {
   let guessArr = guess.split("");
   let solutionArr = solution.split("");
   let comparator = guessArr.join(solutionArr, "")
-  for (let i = 0; i < guessArr.length; i++) {
-    //for (let j = 0; j < guessArr.length; j++)
-    if (guess === solution) {
-      console.log('You guessed it!');
-      break;
-    } else if (solutionArr[i] === guessArr[i]) {
-      console.log('red1', solutionArr[i], guessArr[i], comparator);
-    } //else if
-
-
+  if (guess === solution) {
+    console.log('WIn');
+  } else if (guess.indexOf('a') === solution.indexOf('a')) {
+    console.log('red1');
+  } else if (guess.indexOf('b') === solution.indexOf('b')) {
+    console.log('red5');
+  } else if (guess.indexOf('c') === solution.indexOf('c')) {
+    console.log('red10');
+  } else if (guess.indexOf('d') === solution.indexOf('d')) {
+    console.log('red15');
+  } else if (guess.indexOf(letters) > -1 && guess.indexOf(letters) !== solution.indexOf(letters)) {
+    console.log('red20');
   }
 }
+//this returns both arrays joined if they match if not returns null
+//let result = solution.match(guess);
+//console.log(result);
+
 
 
 //for each instance of solutionArr[i][n] === guessArr[i][n] return or log something

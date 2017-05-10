@@ -37,17 +37,8 @@ function mastermind(guess) {
   let guessArr = guess.split("");
   let solutionArr = solution.split("");
   let comparator = guessArr.join(solutionArr, "")
-  for (let i = 0; i < guessArr.length; i++) {
-    //for (let j = 0; j < guessArr.length; j++)
-    if (guess === solution) {
-      console.log('You guessed it!');
-      break;
-    } else if (solutionArr[i] === guessArr[i]) {
-      console.log('red1', solutionArr[i], guessArr[i], comparator);
-    } //else if
-
-
-  }
+  let result = solution.test(comparator);
+  console.log(result);
 }
 
 

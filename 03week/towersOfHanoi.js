@@ -31,18 +31,25 @@ function isLegal(startStack, endStack) {
   const endIndex = endStack.length - 1;
   const endBlock = stacks[endStack][endIndex];
 
-
-  if (stacks[endStack].length === 0 || startIndex < endIndex) {
+  if (startBlock < endBlock) {
+    console.log('legal', startBlock, endBlock);
+    return false;
+  } else {
+    console.log('illegal', startBlock, endBlock);
+    return true;
+  }
+  /*if (stacks[endStack].length === 0 || startIndex < endIndex) {
     return true;
   } else {
     return false;
-  }
+  }*/
 
 }
 
 
 function checkForWin() {
   if (stacks.b.length === 4 || stacks.c.length === 4) {
+
     return true;
   } else {
     return false;
@@ -52,6 +59,8 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   movePiece(startStack, endStack);
+  isLegal(startStack, endStack);
+  checkForWin();
 }
 
 function getPrompt() {

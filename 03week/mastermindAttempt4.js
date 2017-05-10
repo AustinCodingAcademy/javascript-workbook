@@ -29,48 +29,35 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  var solutionArray = solution.split('');
+  var guessArray = guess.split('');
+  var correctLetterLocations = 0;
+  var correctLetters = 0;
+  for (var i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+    for (i = 0; i <= solutionArray.length; i++) {
+      var targetIndex = guessArray.indexOf(solutionArray[i]);
+      //console.log('bacon')
+      if (targetIndex > -1) {
+        correctLetters++;
+        solutionArray[i] = null;
+        //console.log('feet')
+        return correctLetterLocations + "-" + correctLetters;
+
+      }
+    }
+  }
 }
 
 function mastermind(guess) {
-  let guessArr = guess.split("");
-  let solutionArr = solution.split("");
-  let comparator = guessArr.join(solutionArr, "")
-  for (let i = 0; i < guessArr.length; i++) {
-    //for (let j = 0; j < guessArr.length; j++)
-    if (guess === solution) {
-      console.log('You guessed it!');
-      break;
-    } else if (solutionArr[i] === guessArr[i]) {
-      console.log('red1', solutionArr[i], guessArr[i], comparator);
-    } //else if
-
-
+  if (guess === solution) {
+    return ('You guessed it!');
   }
 }
-
-
-//for each instance of solutionArr[i][n] === guessArr[i][n] return or log something
-/* else if (solutionArr[1] === guessArr[1]) {
-    console.log('red2', solutionArr[1], guessArr[1]);
-  } else if (solutionArr[2] === guessArr[2]) {
-    console.log('red3');
-  } else if (solutionArr[3] === guessArr[3]) {
-    console.log('red4');
-    return true;
-  }
-  /*else if (solutionArr[i] === guessArr[i]) {
-         console.log(solutionArr[i], guessArr[i], '0-1');
-
-         break;
-       } else if (solutionArr[i] !== guessArr[i]) {
-         console.log(solutionArr[i], guessArr[i], '0-0');
-         break;
-       }*/
-
-
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
