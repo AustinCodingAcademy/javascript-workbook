@@ -15,36 +15,42 @@ for (let i = 0; i < 1000; i++) {
 }
 
 function bubbleSort(arr) {
+  // base case, kinda: initially nothing has been changed in the array
   let changed = false;
+  // cycling through array and swapping entries if greater comes first
   for (let i = 0; i < (arr.length - 1); i++) {
     if (arr[i] > arr[i + 1]) {
       let current = arr[i];
       let next = arr[i + 1];
       arr[i] = next;
       arr[i + 1] = current;
+      // setting changed to true if something has changed in the array
       changed = true;
     }
   }
+  // checking if anything was changed in the array
   if (!changed) {
-    return arr;
+    return arr; // if nothing was changed, return as is
   } else {
-    bubbleSort(arr);
+    bubbleSort(arr); // if something was changed, run again
   }
   return arr;
 }
 
 function mergeSort(arr) {
-  // Base case
+  // base case: returns the array if only one or less items
   if (arr.length < 2) return arr;
-
+  // cutting the array in half
   const left = arr.slice(0, (arr.length / 2));
   const right = arr.slice(arr.length / 2);
-
+  // passing each half of the array back in to be sorted
   const sortedLeft = mergeSort(left);
   const sortedRight = mergeSort(right);
-
+  // making a new array to contain the sorted halves
   let final = [];
-
+  // while both the left and right halves still have entries, looks
+  // at the first entry of both, removes it, and puts it into the
+  // final array
   while (sortedLeft.length && sortedRight.length) {
     if (sortedLeft[0] <= sortedRight[0]) {
       final.push(sortedLeft.shift());
@@ -52,17 +58,20 @@ function mergeSort(arr) {
       final.push(sortedRight.shift());
     }
   }
-
-  while (sortedLeft.length) {
-    final.push(sortedLeft.shift());
-  } while (sortedRight.length) {
-    final.push(sortedRight.shift());
+  // if either the left or right half are empty, tacks the other still
+  // full array onto the end of the final array
+  if (sortedLeft.length) {
+    final = final.concat(sortedLeft);
+  } else if (sortedRight.length) {
+    final = final.concat(sortedRight);
   }
 
   return final;
 
 }
 
+// CURRENTLY COPY PASTED
+// WRITE YOUR OWN CODE, NOOB
 function binarySearch(haystack, needle) {
   haystack = mergeSort(haystack);
   // grab the middle index, rounding up if it isn't an integer
@@ -95,9 +104,7 @@ function binarySearch(haystack, needle) {
       // the first item in the second half
       needleIdx += firstHalf.length;
     }
-
   }
-
   // Eventually we'll get down to either on or both halves have a
   // a single item.
   if (firstHalf[0] === needle) {
