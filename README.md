@@ -61,6 +61,10 @@ show up.
 
 ![Contributing workflow](https://docs.google.com/drawings/d/1WeKQxOHgPKfwjy_eKtlJO62Fu4XTCWFeqkAh1oIqICM/pub?w=960&h=720)
 
+### Running the apps
+Simply run `node path/to/file.js`
+example `node 01week/rockPaperScissors.js`
+
 ### Running Tests
 Tests are a great way to make sure you code works the way you planned it would,
 and to make sure you don't break something in the future. We will be using them
