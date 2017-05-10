@@ -1,8 +1,8 @@
 'use strict';
 
-var assert = require('assert');
+let assert = require('assert');
 
-var jobTypes = {
+let jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
   commander: 'Main Ship',
