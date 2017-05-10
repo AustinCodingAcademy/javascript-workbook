@@ -12,8 +12,7 @@ let board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let hint = '';
-let yes = 0 ;
-let almost = 0 ;
+
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -35,31 +34,35 @@ function getRandomInt(min, max) {
 function generateHint(guess) {
   let g = guess.split('');
   let s = solution.split('');
-  for(i=0; i<s.length; i++){
+  let dub = [];
+  let yes = 0 ;
+  let almost = 0 ;
+  for(let i=0; i<s.length; i++){
     //identifies correct letter and index
     if(s[i]===g[i]){
-      yes += 1;
+      dub.push(g[i]);
+      yes++;
     }
     //identifies only correct letter
-    else if(s.includes(g[i])){
-      almost += 1;
+    else if(s.includes(g[i]) && (dub.includes(g[i]) === false)){
+      dub.push(g[i]);
+      almost++;
     }
   }
-  hint = yes + '-' + almost;
+  hint = `${yes}-${almost}`;
+  return hint;
 }
 
 function mastermind(guess) {
   generateHint(guess);
   //check for win
-  if(yes===4){
-    console.log('You guessed it!');
+  if(guess===solution){
+    return 'You guessed it!';
   }
   //return board with guess and hint
   else {
     board.push(guess+': '+hint);
     printBoard();
-    yes = 0;
-    almost = 0;
   }
 }
 
@@ -89,10 +92,12 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
+      solution = 'abcd';
+      assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
+      solution = 'abcd';
+      assert.equal(generateHint('aabb'), '1-1');
     });
 
   });
