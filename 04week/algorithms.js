@@ -52,7 +52,7 @@ if (typeof describe === 'function') {
 
   describe('#binarySearch()', () => {
     it('should return the index of given item if sorted array contains it', () => {
-      const idx = binarySearch([2, 1, 4, 3], 3);
+      const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
     });
     it('should return false if item not in sorted array', () => {
