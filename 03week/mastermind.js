@@ -37,13 +37,12 @@ function generateHint(guess, solution) {
   for (var i = 0; i < guess.length; i++){
     if(guess[i] === solution[i]){
       numberRight += 1;
-    } else if (guess[i].includes(solution[i])) {
+    } else if (solution.includes(guess[i])) {
       numberClose += 1;
     }
-  let returnString = numberRight + '‐' + numberClose;
-  return returnString;
   }
-
+  let returnString = `${numberRight} ‐ ${numberClose}`;
+  return returnString;
 }
 // Missing something... thought these were written exactly as suggested but I still get errors when testing.
 
