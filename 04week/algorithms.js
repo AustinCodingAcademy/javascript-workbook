@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const arr = [];
+let arr = [];
 
 for (let i = 0; i < 1000; i++) {
   arr.push(getRandomInt(0, 1000));
@@ -30,17 +30,23 @@ function binarySearch(arr, item) {
 
 if (typeof describe === 'function') {
 
+  function comparator(a, b) {
+    if (Number(a) < Number(b)) return -1;
+    if (Number(a) > Number(b)) return 1;
+    return 0;
+  }
+
   describe('#bubbleSort()', () => {
     it('should sort array', () => {
       const sorted = bubbleSort(arr);
-      assert.deepEqual(sorted, arr.sort());
+      assert.deepEqual(sorted, arr.sort(comparator));
     });
   });
 
   describe('#mergeSort()', () => {
     it('should sort array', () => {
       const sorted = mergeSort(arr);
-      assert.deepEqual(sorted, arr.sort());
+      assert.deepEqual(sorted, arr.sort(comparator));
     });
   });
 
