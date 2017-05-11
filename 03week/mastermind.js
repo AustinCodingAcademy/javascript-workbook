@@ -37,6 +37,8 @@ function split(string) {
   return string.split('');
 }
 
+// the pdf said to have generateHint take into two parameters but when I add solution I do not pass any tests
+
 function generateHint(guess) {
   // this is taking the guess and splitting it up into individual letters
     let guessArr = split(guess);
@@ -74,7 +76,7 @@ function mastermind(guess) {
     }
     // if your guess does not equal the solution the show your guess with the hint next to it
     else {
-        board.push(guess + ': ' + hint);
+        board.push(guess + ': You have this many "exact - correct": ' + hint);
         return 'KEEP GUESSING!';
         printBoard();
     }
