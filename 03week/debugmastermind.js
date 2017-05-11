@@ -53,13 +53,12 @@ function generateHint(guess, solution) {
   let exact = 0;
   let close = 0;
   for(let letter in guess){
-<<<<<<< HEAD
     if(guess[letter] === solution[letter]){
      console.log(exact +=1);
     board.push(guess[letter]);
      }
    else if (solution.includes(guess[letter])) {
-=======
+
    if(guess[letter] === solution[letter]){
     exact +=1;
     board.push(guess[letter]);
@@ -67,22 +66,20 @@ function generateHint(guess, solution) {
  }
     else if (solution.includes(guess[letter])) {
      console.log(close + ' '+ guess[letter]);
->>>>>>> 326bac2ff6d1c056c73f1c6153ab2d63eb141fca
       close +=1;
     }
   }
-//going to have to make it capaable of multiple dupes.
-<<<<<<< HEAD
+//going to have to make it capaable of multiple dupes
 console.log(gDupes[0] !== sDupes[0]);
     if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
     close --;
   }
-=======
+
   if(gDupes.length){
   if(gDupes[0] !== sDupes[0]){
       close --;
->>>>>>> 326bac2ff6d1c056c73f1c6153ab2d63eb141fca
+
     }
 }
   if(exact === 4){

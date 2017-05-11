@@ -31,23 +31,23 @@ function isLegal(piece, startStack, endStack) {
   // Your code here
   console.log(stacks[endStack].length);
   if(stacks[endStack].length !== 0){
-      console.log(stacks[endStack][endStack.length-1]);
-      if(stacks[endStack][endStack.length-1] > piece){
+  console.log(stacks[endStack][endStack.length-1]);
+  if(stacks[endStack][endStack.length-1] > piece){
         console.log('moving');
         movePiece(piece, endStack);
 
       }
-      else{
+   else{
         console.log('not moving');
         movePiece(piece, startStack);
 
 
       }
-    }
+ }
   else{
 
-      movePiece(piece, endStack);
-      return true;
+   movePiece(piece, endStack);
+   return true;
     }
 }
 

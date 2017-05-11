@@ -10,12 +10,12 @@ function forEach(arr, callback) {
 }
 
 function map(arr, callback){
-let mapped =[];
+  let mapped =[];
   for(let i = 0; i < arr.length; i ++){
 
-     mapped.push(callback(arr[i], i, arr));
-    }
-    return mapped;
+  mapped.push(callback(arr[i], i, arr));
+  }
+  return mapped;
 
 }
 
@@ -26,17 +26,17 @@ function filter(arr, callback) {
       filtered.push(arr[i]);
     }
   }
-    return filtered;
+  return filtered;
 }
 
 function some(arr, callback) {
-for(let i = 0; i < arr.length; i ++){
+  for(let i = 0; i < arr.length; i ++){
   if(callback(arr[i], i, arr)){
-  return true;
+    return true;
   }
 
 }
-return false;
+  return false;
   // Your code here
 }
 
