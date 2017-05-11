@@ -10,16 +10,52 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+
+  if ((hand1 === 'rock' && hand2 === 'paper') ||
+      (hand1 === 'paper' && hand2 === 'scissors') ||
+      (hand1 === 'scissors' && hand2 === 'rock')
+      ) {
+    return 'Hand two wins!';
+  }
+
+  if ((hand1 === 'rock' && hand2 === 'scissors') ||
+      (hand1 === 'paper' && hand2 === 'rock') ||
+      (hand1 === 'scissors' && hand2 === 'paper')
+      ) {
+    return 'Hand one wins!';
+  }
+
+  if ((hand1 === 'rock' && hand2 === 'rock') ||
+      (hand1 === 'paper' && hand2 === 'paper') ||
+      (hand1 === 'scissors' && hand2 === 'scissors')
+      ) {
+    return "It's a tie!";
+  }
 
 }
 
+
+
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
-    });
+
+    const number = Math.random();
+
+    let computerChoice = 'scissors';
+
+    if (number <= .33) {
+      computerChoice = 'rock';
+    } else if (number <= .66) {
+      computerChoice = 'paper';
+    }
+
+
+    console.log('hand2: ' + computerChoice);
+
+
+    console.log( rockPaperScissors(answer1, computerChoice) );
+    getPrompt();
+
   });
 }
 
