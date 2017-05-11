@@ -1,5 +1,6 @@
 'use strict';
 
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -9,8 +10,35 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+word = word.toLowerCase();
 
-  // Your code here
+var sa = word.search('a')
+var se = word.search('e')
+var si = word.search('i')
+var so = word.search('o')
+var su = word.search('u')
+
+var lowestVowel = word.length
+
+if (sa < lowestVowel && sa != -1){
+  lowestVowel = sa;
+}
+if (se < lowestVowel && se != -1){
+  lowestVowel = se;
+}
+if (si < lowestVowel && si != -1){
+  lowestVowel = si;
+}
+if (so < lowestVowel && so != -1){
+  lowestVowel = so;
+}
+if (su < lowestVowel && su != -1){
+  lowestVowel = su;
+}
+if (lowestVowel === 0){
+  return word + 'yay';
+}
+return word.slice(lowestVowel) + word.slice(0, lowestVowel) + 'ay';
 
 }
 
