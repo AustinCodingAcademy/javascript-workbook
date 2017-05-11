@@ -70,7 +70,7 @@ function mergeSort(arr) {
   return sortedArr;
 }
 // --------------------------------------------------------------------
-function binarySearch(needle, haystack) {
+function binarySearch(haystack, needle) {
   let halfIdx = Math.ceil((haystack.length - 1) / 2);
   let needleIdx = halfIdx;
   let firstHalf = haystack.slice(0, halfIdx);
@@ -91,8 +91,10 @@ function binarySearch(needle, haystack) {
   }
 
   if (firstHalf[0] === needle) {
+    console.log(needleIdx + '-1');
     return needleIdx - 1;
   } else if (secondHalf[0] === needle) {
+    console.log(needleIdx);
     return needleIdx;
   }
   return false;
