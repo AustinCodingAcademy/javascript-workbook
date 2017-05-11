@@ -24,24 +24,56 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-}
+  // will check for X or O in each row
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn)||
+     (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn)||
+     (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true
+  } else {
+    return false
+  }
+};
 
 function verticalWin() {
-  // Your code here
-}
+  // will check for X or O in each column
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn)||
+     (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn)||
+     (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true
+  } else {
+    return false
+  }
+};
 
 function diagonalWin() {
-  // Your code here
-}
+  // will check for X or O diagonally
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn)||
+     (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn)) {
+    return true
+  } else {
+    return false
+  }
+};
 
 function checkForWin() {
-  // Your code here
-}
+  // checks if any of these functions returned true which will indicate a win
+  if (diagonalWin() === true || verticalWin() === true || horizontalWin() === true) {
+    return true;
+  }
+};
 
 function ticTacToe(row, column) {
-  // Your code here
-}
+  // Assigns x or o to each cell
+  board[row][column] = playerTurn;
+  // allows toggling
+  checkForWin();
+  if (playerTurn === 'X') {
+    playerTurn = 'O';
+  } else {
+    playerTurn = 'X';
+  }
+};
+
 
 function getPrompt() {
   printBoard();
@@ -52,8 +84,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-
-}
+};
 
 
 
