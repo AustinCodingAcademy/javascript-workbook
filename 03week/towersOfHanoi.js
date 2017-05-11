@@ -18,34 +18,38 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+var ring = stacks[startStack].pop();
 function movePiece(startStack, endStack) {
   var ring = stacks[startStack].pop();
   stacks[endStack].push(ring);
   return stacks;
-}
+};
 console.log(stacks);
 movePiece('a', 'c');
 console.log(stacks);
 
-function isLegal(startStack, endStack) {
-  // Your code here
+  function isLegal(startStack, endStack) {
+    // Your code here ---  if piece moved is !< last variable in
     var startStackLength = stacks[startStack].length;
     if(stacks[startStack].length-1 > stacks[endStack.length-1]){
-      return false;
-    }
-  }
-}
+    return false;
+  };
 
-function checkForWin() {
+  function checkForWin(endStack) {
   // Your code here -- make sure the the b or c stack has a length of 4
-
-}
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)){
+  return true;
+  } else{
+    return false;
+  };
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here -- this is the overall function
-
-}
+  if (isLegal(startStack,endStack)){
+    movePiece(startStack,endStack);
+    checkForWin(endStack);
+  };
+};
 
 function getPrompt() {
   printStacks();

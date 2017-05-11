@@ -1,33 +1,17 @@
-'use strict';
+// 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
+// const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const board = [];
-let solution = '';
+let board = [];
+let solution = 'adaa';
+let guess = 'adaa';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-
-//below is stuff that Zack showed us in class
-solution = 'adaa'
-let guess = 'adcb'
-function split(string){
-  return string.split('')
-}
-console.log('solution:$split(solution)}')
-console.log('guess: ${split(guess).indexOf('a')}')
-//you will get -1 if the .indexOf does not match
-
-solution = split(solution)
-for (let i = 0; i < split(solution); i++){
-  console.log (split(solution)[i])
-}
-//make two for loops. one for the remainder of guesses in the right place.
-
 
 //end of stuff
 
@@ -48,19 +32,58 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(guess) {
-  // your code here
+function generateHint(guess, solution) {
+  // your code here {
+  function split(string) {
+    return string.split('');
+  }
+  solution = split(solution);
+  guess = split(guess);
+
+  let rightLetterWrongPlace = 0;
+  let rightLetterRightPlace = 0;
+//
+for (let i = 0; i < solution.length; i++) {
+  console.log(`solution: ${solution}`)
+  console.log(`guess: ${guess}`)
+  if (solution[i] === guess[i]) {
+    solution[i] = null;
+    return(solution);
+    rightLetterRightPlace++;
+  }
+}
+
+  for (let i = 0; i< solution.length; i++ ){
+    return(`solution: ${solution}`);
+    return(`solution: ${guess}`);
+    if (solution.includes(guess[i])) {
+    solution[i] = null;
+    return(solution);
+        rightLetterWrongPlace++;
+    }
+  }
+
+var returnString = rightLetterRightPlace + '-' +rightLetterWrongPlace;
+return(returnString);
+
+console.log(`(loop is finished)`)
+console.log(`(Right letter, right place: ${rightLetterWrongPlace}`)
+console.log(`(Right letter, wrong place: ${rightLetterRightPlace}`)
 }
 
 function mastermind(guess) {
-  // your code here
-if (/*guess is equal to solution*/){
-  //win condition
-  //game stops
-} else{
-  generateHint(guess)
-}
-}
+  (board.push(guess));
+
+  //add a your guess to the board each time (use board.push)
+  //add the hint in the format of '1-1'
+  if (rightLetterRightPlace = 4) {
+    return('You guessed it!');
+  } else {
+    generateHint(guess, solution);
+    // getPrompt();
+    // printBoard();
+  };
+};
 
 
 function getPrompt() {
@@ -69,7 +92,10 @@ function getPrompt() {
     printBoard();
     getPrompt();
   });
-}
+};
+
+
+
 
 // Tests
 
