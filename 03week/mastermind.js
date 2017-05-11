@@ -11,11 +11,12 @@ const rl = readline.createInterface({
 let board = [];
 let solution = '';
 let hint = '';
+let turn = 0;
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
     for (let i = 0; i < board.length; i++) {
-        console.log(board[i]);
+        return (board[i]);
     }
 }
 
@@ -56,19 +57,26 @@ function generateHint(guess) {
         if (solutionArr[i] === guessArr[i]) {
             duplicate.push(guessArr[i]);
             exact++;
+            turn++
         }
         // if the guessArr includes a letter in the solutionArr but they are not in the same spot, add one to correct, but also check to make sure it is not a duplicate
         else if (solutionArr.includes(guessArr[i]) && (duplicate.includes(guessArr[i]) === false)) {
             duplicate.push(guessArr[i]);
             correct++;
+            turn++
+        }
+        else {
+          turn++
         }
     }
     // this is creating the hint score to display numbers with a dash inbetween them
     hint = `${exact}-${correct}`;
     return hint;
+    return turn;
 }
 
 function mastermind(guess) {
+
     generateHint(guess);
     // this is checking for a win
     if (guess === solution) {
@@ -76,11 +84,20 @@ function mastermind(guess) {
     }
     // if your guess does not equal the solution the show your guess with the hint next to it
     else {
+      // turn++
+      // return turn;
+
         board.push(guess + ': You have this many "exact - correct": ' + hint);
-        return 'KEEP GUESSING!';
+
+        // return 'KEEP GUESSING!';
         printBoard();
+        return board;
+        return turn;
+        // return (guess + ': ' + hint);
     }
+
 }
+
 
 
 
