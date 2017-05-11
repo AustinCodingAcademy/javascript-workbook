@@ -58,15 +58,15 @@ function generateHint(solution, guess) {
   hint+= '-';
 
   //check for white
-for (let i = 0; i < guessArray.length; i++){
-  //console.log(alreadyChecked);
-  if (solutionArray.includes(guessArray[i]) && !alreadyChecked.includes(guessArray[i])){
-    //console.log(i);
-    whiteFlags++;
-    alreadyChecked.push(guessArray[i]);
+  for (let i = 0; i < guessArray.length; i++){
+    //console.log(alreadyChecked);
+    if (solutionArray.includes(guessArray[i]) && !alreadyChecked.includes(guessArray[i])){
+      //console.log(i);
+      whiteFlags++;
+      alreadyChecked.push(guessArray[i]);
 
+    }
   }
-}
 
   // for (let i = 0; i < guessArray.length; i++){
   //   for (let h = 0; h < guessArray.length; h++){

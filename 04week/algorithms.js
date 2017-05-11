@@ -49,11 +49,11 @@ function mergeSort(arr) {
 function merge(left, right){
   var mergedArray = [];
   while(left.length && right.length){
-      if(left[0] <= right[0]){
-        mergedArray.push(left.shift());
-      } else {
-        mergedArray.push(right.shift())
-      }
+    if(left[0] <= right[0]){
+      mergedArray.push(left.shift());
+    } else {
+      mergedArray.push(right.shift())
+    }
   }
 
   while(left.length){
