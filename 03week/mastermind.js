@@ -38,32 +38,44 @@ function split(string) {
 }
 
 function generateHint(guess) {
+  // this is taking the guess and splitting it up into individual letters
     let guessArr = split(guess);
+    // this is taking the solution and splitting it up into individual letters
     let solutionArr = split(solution);
+    // using this array to check for duplicates
     let duplicate = [];
+    // exact is when the guess and solution index are the same letter and in the same spot
     let exact = 0;
+    // correct is when the guess and solution have the same letter but they are not in the same spot
     let correct = 0;
+
     for (let i = 0; i < solutionArr.length; i++) {
+      // this is creating the hint for exact, if solution = exact and are in the same index spot, add one to exact
         if (solutionArr[i] === guessArr[i]) {
             duplicate.push(guessArr[i]);
             exact++;
         }
+        // if the guessArr includes a letter in the solutionArr but they are not in the same spot, add one to correct, but also check to make sure it is not a duplicate
         else if (solutionArr.includes(guessArr[i]) && (duplicate.includes(guessArr[i]) === false)) {
             duplicate.push(guessArr[i]);
             correct++;
         }
     }
+    // this is creating the hint score to display numbers with a dash inbetween them
     hint = `${exact}-${correct}`;
     return hint;
 }
 
 function mastermind(guess) {
     generateHint(guess);
+    // this is checking for a win
     if (guess === solution) {
         return 'You guessed it!';
     }
+    // if your guess does not equal the solution the show your guess with the hint next to it
     else {
         board.push(guess + ': ' + hint);
+        return 'KEEP GUESSING!';
         printBoard();
     }
 }
@@ -98,11 +110,9 @@ if (typeof describe === 'function') {
 
     describe('#generateHint()', () => {
         it('should generate hints', () => {
-            solution = 'abcd';
             assert.equal(generateHint('abdc'), '2-2');
         });
         it('should generate hints if solution has duplicates', () => {
-            solution = 'abcd';
             assert.equal(generateHint('aabb'), '1-1');
         });
 
