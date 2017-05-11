@@ -19,6 +19,9 @@ function printBoard() {
     }
 }
 
+
+
+
 function generateSolution() {
     for (let i = 0; i < 4; i++) {
         const randomIndex = getRandomInt(0, letters.length);
@@ -30,9 +33,13 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function split(string) {
+  return string.split('');
+}
+
 function generateHint(guess) {
-    let guessArr = guess.split('');
-    let solutionArr = solution.split('');
+    let guessArr = split(guess);
+    let solutionArr = split(solution);
     let duplicate = [];
     let exact = 0;
     let correct = 0;
