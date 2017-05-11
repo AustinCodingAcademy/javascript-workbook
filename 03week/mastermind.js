@@ -37,12 +37,10 @@ function generateHint(guess) {
     let exact = 0;
     let correct = 0;
     for (let i = 0; i < solutionArr.length; i++) {
-        //identifies correct letter and index
         if (solutionArr[i] === guessArr[i]) {
             duplicate.push(guessArr[i]);
             exact++;
         }
-        //identifies only correct letter
         else if (solutionArr.includes(guessArr[i]) && (duplicate.includes(guessArr[i]) === false)) {
             duplicate.push(guessArr[i]);
             correct++;
@@ -54,11 +52,9 @@ function generateHint(guess) {
 
 function mastermind(guess) {
     generateHint(guess);
-    //check for win
     if (guess === solution) {
         return 'You guessed it!';
     }
-    //return board with guess and hint
     else {
         board.push(guess + ': ' + hint);
         printBoard();
