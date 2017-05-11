@@ -17,7 +17,7 @@ for (let i = 0; i < 1000; i++) {
 //I didn't write this but I like it's comprehensiveness
 function bubbleSort(arr) {
   var length = arr.length;
-    for (var i = 0; i < length; i++) { //Number of passes
+  for (var i = 0; i < length; i++) { //Number of passes
       for (var j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
         //Compare the adjacent positions
         if(arr[j] > arr[j+1]) {
@@ -28,8 +28,8 @@ function bubbleSort(arr) {
         }
       }
     }
-    return arr;
-  }
+  return arr;
+}
   // Your code here
 
 
