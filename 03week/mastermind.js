@@ -30,21 +30,28 @@ function getRandomInt(min, max) {
 }
 
 
-function generateHint(guess, solution) {
+function generateHint(solution, guess) {
   // your code here
   let numberRight = 0;
   let numberClose = 0;
-  for (var i = 0; i < guess.length; i++){
-    if(guess[i] === solution[i]){
+  let splSolution = solution.split('');
+  let splGuess = guess.split('');
+  for (var i = 0; i < splGuess.length; i++){
+    if(splGuess[i] === splSolution[i]){
       numberRight += 1;
-    } else if (solution.includes(guess[i])) {
+    }
+
+    if (splSolution.includes(splGuess[i])) {
       numberClose += 1;
+      let foundIndex = splSolution.indexOf(splGuess[i]);
+      splSolution[foundIndex] = null;
     }
   }
-  let returnString = `${numberRight} ‐ ${numberClose}`;
-  return returnString;
+  // let returnString = `${numberRight}‐${numberClose}`;
+  // return returnString;
+  return `${numberRight}-${numberClose-numberRight}`;
 }
-// Missing something... thought these were written exactly as suggested but I still get errors when testing.
+// still returns a negavite number when testing =/
 
 function mastermind(guess) {
   // your code here
@@ -52,7 +59,7 @@ function mastermind(guess) {
   if(guess === solution) {
     return "You guessed it!";
   } else {
-    return generateHint(guess, solution);
+    return generateHint(solution, guess);
   }
 }
 
