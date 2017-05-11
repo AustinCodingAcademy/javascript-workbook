@@ -32,10 +32,24 @@ function filter(arr, callback) {
 
 function some(arr, callback) {
   // Your code here
+  //var doesAny = false;
+  for (let i =0; i < arr.length; i++) {
+    if (callback(arr[i], i, arr)){
+      return true;
+    }
+  }
+  return false;
 }
 
 function every(arr, callback) {
   // Your code here
+  
+  for (let i =0; i < arr.length; i++) {
+    if (!callback(arr[i], i, arr)){
+      return false;
+    }
+  }
+  return true;
 }
 
 if (typeof describe === 'function') {
