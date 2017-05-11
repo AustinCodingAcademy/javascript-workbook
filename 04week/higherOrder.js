@@ -2,24 +2,47 @@
 
 const assert = require('assert');
 
+// does callback  for each entry in arr
 function forEach(arr, callback) {
-  // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    callback();
+  }
 }
 
+// return new array where callback has been applied to every entry in arr
 function map(arr, callback) {
-  // Your code here
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(callback(arr[i]));
+  }
+  return newArr;
 }
 
+
+// returns only entries in arr that pass callback test
 function filter(arr, callback) {
-  // Your code here
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) newArr.push(arr[i]);
+  }
+  return newArr;
 }
 
+
+// returns true if any entry in arr passes callback test
 function some(arr, callback) {
-  // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) return true;
+  }
+  return false;
 }
 
+// returns true if every entry in arr passes callback teset
 function every(arr, callback) {
-  // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (!callback(arr[i])) return false;
+  }
+  return true;
 }
 
 if (typeof describe === 'function') {
