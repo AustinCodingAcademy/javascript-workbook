@@ -8,7 +8,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const board = [];
+let board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
@@ -31,10 +31,22 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
-}
+  var guess = guess.split('');
+  var solution = solution.split('');
+    console.log(guess);
+    console.log(solution);
+  }
 
 function mastermind(guess) {
   // your code here
+  if (guess [''] ===solution ['']) {
+   return "You guessed it!";
+ }
+  if (guess [''] !=solution ['']) {
+    return generateHint(guess, solution);
+}
+ var solution = 'adbc';
+ var guess = 'bcda';
 }
 
 
