@@ -22,10 +22,10 @@ function bubbleSort(arr) {
         //Compare the adjacent positions
       if(arr[j] > arr[j+1]) {
           //Swap the numbers
-          var tmp = arr[j];  //Temporary variable to hold the current number
-          arr[j] = arr[j+1]; //Replace current number with adjacent number
-          arr[j+1] = tmp; //Replace adjacent number with current number
-        }
+        var tmp = arr[j];  //Temporary variable to hold the current number
+        arr[j] = arr[j+1]; //Replace current number with adjacent number
+        arr[j+1] = tmp; //Replace adjacent number with current number
+      }
     }
   }
   return arr;
