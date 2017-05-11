@@ -1,19 +1,19 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
+// const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const board = [];
-let solution = '';
+let board = [];
+let solution = 'abcd';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
-  for (let i = 0; i < board.length; i++) {
+  for (let i = 0; i <= board.length-1; i++) {
     console.log(board[i]);
   }
 }
@@ -29,12 +29,51 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, gs) {
+  //check for reds
+  board = [];
+  let redCount = 0;
+  for (var i = 0; i <= gs.length-1; i++) {
+    if (solution[i] === gs[i]) redCount++;
+
+  }
+  //check for white
+  let whiteCount = 0;
+  for (var i = 0; i <= solution.length-1; i++) {
+    let current = '';
+    for (var j = 0; j <= gs.length-1; j++) {
+      if (current !== solution[i]) {
+        if (solution[i] === gs[j] && solution[i] !== gs[i]) {
+          whiteCount++;
+          current = solution[i];
+        }
+      }
+    }
+  }
+
+  //log results
+  for (var i = 0; i <= gs.length-1; i++) {
+    board.push(gs[i]);
+  }
+  board.push(redCount + '-' + whiteCount);
+  return(board[4]);
 }
 
 function mastermind(guess) {
-  // your code here
+  let count = 0;
+  board = [];
+  let gs = [];
+  for (var i = 0; i < 4; i++) {
+    gs.push(guess[i]);
+  }
+  generateHint(solution, gs);
+  count++;
+  if (board[4] === '4-0') {
+    return('You guessed it!');
+  }
+  board = board.join('').split(',');
+  return('try again');
+
 }
 
 
@@ -73,6 +112,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  generateSolution();
+  // generateSolution();
   getPrompt();
 }
