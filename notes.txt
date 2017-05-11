@@ -1,0 +1,24 @@
+for (var counter = 1; counter < 11; counter++) {
+	console.log(counter);
+}
+
+
+// Change where the for loop starts.
+
+for (var i = 1; i < 11; i = i + 1){
+	console.log(i);
+}
+
+// Edit this for loop
+
+for (var i = 4; i <= 23; i = i + 1) {
+	console.log(i);
+}
+
+
+
+let hello = (name) => {
+return 'hello ${name}!`;
+}
+
+greeting(`kevin`);
