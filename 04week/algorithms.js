@@ -79,7 +79,7 @@ function binarySearch(needle, haystack) {
       firstHalf = firstHalf.slice(0, halfIdx);
       //move the needle to the first item of the second half(of the first half)
       needleIdx -= secondHalf.length;
-  } else{ //needle must be in second half
+    } else{ //needle must be in second half
       halfIdx - Math.ceil((secondHalf.length - 1) / 2);
       //split in half
       firstHalf = secondHalf.slice(0, halfIdx);
