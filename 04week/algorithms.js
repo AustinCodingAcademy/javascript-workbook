@@ -14,10 +14,24 @@ for (let i = 0; i < 1000; i++) {
   arr.push(getRandomInt(0, 1000));
 }
 
+//I didn't write this but I like it's comprehensiveness
 function bubbleSort(arr) {
-
+  var length = arr.length;
+    for (var i = 0; i < length; i++) { //Number of passes
+      for (var j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
+        //Compare the adjacent positions
+        if(arr[j] > arr[j+1]) {
+          //Swap the numbers
+          var tmp = arr[j];  //Temporary variable to hold the current number
+          arr[j] = arr[j+1]; //Replace current number with adjacent number
+          arr[j+1] = tmp; //Replace adjacent number with current number
+        }
+      }
+    }
+    return arr;
+  }
   // Your code here
-}
+
 
 function mergeSort(arr) {
   if (arr.length < 2){
@@ -103,6 +117,7 @@ function binarySearch(needle, haystack) {
 
 
 }
+
 
 // function binarySearch(needle, haystack) {
 //
