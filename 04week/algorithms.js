@@ -71,7 +71,7 @@ function binarySearch(needle, haystack) {
   //if the needle is less than the first item of the second half, the item must be
   //in the first half
 
-  if (needle < secondHalf[0]) {
+    if (needle < secondHalf[0]) {
     //calc middle of first half
     halfIdx = Math.ceil((firstHalf.length -1)/ 2);
     //halving the 1st halfIdx
@@ -79,12 +79,12 @@ function binarySearch(needle, haystack) {
     firstHalf = firstHalf.slice(0, halfIdx);
     //move the needle to the first item of the second half(of the first half)
     needleIdx -= secondHalf.length;
-    } else{ //needle must be in second half
-      halfIdx - Math.ceil((secondHalf.length - 1) / 2);
+  } else{ //needle must be in second half
+    halfIdx - Math.ceil((secondHalf.length - 1) / 2);
       //split in half
-      firstHalf = secondHalf.slice(0, halfIdx);
-      secondHalf = secondHalf.slice(halfIdx);
-      needleIdx +=firstHalf.length;
+    firstHalf = secondHalf.slice(0, halfIdx);
+    secondHalf = secondHalf.slice(halfIdx);
+    needleIdx +=firstHalf.length;
   }
 }
   //eventually both or one half will have one item
@@ -163,16 +163,16 @@ function binarySearch(needle, haystack) {
 if (typeof describe === 'function') {
 
   function comparator(a, b) {
-      if (Number(a) < Number(b)) return -1;
-      if (Number(a) > Number(b)) return 1;
-      return 0;
+    if (Number(a) < Number(b)) return -1;
+    if (Number(a) > Number(b)) return 1;
+    return 0;
   }
   describe('#bubbleSort()', () => {
-  it('should sort array', () => {
+    it('should sort array', () => {
     const sorted = bubbleSort(arr);
     assert.deepEqual(sorted, arr.sort(comparator));
   });
-});
+  });
 
   describe('#mergeSort()', () => {
     it('should sort array', () => {

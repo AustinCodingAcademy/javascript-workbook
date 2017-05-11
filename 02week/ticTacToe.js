@@ -65,14 +65,14 @@ function checkForWin() {
     rl.question('y/n',(again) => {
       if(playAgain(again)){
         resetBoard();
-      playerTurn = 'X';
-      getPrompt();
-    }
-    else{
-      console.log('Goodbye');
-      process.exit(0);
-    }
-    return true;
+       playerTurn = 'X';
+       getPrompt();
+     }
+     else{
+       console.log('Goodbye');
+       process.exit(0);
+     }
+     return true;
     })
   }
 }

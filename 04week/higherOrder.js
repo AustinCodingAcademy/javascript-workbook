@@ -13,7 +13,7 @@ function map(arr, callback){
   let mapped =[];
   for(let i = 0; i < arr.length; i ++){
 
-  mapped.push(callback(arr[i], i, arr));
+    mapped.push(callback(arr[i], i, arr));
   }
   return mapped;
 
@@ -31,11 +31,11 @@ function filter(arr, callback) {
 
 function some(arr, callback) {
   for(let i = 0; i < arr.length; i ++){
-  if(callback(arr[i], i, arr)){
+    if(callback(arr[i], i, arr)){
     return true;
   }
 
-}
+  }
   return false;
   // Your code here
 }

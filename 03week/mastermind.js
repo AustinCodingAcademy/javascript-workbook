@@ -46,7 +46,7 @@ function generateHint(guess, solution) {
     if(guess[letter] === solution[letter]){
       exact +=1;
       board.push(guess[letter]);
-   }
+    }
     else if (solution.includes(guess[letter])) {
       close +=1;
     }
@@ -54,9 +54,9 @@ function generateHint(guess, solution) {
 //going to have to make it capaable of multiple dupes.
   if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
-    close --;
-  }
-  }
+      close --;
+    }
+}
   if(exact === 4){
     printBoard();
     return 'You guessed it!';
@@ -79,8 +79,8 @@ function generateHint(guess, solution) {
 
    //dupesCount works without regex!
 function dupesCount(arr){
-   let dBoard = [];
-   for(let i = 0; i < arr.length; i ++){
+  let dBoard = [];
+  for(let i = 0; i < arr.length; i ++){
      for(let j = i + 1; j < arr.length; j ++){
        if(arr[i] === arr[j]){
          dBoard.push(arr[i]);
