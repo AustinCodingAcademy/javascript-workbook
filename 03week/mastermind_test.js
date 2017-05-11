@@ -10,8 +10,9 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
-let hint = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let hint = '';
+
 
 function printBoard() {
     for (let i = 0; i < board.length; i++) {
@@ -31,24 +32,24 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(guess) {
-    let guessArr = guess.split('');
-    let solutionArr = solution.split('');
-    let duplicate = [];
-    let exact = 0;
-    let correct = 0;
-    for (let i = 0; i < solutionArr.length; i++) {
+    let g = guess.split('');
+    let s = solution.split('');
+    let dub = [];
+    let yes = 0;
+    let almost = 0;
+    for (let i = 0; i < s.length; i++) {
         //identifies correct letter and index
-        if (solutionArr[i] === guessArr[i]) {
-            duplicate.push(guessArr[i]);
-            exact++;
+        if (s[i] === g[i]) {
+            dub.push(g[i]);
+            yes++;
         }
         //identifies only correct letter
-        else if (solutionArr.includes(guessArr[i]) && (duplicate.includes(guessArr[i]) === false)) {
-            duplicate.push(guessArr[i]);
-            correct++;
+        else if (s.includes(g[i]) && (dub.includes(g[i]) === false)) {
+            dub.push(g[i]);
+            almost++;
         }
     }
-    hint = `${exact}-${correct}`;
+    hint = `${yes}-${almost}`;
     return hint;
 }
 
@@ -64,8 +65,6 @@ function mastermind(guess) {
         printBoard();
     }
 }
-
-
 
 
 function getPrompt() {
@@ -88,10 +87,8 @@ if (typeof describe === 'function') {
         });
         it('should be able to detect a win', () => {
             assert.equal(mastermind(solution), 'You guessed it!');
-            //to pass the test you have to display the exact words 'You guessed it!'
         });
     });
-
 
     describe('#generateHint()', () => {
         it('should generate hints', () => {
