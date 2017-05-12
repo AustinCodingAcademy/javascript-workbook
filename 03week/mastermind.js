@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assert');
+
 // const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -14,6 +15,9 @@ let leg = letters.length;
 let solution = generateSolution();
 let exact;
 let close;
+
+let solution = '';
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -54,13 +58,10 @@ function generateHint(guess, solution) {
 //going to have to make it capaable of multiple dupes.
   if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
-<<<<<<< HEAD
     close --;
   }
-=======
       close --;
     }
->>>>>>> 4f82901680329b59f3707c36baefa627d910efd1
   }
   if(exact === 4){
     printBoard();
@@ -84,7 +85,6 @@ function generateHint(guess, solution) {
 
    //dupesCount works without regex!
 function dupesCount(arr){
-<<<<<<< HEAD
    let dBoard = [];
    for(let i = 0; i < arr.length; i ++){
      for(let j = i + 1; j < arr.length; j ++){
@@ -96,7 +96,6 @@ function dupesCount(arr){
    }
  return dBoard;
   }
-=======
   let dBoard = [];
   for(let i = 0; i < arr.length; i ++){
     for(let j = i + 1; j < arr.length; j ++){
@@ -108,7 +107,6 @@ function dupesCount(arr){
   }
   return dBoard;
 }
->>>>>>> 4f82901680329b59f3707c36baefa627d910efd1
 
 //take the input and split into array & generate a solution to be compared
 function mastermind(guess) {
@@ -116,6 +114,8 @@ function mastermind(guess) {
   console.log(generateHint);
   return generateHint(guess, solution);
 
+  // solution = 'abcd'; // uncomment this when developing
+  // your code here
 }
 
 
@@ -130,10 +130,9 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
+  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
-      solution = 'abcd';
       mastermind('aabb');
       assert.equal(board.length, 1);
     });
@@ -144,10 +143,10 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
+      assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
+      assert.equal(generateHint('aabb'), '1-1');
     });
 
   });

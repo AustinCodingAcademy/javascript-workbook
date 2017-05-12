@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const arr = [];
+let arr = [];
 
 for (let i = 0; i < 1000; i++) {
   arr.push(getRandomInt(0, 1000));
@@ -182,6 +182,7 @@ if (typeof describe === 'function') {
     if (Number(a) > Number(b)) return 1;
     return 0;
   }
+
   describe('#bubbleSort()', () => {
     it('should sort array', () => {
       const sorted = bubbleSort(arr);
@@ -199,6 +200,8 @@ if (typeof describe === 'function') {
   describe('#binarySearch()', () => {
     it('should return the index of given item if sorted array contains it', () => {
       const idx = binarySearch(3,[1,2,3,4,5,6,7,8,9,10]);
+
+      const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
     });
     it('should return false if item not in sorted array', () => {
@@ -206,5 +209,9 @@ if (typeof describe === 'function') {
       assert.equal(idx, false);
     });
   });
+
+} else {
+
+  console.log('Run the tests!')
 
 }
