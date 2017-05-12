@@ -1,14 +1,14 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
+//const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const board = [];
+let board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
@@ -29,12 +29,53 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(guess, solution) {
+  let solution = 'adaa';
+let guess = 'adcb';
+function split(string) {
+  return string.split('');
+}
+solution = split(solution);
+guess = split(guess);
+
+let sameLetterWrongPlace = 0;
+let sameLetterRightPlace = 0;
+for (let i = 0; i < solution.length; i++) {
+  console.log(`solution: ${solution}`)
+  console.log(`guess: ${guess}`)
+  if (solution[i] === guess[i]) {
+    solution[i] = null;
+    console.log(solution);
+    sameLetterRightPlace++;
+  }
+  else if (solution.includes(guess[i])) {
+    sameLetterWrongPlace++;
+  }
+  console.log(`_____________`)
+}
+let returnString = sameLetterRightPlace + '-' + sameLetterWrongPlace;
+  return returnString;
+console.log(`(loop is finished)`)
+console.log(`Right letter, right place: ${sameLetterRightPlace}`)
+console.log(`Right letter, wrong place: ${sameLetterWrongPlace}`)
+
+
+
+
+  // turn strngs to arrays, .solution, .guess compare the indexOf of each
+  //find numb correct- use for loop . hint = num correct and num exist
 }
 
 function mastermind(guess) {
-  // your code here
+   (board.push(guess));
+  if(guess === solution){
+   return("You guessed it!");
+ }
+ else {
+   return generateHint(guess, solution);
+ }
+}
+
 }
 
 
