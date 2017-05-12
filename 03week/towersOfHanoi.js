@@ -21,7 +21,6 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
   // Your code here
-
   var pop = stacks[startStack].pop();
   stacks[endStack].push(pop);
     return stacks;
@@ -40,14 +39,23 @@ function isLegal() {
 
 }
 
-function checkForWin() {
+function checkForWin(endStack) {
   // Your code here
+  if(endStack == 4) {
+    return "You win!";
+  }
+  else(endStack = 4);
+    return "You win!";
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  var discs = ['1', '2', '3', '4'];
+  var towers = ['A', 'B', 'C'];
+  discs.pop('1');
+  towers.push('C');
+    console.log("Nice move!");
 }
 
 function getPrompt() {
