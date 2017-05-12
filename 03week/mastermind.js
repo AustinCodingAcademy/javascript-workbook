@@ -54,8 +54,13 @@ function generateHint(guess, solution) {
 //going to have to make it capaable of multiple dupes.
   if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
+<<<<<<< HEAD
     close --;
   }
+=======
+      close --;
+    }
+>>>>>>> 4f82901680329b59f3707c36baefa627d910efd1
   }
   if(exact === 4){
     printBoard();
@@ -79,6 +84,7 @@ function generateHint(guess, solution) {
 
    //dupesCount works without regex!
 function dupesCount(arr){
+<<<<<<< HEAD
    let dBoard = [];
    for(let i = 0; i < arr.length; i ++){
      for(let j = i + 1; j < arr.length; j ++){
@@ -90,6 +96,19 @@ function dupesCount(arr){
    }
  return dBoard;
   }
+=======
+  let dBoard = [];
+  for(let i = 0; i < arr.length; i ++){
+    for(let j = i + 1; j < arr.length; j ++){
+      if(arr[i] === arr[j]){
+        dBoard.push(arr[i]);
+        return dBoard;
+      }
+    }
+  }
+  return dBoard;
+}
+>>>>>>> 4f82901680329b59f3707c36baefa627d910efd1
 
 //take the input and split into array & generate a solution to be compared
 function mastermind(guess) {

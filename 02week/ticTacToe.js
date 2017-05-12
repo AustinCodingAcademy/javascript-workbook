@@ -66,13 +66,13 @@ function checkForWin() {
       if(playAgain(again)){
         resetBoard();
         playerTurn = 'X';
-       getPrompt();
-     }
-     else{
-       console.log('Goodbye');
-       process.exit(0);
-     }
-     return true;
+        getPrompt();
+      }
+      else{
+        console.log('Goodbye');
+        process.exit(0);
+      }
+      return true;
     })
   }
 }
