@@ -65,27 +65,25 @@ function mergeSort(arr) {
 
 
 
-function binarySearch(arr, haystack) {
-  function binarySearch(needle, haystack) {
-    let firstHalf = haystack.slice(0, Math.floor(haystack.length / 2));
-    let secondHalf = haystack.slice(haystack.length / 2);
+function binarySearch(arr, item) {
+    let firstHalf = arr.slice(0, Math.floor(arr.length / 2));
+    let secondHalf = arr.slice(arr.length / 2);
       while (firstHalf.length > 1 && secondHalf.length > 1) {
-        if (needle <secondHalf[0]) {
-          firstHalf = firstHalf.slice(0, haystack.length / 2);
-          secondHalf = secondHalf.slice(0, haystack.length / 2);
+      if (needle <secondHalf[0]) {
+          firstHalf = firstHalf.slice(0, arr.length / 2);
+          secondHalf = secondHalf.slice(0, arr.length / 2);
         } else {
-          firstHalf = secondHalf.slice(0, haystack.length / 2);
-          secondHalf = secondHalf.slice(haystack.length / 2);
+          firstHalf = secondHalf.slice(0, arr.length / 2);
+          secondHalf = secondHalf.slice(arr.length / 2);
         }
       }
-    if (firstHalf[0] === needle || secondHalf[0] === needle) {
-          return true;
-          console.log(haystack.indexOf(needle));
-        }
-    return false;
-  }
-  binarySearch(needle, haystack);
+    if (firstHalf[0] === item || secondHalf[0] === item) {
+          return(arr.indexOf(item));
+    }
+return false;
 }
+
+
 // Tests
 
 if (typeof describe === 'function') {
@@ -99,11 +97,11 @@ if (typeof describe === 'function') {
   describe('#bubbleSort()', () => {
    it('should sort array', () => {
      const sorted = bubbleSort(arr);
-     assert.deepEqual(sorted, arr.sort(comparator));
+      assert.deepEqual(sorted, arr.sort(comparator));
    });
  });
 
-  describe('#mergeSort()', () => {
+   describe('#mergeSort()', () => {
    it('should sort array', () => {
      const sorted = mergeSort(arr);
      assert.deepEqual(sorted, arr.sort(comparator));

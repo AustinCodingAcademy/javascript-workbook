@@ -42,17 +42,17 @@ function generateHint(solution, guess) {
   for(var i = 0; i < 4; i++) {
     if (splitGuess[i] === splitSolution[i]) {
       red++
+    }
   }
-}
 
 //white pegs
   for(var i = 0; i < splitSolution.length; i++) {
-  var ispresent = splitGuess.indexOf(splitSolution[i]);
-  if (ispresent > -1) {
+    var ispresent = splitGuess.indexOf(splitSolution[i]);
+    if (ispresent > -1) {
     white++
     splitGuess[ispresent] = null
+    }
   }
-}
 
 // accounting for duplicates
   white -= red
