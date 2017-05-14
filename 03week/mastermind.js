@@ -12,7 +12,6 @@ let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let hint = '';
 
-
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
