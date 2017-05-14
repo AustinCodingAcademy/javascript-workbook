@@ -9,6 +9,7 @@ function getRandomInt(min, max) {
 }
 
 const arr = [];
+let item = "";
 
 for (let i = 0; i < 100; i++) {
   arr.push(getRandomInt(0, 100));
@@ -66,22 +67,23 @@ function mergeSort(arr) {
 
 
 function binarySearch(arr, item) {
-    let firstHalf = arr.slice(0, Math.floor(arr.length / 2));
-    let secondHalf = arr.slice(arr.length / 2);
-      while (firstHalf.length > 1 && secondHalf.length > 1) {
-      if (needle <secondHalf[0]) {
-          firstHalf = firstHalf.slice(0, arr.length / 2);
-          secondHalf = secondHalf.slice(0, arr.length / 2);
-        } else {
-          firstHalf = secondHalf.slice(0, arr.length / 2);
-          secondHalf = secondHalf.slice(arr.length / 2);
-        }
+  let firstHalf = arr.slice(0, Math.floor(arr.length / 2));
+  let secondHalf = arr.slice(arr.length / 2);
+    while (firstHalf.length > 1 && secondHalf.length > 1) {
+    if (item <secondHalf[0]) {
+        firstHalf = firstHalf.slice(0, arr.length / 2);
+        secondHalf = secondHalf.slice(0, arr.length / 2);
+    } else {
+        firstHalf = secondHalf.slice(0, arr.length / 2);
+        secondHalf = secondHalf.slice(arr.length / 2);
       }
-    if (firstHalf[0] === item || secondHalf[0] === item) {
-          return(arr.indexOf(item));
     }
-return false;
-}
+    if (firstHalf[0] === item || secondHalf[0] === item) {
+      return true;
+      console.log((arr.indexOf(item)));
+  }
+    return false;
+  }
 
 
 // Tests
@@ -95,11 +97,11 @@ if (typeof describe === 'function') {
   }
 
   describe('#bubbleSort()', () => {
-   it('should sort array', () => {
-     const sorted = bubbleSort(arr);
-      assert.deepEqual(sorted, arr.sort(comparator));
+  it('should sort array', () => {
+   const sorted = bubbleSort(arr);
+   assert.deepEqual(sorted, arr.sort(comparator));
    });
- });
+});
 
    describe('#mergeSort()', () => {
    it('should sort array', () => {

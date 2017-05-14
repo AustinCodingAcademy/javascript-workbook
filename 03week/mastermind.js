@@ -49,8 +49,8 @@ function generateHint(solution, guess) {
   for(var i = 0; i < splitSolution.length; i++) {
     var ispresent = splitGuess.indexOf(splitSolution[i]);
     if (ispresent > -1) {
-    white++
-    splitGuess[ispresent] = null
+      white++
+      splitGuess[ispresent] = null
     }
   }
 
