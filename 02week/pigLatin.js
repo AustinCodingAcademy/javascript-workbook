@@ -10,14 +10,47 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+  word = word.toLowerCase();
+  let lowestVowel = word.length
 
+  if (word.indexOf('a') > -1 && word.indexOf('a') < lowestVowel) {
+    lowestVowel = word.indexOf('a');
+  }
+
+  if (word.indexOf('e') > -1 && word.indexOf('e') < lowestVowel) {
+    lowestVowel = word.indexOf('e');
+  }
+
+  if (word.indexOf('i') > -1 && word.indexOf('i') < lowestVowel) {
+    lowestVowel = word.indexOf('i');
+  }
+
+  if (word.indexOf('o') > -1 && word.indexOf('o') < lowestVowel) {
+    lowestVowel = word.indexOf('o');
+  }
+
+  if (word.indexOf('u') > -1 && word.indexOf('u') < lowestVowel) {
+    lowestVowel = word.indexOf('u');
+  }
+
+  if (word.indexOf('y') > -1 && word.indexOf('y') < lowestVowel) {
+    lowestVowel = word.indexOf('y');
+  }
+
+  const first = word.slice(0, lowestVowel)
+  const mid = word.slice(lowestVowel)
+
+  if (lowestVowel < 1) {
+    return (word + 'yay')
+  } else {
+    return (mid + first + 'ay')
+  }
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
