@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -10,7 +9,7 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let hint = '';
 
 
@@ -78,10 +77,9 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
+  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
-      solution = 'abcd';
       mastermind('aabb');
       assert.equal(board.length, 1);
     });
@@ -92,11 +90,9 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      solution = 'abcd';
       assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      solution = 'abcd';
       assert.equal(generateHint('aabb'), '1-1');
     });
 
