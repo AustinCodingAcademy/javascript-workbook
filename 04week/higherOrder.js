@@ -4,14 +4,25 @@ const assert = require('assert');
 
 function forEach(arr, callback) {
   // Your code here
+  for (let i = 0; i < arr.length; i++){
+    callback(arr[i], i, arr);
+  }
 }
 
 function map(arr, callback) {
-  // Your code here
+  let squared = [];
+  for(let i = 0; i < arr.length; i++) {
+  squared.push(callback(arr[i]));
+  }// Your code here
+    return squared;
 }
 
 function filter(arr, callback) {
-  // Your code here
+  let filtered = []
+  for(let i = 0; i < arr.length; i++) {
+    filtered.push(arr[i]);
+}
+  return filtered;
 }
 
 function some(arr, callback) {

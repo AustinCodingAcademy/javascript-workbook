@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const colors = require('colors/safe');
+// const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 });
 
 const board = [];
-let solution = '';
+let solution = 'abcd';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -29,12 +29,44 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+
+//have to split the strings into arrays.  can't reassign the solution or guess so reassign to new names splitSolution and splitGuess
+let splitSolution = solution.split("")
+let splitGuess = guess.split("")
+
+var red = 0;
+var white = 0;
+
+// red pegs
+for(var i = 0; i < 4; i++) {
+  if (splitGuess[i] === splitSolution[i]) {
+  red++
+  }
+}
+
+//white pegs
+for(var i = 0; i < splitSolution.length; i++) {
+  var ispresent = splitGuess.indexOf(splitSolution[i]);
+  if (ispresent > -1) {
+    white++
+    splitGuess[ispresent] = null
+  }
+}
+
+// accounting for duplicates
+white -= red
+
+return(red + '-' + white);
 }
 
 function mastermind(guess) {
-  // your code here
+  if(solution === guess) {
+    return("You guessed it!");
+  } else {
+    return board.push(guess + generateHint(solution, guess))
+  }
+
 }
 
 
@@ -72,7 +104,7 @@ if (typeof describe === 'function') {
   });
 
 } else {
-
-  generateSolution();
+  //
+  // generateSolution();
   getPrompt();
 }
