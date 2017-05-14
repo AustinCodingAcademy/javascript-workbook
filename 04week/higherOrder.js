@@ -18,19 +18,31 @@ function map(arr, callback) {
 }
 
 function filter(arr, callback) {
-  let filtered = []
+  let filtered = [];
   for(let i = 0; i < arr.length; i++) {
-    filtered.push(arr[i]);
+    if (callback(arr[i]) === true) {
+    filtered.push((arr[i]));
   }
+}
   return filtered;
 }
 
 function some(arr, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if (callback(arr[i]) === true) {
+    return true;
+  }
   // Your code here
+} return false;
 }
 
 function every(arr, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if (callback(arr[i]) === false) {
+      return false;
   // Your code here
+}
+} return true;
 }
 
 if (typeof describe === 'function') {

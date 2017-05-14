@@ -9,15 +9,28 @@ function getRandomInt(min, max) {
 }
 
 const arr = [];
-let item = "";
+let item = 4;
 
 for (let i = 0; i < 100; i++) {
   arr.push(getRandomInt(0, 100));
 }
 
 function bubbleSort(arr) {
-  // Your code here
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i+1]) {
+      let arrayValue = arr[i];
+      arr[i] = arrayValue;
+      arr[i+1] = arr[i];
+    }
+  }
+
+  return arr;
 }
+//       let newArray = [arr[i+1], arr[i]];
+//     }
+//   }
+//   // Your code here
+// }
 
 function mergeSort(arr) {
   console.log(arr)
@@ -63,9 +76,6 @@ function mergeSort(arr) {
   console.log(mergeSort([0, 1, 2, 4, 5, 9, 9, 9, 10, 10, 11, 11, 13, 13, 14, 17, 17, 17, 20, 21, 22, 25]))
 }
 
-
-
-
 function binarySearch(arr, item) {
   let firstHalf = arr.slice(0, Math.floor(arr.length / 2));
   let secondHalf = arr.slice(arr.length / 2);
@@ -80,7 +90,7 @@ function binarySearch(arr, item) {
     }
     if (firstHalf[0] === item || secondHalf[0] === item) {
       return true;
-      console.log((arr.indexOf(item)));
+      console.log((arr.indexOf(item)) + "," + item);
   }
     return false;
   }
