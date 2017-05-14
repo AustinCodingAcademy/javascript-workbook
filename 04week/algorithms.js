@@ -51,7 +51,7 @@ function mergeSort(arr) {
     console.log('sortedArr', sortedArr)
   }
 
-    console.log(sortedFirst.length, sortedSecond.length)
+  console.log(sortedFirst.length, sortedSecond.length)
   if (!sortedFirst.length) {
     sortedArr = sortedArr.concat(sortedSecond);
   } else if (!sortedSecond.length) {
@@ -65,45 +65,45 @@ function mergeSort(arr) {
 
 
 
-function binarySearch(needle, haystack) {
+function binarySearch(arr, haystack) {
   function binarySearch(needle, haystack) {
-      let firstHalf = haystack.slice(0, Math.floor(haystack.length / 2));
-      let secondHalf = haystack.slice(haystack.length / 2);
+    let firstHalf = haystack.slice(0, Math.floor(haystack.length / 2));
+    let secondHalf = haystack.slice(haystack.length / 2);
       while (firstHalf.length > 1 && secondHalf.length > 1) {
         if (needle <secondHalf[0]) {
           firstHalf = firstHalf.slice(0, haystack.length / 2);
           secondHalf = secondHalf.slice(0, haystack.length / 2);
-          } else {
-            firstHalf = secondHalf.slice(0, haystack.length / 2);
-            secondHalf = secondHalf.slice(haystack.length / 2);
-          }
+        } else {
+          firstHalf = secondHalf.slice(0, haystack.length / 2);
+          secondHalf = secondHalf.slice(haystack.length / 2);
         }
-        if (firstHalf[0] === needle || secondHalf[0] === needle) {
+      }
+    if (firstHalf[0] === needle || secondHalf[0] === needle) {
           return true;
           console.log(haystack.indexOf(needle));
         }
-        return false;
+    return false;
   }
-      binarySearch(needle, haystack);
+  binarySearch(needle, haystack);
 }
 // Tests
 
 if (typeof describe === 'function') {
 
   function comparator(a, b) {
-   if (Number(a) < Number(b)) return -1;
-   if (Number(a) > Number(b)) return 1;
-   return 0;
- }
+    if (Number(a) < Number(b)) return -1;
+    if (Number(a) > Number(b)) return 1;
+    return 0;
+  }
 
- describe('#bubbleSort()', () => {
+  describe('#bubbleSort()', () => {
    it('should sort array', () => {
      const sorted = bubbleSort(arr);
      assert.deepEqual(sorted, arr.sort(comparator));
    });
  });
 
- describe('#mergeSort()', () => {
+  describe('#mergeSort()', () => {
    it('should sort array', () => {
      const sorted = mergeSort(arr);
      assert.deepEqual(sorted, arr.sort(comparator));

@@ -12,16 +12,16 @@ function forEach(arr, callback) {
 function map(arr, callback) {
   let squared = [];
   for(let i = 0; i < arr.length; i++) {
-  squared.push(callback(arr[i]));
+    squared.push(callback(arr[i]));
   }// Your code here
-    return squared;
+  return squared;
 }
 
 function filter(arr, callback) {
   let filtered = []
   for(let i = 0; i < arr.length; i++) {
     filtered.push(arr[i]);
-}
+  }
   return filtered;
 }
 
