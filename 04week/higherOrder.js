@@ -21,7 +21,7 @@ function filter(arr, callback) {
   let filtered = [];
   for(let i = 0; i < arr.length; i++) {
     if (callback(arr[i]) === true) {
-    filtered.push((arr[i]));
+      filtered.push((arr[i]));
     }
   }
   return filtered;
@@ -30,8 +30,8 @@ function filter(arr, callback) {
 function some(arr, callback) {
   for(let i = 0; i < arr.length; i++) {
     if (callback(arr[i]) === true) {
-    return true;
-  }
+      return true;
+    }
   // Your code here
   } return false;
 }
