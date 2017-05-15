@@ -29,19 +29,20 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+//this section generates hints for the user
 function generateHint(solution, guess) {
   let whtPeg = 0;
   let redPeg = 0;
-  let splitSol = solution.split("");
-  let splitGuess = guess.split("");
+  let splitSol = solution.split("");    //this splits the solution between the letters for comparison in the array
+  let splitGuess = guess.split("");     //this splits the guess between the letters for comparison in the array
 
-  for(let i = 0; i < 4; i++) {
-    if (splitSol[i] === splitGuess[i]){
-      redPeg++;
+  for (let i = 0; i < 4; i++) {  //loop to iterate through the 4 letters of the guess
+    if (splitSol[i] === splitGuess[i]) { //calling the individual letters of the guess for exact comparison against the solution.
+      redPeg++;                          //this calls the loop for as many times as redPeg does not equal zero
     }
-    let found = splitSol.indexOf(splitGuess[i]);
-    if (found > -1) {
-      splitSol[found] = null;
+    let found = splitSol.indexOf(splitGuess[i]); //new variable to hold the letters which are correct but not in the correct location.
+    if (found > -1) {                //if a letter is found it is > -1. this represents unfound letters
+      splitSol[found] = null;        //this makes duplicate letters not in the correct location uncounted
       whtPeg++;
     }
   }
@@ -52,14 +53,11 @@ function generateHint(solution, guess) {
 function mastermind(guess) {
   // your code here
   if (guess === solution) {
-    return "You guessed it!";
+    return "You guessed it!";  //results when correct guess made
   } else {
-    board.push(guess + " " + generateHint(solution, guess));
+    board.push(guess + " " + generateHint(solution, guess)); //results when incorrect guess is made
   }
 }
-
-
-
 
 
 function getPrompt() {
@@ -100,10 +98,3 @@ if (typeof describe === 'function') {
   //generateSolution();
   getPrompt();
 }
-
-
-//[b,c,e,g].push(guess)
-//if content of arrays match then does solution exist in guess?
-//if yes then cross out and try again.
-//if guess ==== generateSolution then return true
-//push guess and hint to board-- build string and push
