@@ -81,13 +81,13 @@ function binarySearch(arr, item) {
   let secondHalf = arr.slice(arr.length / 2);
   while (firstHalf.length > 1 && secondHalf.length > 1) {
     if (item <secondHalf[0]) {
-        firstHalf = firstHalf.slice(0, arr.length / 2);
-        secondHalf = secondHalf.slice(0, arr.length / 2);
-      } else {
-        firstHalf = secondHalf.slice(0, arr.length / 2);
-        secondHalf = secondHalf.slice(arr.length / 2);
-      }
+      firstHalf = firstHalf.slice(0, arr.length / 2);
+      secondHalf = secondHalf.slice(0, arr.length / 2);
+    } else {
+      firstHalf = secondHalf.slice(0, arr.length / 2);
+      secondHalf = secondHalf.slice(arr.length / 2);
     }
+  }
   if (firstHalf[0] === item || secondHalf[0] === item) {
     return true;
     console.log((arr.indexOf(item)) + "," + item);
