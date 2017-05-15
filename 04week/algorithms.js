@@ -38,16 +38,16 @@ if (typeof describe === 'function') {
 
   describe('#bubbleSort()', () => {
     it('should sort array', () => {
-       const sorted = bubbleSort(arr);
-       assert.deepEqual(sorted, arr.sort(comparator));
-     });
+      const sorted = bubbleSort(arr);
+      assert.deepEqual(sorted, arr.sort(comparator));
+    });
   });
 
   describe('#mergeSort()', () => {
     it('should sort array', () => {
-       const sorted = mergeSort(arr);
-       assert.deepEqual(sorted, arr.sort(comparator));
-     });
+      const sorted = mergeSort(arr);
+      assert.deepEqual(sorted, arr.sort(comparator));
+    });
   });
 
 

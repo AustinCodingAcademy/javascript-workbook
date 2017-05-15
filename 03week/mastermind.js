@@ -52,8 +52,8 @@ function generateHint(guess) {
     let found = splitSol.indexOf(splitGuess[i]);
     // How do I make i null, how do I continue to cycle through?
     if (found > -1) {
-    splitSol[found] = null;
-    whiteHint++;
+      splitSol[found] = null;
+      whiteHint++;
     }
   }
 
