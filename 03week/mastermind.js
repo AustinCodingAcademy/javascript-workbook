@@ -12,7 +12,8 @@ const rl = readline.createInterface({
 let board = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
-let solution = generateSolution();
+let solution;
+solution = generateSolution();
 let exact;
 let close;
 

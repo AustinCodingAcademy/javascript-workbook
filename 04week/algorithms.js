@@ -205,7 +205,7 @@ if (typeof describe === 'function') {
       assert.equal(idx, 2);
     });
     it('should return false if item not in sorted array', () => {
-      const idx = binarySearch(5, [1,2,3,4,6,7,8,9,10]);
+      idx = binarySearch(5, [1,2,3,4,6,7,8,9,10]);
       assert.equal(idx, false);
     });
   });
