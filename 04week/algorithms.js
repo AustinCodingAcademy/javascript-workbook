@@ -20,33 +20,40 @@ function bubbleSort(arr) {
 
 function mergeSort(arr) {
   // Your code here
+
 }
 
 function binarySearch(arr, item) {
   // Your code here
 }
 
-// Tests
+// Tests--------------------------------
 
 if (typeof describe === 'function') {
 
-  describe('#bubbleSort()', () => {
-    it('should sort array', () => {
-      const sorted = bubbleSort(arr);
-      assert.deepEqual(sorted, arr.sort());
-    });
-  });
+  function comparator(a, b) {
+      if (Number(a) < Number(b)) return -1;
+      if (Number(a) > Number(b)) return 1;
+      return 0;
+    }
 
-  describe('#mergeSort()', () => {
-    it('should sort array', () => {
-      const sorted = mergeSort(arr);
-      assert.deepEqual(sorted, arr.sort());
+    describe('#bubbleSort()', () => {
+      it('should sort array', () => {
+        const sorted = bubbleSort(arr);
+        assert.deepEqual(sorted, arr.sort(comparator));
+      });
     });
-  });
+
+    describe('#mergeSort()', () => {
+      it('should sort array', () => {
+        const sorted = mergeSort(arr);
+        assert.deepEqual(sorted, arr.sort(comparator));
+      });
+    });
 
   describe('#binarySearch()', () => {
     it('should return the index of given item if sorted array contains it', () => {
-      const idx = binarySearch([2, 1, 4, 3], 3);
+      const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
     });
     it('should return false if item not in sorted array', () => {
@@ -57,6 +64,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  getPrompt();
+  console.log("Run the tests");
 
 }

@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('assert');
-//const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,7 +8,8 @@ const rl = readline.createInterface({
 });
 
 const board = [];
-let solution = 'abcd';
+let solution = '';
+let hint = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -30,36 +30,31 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
-  let whtPeg = 0;
-  let redPeg = 0;
-  let splitSol = solution.split("");
-  let splitGuess = guess.split("");
-
-  for(let i = 0; i < 4; i++) {
-    if (splitSol[i] === splitGuess[i]){
-      redPeg++;
-    }
-    let found = splitSol.indexOf(splitGuess[i]);
-    if (found > -1) {
-      splitSol[found] = null;
-      whtPeg++;
-    }
-  }
-  whtPeg = whtPeg - redPeg;
-  return redPeg + "-" + whtPeg;
+  // your code here
+  //need to compare guess to solution with arrays and for loops.
+  //can be done using .join and .push.
+  //answer and guess are strings.
+  //if guess === solution?
+//compare to solution- THEN generate hint.
+  //;
 }
 
 function mastermind(guess) {
   // your code here
-  if (guess === solution) {
-    return "You guessed it!";
+  //for winning guess
+  if (guess ==== solution) {
+    console.log("You guessed it!");
+    //for getting a correct letter resulting in a hint
+    let hint = generateHint(solution, guess);
+    board.push(hint + " " + guess);
+    return "Here is a hint!";
   } else {
-    board.push(guess + " " + generateHint(solution, guess));
+    //return player to board to continue playing
+    let hint = generateHint(solution, guess);
+    board.push(hint + " " + guess);
   }
+  return guess;
 }
-
-
-
 
 
 function getPrompt() {
@@ -70,13 +65,12 @@ function getPrompt() {
   });
 }
 
-// Tests --------------------------------------------
+// Tests
 
 if (typeof describe === 'function') {
-
+  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
-      solution = 'abcd';
       mastermind('aabb');
       assert.equal(board.length, 1);
     });
@@ -87,23 +81,16 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
+      assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
+      assert.equal(generateHint('aabb'), '1-1');
     });
 
   });
 
 } else {
 
-  //generateSolution();
+  generateSolution();
   getPrompt();
 }
-
-
-//[b,c,e,g].push(guess)
-//if content of arrays match then does solution exist in guess?
-//if yes then cross out and try again.
-//if guess ==== generateSolution then return true
-//push guess and hint to board-- build string and push

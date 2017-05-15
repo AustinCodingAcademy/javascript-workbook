@@ -19,23 +19,25 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+//naming of origin column and destination column for each piece.
+//this allows each block to be removed from the "end" of a column and placed into a different column
 function movePiece(startStack, endStack) {
   // Your code here
   let block = stacks[startStack].pop();
   stacks[endStack].push(block);
-
-  // stacks[endStack].push(block);
 }
 
-
+//defines legal moves. if a column is empty, any block can be moved there.
+//if a column already contains a block that is greater than the block being moved into it, it will be rejected
 function isLegal(startStack, endStack) {
   if ((stacks[endStack].length === 0) || ((stacks[endStack][stacks[endStack].length - 1]) > (stacks[startStack][stacks[startStack].length -1]))) {
     return true;
   } else {
-    return false;
+    // return false;
+    console.log("Sorry, you can't do that!");
   }
 }
-
+//checks for winning move of columns b or c containing all blocks in legal order.
 function checkForWin(startStack, endStack) {
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
     return true;
@@ -45,8 +47,8 @@ function checkForWin(startStack, endStack) {
   }
 }
 
+//calls for game to be played if moves are legal, then blocks can be moved, columns are checked for win
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
   if(isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
   }
