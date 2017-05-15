@@ -30,19 +30,26 @@ function binarySearch(arr, item) {
 
 if (typeof describe === 'function') {
 
-  describe('#bubbleSort()', () => {
-    it('should sort array', () => {
-      const sorted = bubbleSort(arr);
-      assert.deepEqual(sorted, arr.sort());
-    });
-  });
+  function comparator(a, b) {
+     if (Number(a) < Number(b)) return -1;
+     if (Number(a) > Number(b)) return 1;
+     return 0;
+   }
 
-  describe('#mergeSort()', () => {
-    it('should sort array', () => {
-      const sorted = mergeSort(arr);
-      assert.deepEqual(sorted, arr.sort());
-    });
-  });
+   describe('#bubbleSort()', () => {
+     it('should sort array', () => {
+       const sorted = bubbleSort(arr);
+       assert.deepEqual(sorted, arr.sort(comparator));
+     });
+   });
+
+   describe('#mergeSort()', () => {
+     it('should sort array', () => {
+       const sorted = mergeSort(arr);
+       assert.deepEqual(sorted, arr.sort(comparator));
+     });
+   });
+
 
   describe('#binarySearch()', () => {
     it('should return the index of given item if sorted array contains it', () => {
