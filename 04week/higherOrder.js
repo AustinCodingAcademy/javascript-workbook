@@ -47,12 +47,13 @@ function every(arr, callback) {
   // Your code here
   for (let i = 0; i < arr.length; i++) {
     if (!callback(arr[i])) {
-      return true;
+      return false;
     } //something is wrong with the way Im comparing the callbacks i believe.maybe
     //something about establishing a false as default in the beginning og the function so the true return has to pass the parameters and not the false
 
   }
-  return false;
+  return true;
+
 }
 
 
