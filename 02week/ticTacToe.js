@@ -79,7 +79,7 @@ function printBoard() {
 //
 //   }
 
-  function getPrompt() {
+function getPrompt() {
     printBoard();
     console.log("It's Player " + playerTurn + "'s turn.");
     rl.question('row: ', (row) => {
@@ -95,7 +95,7 @@ function printBoard() {
 
   // Tests
 
-  if (typeof describe === 'function') {
+if (typeof describe === 'function') {
 
     describe('#ticTacToe()', () => {
       it('should place mark on the board', () => {
