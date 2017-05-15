@@ -46,14 +46,15 @@ function generateHint(guess) {
 
     // Do I need to call solution.split here and guess.split, after splitting them?
 
-    if (splitSol.includes(splitGuess[i]))
-      whiteHint++;
-
-    // if (splitSol.Indexof(splitGuess[i]))
-    // // How do I make i null, how do I continue to cycle through?
-    //   splitSol[i] = null
+    // if (splitSol.includes(splitGuess[i]))
     //   whiteHint++;
 
+    let found = splitSol.indexOf(splitGuess[i]);
+    // How do I make i null, how do I continue to cycle through?
+    if (found > -1) {
+    splitSol[found] = null;
+    whiteHint++;
+    }
   }
 
   whiteHint = whiteHint - redHint;
