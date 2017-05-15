@@ -50,7 +50,7 @@ function isLegal(piece, startStack, endStack) {
       return true;
     }
     else{
-    console.log('not moving');
+      console.log('not moving');
       movePiece(piece, startStack);
       return false;
     }
