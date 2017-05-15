@@ -31,19 +31,19 @@ function binarySearch(arr, item) {
 if (typeof describe === 'function') {
 
   function comparator(a, b) {
-     if (Number(a) < Number(b)) return -1;
-     if (Number(a) > Number(b)) return 1;
-     return 0;
-   }
+    if (Number(a) < Number(b)) return -1;
+    if (Number(a) > Number(b)) return 1;
+    return 0;
+  }
 
-   describe('#bubbleSort()', () => {
+  describe('#bubbleSort()', () => {
      it('should sort array', () => {
        const sorted = bubbleSort(arr);
        assert.deepEqual(sorted, arr.sort(comparator));
      });
    });
 
-   describe('#mergeSort()', () => {
+  describe('#mergeSort()', () => {
      it('should sort array', () => {
        const sorted = mergeSort(arr);
        assert.deepEqual(sorted, arr.sort(comparator));

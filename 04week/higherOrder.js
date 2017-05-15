@@ -15,7 +15,7 @@ function map(arr, callback) {
 
   for (let i = 0; i < arr.length; i++) {
     // console.log(callback(arr[i]));
-   arrMap.push(callback(arr[i]));
+  arrMap.push(callback(arr[i]));
   }
   return arrMap;
 }

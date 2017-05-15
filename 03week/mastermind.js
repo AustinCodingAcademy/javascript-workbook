@@ -56,7 +56,7 @@ function generateHint(guess) {
 
   }
 
-whiteHint = whiteHint - redHint;
+  whiteHint = whiteHint - redHint;
 
   console.log('redHint', redHint)
   console.log('whiteHint', whiteHint)

@@ -24,25 +24,21 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-  // outer loop check each row
+  //outer loop check each row
   for (var i = 0; i < 3; i++) {
     // If 3 in a row && NOT null, return true.
     if ((board[i][0] === board[i][1] && board[i][0] === board[i][2]) && (board[i][0] !== ' ')) {
-  return true;
- }
-}
+      return true;
+    }
+  }
 
-// This was working in class and passed test but was not right.
-//   }
-// if [0][0] = 'x'=== playerTurn &&
-//    [0][1] = 'x'=== playerTurn &&
-//    [0][2] = 'x'=== playerTurn &&
-//   return true; {
-// } else {
-//   return false;
-//   }
-// }
+//Below: passed test, but was not correct.
+  // for (var i = 0; i < 3; i++) {
+  //   if (board[i][0] === ' ') return false;
+  //
+  //   if (board[i][0] === board[i][1] && board[i][0] === board[i][2]) return true;
+  // }
+}
 
 function verticalWin() {
   //outer loop check each column
@@ -99,20 +95,6 @@ function ticTacToe(row, column) {
     console.log('You must type 0 1 or 2 only');
   }
 }
-
-
-// Sensei told us how to assign something, in Row 44. Lines 46 and 47 could
-// be one line but this works better for me.
-
-// Part of first attempt, but not needed.
-// function ticTacToe(row, column) {
-//   board [row][column] = playerTurn;
-//   checkForWin();
-//   if (playerTurn === 'X');
-//   playerTurn = 'O';
-//   The ternary here will allow x and o to toggle back and forth.
-// playerTurn = (playerTurn === 'X') ? 'O' :'X';
-// }
 
 function getPrompt() {
   printBoard();
