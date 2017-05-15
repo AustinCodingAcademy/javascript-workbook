@@ -32,7 +32,7 @@ function horizontalWin() {
     }
   }
 
-
+  return false;
 }
 
 function verticalWin() {

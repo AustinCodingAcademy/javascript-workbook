@@ -26,7 +26,7 @@ function filter(arr, callback) {
       newArray.push(arr[i]);
     }
   }
-return newArray;
+  return newArray;
 }
 
 function some(arr, callback) {
