@@ -4,23 +4,57 @@ const assert = require('assert');
 
 function forEach(arr, callback) {
   // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], arr, i);
+  }
 }
 
 function map(arr, callback) {
   // Your code here
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(callback(arr[i]));
+  }
+  return newArray;
 }
 
 function filter(arr, callback) {
   // Your code here
+  var num = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      num.push(arr[i]);
+    }
+
+  }
+  return num;
 }
 
 function some(arr, callback) {
   // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      return true;
+    }
+  }
+  return false;
 }
+
+
+
 
 function every(arr, callback) {
   // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (!callback(arr[i])) {
+      return true;
+    } //something is wrong with the way Im comparing the callbacks i believe.maybe
+    //something about establishing a false as default in the beginning og the function so the true return has to pass the parameters and not the false
+
+  }
+  return false;
 }
+
 
 if (typeof describe === 'function') {
 
@@ -95,9 +129,9 @@ if (typeof describe === 'function') {
       assert.equal(count, 2);
     });
   });
-
-} else {
+}
+/*} else {
 
   getPrompt();
 
-}
+}*/

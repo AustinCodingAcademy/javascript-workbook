@@ -30,70 +30,70 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
-  var solutionArray = solution.split('');
-  var guessArray = guess.split('');
-  var correctLetterLocations = 0;
-  var correctLetters = 0;
-  for (var i = 0; i < solutionArray.length; i++) {
-    if (solutionArray[i] === guessArray[i]) {
-      correctLetterLocations++;
-      solutionArray[i] = null;
-    }
-    for (i = 0; i <= solutionArray.length; i++) {
-      var targetIndex = guessArray.indexOf(solutionArray[i]);
-      //console.log('bacon')
-      if (targetIndex > -1) {
-        correctLetters++;
-        solutionArray[i] = null;
-        //console.log('feet')
-        return correctLetterLocations + "-" + correctLetters;
 
+
+  function mastermind(guess) {
+    function mastermind(guess) {
+      let guessArr = guess.split(""); //taking guess from user and turning it into an array
+      let solutionArr = solution.split(""); //taking solution string and turning it into an array
+      if (guess.length !== solution.length) {
+        console.log('try again, pick four: ' + letters);
+      }
+
+      var matches = [];
+      var solutionTest = {};
+      for (var i = 0; i < solutionArr.length; i++) {
+        if (solutionTest[guessArr[0]] = true) {
+          console.log('1');
+        }
+        if (solutionTest[guessArr[1]] = true)
+          console.log('2');
+        return;
+
+        for (var j = 0; j < guessArr.length; j++) {
+          if (solutionTest[guessArr[j]])
+            matches.push(guessArr[j]);
+        }
+        console.log(solutionTest);
+        return matches;
       }
     }
-  }
-}
 
-function mastermind(guess) {
-  if (guess === solution) {
-    return ('You guessed it!');
-  }
-}
+    function getPrompt() {
+      rl.question('guess: ', (guess) => {
+        console.log(mastermind(guess));
+        printBoard();
+        getPrompt();
+      });
+    }
 
-function getPrompt() {
-  rl.question('guess: ', (guess) => {
-    console.log(mastermind(guess));
-    printBoard();
-    getPrompt();
-  });
-}
+    // Tests
 
-// Tests
+    if (typeof describe === 'function') {
 
-if (typeof describe === 'function') {
+      describe('#mastermind()', () => {
+        it('should register a guess and generate hints', () => {
+          solution = 'abcd';
+          mastermind('aabb');
+          assert.equal(board.length, 1);
+        });
+        it('should be able to detect a win', () => {
+          assert.equal(mastermind(solution), 'You guessed it!');
+        });
+      });
 
-  describe('#mastermind()', () => {
-    it('should register a guess and generate hints', () => {
-      solution = 'abcd';
-      mastermind('aabb');
-      assert.equal(board.length, 1);
-    });
-    it('should be able to detect a win', () => {
-      assert.equal(mastermind(solution), 'You guessed it!');
-    });
-  });
+      describe('#generateHint()', () => {
+        it('should generate hints', () => {
+          assert.equal(generateHint('abcd', 'abdc'), '2-2');
+        });
+        it('should generate hints if solution has duplicates', () => {
+          assert.equal(generateHint('abcd', 'aabb'), '1-1');
+        });
 
-  describe('#generateHint()', () => {
-    it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
-    });
-    it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
-    });
+      });
 
-  });
+    } else {
 
-} else {
-
-  //  generateSolution();
-  getPrompt();
-}
+      //  generateSolution();
+      getPrompt();
+    }
