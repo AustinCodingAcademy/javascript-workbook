@@ -47,11 +47,8 @@ function generateHint(solution, guess) {
       splSolution[foundIndex] = null;
     }
   }
-  // let returnString = `${numberRight}‐${numberClose}`;
-  // return returnString;
   return `${numberRight}-${numberClose-numberRight}`;
 }
-// still returns a negavite number when testing =/
 
 function mastermind(guess) {
   // your code here

@@ -4,22 +4,53 @@ const assert = require('assert');
 
 function forEach(arr, callback) {
   // Your code here
+  for (var i =0; i < arr.length; i ++){
+    callback();
+  }
 }
 
 function map(arr, callback) {
   // Your code here
+  let mapped = [];
+  for(var i = 0; i < arr.length; i++){
+    mapped.push(arr[i] * arr[i]);
+    // tried arr[i*i]... didn't work worth a crap
+  }
+  return mapped;
+  // had to move outside the for loop to keep it going
 }
 
 function filter(arr, callback) {
   // Your code here
+  let filtered = [];
+  for(var i = 0; i < arr.length; i++){
+    if (arr[i] % 2 === 0) {
+      filtered.push(arr[i]);
+    }
+  }
+  return filtered;
 }
 
 function some(arr, callback) {
   // Your code here
+  for(var i = 0; i < arr.length; i++){
+    if (arr[i] % 2 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 function every(arr, callback) {
   // Your code here
+  for(var i =0; i < arr.length; i++){
+    if(arr[i] % 2 != 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 if (typeof describe === 'function') {
