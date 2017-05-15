@@ -98,7 +98,7 @@ function binarySearch(arr, item) {
       lastIndex = currentIndex - 1; //reaasign last index and eliminate other half of the array
 
     } else {
-        return currentIndex; //if it is found, return its index
+      return currentIndex; //if it is found, return its index
     }
   }
 

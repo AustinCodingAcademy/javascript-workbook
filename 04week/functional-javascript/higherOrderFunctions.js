@@ -1,9 +1,9 @@
 function repeat(operation, num) {
       // SOLUTION GOES HERE
-      operation = function (num) {
+  operation = function (num) {
         return repeat(operation,um);
       }
-    }
+}
 
     // Do not remove the line below
-    module.exports = repeat
+module.exports = repeat
