@@ -16,10 +16,6 @@ let solution;
 solution = generateSolution();
 let exact;
 let close;
-
-// let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);

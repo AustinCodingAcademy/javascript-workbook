@@ -42,13 +42,9 @@ function isLegal(piece, startStack, endStack) {
         console.log('not moving');
         movePiece(piece, startStack);
         return false;
-
-
       }
-    }
-  else{
     console.log(stacks[endStack][endStack.length-1]);
-    if(stacks[endStack][endStack.length-1] > piece){
+  if(stacks[endStack][endStack.length-1] > piece){
       console.log('moving');
       movePiece(piece, endStack);
       return true;
@@ -57,15 +53,13 @@ function isLegal(piece, startStack, endStack) {
       console.log('not moving');
       movePiece(piece, startStack);
       return false;
-
-
     }
   }
   else{
     movePiece(piece, endStack);
     return true;
   }
-}
+  }
 
 function checkForWin() {
   // Your code here
