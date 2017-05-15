@@ -93,17 +93,7 @@ function dupesCount(arr){
    }
  return dBoard;
   }
-  let dBoard = [];
-  for(let i = 0; i < arr.length; i ++){
-    for(let j = i + 1; j < arr.length; j ++){
-      if(arr[i] === arr[j]){
-        dBoard.push(arr[i]);
-        return dBoard;
-      }
-    }
-  }
-  return dBoard;
-}
+
 
 //take the input and split into array & generate a solution to be compared
 function mastermind(guess) {
