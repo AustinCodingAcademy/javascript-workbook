@@ -32,34 +32,34 @@ function isLegal(piece, startStack, endStack) {
   console.log(stacks[endStack].length);
   if(stacks[endStack].length !== 0){
 
-      console.log(stacks[endStack][endStack.length-1]);
-      if(stacks[endStack][endStack.length-1] > piece){
+    console.log(stacks[endStack][endStack.length-1]);
+    if(stacks[endStack][endStack.length-1] > piece){
         console.log('moving');
         movePiece(piece, endStack);
         return true;
       }
-      else{
+    else{
         console.log('not moving');
         movePiece(piece, startStack);
         return false;
       }
     console.log(stacks[endStack][endStack.length-1]);
-  if(stacks[endStack][endStack.length-1] > piece){
-      console.log('moving');
-      movePiece(piece, endStack);
-      return true;
+    if(stacks[endStack][endStack.length-1] > piece){
+    console.log('moving');
+    movePiece(piece, endStack);
+    return true;
     }
     else{
-      console.log('not moving');
-      movePiece(piece, startStack);
-      return false;
-    }
+    console.log('not moving');
+    movePiece(piece, startStack);
+    return false;
+  }
   }
   else{
     movePiece(piece, endStack);
     return true;
   }
-  }
+}
 
 function checkForWin() {
   // Your code here

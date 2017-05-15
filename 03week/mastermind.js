@@ -59,7 +59,7 @@ function generateHint(guess, solution) {
   }
       close --;
     }
-  }
+
   if(exact === 4){
     printBoard();
     return 'You guessed it!';
