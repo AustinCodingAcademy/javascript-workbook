@@ -199,13 +199,11 @@ if (typeof describe === 'function') {
 
   describe('#binarySearch()', () => {
     it('should return the index of given item if sorted array contains it', () => {
-      const idx = binarySearch(3,[1,2,3,4,5,6,7,8,9,10]);
-
       const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
     });
     it('should return false if item not in sorted array', () => {
-      idx = binarySearch(5, [1,2,3,4,6,7,8,9,10]);
+      const idx = binarySearch( [1,2,3,4],5);
       assert.equal(idx, false);
     });
   });

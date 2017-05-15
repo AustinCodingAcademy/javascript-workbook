@@ -17,7 +17,7 @@ solution = generateSolution();
 let exact;
 let close;
 
-let solution = '';
+// let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {

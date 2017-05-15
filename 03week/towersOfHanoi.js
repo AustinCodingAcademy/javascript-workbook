@@ -31,7 +31,7 @@ function isLegal(piece, startStack, endStack) {
   // Your code here
   console.log(stacks[endStack].length);
   if(stacks[endStack].length !== 0){
-<<<<<<< HEAD
+
       console.log(stacks[endStack][endStack.length-1]);
       if(stacks[endStack][endStack.length-1] > piece){
         console.log('moving');
@@ -47,11 +47,9 @@ function isLegal(piece, startStack, endStack) {
       }
     }
   else{
-=======
     console.log(stacks[endStack][endStack.length-1]);
     if(stacks[endStack][endStack.length-1] > piece){
       console.log('moving');
->>>>>>> 4f82901680329b59f3707c36baefa627d910efd1
       movePiece(piece, endStack);
       return true;
     }
