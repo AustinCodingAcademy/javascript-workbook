@@ -16,14 +16,84 @@ for (let i = 0; i < 1000; i++) {
 
 function bubbleSort(arr) {
   // Your code here
+  var arr;
+   do {
+       arr = false;
+       for (var i=0; i < a.length-1; i++) {
+           if (a[i] > a[i+1]) {
+               var temp = a[i];
+               a[i] = a[i+1];
+               a[i+1] = temp;
+               arr = true;
+           }
+       }
+   } while (swapped);
+}
+
+bubbleSort(a);
+console.log(a);
+}
 }
 
 function mergeSort(arr) {
   // Your code here
+  if (arr.length < 2)
+        return arr;
+
+    var middle = parseInt(arr.length / 2);
+    var left   = arr.slice(0, middle);
+    var right  = arr.slice(middle, arr.length);
+
+    return merge(mergeSort(left), mergeSort(right));
 }
+
+function merge(left, right)
+{
+    var result = [];
+
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+
+    while (left.length)
+        result.push(left.shift());
+
+    while (right.length)
+        result.push(right.shift());
+
+    return result;
+}
+
+console.log(mergeSort(a));
+
 
 function binarySearch(arr, item) {
   // Your code here
+  function getMidPoint(arr, searchNumb) {
+    var length = arr.length;
+    var midPoint = Math.floor(length / 2);
+    var newArr = arr;
+    console.log(arr);
+    console.log("array midpoint value: " + arr[midPoint]);
+
+    if (arr[midPoint] > searchNumb) {
+
+        var newArr = arr.slice(0, arr[midPoint]);
+        return getMidPoint(newArr, searchNumb);
+
+    } else if (arr[midPoint] < searchNumb) {
+
+        var newArr = arr.slice(midPoint, arr.length);
+        return getMidPoint(newArr, searchNumb);
+
+    } else {
+        return arr
+    }
+}
 }
 
 // Tests
