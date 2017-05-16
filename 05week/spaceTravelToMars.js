@@ -18,8 +18,8 @@ function CrewMember(name, job, specialSkill) {
   this.specialSkill = specialSkill;
   this.ship = null;
 }
-let rick = new CrewMember("Rick Martinez", "pilot"; "chemistry");
-rick;
+//let rick = new CrewMember("Rick Martinez", "pilot"; "chemistry");
+//rick;
 
 function Ship(name, type, ability) {
   this.name = name;
@@ -27,8 +27,8 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
 
-  this.ship
-  crewMember1
+//  this.ship
+//  crewMember1
 }
 
 let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
