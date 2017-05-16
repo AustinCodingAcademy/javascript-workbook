@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 let board = [];
-let solution = 'abcd';
+let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -30,64 +30,35 @@ function getRandomInt(min, max) {
 
 function generateHint(guess) {
   // your code here
-  let solutionArr = solution.split(""); //taking solution string and turning it into an array
-  let guessArr = guess.split(""); //taking guess from user and turning it into an array
+  let solutionArr = solution.split("");
+  let guessArr = guess.split("");
   let red = 0;
   let white = 0;
-  for (var i = 0; i < 4; i++); {
-    if (solutionArr[i] === guessArr[i])
-      red++;
+  for (var i = 0; i < 4; i++) {
     var match = guessArr.indexOf(solutionArr[i]);
+    if (solutionArr[i] === guessArr[i]) {
+      red++;
+    }
     if (match > -1) {
       white++;
       guessArr[match] = null;
-
     }
-
   }
 
   white = white - red;
-  console.log('hello', red, white, match)
-  return (red + '' + white);
 
+  return (red + '-' + white);
 }
+
 
 
 function mastermind(guess) {
-  //if (guess.length !== solution.length) {
-  //console.log('try again, pick four: ' + letters);
-
-
-  // for (var j = 0; j < guessArr.length; j++) {
-  //   if (guessArr.indexOf(letters[j]) === solutionArr.indexOf(letters[i])) {
-  //     console.log('ok');
-  //   }
-  //
-  //   console.log();
-  //   return;
-  // }
+  if (guess === solution) {
+    return ('You guessed it!');
+  }
 
   generateHint(guess);
 }
-
-
-
-
-
-
-
-
-/*for (var g = 0; g < guessArr.length; g++) {
-    for (var s = 0; s < solutionArr.length; s++) {
-      if (solutionArr[s]  guessArr[g]) matches.push(guessArr[g]);
-    }
-  }
-  console.log('HI', matches, guess, solution);
-
-  return matches;
-
-}*/
-
 
 
 function getPrompt() {
@@ -124,6 +95,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  //generateSolution();
+  generateSolution();
   getPrompt();
 }
