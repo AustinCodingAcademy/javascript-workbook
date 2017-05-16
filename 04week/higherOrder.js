@@ -45,6 +45,7 @@ function every(arr, callback) {
   return true;
 }
 
+// Tests
 if (typeof describe === 'function') {
 
   describe('#forEach()', () => {
