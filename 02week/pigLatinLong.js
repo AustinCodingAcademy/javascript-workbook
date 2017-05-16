@@ -7,9 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function pigLatin(word) {
-  let x = word.toLowerCase();
+function wordToPig(thing) {
+  let x = thing.toLowerCase();
   const vwl = ["a","e","i","o","u","y"];
   let pos = [];
   for (var key in vwl) {
@@ -17,11 +16,20 @@ function pigLatin(word) {
       pos.push(x.indexOf(vwl[key]));
     }
   }
-  let lowest = Math.min.apply(null, pos);
-  let firstVwl = (lowest===0?'y':'');
-  return (x.slice(lowest) + x.slice(0,lowest) + firstVwl + 'ay');
+  let low = Math.min.apply(null, pos);
+  let firstVwl = (low===0?'y':'');
+  return (
+    x.slice(low) + x.slice(0,low) + firstVwl + 'ay'
+  );
 }
 
+function pigLatin(word) {
+  let sentence = word.split(' ');
+  for (var key in sentence) {
+    sentence[key] = wordToPig(sentence[key]);
+  }
+  return sentence.join(' ');
+}
 
 function getPrompt() {
   rl.question('\nWord: ', (answer) => {

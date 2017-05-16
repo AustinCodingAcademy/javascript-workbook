@@ -10,18 +10,48 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  const h1 = hand1;
+
+  const all = ["rock","paper","scissors"];
+  const h2 = all[Math.floor(Math.random() * 3)];
+  console.log("The computer pics " + h2 + "!");
+
+  if (!h1 || !h2) {console.log('Invalid input, yo');}
+  const h1w = "Hand one wins!";
+  const h2w = "Hand two wins!";
+  if (h1 === h2) {
+    return "It's a tie!";
+  } else {
+    switch (h1) {
+    case 'rock':
+      return (h2==='scissors'?h1w:h2w);
+    case 'paper':
+      return (h2==='rock'?h1w:h2w);
+    case 'scissors':
+      return (h2==='paper'?h1w:h2w);
+    default:
+      console.log('something broke');
+      break;
+    }
+  }
 
 }
 
 function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
-      getPrompt();
-    });
+  rl.question('\nhand1: ', (answer1) => {
+    console.log( rockPaperScissors(answer1, 0) );
+    getPrompt();
   });
 }
+
+// function getPrompt() {
+//   rl.question('hand1: ', (answer1) => {
+//     rl.question('hand2: ', (answer2) => {
+//       console.log( rockPaperScissors(answer1, answer2) );
+//       getPrompt();
+//     });
+//   });
+// }
 
 // Tests
 
