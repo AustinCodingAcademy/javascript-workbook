@@ -24,9 +24,8 @@ function filter(arr, callback) {
   // Your code here
   let newArr = [];
   for (let i = 0; i < arr.length; i++){
-  if (callback(arr[i]) === true) {
-
-}
+    if (callback(arr[i])) newArr.push(arr[i]);
+  }
   return newArr;
 }
 
@@ -44,12 +43,12 @@ function some(arr, callback) {
 function every(arr, callback) {
   // Your code here
   for (let i = 0; i < arr.length; i++){
-
-
-  callback(arr[i]);
-}
+    if callback(arr[i]);
+  }
 }
 
+
+//tests==================================================
 if (typeof describe === 'function') {
 
   describe('#forEach()', () => {
@@ -127,3 +126,5 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
+
+}
