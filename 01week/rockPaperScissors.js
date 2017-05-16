@@ -13,23 +13,21 @@ function rockPaperScissors(hand1, computerChoice) {
 
 
   if (hand1 === computerChoice) {
-    return 'It\'s a tie!';}
+    return 'It\'s a tie!';
+  }
   if (hand1 === 'rock' && computerChoice === 'scissors') {
     return 'Hand one wins!';
-  }
-  else {
+  } else {
     return 'Hand two wins!';
   }
   if (hand1 === 'scissors' && computerChoice === 'paper') {
     return 'Hand one wins!';
-  }
-  else {
+  } else {
     return 'Hand two wins!';
   }
   if (hand1 === 'paper' && computerChoice === 'scissors') {
     return 'Hand two wins!';
-  }
-  else {
+  } else {
     return 'Hand one wins!';
   }
 
@@ -41,9 +39,9 @@ function rockPaperScissors(hand1, computerChoice) {
 //prompt cycles each time this is why computer choice is here
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
-  //rl.prompt('computer: ') [randomNumber] => {
+    //rl.prompt('computer: ') [randomNumber] => {
     var computerChoices = ['rock', 'paper', 'scissors']
-    var randomNumber = Math.floor(Math.random()*computerChoices.length);
+    var randomNumber = Math.floor(Math.random() * computerChoices.length);
 
     const computerChoice = computerChoices[randomNumber];
     console.log('hand2:', computerChoice);

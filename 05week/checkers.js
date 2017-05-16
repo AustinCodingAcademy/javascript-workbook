@@ -54,6 +54,7 @@ function Board() {
 
   // Your code here
 }
+
 function Game() {
 
   this.board = new Board();
@@ -90,8 +91,8 @@ if (typeof describe === 'function') {
     });
   });
 
-  describe('Game.moveChecker()', function () {
-    it('should move a checker', function () {
+  describe('Game.moveChecker()', function() {
+    it('should move a checker', function() {
       assert(!game.board.grid[4][1]);
       game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
