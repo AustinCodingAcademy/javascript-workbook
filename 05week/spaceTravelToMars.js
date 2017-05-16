@@ -1,3 +1,4 @@
+
 'use strict';
 
 let assert = require('assert');
@@ -14,24 +15,33 @@ let jobTypes = {
    this.job = job;
    this.specialSkill = specialSkill;
    this.ship = null;
-   this.enterShip = function(ship){
-     ship.crew.push(this)
+   this.enterShip = function(newship){
+     newship.crew.push(this);
+     this.ship = newship;
 
-   }
+   };
 }
-var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-rick;
 
-  function Ship(name, type, ability){
-    this.name = name;
-    this.type = type;
-    this.ability = ability;
-    this.crew = [];
+
+function Ship(name, type, ability){
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function(){
+    if(this.crew.length){
+      console.log('Can"t perform a mission yet.');
+      }
+    if(crew.some(person => jobTypes[person.job] === this.type ){
+          console.log(this.ability);
+      }
+    };
   }
-var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-mav;
+}
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+crewMember1.enterShip(mav);
 
-rick.enterShip(mav);
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
