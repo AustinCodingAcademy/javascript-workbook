@@ -32,43 +32,44 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(guess, solution) {
+function generateHint(solution, guess) {
   // your code here {
   function split(string) {
     return string.split('');
   }
-  solution = split(solution);
-  guess = split(guess);
+  let splitSolution = split(solution);
+  let splitGuess = split(guess);
 
   let rightLetterWrongPlace = 0;
   let rightLetterRightPlace = 0;
-//
-for (let i = 0; i < solution.length; i++) {
-  console.log(`solution: ${solution}`)
-  console.log(`guess: ${guess}`)
-  if (solution[i] === guess[i]) {
-    solution[i] = null;
-    return(solution);
-    rightLetterRightPlace++;
+  //
+  for (let i = 0; i < splitSolution.length; i++) {
+    // console.log(`solution: ${splitSolution}`)
+    // console.log(`guess: ${splitGuess}`)
+    if (splitSolution[i] === splitGuess[i]) {
+      splitSolution[i] = null;
+      // return(splitSolution);
+      rightLetterRightPlace++;
+    }
   }
-}
 
   for (let i = 0; i< solution.length; i++ ){
-    return(`solution: ${solution}`);
-    return(`solution: ${guess}`);
-    if (solution.includes(guess[i])) {
-    solution[i] = null;
-    return(solution);
+    console.log(`solution: ${splitSolution}`);
+    console.log(`guess: ${splitGuess}`);
+    let found = splitSolution.indexOf(splitGuess[i])
+    if (found > -1) {
+    splitSolution[found] = null;
+    // console.log(splitSolution);
         rightLetterWrongPlace++;
     }
   }
 
-var returnString = rightLetterRightPlace + '-' +rightLetterWrongPlace;
-return(returnString);
+  var returnString = rightLetterRightPlace + '-' +rightLetterWrongPlace;
+  return(returnString);
 
-console.log(`(loop is finished)`)
-console.log(`(Right letter, right place: ${rightLetterWrongPlace}`)
-console.log(`(Right letter, wrong place: ${rightLetterRightPlace}`)
+  // console.log(`(loop is finished)`)
+  // console.log(`(Right letter, right place: ${rightLetterWrongPlace}`)
+  // console.log(`(Right letter, wrong place: ${rightLetterRightPlace}`)
 }
 
 function mastermind(guess) {
@@ -79,7 +80,7 @@ function mastermind(guess) {
   if (rightLetterRightPlace = 4) {
     return('You guessed it!');
   } else {
-    generateHint(guess, solution);
+    generateHint(solution, guess);
     // getPrompt();
     // printBoard();
   };

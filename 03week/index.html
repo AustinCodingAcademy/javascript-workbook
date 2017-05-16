@@ -1,3 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sausages of Hanoi</title>
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+
+</head>
+<body>
+<main>
+  <h1>The Sausages of Hanoi</h1>
+  <h2>The Smallest Sausages Must be Eaten First!</h2>
+  <div class="row">
+    <div data-cell="0"></div>
+    <div data-cell="1"></div>
+    <div data-cell="2"></div>
+  </div>
+  <div class="row">
+    <div data-cell="3"></div>
+    <div data-cell="4"></div>
+    <div data-cell="5"></div>
+  </div>
+  <div class="row">
+    <div data-cell="6"></div>
+    <div data-cell="7"></div>
+    <div data-cell="8"></div>
+  </div>
+  <div id="announce-winner"></div>
+  <button id="clear">Clear Board</button>
+
+  <!-- THIS IS MY JQUERY LINK -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="./script.js"></script> -->
+<script>
 'use strict';
 
 const assert = require('assert');
@@ -31,21 +68,16 @@ console.log(stacks);
   function isLegal(startStack, endStack) {
     // Your code here ---  if piece moved is !< last variable in
     var startStackLength = stacks[startStack].length;
-
     if(stacks[startStack].length-1 > stacks[endStack.length-1]){
-    return false
-  } else{
-    return true;
-  }
+    return false;
   };
 
   function checkForWin(endStack) {
   // Your code here -- make sure the the b or c stack has a length of 4
-    if ((stacks.b.length === 4) || (stacks.c.length === 4)){
-    return true;
-    } else{
-      return false;
-    }
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)){
+  return true;
+  } else{
+    return false;
   };
 
 function towersOfHanoi(startStack, endStack) {
@@ -53,7 +85,7 @@ function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack,endStack)){
     movePiece(startStack,endStack);
     checkForWin(endStack);
-  }
+  };
 };
 
 function getPrompt() {
@@ -104,5 +136,14 @@ if (typeof describe === 'function') {
     });
   });
 } else {
+
   getPrompt();
+
 }
+
+</script>
+
+</main>
+
+</body>
+</html>
