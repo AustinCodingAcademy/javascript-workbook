@@ -1,15 +1,14 @@
 'use strict';
 
 const assert = require('assert');
-//const colors = require('colors/safe');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const board = [];
-let solution = 'abcd';
+let board = [];
+let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -29,47 +28,38 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
+  let solutionArr = solution.split("");
+  let guessArr = guess.split("");
+  let red = 0;
+  let white = 0;
+  for (var i = 0; i < 4; i++) {
+    var match = guessArr.indexOf(solutionArr[i]);
+    if (solutionArr[i] === guessArr[i]) {
+      red++;
+    }
+    if (match > -1) {
+      white++;
+      guessArr[match] = null;
+    }
+  }
+
+  white = white - red;
+
+  return (red + '-' + white);
 }
+
+
 
 function mastermind(guess) {
-  let guessArr = guess.split("");
-  let solutionArr = solution.split("");
-  let comparator = guessArr.join(solutionArr, "")
-  for (let i = 0; i < guessArr.length; i++) {
-    //for (let j = 0; j < guessArr.length; j++)
-    if (guess === solution) {
-      console.log('You guessed it!');
-      break;
-    } else if (solutionArr[i] === guessArr[i]) {
-      console.log('red1', solutionArr[i], guessArr[i], comparator);
-    } //else if
+  if (guess === solution) {
 
-
+    return ('You guessed it!');
   }
+
+  generateHint(guess);
 }
-
-
-//for each instance of solutionArr[i][n] === guessArr[i][n] return or log something
-/* else if (solutionArr[1] === guessArr[1]) {
-    console.log('red2', solutionArr[1], guessArr[1]);
-  } else if (solutionArr[2] === guessArr[2]) {
-    console.log('red3');
-  } else if (solutionArr[3] === guessArr[3]) {
-    console.log('red4');
-    return true;
-  }
-  /*else if (solutionArr[i] === guessArr[i]) {
-         console.log(solutionArr[i], guessArr[i], '0-1');
-
-         break;
-       } else if (solutionArr[i] !== guessArr[i]) {
-         console.log(solutionArr[i], guessArr[i], '0-0');
-         break;
-       }*/
-
-
 
 
 function getPrompt() {
@@ -83,10 +73,9 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
+  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
-      solution = 'abcd';
       mastermind('aabb');
       assert.equal(board.length, 1);
     });
@@ -97,16 +86,16 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abcd', 'abdc'), '2-2');
+      assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('abcd', 'aabb'), '1-1');
+      assert.equal(generateHint('aabb'), '1-1');
     });
 
   });
 
 } else {
 
-  //  generateSolution();
+  generateSolution();
   getPrompt();
 }

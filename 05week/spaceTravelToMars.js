@@ -25,7 +25,7 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
 }
-var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit))
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit')
 //tests
 if (typeof describe === 'function') {
   describe('CrewMember', function() {
