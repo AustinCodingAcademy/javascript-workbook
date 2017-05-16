@@ -66,7 +66,7 @@ function merge(left, right)
 }
 
 console.log(mergeSort(a));/ Your code here
-}
+
 
 function binarySearch(arr, searchNumb) {
   function getMidPoint(arr, searchNumb) {
