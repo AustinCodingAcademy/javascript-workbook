@@ -9,7 +9,41 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  // this.ship = null;
+  this.enterShip = function(ship) {
+    this.ship = ship.name;
+    // console.log(ship.type);
+    // console.log(this.name);
+    ship.crew.push(this.name);
+  };
+
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+rick.enterShip(mav);
+console.log(rick.ship.name);
+console.log(mav.crew.length);
+console.log(mav.crew[0].name);
+console.log(rick.ship === mav);
+console.log(mav.crew.indexOf(rick) === 0);
+
 
 //tests
 if (typeof describe === 'function'){
