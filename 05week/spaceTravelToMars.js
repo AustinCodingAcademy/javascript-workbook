@@ -10,18 +10,22 @@ let jobTypes = {
 };
 
 
-////////
 // Your code here
 function CrewMember(name, job, specialSkill) {
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
+  this.enterShip = function(ship) {
+    this.ship = ship;
+
+  }
 }
 //let rick = new CrewMember("Rick Martinez", "pilot"; "chemistry");
-//rick;
 
-function Ship(name, type, ability) {
+
+
+function Ship(name, type, ability, crew) {
   this.name = name;
   this.type = type;
   this.ability = ability;
@@ -29,13 +33,23 @@ function Ship(name, type, ability) {
 
 //  this.ship
 //  crewMember1
+//var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+//var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+//rick.enterShip(mav);
+//console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+//console.log(mav.crew.length); //=> 1
+//console.log(mav.crew[0].name); //=> 'Rick Martinez'
+//console.log(rick.ship === mav); //=> true
+//console.log(mav.crew.indexOf(rick) === 0); //=> true
 }
 
 let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 mav;
 
 
-//tests
+//tests===================================================
+
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){

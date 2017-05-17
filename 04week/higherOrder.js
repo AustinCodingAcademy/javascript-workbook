@@ -9,8 +9,10 @@ function forEach(arr, callback) {
   }
 }
 
-//This transforms an array by applying a function to
-// all of its elements and building a new array from the returned values. The new array will have the same length as the input array, but its content will have been “mapped” to a new form by the function.
+//This transforms an array by applying a function to  all of its elements
+//and building a new array from the returned values.
+//The new array will have the same length as the input array, but its
+//content will have been “mapped” to a new form by the function.
 function map(arr, callback) {
   let newArr = [];
   for (let i = 0; i < arr.length; i++){
@@ -29,7 +31,7 @@ function filter(arr, callback) {
   return newArr;
 }
 
-//this function returns true if there is |any element in the array| that
+//This function returns true if there is |any element in the array| that
 // passes on the test provided by callback, and false otherwise.
 function some(arr, callback) {
   for (let i = 0; i < arr.length; i++){
@@ -40,7 +42,7 @@ function some(arr, callback) {
   return false;
 }
 
-//function returns true if |every element in the array| passes on the test
+//Function returns true if |every element in the array| passes on the test
 // provided by callback, and false otherwise.
 function every(arr, callback) {
   for (let i = 0; i < arr.length; i++){
@@ -52,6 +54,7 @@ function every(arr, callback) {
 }
 
 //Tests==================================================
+
 if (typeof describe === 'function') {
 
   describe('#forEach()', () => {
