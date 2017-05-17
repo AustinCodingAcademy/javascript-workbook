@@ -4,6 +4,7 @@ const assert = require('assert');
 
 function forEach(arr, callback) {
   // Your code here
+  //this will loop through the array and return the lenth of each element in the array.
   for (let i=0; i<arr.length; i++){
     callback(arr[i]);
   }
@@ -11,9 +12,7 @@ function forEach(arr, callback) {
 
 function map(arr, callback) {
   // Your code here
-//   var double = arr.map(function(arr) {
-//   return arr * 2;
-// });
+  //this will push each element of the the array into the mapped array
 let mapped = [];
 for (let i=0; i<arr.length; i++){
   mapped.push(callback(arr[i]));
@@ -24,9 +23,11 @@ return mapped;
 
 function filter(arr, callback) {
   // Your code here
+  //as long as elements in the array pass the test that is set. Those elements will be formed into a new array.
   let newArr = [];
   for (let i=0; i < arr.length; i++){
     if (callback(arr[i])){
+      //the elements of the first array will be pushed into the newArr.
       newArr.push(arr[i]);
     }
   }
@@ -35,6 +36,7 @@ function filter(arr, callback) {
 
 function some(arr, callback) {
   // Your code here
+  //As long as theres one instance of the parameter, the array will comback as true.
   for (let i=0; i < arr.length; i++){
     if (callback(arr[i])){
       return true;
@@ -46,6 +48,7 @@ function some(arr, callback) {
 
 function every(arr, callback) {
   // Your code here
+  //If any item in the array doesn't match the parameter, the loop will end at the first instance. Otherwise it will iterate through the array.
   for (let i=0; i < arr.length; i++){
     if (!callback(arr[i])){
       return false;
