@@ -9,6 +9,40 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+// rick.enterShip(mav);
+
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(shipName) {
+    this.ship = shipName;
+    shipName.crew.push(this)
+  }
+}
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function() {
+    if (this.type !== jobTypes.toString(this.crew[0].job)) {
+    return "Can't perform a mission yet."
+  } else {
+    return ability
+  }
+}
+}
+
+
+
+
+
 // Your code here
 
 //tests
