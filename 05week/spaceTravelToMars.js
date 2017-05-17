@@ -10,18 +10,17 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
- function CrewMember(name, job, specialSkill) {
-   this.name = name;
-   this.job = job;
-   this.specialSkill = specialSkill;
-   this.ship = null;
-   this.enterShip = function(newship){
-     newship.crew.push(this);
-     this.ship = newship;
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(newship){
+    newship.crew.push(this);
+    this.ship = newship;
 
-   };
+  };
 }
-
 
 function Ship(name, type, ability){
   this.name = name;
@@ -30,12 +29,18 @@ function Ship(name, type, ability){
   this.crew = [];
   this.missionStatement = function(){
     if(this.crew.length){
-      console.log('Can"t perform a mission yet.');
+      if(jobTypes[this.crew[0].job] === this.type){
+        console.log(this.ability);
+        return this.ability;
+      } else{
+        console.log("Can't perform a mission yet.");
+        return "Can't perform a mission yet.";
       }
-    if(crew.some(person => jobTypes[person.job] === this.type ){
-          console.log(this.ability);
-      }
-    };
+    }
+    else{
+      console.log("Can't perform a mission yet.");}
+    return "Can't perform a mission yet.";
+
   }
 }
 let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
