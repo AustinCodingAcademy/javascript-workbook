@@ -84,7 +84,8 @@ function Board() {
   };
 
   this.selectChecker = function(row, column) {
-    return this.grid[row][column];
+    let checkerSelected = this.grid[row][column];
+    return checkerSelected;
   };
 
 }
@@ -101,7 +102,25 @@ function Game() {
   };
 
   this.moveChecker = function(start, end) {
-    
+    let rowStart = start[0];
+    let colStart = start[1];
+    let rowEnd = end[0];
+    let colEnd = end[1];
+
+    if (this.grid[rowStart][colStart] !== null) {
+      if (this.grid[rowEnd][colEnd] !== null) {
+        console.log('There is already a checker piece there');
+        return false;
+      } else {
+
+        selectChecker(rowStart, colStart);
+
+        this.grid[rowEnd][colEnd] = checkerSelected;
+      }
+    } else {
+      console.log('There is no piece in that spot to move');
+      return false;
+    }
   }
 }
 
