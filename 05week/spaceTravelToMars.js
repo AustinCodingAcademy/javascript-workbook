@@ -29,13 +29,18 @@ function Ship(name, type, ability){
   this.crew = [];
   this.missionStatement = function(){
     if(this.crew.length){
-      if(jobTypes[this.crew[0].job] === this.type){
-        console.log(this.ability);
+      if(this.crew.some((crewmember)=>{return jobTypes[crewmember.job]===this.type})){
         return this.ability;
       } else{
-        console.log("Can't perform a mission yet.");
         return "Can't perform a mission yet.";
       }
+      // if(jobTypes[this.crew[0].job] === this.type){
+      //   console.log(this.ability);
+      //   return this.ability;
+      // } else{
+      //   console.log("Can't perform a mission yet.");
+      //   return "Can't perform a mission yet.";
+      // }
     }
     else{
       console.log("Can't perform a mission yet.");}
