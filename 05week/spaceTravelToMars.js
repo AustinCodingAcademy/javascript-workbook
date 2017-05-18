@@ -10,6 +10,44 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill) {
+  this.name          =          name;
+  this.job           =           job;
+  this.specialSkill  =  specialSkill;
+  this.ship          =          null;
+  this.enterShip = function (ship) {
+    this.ship = ship;
+    ship.crew.push(this);
+  };
+}
+
+// var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+function Ship(name, type, ability) {
+  this.name      =        name;
+  this.type      =        type;
+  this.ability   =     ability;
+  this.crew      =          [];
+  this.missionStatement = function() {
+    // check if there is a crew yet
+    if (this.crew.length === 0) {
+      return "Can't perform a mission yet.";
+    } else if
+    // Does the crewmember job match the type of ship
+    // if more that one crewmember, need a for loop or maybe forEach
+        (jobTypes[this.crew[0].job] === this.type) {
+      return this.ability;
+    } else {
+      // If crewmember does NOT match type of ship
+      return  "Can't perform a mission yet."
+    }
+  };
+}
+
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+
+
+// crewMember1.enterShip(mav);
 
 //tests
 if (typeof describe === 'function'){
