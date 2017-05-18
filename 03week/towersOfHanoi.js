@@ -7,11 +7,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const stacks = {
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
+ // let popped = stacks.a.pop();
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -19,24 +20,46 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  let popped = stacks[startStack].pop();
+  endStack = stacks[endStack].push(popped);
+  return (popped, endStack)
 
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
+  let lastStartIndex = stacks[startStack].length - 1;
+  let lastStartBlock = stacks[startStack][lastStartIndex];
+  let lastEndIndex = stacks[endStack].length - 1;
+  let lastEndBlock = stacks[endStacks][lastEndIndex];
+  // if(popped > lastStartBlock || popped > ) {
+  //   return false;
+  // }
+  // if (stacks.b.length === 0) {
+  //   return true;
+  // }
+  console.log(`last start block is: ${lastStartBlock} ${lastStartIndex}`)
 
 }
 
 function checkForWin() {
   // Your code here
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    return true;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  movePiece(startStack, endStack);
 
+  // let popped = stacks[startStack].pop();
+  // endStack = stacks[endStack].push(popped);
+  // return ('popped', endStack)
+  // }
 }
 
 function getPrompt() {

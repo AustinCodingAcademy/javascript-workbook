@@ -10,6 +10,48 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill) {
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+
+
+  this.enterShip = function(ship) {
+    this.ship = ship;
+    ship.crew.push(this)
+  };
+
+};
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+  this.misstionStatement = function() {
+    var that = this;
+    const found = this.crew.some((crewMember) => {
+      return jobTypes[crewMember.job] === this.type;
+    });
+
+    if(found){
+    return this.ability;
+  }
+  else {
+    return "Can't perform a mission yet.";
+  }
+};
+};
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// console.log(missionStatement);
+
+
+
 
 //tests
 if (typeof describe === 'function'){
