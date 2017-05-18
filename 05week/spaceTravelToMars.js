@@ -26,17 +26,10 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function() {
-    if (!this.crew[0]) {
-      return "Can't perform a mission yet.";
-    } else if (this.crew[0].job === 'programmer') {
-      return this.ability;
-    } else if (this.type === 'MAV' && this.crew[0].job === 'pilot') {
-      return this.ability;
-    } else if (this.type === 'Repair Ship' && this.crew[0].job === 'mechanic') {
-      return this.ability;
-    } else if (this.type === 'Main Ship' && this.crew[0].job === 'commander') {
-      return this.ability;
-    } else {
+    if (!this.crew.length) return "Can't perform a mission yet.";
+    for (let person in this.crew) {
+      if (this.crew[person].job === 'pilot') return this.ability;
+      if (this.type === jobTypes[this.crew[person].job]) return this.ability;
       return "Can't perform a mission yet.";
     }
   }
