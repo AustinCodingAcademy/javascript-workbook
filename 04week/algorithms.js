@@ -32,8 +32,7 @@ function bubbleSort(arr) {
 
 bubbleSort(a);
 console.log(a);
-}
-}
+
 
 function mergeSort(arr) {
   // Your code here
