@@ -8,25 +8,20 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const arr = [12,16,6,8,19,20,14];
+const arr = [];
 
-for (let i = 0; i < 100; i++) {
-  arr.push(getRandomInt(0, 100));
+for (let i = 0; i < 1000; i++) {
+  arr.push(getRandomInt(0, 1000));
 }
 
 function bubbleSort(arr) {
-  var swapped;
-  do {
-    swapped = false;
-    for (var i=0; i<arr.length-1; i++){
-      if (arr[i] > arr[i+1]){
-        var temp = arr[i];
-        arr[i] = arr[i+1];
-        arr[i+1] = temp;
-        swapped = true;
-      }
+  for (var i = 0; i < arr.length - 1; i++){
+    if (arr[i] > arr[i+1]) {
+      var temp = arr[i];
+      arr[i] = arr[i+1];
+      arr[i+1] = temp;
     }
-  } while (swapped);
+  }
 }
 bubbleSort(arr);
 console.log(arr);
