@@ -8,9 +8,15 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
+
+// console.log('whiteChecker:' + whiteChecker.symbol + 'blackChecker:' + blackChecker.symbol);
 
 function Board() {
   this.grid = [];
@@ -52,16 +58,51 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.checkers = [];
+  this.createCheckers = function() {
+
+    for (var i = 0; i <= 2; i++) {
+      for (var j = 1; j <= 7; j+=2) {
+        if ((i === 1) && (j % 2 !== 0)) (j = j - 1);
+        let whiteChecker = new Checker('white');
+        this.grid[i][j] = whiteChecker;
+        this.checkers.push(whiteChecker);
+      }
+    };
+
+    for (var i = 5; i <= 7; i++) {
+      for (var j = 1; j <= 7; j+=2) {
+        if ((i === 5 || i === 7) && (j % 2 !== 0)) (j = j - 1);
+        let blackChecker = new Checker('black');
+        this.grid[i][j] = blackChecker;
+        this.checkers.push(blackChecker);
+      }
+    };
+
+    console.log(this.checkers);
+
+  };
+
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column];
+  };
+
 }
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
+
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
+
   };
+
+  this.moveChecker = function(start, end) {
+    
+  }
 }
 
 function getPrompt() {
