@@ -26,12 +26,10 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
   this.missionStatement = function() {
-    if (!this.crew.length) return "Can't perform a mission yet.";
-    for (let person in this.crew) {
-      if (this.crew[person].job === 'pilot') return this.ability;
-      if (this.type === jobTypes[this.crew[person].job]) return this.ability;
-      return "Can't perform a mission yet.";
-    }
+    if (this.crew.some((person) => {
+      return jobTypes[person.job] === this.type;
+    })) return this.ability;
+    return "Can't perform a mission yet.";
   }
 }
 
