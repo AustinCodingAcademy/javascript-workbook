@@ -13,14 +13,11 @@ function CrewMember(name, job, specialSkill) {
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
-  // this.ship = null;
+  this.ship = null;
   this.enterShip = function(ship) {
-    this.ship = ship.name;
-    // console.log(ship.type);
-    // console.log(this.name);
-    ship.crew.push(this.name);
+    this.ship = ship;
+    ship.crew.push(this);
   };
-
 }
 
 var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
@@ -32,6 +29,25 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
 
+  this.missionStatement = function() {
+    const found = this.crew.some((crewMember) => {
+      return jobTypes[crewMember.job] === this.type;
+    });
+    if (found) {
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet.";
+    }
+  }
+
+//   this.missionStatement = function() {
+// console.log(this.crew.length + " dfsdfsdfsdf");
+//
+//     if (CrewMember.job !== 'programmer' || CrewMember.job !== this.type) {
+// console.log('sdfdfdffdfdfdf');
+//       return 'Can\'t perform a mission yet.';
+//     } else return this.ability;
+//   }
 }
 
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
