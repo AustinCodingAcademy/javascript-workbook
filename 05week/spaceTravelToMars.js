@@ -9,7 +9,27 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function crewMember(name, job, specialSkill, ship){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  
+}
+
+var jason = new crewMember('Jason Rowlett', 'pilot', 'aeronautics');
+console.log(jason);
+
+function Ship(name, type, ability, crew) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+}
+
+var oss = new Ship('Orbital Spaceship', 'OSS', 'Orbiting Earth at slow speed');
+console.log(oss);
 
 //tests
 if (typeof describe === 'function'){
