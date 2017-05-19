@@ -16,8 +16,6 @@ function Checker(color) {
   }
 }
 
-// console.log('whiteChecker:' + whiteChecker.symbol + 'blackChecker:' + blackChecker.symbol);
-
 function Board() {
   this.grid = [];
   // creates an 8x8 array, filled with null values
@@ -79,13 +77,11 @@ function Board() {
       }
     };
 
-    console.log(this.checkers);
-
   };
 
+// select the object checker to move:
   this.selectChecker = function(row, column) {
-    let checkerSelected = this.grid[row][column];
-    return checkerSelected;
+    return this.grid[row][column];
   };
 
 }
@@ -107,21 +103,29 @@ function Game() {
     let rowEnd = end[0];
     let colEnd = end[1];
 
-    if (this.grid[rowStart][colStart] !== null) {
-      if (this.grid[rowEnd][colEnd] !== null) {
-        console.log('There is already a checker piece there');
+    // if there is a checker at start to move:
+    if (this.board.grid[rowStart][colStart]) {
+      console.log('\nThat is a valid checker to move.');
+
+      // if the end space already has a checker there:
+      if (this.board.grid[rowEnd][colEnd]) {
+        console.log('That is NOT a valid space to move to.  Try again.\n');
         return false;
       } else {
 
-        selectChecker(rowStart, colStart);
-
-        this.grid[rowEnd][colEnd] = checkerSelected;
+        // if start is true and end is false, move checker there and nullify start position:
+        this.board.grid[rowEnd][colEnd] = this.board.selectChecker(rowStart, colStart);
+        this.board.grid[rowStart][colStart] = null;
+// console.log(this.board.grid);
       }
     } else {
-      console.log('There is no piece in that spot to move');
+
+      // if there is NO checker at start position:
+      console.log('\nThat is not a valid checker to move.  Try again.\n');
       return false;
     }
   }
+  
 }
 
 function getPrompt() {
