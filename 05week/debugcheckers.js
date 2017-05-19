@@ -16,12 +16,26 @@ function Checker(color) {
   (this.color === 'white')?this.symbol = String.fromCharCode(0x125CB):this.symbol = String.fromCharCode(0x125CF)
   // Your code here
 }
-//working on checker insertion, still need to sort out referencing board location.
+//Places checkers at starting points, working on moving
 function Board() {
   this.grid = [];
   this.checkers = [];
-  this.createCheckers = function(){
+  // creates an 8x8 array, filled with null values
+  this.createGrid = function() {
+    // loop to create the 8 rows
+    for (let row = 0; row < 8; row++) {
+      this.grid[row] = [];
+      // push in 8 columns of nulls
+      for (let column = 0; column < 8; column++) {
+        this.grid[row].push(null);
+      }
+    }
+  };
 
+  //creates the starting checkerboard
+  this.createCheckers = function(){
+    let whiteChecker = new Checker('white');
+    let blackChecker = new Checker('black');
     let whitePositions = [
       [0, 1], [0, 3], [0, 5], [0, 7],
       [1, 0], [1, 2], [1, 4], [1, 6],
@@ -46,17 +60,6 @@ function Board() {
     this.selectChecker = function(row, col){
       return this.grid[row][col]
     }
-  // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
-    // loop to create the 8 rows
-    for (let row = 0; row < 8; row++) {
-      this.grid[row] = [];
-      // push in 8 columns of nulls
-      for (let column = 0; column < 8; column++) {
-        this.grid[row].push(null);
-      }
-    }
-  };
 
   // prints out the board
   this.viewGrid = function() {
@@ -85,7 +88,7 @@ function Board() {
   };
 
   // Your code here
-}
+  }
 }
 function Game() {
 
@@ -105,20 +108,20 @@ function Game() {
   }
 }
 
-function getPrompt() {
-  game.board.viewGrid();
-  rl.question('which piece?: ', (whichPiece) => {
-    rl.question('to where?: ', (toWhere) => {
-      game.moveChecker(whichPiece, toWhere);
-      getPrompt();
-    });
-  });
-}
+// function getPrompt() {
+//   game.board.viewGrid();
+  // rl.question('which piece?: ', (whichPiece) => {
+  //   rl.question('to where?: ', (toWhere) => {
+    //   game.moveChecker(whichPiece, toWhere);
+    //   getPrompt();
+    // };
 
-// const game = new Game();
+
+
+const game = new Game();
 game.start();
-board.createGrid();
-board.createCheckers();
+game.board.createGrid();
+game.board.createCheckers();
 
 // Tests
 
@@ -150,5 +153,5 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-  getPrompt();
+  // getPrompt();
 }
