@@ -7,14 +7,71 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function Checker() {
+function Checker(color) { //fn to create actual checkers to be placed in play
   // Your code here
+  this.symbol = null; //??
+  if (color === 'white') { //setting appropriate checker for white moves
+    this.symbol = String.fromCharCode(0x125CB); //setting checker for white
+  } else if (color === 'black') { //setting checker for black
+    this.symbol = String.fromCharCode(0x125CF) //setting checker for black;
+  }
 }
 
-function Board() {
-  this.grid = [];
-  // creates an 8x8 array, filled with null values
+function Board() { //fn to build nd maintain the board
+  this.grid = []; // emty array to hold the board indices
+  this.checkers = []; //empty array to keep track of checker indices
+  this.createCheckers = function() { //fn within Board to generate starting positions of checkers
+    var whiteChecker = new Checker('white'); //setting const to create checker from above Checker fn
+    var blackChecker = new Checker('black'); //same as above for black instead of white
+    function storeCoordinate(xVal, yVal, array) {
+      array.push({
+        x: xVal,
+        y: yVal
+      });
+    }
+
+    var checkers = [];
+    storeCoordinate(0, 1, checkers);
+    storeCoordinate(0, 3, checkers);
+    storeCoordinate(0, 5, checkers);
+    storeCoordinate(0, 7, checkers);
+    storeCoordinate(1, 0, checkers);
+    storeCoordinate(1, 2, checkers);
+    storeCoordinate(1, 4, checkers);
+    storeCoordinate(1, 6, checkers);
+    storeCoordinate(2, 1, checkers);
+    storeCoordinate(2, 3, checkers);
+    storeCoordinate(2, 5, checkers);
+    storeCoordinate(2, 7, checkers);
+    storeCoordinate(5, 0, checkers);
+    storeCoordinate(5, 2, checkers);
+    storeCoordinate(5, 4, checkers);
+    storeCoordinate(5, 6, checkers);
+    storeCoordinate(6, 1, checkers);
+    storeCoordinate(6, 3, checkers);
+    storeCoordinate(6, 5, checkers);
+    storeCoordinate(6, 7, checkers);
+    storeCoordinate(7, 0, checkers);
+    storeCoordinate(7, 2, checkers);
+    storeCoordinate(7, 4, checkers);
+    storeCoordinate(7, 6, checkers);
+
+
+    // to loop through coordinate values
+    for (var i = 0; i < checkers.length; i++) {
+      var x = checkers[i].x;
+      var y = checkers[i].y;
+      if (x < 3 && ) {
+        checkers.push(whiteChecker);
+      }
+    }
+    console.log(checkers);
+    console.log(checkers[0].x);
+    console.log(checkers[0].y);
+
+
+
+  }
   this.createGrid = function() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
@@ -24,8 +81,10 @@ function Board() {
         this.grid[row].push(null);
       }
     }
-  };
-
+  }
+  this.selectChecker = function(row, column) { //'helper' function. this should return the checker at a particlar location on the grid
+    return Checker.this.grid[i];
+  }
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
@@ -52,17 +111,25 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
-}
+} // Your code here
+
+
 
 function Game() {
 
-  this.board = new Board();
+  this.board = new Board(); //setting up new board for play
 
-  this.start = function() {
+  this.start = function() { //method to call in creation of grid array(locations) and checker creation
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
+
   };
+  this.moveChecker = function(start, end) { //method to facilitate and track movement of checkers
+    var checker = selectChecker(); //creating place to store result of select checker which takes row and column as arguments
+    checker = null; //setting var to null since it doesn't exist here yet I think----??????
+
+  }
 }
 
 function getPrompt() {
@@ -76,6 +143,7 @@ function getPrompt() {
 }
 
 const game = new Game();
+console.log('game', game);
 game.start();
 
 
