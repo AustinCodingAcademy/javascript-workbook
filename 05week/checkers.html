@@ -1,14 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="./debugcheckers.js">
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+
+<!-- <script>
 'use strict';
 
-const assert = require('assert');
+<!-- const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
+}); -->
 
 
-function Checker(color) {
+<!-- function Checker(color) {
   (this.color === 'white')?this.symbol = String.fromCharCode(0x125CB):this.symbol = String.fromCharCode(0x125CF)
   // Your code here
 }
@@ -73,15 +89,15 @@ function Board() {
 }
 function Game() {
 
-  this.board = new Board();
+  this.board = new Board(); -->
 
-  this.start = function() {
+  <!-- this.start = function() {
     this.board.createGrid();
     // Your code here
   };
-}
+} -->
 
-function getPrompt() {
+<!-- function getPrompt() {
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
@@ -89,16 +105,16 @@ function getPrompt() {
       getPrompt();
     });
   });
-}
+} -->
 
-const game = new Game();
+<!-- const game = new Game();
 game.start();
 board.createGrid();
-board.createCheckers();
+board.createCheckers(); -->
 
 // Tests
 
-if (typeof describe === 'function') {
+<!-- if (typeof describe === 'function') {
   describe('Game', () => {
     it('should have a board', () => {
       assert.equal(game.board.constructor.name, 'Board');
@@ -127,4 +143,5 @@ if (typeof describe === 'function') {
   });
 } else {
   getPrompt();
-}
+} -->
+<!-- </script> --> -->

@@ -1,11 +1,15 @@
+
+
+
+
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 
 function Checker(color) {
@@ -17,6 +21,7 @@ function Board() {
   this.grid = [];
   this.checkers = [];
   this.createCheckers = function(){
+
     let whitePositions = [
       [0, 1], [0, 3], [0, 5], [0, 7],
       [1, 0], [1, 2], [1, 4], [1, 6],
@@ -27,10 +32,20 @@ function Board() {
       [6, 1], [6, 3], [6, 5], [6, 7],
       [7, 0], [7, 2], [7, 4], [7, 6]
     ];
-    for(let i = 0; i < 11; i ++){
-      this.grid.push(whitePositions[i][row][col])
+    for(let i = 0; i < whitePositions.length; i ++){
+
+      let a = whitePositions[i][0];
+      let b = whitePositions[i][1];
+      this.grid[a][b]=whiteChecker;
+
+      let c = blackPositions[i][0];
+      let d = blackPositions[i][1];
+      this.grid[c][d]=blackChecker;
     }
-  }
+
+    this.selectChecker = function(row, col){
+      return this.grid[row][col]
+    }
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -71,14 +86,23 @@ function Board() {
 
   // Your code here
 }
+}
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
-    this.board.createGrid();
-    // Your code here
+  this.board.createGrid();
+
   };
+
+  this.moveChecker = function(start, end){
+
+    let checker = selectChecker(start[0], start[1]);
+    this.grid[[start[0]][start[1]]] = null;
+    this.grid[[end[0]][end[1]]] = checker;
+
+  }
 }
 
 function getPrompt() {
@@ -91,7 +115,7 @@ function getPrompt() {
   });
 }
 
-const game = new Game();
+// const game = new Game();
 game.start();
 board.createGrid();
 board.createCheckers();
