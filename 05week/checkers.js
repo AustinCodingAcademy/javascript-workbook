@@ -79,10 +79,19 @@ function Board() {
 
   };
 
-// select the object checker to move:
+  // select the object checker to move:
   this.selectChecker = function(row, column) {
     return this.grid[row][column];
   };
+
+  // killing a checker:
+  function killChecker(position) {
+    let row = position[0];
+    let col = position[1];
+
+    this.grid[row][col] = null;
+    this.checkers.splice(this.board.selectChecker(row, col), 1);
+  }
 
 }
 
@@ -124,8 +133,15 @@ function Game() {
       console.log('\nThat is not a valid checker to move.  Try again.\n');
       return false;
     }
+
+    // if rowStart - rowEnd === 2, romove checker:
+    if (Math.abs(rowStart - rowEnd) === 2) {
+      let rowJump =  Math.abs(rowEnd - 1);
+      let colJump =  Math.abs(colEnd - 1);
+      this.board.killChecker.toString(rowJump + colJump);
+    }
   }
-  
+
 }
 
 function getPrompt() {
