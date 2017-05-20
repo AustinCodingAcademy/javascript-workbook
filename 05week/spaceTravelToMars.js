@@ -10,6 +10,40 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember (name,job,specialSkill) { //creating a new class for crew members with 3 arguments
+  this.name = name; //assign a name
+  this.job = job; //assign a job
+  this.specialSkill = specialSkill; //assign a skill
+  this.ship = null; //declare a ship variable and don't assign anything yet
+
+  this.enterShip = function (ship) { //declare enterShip method to enter a ship
+    this.ship = ship; //assign a ship variable
+    ship.crew.push(this); //and push the value inside of crew array in Ship. Crew array can't be empty anymore.
+  }; //enterShip method ends
+} //CrewMember class ends
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry'); //instantiation of CrewMember with given parameters
+
+function Ship (name,type,ability) { //creating a new class for ship with 3 arguments
+  this.name = name; //assign a name
+  this.type = type; //assign a type
+  this.ability = ability; //assign an ability
+  this.crew = []; //declare an empty array and assign to crew
+
+  this.missionStatement = function () { //creating a method to perform a misson
+    const correctJob = this.crew.some((person) => { //if crew array isn't empty
+      return jobTypes[person.job] === this.type; //return crew member's job and type...
+    });// in other words look for key-value match for each pair in jobTypes object.
+
+    if (correctJob) { //if it matches
+      return this.ability; //return ship's ability
+    } else { //otherwise
+      return "Can't perform a mission yet."; //return this string
+    }
+  }; //missionStatement method ends
+} //Ship class ends
+var mav = new Ship ('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit'); //instantiation of Ship with given parameters
+rick.enterShip(mav);
+console.log(mav.missionStatement());
 
 //tests
 if (typeof describe === 'function'){
