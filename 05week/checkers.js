@@ -91,8 +91,8 @@ function Board() {
 console.log("killChecker position: " + position);
 console.log("killChecker row: " + position[0]);
 console.log("killChecker col: " + col);
-
-    this.checkers.splice(this.board.selectChecker(row, col), 1);
+console.log('selectChecker to delete' + this.selectChecker(row, col) );
+    this.checkers.splice(this.selectChecker(row, col), 1);
     this.grid[row][col] = null;
 
   }
