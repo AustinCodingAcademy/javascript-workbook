@@ -56,9 +56,10 @@ function Board() {
       let d = blackPositions[i][1];
       this.grid[c][d]=blackChecker;
     }
-
-    this.selectChecker = function(row, col){
-      return this.grid[row][col]
+  }
+   
+  this.selectChecker = function(row, col){
+      return this.grid[row][col];
     }
 
   // prints out the board
@@ -86,10 +87,11 @@ function Board() {
     }
     console.log(string);
   };
+}
+
 
   // Your code here
-  }
-}
+  
 function Game() {
 
   this.board = new Board();
@@ -99,14 +101,24 @@ function Game() {
 
   };
 
+
   this.moveChecker = function(start, end){
+      console.log(start, end);
 
-    let checker = selectChecker(start[0], start[1]);
-    this.grid[[start[0]][start[1]]] = null;
-    this.grid[[end[0]][end[1]]] = checker;
+      let startrow = start.toString().split('')[0];
+      let startcol = start.toString().split('')[1];
+      let endrow  = end.toString().split('')[0];
+      let endcol = end.toString().split('')[1];
 
-  }
-}
+      console.log(this.board.selectChecker(startrow,startcol));
+
+      let checker = this.board.selectChecker(startrow, startcol);
+      console.log(this.board.grid[startrow][startcol]);
+      this.board.grid[startrow][startcol] = null;
+      this.board.grid[endrow][endcol] = checker;
+      viewGrid();
+
+  };
 
 // function getPrompt() {
 //   game.board.viewGrid();
@@ -122,7 +134,8 @@ const game = new Game();
 game.start();
 game.board.createGrid();
 game.board.createCheckers();
-
+game.viewGrid();
+game.moveChecker(52,43);
 // Tests
 
 if (typeof describe === 'function') {
@@ -154,4 +167,5 @@ if (typeof describe === 'function') {
   });
 } else {
   // getPrompt();
+}
 }
