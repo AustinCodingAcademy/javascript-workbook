@@ -85,12 +85,16 @@ function Board() {
   };
 
   // killing a checker:
-  function killChecker(position) {
+  this.killChecker = function(position) {
     let row = position[0];
     let col = position[1];
+console.log("killChecker position: " + position);
+console.log("killChecker row: " + position[0]);
+console.log("killChecker col: " + col);
 
-    this.grid[row][col] = null;
     this.checkers.splice(this.board.selectChecker(row, col), 1);
+    this.grid[row][col] = null;
+
   }
 
 }
@@ -135,10 +139,19 @@ function Game() {
     }
 
     // if rowStart - rowEnd === 2, romove checker:
+console.log("rowstart-rowEnd: " + Math.abs(rowStart - rowEnd));
     if (Math.abs(rowStart - rowEnd) === 2) {
-      let rowJump =  Math.abs(rowEnd - 1);
-      let colJump =  Math.abs(colEnd - 1);
-      this.board.killChecker.toString(rowJump + colJump);
+      let posArray = [];
+console.log('rowStart: ' + rowStart);
+console.log('rowEnd: ' + rowEnd);
+// console.log(      +rowStart + +rowEnd         );
+console.log(      parseInt(rowStart) + parseInt(rowEnd)         );
+
+      posArray.push( ( parseInt(rowStart) + parseInt(rowEnd) ) / 2  );
+      posArray.push( ( parseInt(colStart) + parseInt(colEnd) ) / 2  );
+      // this.board.killChecker(rowJump + colJump);
+      this.board.killChecker(posArray);
+
     }
   }
 
