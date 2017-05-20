@@ -8,9 +8,15 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
   // Your code here
+  }
 }
+
 
 function Board() {
   this.grid = [];
@@ -39,6 +45,7 @@ function Board() {
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
           rowOfCheckers.push(this.grid[row][column].symbol);
+          // rowOfCheckers.push('hello');
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -52,6 +59,14 @@ function Board() {
     console.log(string);
   };
 
+  this.checkers = [];
+
+  this.createCheckers = function() {
+    const whiteChecker = new Checker('white');
+    const blackChecker = new Checker('black');
+    this.grid[0][1] = whiteChecker;
+    this.grid[5][0] = blackChecker;
+  }
   // Your code here
 }
 function Game() {
@@ -61,6 +76,8 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
+
   };
 }
 

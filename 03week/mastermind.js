@@ -31,21 +31,21 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
 
-//have to split the strings into arrays.  can't reassign the solution or guess so reassign to new names splitSolution and splitGuess
+//have to split the strings into arrays.  can't reassign solution or guess so reassign to new names splitSolution and splitGuess
   let splitSolution = solution.split("")
   let splitGuess = guess.split("")
 
   var red = 0;
   var white = 0;
 
-// red pegs
+// red pegs indicating same location and same letter as solution
   for(var i = 0; i < 4; i++) {
     if (splitGuess[i] === splitSolution[i]) {
       red++
     }
   }
 
-//white pegs
+//white pegs indicating same letter as solution but in different location
   for(var i = 0; i < splitSolution.length; i++) {
     var ispresent = splitGuess.indexOf(splitSolution[i]);
     if (ispresent > -1) {
@@ -57,13 +57,16 @@ function generateHint(solution, guess) {
 // accounting for duplicates
   white -= red
 
+//returns the hint
   return(red + '-' + white);
 }
 
 function mastermind(guess) {
+  // pass in the guess function
   if(solution === guess) {
     return("You guessed it!");
   } else {
+    // pushes the guess and the hint to the board
     return board.push(guess + generateHint(solution, guess))
   }
 
