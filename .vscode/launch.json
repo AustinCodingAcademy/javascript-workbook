@@ -12,7 +12,7 @@
             "type": "chrome",
             "request": "attach",
             "name": "Attach to Chrome",
-            "port": 9222,
+            "port": 8080,
             "webRoot": "${workspaceRoot}"
         }
     ]

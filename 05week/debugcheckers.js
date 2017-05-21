@@ -1,36 +1,29 @@
-
-
-
-
 'use strict';
 
-// const assert = require('assert');
-// const readline = require('readline');
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
+const assert = require('assert');
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-
+//The two kinds of checkers
 function Checker(color) {
-  if(color === 'white'){
+  if (color === 'white') {
     this.symbol = String.fromCharCode(0x125CF);
-  } else{
-    this.symbol =String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CB);
   }
-  // (this.color === 'white')?this.symbol = String.fromCharCode(0x125CB):this.symbol = String.fromCharCode(0x125CF)
-  // // Your code here
+
 }
 
-//Places checkers at starting points, working on moving
+//generates and prints the board and checkers.
 function Board() {
   this.grid = [];
   this.checkers = [];
-  // const whiteChecker = new Checker('white');
-  // const blackChecker = new Checker('black');
 
   // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
+  this.createGrid = function () {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -40,52 +33,66 @@ function Board() {
       }
     }
   };
-
-  this.createCheckers = function(){
+  //starting checkers positions
+  this.createCheckers = function () {
     let whitePositions = [
-      [0, 1], [0, 3], [0, 5], [0, 7],
-      [1, 0], [1, 2], [1, 4], [1, 6],
-      [2, 1], [2, 3], [2, 5], [2, 7]
+      [0, 1],
+      [0, 3],
+      [0, 5],
+      [0, 7],
+      [1, 0],
+      [1, 2],
+      [1, 4],
+      [1, 6],
+      [2, 1],
+      [2, 3],
+      [2, 5],
+      [2, 7]
     ];
 
 
     let blackPositions = [
-      [5, 0], [5, 2], [5, 4], [5, 6],
-      [6, 1], [6, 3], [6, 5], [6, 7],
-      [7, 0], [7, 2], [7, 4], [7, 6]
+      [5, 0],
+      [5, 2],
+      [5, 4],
+      [5, 6],
+      [6, 1],
+      [6, 3],
+      [6, 5],
+      [6, 7],
+      [7, 0],
+      [7, 2],
+      [7, 4],
+      [7, 6]
     ];
-    // for(let i = 0; i < 11; i ++){
-      const blackChecker = new Checker('black');
-      const whiteChecker = new Checker('white');
-    //   this.checkers.push(whitePositions[i][row][col]);
 
+    for (let i = 0; i < whitePositions.length; i++) {
 
-  for(let i = 0; i < whitePositions.length; i ++){
+      let a = whitePositions[i][0];
+      let b = whitePositions[i][1];
+      this.checkers.push(this.grid[a][b] = new Checker('white'));
 
-    let a = whitePositions[i][0];
-    let b = whitePositions[i][1];
-    this.grid[a][b]= new Checker('white');
+      let c = blackPositions[i][0];
+      let d = blackPositions[i][1];
+      this.checkers.push(this.grid[c][d] = new Checker('black'));
 
-    let c = blackPositions[i][0];
-    let d = blackPositions[i][1];
-    this.grid[c][d]= new Checker('black');
-
-  }
-}//createCheckers
-  this.selectChecker = function(row, col){
-      return this.grid[row][col];
-    };
-
-
-    this.grid[whitePositions[2]] = whiteChecker;
-    console.log((whitePositions[2][0][whitePositions[2][1]]));
-    console.log(blackPositions[1].length);
-
-
-
+    }
+  } //createCheckers close
+  //Grabs a checker
+  this.selectChecker = function (row, col) {
+    return this.grid[row][col];
+  };
+  //Kills a checker
+  this.killChecker = function (deadCheck) {
+    console.log(deadCheck[0], deadCheck[1]);
+    let checker = this.selectChecker(deadCheck[0], deadCheck[1]);
+    console.log(this.checkers.indexOf(checker));
+    console.log(this.checkers.splice(this.grid.indexOf(checker), 1));
+    console.log(this.grid[deadCheck[0]][deadCheck[1]] = null);
+  };
 
   // prints out the board
-  this.viewGrid = function() {
+  this.viewGrid = function () {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -111,52 +118,64 @@ function Board() {
   };
 
   // Your code here
-}//board
+} //board
 
 
-  // Your code here
+// Your code here
 
 function Game() {
 
   this.board = new Board();
 
-  this.start = function() {
+  this.start = function () {
     this.board.createGrid();
-    board.createCheckers();
-    game.viewGrid();
+    this.board.createCheckers();
+    this.board.viewGrid();
   };
 
 
-  this.moveChecker = function(start, end){
-      console.log(start, end);
+  this.moveChecker = function (start, end) {
+    console.log(start, end);
 
-      let startrow = start.toString().split('')[0];
-      let startcol = start.toString().split('')[1];
-      let endrow  = end.toString().split('')[0];
-      let endcol = end.toString().split('')[1];
+    let startRow = parseInt(start.toString().split('')[0]);
+    let startCol = parseInt(start.toString().split('')[1]);
+    let endRow = parseInt(end.toString().split('')[0]);
+    let endCol = parseInt(end.toString().split('')[1]);
 
-      console.log(this.board.selectChecker(startrow,startcol));
+    console.log((startRow) + (endRow));
+    console.log(startCol + endCol);
+    if (Math.abs(startRow - endRow) === 2) {
+      let killRow = ((startRow + endRow) / 2);
+      console.log(killRow);
+      let killCol = ((startCol + endCol) / 2);
+      console.log([killRow, killCol]);
+      this.board.killChecker([killRow, killCol]);
+    }
 
-      let checker = this.board.selectChecker(startrow, startcol);
-      console.log(this.board.grid[startrow][startcol]);
-      this.board.grid[startrow][startcol] = null;
-      this.board.grid[endrow][endcol] = checker;
-
-  };
-
-// function getPrompt() {
-//   game.board.viewGrid();
-  // rl.question('which piece?: ', (whichPiece) => {
-  //   rl.question('to where?: ', (toWhere) => {
-    //   game.moveChecker(whichPiece, toWhere);
-    //   getPrompt();
-    // };
-
+    let checker = this.board.selectChecker(startRow, startCol);
+    console.log(this.board.grid[startRow][startCol]);
+    this.board.grid[startRow][startCol] = null;
+    this.board.grid[endRow][endCol] = checker;
+  }
 
 
+};
 
-// const game = new Game();
-// game.start();
+function getPrompt() {
+  game.board.viewGrid();
+  rl.question('which piece?: ', (whichPiece) => {
+    rl.question('to where?: ', (toWhere) => {
+      game.moveChecker(whichPiece, toWhere);
+      getPrompt();
+    })
+  })
+};
+
+
+
+
+const game = new Game();
+game.start();
 // board.createCheckers();
 // game.viewGrid();
 // game.moveChecker(52,43);
@@ -191,6 +210,5 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-  // getPrompt();
-}
+  getPrompt();
 }
