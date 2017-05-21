@@ -37,13 +37,26 @@ function CrewMember(name, job, specialSkill) {
 // using a for loop to itirate through the crew and check for their job ability
 // it compares the jobTypes ith the currentJob
 // if it cannot perform the job, returns a message
+// Also can be done with a => function like explained during class, commented out
 
 function Ship(name, type, ability) {
   this.name = name;
   this.type = type;
   this.ability = ability;
   this.crew = [];
+
   this.missionStatement = function() {
+//     var that = this;
+//     const found = this.crew.some((CrewMember) => {
+//       return jobTypes[CrewMember.job] === this.type;
+//     });
+//     if (found) {
+//       return this.ability;
+//     } else {
+//       return "Can't perform a mission yet."
+//     }
+//   }
+// }
     for (var i = 0; i < this.crew.length; i++) {
       var currentJob = this.crew[i].job
       if (jobTypes[currentJob] === this.type) {
@@ -53,7 +66,7 @@ function Ship(name, type, ability) {
     return "Can't perform a mission yet."
   }
 }
-var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 
 //tests
 if (typeof describe === 'function') {
