@@ -54,32 +54,22 @@ function Board() {
       [6, 1], [6, 3], [6, 5], [6, 7],
       [7, 0], [7, 2], [7, 4], [7, 6]
     ];
-    // for(let i = 0; i < 11; i ++){
-      const blackChecker = new Checker('black');
-      const whiteChecker = new Checker('white');
-    //   this.checkers.push(whitePositions[i][row][col]);
 
-
-  for(let i = 0; i < whitePositions.length; i ++){
+    for(let i = 0; i < whitePositions.length; i ++){
 
     let a = whitePositions[i][0];
     let b = whitePositions[i][1];
-    this.grid[a][b]= new Checker('white');
+      this.checkers.push(this.grid[a][b] = new Checker('white'));
 
     let c = blackPositions[i][0];
     let d = blackPositions[i][1];
-    this.grid[c][d]= new Checker('black');
+      this.checkers.push(this.grid[c][d] = new Checker('black'));
 
   }
 }//createCheckers
   this.selectChecker = function(row, col){
       return this.grid[row][col];
     };
-
-
-    this.grid[whitePositions[2]] = whiteChecker;
-    console.log((whitePositions[2][0][whitePositions[2][1]]));
-    console.log(blackPositions[1].length);
 
 
 
@@ -122,8 +112,8 @@ function Game() {
 
   this.start = function() {
     this.board.createGrid();
-    board.createCheckers();
-    game.viewGrid();
+    this.board.createCheckers();
+    this.board.viewGrid();
   };
 
 
@@ -134,6 +124,8 @@ function Game() {
       let startcol = start.toString().split('')[1];
       let endrow  = end.toString().split('')[0];
       let endcol = end.toString().split('')[1];
+
+
 
       console.log(this.board.selectChecker(startrow,startcol));
 
