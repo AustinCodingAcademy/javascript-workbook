@@ -126,8 +126,7 @@ function Game() {
       // if the end space already has a checker there, or is not valid space to move to:
       if ((this.board.grid[rowEnd][colEnd]) || (!validSpace)) {
         console.log('That is NOT a valid space to move to.  Try again.\n');
-        alertTerminal();
-        alertTerminal();
+        alertTerminal2();
         return false;
       } else {
 
@@ -142,8 +141,7 @@ function Game() {
 
       // if there is NO checker at start position:
       console.log('\nThat is not a valid checker to move.  Try again.\n');
-      alertTerminal();
-      alertTerminal();
+      alertTerminal2();
       return false;
     }
 
@@ -164,9 +162,6 @@ function Game() {
 }
 
 function getPrompt() {
-//   function alertTerminal(){
-//   console.log("\x07");
-// }
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
@@ -178,7 +173,12 @@ function getPrompt() {
 
 function alertTerminal(){
   // console.log('\u0007');
-  beep(3, 100);
+  beep();
+}
+
+function alertTerminal2(){
+  // console.log('\u0007');
+  beep(2);
 }
 
 const game = new Game();
