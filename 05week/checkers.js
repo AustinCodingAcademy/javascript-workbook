@@ -1,5 +1,7 @@
 'use strict';
 
+var beep = require('beepbeep')
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -108,7 +110,6 @@ function Game() {
     // then, ditto to createCheckers, which puts game start pieces on the board
     this.board.createGrid();
     this.board.createCheckers();
-
   };
 
   this.moveChecker = function(start, end) {
@@ -176,7 +177,8 @@ function getPrompt() {
 }
 
 function alertTerminal(){
-  console.log('\u0007');
+  // console.log('\u0007');
+  beep(3, 100);
 }
 
 const game = new Game();
