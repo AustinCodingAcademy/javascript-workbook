@@ -26,6 +26,7 @@ function Board() {
       // push in 8 columns of nulls
       for (let column = 0; column < 8; column++) {
         this.grid[row].push(null);
+
       }
     }
   };
@@ -33,6 +34,8 @@ function Board() {
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
+    alertTerminal();
+
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
@@ -97,6 +100,7 @@ function Board() {
 function Game() {
   // when game() is called, create a new Board, and call it this board.
   this.board = new Board();
+
   // then start the game (which is a function) -> so call it this.start
   this.start = function() {
     // call createGrid function, which is a function inside board(),..this.board
@@ -120,18 +124,24 @@ function Game() {
       // if the end space already has a checker there:
       if (this.board.grid[rowEnd][colEnd]) {
         console.log('That is NOT a valid space to move to.  Try again.\n');
+        alertTerminal();
+        alertTerminal();
         return false;
       } else {
 
         // if start is true and end is false, move checker there and nullify start position:
+        // * But don't remove piece from checkers array *
         this.board.grid[rowEnd][colEnd] = this.board.selectChecker(rowStart, colStart);
         this.board.grid[rowStart][colStart] = null;
 // console.log(this.board.grid);
+
       }
     } else {
 
       // if there is NO checker at start position:
       console.log('\nThat is not a valid checker to move.  Try again.\n');
+      alertTerminal();
+      alertTerminal();
       return false;
     }
 
@@ -152,6 +162,9 @@ function Game() {
 }
 
 function getPrompt() {
+//   function alertTerminal(){
+//   console.log("\x07");
+// }
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
@@ -161,7 +174,12 @@ function getPrompt() {
   });
 }
 
+function alertTerminal(){
+  console.log('\u0007');
+}
+
 const game = new Game();
+
 game.start();
 
 
