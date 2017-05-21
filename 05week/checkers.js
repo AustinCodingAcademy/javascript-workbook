@@ -58,7 +58,7 @@ function Board() {
 
   this.checkers = [];
   this.createCheckers = function() {
-
+    // 1) Create all white checkers on the grid, then add same to checkers array
     for (var i = 0; i <= 2; i++) {
       for (var j = 1; j <= 7; j+=2) {
         if ((i === 1) && (j % 2 !== 0)) (j = j - 1);
@@ -67,7 +67,7 @@ function Board() {
         this.checkers.push(whiteChecker);
       }
     };
-
+    // 2) Create all black checkers on the grid, then add same to checkers array
     for (var i = 5; i <= 7; i++) {
       for (var j = 1; j <= 7; j+=2) {
         if ((i === 5 || i === 7) && (j % 2 !== 0)) (j = j - 1);
@@ -84,23 +84,24 @@ function Board() {
     return this.grid[row][column];
   };
 
-  // killing a checker:
+  // killing a checker: 1)
   this.killChecker = function(position) {
     let row = position[0];
     let col = position[1];
     this.checkers.splice(this.selectChecker(row, col), 1);
     this.grid[row][col] = null;
-
   }
 
 }
 
 function Game() {
-
+  // when game() is called, create a new Board, and call it this board.
   this.board = new Board();
-
+  // then start the game (which is a function) -> so call it this.start
   this.start = function() {
-
+    // call createGrid function, which is a function inside board(),..this.board
+    //  -> so call it this.board.createGrid()
+    // then, ditto to createCheckers, which puts game start pieces on the board
     this.board.createGrid();
     this.board.createCheckers();
 
@@ -142,8 +143,9 @@ function Game() {
       posArray.push( ( parseInt(colStart) + parseInt(colEnd) ) / 2  );
       // this.board.killChecker(rowJump + colJump);
       this.board.killChecker(posArray);
-console.log(this.board.grid);
-console.log(this.board.checkers + 'fsdfsdf');
+
+      console.log(this.board.grid);
+      console.log(this.board.checkers + 'fsdfsdf');
     }
   }
 
