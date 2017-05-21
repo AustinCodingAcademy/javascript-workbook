@@ -33,7 +33,7 @@ function Ship(name, type, ability) {
       return jobTypes[crewMember.job] === this.type;
     });
     if (rightJob) {
-     return this.ability;
+      return this.ability;
     } else {
       return "Can't perform a mission yet.";
     }
