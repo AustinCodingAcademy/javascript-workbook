@@ -116,13 +116,14 @@ function Game() {
     let colStart = start[1];
     let rowEnd = end[0];
     let colEnd = end[1];
+    let validSpace = (rowEnd % 2) - (colEnd % 2);
 
     // if there is a checker at start to move:
     if (this.board.grid[rowStart][colStart]) {
       console.log('\nThat is a valid checker to move.');
 
-      // if the end space already has a checker there:
-      if (this.board.grid[rowEnd][colEnd]) {
+      // if the end space already has a checker there, or is not valid space to move to:
+      if ((this.board.grid[rowEnd][colEnd]) || (!validSpace)) {
         console.log('That is NOT a valid space to move to.  Try again.\n');
         alertTerminal();
         alertTerminal();
