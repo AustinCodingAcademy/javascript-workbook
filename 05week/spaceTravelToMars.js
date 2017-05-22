@@ -34,7 +34,7 @@ function Ship(name, type, ability) {
       return "Can't perform a mission yet.";
     } else if
     // Does the crewmember job match the type of ship
-    // if more that one crewmember, need a for loop or maybe forEach
+    // if more that one crewmember, need a for loop or maybe includes
         (jobTypes[this.crew[0].job] === this.type) {
       return this.ability;
     } else {

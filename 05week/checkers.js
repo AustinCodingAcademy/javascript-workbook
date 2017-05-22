@@ -8,8 +8,13 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  if (color === 'white'){
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
@@ -53,6 +58,47 @@ function Board() {
   };
 
   // Your code here
+  this.checkers = [];
+  this.createCheckers = (() => {
+    var whitePositions =
+    [  [0, 1], [0, 3], [0, 5], [0, 7],
+       [1, 0], [1, 2], [1, 4], [1, 6],
+       [2, 1], [2, 3], [2, 5], [2, 7]  ];
+
+    var blackPositions =
+    [  [5, 0], [5, 2], [5, 4], [5, 6],
+       [6, 1], [6, 3], [6, 5], [6, 7],
+       [7, 0], [7, 2], [7, 4], [7, 6]  ];
+
+    const whiteChecker  = new Checker('white');
+    const blackChecker  = new Checker('black');
+
+    for (var w = 0; w < whitePositions.length; w++) {
+      const w0 = whitePositions[w][0];
+      const w1 = whitePositions[w][1];
+      this.grid[w0][w1] = whiteChecker;
+      this.checkers.push(this.grid);
+    }
+
+    for (var b = 0; b < blackPositions.length; b++) {
+      const b0 = blackPositions[b][0];
+      const b1 = blackPositions[b][1];
+      this.grid[b0][b1] = blackChecker;
+      this.checkers.push(this.grid);
+    }
+  });
+
+  this.selectChecker = ((row, column) => {
+    return this.grid[row][column];
+  });
+
+  this.killChecker = ((position) => {
+    const row = position[0];
+    const col = position[1];
+    this.checkers.splice(this.selectChecker(row, col), 1);
+    this.grid[row][col] = null;
+
+  });
 }
 function Game() {
 
@@ -61,7 +107,25 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
+
+  this.moveChecker = ((start, end) => {
+    const ysgRow    = start[0];
+    const ysgColumn = start[1];
+    const ishRow    =   end[0];
+    const ishColumn =   end[1];
+    this.board.grid[ishRow][ishColumn] = this.board.selectChecker(ysgRow, ysgColumn);
+    this.board.grid[ysgRow][ysgColumn] = null;
+
+    if (Math.abs(ysgRow - ishRow) === 2) {
+      const kc = [];
+
+      kc.push( ( parseInt(ysgRow) + parseInt(ishRow) ) / 2  );
+      kc.push( ( parseInt(ysgColumn) + parseInt(ishColumn) ) / 2  );
+      this.board.killChecker(kc);
+    }
+  });
 }
 
 function getPrompt() {
