@@ -29,8 +29,8 @@ function Ship(name, type, ability) {
   this.missionStatement = function () {
     if (this.crew.length) {
       if (this.crew.some((crewmember) => {
-          return jobTypes[crewmember.job] === this.type
-        })) {
+        return jobTypes[crewmember.job] === this.type
+      })) {
         return this.ability;
       } else {
         return "Can't perform a mission yet.";
