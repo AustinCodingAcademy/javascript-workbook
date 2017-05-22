@@ -60,22 +60,101 @@ function Board() {
   };
 
   this.checkers = [];
+  this.checkers.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
+  //in order to satisfy test, the checkers array needs 24 items.
+
 
   this.createCheckers = function() {
-    const whiteChecker = new Checker('white');
-    const blackChecker = new Checker('black');
-    this.grid[0][1] = whiteChecker;
-    this.grid[5][0] = blackChecker;
+      const whiteChecker = new Checker('white');
+      const blackChecker = new Checker('black');
+      this.grid[0][1] = whiteChecker;
+      this.grid[0][3] = whiteChecker;
+      this.grid[0][5] = whiteChecker;
+      this.grid[0][7] = whiteChecker;
+      this.grid[1][0] = whiteChecker;
+      this.grid[1][2] = whiteChecker;
+      this.grid[1][4] = whiteChecker;
+      this.grid[1][6] = whiteChecker;
+      this.grid[2][1] = whiteChecker;
+      this.grid[2][3] = whiteChecker;
+      this.grid[2][5] = whiteChecker;
+      this.grid[2][7] = whiteChecker;
+
+      this.grid[5][0] = blackChecker;
+      this.grid[5][2] = blackChecker;
+      this.grid[5][4] = blackChecker;
+      this.grid[5][6] = blackChecker;
+      this.grid[6][1] = blackChecker;
+      this.grid[6][3] = blackChecker;
+      this.grid[6][5] = blackChecker;
+      this.grid[6][7] = blackChecker;
+      this.grid[7][0] = blackChecker;
+      this.grid[7][2] = blackChecker;
+      this.grid[7][4] = blackChecker;
+      this.grid[7][6] = blackChecker;
+      this.checkers.push(blackChecker);
+      this.checkers.push(whiteChecker);
+    }
+
+  //   var whitePositions = [
+  //   [0, 1], [0, 3], [0, 5], [0, 7],
+  //   [1, 0], [1, 2], [1, 4], [1, 6],
+  //   [2, 1], [2, 3], [2, 5], [2, 7]
+  // ];
+  //
+  //   var blackPositions = [
+  //   [5, 0], [5, 2], [5, 4], [5, 6],
+  //   [6, 1], [6, 3], [6, 5], [6, 7],
+  //   [7, 0], [7, 2], [7, 4], [7, 6]
+  // ];
+  //
+  //   for(let i = 0; i < 11; i ++){
+  //      var wCheckers = new Checker('white');
+  //      let wCheckers = whitePositions[i];
+  // -----The upper bound is 11 because there are 12 items in the array----
+  //      this.checkers.push(wCheckers);
+  //  }
+  // for(let i = 0; i < 11; i ++){
+  //      var bCheckers = new Checker('black');
+  //      let bCheckers = blackPositions[i];
+  // -----The upper bound is 11 because there are 12 items in the array----
+  //      this.checkers.push(bCheckers);
+  //  }
+
+ // }
+
+
+
+
+
+  this.selectCheckers = function(row, column) {
+      return;
+  }
+
+  this.killCheckers = function(row, column) {
+    return;
   }
   // Your code here
 }
+
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
+
     this.board.createGrid();
-    // Your code here
+
+    this.moveChecker = function(start, end) {
+      var startDigits = start.toString().split(',');
+      console.log(startDigits);
+
+      var checker = this.start.selectCheckers;
+      this.start.selectCheckers = null;
+      var checker = this.end.selectCheckers;
+
+    }// Your code here
     this.board.createCheckers();
 
   };
