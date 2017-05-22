@@ -58,7 +58,7 @@ function Board() {
     }
     console.log(string);
   };
-  
+
   // populates the grid with checkers
   this.createCheckers = () => {
     // loops through the 8 rows
@@ -70,10 +70,13 @@ function Board() {
         // sets current color based on the current row
         let color = (row < 3 ? 'white' : 'black');
         // alternates cells to populate with either white or black checkers
+        // then pushes checker to array named checkers
         if (row % 2 === 0 && col % 2 === 1) {
           this.grid[row][col] = new Checker(color);
+          this.checkers.push(this.grid[row][col]);
         } else if (row % 2 === 1 && col % 2 === 0) {
           this.grid[row][col] = new Checker(color);
+          this.checkers.push(this.grid[row][col]);
         }
       }
     }
@@ -88,12 +91,17 @@ function Game() {
     this.board.createCheckers();
   };
   this.moveChecker = (moveFrom, moveTo) => {
-    const mF = moveFrom.splice('');
-    const mT = moveTo.splice('');
-
+    const start = moveFrom.split('');
+    const end = moveTo.split('');
+    this.board.grid[end[0]][end[1]] = this.board.grid[start[0]][start[1]];
+    this.board.grid[start[0]][start[1]] = null;
   };
-  this.changeTurn = () => {
-    this.turn = (this.turn === 'white' ? 'black' : 'white');
+  this.checkValid = (start, end) => {
+    if (start[0] % 2 === 0 && start[1] % 2 === 0) return false;
+    else if (start[0] % 2 === 1 && start[1] % 2 === 1) return false;
+    else if (end[0] % 2 === 0 && end[1] % 2 === 0) return false;
+    else if (end[0] % 2 === 1 && end[1] % 2 === 1) return false;
+    else return true;
   };
 }
 
