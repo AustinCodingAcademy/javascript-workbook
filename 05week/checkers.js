@@ -8,8 +8,12 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CF);
+  } else {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
 }
 
 function Board() {
@@ -52,15 +56,28 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.createCheckers = () => {
+    for (let row = 0; row < 8; row++) {
+      if (row === 3 || row === 4) continue;
+      for (let col = 0; col < 8; col++) {
+        let color = (row < 3 ? 'white' : 'black');
+        if (row % 2 === 0 && col % 2 === 1) {
+          this.grid[row][col] = new Checker(color);
+        } else if (row % 2 === 1 && col % 2 === 0) {
+          this.grid[row][col] = new Checker(color);
+        }
+      }
+    }
+  }
 }
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
   };
 }
 
