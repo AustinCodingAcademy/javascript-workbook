@@ -17,99 +17,108 @@ function Checker(color) { //fn to create actual checkers to be placed in play
   }
 }
 
-function Board() { //fn to build nd maintain the board
+function Board() { //class to build nd maintain the board
   this.grid = []; // emty array to hold the board indices
   this.checkers = []; //empty array to keep track of checker indices
+  const whiteChecker = new Checker('white'); //setting const to create checker from above Checker fn
+  const blackChecker = new Checker('black'); //same as above for black instead of white
   this.createCheckers = function() { //fn within Board to generate starting positions of checkers
-    var whiteChecker = new Checker('white'); //setting const to create checker from above Checker fn
-    var blackChecker = new Checker('black'); //same as above for black instead of white
-    function storeCoordinate(xVal, yVal, array) {
-      array.push({
-        x: xVal,
-        y: yVal
-      });
-    }
+    var whitePositions = [ //setting positions for white at beginning of game
+      [0, 1],
+      [0, 3],
+      [0, 5],
+      [0, 7],
+      [1, 0],
+      [1, 2],
+      [1, 4],
+      [1, 6],
+      [2, 1],
+      [2, 3],
+      [2, 5],
+      [2, 7]
+    ];
+    var blackPositions = [ //setting positions for black at beginnning of game
 
-    var checkers = [];
-    storeCoordinate(0, 1, checkers);
-    storeCoordinate(0, 3, checkers);
-    storeCoordinate(0, 5, checkers);
-    storeCoordinate(0, 7, checkers);
-    storeCoordinate(1, 0, checkers);
-    storeCoordinate(1, 2, checkers);
-    storeCoordinate(1, 4, checkers);
-    storeCoordinate(1, 6, checkers);
-    storeCoordinate(2, 1, checkers);
-    storeCoordinate(2, 3, checkers);
-    storeCoordinate(2, 5, checkers);
-    storeCoordinate(2, 7, checkers);
-    storeCoordinate(5, 0, checkers);
-    storeCoordinate(5, 2, checkers);
-    storeCoordinate(5, 4, checkers);
-    storeCoordinate(5, 6, checkers);
-    storeCoordinate(6, 1, checkers);
-    storeCoordinate(6, 3, checkers);
-    storeCoordinate(6, 5, checkers);
-    storeCoordinate(6, 7, checkers);
-    storeCoordinate(7, 0, checkers);
-    storeCoordinate(7, 2, checkers);
-    storeCoordinate(7, 4, checkers);
-    storeCoordinate(7, 6, checkers);
-
-
+      [5, 0],
+      [5, 2],
+      [5, 4],
+      [5, 6],
+      [6, 1],
+      [6, 3],
+      [6, 5],
+      [6, 7],
+      [7, 0],
+      [7, 2],
+      [7, 4],
+      [7, 6]
+    ];
     // to loop through coordinate values
-    for (var i = 0; i < checkers.length; i++) {
-      var x = checkers[i].x;
-      var y = checkers[i].y;
-      if (x < 3 && ) {
-        checkers.push(whiteChecker);
-      }
+    for (var i = 0; i < whitePositions.length; i++) { //starting to loop through all the white positions
+      var [x, y] = whitePositions[i]; //set var up as an array type container to hold each white position iterated through
+      var piece = [x, y]; //settin var to hold var [x, y]------not sure why this is necessary yet!!!!!!!!!
+      this.checkers.push(piece); //adding each piece ([x,y] coordinates) to the array called checkers
+      this.grid[x][y] = whiteChecker; //not sure about this yet
     }
-    console.log(checkers);
-    console.log(checkers[0].x);
-    console.log(checkers[0].y);
-
+    for (var i = 0; i < blackPositions.length; i++) { //stating loop to iterate through black positions
+      var [x, y] = blackPositions[i]; //set var up as array type container to hold each white position iterate through
+      var piece = [x, y]; //not sure about this see above ln 68
+      this.checkers.push(piece); //adding wach piece to the array called checkers
+      this.grid[x][y] = blackChecker; //see ln 70
+    }
 
 
   }
-  this.createGrid = function() {
-    // loop to create the 8 rows
-    for (let row = 0; row < 8; row++) {
-      this.grid[row] = [];
-      // push in 8 columns of nulls
-      for (let column = 0; column < 8; column++) {
-        this.grid[row].push(null);
+
+
+
+  this.createGrid = function() { //method within Board class that builds the grid to hold the game
+
+    for (let row = 0; row < 8; row++) { //start loop to create  8 rows
+      this.grid[row] = []; //empty array for each row
+      for (let column = 0; column < 8; column++) { //start loop to create 8 columns
+
+        this.grid[row].push(null); // push in 8 columns of nulls
       }
     }
   }
   this.selectChecker = function(row, column) { //'helper' function. this should return the checker at a particlar location on the grid
-    return Checker.this.grid[i];
+    return this.checker[x, y];
+
   }
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
-      // we start with our row number in our array
-      const rowOfCheckers = [row];
-      // a loop within a loop
-      for (let column = 0; column < 8; column++) {
-        // if the location is "truthy" (contains a checker piece, in this case)
-        if (this.grid[row][column]) {
-          // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+      const rowOfCheckers = [row]; // we start with our row number in our array
+
+      for (let column = 0; column < 8; column++) { // a loop within a loop
+
+        if (this.grid[row][column]) { // if the location is "truthy" (contains a checker piece, in this case)
+
+          rowOfCheckers.push(this.grid[row][column].symbol); // push the symbol of the check in that location into the array
+
         } else {
-          // just push in a blank space
-          rowOfCheckers.push(' ');
+          rowOfCheckers.push(' '); // just push in a blank space
+
         }
       }
-      // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join(' ');
-      // add a 'new line'
-      string += "\n";
+      string += rowOfCheckers.join(' '); // join the rowOfCheckers array to a string, separated by a space
+
+      string += "\n"; // add a 'new line'
+
     }
     console.log(string);
   };
+  this.killChecker = function(position) {
+    var position = [x, y];
+    this.selectChecker = function(position) {
+      this.checkers.indexOf(selectChecker);
+      this.checker.splice();
+      this.grid = null;
+    }
+  }
+  console.log('jjjjjjjjjj');
 
 } // Your code here
 
@@ -123,14 +132,26 @@ function Game() {
     this.board.createGrid();
     // Your code here
     this.board.createCheckers();
-
   };
   this.moveChecker = function(start, end) { //method to facilitate and track movement of checkers
-    var checker = selectChecker(); //creating place to store result of select checker which takes row and column as arguments
-    checker = null; //setting var to null since it doesn't exist here yet I think----??????
+    start = [row, column];
+    end = [row, column];
+
+    console.log('afaf', row, column);
+
+    this.selectChecker = function(x, y) {
+      var checker = this.checker;
+      this.checker = null; //setting var to null since it doesn't exist here yet I think----??????
+      console.log('EEEEEE');
+    }
+
 
   }
+  //this.selectChecker() = checker;
+  //this.selectChecker(start[i]) = checker;
 }
+
+
 
 function getPrompt() {
   game.board.viewGrid();
