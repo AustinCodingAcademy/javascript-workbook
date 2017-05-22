@@ -60,8 +60,9 @@ function Board() {
     }
     console.log(string);
   };
-
+  // create checkers array
   this.checkers = [];
+  //create begin checkers on board
   this.createCheckers = function() {
     // 1) Create all white checkers on the grid, then add same to checkers array
     for (var i = 0; i <= 2; i++) {
@@ -134,7 +135,6 @@ function Game() {
         // * But don't remove piece from checkers array *
         this.board.grid[rowEnd][colEnd] = this.board.selectChecker(rowStart, colStart);
         this.board.grid[rowStart][colStart] = null;
-// console.log(this.board.grid);
 
       }
     } else {
@@ -154,9 +154,27 @@ function Game() {
       // this.board.killChecker(rowJump + colJump);
       this.board.killChecker(posArray);
 
-      console.log(this.board.grid);
-      console.log(this.board.checkers + 'fsdfsdf');
+      // console.log(this.board.grid);
+      // console.log('this.board.checkers: \n' + this.board.checkers);
+
+      // check for win: 1)see if any white pieces
+      if (this.board.grid.some( x => x.symbol != String.fromCharCode(0x125CB))) {
+        console.log('Black wins!');
+        game.board.viewGrid();
+        alertTerminal2();
+        alertTerminal2();
+        process.exit();
+
+      // check for win: 2)see if any black pieces
+      } else if (this.board.grid.some( x => x.symbol != String.fromCharCode(0x125CF))) {
+        console.log('White wins!');
+        game.board.viewGrid();
+        alertTerminal2();
+        alertTerminal2();
+        process.exit();
+      }
     }
+
   }
 
 }
