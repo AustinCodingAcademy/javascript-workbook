@@ -29,8 +29,6 @@ function bubbleSort(arr) {
   return arr;
 }
 
-
-
 function mergeSort(arr) {
   // Your code here
 

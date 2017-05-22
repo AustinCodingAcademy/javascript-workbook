@@ -8,9 +8,29 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+//We can use unicode characters with the JavaScript String.fromCharCode(0x1<unicode>) method.
+//The symbol that is assigned is based on what color ('white' or 'black') the checker will be.
+// Let's pass in the color as an argument, function Checker(color) { ... and set the Checker
+// instance's this.symbol. if the color is 'white, set this.symbol equal to String.fromCharCode(0x125CB),
+// otherwise set it equal to String.fromCharCode(0x125CF).
+
+
+function Checker(color) {
   // Your code here
+  if (color ==== 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
+
+const whiteChecker = new Checker('white');
+const blackChecker = new Checker('black');
+this.grid[0][1] = whiteChecker;
+this.grid[5][0] - blackChecker;
+
+}
+console.log('whiteChecker', whiteChecker.symbol, 'blackChecker', blackChecker.symbol,)
 
 function Board() {
   this.grid = [];
@@ -51,6 +71,7 @@ function Board() {
     }
     console.log(string);
   };
+
 
   // Your code here
 }
