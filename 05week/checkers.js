@@ -82,7 +82,7 @@ function Board() { //class to build nd maintain the board
     }
   }
   this.selectChecker = function(row, column) { //'helper' function. this should return the checker at a particlar location on the grid
-    return this.checker[x, y];
+    return this.grid[x][y];
 
   }
   // prints out the board
@@ -134,22 +134,21 @@ function Game() {
     this.board.createCheckers();
   };
   this.moveChecker = function(start, end) { //method to facilitate and track movement of checkers
-    start = [row, column];
-    end = [row, column];
+    var checker = this.start;
+    console.log('afaf');
 
-    console.log('afaf', row, column);
+    this.selectChecker = function(row, column) { //'helper' function. this should return the checker at a particlar location on the grid
+      checker = this.grid[x][y];
 
-    this.selectChecker = function(x, y) {
-      var checker = this.checker;
-      this.checker = null; //setting var to null since it doesn't exist here yet I think----??????
-      console.log('EEEEEE');
     }
-
-
+    checker = null; //setting var to null since it doesn't exist here yet I think----??????
+    console.log('EEEEEE');
   }
-  //this.selectChecker() = checker;
-  //this.selectChecker(start[i]) = checker;
+  var checker = this.end;
+
 }
+//this.selectChecker() = checker;
+//this.selectChecker(start[i]) = checker;
 
 
 
