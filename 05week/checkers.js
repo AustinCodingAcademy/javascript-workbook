@@ -131,8 +131,12 @@ function Board() {
       return;
   }
 
-  this.killCheckers = function(row, column) {
-    return;
+  this.killChecker = function(position) {
+    var item = this.selectChecker(position);
+    var n = this.checkers.indexOf(postion);
+    let n = pos.splice();
+    n.this.grid = null;
+
   }
   // Your code here
 }
@@ -147,12 +151,12 @@ function Game() {
     this.board.createGrid();
 
     this.moveChecker = function(start, end) {
-      var startDigits = start.toString().split(',');
-      console.log(startDigits);
+      var startDigit = (start).toString().split("").map(Number)
+      var endDigit = (end).toString().split("").map(Number)
 
-      var checker = this.start.selectCheckers;
-      this.start.selectCheckers = null;
-      var checker = this.end.selectCheckers;
+      var checker = this.startDigit.selectCheckers;
+      this.startDigit.selectCheckers = null;
+      var checker = this.endDigit.selectCheckers;
 
     }// Your code here
     this.board.createCheckers();
