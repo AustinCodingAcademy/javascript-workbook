@@ -17,10 +17,11 @@ function CrewMember(name, job, specialSkill) {
     this.specialSkill = specialSkill;
     this.ship = null;
 
-    // enterShip() pushes this crewMember onto the crew array of the ship entered as a parameter
+    //will push crewMmember to the crew array in ship function
     this.enterShip = function(ship) {
-        ship.crew.push(this);
         this.ship = ship;
+        ship.crew.push(this);
+
     }
 }
 
@@ -32,7 +33,7 @@ function Ship(name, type, ability) {
     this.crew = [];
     this.missionStatement = function() {
 
-        // if there is crew, loop through the crew array to check if any of the crew member's jobs match the ship type's requirements to conduct missions; if no crew pass the check then return can't perform yet msg
+        //this will loop through the crew array to check if the crew members job can do  missions. But if they don't meet the requirements, the else statement will run. 
         for (var i = 0; i < this.crew.length; i++) {
             if (jobTypes[this.crew[i].job] === this.type) {
                 return this.ability;
