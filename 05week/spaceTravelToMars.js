@@ -10,6 +10,40 @@ var jobTypes = {
 };
 
 // Your code here
+function CrewMember(name, job, specialSkill) {
+    this.name = name;
+    debugger;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+
+    // enterShip() pushes this crewMember onto the crew array of the ship entered as a parameter
+    this.enterShip = function(ship) {
+        ship.crew.push(this);
+        this.ship = ship;
+    }
+}
+
+
+function Ship(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+    this.missionStatement = function() {
+
+        // if there is crew, loop through the crew array to check if any of the crew member's jobs match the ship type's requirements to conduct missions; if no crew pass the check then return can't perform yet msg
+        for (var i = 0; i < this.crew.length; i++) {
+            if (jobTypes[this.crew[i].job] === this.type) {
+                return this.ability;
+            } else {
+                return "Can't perform a mission yet.";
+            }
+        }
+    }
+}
+
+
 
 //tests
 if (typeof describe === 'function'){

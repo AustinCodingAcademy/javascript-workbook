@@ -71,6 +71,7 @@ function binarySearch(arr, item) {
    mid,
    element;
 while (lo <= hi) {
+  //math.floor will give an even integer not a decimal
    mid = Math.floor((lo + hi) / 2, 10);
    element = array[mid];
    if (element < item) {
