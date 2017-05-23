@@ -8,9 +8,17 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
+
+
+console.log ('whiteChecker', whiteChecker.symbol)
 
 function Board() {
   this.grid = [];
@@ -22,6 +30,7 @@ function Board() {
       // push in 8 columns of nulls
       for (let column = 0; column < 8; column++) {
         this.grid[row].push(null);
+        }
       }
     }
   };
@@ -51,9 +60,17 @@ function Board() {
     }
     console.log(string);
   };
-
   // Your code here
+
+  this.checkers = [];
+
+this.checkers = function () {
+  const whiteChecker = new Checker ('white');
+  const blackChecker = new Checker ('black');
+  this.grid[0][1] = whiteChecker;
+  this.grid[5][0] = blackChecker;
 }
+
 function Game() {
 
   this.board = new Board();

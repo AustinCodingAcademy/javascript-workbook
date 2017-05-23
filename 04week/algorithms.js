@@ -20,6 +20,28 @@ function bubbleSort(arr) {
 
 function mergeSort(arr) {
   // Your code here
+  // If an array has less than 2 items, it is technically sorted
+  if (arr.length < 2) {
+    return arr;
+  }
+// this next step cuts the arrays roughly in half
+  const firstHalf = arr.slice(0, arr.length / 2);
+  const secondHalf = arr.slice(arr.length / 2); //goes to end
+
+// recurse array halves
+  const sortedFirst = mergeSort(firstHalf);
+  const sortedSecond = mergeSort(secondHalf);
+
+//sorted array container
+let sortedArr = [];
+
+while (sortedFirst.length && sortedSecond.length) {
+  // if the first item in the first array is smaller, push
+  //it in the sorted array
+  if (sortedFirst[0] < sortedSecond[0]) {
+    sortedArr.push(sortedFirst.shift());
+    }
+  }
 }
 
 function binarySearch(arr, item) {
