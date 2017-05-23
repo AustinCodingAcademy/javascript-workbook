@@ -2,14 +2,69 @@
 
 var assert = require('assert');
 
+
+
+// Your code here
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function (ship) {
+   // Assign our ship
+   this.ship = ship;
+   // Make sure we are part of the crew
+   this.ship.crew.push(this);
+ }
+}
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+// Function to return a Ship object
+function Ship(name, type, ability, crewMember) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function () {
+  	// Let's define a default statement to return
+    // in case we don't have any of the right
+    // members on board
+  	var statement = "Can't perform a mission yet.";
+
+    // Here's some more missions
+
+  	// Figure out the mission statement by looping
+    // through the array to make sure that we have
+    // the correct crew member on board
+    var job = '';
+    for (var i=0; i < this.crew.length; i++) {
+      job = this.crew[i].job;
+      if (jobTypes[job] == this.type) {
+      	statement = this.ability;
+        break;
+      }
+    }
+    console.log(statement);
+    return statement;
+  }
+}
+
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
 var jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
-
-// Your code here
 
 //tests
 if (typeof describe === 'function'){
