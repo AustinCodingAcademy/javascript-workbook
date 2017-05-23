@@ -8,8 +8,48 @@ var jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
-
 // Your code here
+
+function CrewMember (name, job, specialSkill, ship){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(ship){
+    this.ship = ship;
+    ship.crew.push(this);
+  };
+};
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+  this.missionStatement = function(){
+    var 
+    if (//NONE OF CREW MEMBERS HAVE CORRECT JOB TO MATCH SHIP TYPE){
+      console.log("Can't perfrom a mission yet.")
+    } else {
+      //RETURN THIS SHIPS ABILITY IF THERE IS A CREW MEMBER THAT HAS A CORRECT JOB THAT MATCHES TYPE.
+    }
+  }
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav.crew.push(1);
+console.log(mav.crew);
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
+rick.enterShip(mav);
+console.log(rick.ship.name); //=> 'Mars Ascent Vehicle'
+console.log(mav.crew.length); //=> 1
+console.log(mav.crew[0].name); //=> 'Rick Martinez'
+console.log(rick.ship === mav); //=> true
+console.log(mav.crew.indexOf(rick) === 0); //=> true
+
+
 
 //tests
 if (typeof describe === 'function'){
