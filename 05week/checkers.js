@@ -7,7 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 //We can use unicode characters with the JavaScript String.fromCharCode(0x1<unicode>) method.
 //The symbol that is assigned is based on what color ('white' or 'black') the checker will be.
 // Let's pass in the color as an argument, function Checker(color) { ... and set the Checker
@@ -29,8 +28,8 @@ const blackChecker = new Checker('black');
 this.grid[0][1] = whiteChecker;
 this.grid[5][0] - blackChecker;
 
-}
-console.log('whiteChecker', whiteChecker.symbol, 'blackChecker', blackChecker.symbol,)
+
+console.log('whiteChecker', whiteChecker.symbol, 'blackChecker', blackChecker.symbol)
 
 function Board() {
   this.grid = [];
@@ -74,11 +73,21 @@ function Board() {
 
 
   // Your code here
+
+
+
+this.moveChecker = function(start, end) {
+     this.board.selectChecker(start[0], start[1]);
+     this.board.grid[ end [0] ] [end [1] ] = checker;
+   this.board.grid[ [0]] [start [1]] = null
+   console.log(this.board.checkers.indexOf(checker));
+ }
 }
+
+
 function Game() {
 
   this.board = new Board();
-
   this.start = function() {
     this.board.createGrid();
     // Your code here
@@ -99,7 +108,17 @@ const game = new Game();
 game.start();
 
 
-// Tests
+
+
+
+
+
+
+
+
+
+
+// Tests ==============================
 
 if (typeof describe === 'function') {
   describe('Game', () => {

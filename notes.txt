@@ -50,3 +50,31 @@ if (hits.length === 0) {
 	console.log(hits);
 }
 ============================================
+checkers in the API
+
+document.querySelectorAll('[data-cell]');
+
+document.querySelectorAll; ('[data-cell]').forEach(cell => {
+cell.onclinc = function (e) { console.log(this)}
+})
+
+document.querySelector; ('[data-cell]').forEach(cell => {
+cell.onclinc = function () { console.log(this)}          // wihtout the  e
+
+document.querySelectorAll; ('[data-cell]').forEach(cell => {
+cell.onclick = (e) => { console. log(e.target)}
+})
+
+
+document.addEventListener('DOMContentLoaded', ();
+
+
+
+
+
+on each data cell listen for a click- add event listener click
+.onclick.
+iterating over an array of objects putting event listener then run board and see if anyone won.
+
+event.thisgrid
+event draw board

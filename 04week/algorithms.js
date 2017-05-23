@@ -38,9 +38,9 @@ function mergeSort(arr) {
     return arr;
   }
   //start by finding the median then divide arrays by half
-  let median = Math.floor(arr.length / 2);  //rounds down to an integer
-  let firstPart = arr.slice(0,median);      //first half of the array
-  let secondPart = arr.slice(median);       //second half of the array
+  let median = Math.floor(arr.length / 2);   //rounds down to an integer
+  let firstPart = arr.slice(0, median);      //first half of the array
+  let secondPart = arr.slice(median);        //second half of the array
 
   //recursive array which divides by half
   let sortedFirst = mergeSort(firstPart);
