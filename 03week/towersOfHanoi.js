@@ -33,28 +33,43 @@ function isLegal(startStack, endStack) {
   let lastStartIndex = stacks[startStack].length - 1;
   let lastStartBlock = stacks[startStack][lastStartIndex];
   let lastEndIndex = stacks[endStack].length - 1;
-  let lastEndBlock = stacks[endStacks][lastEndIndex];
-  // if(popped > lastStartBlock || popped > ) {
-  //   return false;
-  // }
-  // if (stacks.b.length === 0) {
-  //   return true;
-  // }
-  console.log(`last start block is: ${lastStartBlock} ${lastStartIndex}`)
+  let lastEndBlock = stacks[endStack][lastEndIndex];
+  // let popped = stacks[startStack].pop();
+
+  if (! lastEndBlock){
+    return true;
+  }
+  else if(lastStartBlock > lastEndBlock) {
+    console.log ("Invalid move: Try again");
+    return false;  
+  }
+  else{
+    console.log("Invalid move: Try again");
+    return false;
+  }
+  // console.log(`last start block is: ${lastStartBlock} ${lastStartIndex}`)
 
 }
 
 function checkForWin() {
   // Your code here
   if (stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log("You win!");
     return true;
+  }
+  else{
+    return false;
   }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  if (isLegal(startStack, endStack)) {
   movePiece(startStack, endStack);
+}
+
+checkForWin();
 
   // let popped = stacks[startStack].pop();
   // endStack = stacks[endStack].push(popped);
