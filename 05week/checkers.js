@@ -8,8 +8,14 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  //...
+  this.symbol = color
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB)
+  } else {
+    this.symbol = String.fromCharCode(0x125CF)
+  }
 }
 
 function Board() {
@@ -51,9 +57,47 @@ function Board() {
     }
     console.log(string);
   };
-
   // Your code here
+  this.checkers = [];
+  this.createCheckers = function() {
+    const whiteChecker = new Checker('white');
+    const blackChecker = new Checker('black');
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        if (((row === 0 || row === 2) && (col % 2 === 1)) || (row === 1 && (col % 2 === 0))) {
+          this.grid[row][col] = whiteChecker;
+          this.checkers.push(whiteChecker);
+          //^^if row is 0 or 2 and col is odd; or if row is 1 and col is even place a white checker ^^
+        } else if (((row === 5 || row === 7) && (col % 2 === 0)) || (row === 6 && (col % 2 === 1))) {
+          this.grid[row][col] = blackChecker;
+          this.checkers.push(blackChecker);
+          //^^if row is 5 or 7 and col is even; or if row is 6 and col is odd place a black checker ^^
+        }
+      }
+    }
+    // console.log(this.grid)
+    // this.grid[0][1] = whiteChecker;
+    // this.grid[5][0] = blackChecker;
+    // console.log('whiteChecker:', whiteChecker.symbol, 'blackChecker:', blackChecker.symbol)
+    // this.checkers.push(whiteChecker, blackChecker);
+    // let whitePositions = [] // [0, 1], [0, 3], [0, 5], [0, 7], [1, 0], [1, 2], [1, 4], [1, 6],
+    //                         // [2, 1], [2, 3], [2, 5], [2, 7];
+    // let blackPositions = [] // [5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7],
+    //                         // [7, 0], [7, 2], [7, 4], [7, 6]
+    // for (let i = 0; i < 12; i++)
+    //   if
+  }
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column]
+  }
+
+  this.killChecker = function(position) {
+    this.selectChecker(position);
+    this.checkers.indexOf();
+    // THIS IS WHERE IM LEAVING OFF!!!!!!!!!!!!! //
+  }
 }
+
 function Game() {
 
   this.board = new Board();
@@ -61,7 +105,22 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
+  this.moveChecker = function(start, end) {
+    let checker = this.board.selectChecker(start[0], start[1]);
+    // console.log(end.toString())
+    // if (end.toString() === start.toString()+11 || end.toString() === start.toString()+9 ||
+    //   end.toString() === start.toString()-11 || end.toString() === start.toString()-9) {
+    //cant get this fucking thing to do a legal/not legal move.  Maybe the end/start numbers aren't strings?  no idea.
+      this.board.grid[end[0]][end[1]] = checker;
+      // console.log(whichPiece);
+      this.board.grid[start[0]][start[1]] = null;
+    // } else {
+    //   console.log('Not a valid move, try again.')
+    //   return false
+    // }
+  }
 }
 
 function getPrompt() {
@@ -90,8 +149,8 @@ if (typeof describe === 'function') {
     });
   });
 
-  describe('Game.moveChecker()', function () {
-    it('should move a checker', function () {
+  describe('Game.moveChecker()', function() {
+    it('should move a checker', function() {
       assert(!game.board.grid[4][1]);
       game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
