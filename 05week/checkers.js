@@ -1,6 +1,4 @@
-'use strict';
-
-var beep = require('beepbeep')
+var beep = require('beepbeep');
 
 const assert = require('assert');
 const readline = require('readline');
@@ -14,7 +12,9 @@ function Checker(color) {
   if (color === 'white') {
     this.symbol = String.fromCharCode(0x125CB);
   } else {
+    // this.symbol = String.fromCharCode(0x2588);
     this.symbol = String.fromCharCode(0x125CF);
+
   }
 }
 
@@ -37,7 +37,6 @@ function Board() {
   this.viewGrid = function() {
     // add our column numbers
     alertTerminal();
-
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
@@ -50,7 +49,9 @@ function Board() {
           rowOfCheckers.push(this.grid[row][column].symbol);
         } else {
           // just push in a blank space
-          rowOfCheckers.push(' ');
+          // rowOfCheckers.push(' ');
+          rowOfCheckers.push(String.fromCharCode(0x2B1B));
+
         }
       }
       // join the rowOfCheckers array to a string, separated by a space
@@ -189,13 +190,11 @@ function getPrompt() {
   });
 }
 
-function alertTerminal(){
-  // console.log('\u0007');
+function alertTerminal() {
   beep();
 }
 
-function alertTerminal2(){
-  // console.log('\u0007');
+function alertTerminal2() {
   beep(2);
 }
 
