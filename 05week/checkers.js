@@ -82,8 +82,7 @@ function Board() { //class to build nd maintain the board
     }
   }
   this.selectChecker = function(row, column) { //'helper' function. this should return the checker at a particlar location on the grid
-    return this.grid[x][y];
-
+    return (this.grid[row][column]);
   }
   // prints out the board
   this.viewGrid = function() {
@@ -127,22 +126,16 @@ function Board() { //class to build nd maintain the board
 function Game() {
 
   this.board = new Board(); //setting up new board for play
-
   this.start = function() { //method to call in creation of grid array(locations) and checker creation
     this.board.createGrid();
     // Your code here
     this.board.createCheckers();
   };
   this.moveChecker = function(start, end) { //method to facilitate and track movement of checkers
-    var checker = this.start;
-    console.log('afaf');
-
-    this.selectChecker = function(row, column) { //'helper' function. this should return the checker at a particlar location on the grid
-      checker = this.grid[x][y];
-
-    }
+    var checker = this.board.selectChecker(start[0], start[1]); //'helper' function. this should return the checker at a particlar location on the grid
+    this.board.grid[end[0]][end[1]] = checker;
+    this.board.grid[start[0]][start[1]] = null;
     checker = null; //setting var to null since it doesn't exist here yet I think----??????
-    console.log('EEEEEE');
   }
   var checker = this.end;
 
@@ -198,4 +191,5 @@ if (typeof describe === 'function') {
   });
 } else {
   getPrompt();
+};
 }
