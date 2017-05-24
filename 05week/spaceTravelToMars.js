@@ -33,11 +33,12 @@ function Ship(name, type, ability) {
     this.crew = [];
     this.missionStatement = function() {
 
-        //this will loop through the crew array to check if the crew members job can do  missions. But if they don't meet the requirements, the else statement will run. 
+        //this will loop through the crew array to check if the crew members job can do  missions. But if they don't meet the requirements, the else statement will run.
         for (var i = 0; i < this.crew.length; i++) {
             if (jobTypes[this.crew[i].job] === this.type) {
                 return this.ability;
-            } else {
+            } 
+            else {
                 return "Can't perform a mission yet.";
             }
         }
