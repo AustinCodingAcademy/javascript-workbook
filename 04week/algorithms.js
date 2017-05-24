@@ -33,15 +33,15 @@ function mergeSort(arr) {
   const sortedSecond = mergeSort(secondHalf);
 
 //sorted array container
-let sortedArr = [];
+  let sortedArr = [];
 
-while (sortedFirst.length && sortedSecond.length) {
+  while (sortedFirst.length && sortedSecond.length) {
   // if the first item in the first array is smaller, push
   //it in the sorted array
   if (sortedFirst[0] < sortedSecond[0]) {
     sortedArr.push(sortedFirst.shift());
-    }
   }
+}
 }
 
 function binarySearch(arr, item) {
