@@ -35,7 +35,6 @@ function some(arr, callback) {
   }
 }
 return newArr;
-}
 
 function every(arr, callback) {
   let newArr = [];
@@ -43,7 +42,7 @@ function every(arr, callback) {
     if(arr[i] = true)) {
         console.log(arr = true);
 }
-return arr
+return arr;
 
 if (typeof describe === 'function') {
 
