@@ -30,13 +30,13 @@ function Board() {
       // push in 8 columns of nulls
       for (let column = 0; column < 8; column++) {
         this.grid[row].push(null);
-        }
       }
     }
-  };
+  }
+};
 
   // prints out the board
-  this.viewGrid = function() {
+this.viewGrid = function() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -62,7 +62,7 @@ function Board() {
   };
   // Your code here
 
-  this.checkers = [];
+this.checkers = [];
 
 this.checkers = function () {
   const whiteChecker = new Checker ('white');

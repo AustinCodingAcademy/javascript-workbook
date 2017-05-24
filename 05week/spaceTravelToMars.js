@@ -11,7 +11,7 @@ var jobTypes = {
 
 // Your code here
 // Spec 1
-function CrewMember(name, job, specialSkill){
+function CrewMember(name, job, specialSkill) {
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
@@ -36,6 +36,9 @@ function Ship(name, type, ability) {
   this.type = type;
   this.ability = ability;
   this.crew = [];
+
+// Mission Statement should loop through the array to make sure you have
+// the right crewmember on board.
 
   this.missionStatement = function () {
     const found = this.crew.some((crewMember) => {
