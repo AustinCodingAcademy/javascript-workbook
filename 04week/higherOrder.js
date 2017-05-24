@@ -27,12 +27,23 @@ function filter(arr, callback) {
 }
 
 function some(arr, callback) {
-  // Your code here
+  let newArr = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(callback(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+}
+return newArr;
 }
 
 function every(arr, callback) {
-  // Your code here
+  let newArr = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] = true)) {
+        console.log(arr = true);
 }
+return arr
 
 if (typeof describe === 'function') {
 

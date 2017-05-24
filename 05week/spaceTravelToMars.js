@@ -14,8 +14,10 @@ function crewMember(name, job, specialSkill, ship){
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
-  
+
 }
+
+//Spec 1
 
 var jason = new crewMember('Jason Rowlett', 'pilot', 'aeronautics');
 console.log(jason);
@@ -28,8 +30,21 @@ function Ship(name, type, ability, crew) {
 
 }
 
+//Spec 2
+
 var oss = new Ship('Orbital Spaceship', 'OSS', 'Orbiting Earth at slow speed');
 console.log(oss);
+
+oss.crew.push(1);
+console.log(oss.crew);
+
+//Spec 3
+
+
+
+
+
+//Spec 4
 
 //tests
 if (typeof describe === 'function'){
