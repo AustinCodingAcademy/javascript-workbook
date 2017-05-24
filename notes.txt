@@ -55,26 +55,29 @@ checkers in the API
 document.querySelectorAll('[data-cell]');
 
 document.querySelectorAll; ('[data-cell]').forEach(cell => {
-cell.onclinc = function (e) { console.log(this)}
+cell.onclick = function (e) { console.log(this)}
 })
 
 document.querySelector; ('[data-cell]').forEach(cell => {
-cell.onclinc = function () { console.log(this)}          // wihtout the  e
+cell.onclick = function () { console.log(this)}          // without the  e
 
 document.querySelectorAll; ('[data-cell]').forEach(cell => {
-cell.onclick = (e) => { console. log(e.target)}
+cell.onclick = (e) => { console. log(e.target)}            //written with e as target
 })
 
 
 document.addEventListener('DOMContentLoaded', ();
 
-
-
-
-
 on each data cell listen for a click- add event listener click
-.onclick.
+assigning the onclick -- it is an attribute.
 iterating over an array of objects putting event listener then run board and see if anyone won.
 
 event.thisgrid
 event draw board
+
+to add event listener() type then function
+
+
+document.querySelectorAll('[data-cell]').forEach(cell => {
+cell.addEventListener('click', function() {console.log(this);})
+})

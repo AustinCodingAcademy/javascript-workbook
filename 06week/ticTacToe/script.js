@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 //   document.querySelectorAll('[data-cell]').forEach(cell => {
 //     cell.addEventListener('click', function() {console.log(this);
 //
+//document.querySelector('[data-cell="0"]')
+//document.querySelector('[data-cell="1"]').innerText= "X"
+//document.querySelectorAll('[data-cell]')
+//document.querySelectorAll('[data-cell]').forEach(dataCell => {console.log(dataCell)})
+//document.querySelectorAll('[data-cell]').forEach(dataCell => {console.log(dataCell)})
 //
       $(function() {
         let player = 'X';
@@ -103,38 +108,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
   // });
-
+  //
   // Tests ===========================================================
-
-  if (typeof describe === 'function') {
-
-    describe('#ticTacToe()', () => {
-      it('should place mark on the board', () => {
-        ticTacToe(1, 1);
-        assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-      });
-      it('should alternate between players', () => {
-        ticTacToe(0, 0);
-        assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-      });
-      it('should check for vertical wins', () => {
-        board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-        assert.equal(verticalWin(), true);
-      });
-      it('should check for horizontal wins', () => {
-        board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-        assert.equal(horizontalWin(), true);
-      });
-      it('should check for diagonal wins', () => {
-        board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-        assert.equal(diagonalWin(), true);
-      });
-      it('should detect a win', () => {
-        assert.equal(checkForWin(), true);
-      });
-    });
-  } else {
-
-    getPrompt();
-
-  }
+  //
+  // if (typeof describe === 'function') {
+  //
+  //   describe('#ticTacToe()', () => {
+  //     it('should place mark on the board', () => {
+  //       ticTacToe(1, 1);
+  //       assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+  //     });
+  //     it('should alternate between players', () => {
+  //       ticTacToe(0, 0);
+  //       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+  //     });
+  //     it('should check for vertical wins', () => {
+  //       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+  //       assert.equal(verticalWin(), true);
+  //     });
+  //     it('should check for horizontal wins', () => {
+  //       board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+  //       assert.equal(horizontalWin(), true);
+  //     });
+  //     it('should check for diagonal wins', () => {
+  //       board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+  //       assert.equal(diagonalWin(), true);
+  //     });
+  //     it('should detect a win', () => {
+  //       assert.equal(checkForWin(), true);
+  //     });
+  //   });
+  // } else {
+  //
+  //   getPrompt();
+  //
+  // }
