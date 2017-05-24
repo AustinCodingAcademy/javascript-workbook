@@ -38,8 +38,8 @@ function Board() {
   // prints out the board
 this.viewGrid = function() {
     // add our column numbers
-    let string = "  0 1 2 3 4 5 6 7\n";
-    for (let row = 0; row < 8; row++) {
+  let string = "  0 1 2 3 4 5 6 7\n";
+  for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
       const rowOfCheckers = [row];
       // a loop within a loop
@@ -58,8 +58,8 @@ this.viewGrid = function() {
       // add a 'new line'
       string += "\n";
     }
-    console.log(string);
-  };
+  console.log(string);
+};
   // Your code here
 
 this.checkers = [];
