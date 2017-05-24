@@ -16,11 +16,54 @@ for (let i = 0; i < 1000; i++) {
 
 function bubbleSort(arr) {
   // Your code here
+  let len = arr.length;
+  do {
+    for (var i = 0; i < len - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        sort(arr, i, i + 1);
+      }
+    }
+  } while (len--);
+  return arr;
 }
+
+function sort(arr, A, B) {
+  arr[A] = arr[B];
+  arr[B] = arr[A];
+}
+
+
 
 function mergeSort(arr) {
   // Your code here
+  let len = arr.length - 1;
+  // let half = len /2;
+  // let array = arr.slice(0, half);
+  // console.log(half);
+  if (len < 2) {
+    return arr;
+  }
+  let half = Math.round(len / 2);
+  return merge(
+    mergeSort(arr.slice(0, half)),
+    mergeSort(arr.slice(half))
+  );
 }
+
+function merge(left, right) {
+var out = [];
+while (left.length && right.length){
+  out.push(left[0] < right[0] ? left.shift() : right.shift());
+}
+while(left.length){
+  out.push(left.shift());
+}
+while(right.length){
+  out.push(right.shift());
+}
+return out;
+
+};
 
 function binarySearch(arr, item) {
   // Your code here
