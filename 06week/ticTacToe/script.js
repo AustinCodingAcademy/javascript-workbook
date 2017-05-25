@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // when there is a win detected, we announce the winner by including playerTurn
     {
-      document.getElementById('announce-winner').innerText = 'Player' + playerTurn + ' ' + 'Wins!';
+      document.getElementById('announce-winner').innerText = `Player ${playerTurn} Wins!`;
     }
   }
 
