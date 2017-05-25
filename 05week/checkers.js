@@ -81,7 +81,6 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
 }
 function Game() {
 
