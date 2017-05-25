@@ -1,46 +1,40 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Your code here sdgsdfgsdfgdsg
+  // Your code here
 
-  $(document).ready(function() {
-    let $block = null;
-    $('[data-stack]').on('click', function(event) {
-      event.preventDefault();
-  //check to see if you have block in hand
-      let $message = "";
-      if ($block === null) {
-        $block = ($(this).children().last().detach());
-        //    } else if (smaller()) {
-      } else if ($block.data('block') < $(this).children().last().data('block') ||
-          typeof($(this).children().last().data('block')) === 'undefined') {
-        $(this).append($block);
-        $block = null;
-        $('#announce-game-won').text($message);
-        if (checkWin()) {
-          $('#announce-game-won').text("You won!");
+    let blockheld = null;
+
+    document.querySelectorAll('[data-stack]').forEach(cell => {
+      cell.onclick = function(event) {
+        event.preventDefault();
+
+        //check to see if you have blockheld in hand
+        // let message = "";
+        let message = "fgsdfgsdfgsdfgsdgf";
+
+        if (blockheld === null) {
+// console.log ((this));
+          blockheld = (this.lastChild.remove());
+
+          //    } else if ("smaller()"), then append block, and check for win {
+        } else if (blockheld.data('blackheld') < this.lastChild.data('blockheld') ||
+          typeof((this.lastChild.data('blockheld')) === 'undefined')) {
+            this.append(blockheld);
+            blockheld = null;
+            document.getElementById('#announce-game-won').innerText(message);
+            if (checkWin()) {
+              document.getElementById('#announce-game-won').innerText("You won!");
+            }
+          } else {
+            message = "Can't place " + blockheld.data('blockheld') + " on top of " +
+              this.lastChild.data('blockheld') + " ";
+              document.getElementById('#announce-game-won').innerText(message);
+          }
         }
-        } else {
-          $message = "Can't place " + $block.data('block') + " on top of " +
-            $(this).children().last().data('block') + " ";
-          $('#announce-game-won').text($message);
-        }
-    })
-  /*
-  function smaller() {
-  console.log("current block placing on: "
-      + $(this).children().last().data('block'));
-  // don't allow block to be set on smaller block
-      if ($block.data('block') < $(this).children().last().data('block') ||
-          typeof($(this).children().last().data('block')) === 'undefined') {
-  console.log("block set: " + $block.data('block'))
-  console.log("block set on: " + $(this).children().last().data('block'));
-        return true;
-      } else {
-        return false;
-      }
-  }
-  */
+      });
+
+// STILL NEED TO CHANGE checkWin() OVER TO JS
     function checkWin() {
       let $total1 = $('[data-stack="1"]').children().length;
       let $total2 = $('[data-stack="2"]').children().length;
@@ -49,11 +43,71 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
       }
     }
-  });
-
-
-
-
-
-
 });
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Your code here sdgsdfgsdfgdsg
+//
+//   $(document).ready(function() {
+//     let blockheld = null;
+//     $('[data-stack]').on('click', function(event) {
+//       event.preventDefault();
+//   //check to see if you have blockheld in hand
+//       let message = "";
+//       if (blockheld === null) {
+//         blockheld = ($(this).children().last().detach());
+//         //    } else if (smaller()) {
+//       } else if (blockheld.data('blockheld') < $(this).children().last().data('blockheld') ||
+//           typeof($(this).children().last().data('blockheld')) === 'undefined') {
+//         $(this).append(blockheld);
+//         blockheld = null;
+//         $('#announce-game-won').text(message);
+//         if (checkWin()) {
+//           $('#announce-game-won').text("You won!");
+//         }
+//         } else {
+//           message = "Can't place " + blockheld.data('blockheld') + " on top of " +
+//             $(this).children().last().data('blockheld') + " ";
+//           $('#announce-game-won').text(message);
+//         }
+//     })
+//   /*
+//   function smaller() {
+//   console.log("current blockheld placing on: "
+//       + $(this).children().last().data('blockheld'));
+//   // don't allow blockheld to be set on smaller blockheld
+//       if (blockheld.data('blockheld') < $(this).children().last().data('blockheld') ||
+//           typeof($(this).children().last().data('blockheld')) === 'undefined') {
+//   console.log("blockheld set: " + blockheld.data('blockheld'))
+//   console.log("blockheld set on: " + $(this).children().last().data('blockheld'));
+//         return true;
+//       } else {
+//         return false;
+//       }
+//   }
+//   */
+//     function checkWin() {
+//       let $total1 = $('[data-stack="1"]').children().length;
+//       let $total2 = $('[data-stack="2"]').children().length;
+//       let $total3 = $('[data-stack="3"]').children().length;
+//       if ($total1 === 4 || $total2 === 4 || $total3 === 4) {
+//         return true;
+//       }
+//     }
+//   });
+//
+//
+//
+//
+//
+//
+// });
