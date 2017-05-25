@@ -83,17 +83,17 @@ function Board() {
         } else if (row > 4) { //leave row 3 and 4 null and move to row 5
           if ((row%2 === 1 && column%2 === 0) || (row%2 === 0 && column%2 === 1)) { /*if row is odd and column is even
                                                                                         or row is even and column is odd*/
-              this.grid[row][column] = blackChecker; //place black checker
-              this.checkers.push(blackChecker); //push all black checkers into checkers array
-            }
+            this.grid[row][column] = blackChecker; //place black checker
+            this.checkers.push(blackChecker); //push all black checkers into checkers array
+          }
         }
       }
     }
     return false;
   }; //createCheckers() method ends
 
-  this.selectChecker = function (row,column) { //this function returns the selected spot
-    return this.grid[row][column]; //access the board
+  this.selectChecker = function (row,column) { //this function returns the selected spot as starting location
+    return this.grid[row][column]; //access the board and return location
   };
 }// Board class ends
 
@@ -108,9 +108,9 @@ function Game() {
   }; //start method ends
 
   this.moveChecker = function (start,end) {
-    const checker = this.board.selectChecker(start[0],start[1]); //return checker at the starting positions
-    this.board.grid[ [start[0]][start[1]] ] = null;
-    this.board.grid[ [end[0]][end[1]] ] = checker;
+    const checker = this.board.selectChecker(start[0],start[1]); //return checker at the starting positions and assign to checker variable
+    this.board.grid[start[0]][start[1]] = null; //remove starting location
+    this.board.grid[end[0]][end[1]] = checker; //set end location as starting location
   }
 
 }// Game class ends
