@@ -9,6 +9,36 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+}
+
+
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+rick;
+
+function Ship(name, type, ability) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+mav;
+
+function enterShip(CrewMember, Ship){
+  this.enterShip = function(Ship){
+    console.log(somewhere.crew.push(ship));
+  }
+
+}
+
+
 // Your code here
 
 //tests
