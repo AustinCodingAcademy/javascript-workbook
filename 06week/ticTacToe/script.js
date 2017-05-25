@@ -5,10 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let cells = document.querySelectorAll('[data-cell]');
   document.querySelectorAll('[data-cell]').forEach(cell => {cell.onclick = function(e){
     this.innerText = (playerTurn === 'X') ? 'X': 'O';
-  //  i++;
-     checkForWin(playerTurn);
+    checkForWin(playerTurn);
     playerTurn === 'X'?playerTurn = 'O': playerTurn = 'X';
-    console.log(this);}})
+  };})
 
     function checkForWin(playerTurn){
 
@@ -51,8 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
           ){
               alert ('You Win!');
           };
-}
         }
-)
+
+
 
 document.getElementById('clear').onclick = function(e){document.querySelectorAll('[data-cell]').forEach(cell => cell.innerText = "")};
+})
