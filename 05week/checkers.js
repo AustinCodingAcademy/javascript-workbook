@@ -65,12 +65,7 @@ function Board() { //class to build nd maintain the board
       this.checkers.push(piece); //adding wach piece to the array called checkers
       this.grid[x][y] = blackChecker; //see ln 70
     }
-
-
   }
-
-
-
   this.createGrid = function() { //method within Board class that builds the grid to hold the game
 
     for (let row = 0; row < 8; row++) { //start loop to create  8 rows
@@ -115,11 +110,13 @@ function Board() { //class to build nd maintain the board
       this.checkers.indexOf(selectChecker);
       this.checker.splice();
       this.grid = null;
+      console.log('jjjjjjjjjj');
+
     }
   }
-  console.log('jjjjjjjjjj');
-
-} // Your code here
+  console.log('TEST', this.checkers, this.selectChecker)
+}
+// Your code here
 
 
 
@@ -191,5 +188,4 @@ if (typeof describe === 'function') {
   });
 } else {
   getPrompt();
-};
 }
