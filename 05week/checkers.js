@@ -95,6 +95,14 @@ function Board() {
   this.selectChecker = function (row,column) { //this function returns the selected spot as starting location
     return this.grid[row][column]; //access the board and return location
   };
+
+  this.killChecker = function (position) {
+    let findChecker = this.selectChecker(row,column);
+    let deadChecker = this.checkers.indexOf(findChecker);
+    this.checkers.splice(deadChecker,1);
+    this.grid[row][column] = null;
+  };// killChecker() method ends
+
 }// Board class ends
 
 function Game() {
@@ -109,8 +117,17 @@ function Game() {
 
   this.moveChecker = function (start,end) {
     const checker = this.board.selectChecker(start[0],start[1]); //return checker at the starting positions and assign to checker variable
-    this.board.grid[start[0]][start[1]] = null; //remove starting location
+
     this.board.grid[end[0]][end[1]] = checker; //set end location as starting location
+    let difference = this.board.grid[end[0]] - this.board.grid[start[0]];
+    let distance = Math.abs(difference);
+    if (distance === 2) {
+      let startMidPoint = (this.board.grid[start[0]] + this.board.grid[start[1]]) / 2;
+      let endMidpoint = (this.board.grid[end[0]] + this.board.grid[end[1]]) / 2;
+      let killPosition = this.board.grid[startMidPoint][endMidpoint];
+      this.board.killChecker(killPosition);
+    }
+    this.board.grid[start[0]][start[1]] = null; //remove starting location
   }
 
 }// Game class ends
