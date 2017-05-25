@@ -13,9 +13,9 @@ const rl = readline.createInterface({
 function Checker(color) {
   // Your code here
   if (color === 'white') {
-    this.symbol = String.fromCharCode(0x125CB);
+    this.symbol = String.fromCharCode(0x125CB); //assign white color to checker
   } else {
-    this.symbol = String.fromCharCode(0x125CF);
+    this.symbol = String.fromCharCode(0x125CF); //assign black color to checker
   }
 }
 
@@ -78,19 +78,25 @@ function Board() {
           if ((row % 2 === 0 && column % 2 === 1) || ( row % 2 === 1 && column % 2 === 0)) { /*if row is even and column is odd
                                                                                               or row is odd and column is even*/
             this.grid[row][column] = whiteChecker; //place white checker
+            this.checkers.push(whiteChecker); //push all white checkers into checkers array
           }
         } else if (row > 4) { //leave row 3 and 4 null and move to row 5
-            if ((row%2 === 1 && column%2 === 0) || (row%2 === 0 && column%2 === 1)) { /*if row is odd and column is even
+          if ((row%2 === 1 && column%2 === 0) || (row%2 === 0 && column%2 === 1)) { /*if row is odd and column is even
                                                                                         or row is even and column is odd*/
-            this.grid[row][column] = blackChecker; //place black checker
-          }
+              this.grid[row][column] = blackChecker; //place black checker
+              this.checkers.push(blackChecker); //push all black checkers into checkers array
+            }
         }
       }
     }
     return false;
-  };
+  }; //createCheckers() method ends
 
-}
+  this.selectChecker = function (row,column) { //this function returns the selected spot
+    return this.grid[row][column]; //access the board
+  };
+}// Board class ends
+
 function Game() {
 
   this.board = new Board();
@@ -99,9 +105,15 @@ function Game() {
     this.board.createGrid();
     // Your code here
     this.board.createCheckers(); // call your method to see the pieces on the board
-  };
+  }; //start method ends
 
-}
+  this.moveChecker = function (start,end) {
+    const checker = this.board.selectChecker(start[0],start[1]); //return checker at the starting positions
+    this.board.grid[ [start[0]][start[1]] ] = null;
+    this.board.grid[ [end[0]][end[1]] ] = checker;
+  }
+
+}// Game class ends
 
 function getPrompt() {
   game.board.viewGrid();
