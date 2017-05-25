@@ -8,9 +8,19 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+
+
+function Checker(color) {
   // Your code here
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
+
+
+
 
 function Board() {
   this.grid = [];
@@ -53,6 +63,33 @@ function Board() {
   };
 
   // Your code here
+  this.checkers = []; // create an empty array to collect black and white pieces
+
+  this.createCheckers = function () { //create a method to assign black and white pieces' positions
+    const whiteChecker = new Checker('white'); //constructor for white checkers
+    const blackChecker = new Checker('black'); //constructor for black checkers
+
+    for (let row = 0; row < 8; row++) { //iterate each row
+
+      for (let column = 0; column < 8; column++) { //iterate each column
+
+        if (row < 3) { //if row is 0,1 or 2
+           
+          if ((row % 2 === 0 && column % 2 === 1) || ( row % 2 === 1 && column % 2 === 0)) { /*if row is even and column is odd
+                                                                                              or row is odd and column is even*/
+            this.grid[row][column] = whiteChecker; //place white checker
+          }
+        } else if (row > 4) { //leave row 3 and 4 null and move to row 5
+            if ((row%2 === 1 && column%2 === 0) || (row%2 === 0 && column%2 === 1)) { /*if row is odd and column is even
+                                                                                        or row is even and column is odd*/
+            this.grid[row][column] = blackChecker; //place black checker
+          }
+        }
+      }
+    }
+    return false;
+  };
+
 }
 function Game() {
 
@@ -61,7 +98,9 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers(); // call your method to see the pieces on the board
   };
+
 }
 
 function getPrompt() {
