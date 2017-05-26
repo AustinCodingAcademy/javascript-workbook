@@ -10,12 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         //check to see if you have blockheld in hand
-        // let message = "";
-        let message = "fgsdfgsdfgsdfgsdgf";
+        let message = "";
 
         if (blockheld === null) {
-// console.log ((this));
-          blockheld = (this.lastChild.remove());
+console.log(this);
+          // $block = ($(this).children().last().detach());
+          // blockheld = document.querySelectorAll('this').removeChild;
+          let dataStack = document.querySelector('this');
+          let blocks = document.querySelectorAll('[data-block]');
+          let lastBlock = blocks[blocks.length - 1];
+console.log(lastBlock);
+          blockheld = lastBlock;
+          lastBlock.remove();
+          // blockheld = dataStack.removeChild(lastBlock);
+console.log(blockheld);
+
+console.log(this);
+
+
+
+
+
+
+
 
           //    } else if ("smaller()"), then append block, and check for win {
         } else if (blockheld.data('blackheld') < this.lastChild.data('blockheld') ||
