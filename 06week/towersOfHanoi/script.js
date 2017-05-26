@@ -1,7 +1,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Your code here
 
     let blockheld = null;
 
@@ -9,24 +8,34 @@ document.addEventListener('DOMContentLoaded', () => {
       cell.onclick = function(event) {
         event.preventDefault();
 
-        //if no block in hand, pick it up
+        // on click of data-stack get: 1)all data-blocks 2)value of last block
+        // 3)value of blockheld if holding block
+        let blocks = this.querySelectorAll('[data-block]');
+
+        let lastBlockValue = null;
+        if (blocks[blocks.length - 1].attributes[0].value !== 'undefined') {
+          lastBlockValue = blocks[blocks.length - 1].attributes[0].value;
+        }
+        // console.log(lastBlockValue);
+
+        if (blockheld !== null) {
+          let blockheldValue = blockheld.attribute[0].value;
+        }
+
         let message = "";
 
+        //if no block in hand, pick it up
         if (blockheld === null) {
                     console.log(this);
-          let blocks = this.querySelectorAll('[data-block]');
-          blockheld = blocks[blocks.length - 1].remove();
-          // blockheld.remove();
-          // let lastBlock = blocks[blocks.length - 1];
-          // blockheld = lastBlock;
-          // lastBlock.remove();
-                    // console.log(blockheld);
-                    // console.log(this);
-                    console.log((blocks[0]).attributes[0].value);
+          blockheld = blocks[blocks.length - 1];
+          let lastBlockRemove = blocks[blocks.length - 1].remove();
+
+                    console.log(lastBlockValue);
+                    console.log(blockheld);
+                    // console.log((blocks[0]).attributes[0].value);
 
           //    } else if ("smaller()"), then append block, and check for win {
-        } else if (blockheld.data('blackheld') < this.lastChild.data('blockheld') ||
-          typeof((this.lastChild.data('blockheld')) === 'undefined')) {
+        } else if (blockheldValue < lastBlockValue || lastBlockValue === null) {
             this.append(blockheld);
             blockheld = null;
             document.getElementById('#announce-game-won').innerText(message);
