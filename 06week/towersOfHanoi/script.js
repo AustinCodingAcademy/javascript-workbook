@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // lastBlock.remove();
                     // console.log(blockheld);
                     // console.log(this);
-                    console.log(blockheld.valueOf('data-block'));
+                    console.log(blocks[0]);
 
           //    } else if ("smaller()"), then append block, and check for win {
         } else if (blockheld.data('blackheld') < this.lastChild.data('blockheld') ||
@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //       if (blockheld === null) {
 //         blockheld = ($(this).children().last().detach());
 //         //    } else if (smaller()) {
-//       } else if (blockheld.data('blockheld') < $(this).children().last().data('blockheld') ||
-//           typeof($(this).children().last().data('blockheld')) === 'undefined') {
+//       } else if (blockheld.data('block') < $(this).children().last().data('block') ||
+//           typeof($(this).children().last().data('block')) === 'undefined') {
 //         $(this).append(blockheld);
 //         blockheld = null;
 //         $('#announce-game-won').text(message);
