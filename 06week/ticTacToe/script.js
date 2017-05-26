@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       checkForWin(); //call this function to make sure if anyone wins
 
       playerTurn = (playerTurn === 'X') ? 'O' : 'X'; //toggle player turn between 'X' and 'O'
-    }); //addEventListener function ends
+    }); //'click' function ends
   }) //forEach function ends
 
   function checkForWin() {
