@@ -11,13 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // on click of data-stack get: 1)all data-blocks 2)value of last block
         // 3)value of blockheld if holding block
         let blocks = this.querySelectorAll('[data-block]');
+console.log(blocks);
 
         let lastBlockValue = null;
-        if (blocks[blocks.length - 1].attributes[0].value !== 'undefined') {
+console.log('blocks length:');
+console.log(blocks.length);
+        if (blocks.length > 1) {
           lastBlockValue = blocks[blocks.length - 1].attributes[0].value;
+console.log('lastBlockValue:');
+console.log(lastBlockValue);
         }
         // console.log(lastBlockValue);
-
+console.log(blockheld);
         if (blockheld !== null) {
           let blockheldValue = blockheld.attribute[0].value;
         }
@@ -26,12 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //if no block in hand, pick it up
         if (blockheld === null) {
-                    console.log(this);
+console.log(this);
           blockheld = blocks[blocks.length - 1];
+console.log('blockheld:');
+console.log(blockheld);
           let lastBlockRemove = blocks[blocks.length - 1].remove();
 
                     console.log(lastBlockValue);
-                    console.log(blockheld);
                     // console.log((blocks[0]).attributes[0].value);
 
           //    } else if ("smaller()"), then append block, and check for win {
