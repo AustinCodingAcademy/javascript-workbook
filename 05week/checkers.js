@@ -93,14 +93,16 @@ function Board() {
   }; //createCheckers() method ends
 
   this.selectChecker = function (row,column) { //this function returns the selected spot as starting location
+    console.log('selectChecker:', row, column);
     return this.grid[row][column]; //access the board and return location
   };
 
-  this.killChecker = function (position) {
-    let findChecker = this.selectChecker(row,column);
-    let deadChecker = this.checkers.indexOf(findChecker);
-    this.checkers.splice(deadChecker,1);
-    this.grid[row][column] = null;
+  this.killChecker = function (position) { //e.g.[4,1]
+    console.log(position);
+    let findChecker = this.selectChecker(position[0],position[1]); //get the coordinates e.g.(4,1)
+    let deadChecker = this.checkers.indexOf(findChecker); //find its index
+    this.checkers.splice(deadChecker,1); //remove that array
+    this.grid[position[0]][position[1]] = null;  //assign those coordinates to null
   };// killChecker() method ends
 
 }// Board class ends
@@ -117,18 +119,22 @@ function Game() {
 
   this.moveChecker = function (start,end) {
     const checker = this.board.selectChecker(start[0],start[1]); //return checker at the starting positions and assign to checker variable
-
     this.board.grid[end[0]][end[1]] = checker; //set end location as starting location
-    let difference = this.board.grid[end[0]] - this.board.grid[start[0]];
-    let distance = Math.abs(difference);
+
+    let difference = end[0] - start[0]; //check the distance between end and start rows
+    let distance = Math.abs(difference); //get the absolute value of the distance
+    console.log('distance:', distance);
     if (distance === 2) {
-      let startMidPoint = (this.board.grid[start[0]] + this.board.grid[start[1]]) / 2;
-      let endMidpoint = (this.board.grid[end[0]] + this.board.grid[end[1]]) / 2;
-      let killPosition = this.board.grid[startMidPoint][endMidpoint];
-      this.board.killChecker(killPosition);
+      console.log('start: ', start);
+      console.log('end: ', end);
+      let startMidPoint = (Number(start[0]) + Number(end[0])) / 2; //find midpoint of start positions e.g. 4
+      let endMidpoint = (Number(start[1]) + Number(end[1])) / 2; //find midpoint of end positions e.g. 1
+      console.log('midpoints: ', startMidPoint, endMidpoint); 
+      let killPosition = [startMidPoint,endMidpoint]; //assign midpoint values to a variable
+      this.board.killChecker(killPosition); //call killChecker method and kill the checker
     }
     this.board.grid[start[0]][start[1]] = null; //remove starting location
-  }
+  }; //moveChecker ends
 
 }// Game class ends
 
@@ -170,6 +176,7 @@ if (typeof describe === 'function') {
     });
     it('should be able to jump over and kill another checker', () => {
       game.moveChecker('30', '52');
+      game.board.viewGrid();
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
       assert.equal(game.board.checkers.length, 23);
