@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // lastBlock.remove();
                     // console.log(blockheld);
                     // console.log(this);
-                    console.log(blocks[0]);
+                    console.log((blocks[0]).attributes[0].value);
 
           //    } else if ("smaller()"), then append block, and check for win {
         } else if (blockheld.data('blackheld') < this.lastChild.data('blockheld') ||
