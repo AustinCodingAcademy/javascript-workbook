@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkForWin() {
     if ((document.querySelector('[data-stack="2"]').childElementCount === 4) || //if there is 4 blocks on stack-2 or
         (document.querySelector('[data-stack="3"]').childElementCount === 4)) { //if there is 4 blocks on stack-3
-          return document.querySelector('#announce-game-won').innerText === 'You win!'; //return this text on screen
-        }
+      return document.querySelector('#announce-game-won').innerText === 'You win!'; //return this text on screen
+    }
   }//checkForWin ends
 
 }); //main method ends here
