@@ -9,30 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
       cell.onclick = function(event) {
         event.preventDefault();
 
-        //check to see if you have blockheld in hand
+        //if no block in hand, pick it up
         let message = "";
 
         if (blockheld === null) {
-console.log(this);
-          // $block = ($(this).children().last().detach());
-          // blockheld = document.querySelectorAll('this').removeChild;
-          let dataStack = document.querySelector('this');
-          let blocks = document.querySelectorAll('[data-block]');
-          let lastBlock = blocks[blocks.length - 1];
-console.log(lastBlock);
-          blockheld = lastBlock;
-          lastBlock.remove();
-          // blockheld = dataStack.removeChild(lastBlock);
-console.log(blockheld);
-
-console.log(this);
-
-
-
-
-
-
-
+                    console.log(this);
+          let blocks = this.querySelectorAll('[data-block]');
+          blockheld = blocks[blocks.length - 1].remove();
+          // blockheld.remove();
+          // let lastBlock = blocks[blocks.length - 1];
+          // blockheld = lastBlock;
+          // lastBlock.remove();
+                    // console.log(blockheld);
+                    // console.log(this);
+                    console.log(blockheld.valueOf('data-block'));
 
           //    } else if ("smaller()"), then append block, and check for win {
         } else if (blockheld.data('blackheld') < this.lastChild.data('blockheld') ||
