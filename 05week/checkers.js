@@ -63,10 +63,11 @@ function Board() {
   //Creating the checker instances
   //add them in loop to checkers, then add to grid
   this.createCheckers = function() {
-    const whiteChecker = new Checker('white');
-    const blackChecker = new Checker('black');
-    this.grid[0][1] = whiteChecker;
-    this.grid[5][0] = blackChecker;
+    // const whiteChecker = new Checker('white');
+    // const blackChecker = new Checker('black');
+    // this.grid[0][1] = whiteChecker;
+    // this.grid[5][0] = blackChecker;
+    // this.checkers.push(whiteChecker, blackChecker);
 
     const whitePositions =  [[0, 1], [0, 3], [0, 5], [0, 7],
     [1, 0], [1, 2], [1, 4], [1, 6],
@@ -77,16 +78,19 @@ function Board() {
 
     for (let i = 0; i < whitePositions.length; i++){
       //also need to add to checkers array
-      this.grid[whitePositions[i][0] ][ whitePositions[i][1]] = new Checker('white');
-      this.grid[blackPositions[i][0] ][ blackPositions[i][1]] = new Checker('black');
-      this.grid[5][0] = blackChecker;
-    }
+      this.checkers.push(this.grid[whitePositions[i][0] ][ whitePositions[i][1]] = new Checker('white'));
+      this.checkers.push(this.grid[blackPositions[i][0] ][ blackPositions[i][1]] = new Checker('black'));
 
-    //Selecting a particular checker
-    this.selectChecker = function (position) {};
-    //Killing a checker
-    this.killChecker = function(position) {};
+    }
   }
+  //Selecting a particular checker
+  this.selectChecker = function (row, column) {
+    return this.grid[row][column];
+  };
+  //Killing a checker
+  this.killChecker = function(position) {
+    this.selectChecker(position[0],position[1]);
+  };  
 }
 
 function Game() {
@@ -99,8 +103,13 @@ function Game() {
     this.board.createCheckers();
 
 
-
   };
+  this.moveChecker = function(start, end){
+    const checker = this.board.selectChecker(start[0], start[1]);
+    this.board.grid[ end[0] ][ end[1] ] = checker;
+    this.board.grid[start[0]][start[1]] = null;
+    console.log(this.board.checkers.indexOf(checker));
+  }
 }
 
 function getPrompt() {
