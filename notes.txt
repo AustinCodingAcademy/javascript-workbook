@@ -52,6 +52,8 @@ if (hits.length === 0) {
 ============================================
 checkers in the API
 
+$("")   = document.getEementById("")
+
 document.querySelectorAll('[data-cell]');
 
 document.querySelectorAll; ('[data-cell]').forEach(cell => {
@@ -81,3 +83,9 @@ to add event listener() type then function
 document.querySelectorAll('[data-cell]').forEach(cell => {
 cell.addEventListener('click', function() {console.log(this);})
 })
+
+array].forEach(Function(cell ){
+cell =>{}
+}
+
+const whatev = () => {}
