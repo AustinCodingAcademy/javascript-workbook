@@ -82,6 +82,7 @@ function Board() {
       this.checkers.push(this.grid[blackPositions[i][0] ][ blackPositions[i][1]] = new Checker('black'));
 
     }
+    //console.log(this.checkers);
   }
   //Selecting a particular checker
   this.selectChecker = function (row, column) {
@@ -89,8 +90,21 @@ function Board() {
   };
   //Killing a checker
   this.killChecker = function(position) {
-    this.selectChecker(position[0],position[1]);
-  };  
+    const dyingChecker = this.selectChecker(position[0],position[1]);
+    const index = this.checkers.indexOf(dyingChecker);
+    this.checkers.splice(index,1);
+    //console.log(this.checkers);
+    this.grid[position[0]][position[1]] = null;
+  };
+}
+
+Math.getDistance = function(x, y, x0, y0){
+    return Math.sqrt((x -= x0) * x + (y -= y0) * y);
+};
+
+function getMidpoint(x1,y1,x2,y2){
+  //console.log("mid ",[(x1+x2)/2, (y1+y2)/2]);
+  return [((x1+x2)/2), ((y1+y2)/2)];
 }
 
 function Game() {
@@ -101,14 +115,27 @@ function Game() {
     this.board.createGrid();
     // Your code here
     this.board.createCheckers();
-
-
   };
+
+
   this.moveChecker = function(start, end){
+    const startX = parseInt(start[0]);
+    const startY = parseInt(start[1]);
+    const endX = parseInt(end[0]);
+    const endY = parseInt(end[1]);
+
     const checker = this.board.selectChecker(start[0], start[1]);
-    this.board.grid[ end[0] ][ end[1] ] = checker;
-    this.board.grid[start[0]][start[1]] = null;
-    console.log(this.board.checkers.indexOf(checker));
+
+    this.board.grid[ endX ][ endY ] = checker;
+    this.board.grid[startX][startY] = null;
+    //console.log(typeof(startX)," ",startY," ",typeof(endX)," ",end[1]);
+
+    if (Math.getDistance(startX,startY,endX,endY) >= 2){
+      const killPosition = getMidpoint(startX,startY,endX,endY);
+      //console.log(killPosition, " ", Math.getDistance(startX,startY,endX,endY));
+      this.board.killChecker(killPosition);
+    }
+
   }
 }
 
