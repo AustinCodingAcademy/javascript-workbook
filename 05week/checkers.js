@@ -60,7 +60,8 @@ function Board() {
   };
 
   this.checkers = [];
-  this.checkers.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
+
+  // this.checkers.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
   //in order to satisfy test, the checkers array needs 24 items.
 
 
@@ -92,9 +93,17 @@ function Board() {
       this.grid[7][2] = blackChecker;
       this.grid[7][4] = blackChecker;
       this.grid[7][6] = blackChecker;
-      this.checkers.push(blackChecker);
-      this.checkers.push(whiteChecker);
+
+      this.checkers.push(blackChecker, blackChecker, blackChecker, blackChecker, blackChecker,
+      blackChecker, blackChecker, blackChecker, blackChecker, blackChecker, blackChecker,
+      blackChecker);
+
+
+      this.checkers.push(whiteChecker, whiteChecker, whiteChecker, whiteChecker,
+      whiteChecker, whiteChecker, whiteChecker, whiteChecker, whiteChecker,
+      whiteChecker, whiteChecker, whiteChecker);
     }
+
 
   //   var whitePositions = [
   //   [0, 1], [0, 3], [0, 5], [0, 7],
@@ -123,22 +132,24 @@ function Board() {
 
  // }
 
-
-
-
-
-  this.selectCheckers = function(row, column) {
-      return;
+  this.selectChecker = function(row, column) {
+    return(this.grid[row][column]);
   }
 
-  this.killChecker = function(position) {
-    var item = this.selectChecker(position);
-    var n = this.checkers.indexOf(postion);
-    let n = pos.splice();
-    n.this.grid = null;
+  // this.killChecker = function(position) {
+    // var item = this.selectChecker(position);
+    // var n = this.checkers.indexOf(postion);
+    // let n = pos.splice();
+    // n.this.grid = null;
 
-  }
+
   // Your code here
+  this.killChecker = function(position) {
+    let coordinate = this.selectChecker(position[0], position[1]);
+    let killedChecker = this.checkers.indexOf(coordinate);
+    this.checkers.splice(killedChecker, 1);
+    this.grid[position[0]][position[1]] = null;
+  }
 }
 
 
@@ -147,22 +158,30 @@ function Game() {
   this.board = new Board();
 
   this.start = function() {
-
     this.board.createGrid();
-
-    this.moveChecker = function(start, end) {
-      var startDigit = (start).toString().split("").map(Number)
-      var endDigit = (end).toString().split("").map(Number)
-
-      var checker = this.startDigit.selectCheckers;
-      this.startDigit.selectCheckers = null;
-      var checker = this.endDigit.selectCheckers;
-
-    }// Your code here
     this.board.createCheckers();
 
   };
-}
+
+  this.moveChecker = function(start, end) {
+    //the "start" and "end" indivudal parameters are actually arrays containing 2 coordinate values [0, 0]
+    const checker = this.board.selectChecker(start[0], start[1]); //you select the first and second coordinate values of the start array
+    this.board.grid[end[0]][end[1]] = checker; //You put add the checker into the end position.  Setting it equal to checker allows it to exist
+    this.board.grid[start[0]][start[1]] = null; //Now that the checker has been moved, you can null out what was in the original position
+
+
+    let distance = Math.abs(end[0]-start[0]);
+
+    if (distance === 2) {
+      let rowMidpoint = (Number(start[0]) + Number(end[0])) / 2;
+      let colMidpoint = (Number(start[1]) + Number(end[1])) / 2;
+      let killPosition = [rowMidpoint, colMidpoint];
+      this.board.killChecker(killPosition);
+    }
+     this.board.grid[start[0]][start[1]] = null;
+   };
+  }
+
 
 function getPrompt() {
   game.board.viewGrid();
