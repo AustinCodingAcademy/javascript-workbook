@@ -5,17 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let block = null;
   let blockSize = null;
   let lastBlock = null;
+  let lastBlockSize = null;
+  const totalBlocks = document.querySelector('[data-stack="1"]').childElementCount;
+  console.log(totalBlocks);
   // START click functions
   document.querySelectorAll('[data-stack]').forEach(stack => {
     stack.onclick = function() {
       // function wide variables
-      let blocks = this.querySelectorAll('[data-block]');
-      console.log(mkArr(this));
-      console.log(blocks);
-      console.log(mkArr(blocks));
-      console.log(typeof(blocks));
-      console.log(blocks.isArray);
-      lastBlock = blocks[blocks.length - 1].getAttribute('data-block');
+      lastBlock = this.lastElementChild;
+      lastBlockSize = (lastBlock ? lastBlock.getAttribute('data-block') : null);
       // nothing held, nothing in stack
       if (!block && !lastBlock) {
         lastBlock = null;
@@ -23,13 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       // nothing held >> pick up last block
       else if (!block) {
-        block = blocks.pop();
+        console.log('No block, picking up last block');
+        block = this.removeChild(lastBlock);
         blockSize = block.getAttribute('data-block');
         console.log(`${blockSize} held`);
       }
       // check for last block size >> place block
-      else if (!lastBlock || blockSize < lastBlock) {
-        blocks.push(block);
+      else if (!lastBlock || lastBlockSize < blockSize){
+        this.appendChild(block);
         console.log(`${blockSize} placed`);
         block = null;
         blockSize = null;
@@ -44,15 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // check winner
   function checkWin() {
-    if (document.getElementById('[data-stack="3"]').length === 4) {
+    let lastLength = document.querySelector('[data-stack="3"]').childElementCount;
+    if (lastLength && lastLength === totalBlocks) {
       document.getElementById('announce-game-won').innerHTML = 'You win!';
     }
-  }
-  function mkArr(array) {
-    let returnArray = [];
-    for (var key in array) {
-      returnArray.push(array[key]);
-    }
-    return returnArray;
   }
 });
