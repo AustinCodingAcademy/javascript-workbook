@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   let message = "";
 
-  document.querySelector('button').onclick = function (event) {
+  document.querySelector('#submit').onclick = function (event) {
     event.preventDefault();
 
     let board = [];
@@ -12,7 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let guess = document.querySelector('input').value;
     mastermind(guess);
     let newDiv = document.createElement('div');
+    newDiv.id = "newDivs";
     newDiv.innerText = printBoard() + message;
+    document.querySelector('input').value = "";
+
+
 console.log(board);
     document.querySelector('#board').appendChild(newDiv);
 
@@ -27,12 +31,13 @@ console.log(board);
       generateHint(solution, gs);
 
       count++;
-
+console.log(board);
       if (board[4] === '4-0') {
         message = '  You guessed it!';
-      }
+      } else message = '  Try again';
+
       board = board.join('').split(',');
-      message = '  Try again';
+      // message = '  Try again';
     }
 
     function generateHint(solution, gs) {
@@ -72,6 +77,18 @@ console.log(board);
   }
 
 }
+
+// Clears the board and fades a clean board back in
+  document.querySelector('#clear').onclick = function(event) {
+      event.preventDefault();
+
+      var elements = document.querySelectorAll('#newDivs');
+        for (var i=0; i < elements.length; i++) {
+          elements[i].innerText = "";
+        }
+      message = "";
+      document.querySelector('input').value = "";
+  };
   // let board = [];
   // let solution = 'abcd';
   // const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
