@@ -1,5 +1,4 @@
 'use strict';
-
 document.addEventListener('DOMContentLoaded', () => {
   let turn = 'X';
   let b = [null, null, null, null, null, null, null, null, null];
