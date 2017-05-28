@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastBlock = null;
   let lastBlockSize = null;
   const totalBlocks = document.querySelector('[data-stack="1"]').childElementCount;
-  console.log(totalBlocks);
   // START click functions
   document.querySelectorAll('[data-stack]').forEach(stack => {
     stack.onclick = function() {
       // function wide variables
       lastBlock = this.lastElementChild;
-      lastBlockSize = (lastBlock ? lastBlock.getAttribute('data-block') : null);
+      lastBlockSize = (
+        lastBlock ? Number(lastBlock.getAttribute('data-block')) : null
+      );
       // nothing held, nothing in stack
       if (!block && !lastBlock) {
         lastBlock = null;
@@ -23,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (!block) {
         console.log('No block, picking up last block');
         block = this.removeChild(lastBlock);
-        blockSize = block.getAttribute('data-block');
+        blockSize = Number(block.getAttribute('data-block'));
         console.log(`${blockSize} held`);
       }
       // check for last block size >> place block
-      else if (!lastBlock || lastBlockSize < blockSize){
+      else if (!lastBlock || lastBlockSize > blockSize){
         this.appendChild(block);
         console.log(`${blockSize} placed`);
         block = null;
