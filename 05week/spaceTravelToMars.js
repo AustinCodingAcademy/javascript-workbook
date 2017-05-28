@@ -17,7 +17,7 @@ function CrewMember (name, job, specialSkill, ship){
   this.ship = null;
   this.enterShip = function(ship){
     this.ship = ship;
-    ship.crew.push(this);
+    this.ship.crew.push(this);
   };
 };
 
@@ -26,15 +26,49 @@ function Ship(name, type, ability) {
   this.type = type;
   this.ability = ability;
   this.crew = [];
+
+  // this.missionStatement = function(){
+  //   if (this.crew(jobTypes[crewMember.job]) !=== crewMember.job){
+  //     console.log("Can't perform a mission yet.")
+  //   } else {
+  //     console.log('')
+  //   }
   this.missionStatement = function(){
-    var 
-    if (//NONE OF CREW MEMBERS HAVE CORRECT JOB TO MATCH SHIP TYPE){
-      console.log("Can't perfrom a mission yet.")
-    } else {
-      //RETURN THIS SHIPS ABILITY IF THERE IS A CREW MEMBER THAT HAS A CORRECT JOB THAT MATCHES TYPE.
+    for (let i = 0; i < this.crew.length; i++){
+      console.log(`CREW: ${this.crew[i]}`);
+      if (this.crew[i].job === "programmer"){
+        return this.ability;
+      }
+      else if (jobTypes[this.crew[i].job] === this.type) {
+        return this.ability;
+      }
+      else {
+        return "Can't perform a mission yet."
+      }
     }
   }
 }
+
+// MAV.crew.push(Kirk)
+//Kirk.ship = MAV
+
+// crewMember.job === crewMember1.job (pilot)
+
+//1. What  does the ship and crew have in common?
+//jobTypes[crewmemberX.job]        "MAV"
+//jobTypes['pilot']
+
+//2. match a crewMember's job with the current Ship's types
+//sort through this.crew
+//[crewMember1, rick, morty]
+// if (this.crew.filter(...){
+//
+// })
+// const isPilot = MAV.crew.filter(function(crewMember){
+//   return jobTypes[crewMember.job] === MAV.type
+// })
+
+
 
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 mav.crew.push(1);
