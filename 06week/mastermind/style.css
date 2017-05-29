@@ -1,0 +1,14 @@
+table {
+  margin:auto;
+}
+.input {
+  border: solid 1px black;
+  width: 50%;
+}
+tr {
+  border: solid 2px black;
+  height: 50px;
+}
+#guessBox {
+  border: 1px solid black;
+}
