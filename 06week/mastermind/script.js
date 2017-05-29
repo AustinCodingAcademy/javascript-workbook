@@ -5,24 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
   document.querySelector('button').onclick = function() {
-  let div = document.createElement('div')
-  let guess = document.querySelector('input').value;
-  div.innerText = guess;
-  document.querySelector('#board').appendChild(div)
+    let div = document.createElement('div')
+    let guess = document.querySelector('input').value;
+    if (guess === solution) {
+      div.innerText = ("You Won!");
+    } else {
+      div.innerText = (guess + " " + generateHint(solution, guess));
+    }
+
+    document.querySelector('#board').appendChild(div)
   }
-  generateHint();
-  checkForWin();
+  // checkForWin();
 });
 
 
 
-function mastermind(solution, guess) {
-  if (guess === solution) {
-   document.getElementById('hint').innerText(guess + "You guessed it!");
-} else {
-  document.getElementById('hint').innerText(guess + generateHint());
-  }
-}
+
+// function mastermind(solution, guess) {
+//   if (guess === solution) {
+//    document.getElementById('hint').innerText(guess + "You guessed it!");
+// } else {
+//   document.getElementById('hint').innerText(guess + generateHint());
+//   }
+// }
 
 
 
