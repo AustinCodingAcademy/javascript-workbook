@@ -38,11 +38,6 @@ function isLegal(startStack, endStack) {
     console.log('illegal', startBlock, endBlock);
     return true;
   }
-  /*if (stacks[endStack].length === 0 || startIndex < endIndex) {
-    return true;
-  } else {
-    return false;
-  }*/
 
 }
 
