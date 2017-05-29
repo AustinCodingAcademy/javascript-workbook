@@ -50,10 +50,10 @@ function mergeSort(arr) {
 // meaning the other one will be presorted and attachable
 // to the end
   if(!sortedFirst.length) {
-  sortedArr = sortedArr.concat(sortedSecond);
+    sortedArr = sortedArr.concat(sortedSecond);
   } else if (!sortedSecond.length) {
-  sortedArr = sortedArr.concat(sortedFirst);
-}
+    sortedArr = sortedArr.concat(sortedFirst);
+  }
   return sortedArr;
 }
 
