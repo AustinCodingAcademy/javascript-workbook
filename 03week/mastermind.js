@@ -28,18 +28,36 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess, soluion) {
   // your code here
+
+let numberRight = '';
+let numberClose = '';
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+for (letters in guess) {
+  if guess[i]===solution[i] 
+}
+
+
+
+
+
+returnString = numberRight + '‐' + numberClose;
+return returnString;
+
 }
 
 function mastermind(guess) {
   // solution = 'abcd'; // uncomment this when developing
   // your code here
+ 
+  
 }
 
 
 function getPrompt() {
-  rl.question('guess: ', (guess) => {
+  rl.question('guess : ', (guess) => {
     console.log( mastermind(guess) );
     printBoard();
     getPrompt();
