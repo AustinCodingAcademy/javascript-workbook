@@ -1,13 +1,13 @@
 'use strict';
-//neeed a ) somewhere down there.
+
 document.addEventListener('DOMContentLoaded', () => {
   let playerTurn = 'X';
-<<<<<<< HEAD
+
   let cells = document.querySelectorAll('[data-cell]');
   document.querySelectorAll('[data-cell]').forEach(cell => {
     cell.onclick = function (e) {
       this.innerText = (playerTurn === 'X') ? 'X' : 'O';
-      //  i++;
+
       console.log(checkForWin(playerTurn));
       if (checkForWin(playerTurn)) {
         document.querySelector('#announce-winner').innerText = `Player "${playerTurn}" Wins!`;
