@@ -134,9 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
     generateSolution();
 
     document.getElementById('button').onclick = function () {
+      // grabs the value of my input
       let guess = document.querySelector('input').value;
+      // creates a new div
       let guessBox = document.createElement('div');
+      // sets the content of my new div to my mastermind game logic
       guessBox.innerText = guess + ' ' + mastermind(guess)
+      // adds my new div with printed game logic to DOM
       document.getElementById('container').appendChild(guessBox);
       console.log(solution)
 
