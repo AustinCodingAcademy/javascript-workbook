@@ -25,14 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log();
     }
     //horizontal win
+    document.getElementsByClassName('row'), () => {
       if(playerX === [1, 2, 3] || [4, 5, 6] || [7, 8, 9]) {
         return alert "Player X wins!";
       }
       else{
         return alert "Player O wins!";
       }
-  }
+    }
     //vertical win
+    document.getElementsByTagName('column'), () => {
       if(playerX === [1, 4, 7] || [2, 5, 8] || [3, 6, 9]) {
         return alert "Player X wins!";
       }
@@ -45,6 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
       else{
         return alert "Player O wins!";
       }
+    }
   }
-  
 });
