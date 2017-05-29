@@ -9,37 +9,49 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+//function enterShip(CrewMember, Ship){
+// this.enterShip = function(Ship){
+ //   console.log(somewhere.crew.push(ship));
+ // }
+
+//}
+
 
 function CrewMember(name, job, specialSkill){
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
+  this.enterShip = function(){
+   this.ship = ship;
+   ship.crew.push(this);
+ }
 }
-
-
-var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-rick;
 
 function Ship(name, type, ability) {
   this.name = name;
   this.type = type;
   this.ability = ability;
   this.crew = [];
+  this.missionStatement = function(){
+    for (var i = 0; i < this.crew.length; i++){
+      if (jobTypes[this.crew[i].job]===this.type){
+        return this.ability;
+      }
+      else{
+        return "Can't perform a mission yet.";
+      }
+    }
+  }
 }
 
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 mav;
 
-function enterShip(CrewMember, Ship){
-  this.enterShip = function(Ship){
-    console.log(somewhere.crew.push(ship));
-  }
 
-}
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 
 
-// Your code here
 
 //tests
 if (typeof describe === 'function'){

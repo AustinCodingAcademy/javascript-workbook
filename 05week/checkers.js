@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 
 function Checker(color) {
   this.color = color;
-  if (color === 'white'){
+  if (this.color === 'white'){
     this.symbol = String.fromCharCode(0x125CB)
   }
   else{
@@ -20,7 +20,7 @@ function Checker(color) {
 
 function Board() {
   this.selectChecker = function(row, column){
-    return this.Checker[row][column];
+    return this.grid[row][column];
   }
   //this.killChecker = function(position){}
   this.createCheckers = function(){
@@ -91,11 +91,12 @@ function Board() {
 function Game() {
 
   this.board = new Board();
-  this.moveChecker = function(row, column){};
   this.start = function() {
     this.board.createGrid();
     this.board.createCheckers();
-    // Your code here
+  }
+  this.moveChecker = function(start, end){
+    var checker = selectChecker(start)
   };
 }
 
