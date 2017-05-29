@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let stack = document.querySelectorAll('[data-stack]');
   console.log(stack);
   let ring = null;
-  stack.forEach(cell => {cell.onclick = function(e){
+  stack.forEach(pole => {cell.onclick = function(e){
 
       if(ring === 'null'){
         ring = this.children().last().detach();
