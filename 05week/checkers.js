@@ -93,7 +93,7 @@ function Board() {
     const dyingChecker = this.selectChecker(position[0],position[1]);
     const index = this.checkers.indexOf(dyingChecker);
     this.checkers.splice(index,1);
-    //console.log(this.checkers);
+    // console.log(this.checkers);
     this.grid[position[0]][position[1]] = null;
   };
 }
