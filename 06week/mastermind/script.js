@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   let message = "";
+  document.querySelector('input').focus();
 
   document.querySelector('#submit').onclick = function (event) {
     event.preventDefault();
@@ -14,12 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let newDiv = document.createElement('div');
     newDiv.id = "newDivs";
     newDiv.innerText = printBoard() + message;
-    document.querySelector('input').value = "";
-
-
-console.log(board);
     document.querySelector('#board').appendChild(newDiv);
+    newInput();
 
+
+    function newInput() {
+      document.querySelector('input').value = "";
+      document.querySelector('input').focus();
+    }
+
+    //takes user guess, and analyzes results
     function mastermind(guess) {
       let count = 0;
       board = [];
@@ -31,24 +36,27 @@ console.log(board);
       generateHint(solution, gs);
 
       count++;
-console.log(board);
+
+      // if 4 reds, then 'win', else, 'try again'
       if (board[4] === '4-0') {
         message = '  You guessed it!';
       } else message = '  Try again';
 
-      board = board.join('').split(',');
-      // message = '  Try again';
+      //return board as one array item
+      board = board.join(' ').split(',');
     }
 
+    // analyze user guess and returns results inside board
     function generateHint(solution, gs) {
-      //check for reds
       board = [];
+
+      //check for reds
       let redCount = 0;
       for (var i = 0; i <= gs.length-1; i++) {
         if (solution[i] === gs[i]) redCount++;
       }
 
-      //check for white
+      //check for whites
       let whiteCount = 0;
       for (var i = 0; i <= solution.length-1; i++) {
         let current = '';
@@ -62,23 +70,53 @@ console.log(board);
         }
       }
 
-      //log results
+      //push guess into board
       for (var i = 0; i <= gs.length-1; i++) {
         board.push(gs[i]);
       }
+      //push hint into board
       board.push(redCount + '-' + whiteCount);
+
       return(board[4]);
     }
 
   function printBoard() {
-    for (let i = 0; i <= board.length-1; i++) {
-      return(board[i]);
+    board.push(convertToColorPegs(board));
+    return(board);
+  }
+
+  function convertToColorPegs(result) {
+    let colorBoard = result[0].split(" ");
+    let redCount = colorBoard[8];
+    let redObj = convertToRed(redCount);
+    let whiteCount = colorBoard[10];
+    let whiteObj = convertToWhite(whiteCount);
+    return redObj;
+  }
+
+  function convertToRed(redCount) {
+    let redDots = [];
+    for (var i = 0; i <= redCount; i++) {
+      let newRedDot = document.createElement('span');
+      newRedDot.id = "newRed";
+      document.querySelector('#board').appendChild(newRedSpan);
+      redDots.push(newRedDot);
     }
+    return redDots;
+  }
+
+  function convertToWhite(whiteCount) {
+    for (var i = 0; i <= whiteCount; i++) {
+      let newWhiteDot = document.createElement('span');
+      newWhiteDot.id = "newWite";
+      document.querySelector('#board').appendChild(newWhiteSpan);
+    }
+
   }
 
 }
 
-// Clears the board and fades a clean board back in
+// Clears the board
   document.querySelector('#clear').onclick = function(event) {
       event.preventDefault();
 
