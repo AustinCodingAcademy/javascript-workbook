@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const board = [];
-  let solutionString = 'abcd'; //CHANGE TO EMPTY EVENTUALLY
+  let solutionString = '';
   const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
   function generateSolution() {
@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // randomize solution
+  generateSolution();
   // onclick fucntion for the submit button
   // creates and appends new div containing the guess and the hints
   document.getElementById('submit').onclick = function() {
