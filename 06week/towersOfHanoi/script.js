@@ -17,15 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if(this.length !== 0){
         if(ring === null){
         ring = this.removeChild(this.lastElementChild);
-
         }
         console.log(this.length)
         // ring = this.lastChild;
         console.log(ring);
-
         }
 
-      // else if ($(this).children().length === 0 || ($ring.data('block') < $(this).children().last().data('block') ))
+       else if (this.length === 0 && ring != null){
+         this.addchild(ring);
+
+       }
+    //|| ($ring.data('block') < $(this).children().last().data('block') ))
       //  {
       //    $(this).append($ring);
       //    $ring = 'null';
