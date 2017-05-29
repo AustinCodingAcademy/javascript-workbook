@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cell.onclick = function(event) {
       event.preventDefault();
       var elements = document.querySelectorAll('[data-cell]');
-        for (var i=0; i < elements.length; i++) {
-          elements[i].innerText = "";
-        }
+      for (var i=0; i < elements.length; i++) {
+        elements[i].innerText = "";
+      }
       document.getElementById('announce-winner').innerText = "";
 
       playerTurn = 'X';

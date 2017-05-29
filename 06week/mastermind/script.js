@@ -80,52 +80,52 @@ document.addEventListener('DOMContentLoaded', () => {
       return(board[4]);
     }
 
-  function printBoard() {
-    board.push(convertToColorPegs(board));
-    return(board);
-  }
-
-  function convertToColorPegs(result) {
-    let colorBoard = result[0].split(" ");
-    let redCount = colorBoard[8];
-    let redObj = convertToRed(redCount);
-    let whiteCount = colorBoard[10];
-    let whiteObj = convertToWhite(whiteCount);
-    return redObj;
-  }
-
-  function convertToRed(redCount) {
-    let redDots = [];
-    for (var i = 0; i <= redCount; i++) {
-      let newRedDot = document.createElement('span');
-      newRedDot.id = "newRed";
-      document.querySelector('#board').appendChild(newRedSpan);
-      redDots.push(newRedDot);
-    }
-    return redDots;
-  }
-
-  function convertToWhite(whiteCount) {
-    for (var i = 0; i <= whiteCount; i++) {
-      let newWhiteDot = document.createElement('span');
-      newWhiteDot.id = "newWite";
-      document.querySelector('#board').appendChild(newWhiteSpan);
+    function printBoard() {
+      board.push(convertToColorPegs(board));
+      return(board);
     }
 
-  }
+    function convertToColorPegs(result) {
+      let colorBoard = result[0].split(" ");
+      let redCount = colorBoard[8];
+      let redObj = convertToRed(redCount);
+      let whiteCount = colorBoard[10];
+      let whiteObj = convertToWhite(whiteCount);
+      return redObj;
+    }
 
-}
+    function convertToRed(redCount) {
+      let redDots = [];
+      for (var i = 0; i <= redCount; i++) {
+        let newRedDot = document.createElement('span');
+        newRedDot.id = "newRed";
+        document.querySelector('#board').appendChild(newRedSpan);
+        redDots.push(newRedDot);
+      }
+      return redDots;
+    }
+
+    function convertToWhite(whiteCount) {
+      for (var i = 0; i <= whiteCount; i++) {
+        let newWhiteDot = document.createElement('span');
+        newWhiteDot.id = "newWite";
+        document.querySelector('#board').appendChild(newWhiteSpan);
+      }
+
+    }
+
+  }
 
 // Clears the board
   document.querySelector('#clear').onclick = function(event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      var elements = document.querySelectorAll('#newDivs');
-        for (var i=0; i < elements.length; i++) {
-          elements[i].innerText = "";
-        }
-      message = "";
-      document.querySelector('input').value = "";
+    var elements = document.querySelectorAll('#newDivs');
+    for (var i=0; i < elements.length; i++) {
+      elements[i].innerText = "";
+    }
+    message = "";
+    document.querySelector('input').value = "";
   };
   // let board = [];
   // let solution = 'abcd';
