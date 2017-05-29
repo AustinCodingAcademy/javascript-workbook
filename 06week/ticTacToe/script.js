@@ -5,32 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-cell]').forEach((cell) => {
     cell.addEventListener('click', function() {
       this.innerText = playerTurn;
-      if (checkForWin()) {
-        document.querySelector('#announce-winner').
-
       playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+      checkForWin();
     });
-  })  // Your code here
-  function checkForWin() {
-    const winningCells = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-    winningCells.some((combo) => {
+    })
 
-    if (
-    document.querySelector(`[data-cell="${combo[0]}"]`).innerText === playerTurn &&
-    document.querySelector(`[data-cell="${combo[1]}"]`).innerText === playerTurn &&
-    document.querySelector(`[data-cell="${combo[2]}"]`).innerText === playerTurn
-  ) {
-    return true;
-  }
-  return false;
-}
+
+
+    function checkForWin() {
+    const winningCombos = [
+          ['a', 'b', 'c'],
+          ['d', 'e', 'f'],
+          ['g', 'h', 'i'],
+          ['a', 'd', 'g'],
+          ['b', 'e', 'h'],
+          ['c', 'f', 'i'],
+          ['a', 'e', 'i'],
+          ['c', 'e', 'g'],
+        ];
+
+
+        winningCombos.some(combo => {
+              if (document.querySelector(`[data-cell="${combo[0]}"]`).innerText === playerTurn &&
+               document.querySelector(`[data-cell="${combo[1]}"]`).innerText === playerTurn &&
+                 document.querySelector(`[data-cell="${combo[2]}"]`).innerText === playerTurn) {
+                 document.querySelector('#announce-winner').innerText = `Player ${playerTurn} wins!`
+               }
+                   })
+                 return false;
+              }
 });
+
+
+
+//         return winningCombos.some((combo) => {
+//           return combo.every((letter) => {
+//             return document.querySelector(`[data-cell="${letter}"]`).innerText === playerTurn;
+//
+//           });
+//         });
+// };
