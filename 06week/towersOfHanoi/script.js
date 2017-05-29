@@ -10,19 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(stack);
   console.log(rings);
   let ring = null;
-<<<<<<< HEAD
-  stack.forEach(pole => {cell.onclick = function(e){
-=======
-  stack.forEach( stacks => {stacks.onclick = function (e)  {
+
+  stack.forEach(pole => {pole.onclick = function(e){
+    stack.forEach( stacks => {stacks.onclick = function (e)  {
 //remove child, addchild and stacks[0].lastChild.dataset.block or something
       if(this.length !== 0){
         if(ring === null){
-        ring = stack[0].removeChild(stack[0].lastChild);
->>>>>>> 92ea904a1574c5647abc5bc87063c6cb8e241671
+        ring = this.removeChild(this.lastElementChild);
 
         }
         console.log(this.length)
-        ring = this.lastChild;
+        // ring = this.lastChild;
         console.log(ring);
 
         }
@@ -34,14 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       //    checkWin();
       //  }
 
-     }
-
-
-    if(this.length > 0){
-
-    }
-  }
-)
+    }});
+  }});
 
 
 });
