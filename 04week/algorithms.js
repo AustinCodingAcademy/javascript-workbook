@@ -39,11 +39,11 @@ function mergeSort(arr) {
   // if the first item in the first array is smaller, push
   //it in the sorted array
     if (sortedFirst[0] < sortedSecond[0]) {
-    sortedArr.push(sortedFirst.shift());
-  } else {
+      sortedArr.push(sortedFirst.shift());
+    } else {
     // else push the first item in the second array
-    sortedArr.push(sortedSecond.shift());
-  }
+      sortedArr.push(sortedSecond.shift());
+    }
   }
 
 // eventually one of the arrays are going to be emptied,
@@ -51,7 +51,7 @@ function mergeSort(arr) {
 // to the end
   if(!sortedFirst.length) {
   sortedArr = sortedArr.concat(sortedSecond);
-} else if (!sortedSecond.length) {
+  } else if (!sortedSecond.length) {
   sortedArr = sortedArr.concat(sortedFirst);
 }
   return sortedArr;
