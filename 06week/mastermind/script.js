@@ -71,4 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(board);
     document.querySelector('#board').appendChild(newDiv);
   }
+
+  document.querySelector('#clear').onclick = function() {
+    document.querySelectorAll('#board').forEach(function(div) {
+      div.innerText = '';
+    })
+  }
 })

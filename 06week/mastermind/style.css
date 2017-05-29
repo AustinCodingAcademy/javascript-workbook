@@ -30,7 +30,6 @@ h3 {
   color: white;
   font-size: 16px;
   border-radius: 6px;
-  border-size: 1px;
 }
 
 .button {
@@ -39,7 +38,26 @@ h3 {
   display: flex;
   -ms-flex-item-align: center;
   align-self: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   width: 200px;
+}
+
+#clear {
+  margin-top: 20px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  max-width: 100%;
 }
 
 #board {
@@ -58,7 +76,7 @@ h3 {
   justify-content: center;
   -ms-flex-item-align: center;
   align-self: center;
-  margin-top: 60px;
+  margin-top: 30px;
   width: 200px;
   min-height: 200px;
   max-height: 100%;
