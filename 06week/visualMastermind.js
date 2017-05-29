@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function generateSolution() { //function to randomely generate solution string
-    for (let i = 0; i < 4; i++) { //starting iterator to run through the length of the string we are building
+    for (let i = 0; i < 4; i++) { //starting an iterator to run through the length of the string we are building
       const randomIndex = getRandomInt(0, letters.length); //setting const to hold the index returned from the getRandomInt function after being passed 0 as min and letters.length as max
       solution += letters[randomIndex]; //putting the letters randomely generated into the previously empty solution string
       //gets a random number index and puts whats there inside solution variable
