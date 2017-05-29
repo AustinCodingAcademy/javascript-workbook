@@ -1,0 +1,72 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  /*background-color: #475675;*/
+  background-color: black;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Barrio', cursive;
+  font-size: 60px;
+  color: white;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: darkgrey;
+}
+
+#submit {
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  border-size: 1px;
+}
+
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+  align-self: center;
+  width: 200px;
+}
+
+#board {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-top: 60px;
+  width: 200px;
+  min-height: 200px;
+  max-height: 100%;
+  background-color: lightgrey;
+  border-width: 10px;
+  border-color: black;
+  border-style: double;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: red;
+}
