@@ -19,12 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#board').appendChild(newDiv);
     newInput();
 
-
-    function newInput() {
-      document.querySelector('input').value = "";
-      document.querySelector('input').focus();
-    }
-
     //takes user guess, and analyzes results
     function mastermind(guess) {
       let count = 0;
@@ -138,18 +132,30 @@ document.addEventListener('DOMContentLoaded', () => {
       elementsToDelete[i].innerText = "";
     }
 
-    elementsToDelete = document.querySelectorAll('#newRed');
-    for (var i=0; i < elementsToDelete.length; i++) {
-      elementsToDelete[i].innerText = "";
+    let redsToDelete = document.querySelectorAll('#newRed');
+    for (var i=0; i < redsToDelete.length; i++) {
+      let redBye = redsToDelete[i];
+      redBye.remove();
     }
 
-    elementsToDelete = document.querySelectorAll('#newWhite');
-    for (var i=0; i < elementsToDelete.length; i++) {
-      elementsToDelete[i].innerText = "";
+    let whitesToDelete = document.querySelectorAll('#newWhite');
+    for (var i=0; i < whitesToDelete.length; i++) {
+      let whiteBye = whitesToDelete[i];
+      whiteBye.remove();
     }
-    message = "";
+
+    let messageToDelete = document.querySelector('#announce-winner');
+    messageToDelete.innerText = "";
+
     document.querySelector('input').value = "";
+
+    newInput();
   };
+
+  function newInput() {
+    document.querySelector('input').value = "";
+    document.querySelector('input').focus();
+  }
   // let board = [];
   // let solution = 'abcd';
   // const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
