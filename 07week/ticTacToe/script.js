@@ -3,7 +3,7 @@
 class TicTacToe extends React.Component {
   constructor(props) {
     super(props);
-      this.state: {
+      this.state = {
         0: 'X',
         1: '',
         2: 'X',
@@ -24,7 +24,7 @@ clickCell = (e) => {
   obj [e.target.getAttribute('data-cell')] = this.state.playerTurn;
   obj['playerTurn'] = this.state.playerTurn === 'X' ? 'O': 'X';
   this.setState(obj)
-  
+
 }
 
   render() {
