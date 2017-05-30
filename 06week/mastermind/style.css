@@ -15,24 +15,29 @@
 }
 
 #newRed {
-  width: 20px;
-  height: 20px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
   background-color: red;
   border-radius: 50%;
+  border: 1px solid black;
 }
 
 #newWhite {
-  width: 20px;
-  height: 20px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
   background-color: white;
   border-radius: 50%;
+  border: 1px solid black;
 }
 
 #announce-winner {
   clear: both;
-  font-size: 50px;
+  font-size: 20px;
 }
 
 input {
+  margin-top: 20px;
   margin-bottom: 20px;
 }

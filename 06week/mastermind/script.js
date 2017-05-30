@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
     let guess = document.querySelector('input').value;
     mastermind(guess);
+
     let newDiv = document.createElement('div');
     newDiv.id = "newDivs";
-    newDiv.innerText = printBoard() + message;
+    newDiv.innerText = printBoard();
     document.querySelector('#board').appendChild(newDiv);
     newInput();
 
@@ -39,8 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // if 4 reds, then 'win', else, 'try again'
       if (board[4] === '4-0') {
-        message = '  You guessed it!';
-      } else message = '  Try again';
+        document.querySelector('#announce-winner').innerText = 'You guessed it!';
+      } else {
+        document.querySelector('#announce-winner').innerText = 'Try again';
+      }
 
       //return board as one array item
       board = board.join(' ').split(',');
@@ -77,41 +80,51 @@ document.addEventListener('DOMContentLoaded', () => {
       //push hint into board
       board.push(redCount + '-' + whiteCount);
 
+      //return hint
       return(board[4]);
     }
 
     function printBoard() {
-      board.push(convertToColorPegs(board));
+      convertToColorPegs(board);
       return(board);
+
     }
 
     function convertToColorPegs(result) {
       let colorBoard = result[0].split(" ");
-      let redCount = colorBoard[8];
-      let redObj = convertToRed(redCount);
-      let whiteCount = colorBoard[10];
-      let whiteObj = convertToWhite(whiteCount);
-      return redObj;
+      let redWhite = colorBoard[4].split("-");
+      let dots = [];
+
+      let whiteCount = redWhite[1];
+      dots.push(convertToWhite(whiteCount));
+
+      let redCount = redWhite[0];
+      dots.push(convertToRed(redCount));
+      return dots;
     }
 
     function convertToRed(redCount) {
       let redDots = [];
-      for (var i = 0; i <= redCount; i++) {
-        let newRedDot = document.createElement('span');
+
+      for (var i = 0; i < redCount; i++) {
+        let newRedDot = document.createElement('div');
         newRedDot.id = "newRed";
-        document.querySelector('#board').appendChild(newRedSpan);
+        document.querySelector('#board').appendChild(newRedDot);
         redDots.push(newRedDot);
       }
       return redDots;
     }
 
     function convertToWhite(whiteCount) {
-      for (var i = 0; i <= whiteCount; i++) {
-        let newWhiteDot = document.createElement('span');
-        newWhiteDot.id = "newWite";
-        document.querySelector('#board').appendChild(newWhiteSpan);
-      }
+      let whiteDots = [];
 
+      for (var i = 0; i < whiteCount; i++) {
+        let newWhiteDot = document.createElement('div');
+        newWhiteDot.id = "newWhite";
+        document.querySelector('#board').appendChild(newWhiteDot);
+        whiteDots.push(newWhiteDot);
+      }
+      return whiteDots;
     }
 
   }
@@ -120,9 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#clear').onclick = function(event) {
     event.preventDefault();
 
-    var elements = document.querySelectorAll('#newDivs');
-    for (var i=0; i < elements.length; i++) {
-      elements[i].innerText = "";
+    var elementsToDelete = document.querySelectorAll('#newDivs');
+    for (var i=0; i < elementsToDelete.length; i++) {
+      elementsToDelete[i].innerText = "";
+    }
+
+    elementsToDelete = document.querySelectorAll('#newRed');
+    for (var i=0; i < elementsToDelete.length; i++) {
+      elementsToDelete[i].innerText = "";
+    }
+
+    elementsToDelete = document.querySelectorAll('#newWhite');
+    for (var i=0; i < elementsToDelete.length; i++) {
+      elementsToDelete[i].innerText = "";
     }
     message = "";
     document.querySelector('input').value = "";
