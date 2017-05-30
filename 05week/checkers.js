@@ -8,11 +8,46 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
   // Your code here
+  this.color = color;
+  if (this.color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
+  else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
+  // this.symbol = something
 }
 
 function Board() {
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column]
+  }
+  this.checkers = [];
+  // this.killChecker = function(position) {}
+  this.createCheckers = function() {
+    let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+[1, 0], [1, 2], [1, 4], [1, 6],
+[2, 1], [2, 3], [2, 5], [2, 7]];
+    let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+[6, 1], [6, 3], [6, 5], [6, 7],
+[7, 0], [7, 2], [7, 4], [7, 6]];
+  for (let i = 0; i<=11; i++){
+    // Place White Checker
+    let whiteChecker = new Checker('white');
+    this.checkers.push(whiteChecker);
+    let coordinate = whitePositions[i];
+    this.grid[coordinate[0]][coordinate[1]] = whiteChecker;
+
+    // Place Black checkers
+    let blackChecker = new Checker('black');
+    this.checkers.push(blackChecker);
+    let coordinate2 = blackPositions[i];
+    this.grid[coordinate2[0]][coordinate2[1]] = blackChecker;
+  }
+  }
+
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
