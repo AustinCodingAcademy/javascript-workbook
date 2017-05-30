@@ -16,7 +16,8 @@ class TicTacToe extends React.Component {
         [2, 5, 8],
         [0, 4, 8],
         [2, 4, 6]
-      ]
+      ],
+      winTest: ""
     };
   }
 
@@ -33,14 +34,23 @@ class TicTacToe extends React.Component {
   }
 
   checkWin = () => {
-    let winString = (this.state.turn === "X" ? this.state.winString[0] : this.state.winString[1]);
+    let winString = (
+      this.state.turn==="X"?this.state.winString[0]:this.state.winString[1]
+    );
     let board = this.state.board;
     this.state.combos.forEach((combo) => {
       if (`${board[combo[0]]}${board[combo[1]]}${board[combo[2]]}` === winString) {
-        console.log('WINNNNNN');
+        this.setState({winText: `Player ${this.state.turn} wins!`});
       }
     });
+  }
 
+  clearBoard = () => {
+    let newBoard = this.state.board.map(() => "");
+    this.setState({
+      board: newBoard,
+      winText: ""
+    });
   }
 
   render() {
@@ -61,6 +71,8 @@ class TicTacToe extends React.Component {
           <div data-cell="7" onClick={this.clickIt}>{this.state.board[7]}</div>
           <div data-cell="8" onClick={this.clickIt}>{this.state.board[8]}</div>
         </div>
+        <button onClick={this.clearBoard} id="clear">Clear</button>
+        <div id="announce-winner">{this.state.winText}</div>
       </div>
     );
   }
