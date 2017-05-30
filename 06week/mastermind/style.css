@@ -16,20 +16,20 @@
 
 #newRed {
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  background-color: red;
   border-radius: 50%;
-  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  background: radial-gradient(circle at 15px 10px, red, #423434);
 }
 
 #newWhite {
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  background-color: white;
   border-radius: 50%;
-  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  background: radial-gradient(circle at 15px 10px, white, #4e4e4e);
 }
 
 #announce-winner {
