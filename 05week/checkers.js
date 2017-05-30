@@ -102,6 +102,13 @@ function Board() {
     };
 
     // Your code here
+
+    this.selectChecker = function (row, column) {
+      return this.grid [row][column];
+    }
+    this.moveChecker = function (start, end){
+      return this.selectChecker()
+    }
 }
 
 function Game() {
