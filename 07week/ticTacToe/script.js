@@ -3,25 +3,36 @@
 class TicTacToe extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      0: '',
+
+    }
+  }
+
+  click = (e) => {
+    const dataCell = e.target.getAttribute('data-cell');
+    const obj = {};
+    obj[dataCell] = 'X';
+    this.setState(obj)
   }
 
   render() {
     return (
       <div>
         <div className="row">
-          <div data-cell="0"></div>
-          <div data-cell="1"></div>
-          <div data-cell="2"></div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
         </div>
         <div className="row">
-          <div data-cell="3"></div>
-          <div data-cell="4"></div>
-          <div data-cell="5"></div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
         </div>
         <div className="row">
-          <div data-cell="6"></div>
-          <div data-cell="7"></div>
-          <div data-cell="8"></div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
+          <div data-cell="0" onClick={this.click} >{this.state[0]}</div>
         </div>
       </div>
     );
