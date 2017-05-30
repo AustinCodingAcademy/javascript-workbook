@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let board = [];
     let solution = 'abcd';
     const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    let guess = document.querySelector('input').value;
+    let guess = document.querySelector('input').value.toLowerCase();
     mastermind(guess);
 
     let newDiv = document.createElement('div');
