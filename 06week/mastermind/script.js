@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (var i = 0; i < redCount; i++) {
         let newRedDot = document.createElement('div');
         newRedDot.id = "newRed";
+        newRedDot.className = "dot";
         document.querySelector('#board').appendChild(newRedDot);
         redDots.push(newRedDot);
       }
@@ -115,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (var i = 0; i < whiteCount; i++) {
         let newWhiteDot = document.createElement('div');
         newWhiteDot.id = "newWhite";
+        newWhiteDot.className = "dot";
         document.querySelector('#board').appendChild(newWhiteDot);
         whiteDots.push(newWhiteDot);
       }

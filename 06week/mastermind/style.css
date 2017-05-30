@@ -1,12 +1,11 @@
 #board {
   display:inline-block;
   align-items: center;
-  width: 500px;
   height: 100%;
   background-color: #f2f2f2;
   float: left;
   border: 1px solid #808080;
-  font-size: 20px;
+  font-size: 1.1em;
   text-align: center;
 }
 
@@ -14,24 +13,25 @@
   clear: both;
 }
 
-#newRed {
+.dot {
   display: inline-block;
   border-radius: 50%;
   height: 20px;
   width: 20px;
   margin: 5px;
+}
+
+#newRed {
   background: radial-gradient(circle at 15px 10px, red, #423434);
 }
 
 #newWhite {
-  display: inline-block;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  margin: 5px;
   background: radial-gradient(circle at 15px 10px, white, #4e4e4e);
 }
 
+#clear {
+  margin-top: 5px;
+}
 #announce-winner {
   clear: both;
   font-size: 20px;
@@ -40,4 +40,10 @@
 input {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
 }
