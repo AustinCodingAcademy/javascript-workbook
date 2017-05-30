@@ -31,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-
-
   function checkForWin() {
     if(stack2.children.length === 4 || stack3.children.length === 4){
       document.getElementById('announce-game-won').innerText = 'You Won!';
@@ -43,22 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-//   function checkForWin() {
-//     if((stacks['b'].length === 4) || (stacks['c'].length === 4)) {
-//       return true
-//     }
-//     else {
-//       return false;
-//     }
-//
-//   }
-//
-//   function towersOfHanoi(startStack, endStack) {
-//     if(isLegal(startStack, endStack)) {
-//       movePiece(startStack, endStack);
-//       checkForWin();
-//     }
-//   }
-//
 });
