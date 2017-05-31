@@ -36,13 +36,13 @@ $(document).ready(function() {
        $('[data-cell="4"]').text() === playerTurn &&
        $('[data-cell="6"]').text() === playerTurn)
      ) {
-       $('#announce-winner').text(`Player ${playerTurn} Wins! :)`)
-     }
-   }
+      $('#announce-winner').text(`Player ${playerTurn} Wins! :)`)
+    }
+  }
 
-   $('#clear').click(function() {
-     $('[data-cell] , #announce-winner').text(null);
-     playerTurn = 'X';
-   })
+  $('#clear').click(function() {
+    $('[data-cell] , #announce-winner').text(null);
+    playerTurn = 'X';
+  })
 
 } )
