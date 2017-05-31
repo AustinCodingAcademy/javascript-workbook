@@ -37,7 +37,11 @@ let generateHint = function(guess, solution) {
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
       exact +=1;
+<<<<<<< HEAD
       document.getElementById('exact')appendChild('div'));
+=======
+      document.getElementById('exact').appendChild(document.getElementById('exact').createElement('div'));
+>>>>>>> 0600251038303a76d3617b0f6a0961dc0fae5de8
     }
     else if (solution.includes(guess[letter])) {
       close +=1;
