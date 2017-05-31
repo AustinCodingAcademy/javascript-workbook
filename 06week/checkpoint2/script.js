@@ -37,7 +37,7 @@ let generateHint = function(guess, solution) {
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
       exact +=1;
-      board.push(guess[letter]);
+      document.getElementById('exact')appendChild('div'));
     }
     else if (solution.includes(guess[letter])) {
       close +=1;
@@ -82,7 +82,7 @@ function keyup(e) {
   if (e.keyCode == 13) {
     guess = inputTextValue.split('');
     console.log(guess);
-    mastermind(guess);
+    generateHint(guess, solution);
   }
 
 //take the input and split into array & generate a solution to be compared
