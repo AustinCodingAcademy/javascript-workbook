@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-cell]').forEach(cell => cell.innerText = "");
     playerTurn = 'X';
     document.querySelector('#announce-winner').innerText = '';
-    };
-  })
-  document.getElementById('clear').onclick = function(e){document.querySelectorAll('[data-cell]').forEach(cell => cell.innerText = "")};
+  };
+})
+document.getElementById('clear').onclick = function (e) {
+  document.querySelectorAll('[data-cell]').forEach(cell => cell.innerText = "")
+};
