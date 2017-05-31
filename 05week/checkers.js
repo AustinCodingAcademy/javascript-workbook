@@ -63,22 +63,22 @@ function Board() {
   this.createCheckers = function() {
     //create all white checkers
     for (var i = 0; i <= 2; i++) {
-       for (var j = 1; j <= 7; j+=2) {
-         if ((i === 1) && (j % 2 !== 0)) (j = j - 1);
-         let whiteChecker = new Checker('white');
-         this.grid[i][j] = whiteChecker;
-         this.checkers.push(whiteChecker);
-       }
-     };
+      for (var j = 1; j <= 7; j+=2) {
+        if ((i === 1) && (j % 2 !== 0)) (j = j - 1);
+        let whiteChecker = new Checker('white');
+        this.grid[i][j] = whiteChecker;
+        this.checkers.push(whiteChecker);
+      }
+    };
      //create all black checkers
     for (var i = 5; i <= 7; i++) {
-       for (var j = 1; j <= 7; j+=2) {
-         if ((i === 5 || i === 7) && (j % 2 !== 0)) (j = j - 1);
-         let blackChecker = new Checker('black');
-         this.grid[i][j] = blackChecker;
-         this.checkers.push(blackChecker);
-       }
-     };
+      for (var j = 1; j <= 7; j+=2) {
+        if ((i === 5 || i === 7) && (j % 2 !== 0)) (j = j - 1);
+        let blackChecker = new Checker('black');
+        this.grid[i][j] = blackChecker;
+        this.checkers.push(blackChecker);
+      }
+    };
   }
 
   this.selectChecker = function(row, column) {
