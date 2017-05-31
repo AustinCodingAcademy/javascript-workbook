@@ -1,25 +1,17 @@
 'use strict';
+document.addEventListener('DOMContentLoaded', () => {
 
-
-// const colors = require('colors/safe');
-// const readline = require('readline');
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
 
 let board = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
 let solution;
 solution = generateSolution();
+console.log(solution);
 let exact;
 let close;
-function printBoard() {
-  for (let i = 0; i < board.length; i++) {
-    console.log(board[i]);
-  }
-}
+let guess;
+
 
 //random solution generator
 function generateSolution(){
@@ -30,13 +22,13 @@ function generateSolution(){
   return sol;
 }
 
-
+//random number gen for sol
 function getRandomInt(min, max) {
   return (Math.floor(Math.random() * (max - min)) + min);
 }
-//hint method: guess/solution comparison, win check, calling the dupesCount
 
-function generateHint(guess, solution) {
+//hint method: guess/solution comparison, win check, calling the dupesCount
+let generateHint = function(guess, solution) {
   let sDupes = dupesCount(solution);
   let gDupes = dupesCount(guess);
   board = [];
@@ -59,27 +51,14 @@ function generateHint(guess, solution) {
     close --;
   }
 
-  if(exact === 4){
-    printBoard();
-    return 'You guessed it!';
-
-    printBoard();
-    return 'You guessed it!';
-
-
+if(exact === 4){
+  return 'You guessed it!';
   }
   else{
     return (exact+'-'+close);
-  }}
+  }
+}
 
-
-
-//regex dupeCount
-// function dupeCount(ar){
-//    try{ return ar.toLowerCase().split("").sort().join("").match(/(.)\1+/g).length; }
-//    catch(e){ return 0; }
-
-   //dupesCount works without regex!
 function dupesCount(arr){
   let dBoard = [];
   for(let i = 0; i < arr.length; i ++){
@@ -93,22 +72,28 @@ function dupesCount(arr){
   return dBoard;
 }
 
+//creates a listener for when you press a key
+window.onkeyup = keyup;
+//listen for the enter key and get the guess into an array
+function keyup(e) {
+  let inputTextValue = e.target.value;
+  console.log(inputTextValue);
+  //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
+  if (e.keyCode == 13) {
+    guess = inputTextValue.split('');
+    console.log(guess);
+    mastermind(guess);
+  }
 
 //take the input and split into array & generate a solution to be compared
 function mastermind(guess) {
-  guess = guess.split('');
+
   console.log(generateHint);
   return generateHint(guess, solution);
 
   // solution = 'abcd'; // uncomment this when developing
   // your code here
+};
+
 }
-
-
-function getPrompt() {
-
-  rl.question('guess: ', (guess) => {
-    console.log( mastermind(guess) );
-    getPrompt();
-  });
-}
+})
