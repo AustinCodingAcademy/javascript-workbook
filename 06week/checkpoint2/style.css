@@ -15,11 +15,14 @@
 }
 #close > div{
   text-align: center;
-  width: auto;
+  width: 20px;
+  background: white;
 }
 
 #board{
   flex-direction: row;
+  flex-flow: row-reverse;
+  align-items: flex-end;
   background: #87b6df;
   width: 40%;
   height: 500px;
@@ -30,7 +33,7 @@
 #board >div{
   text-align: center;
   width: 25%;
-
+  background: green;
 }
 
 #exact {
@@ -43,6 +46,5 @@
 
 }
 #exact > div{
-  text-align: center;
-  width: auto;
+  width: 20px;
   background: white;

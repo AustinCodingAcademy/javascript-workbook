@@ -11,7 +11,8 @@ console.log(solution);
 let exact;
 let close;
 let guess;
-
+let closeInd = document.createElement('div');
+let exactInd = document.createElement('div');
 
 //random solution generator
 function generateSolution(){
@@ -36,17 +37,18 @@ let generateHint = function(guess, solution) {
   let close = 0;
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
-      exact +=1;
-<<<<<<< HEAD
-      document.getElementById('exact')appendChild('div'));
-=======
-      document.getElementById('exact').appendChild(document.getElementById('exact').createElement('div'));
->>>>>>> 0600251038303a76d3617b0f6a0961dc0fae5de8
+       exact +=1;
+       console.log(exact);
+      // document.getElementById('exact').appendChild(exactInd);
+
     }
     else if (solution.includes(guess[letter])) {
       close +=1;
+      console.log(close);
+      // document.getElementById('close').appendChild(closeInd);
     }
   }
+
 //going to have to make it capaable of multiple dupes.
   if(gDupes.length){
     if(gDupes[0] !== sDupes[0]){
@@ -59,8 +61,11 @@ if(exact === 4){
   return 'You guessed it!';
   }
   else{
-    return (exact+'-'+close);
+    document.getElementById('close').innerText = close;
+    document.getElementById('exact').innerText = exact;
+
   }
+
 }
 
 function dupesCount(arr){
@@ -82,11 +87,13 @@ window.onkeyup = keyup;
 function keyup(e) {
   let inputTextValue = e.target.value;
   console.log(inputTextValue);
-  //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
+//trying to get guess in array to pass to board's divs to display previous guesses.
   if (e.keyCode == 13) {
     guess = inputTextValue.split('');
     console.log(guess);
     generateHint(guess, solution);
+    let boardArr = document.querySelect.getElementById('board');
+    guess.forEach(let letter => )
   }
 
 //take the input and split into array & generate a solution to be compared
