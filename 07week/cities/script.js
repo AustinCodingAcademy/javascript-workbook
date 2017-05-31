@@ -31,7 +31,7 @@ class Cities extends React.component {
   constructor () {
     super();
     this.state = {
-      name: 'there'
+      name: 'there',
       color: 'red'
     };
   }

@@ -13,7 +13,7 @@ class TicTacToe extends React.Component {
         6: 'X',
         7: '',
         8: '',
-      playerTurn:'X';
+      playerTurn:'X',
       won: 'none'
     };
 
