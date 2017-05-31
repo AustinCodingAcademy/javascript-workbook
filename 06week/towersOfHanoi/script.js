@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
          this.appendChild(ring);
          ring = null;
         }
+        
     }
      });
    });
