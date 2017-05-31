@@ -60,6 +60,7 @@ function Board() {
     };
 
     // Your code here
+    // this is creating the white checker locations
     this.createCheckers = function() {
         let whitePositions = [
             [0, 1],
@@ -75,6 +76,7 @@ function Board() {
             [2, 5],
             [2, 7]
         ];
+        // this is creating black checker locations
         let blackPositions = [
             [5, 0],
             [5, 2],
