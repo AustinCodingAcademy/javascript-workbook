@@ -10,12 +10,14 @@
       ring = this.removeChild(this.lastElementChild);
         console.log(ring);
       }
-      else if(ring != null && (this.children.length === 0 || this.lastElementChild.getAttribute('data-block') > ring.getAttribute('data-block') )){
+      else if(ring != null){
+         if(this.children.length === 0 || this.lastElementChild.getAttribute('data-block') > ring.getAttribute('data-block') ){
         this.appendChild(ring);
         ring = null;
-      }
+        }
       else{
         console.log('Illegal Move!');
       }
-    }})
+    }
+  }})
   })
