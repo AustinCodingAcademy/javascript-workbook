@@ -36,7 +36,7 @@ class Cities extends React.component {
     };
   }
 
-  changeName = (e) => {
+  let changeName = (e) => {
     let color;
     if (e.target.value % 3 ==== 0 && e.target.value % 5 === 0) {
       color = 'blue';
