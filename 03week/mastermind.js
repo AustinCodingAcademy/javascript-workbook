@@ -84,7 +84,7 @@ const rl = readline.createInterface({
 });
 
 let board = [];
-let solution = 'abcd';
+let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -194,6 +194,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-    // generateSolution();
+    generateSolution();
     getPrompt();
 }
