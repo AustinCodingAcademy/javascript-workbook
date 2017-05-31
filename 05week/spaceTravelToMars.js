@@ -9,53 +9,40 @@ var jobTypes = {
     programmer: 'Any Ship!'
 };
 
-// Create a class CrewMember, this class will have properties name, job, specialSkill, and ship. The ship will initially be null.
+// instructions Create a class CrewMember, this class will have properties name, job, specialSkill, and ship. The ship will initially be null.
 
-function CrewMember(name, job, specialSkill) {
-    this.name = name;
-    this.job = job;
-    this.specialSkill = specialSkill;
-    this.ship = null;
-
-    this.enterShip = function(ship) {
-        this.ship = ship;
-        ship.crew.push(this);
-    }
+function CrewMember(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+  this.enterShip = function(ship){
+   this.ship = ship;
+   ship.crew.push(this)
+ }
 }
 
-var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-
-// Create a class Ship, this class will have properties name, type, crew, and ability. The crew will be an empty array upon instantiation.
-
-function Ship(name, type, ability){
+function Ship(name, type, ability) {
   this.name = name;
   this.type = type;
   this.ability = ability;
   this.crew = [];
-
-
-
-  // console.log(jobTypes[kirk.job])
-
-this.missionStatement = function() {
-
-  const isPilot = MAV.crew.filter(function(person)) {
-    return person.job === 'pilot'
-  }
-
-  if  ((crewmember.ship === pilot) && (pilot === 'MAV')) {
-  return "Ascend into low orbit";
-} else {
-  return "Can't perform a mission yet.";
+  this.missionStatement = function(){
+   if (this.crew.length === 0){
+     return "Can't perform a mission yet."
+   }
+   for (var person in this.crew){
+     for (var job in jobTypes){
+       if(this.crew[person].job === job){
+         return this.ability
+       }
+     }
+   }
 }
-
-
-
 }
+var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+var rick = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 
-let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-crewMember1.enterShip(mav);
 
 
 //tests
