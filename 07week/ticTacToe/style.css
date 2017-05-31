@@ -1,18 +1,23 @@
-div[data-cell] {
-  width: 100px;
-  height: 100px;
-  background-color: #f2f2f2;
+.square {
+  background: #fff;
+  border: 1px solid #999;
   float: left;
-  border: 1px solid #808080;
-  font-size: 100px;
+  font-size: 44px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 74px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
   text-align: center;
+  width: 74px;
 }
 
-.row {
-  clear: both;
+.square:focus {
+  outline: none;
 }
-
-#announce-winner {
+.board-row:after {
   clear: both;
-  font-size: 50px;
+  content: "";
+  display: table;
 }

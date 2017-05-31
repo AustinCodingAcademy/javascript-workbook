@@ -14,9 +14,7 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; //letter choices
 function printBoard() { //function to keep board printing to concole as long as game keeps going
   for (let i = 0; i < board.length; i++) //starting iterator
     console.log(board[i]); //prints out the board with new play to the console
-
 }
-
 
 function generateSolution() { //function to randomely generate solution string
   for (let i = 0; i < 4; i++) { //starting iterator to run through the length of the string we are building
@@ -28,7 +26,6 @@ function generateSolution() { //function to randomely generate solution string
 
 function getRandomInt(min, max) { //function that generates random number for generateSolution to use as index reference
   return Math.floor(Math.random() * (max - min)) + min;
-
 }
 
 function generateHint(guess) { //function that will take the guess from the user and test it against solution to return clues to the user
