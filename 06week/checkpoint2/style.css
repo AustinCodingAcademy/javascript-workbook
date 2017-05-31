@@ -6,14 +6,20 @@
 }
 
 #close{
+  flex-direction: row;
   background-color: blue;
-  width: 30;
+  width: 30%;
   height: 80px;
-
+  margin: 5px;
+  justify-content: space-around;
+}
+#close > div{
+  text-align: center;
+  width: auto;
 }
 
 #board{
-
+  flex-direction: row;
   background: #87b6df;
   width: 40%;
   height: 500px;
@@ -21,10 +27,21 @@
   padding: 5px;
 
 }
+#board >div{
+  text-align: center;
+  width: 25%;
+
+}
 
 #exact {
   background-color: red;
   width: 30%;
   height: 80px;
+  flex-direction: row;
+  margin: 5px;
+  justify-content: space-around;
 
 }
+#exact > div{
+  text-align: center;
+  width: auto;
