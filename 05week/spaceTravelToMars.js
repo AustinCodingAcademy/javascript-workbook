@@ -32,26 +32,31 @@ function Ship(name, type, ability){
   this.type = type;
   this.ability = ability;
   this.crew = [];
+
+
+
+  // console.log(jobTypes[kirk.job])
+
+this.missionStatement = function() {
+
+  const isPilot = MAV.crew.filter(function(person)) {
+    return person.job === 'pilot'
+  }
+
+  if  ((crewmember.ship === pilot) && (pilot === 'MAV')) {
+  return "Ascend into low orbit";
+} else {
+  return "Can't perform a mission yet.";
+}
+
+
+
 }
 
 let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 crewMember1.enterShip(mav);
 
-// function Ship(initialPilot, maxOccupancy, team, name) {
-//   this.team = team;
-//   this.name = name;
-//   this.maxOccupancy = maxOccupancy;
-//   this.pilot = initialPilot;
-//   this.crew = [this.pilot];
-//   this.addCrewMember = function(person) {
-//     if (this.crew.length < this.maxOccupancy) {
-//       this.crew.push(person);
-//     } else {
-//       console.log("No Room!!");
-//     }
-//   }
-// }
 
 //tests
 if (typeof describe === 'function') {
