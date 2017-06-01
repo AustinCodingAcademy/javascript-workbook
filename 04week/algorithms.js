@@ -15,11 +15,35 @@ for (let i = 0; i < 1000; i++) {
 }
 
 function bubbleSort(arr) {
-  // Your code here
+  // Assignment goes here
+  if (arr.length < 2) {
+    return arr;
+  }
+// You return the array here because at that point, all you need is order.
+
+  let done = false;
+  let countswitch = 0;
+
+  while (countswitch = 0) {
+    for (let i = 0; i < arr.length-2; i++) {
+      // we only iterate through the array minus 2 because we already have rules
+      // in place for the final 2 numbers
+      if (!arr[i] < arr[i+1]) {
+        countswitch = 0;
+        const highnum = arr[i];
+        arr.splice(i,1);
+        // the purpose of 1 here? Are we just setting the next space
+        // after zero
+        // then move on to the next number below. add +1. don't remove anything (0)
+        arr.splice(i+1, 0, highnum);
+      } else countswitch = 1;
+    }
+  }
+  return arr;
 }
 
 function mergeSort(arr) {
-  // Your code here
+  // Assignment goes here
   // If an array has less than 2 items, it is technically sorted
   if (arr.length < 2) {
     return arr;
@@ -59,8 +83,9 @@ function mergeSort(arr) {
 
 console.log(mergeSort([10,9,8,7,6,5]))
 
+
 function binarySearch(needle, haystack) {
-  // Your code here
+  // Assignment below
   // grab the middle index, rounding up if it isn't an integer
   let halfIdx = Math.ceil((haystack.length - 1) / 2);
   // set the needle index to keep track of the absolute middle index value
