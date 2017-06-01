@@ -1,3 +1,50 @@
+'use strict'
+
+class Welcome extends React.Component {
+  constructor () {
+    super();
+    this.state = {
+      name: 'there',
+      color: 'red'
+    };
+  }
+
+  changeName = (e) => {
+    let color;
+    if (e.target.value.length % 3 ==== 0 && e.target.value.length % 5 === 0) {
+      color = 'blue';
+    } else if (e.target.value.length % 3 === 0) {
+      color = 'green';
+    } else if (e.target.value.length % 5 === 0) {
+      color = 'red';
+    } else {
+      color = 'black';
+    }
+
+    this.setState ({
+      name: e.target.value,
+      color: color
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 style={ {color: this.state.color} }>Hello, {this.state.name}!</h1>
+        <input type="text" onChange={this.changeName} />
+      </div>
+    );
+  }
+}
+    // The first this is referring to everything, and the second
+    // this is referring to just the line that the this is on (scope)
+
+    );
+  }
+
+
+ReactDOM.render(<Cities/>, document.getElementById('welcome'));
+
 // 'use strict'
 //
 // class Cities extends React.component {
@@ -24,65 +71,3 @@
 // ReactDOM.render(<Cities/>, document.getElementById('cities'));
 
 // Using Hello World below to make it cleaer and simple
-
-'use strict'
-
-class Cities extends React.Component {
-  constructor () {
-    super();
-    this.state = {
-      name: 'there',
-      color: 'red'
-    };
-  }
-
-  changeName = (e) => {
-    let color;
-    if (e.target.value % 3 ==== 0 && e.target.value % 5 === 0) {
-      color = 'blue';
-    } else if (e.target.value.length % 3 === 0 && e.target.value.length % 5 === 0) {
-      color = 'green';
-    } else if (e.target.value.length % 5 === 0) {
-      color = 'red';
-    } else {
-      color = 'black';
-
-      // come back and check for the in-class example code to complete
-    }
-    this.setState ({
-      name: e.target.value
-      color: color
-    });
-  }
-
-  // changeName(e) {
-  //   this.setState ({
-  //     name: e.target.value
-  //   });
-  // }
-
-  render() {
-    return
-      <div>
-        <span> Hello, {this.state.name}!</span>
-        <input type="text" onChange={this.changename.bind(this)}/>
-    // The first this is referring to everything, and the second
-    // this is referring to just the line that the this is on (scope)
-      </div>
-    );
-  }
-
-class Name extends React.component {
-  constructor () {
-    super ();
-    this.state = {
-      color: red;
-    }
-  }
-
-
-}
-
-}
-
-ReactDOM.render(<Cities/>, document.getElementById('cities'));
