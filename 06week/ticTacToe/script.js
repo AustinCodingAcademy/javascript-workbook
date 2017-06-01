@@ -1,5 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Your code here
+  letplayerturn = 'X';
+
 });
+let cells = document.querySelector

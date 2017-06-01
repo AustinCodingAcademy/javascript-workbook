@@ -118,7 +118,9 @@ function Game() {
 
     this.start = function() {
         this.board.createGrid();
-        // Your code here
+        this.moveChecker (start, end) {
+          selectChecker = Checker
+        }
     };
 }
 
