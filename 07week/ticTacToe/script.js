@@ -86,7 +86,9 @@ class TicTacToe extends React.Component {
                     Won!</div>
             </div>
         );
+      }
     }
+
 
     ReactDOM.render(
         <TicTacToe/>, document.getElementById('tic-tac-toe'));
