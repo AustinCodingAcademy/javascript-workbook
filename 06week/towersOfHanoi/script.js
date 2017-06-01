@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
               document.querySelector('#announce-game-won').innerText = "You won!";
             }
           } else {
-            message = "Can't place " + colorBlockValue + " on top of " +
+            message = "You can't put" + colorBlockValue + " on top of " +
               Number(this.lastElementChild.getAttribute('data-block')) + " ";
               document.querySelector('#announce-game-won').innerText = message;
           }
