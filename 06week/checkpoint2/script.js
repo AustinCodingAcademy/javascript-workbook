@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-let board = [];
+let guessBoard = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let leg = letters.length;
 let solution;
@@ -32,9 +32,10 @@ function getRandomInt(min, max) {
 let generateHint = function(guess, solution) {
   let sDupes = dupesCount(solution);
   let gDupes = dupesCount(guess);
-  board = [];
+  let board = [];
   let exact = 0;
   let close = 0;
+  let oldGuess = document.createElement('div');
   for(let letter in guess){
     if(guess[letter] === solution[letter]){
        exact +=1;
@@ -58,12 +59,13 @@ let generateHint = function(guess, solution) {
   }
 
 if(exact === 4){
-  return 'You guessed it!';
+document.getElementById('announce-game-won').innerText ='You guessed it!';
   }
   else{
+    document.getElementById('board').innerText += guess+'\r\n';
     document.getElementById('close').innerText = close;
     document.getElementById('exact').innerText = exact;
-
+    document.getElementsByClassName('inguess').value = '';
   }
 
 }
@@ -92,8 +94,9 @@ function keyup(e) {
     guess = inputTextValue.split('');
     console.log(guess);
     generateHint(guess, solution);
-    let boardArr = document.querySelect.getElementById('board');
-    guess.forEach(let letter => )
+    e.target.value = '';
+    // let boardArr = document.querySelectAll('.gBoard');
+    // guess.forEach(let letter => )
   }
 
 //take the input and split into array & generate a solution to be compared

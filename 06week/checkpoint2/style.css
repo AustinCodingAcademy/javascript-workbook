@@ -20,14 +20,15 @@
 }
 
 #board{
-  flex-direction: row;
-  flex-flow: row-reverse;
-  align-items: flex-end;
+  flex-direction: column-reverse;
+  text-align: center;
   background: #87b6df;
   width: 40%;
   height: 500px;
   margin: 5px;
   padding: 5px;
+  font-size: 20px;
+  font-family: Cambria;
 
 }
 #board >div{
