@@ -32,12 +32,18 @@ function filter(arr, callback) {
 
 function some(arr, callback) {
   // Your code here
-  // for (let i = 0; i < arr.length; i++)
+  for (let i = 0; i < arr.length; i++) {
+    if callback(arr[i])) return true;
+  }
+  return false;
 }
 
 function every(arr, callback) {
   // Your code here
-  // for (let i = 0; i < arr.length; i++)
+  for (let i = 0; i < arr.length; i++) {
+    if(!callback(arr[i])) return false;
+  }
+  return true;
 }
 
 if (typeof describe === 'function') {
