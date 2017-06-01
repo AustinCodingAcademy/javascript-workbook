@@ -4,49 +4,75 @@ class TicTacToe extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
-      0: '',
-      1: '',
-      2: '',
-      3: '',
-      4: '',
-      5: '',
-      6: '',
-      7: '',
-      8: '',
+      a: '',
+      b: '',
+      c: '',
+      d: '',
+      e: '',
+      f: '',
+      g: '',
+      h: '',
+      i: '',
     playerTurn : 'X',
     won: 'none'
     };
   }
 
-  clickCell = (e) => {
+  clickCell = (event) => {//the actual click....target is the thing that's clicked
     const obj = {};
-    obj[e.target.getAttribute('data-cell')] = this.state.playerTurn;
+
+    obj[event.target.getAttribute('data-cell')] = this.state.playerTurn;
     obj['playerTurn'] = this.state.playerTurn ==='X'? 'O': 'X';
     this.setState(obj);
+
     //
     // this.setState({
     //   playerTurn: this.state.playerTurn === 'X'?'O':'X'
     // })
   }
 
+  function checkForWin(playerTurn) {
+    const winningCells = [
+      [a, b, c],
+      [d, e, f],
+      [g, h, i],
+      [a, d, g],
+      [b, e, h],
+      [c, f, i],
+      [a, e, i],
+      [c, e, g]
+    ]
+    winningCells.forEach((combo) => {
+      if{
+        this.state[combo[0]]
+      }
+          return document.querySelector(`[data-cell="${idx}"]`).innerText === playerTurn;
+      })
+    })
+  }
+
+
+
   render() {
     return (
       <div>
+        <div> Player {this.state.playerTurn}""s Turn</div>
         <div className="row">
-          <div data-cell="0" onClick={this.clickCell}>{this.state[0]}</div>
-          <div data-cell="1" onClick={this.clickCell}>{this.state[1]}</div>
-          <div data-cell="2" onClick={this.clickCell}>{this.state[2]}</div>
+          <div data-cell="a" onClick={this.clickCell}>{this.state.a}</div>
+          <div data-cell="b" onClick={this.clickCell}>{this.state.b}</div>
+          <div data-cell="c" onClick={this.clickCell}>{this.state.c}</div>
         </div>
         <div className="row">
-          <div data-cell="3" onClick={this.clickCell}>{this.state[3]}</div>
-          <div data-cell="4" onClick={this.clickCell}>{this.state[4]}</div>
-          <div data-cell="5" onClick={this.clickCell}>{this.state[5]}</div>
+          <div data-cell="d" onClick={this.clickCell}>{this.state.d}</div>
+          <div data-cell="e" onClick={this.clickCell}>{this.state.e}</div>
+          <div data-cell="f" onClick={this.clickCell}>{this.state.f}</div>
         </div>
         <div className="row">
-          <div data-cell="6" onClick={this.clickCell}>{this.state[6]}</div>
-          <div data-cell="7" onClick={this.clickCell}>{this.state[7]}</div>
-          <div data-cell="8" onClick={this.clickCell}>{this.state[8]}</div>
+          <div data-cell="g" onClick={this.clickCell}>{this.state.g}</div>
+          <div data-cell="h" onClick={this.clickCell}>{this.state.h}</div>
+          <div data-cell="i" onClick={this.clickCell}>{this.state.i}</div>
         </div>
+        <div> Player {this.state.playerTurn} Wins!</div>
       </div>
     );
   };
