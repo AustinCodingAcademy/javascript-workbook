@@ -41,7 +41,10 @@ class TowersOfHanoi extends React.Component {
     })
   }
   checkWin = () => {
-    return (this.state.c.length === 4 ? true : null)
+    if (this.state.b.length === 4 || this.state.c.length === 4) {
+      return true;
+    }
+    return null;
   }
   // returns all <Block/>'s within a stack in a <div data-stack=xxx> wrapper
   renderStack = (stack) => {
