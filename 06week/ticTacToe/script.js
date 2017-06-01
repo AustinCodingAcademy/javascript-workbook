@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (index.html) => {
 
   //Board setup
   var board = [['-','-','-'],['-','-','-'],['-','-','-']];
@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       else{
         return alert "Player O wins!";
+      }
+    }
     //diagonal win
       if(playerX === [1, 5, 9] || [3, 5, 7]) {
         return alert "Player X wins!";

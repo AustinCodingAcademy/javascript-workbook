@@ -8,7 +8,7 @@ function pigLatin(word) {
   var split = small.split("");
 
   //starts with vowel
-  if(vowel.invludes(split[0])){
+  if(vowel.includes(split[0])){
     return(small + "yay");
   }
 
