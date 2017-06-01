@@ -18,7 +18,8 @@ class TicTacToe extends React.Component {
     };
   }
 
-  clickCell = (event) => {//the actual click....target is the thing that's clicked
+//the actual click....target is the thing that's clicked
+  clickCell = (event) => {
     const obj = {};
 
     obj[event.target.getAttribute('data-cell')] = this.state.playerTurn;

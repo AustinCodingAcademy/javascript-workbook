@@ -1,16 +1,19 @@
 .container {
   display: flex;
+  margin: 5px;
+
 }
 .container > div {
   flex: 1; /*grow*/
 }
-
+p{
+  align-self: center;
+}
 #close{
-  flex-direction: row;
+  flex-direction: column;
   background-color: blue;
   width: 30%;
   height: 80px;
-  margin: 5px;
   justify-content: space-around;
 }
 #close > div{
@@ -38,14 +41,13 @@
 }
 
 #exact {
+  flex-direction: column;
   background-color: red;
   width: 30%;
   height: 80px;
-  flex-direction: row;
-  margin: 5px;
   justify-content: space-around;
-
 }
 #exact > div{
   width: 20px;
   background: white;
+}
