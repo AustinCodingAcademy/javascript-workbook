@@ -13,16 +13,59 @@ class TicTacToe extends React.Component {
         g: 'X',
         h: 'O',
         i: '',
+        playerTurn: 'X',
+        playerWon: ''
     };
   }
 
   clickCell = (event) => {
     const cellLetter = event.target.getAttribute('data-cell');
     const obj = {};
-    obj [cellLetter]: 'X';
+    const currentPlayer = this.state.playerTurn
+    obj [cellLetter]: this.state.playerTurn;
+    obj['playerTurn'] = (this.state.playerTurn === 'X') ? 'O' : 'X';
+    // Ternary is equivalent to
+    // if (this.state.playerTurn) === 'X') {
+      // obj['playerTurn'] = 'O';
+    // } else {
+    //   obj['playerTurn'] = 'X';
+    // }
+
+    // After you click on a square, what does object look like?
+    // {a: 'X', playerTurn; 'O'}
     this.setState(obj);
-    // Above is the method of how you update the state
+
+    if (this.checkWin()) {
+      obj['playerWon'] = currentPlayer
+    });
+
+    // Above is the method of how you update the state. You just use it.
   }
+
+checkWin = () => {
+  const combos = [
+    ['a', 'b', 'c'],
+    ['d', 'e', 'f'],
+    ['g', 'h', 'i'],
+    ['a', 'd', 'g'],
+    ['b', 'e', 'h'],
+    ['c', 'f', 'i'],
+    ['a', 'e', 'i'],
+    ['c', 'e', 'g'],
+  ];
+
+  return combos.some((combo) => {
+    if (
+    this.state[combo[0]] &&
+    this.state[combo[0]] === this.state.[combo[1]] &&
+    this.state[combo[0]] === this.state.[combo[2]]
+    ) {
+    return true;
+    }
+  });
+}
+
+
 
   render() {
     return (

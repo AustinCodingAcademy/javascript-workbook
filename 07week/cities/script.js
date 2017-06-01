@@ -27,7 +27,7 @@
 
 'use strict'
 
-class Cities extends React.component {
+class Cities extends React.Component {
   constructor () {
     super();
     this.state = {
