@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('announce-game-won').innerText = 'You guessed it!';
     } else {
       document.getElementById('board').innerText += guess + '\r\n';
-      document.getElementById('closeDisplay').innerText = close;
-      document.getElementById('exactDisplay').innerText = exact;
+      document.getElementById('closedisplay').innerText = close;
+      document.getElementById('exactdisplay').innerText = exact;
       document.getElementsByClassName('inguess').value = '';
     }
 
@@ -80,7 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return dBoard;
   }
+ function gameReset() {
+    document.getElementsByClassName('board').innerText = '';
+    document.getElementById('closedisplay').innerText = 'Right Letter Wrong Place';
+    document.getElementById('exactdisplay').innerText = 'Right Letter Right Place';
+    document.getElementsByClassName('inguess').value = '';
+  }
 
+  document.getElementById('reset').onclick = "gameReset()";
   //creates a listener for when you press a key
   window.onkeyup = keyup;
   //listen for the enter key and get the guess into an array
@@ -93,23 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(guess);
       generateHint(guess, solution);
       e.target.value = '';
-      // let boardArr = document.querySelectAll('.gBoard');
-      // guess.forEach(let letter => )
-    }
-    let reset = function () {
-      document.getElementsByClassName('board').innerText = '';
-      document.getElementById('closeDisplay').innerText = 'Right Letter Wrong Place';
-      document.getElementById('exactDisplay').innerText = 'Right Letter Right Place';
-      document.getElementsByClassName('inguess').value = '';
-    }
-
-    // function mastermind(guess) {
-    //
-    //   console.log(generateHint);
-    //   return generateHint(guess, solution);
-
-    // solution = 'abcd'; // uncomment this when developing
-    // your code here
-  };
-
+  }
+};
 })
