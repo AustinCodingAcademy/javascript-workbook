@@ -49,14 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-
-        if (exact === 4) {
-          document.getElementById('announce-game-won').innerText = 'You guessed it!';
-        } else {
-          document.getElementById('board').innerText += guess + '\r\n';
-          document.getElementById('closedisplay').innerText = close;
-          document.getElementById('exactdisplay').innerText = exact;
-          document.getElementsByClassName('inguess').value = '';
           //going to have to make it capaable of multiple dupes.
           if (gDupes.length) {
             if (gDupes[0] !== sDupes[0]) {
@@ -88,7 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           return dBoard;
         }
-        function gameReset() {
+        // function gameReset()
+        document.getElementById('reset').onclick = function(e){
             document.getElementsByClassName('board').innerText = '';
             document.getElementById('closedisplay').innerText = 'Right Letter Wrong Place';
             document.getElementById('exactdisplay').innerText = 'Right Letter Right Place';
@@ -111,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
               e.target.value = '';
             }
           };
-    
+
 
       //
       //     //take the input and split into array & generate a solution to be compared
@@ -124,5 +117,5 @@ document.addEventListener('DOMContentLoaded', () => {
       //       // your code here
       //     };
       //
-        }
+        
       })
