@@ -50,19 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-        if (exact === 4) {
-          document.getElementById('announce-game-won').innerText = 'You guessed it!';
-        } else {
-          document.getElementById('board').innerText += guess + '\r\n';
-          document.getElementById('closedisplay').innerText = close;
-          document.getElementById('exactdisplay').innerText = exact;
-          document.getElementsByClassName('inguess').value = '';
+        // if (exact === 4) {
+        //   document.getElementById('announce-game-won').innerText = 'You guessed it!';
+        // } else {
+        //   document.getElementById('board').innerText += guess + '\r\n';
+        //   document.getElementById('closedisplay').innerText = close;
+        //   document.getElementById('exactdisplay').innerText = exact;
+        //   document.getElementsByClassName('inguess').value = '';
           //going to have to make it capaable of multiple dupes.
-          if (gDupes.length) {
+          if (gDupes.length) {//this will not work with two dupes in the solution that are alphabetically after two dupes in the guess...I think
             if (gDupes[0] !== sDupes[0]) {
               close--;
             }
-            close--;
+
           }
 
           if (exact === 4) {
@@ -88,7 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           return dBoard;
         }
-        function gameReset() {
+
+
+      let gameReset = function() {
             document.getElementsByClassName('board').innerText = '';
             document.getElementById('closedisplay').innerText = 'Right Letter Wrong Place';
             document.getElementById('exactdisplay').innerText = 'Right Letter Right Place';
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // let reset = document.getElementById('reset');
           // reset.onclick = "gameReset";
           //creates a listener for when you press a key
-          window.onkeyup = keyup;
+        window.onkeyup = keyup;
           //listen for the enter key and get the guess into an array
           function keyup(e) {
             let inputTextValue = e.target.value;
@@ -111,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
               e.target.value = '';
             }
           };
-    
+
 
       //
       //     //take the input and split into array & generate a solution to be compared
@@ -124,5 +126,5 @@ document.addEventListener('DOMContentLoaded', () => {
       //       // your code here
       //     };
       //
-        }
+
       })
