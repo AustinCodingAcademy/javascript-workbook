@@ -6,19 +6,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-
-
+  <div class="container">
     <div id="close" class="container">
-      <p>Right Letter Wrong Place</p>
-      <p id="closedisplay"></p>
-
-      </div>
         <!-- <div >C</div>
         <div >C</div>
         <div >C</div>
         <div >C</div> -->
-
+    </div>
     <div id="board" class="container">
         <!-- <div class="gBoard">B</div>
         <div class="gBoard">B</div>
@@ -26,12 +20,6 @@
         <div class="gBoard">B</div> -->
     </div>
     <div id="exact" class="container">
-      <p>
-        Right Letter Right Place
-      </p>
-      <p id="exactdisplay">Filler
-
-      </p>
         <!-- <div >E</div>
         <div >E</div>
         <div >E</div>
@@ -39,12 +27,13 @@
     </div>
   </div>
   <div id="inguess">
-    <input type="text" name="guess" placeholder="guess 'abcd'">
+    <input type="text" name="guess" value="">
   </div>
 
   <div id="announce-game-won"></div>
 
-  <button type="reset" name="reset" onclick="gameReset()">RESET</button>
+
+  <button onclick="gameReset()">RESET</button>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </body>

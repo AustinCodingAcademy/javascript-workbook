@@ -12,15 +12,15 @@ class TowersOfHanoi extends React.Component {
     }
   }
 
-// moveBlock(event) => {
-//   const stack = event.target.getAttribute('data-stack');
-//   const block = this.state[stack].slice();
-//   const = block.pop();
-//   const obj = {};
-//   obj[stack] = blocks;
-//   obj.block = block;
-//   this.setState(obj);
-// }
+moveBlock(event) => {
+  const stack = event.target.getAttribute('data-stack');
+  const block = this.state[stack].slice();
+  const = block.pop();
+  const obj = {};
+  obj[stack] = blocks;
+  obj.block = block;
+  this.setState(obj);
+}
 
 
   render() {
