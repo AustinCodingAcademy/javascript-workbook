@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
+
         // if (exact === 4) {
         //   document.getElementById('announce-game-won').innerText = 'You guessed it!';
         // } else {
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //   document.getElementById('closedisplay').innerText = close;
         //   document.getElementById('exactdisplay').innerText = exact;
         //   document.getElementsByClassName('inguess').value = '';
+
           //going to have to make it capaable of multiple dupes.
           if (gDupes.length) {//this will not work with two dupes in the solution that are alphabetically after two dupes in the guess...I think
             if (gDupes[0] !== sDupes[0]) {
@@ -69,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('announce-game-won').innerText = 'You guessed it!';
           } else {
             document.getElementById('board').innerText += guess + '\r\n';
-            document.getElementById('close').innerText = close;
-            document.getElementById('exact').innerText = exact;
+            document.getElementById('closedisplay').innerText = close;
+            document.getElementById('exactdisplay').innerText = exact;
             document.getElementsByClassName('inguess').value = '';
           }
 
@@ -90,10 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-      let gameReset = function() {
-            document.getElementsByClassName('board').innerText = '';
-            document.getElementById('closedisplay').innerText = 'Right Letter Wrong Place';
-            document.getElementById('exactdisplay').innerText = 'Right Letter Right Place';
+
+      // let gameReset = function() {
+        // function gameReset()
+        document.getElementById('reset').onclick = function(e){
+            document.getElementById('board').innerText = '';
+            document.getElementById('closedisplay').innerText = '';
+            document.getElementById('exactdisplay').innerText = '';
             document.getElementsByClassName('inguess').value = '';
           }
 

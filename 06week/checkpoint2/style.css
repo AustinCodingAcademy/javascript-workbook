@@ -5,8 +5,14 @@
   flex: 1; /*grow*/
 }
 
+p{
+  align-self: center;
+  font-size: 15px;
+  font-family: Cambria;
+}
 #close{
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   background-color: blue;
   width: 30%;
   height: 80px;
@@ -16,7 +22,7 @@
 #close > div{
   text-align: center;
   width: 20px;
-  background: white;
+  /*background: #9090f0;*/
 }
 
 #board{
@@ -38,14 +44,16 @@
 }
 
 #exact {
+  flex-direction: column;
+  align-items: center;
   background-color: red;
   width: 30%;
   height: 80px;
-  flex-direction: row;
   margin: 5px;
   justify-content: space-around;
 
 }
 #exact > div{
+  text-align: center;
   width: 20px;
-  background: white;
+  background:
