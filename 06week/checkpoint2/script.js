@@ -80,14 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return dBoard;
   }
- function gameReset() {
+let gameReset = function() {
     document.getElementsByClassName('board').innerText = '';
     document.getElementById('closedisplay').innerText = 'Right Letter Wrong Place';
     document.getElementById('exactdisplay').innerText = 'Right Letter Right Place';
     document.getElementsByClassName('inguess').value = '';
   }
 
-  document.getElementById('reset').onclick = "gameReset()";
+let reset = document.getElementById('reset');
+reset.onclick = "gameReset";
   //creates a listener for when you press a key
   window.onkeyup = keyup;
   //listen for the enter key and get the guess into an array
