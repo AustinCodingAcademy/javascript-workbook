@@ -2,9 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   let stack = document.querySelectorAll('[data-stack]');
+  let block = document.querySelectorAll('[data-block]');
   let ring = null;
   //listen to the stacks, everything happens on the click
-
+  document.getElementById('reset').onclick = function(e){
+    block.forEach(b =>{stack[0].appendChild(b)});
+    document.getElementById('announce-game-won').innerText = '';
+  }
   stack.forEach(pole => {
     pole.onclick = function (e) {
       //picking up a ring
