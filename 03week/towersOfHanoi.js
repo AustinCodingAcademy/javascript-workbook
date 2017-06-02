@@ -19,42 +19,47 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(startStack, endStack) {
+function movePiece(start, end) {
   // Your code here
-  var pop = stacks[startStack].pop();
-  stacks[endStack].push(pop);
-  return stacks;
+  console.log("made it to MovePiece");
+  var disk = start.pop();
+  end.push(disk);
+  return checkForWin(end);
+  //return stacks;
 }
-console.log(stacks);
-console.log(movePiece('a', 'c'));
-console.log(stacks);
+//console.log(stacks);
+//console.log(movePiece('a', 'c'));
+//console.log(stacks);
 
-function isLegal() {
+function isLegal(start, end) {
   // Your code here
-  var stackLength = stacks.a.length - 1;
-  console.log(stackLength - 1);
-  console.log(stacks.a[stackLength]);
-
-}
-
-function checkForWin(endStack) {
-  // Your code here
-  if(endStack == 4) {
-    return "You win!";
+  //if it's not legal, say "not a legal move"
+  //if (end[end.length-1])
+  if (end[end.length-1] < start[start.length-1]){
+    console.log("illegal move");
   }
-  else(endStack = 4);
-  return "You win!";
+  else {
+    return movePiece(start, end);
+  }
+  //if legal eturn movePiece(startStack, endStack);
 
+
+}
+
+function checkForWin(end) {
+  // Your code here
+  console.log("made it to check for win");
+  if(end === [4, 3, 2, 1]) {
+    console.log("You win!");
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  var discs = ['1', '2', '3', '4'];
-  var towers = ['A', 'B', 'C'];
-  discs.pop('1');
-  towers.push('C');
+  var start = stacks[startStack];
+  var end = stacks[endStack];
+  return isLegal(start, end);
 }
-console.log("Nice move!");
 
 
 function getPrompt() {
