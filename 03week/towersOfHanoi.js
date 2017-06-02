@@ -42,8 +42,6 @@ function isLegal(start, end) {
     return movePiece(start, end);
   }
   //if legal eturn movePiece(startStack, endStack);
-
-
 }
 
 function checkForWin(end) {
@@ -60,7 +58,6 @@ function towersOfHanoi(startStack, endStack) {
   var end = stacks[endStack];
   return isLegal(start, end);
 }
-
 
 function getPrompt() {
   printStacks();
