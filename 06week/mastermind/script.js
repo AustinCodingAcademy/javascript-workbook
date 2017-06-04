@@ -1,5 +1,5 @@
 'use strict';
-
+//the dom holds things for you, less code than node
 document.addEventListener('DOMContentLoaded', () => { //this ensures that HTML -- essentially DOM content is completely loaded before javascript runs
   let solution = 'abcd'; //assigns a solution
   const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
