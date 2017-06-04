@@ -27,22 +27,22 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
 
-   if (stacks[endStack].length === 0 ||
+  if (stacks[endStack].length === 0 ||
      stacks[startStack].length - 1 < stacks[endStack].length - 1) {
-     return true;
-   }
-   else {
-     return false;
-   }
- }
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 function checkForWin() {
   // Your code here
   if (stacks.b.length === 4 || stacks.c.length === 4){
-  return true;
-} else {
-  return false;
-}
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
