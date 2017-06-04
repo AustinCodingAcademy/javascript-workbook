@@ -38,7 +38,8 @@ function Board() {
         this.checkers.push(whiteChecker);
         let coordinate = whitePositions[i];
         this.grid[coordinate[0][1]] = whiteChecker;
-
+      }
+    for (let i = 0; i<=11; i++){
         let blackChecker = new Checker('black');
         this.checkers.push(blackChecker);
         let coordinate = blackPositions[i];
@@ -97,7 +98,8 @@ function Game() {
     }
     this.moveChecker = function(start, end){
       var checker = selectChecker(start)
-    // Your code here
+      this.checker().push(start)
+    // Your code here ARG. I don't think above code is right
   };
 
 }

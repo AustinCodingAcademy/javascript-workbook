@@ -1,0 +1,71 @@
+#table{
+  border: solid 5px;
+  width: 25%;
+  background-color: tan;
+}
+
+.board{
+  border: solid 3px;
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+}
+
+.guessPeg{
+  padding-left: 10px;
+  padding-right: 10px;
+  border: solid 3px;
+}
+
+#guessPeg1{
+
+}
+#guessPeg2{
+
+}
+#guessPeg3{
+
+}
+#guessPeg4{
+
+}
+
+#a{
+  background-color: red;
+  width: 10%
+}
+#b{
+  background-color: blue;
+  width: 10%
+
+}
+#c{
+  background-color: purple;
+  width: 10%
+
+}
+#d{
+  background-color: green;
+  width: 10%
+
+}
+#e{
+  background-color: orange;
+  width: 10%
+
+}
+#f{
+  background-color: yellow;
+  width: 10%
+
+}
+#g{
+  background-color: lightblue;
+  width: 10%
+
+}
+#h{
+  background-color: pink;
+  width: 10%
+
+}
