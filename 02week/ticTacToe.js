@@ -31,13 +31,7 @@ function horizontalWin() {
       return true;
     }
   }
-
-//Below: passed test, but was not correct.
-  // for (var i = 0; i < 3; i++) {
-  //   if (board[i][0] === ' ') return false;
-  //
-  //   if (board[i][0] === board[i][1] && board[i][0] === board[i][2]) return true;
-  // }
+  
 }
 
 function verticalWin() {
