@@ -24,7 +24,7 @@ moveBlock(event) => {
 
 
   render() {
-    const aBlocks = this.sate.a.map((block) ={
+    const aBlocks = this.state.a.map((block) ={
       return(<div key = {block} data=block ={block}><)
     })
     return (
