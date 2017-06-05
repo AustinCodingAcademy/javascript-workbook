@@ -9,12 +9,21 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
+//function enterShip(CrewMember, Ship){
+// this.enterShip = function(Ship){
+ //   console.log(somewhere.crew.push(ship));
+ // }
+
+//}
+
+
 function CrewMember(name, job, specialSkill){
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
-  this.enterShip = function(CrewMember){
+
+  this.enterShip = function(){
    this.ship = ship;
    ship.crew.push(this);
  }
@@ -25,14 +34,16 @@ function Ship(name, type, ability) {
   this.type = type;
   this.ability = ability;
   this.crew = [];
+
   this.missionStatement = function(){
-    for (var i = 0; i < this.crew.length; i++){
-      if (jobTypes[this.crew[i].job]===this.type){
-        return this.ability;
-      }
-      else{
-        return "Can't perform a mission yet.";
-      }
+    const rightJob = this crew.some((crewMember) =>{
+      return jobTypes[crewMember.job] === this.type;
+    });
+
+    if(rightJob){
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet."
     }
   }
 }
