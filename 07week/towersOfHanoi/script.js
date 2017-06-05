@@ -56,13 +56,13 @@ class TowersOfHanoi extends React.Component {
     return (
       <div>
         <div data-stack="a" onClick={this.moveBlock}>
-          {aBlocks} <div className="clicker">click here</div>
+          {aBlocks} <div className="clicker">click on the blue</div>
         </div>
         <div data-stack="b" onClick={this.moveBlock}>
-          {bBlocks} <div className="clicker">click here</div>
+          {bBlocks} <div className="clicker">click on the blue</div>
         </div>
         <div data-stack="c" onClick={this.moveBlock}>
-          {cBlocks} <div className="clicker">click here</div>
+          {cBlocks} <div className="clicker">click on the blue</div>
         </div>
         <div> {didWin} </div>
       </div>

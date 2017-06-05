@@ -35,7 +35,8 @@
 .clicker {
   margin-left: 100px;
   display:flex;
-  font-size: 0.2em;
+  font-size: 0.7em;
+  align-self: flex-end;
 }
 
 #announce-game-won {
