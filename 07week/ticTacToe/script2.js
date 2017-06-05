@@ -63,7 +63,7 @@ class TicTacToe extends React.Component {
 
     return (
       <div>
-        <div>Player {this.state.playerTurn}'s Turn</div>
+        <div>Player {this.state.playerTurn}s Turn</div>
         <div>
           <div className="row">
             <div data-cell="a" onClick={this.clickCell}>{this.state.a}</div>
