@@ -24,7 +24,6 @@ class TowersOfHanoi extends React.Component {
       this.setState(obj);
 
     } else {
-console.log('placing on: ' + blocks);
       blocks.push(this.state["blockHeld"]);
       obj[clickedStack] = blocks;
       obj["blockHeld"] = [];
@@ -34,6 +33,11 @@ console.log('placing on: ' + blocks);
   }
 
   render() {
+    var didWin;
+    if (this.state["b"].length === 4 || this.state["c"].length === 4) {
+      didWin = (<div>YOU WON!</div>);
+      return didWin;
+    };
 
     const aBlocks = this.state.a.map((block) => {
       return (<div data-block={block}></div>)
@@ -58,6 +62,7 @@ console.log('placing on: ' + blocks);
         <div data-stack="c" onClick={this.moveBlock}>
           {cBlocks} <div className="clicker">click here</div>
         </div>
+        <div> {didWin} </div>
       </div>
     );
   }
