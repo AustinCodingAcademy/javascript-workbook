@@ -10,34 +10,34 @@ var assert = require('assert');
 // To start out we are declaring a variable named myUndefined
 // Note that we are not assigning a value, so it is undefined.
 
-var myUndefined;
+let myUndefined = undefined;
 
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
 
-var myNull;
+let myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+let myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 5;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "a string is thus.";
 
 // ****
 // Boolean Operators
@@ -46,7 +46,7 @@ var myString;
 // Problem 6:
 // What is the value of true && true
 
-var trueAndTrue;
+var trueAndTrue = true && ;
 
 // Problem 7:
 // What is the value of false && true
