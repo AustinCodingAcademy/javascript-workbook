@@ -32,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     checkForWin();
   }
-  // document.querySelectorAll('[data-stack]').forEach(data-block => {
-  //   cell.addEventListener('click', function() {
-  //    this.innerText = playerTurn;
-  //    if (checkForWin()) {
-  //    document.querySelector('#announce-winner').innerText = `Player ${playerTurn} Wins!`;
-  //    }
-
-  })
+ })
 });
+
+// document.querySelectorAll('[data-stack]').forEach(data-block => {
+//   cell.addEventListener('click', function() {
+//    this.innerText = playerTurn;
+//    if (checkForWin()) {
+//    document.querySelector('#announce-winner').innerText = `Player ${playerTurn} Wins!`;
+//    }

@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     return winningCells.some(combo => {
       if (
-      document.querySelector(`[data-cell="${combo[0]}"]`).innerText === playerTurn &&
-      document.querySelector(`[data-cell="${combo[1]}"]`).innerText === playerTurn &&
-      document.querySelector(`[data-cell="${combo[2]}"]`).innerText === playerTurn
-    ) {
-      return true;
+        document.querySelector(`[data-cell="${combo[0]}"]`).innerText === playerTurn &&
+        document.querySelector(`[data-cell="${combo[1]}"]`).innerText === playerTurn &&
+        document.querySelector(`[data-cell="${combo[2]}"]`).innerText === playerTurn
+      ) {
+          return true;
       }
     });
   }

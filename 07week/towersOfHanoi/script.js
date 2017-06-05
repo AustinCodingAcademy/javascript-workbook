@@ -1,127 +1,88 @@
-'use strict';
-
-class TowersOfHanoi extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      a: [25, 50, 70, 100],
-      b: [],
-      c: [],
-      block: null
-    }
-  }
-
-  moveBlock = (event) => {
-    const stack = event.target.getAttribute('data-stack');
-    const blocks = this.state[stack].slice();
-    const block = blocks.pop();
-    const obj = {};
-    obj[stack] = blocks;
-    obj.block = block;
-    this.setState(obj);
-  }
-
-  render() {
-    const aBlocks = this.state.a.map((block) => {
-      return (<div key={block} data-block={block}></div>)
-    });
-
-    return (
-      <div>
-        <div data-stack="a" onClick={this.moveBlock}>
-          {aBlocks}
-        </div>
-        <div data-stack="b" onClick={this.moveBlock}>
-        </div>
-        <div data-stack="c" onClick={this.moveBlock}>
-        </div>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<TowersOfHanoi />, document.getElementById('towers-of-hanoi'));
-
-
-///////////////////////////////////////////////
+// 'use strict';
 //
+// class TowersOfHanoi extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       a: [100, 70, 50, 25],
+//       b: [],
+//       c: [],
+//       block: null
+//     };
+//   }
 //
-
-//
-//
-/
-//
-// }
-//
+//   moveBlock = (event) => {
+//     const stack = event.target.getAttribute('data-stack');
+//     const newStack = this.state[stack].slice();
+//     const block = newStack.pop();
+//     const obj = {};
+//     obj[stack] = newStack;
+//     obj[block] = block;
+//     this.setState(obj);
+//   }
 //
 //   render() {
-//     const aBlocks = this.state.a.map((block) => {
-//       return (<div data-block={block}></div>)
+//     const aBlocks = this.state.a.map( (block) => {
+//       return (<div key={block} data-block={block}></div>)
 //     });
-//
-// bBlocks
 //
 //     return (
 //       <div>
-//         <div data-stack="1" onClick={moveBlock}>
-//           <div data-block="100"></div>
-//           <div data-block="75"></div>
-//           <div data-block="50"></div>
-//           <div data-block="25"></div>
+//         <div data-stack="a" onClick={this.moveBlock}>
+//           {aBlocks}
 //         </div>
-//         <div data-stack="2">
+//         <div data-stack="b">
 //         </div>
-//         <div data-stack="3">
+//         <div data-stack="c">
 //         </div>
 //       </div>
 //     );
 //   }
 // }
-// //cannot pop and push. must create new array
+//
 // ReactDOM.render(<TowersOfHanoi />, document.getElementById('towers-of-hanoi'));
-
 
 'use strict';
 
 class TowersOfHanoi extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      a: [25, 50, 75, 100],
-      b: [],
-      c: [],
-      block: null
-    }
-  }
+    this.state = { //declare state
+      1: [100,75,50,25], //data-stack-1
+      2: [], //data-stack-2
+      3: [], //data-stack-3
+      block: null //declare block and assign to null in the beginning
+    };
+  } //constructor ends
 
-
-  moveBlock = (event) => {
-    const stack = event.target.getAttribute('data-stack');
-    const blocks = this.state[stack].slice();
-    const block = blocks.pop();
-    const obj = {};
-    obj[stack] = blocks;
-    obj.block = block;
-    this.setState(obj);
-  }
+  moveBlock = (event) => { //when it's clicked
+    const stack = event.target.getAttribute('data-stack'); //select the stack
+    const newStack = this.state[stack].slice(); //make a copy of the array to remove items
+    const block = newStack.pop(); //remove the last element and assign to block
+    const obj = {}; //create an empty object to hold stack and block variables
+    obj[stack] = newStack;
+    obj[block] = block;
+    this.setState(obj); //pass the object in
+  }//moveBlock ends
 
   render() {
-    const aBlocks = this.state.a.map((block) => {
-      return (<div key={block} data-block={block}></div>)
+
+    const aBlocks = this.state[1].map((block) => {
+      return (<div key={block} data-block={block}></div>);
     });
 
     return (
       <div>
-        <div data-stack="a" onClick={this.moveBlock}>
+        <div data-stack="1" onClick={this.moveBlock}>
           {aBlocks}
         </div>
-        <div data-stack="b">
+        <div data-stack="2">
         </div>
-        <div data-stack="c">
+        <div data-stack="3">
         </div>
       </div>
-    );
-  }
-}
+    ); //return ends
+  } //render ends
+}//class ends
 
 ReactDOM.render(<TowersOfHanoi />, document.getElementById('towers-of-hanoi'));
