@@ -24,10 +24,12 @@ class TowersOfHanoi extends React.Component {
       this.setState(obj);
 
     } else {
-      blocks.push(this.state["blockHeld"]);
-      obj[clickedStack] = blocks;
-      obj["blockHeld"] = [];
-      this.setState(obj);
+      if (blocks.length === 0 || this.state["blockHeld"] < blocks[blocks.length-1]) {
+        blocks.push(this.state["blockHeld"]);
+        obj[clickedStack] = blocks;
+        obj["blockHeld"] = [];
+        this.setState(obj);
+      }
     }
 
   }
