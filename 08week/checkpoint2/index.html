@@ -8,29 +8,21 @@
 
 <body>
 
-  <div id="table">
-    <div class="board">
-      <span class="guessPeg" id="guessPeg1">__</span>
-      <span class="guessPeg" id="guessPeg2">__</span>
-      <span class="guessPeg" id="guessPeg3">__</span>
-      <span class="guessPeg" id="guessPeg4">__</span>
-    </div>
-    <div id="lettersPool">
-      <h3>Guess Choices</h3>
-      <div class="guess" id="a">a</div>
-      <div class="guess" id="b">b</div>
-      <div class="guess" id="c">c</div>
-      <div class="guess" id="d">d</div>
-      <div class="guess" id="e">e</div>
-      <div class="guess" id="f">f</div>
-      <div class="guess" id="g">g</div>
-      <div class="guess" id="h">h</div>
+<!-- This is where you type your answer -->
+  <div>
+    <input id="text" type="text" name="fname"><br>
+    <button id="button" ondragstart=""type="submit" value="Submit"></button>
+  </div>
 
+  <div id="table">
+    <div>
+      <ul id ='ul'>
+        <!-- The guesses go here -->
+      </ul>
     </div>
   </div>
 
   <div id="announce-winner"></div>
-  <button id="newGame">Play</button>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

@@ -1,71 +1,48 @@
-//Questions for Zack:
-//1. Should I mostly reuse the old code, or is it better to start from scratch?
-//2. How to I get the board array to show up in HTML?
-
-
 //Steps
-//1. Click 4 colors.
-//2. Get the board array to show on HTML
-//
-let board = [1,2,3];
+//1. Have computer create answer
+//2. Choose a guess.
+//3. Get the board array to show on HTML
+//4. Check for win.
+
+let board = [];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let solution = '';
+let guess = '';
 
 
 $(document).ready(function(){
-
-  $('.guess').click(function(){
-
-    console.log($('.board').children())
-    board.pop()
-
-    console.log("test")
-    board.push(this)
-    console.log(board);
-    var htmlString = $( this ).html();
-    $( '#guessPeg1' ).text( htmlString );
-    console.log(htmlString)
-
-
+  generateSolution();
+  console.log (solution)
+  $('#button').click(function(){
+    printBoard();
+    console.log('test')
+    checkForWin();
   });
-//   $('.guess').click(function(){
-//     console.log("test")
-//     board.push(this)
-//     console.log(board);
-//     var htmlString = $( this ).html();
-//     $( '#guessPeg2' ).text( htmlString );
-//     console.log(htmlString)
-// });
 
-console.log(board);
-
-  function othername() {
-      var input = document.getElementById("userInput").value;
-      alert(input);
+//This prints the guess on the board.
+  function printBoard (){
+    guess = $('#text').val();
+    var list;
+    playerGuess = $('<li>' + guess + '</li>');
+    $('#ul').append(playerGuess);
   }
 
-  // let solution = 'adaa';
-
-  const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-
-  //end of stuff
-
-  function printBoard() {
-    for (let i = 0; i < board.length; i++) {
-      console.log(board[i]);
-    }
-  }
-
+//This creates the answer.
   function generateSolution() {
     for (let i = 0; i < 4; i++) {
       const randomIndex = getRandomInt(0, letters.length);
       solution += letters[randomIndex];
     }
+    return solution;
   }
 
+//This creates a random number for the answer.
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
   function generateHint(solution, guess) {
+    // your code here {
     function split(string) {
       return string.split('');
     }
@@ -104,7 +81,7 @@ console.log(board);
     // console.log(`(Right letter, wrong place: ${rightLetterRightPlace}`)
   }
 
-  function mastermind(guess) {
+  function checkForWin(guess) {
     (board.push(guess));
 
     //add a your guess to the board each time (use board.push)
@@ -117,17 +94,6 @@ console.log(board);
       // printBoard();
     };
   };
-
-
-  function getPrompt() {
-      return('guess: ', (guess) => {
-      console.log( mastermind(guess) );
-      printBoard();
-      getPrompt();
-    });
-  };
-
-
 
 
 
