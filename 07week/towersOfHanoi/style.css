@@ -32,6 +32,12 @@
   background-color: yellow;
 }
 
+.clicker {
+  margin-left: 100px;
+  display:flex;
+  font-size: 0.2em;
+}
+
 #announce-game-won {
   font-size: 50px;
   text-align: center;
