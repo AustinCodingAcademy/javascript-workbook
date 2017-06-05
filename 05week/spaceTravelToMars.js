@@ -9,20 +9,12 @@ var jobTypes = {
   programmer: 'Any Ship!'
 };
 
-//function enterShip(CrewMember, Ship){
-// this.enterShip = function(Ship){
- //   console.log(somewhere.crew.push(ship));
- // }
-
-//}
-
-
 function CrewMember(name, job, specialSkill){
   this.name = name;
   this.job = job;
   this.specialSkill = specialSkill;
   this.ship = null;
-  this.enterShip = function(){
+  this.enterShip = function(CrewMember){
    this.ship = ship;
    ship.crew.push(this);
  }
