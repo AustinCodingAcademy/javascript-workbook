@@ -22,6 +22,13 @@ class TowersOfHanoi extends React.Component {
     this.setState(obj);
   }
 
+  if ((this.state.b.length || this.state.d.length) === 4) {
+    return true;
+  } else {
+    return false;
+  }
+
+
   render() {
     const aBlocks = this.state.a.map((block) => {
       return (<div key={block} data-block={block}></div>)
@@ -40,5 +47,24 @@ class TowersOfHanoi extends React.Component {
     );
   }
 }
+
+//
+// if (stacks[endStack].length === 0 || stacks[startStack].length - 1 < stacks[endStack].length - 1) {
+//   return true;
+// } else {
+//   return false;
+// }
+// };
+// // Your code here
+//
+// function checkForWin() {
+// if ((stacks.b.length || stacks.c.length) === 4) {
+//   return true
+// } else {
+//   return false;
+// }// Your code here
+//
+// }
+
 
 ReactDOM.render(<TowersOfHanoi />, document.getElementById('towers-of-hanoi'));
