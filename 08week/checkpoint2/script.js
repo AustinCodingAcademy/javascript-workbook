@@ -103,8 +103,8 @@ $(document).ready(function(){
   }
 
   function checkForWin(guess) {
+    //turns() makes sure that you haven't done too many turns.
     turns();
-    //add the hint in the format of '1-1'
     if (rightLetterRightPlace = 4) {
       return('You guessed it!');
     } else {
