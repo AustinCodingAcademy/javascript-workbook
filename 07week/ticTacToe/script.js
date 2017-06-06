@@ -17,20 +17,20 @@ class TicTacToe extends React.Component {
     };
   }
 
-  reset = () => {
-    this.setState = {
-      a: '',
-      b: '',
-      c: '',
-      d: '',
-      e: '',
-      f: '',
-      g: '',
-      h: '',
-      i: '',
-      playerTurn: 'X'
-    };
-}
+//   reset = () => {//pass in the object
+//     this.setState = {
+//       a: '',
+//       b: '',
+//       c: '',
+//       d: '',
+//       e: '',
+//       f: '',
+//       g: '',
+//       h: '',
+//       i: '',
+//       playerTurn: 'X'
+//     };
+// }
   clickCell = (event) => {
     const cellLetter = event.target.getAttribute('data-cell');
     const obj = {};
