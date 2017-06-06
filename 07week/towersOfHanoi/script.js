@@ -20,17 +20,15 @@ class TowersOfHanoi extends React.Component {
     if (this.state["blockHeld"].length === 0) {
       const block = blocks.pop();
       obj["blockHeld"] = block;
-      obj[clickedStack] = blocks;
-      this.setState(obj);
 
     } else {
       if (blocks.length === 0 || this.state["blockHeld"] < blocks[blocks.length-1]) {
         blocks.push(this.state["blockHeld"]);
-        obj[clickedStack] = blocks;
         obj["blockHeld"] = [];
-        this.setState(obj);
       }
     }
+    obj[clickedStack] = blocks;
+    this.setState(obj);
 
   }
 
