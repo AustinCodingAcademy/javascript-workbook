@@ -1,6 +1,9 @@
 
+<<<<<<< HEAD
 
+=======
 document.addEventListener('DOMContentLoaded', () => {
+>>>>>>> 87e8fd48ccdabce93fee96a38dfa24e589679be9
   $(document).ready(function () {
 
 
@@ -22,7 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       });
     function isLegal(stack){
+<<<<<<< HEAD
+      return ($block.data('block') < $(stack).children().last()data('block'))
+=======
       return ($block.data('block') < $(stack).children().last().data('block'))
+>>>>>>> 87e8fd48ccdabce93fee96a38dfa24e589679be9
     }
     function isEmpty(stack){
       return $(stack).children().length === 0;
