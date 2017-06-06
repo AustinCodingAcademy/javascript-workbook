@@ -1,0 +1,68 @@
+body {
+  background-color: cornflowerblue;
+}
+
+table {
+  border: 1px solid black;
+}
+
+img {
+  max-width: 80px;
+  margin-top: 10px;
+}
+
+button {
+  height: 50px;
+  margin-top: 35px;
+  margin-left: 10px;
+}
+
+.game {
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+div[data-cell] {
+  width: 100px;
+  height: 100px;
+  margin:10px;
+  background-color: #f2f2f2;
+  float: left;
+  border: 1px solid #808080;
+  border-radius: 5px;
+}
+
+#yes {
+  width: 100px;
+  height: 100px;
+  margin:10px;
+  background-color: lightgreen;
+  float: left;
+  border: 1px solid #808080;
+  border-radius: 5px;
+}
+
+#almost {
+  width: 100px;
+  height: 100px;
+  margin:10px;
+  background-color: lightpink;
+  float: left;
+  border: 1px solid #808080;
+  border-radius: 5px;
+}
+
+.row {
+  clear: both;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.guess {
+  border: 2px solid cornflowerblue;
+  border-radius: 5px;
+}
+
+#win {
+  font-size: 50px;
+}
