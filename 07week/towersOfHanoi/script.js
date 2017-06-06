@@ -34,29 +34,20 @@ class TowersOfHanoi extends React.Component {
 }
 
 gameWin = (letter, stack) => {
-  if(letter === 'b' || letter === 'c' && stack.length === 4){
-  document.getElementById('gameWinner').innerHtml = "You Won!";
+  if((letter === 'b' || letter === 'c') && stack.length === 4){
+  document.getElementById('gameWinner').innerText = "You Won!";
   }
 }
-  // moveBlock = (event) => {
-  //   const stack = event.target.getAttribute('data-stack');
-  //   const blocks = this.state[stack].slice();
-  //   if(this.state.block === null){
-  //     const block = blocks.pop();
-  //     const obj = {};
-  //     obj[stack] = blocks;
-  //     obj.block = block;
-  //     this.setState(obj);
-  //   }
-  //   else if (this.state.block) {
-  //
-  //   }
-    // const obj = {};
-    // obj[stack] = blocks;
-    // obj.block = block;
-    // this.setState(obj);
 
-
+reset = () =>{
+  this.setState({
+    a: [100, 75, 50, 25],
+    b: [],
+    c: [],
+    block: null},
+    document.getElementById('gameWinner').innerText = ''
+  );
+}
 
   render() {
     const aBlocks = this.state.a.map((block) => {
@@ -80,6 +71,7 @@ gameWin = (letter, stack) => {
         <div data-stack="c" onClick={this.clickStack}>
           {cBlocks}
         </div>
+        <button onClick={this.reset}>Reset</button>
       </div>
     );
   }

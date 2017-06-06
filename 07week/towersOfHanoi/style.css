@@ -32,7 +32,9 @@
   background-color: yellow;
 }
 
-#announce-game-won {
+#gameWinner {
   font-size: 50px;
   text-align: center;
+  background: blue;
+  height: 50px;
 }
