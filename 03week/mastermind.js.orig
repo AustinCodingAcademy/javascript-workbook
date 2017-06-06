@@ -1,6 +1,10 @@
 'use strict';
 
 const assert = require('assert');
+<<<<<<< HEAD
+//const colors = require('colors/safe');
+=======
+>>>>>>> 8512e2cdbd03c4d01329809fd7fd442f65faad67
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,8 +13,12 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
+<<<<<<< HEAD
 let hint = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+=======
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+>>>>>>> 8512e2cdbd03c4d01329809fd7fd442f65faad67
 
 
 function printBoard() {
@@ -19,7 +27,7 @@ function printBoard() {
   }
 }
 
-function generateSolution() {
+/*function generateSolution() {
   for (let i = 0; i < 4; i++) {
     const randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
@@ -29,7 +37,7 @@ function generateSolution() {
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-}
+}*/
 
 function generateHint(guess){
 
@@ -58,6 +66,7 @@ function generateHint(guess){
 
 
 function mastermind(guess) {
+<<<<<<< HEAD
   generateHint(guess);
 
   if (guess === solution){
@@ -67,7 +76,10 @@ function mastermind(guess) {
     board.push(guess+ ': ' + hint);
     printBoard();
   }
+=======
   // solution = 'abcd'; // uncomment this when developing
+  // your code here
+>>>>>>> 8512e2cdbd03c4d01329809fd7fd442f65faad67
 }
 
 
@@ -95,17 +107,25 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
+<<<<<<< HEAD
       solution = 'abcd';
       assert.equal(generateHint('abdc'), '2-0');
     });
     it('should generate hints if solution has duplicates', () => {
       solution = 'abcd';
       assert.equal(generateHint('aabb'), '1-0');
+=======
+      assert.equal(generateHint('abdc'), '2-2');
+    });
+    it('should generate hints if solution has duplicates', () => {
+      assert.equal(generateHint('aabb'), '1-1');
+>>>>>>> 8512e2cdbd03c4d01329809fd7fd442f65faad67
     });
 
   });
 
 } else {
+
   generateSolution();
   getPrompt();
 }

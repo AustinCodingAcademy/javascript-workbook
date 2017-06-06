@@ -7,7 +7,11 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+<<<<<<< HEAD
+var stacks = {
+=======
 let stacks = {
+>>>>>>> 8512e2cdbd03c4d01329809fd7fd442f65faad67
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -39,7 +43,7 @@ var end = stacks[endStack][lengthEnd - 1]
 if (start < end || end === undefined){
   return true;
 }
-else {
+else{
   return false;
 }
 }
@@ -55,7 +59,7 @@ function checkForWin(startStack, endStack) {
 
 
 function towersOfHanoi(startStack, endStack) {
-  if (isLegal(startStack, endStack)) {
+  if (isLegal(startStack, endStack)){
     movePiece(startStack, endStack);
     checkForWin(startStack, endStack);
   }
@@ -89,28 +93,24 @@ if (typeof describe === 'function') {
         b: [1],
         c: []
       };
-
       assert.equal(isLegal('a', 'b'), false);
     });
     it('should allow a legal move', () => {
       stacks = {
         a: [4, 3, 2, 1],
         b: [],
-
         c: []
       };
       assert.equal(isLegal('a', 'c'), true);
     });
   });
   describe('#checkForWin()', () => {
-
     it('should detect a win', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
-
   });
 } else {
 
