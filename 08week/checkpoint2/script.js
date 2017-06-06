@@ -3,28 +3,51 @@
 //2. Choose a guess.
 //3. Get the board array to show on HTML
 //4. Check for win.
+//5. Limit to 10 turns
 
 let board = [];
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 let solution = '';
 let guess = '';
+let hint = '';
+var guesses = [];
 
 
 $(document).ready(function(){
   generateSolution();
   console.log (solution)
   $('#button').click(function(){
-    printBoard();
-    console.log('test')
+    addGuess();
+    hint = generateHint(solution, readGuess());
+    addHint();
+    clearInput();
     checkForWin();
   });
 
-//This prints the guess on the board.
-  function printBoard (){
+// This prints the guess on the board.
+
+  function addGuess() {
     guess = $('#text').val();
-    var list;
-    playerGuess = $('<li>' + guess + '</li>');
-    $('#ul').append(playerGuess);
+    $('#ul').append($(`<li>${guess}</li>`));
+  }
+  function addHint() {
+    $('#ul').append($(`<li>${hint}</li>`));
+  }
+  function clearInput() {
+    $('#text').val('');
+  }
+
+  function readGuess(){
+    //This only grabs the most recent guess.
+    guess = $('#ul').children().last().text();
+    return guess;
+  }
+
+  function turns(){
+    if ($('#ul').children().length >= 20){
+      console.log('You lose')
+      return ('You lose!!!!')
+    }
   }
 
 //This creates the answer.
@@ -67,31 +90,25 @@ $(document).ready(function(){
       console.log(`guess: ${splitGuess}`);
       let found = splitSolution.indexOf(splitGuess[i])
       if (found > -1) {
-      splitSolution[found] = null;
-      // console.log(splitSolution);
-          rightLetterWrongPlace++;
+        splitSolution[found] = null;
+        rightLetterWrongPlace++;
       }
     }
-
-    var returnString = rightLetterRightPlace + '-' +rightLetterWrongPlace;
-    return(returnString);
-
+    var guessString = rightLetterRightPlace + '-' +rightLetterWrongPlace;
+    console.log(guessString);
+    return guessString;
     // console.log(`(loop is finished)`)
     // console.log(`(Right letter, right place: ${rightLetterWrongPlace}`)
     // console.log(`(Right letter, wrong place: ${rightLetterRightPlace}`)
   }
 
   function checkForWin(guess) {
-    (board.push(guess));
-
-    //add a your guess to the board each time (use board.push)
+    turns();
     //add the hint in the format of '1-1'
     if (rightLetterRightPlace = 4) {
       return('You guessed it!');
     } else {
       generateHint(solution, guess);
-      // getPrompt();
-      // printBoard();
     };
   };
 
