@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       solution.push(pieces[randomIndex]);
     }
   }
-  
+
 generateSolution();
 
 //enter pieces into guess
@@ -38,20 +38,20 @@ generateSolution();
 
 //generate hint of yes or almost
   function generateHint() {
-    let correct = [];
     let dub = [];
     let yes = 0 ;
     let almost = 0 ;
     for(let i=0; i<solution.length; i++){
       //identifies correct letter and index
       if(solution[i] === guess[i]){
-        correct.push(guess[i]);
+        dub.push(guess[i]);
         yes++;
       }
       //identifies only correct letter
       else if(solution.includes(guess[i]) && (dub.includes(guess[i]) === false)){
         dub.push(guess[i]);
         almost++;
+
       }
     }
     if (yes === 4) {
