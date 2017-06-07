@@ -23,10 +23,9 @@ class TowersOfHanoi extends React.Component {
     } else if (newStack.length === 0 ||  this.state.block < this.state[stack][this.state[stack].length-1]) {
       newStack.push(this.state.block); //place the block on stack
       obj['block'] = null; //reset block value
-
     }
     this.setState(obj); //pass the object in
-    this.checkForWin(); //check if the player wins the game
+
   }//moveBlock ends
 
   checkForWin() {
@@ -38,9 +37,10 @@ class TowersOfHanoi extends React.Component {
   } //checkForWin ends
 
   render() {
+    this.checkForWin(); //check if the player wins the game
 
 
-    const block1 = this.state[1].map((block) => {
+    const block1 = this.state[1].map((block) => { 
       return (<div key={block} data-block={block}></div>);
     });
 
