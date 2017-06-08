@@ -45,7 +45,6 @@ function isLegal(start, end) {
 }
 
 function checkForWin(end) {
-  // Your code here
   console.log("made it to check for win");
   if(end === [4, 3, 2, 1]) {
     console.log("You win!");
@@ -53,7 +52,6 @@ function checkForWin(end) {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
   var start = stacks[startStack];
   var end = stacks[endStack];
   return isLegal(start, end);
