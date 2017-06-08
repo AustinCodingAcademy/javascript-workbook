@@ -14,10 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let guess = [];
   let hint = ''
 
-//random creation of solution
+  //random creation of solution
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
+
   function generateSolution() {
     for (let i = 0; i < 4; i++) {
       const randomIndex = getRandomInt(0, pieces.length);
@@ -27,28 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   generateSolution();
 
-//enter pieces into guess
+  //enter pieces into guess
   document.querySelectorAll('img').forEach((thisOne) => {
     thisOne.addEventListener('click', function() {
       document.querySelector(`[data-cell = "${spot}"]`).innerHTML = `<img src="${thisOne.getAttribute("src")}"/>`;
-      spot= spot + 1;
+      spot = spot + 1;
       guess.push(`<img src="${thisOne.getAttribute("src")}"/>`)
     })
   })
 
-//generate hint of yes or almost
+  //generate hint of yes or almost
   function generateHint() {
     let dub = [];
-    let yes = 0 ;
-    let almost = 0 ;
-    for(let i=0; i<solution.length; i++){
+    let yes = 0;
+    let almost = 0;
+    for (let i = 0; i < solution.length; i++) {
       //identifies correct letter and index
-      if(solution[i] === guess[i]){
+      if (solution[i] === guess[i]) {
         dub.push(guess[i]);
         yes++;
       }
       //identifies only correct letter
-      else if(solution.includes(guess[i]) && (dub.includes(guess[i]) === false)){
+      else if (solution.includes(guess[i]) && (dub.includes(guess[i]) === false)) {
         dub.push(guess[i]);
         almost++;
 
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#almost').innerText = `Almost: ${almost}`;
   }
 
-//check guess
+  //check guess
   btn.addEventListener('click', function() {
     generateHint();
     guess = [];
@@ -70,17 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
     pushGuess();
   })
 
-//move guess and hint to bottom
+  //move guess and hint to bottom
   function pushGuess() {
     let newSpot = 4;
     document.querySelectorAll('.guess').forEach((g) => {
       let itm = g.innerHTML;
       document.querySelector(`[data-cell = "${newSpot}"]`).innerHTML = itm;
-      newSpot = newSpot+1;
+      newSpot = newSpot + 1;
       g.innerHTML = null;
     })
     let div = document.getElementById('jabba'),
-    clone = div.cloneNode(true);
+      clone = div.cloneNode(true);
     clone.id = "old";
     old.appendChild(clone)
   }
