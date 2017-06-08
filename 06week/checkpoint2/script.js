@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-generateSolution();
+  generateSolution();
 
 //enter pieces into guess
   document.querySelectorAll('img').forEach((thisOne) => {
@@ -80,7 +80,7 @@ generateSolution();
       g.innerHTML = null;
     })
     let div = document.getElementById('jabba'),
-        clone = div.cloneNode(true);
+    clone = div.cloneNode(true);
     clone.id = "old";
     old.appendChild(clone)
   }
