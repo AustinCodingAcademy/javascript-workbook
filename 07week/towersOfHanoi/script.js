@@ -1,25 +1,58 @@
 'use strict';
 
 class TowersOfHanoi extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super()
+    this.state = {
+      a:[100, 25],
+      b:[50, 75],
+      c:[],
+      block: null
+    }
   }
 
-  render() {
-    return (
-      <div>
-        <div data-stack="1">
-          <div data-block="100"></div>
-          <div data-block="75"></div>
-          <div data-block="50"></div>
-          <div data-block="25"></div>
-        </div>
-        <div data-stack="2">
-        </div>
-        <div data-stack="3">
-        </div>
-      </div>
-    );
+  clickStack = (e) => {
+    const letter = e.target.getAttribute('data-stack');
+    const stack = this.state[letter].slice();
+    let block;
+    if (this.state.block) {
+      const block = stack.pop();
+    } else {
+      stack.push(this.state.block);
+      const ['block'] = null;
+    }
+      const update = {};
+      update[letter] = stack;
+      update ['block'] = block;
+
+  }
+    this.setState(update);
+
+  render () {
+    const aBlocks = this.ste.a.map((size)) => {
+      return (<div data-block=(size)></div>;
+    });
+
+    const bBlocks = this.ste.a.map((size)) => {
+      return (<div data-block=(size)></div>;
+    });
+
+    const cBlocks = this.ste.a.map((size)) => {
+      return (<div data-block=(size)></div>;
+    });
+
+  return (
+    <div data-stack="a" onClick={this.clickStack}>
+    {aBlocks}
+    </div>
+    <div data-stack="b" onClick={this.clickStack}>
+    {bBlocks}
+    </div>
+    <div data-stack="c" onClick={this.clickStack}>
+    {cBlocks}
+    </div>
+  )
+    )
   }
 }
 

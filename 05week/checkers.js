@@ -1,5 +1,6 @@
 'use strict';
 
+const illegal = require('')
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -46,14 +47,14 @@ function Board() {
 
   // prints out the board
   this.viewGrid = function() {
-    // add our column numbers
+    // add column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
       const rowOfCheckers = [row];
       // a loop within a loop
       for (let column = 0; column < 8; column++) {
-        // if the location is "truthy" (contains a checker piece, in this case)
+        // if the location is "truthy" or legal (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
           rowOfCheckers.push(this.grid[row][column].symbol);
@@ -71,15 +72,93 @@ function Board() {
   };
 
   // Your code here
+  this.checkers = [];
+
+  this.createCheckers = function () {
+    // make the white checkers
+    for (let i = 0; i <= 2; i++) {
+      for (let j = 1; j <=7; j+=2) {
+        if ((i === 1) && (j % 2 !==0)) (j = j - 1);
+        let whitePositions = new Checker ('white');
+        this.grid [i][j] = whitePositions;
+        this.checkers.push(whitePositions);
+      }
+    };
+
+    // make the black checkers
+    for (let i = 0; i <= 2; i++) {
+      for (let j = 1; j <=7; j+=2) {
+        if ((i === 1) && (j % 2 !==0)) (j = j - 1);
+        let blackPositions = new Checker ('black');
+        this.grid [i][j] = blackPositions;
+        this.checkers.push(blackPositions);
+      }
+    };
+  }
+    // Before breaking it down, we had a top-level idea of how this would work below:
+    // const whitePositions = new Checker('white');
+    // const blackPositions = new Checker ('black');
+    // this.grid [0][1] = whitePositions;
+    // this.grid [5][0] = blackPositions;
+    // // This is where are placing them references on the board.
+    // this.checkers.push(whitePositions, blackPositions);
+    // // Now this function now knows about my checkers.
+
+
+  this.selectChecker = function (row, column) {
+    return this.grid[row][column];
+  }
+
+  this.killChecker = function(row, column) {
+    this.checkers.splice(this.selectChecker(row, column), 1);
+    this.grid[row][column] = null;
+  }
 }
 function Game() {
-
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.board.createCheckers();
   };
+
+  this.moveChecker = function(start, end) {
+    const checker = this.board.selectChecker(start[0], start [1]);
+    const endPosition = this.board.grid[ end[0] ][ end[1] ];
+
+    // Again, this is the top-level before breaking down further.
+    // const end = this.board.grid[ end[0] ][ end[1] ] = checker;
+    // this.board.grid[ start[0] ][start[1] ] = null;
+    // console.log(this.board.checkers.indexOf(checker));
+
+    if (checker) {
+      if (endPosition) {
+        illegal(2);
+        console.log("This space is taken.");
+      }
+      else if (endPosition === null) {
+        if (start[0] - end[0] === 2 || start[0] - end[0] === - 2) {
+          if(checker.symbol === String.fromCharCode(0x125CB)) {
+            let killrow = end [0] - 1;
+            let killcol = end [1] - 1;
+            this.board.killTheChecker(killrow , killcol)
+          }
+          if(checker.symbol === String.fromCharCode(0x125CF)) {
+            let killrow = start[0] - 1;
+            let killcol = end [1] - 1;
+            this.board.killTheChecker(killrow , killcol)
+          }
+        }
+        this.board.grid[ end[0] ][ end[1] ] = checker;
+        this.board.grid[ start[0] ][start[1] ] = null;
+      }
+    }
+    else {
+      illegal(3);
+      console.log(this.board.checkers.indexOf(checker));
+    }
+  }
 }
 
 function getPrompt() {
