@@ -12,7 +12,7 @@ function pigLatin(word) {
     return(small + "yay");
   }
 
-  //simple word
+  //simple word body
   else if(split.length === 3){
     var body = small.slice(i)
     return(body+split[0] + "ay");
