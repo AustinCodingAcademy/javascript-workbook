@@ -5,7 +5,7 @@ function pigLatin(word) {
   var small = word.toLowerCase();
   var split = small.split("");
 
-  //Starts with vowel
+  //Word starts with vowel
   if(vowel.includes(split[0])){
     return(small + "yay");
   }
