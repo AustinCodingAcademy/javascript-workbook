@@ -30,13 +30,24 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
-}
+  var guess = guess.split('');
+  var solution = solution.split('');
+    console.log(guess);
+    console.log(solution);
+  }
 
 function mastermind(guess) {
   // solution = 'abcd'; // uncomment this when developing
   // your code here
+  if (guess [''] ===solution ['']) {
+   return "You guessed it!";
+ }
+  if (guess [''] !=solution ['']) {
+    return generateHint(guess, solution);
 }
-
+ var solution = 'adbc';
+ var guess = 'bcda';
+}
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {

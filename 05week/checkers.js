@@ -7,12 +7,41 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//Spec 2.1 - Create Checker, place on board
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  this.color = color;
+  if (this.color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
+  else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
+//Spec 2.2 - Moving a Checker
+
 function Board() {
+  this.selectCheckers = function(position){};
+  this.killCheckers = function(position){};
+  this.createCheckers = function() {
+    let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],[1, 0], [1, 2], [1, 4], [1, 6], [2, 1], [2, 3], [2, 5], [2, 7]];
+    let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6], [6, 1], [6, 3], [6, 5], [6, 7], [7, 0], [7, 2], [7, 4], [7, 6]];
+    for (let i = 0; i < 11; i++) //positions to be placed on the board added each turn
+      let whiteChecker = new Checker('white');
+        this.checkers.push(whiteChecker);
+      let coordinate = whitePositions[i];
+        this.grid[coordiante[0]][coordinate[1]] = whiteChecker;
+      };
+      let blackChecker = new Checker('black');
+        this.checkers.push(blackChecker);
+      let coordinate = blackPositions[i];
+        this.grid[coordiante[0]][coordinate[1]] = blackChecker;
+  }
+}
+
+//Spec 2.3 - Killing a Checker
+
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -52,7 +81,6 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
 }
 function Game() {
 

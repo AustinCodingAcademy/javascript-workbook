@@ -9,7 +9,52 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+function crewMember(name, job, specialSkill, ship){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = null;
+
+}
+
+//Spec 1
+var jason = new crewMember('Jason Rowlett', 'pilot', 'aeronautics');
+console.log(jason);
+
+function Ship(name, type, ability, crew) {
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+
+}
+
+//Spec 2
+var oss = new Ship('Orbital Spaceship', 'OSS', 'Orbiting Earth at slow speed');
+console.log(oss);
+
+oss.crew.push(1);
+console.log(oss.crew);
+
+//Spec 3
+var oss = new Ship('Orbital Spaceship', 'OSS', 'Orbit Earth and slow speed');
+var zoidberg = new CrewMember('John Zoidberg', 'pilot', 'commander');
+
+zoidberg.enterShip(OSS);
+console.log(zoidberg.ship.oss);
+console.log(oss.crew.length);
+console.log(oss.crew[0].name);
+console.log(zoidberg.ship === oss);
+console.log(oss.crew.indexOf(zoidberg) === 0);
+
+//Spec 4
+class missionStatement = 'Can/t perform a mission yet';
+function(){
+  var oss = new Ship('Orbital Spaceship', 'OSS', 'orbit earth at slow speed');
+  var crewMember1 = new CrewMember('Jason Rowlett', 'pilot', 'aeronautics');
+  var crewMember2 = new CrewMember('John Zoidberg', 'doctor', 'psychiatry');
+  assert.equal(oss.missionStatement(), "Can't perform a mission yet.");
+  assert.equal(zoidberg.missionStatement(), "Can't perform a mission yet.");
 
 //tests
 if (typeof describe === 'function'){

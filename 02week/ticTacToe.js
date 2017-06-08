@@ -23,39 +23,84 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
+function horizontalWin(boardSpot) {
+
+  if(boardSpot === "topleft"){
+    topleft = "X";
+    return;
+  }
+
+  if(boardSpot === "topmiddle"){
+    topmiddle = "X";
+    return;
+  }
+
+  if(boardSpot === "topright"){
+    topright = "X";
+    return;
+  }
 }
 
-function verticalWin() {
-  // Your code here
+function verticalWin(boardSpot) {
+
+  if(boardSpot === "topleft"){
+    top = "X";
+    return;
+  }
+
+  if(boardSpot === "middleleft"){
+    middleleft = "X";
+    return;
+  }
+
+  if(boardSpot === "bottomleft"){
+    topmiddle = "X";
+    return;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+
+  if(boardSpot === "topleft"){
+    topleft = "X";
+    return;
+  }
+
+  if(boardSpot === "middlemiddle"){
+    middlemiddle = "X";
+    return;
+  }
+
+  if(boardSpot === "bottomright"){
+    bottomright = "X";
+    return;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+
+  //check for vertical win
+  if(topleft === playerTurn && middleleft === playerTurn && bottomleft === playerTurn){
+    //win
+    console.log("player wins!");
+  }
+
+  if(topmiddle === playerTurn && middlemiddle === playerTurn && bottommiddle === playerTurn){
+    //win
+    console.log("player wins!");
+  }
+  //check for win
+  if(topright === playerTurn && middleright === playerTurn && bottomright === playerTurn){
+
+    console.log("player wins!");
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+
 }
 
 function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
-
-}
-
-
 
 // Tests
 
