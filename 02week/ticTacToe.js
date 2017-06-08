@@ -24,7 +24,7 @@ function printBoard() {
 }
 
 function horizontalWin(boardSpot) {
-  // Your code here
+
   if(boardSpot === "topleft"){
     topleft = "X";
     return;
@@ -42,7 +42,7 @@ function horizontalWin(boardSpot) {
 }
 
 function verticalWin(boardSpot) {
-  // Your code here
+
   if(boardSpot === "topleft"){
     top = "X";
     return;
@@ -60,7 +60,7 @@ function verticalWin(boardSpot) {
 }
 
 function diagonalWin() {
-  // Your code here
+
   if(boardSpot === "topleft"){
     topleft = "X";
     return;
@@ -78,7 +78,7 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  // Your code here
+
   //check for vertical win
   if(topleft === playerTurn && middleleft === playerTurn && bottomleft === playerTurn){
     //win
@@ -89,20 +89,18 @@ function checkForWin() {
     //win
     console.log("player wins!");
   }
-
+  //check for win
   if(topright === playerTurn && middleright === playerTurn && bottomright === playerTurn){
-    //win
+
     console.log("player wins!");
   }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+
 }
 
 function getPrompt() {
-
-
 
 // Tests
 
