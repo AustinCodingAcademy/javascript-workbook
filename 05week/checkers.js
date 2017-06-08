@@ -75,7 +75,7 @@ function Board() {
       }
       // join the rowOfCheckers array to a string, separated by a space
       string += rowOfCheckers.join(' ');
-      // add a 'new line'
+      // add a "new line"
       string += "\n";
     }
     console.log(string);
