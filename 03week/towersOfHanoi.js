@@ -35,7 +35,7 @@ function isLegal(start, end) {
   // Your code here
   //if it's not legal, say "not a legal move"
   //if (end[end.length-1])
-  if (end[end.length-1] < start[start.length-1]){
+  if (end[end.length - 1] < start[start.length - 1]){
     console.log("illegal move");
   }
   else {
@@ -46,7 +46,8 @@ function isLegal(start, end) {
 
 function checkForWin(end) {
   console.log("made it to check for win");
-  if(end === [4, 3, 2, 1]) {
+  console.log(end);
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
     console.log("You win!");
   }
 }
