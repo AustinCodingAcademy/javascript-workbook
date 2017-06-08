@@ -34,3 +34,5 @@ function checkForWin(guess, solution) {
     return "You win!";
   }
 }
+
+//Tests:
