@@ -14,6 +14,8 @@ for (let i = 0; i < 1000; i++) {
   arr.push(getRandomInt(0, 1000));
 }
 
+//Bubble Sort
+
 function bubbleSort(arr) {
   var arr = [1, 3, 2, 9, 12, 4, 5];
 
@@ -27,6 +29,8 @@ function bubbleSort() {
   return arr;
 }
 console.log(bubbleSort);
+
+//Merge Sort
 
 function mergeSort(arr) {
   var arr = [5, 3, 4, 10, 7, 11, 6, 2];
