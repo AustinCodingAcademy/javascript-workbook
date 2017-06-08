@@ -20,7 +20,7 @@ function printStacks() {
 }
 
 function movePiece(start, end) {
-  // Your code here
+  //Code goes here
   console.log("made it to MovePiece");
   var disk = start.pop();
   end.push(disk);
