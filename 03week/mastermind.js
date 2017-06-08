@@ -49,7 +49,6 @@ function mastermind(guess) {
  var guess = 'bcda';
 }
 
-
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
