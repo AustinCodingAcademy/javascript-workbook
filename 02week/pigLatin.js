@@ -1,18 +1,16 @@
 'use strict';
 
 function pigLatin(word) {
-
-  //Your code here
   var vowel = ['a', 'e'. 'i', 'o', 'u', 'y'];
   var small = word.toLowerCase();
   var split = small.split("");
 
-  //starts with vowel
+  //Starts with vowel
   if(vowel.includes(split[0])){
     return(small + "yay");
   }
 
-  //simple word body
+  //Simple word
   else if(split.length === 3){
     var body = small.slice(i)
     return(body+split[0] + "ay");
