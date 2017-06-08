@@ -1,6 +1,5 @@
 //1. Write For Loop
   function loops() {
-    //1. Write For Loop
     var carsInReverse = ['Ferrari', 'Bentley', 'Lamborghini', 'Maserati'];
     for (i = 0; i < 4; i++) {
       console.log(carsInReverse[i]);
