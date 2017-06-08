@@ -8,6 +8,7 @@ function forEach(arr, callback) {
   }
 }
 
+//Map
 function map(arr, callback) {
   let mapped = [];
   for (let i = 0; i < arr.length; i++){
@@ -16,6 +17,7 @@ function map(arr, callback) {
   return mapped;
 }
 
+//Filter
 function filter(arr, callback) {
   let newArr = [];
   for (let i = 0; i < arr.length; i++){
@@ -26,6 +28,7 @@ function filter(arr, callback) {
   return newArr;
 }
 
+//Some
 function some(arr, callback) {
   let newArr = [];
   for(let i = 0; i < arr.length; i++) {
@@ -36,6 +39,7 @@ function some(arr, callback) {
 }
 return newArr;
 
+//Every
 function every(arr, callback) {
   let newArr = [];
   for(let i = 0; i < arr.length; i++) {
