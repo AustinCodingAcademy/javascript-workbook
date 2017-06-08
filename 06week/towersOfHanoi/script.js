@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   var data = $('div[data-stack]')
-  
+
 
 
 
@@ -17,6 +17,8 @@ const totalBlocks = document.querySelector('[data-stack="1"]').childElementCount
 //Rules
 //Game Function
 //All of these are Arrays^^
+
+
 
 //START click functions
 document.querySelectorAll('[data-stack]="1"]');
