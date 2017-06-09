@@ -12,12 +12,21 @@ class TowersOfHanoi extends React.Component {
   }
 
   moveBlock = (event) => {
-    const stack = event.target.getAttribute('data-stack');
-    const blocks = this.state[stack].slice();
-    const block = blocks.pop();
+    const letter = event.target.getAttribute('data-stack');
+    const stack = this.state[letter].slice();
     const obj = {};
-    obj[stack] = blocks;
-    obj.block = block;
+    if (!this.state.block) {
+      const block = stack.pop();
+      obj["block"] = block;
+    } else if
+      (stack.length === 0 || stack[stack.length-1] > this.state.block) {
+      stack.push(this.state.block);
+      obj["block"] = null;
+    }
+    // const block = blocks.pop();
+
+    obj[letter] = stack;
+    // obj["block"] = block;
     this.setState(obj);
   }
 
@@ -39,8 +48,12 @@ class TowersOfHanoi extends React.Component {
         <div data-stack="a" onClick={this.moveBlock}>
           {aBlocks}
         </div>
-        <div data-stack="b"></div>
-        <div data-stack="c"></div>
+        <div data-stack="b" onClick={this.moveBlock}>
+          {bBlocks}
+        </div>
+        <div data-stack="c" onClick={this.moveBlock}>
+          {cBlocks}
+        </div>
       </div>
     )
   }

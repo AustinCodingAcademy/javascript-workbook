@@ -11,52 +11,33 @@ class TowersOfHanoi extends React.Component {
     }
   }
 
-
   moveBlock = (event) => {
-    const stack = event.target.getAttribute('data-stack');
-    const blocks = this.state[stack].slice();
-    const block = blocks.pop();
-
-    if (this.state.block === null) {
-      this.getBlock();
-      // if (
-      //   !event.target.getAttribute('data-stack').value ||
-      //   event.target.getAttribute('data-stack').value > this.state.block
-      // ) {
-      //   event.target.getAttribute('data-stack').value = this.state.block;
-      // } else {
-      //   this.getBlock();
-      // }
+    const letter = event.target.getAttribute('data-stack');
+    const stack = this.state[letter].slice();
+    const obj = {};
+    if (!this.state.block) {
+      const block = stack.pop();
+      obj["block"] = block;
     } else if
-      (this.state.block < blocks.length-1 || blocks === []) {
-        blocks.push(this.state.block);
+      (stack.length === 0 || stack[stack.length-1] > this.state.block) {
+      stack.push(this.state.block);
+      obj["block"] = null;
     }
+    // const block = blocks.pop();
+
+    obj[letter] = stack;
+    // obj["block"] = block;
+    this.setState(obj);
   }
-
-  getBlock = () => {
-    const holdme = this.moveBlock.block;
-    this.setState({block = holdme});
-    // this.setState;
-
-    // const stack = event.target.getAttribute('data-stack');
-    // const blocks = this.state[stack].slice();
-    // const block = this.moveBlock.blocks.pop();
-    // const obj = {};
-    // obj.stack = this.moveBlock.blocks;
-    // obj.block = this.moveBlock.block;
-    // this.state.block = obj.block;
-
-    // if (
-    //   !obj[stack] ||
-    //   obj[stack].length-1 > obj.block
-    // ) {
-    //   obj[stack].push(obj.block);
-    // }
-    // this.setState(obj);
-  }
-
 
   render() {
+
+    let winnerWinner = '';
+    if (this.state['b'].length === 4 || this.state['c'].length === 4) {
+      winnerWinner = (<div>Yay!! You did it!!</div>);
+      return winnerWinner;
+    }
+
     const aBlocks = this.state.a.map((block) => {
       return (<div key={block} data-block={block}></div>)
     });
@@ -75,16 +56,15 @@ class TowersOfHanoi extends React.Component {
           {aBlocks}
         </div>
         <div data-stack="b" onClick={this.moveBlock}>
-        {bBlocks}
+          {bBlocks}
         </div>
         <div data-stack="c" onClick={this.moveBlock}>
-        {cBlocks}
+          {cBlocks}
         </div>
+        <div>{winnerWinner}</div>
       </div>
     )
   }
-
-
 }
 
 ReactDOM.render(<TowersOfHanoi />, document.getElementById('towers-of-hanoi'));
