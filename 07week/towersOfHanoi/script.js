@@ -1,13 +1,14 @@
+
 'use strict';
 
 class TowersOfHanoi extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      a: [25, 50, 75, 100],
+      a: [100, 75, 50, 25],
       b: [],
       c: [],
-      block: null
+      blockHeld: []
     }
   }
 
@@ -21,13 +22,6 @@ class TowersOfHanoi extends React.Component {
     obj.block = block;
     this.setState(obj);
   }
-
-  if ((this.state.b.length || this.state.d.length) === 4) {
-    return true;
-  } else {
-    return false;
-  }
-
 
   render() {
     const aBlocks = this.state.a.map((block) => {
@@ -47,24 +41,5 @@ class TowersOfHanoi extends React.Component {
     );
   }
 }
-
-//
-// if (stacks[endStack].length === 0 || stacks[startStack].length - 1 < stacks[endStack].length - 1) {
-//   return true;
-// } else {
-//   return false;
-// }
-// };
-// // Your code here
-//
-// function checkForWin() {
-// if ((stacks.b.length || stacks.c.length) === 4) {
-//   return true
-// } else {
-//   return false;
-// }// Your code here
-//
-// }
-
 
 ReactDOM.render(<TowersOfHanoi />, document.getElementById('towers-of-hanoi'));

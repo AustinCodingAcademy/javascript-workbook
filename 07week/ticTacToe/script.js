@@ -1,9 +1,9 @@
 'use strict';
 
-class TicTacToe extends React.Component {
+class TicTacToe extends React.Component {  //Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {    //creating the state -- the empty cells essentially
       a: '',
       b: '',
       c: '',
@@ -17,11 +17,11 @@ class TicTacToe extends React.Component {
     };
   }
 
-  clickCell = (event) => {
-    const cellLetter = event.target.getAttribute('data-cell');
-    const obj = {};
-    obj[cellLetter] = this.state.playerTurn;
-    obj['playerTurn'] = (this.state.playerTurn === 'X') ? 'O' : 'X';
+  clickCell = (event) => {  //creating the event for when you click on a cell
+    const cellLetter = event.target.getAttribute('data-cell');  //targeting an indivudal cell and putting it in a variable -- makes it easier to call it later
+    const obj = {};  //creating the empty object
+    obj[cellLetter] = this.state.playerTurn;  //when an empty object of a targeted cell is clicked on, an 'X' will be addded
+    obj['playerTurn'] = (this.state.playerTurn === 'X') ? 'O' : 'X';  //everytime you click on something it'll alternate between X and O
 
     // if (this.state.playerTurn === 'X') {
     //   obj['playerTurn'] = 'O';
@@ -31,7 +31,7 @@ class TicTacToe extends React.Component {
 
     // { a: 'X', playerTurn: 'O' }
 
-    this.setState(obj);
+    this.setState(obj);  //setting the state to the new one
 
   }
 

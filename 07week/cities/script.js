@@ -16,7 +16,8 @@ class Cities extends React.component {
     const cityItems = this.state.cities.map((city) => {
       return (<li>I love {city}!</li>);
     });
-    return (<ul>{cityItems}</ul>)
+    
+    return (<ul>{cityItems}</ul>);
   }
 }
 
