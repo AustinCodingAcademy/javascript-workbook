@@ -1,6 +1,6 @@
 'use strict';
 
-class Alert extends React.Component {
+class Practice extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
@@ -10,15 +10,15 @@ class Alert extends React.Component {
 
   }
 
-  changeType = (e) => {
-    this.setState({
-      type: e.target.value
-    })
-  }
+  // changeType = (e) => {
+  //   this.setState({
+  //     type: e.target.value
+  //   })
+  // }
 
 render(){
   return(
-    <div className={`alert alert-${this.state.type}`} role="alert">
+    <div>
       <span>{this.state.message}</span>
       <input onChange={this.changeType}/>
     </div>
@@ -30,8 +30,8 @@ const type =[
   'danger',
   'info'
 ].map((type) =>{
-  return (<Alert type ={type}/>)
+  return ({type})
 });
 
 
-ReactDOM.render(<Alert />, document.querySelector('#bootstrap'));
+ReactDOM.render(<Practice />, document.querySelector('#bootstrap'));

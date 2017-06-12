@@ -2,63 +2,96 @@
 
 class Instagram extends React.Component{
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      thumbnails: [],
-      userID: this.props.userID
+      images: [],
+      userId: this.props.userId,
+      selected: ''
     }
-componentDidMount() {
-    fetchJsonp(){
+    this.submitForm = this.submitForm.bind(this)
+    this.changeInput = this.changeInput.bind(this)
+  }
+
+  componentDidMount() {
+    this.fetchThumbnails(this.state.userId);
+  }
+
+  fetchThumbnails(userId) {
+    fetchJsonp(`https://api.instagram.com/v1/users/${userId}/media/recent/?` + window.location.hash.split('#')[1], {
       method: 'GET'
-    }).then((response) =>{
-      response.json().then((json)=>{
+    }).then((response) => {
+      response.json().then((json) => {
         this.setState({
-          thumbnails: json.data.map((post) => {
-            return post.images.thumbnail.url;
+          images: json.data.map((post) => {
+            return post.images;
           })
         });
       });
     });
   }
 
+  submitForm(event) {
+    event.preventDefault();
+    console.log(this.state);
+    this.fetchThumbnails(this.state.userId);
+  }
+
+  changeInput(event) {
+    this.setState({
+      userId: event.target.value
+    });
+  }
+
+  clickImage(event) {
+    event.preventDefault();
+    console.log(event.target);
+    console.log(event.target.getAttribute('data-image'));
+    this.setState({
+      selected: event.target.getAttribute('data-image')
+    });
+  }
+
   render() {
-    const thumbnails = this.state.thumbnails((thumbnail) => {
+    const thumbnails = this.state.images.map((image) => {
       return (
-        <div key ={thumbnail} className="col">
-        <img src={thumbnail} />
+        <div key={image.thumbnail.url} className="col">
+          <img src={image.thumbnail.url} data-image={image.standard_resolution.url} onClick={this.clickImage.bind(this)}/>
         </div>
       );
     });
+
+    console.log(this.state.selected);
+
     return(
-      <InstagreamSearch />
-      <div className="row">
-      {thumbnails}
+      <div>
+        <InstagramSearch thumbnails={this} />
+        <div className="row">
+          {thumbnails}
+        </div>
+        <img src={this.state.selected} />
       </div>
     )
   }
 }
 
-class InstagreamSearch extends React.Component {
-  constructor(){
-    super();
-    this.state ={
-      username: ''
+class InstagramSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: ''
     }
   }
 
-  submitForm(e) {
-    event.preventDefault();
 
-  }
+
   render() {
     return (
-      <form onSubmit ={this.submitForm.bind(this)}>
-      <input />
-      <button type="submit">Submint</button>
+      <form onSubmit={this.props.thumbnails.submitForm}>
+        <input onChange={this.props.thumbnails.changeInput} />
+        <button type="submit">Submit</button>
       </form>
-    )}
-
-
+    )
+  }
 }
-ReactDOM.render(<Instagram userID="self"/>, document.querySelector('#fetch'));
-ReactDOM.render(<InstagreamSearch />, document.querySelector('#search'));
+
+ReactDOM.render(<Instagram userId="" />, document.querySelector('#thumbnails'));

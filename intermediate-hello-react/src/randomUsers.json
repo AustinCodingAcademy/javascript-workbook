@@ -1,0 +1,219 @@
+{
+  "users": [{
+    "name": {
+      "title": "mr",
+      "first": "fred",
+      "last": "martinez"
+    },
+    "location": {
+      "street": "9919 wycliff ave",
+      "city": "everett",
+      "state": "new york",
+      "postcode": 35779
+    },
+    "id": {
+      "name": "SSN",
+      "value": "672-10-0504"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/95.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/95.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/95.jpg"
+    }
+  }, {
+    "name": {
+      "title": "ms",
+      "first": "andrea",
+      "last": "long"
+    },
+    "location": {
+      "street": "1976 taylor st",
+      "city": "launceston",
+      "state": "victoria",
+      "postcode": 4519
+    },
+    "id": {
+      "name": "TFN",
+      "value": "517506084"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/57.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/57.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/57.jpg"
+    }
+  }, {
+    "name": {
+      "title": "mrs",
+      "first": "dúbia",
+      "last": "nogueira"
+    },
+    "location": {
+      "street": "3689 rua primeiro de maio ",
+      "city": "rio claro",
+      "state": "paraíba",
+      "postcode": 43408
+    },
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/72.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/72.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/72.jpg"
+    }
+  }, {
+    "name": {
+      "title": "ms",
+      "first": "hilly",
+      "last": "koppelaar"
+    },
+    "location": {
+      "street": "3164 wittevrouwensingel",
+      "city": "gilze en rijen",
+      "state": "noord-holland",
+      "postcode": 68317
+    },
+    "id": {
+      "name": "BSN",
+      "value": "36155031"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/54.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/54.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+    }
+  }, {
+    "name": {
+      "title": "mr",
+      "first": "lucas",
+      "last": "brown"
+    },
+    "location": {
+      "street": "5688 dalhousie ave",
+      "city": "alma",
+      "state": "prince edward island",
+      "postcode": 51698
+    },
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/77.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/77.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/77.jpg"
+    }
+  }, {
+    "name": {
+      "title": "ms",
+      "first": "eden",
+      "last": "durand"
+    },
+    "location": {
+      "street": "3247 rue docteur-bonhomme",
+      "city": "versailles",
+      "state": "var",
+      "postcode": 46452
+    },
+    "id": {
+      "name": "INSEE",
+      "value": "2NNaN83458583 02"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/85.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/85.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/85.jpg"
+    }
+  }, {
+    "name": {
+      "title": "mr",
+      "first": "christoffer",
+      "last": "christiansen"
+    },
+    "location": {
+      "street": "5025 kærsangervej",
+      "city": "kongens  lyngby",
+      "state": "midtjylland",
+      "postcode": 85783
+    },
+    "id": {
+      "name": "CPR",
+      "value": "358256-9224"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/69.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/69.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/69.jpg"
+    }
+  }, {
+    "name": {
+      "title": "mrs",
+      "first": "emeline",
+      "last": "lopez"
+    },
+    "location": {
+      "street": "4999 rue de la gare",
+      "city": "tours",
+      "state": "meurthe-et-moselle",
+      "postcode": 36678
+    },
+    "id": {
+      "name": "INSEE",
+      "value": "2NNaN18519355 85"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/41.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/41.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/41.jpg"
+    }
+  }, {
+    "name": {
+      "title": "mrs",
+      "first": "celina",
+      "last": "wheeler"
+    },
+    "location": {
+      "street": "8477 prospect rd",
+      "city": "mcallen",
+      "state": "hawaii",
+      "postcode": 93575
+    },
+    "id": {
+      "name": "SSN",
+      "value": "437-50-8322"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/43.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/43.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/43.jpg"
+    }
+  }, {
+    "name": {
+      "title": "mademoiselle",
+      "first": "alix",
+      "last": "deschamps"
+    },
+    "location": {
+      "street": "2096 rue victor-hugo",
+      "city": "dommartin",
+      "state": "graubünden",
+      "postcode": 2403
+    },
+    "id": {
+      "name": "AVS",
+      "value": "756.VVZU.XSKF.12"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/56.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/56.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/56.jpg"
+    }
+  }],
+  "info": {
+    "seed": "d05269cffcd81bce",
+    "results": 10,
+    "page": 1,
+    "version": "1.1"
+  }
+}
