@@ -4,7 +4,10 @@ class PeopleApi extends React.Component{
   constructor(props) {
     super(props);
     this.state ={
-      people: []
+      people: [],
+      fName: '',
+      lName: '',
+      pic:''
       }
     }
   componentDidMount() {
@@ -16,11 +19,13 @@ class PeopleApi extends React.Component{
           people: data.results.map((person)=> {
             let fName = person.name.first;
             let lName = person.name.last;
-            return name.name.first;
+            let pic = person.picture.thumbnail;
+            return [fName, lName, pic];
             })
           });
         });
-    console.log(people);
+    console.log(this.state.people);
+
     //this.setState(this.state.thumbnails = authors);
       //  img.src = author.picture.medium;
       //  span.innerHTML = `${author.name.first} ${author.name.last}`;
@@ -30,7 +35,8 @@ class PeopleApi extends React.Component{
   render(){
     const names =this.state.people.map((person)=>{
       return (<div key={person}>
-          <div>{person}</div>
+          <div>{person[0]} {person[1]}</div>
+          <img src={this.state.pic} />
           </div>);
       });
       return (
