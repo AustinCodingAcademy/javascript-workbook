@@ -36,7 +36,7 @@ class PeopleApi extends React.Component{
     const names =this.state.people.map((person)=>{
       return (<div key={person}>
           <div>{person[0]} {person[1]}</div>
-          <img src={this.state.pic} />
+          <img src={person[2]} />
           </div>);
       });
       return (
