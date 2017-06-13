@@ -32,7 +32,7 @@ function Ship(name, type, ability) {
   this.ability = ability;
   this.crew = [];
 
-  this.misstionStatement = function() {
+  this.missionStatement = function() {
     var that = this;
     const found = this.crew.some((crewMember) => {
       return jobTypes[crewMember.job] === this.type;
@@ -48,7 +48,7 @@ function Ship(name, type, ability) {
 };
 
 var mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-// console.log(missionStatement);
+// console.log(this.missionStatement);
 
 
 

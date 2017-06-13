@@ -36,37 +36,78 @@ function sort(arr, A, B) {
 
 function mergeSort(arr) {
   // Your code here
-  let len = arr.length - 1;
+  let len = arr.length;
   // let half = len /2;
   // let array = arr.slice(0, half);
   // console.log(half);
   if (len < 2) {
     return arr;
   }
-  let half = Math.round(len / 2);
+  let half = Math.floor(len / 2);
+  let left = arr.slice(0, half);
+  let right = arr.slice(half, len);
   return merge(
-    mergeSort(arr.slice(0, half)),
-    mergeSort(arr.slice(half))
-  );
+    mergeSort(left),
+    mergeSort(right));
 }
 
 function merge(left, right) {
-var out = [];
-while (left.length && right.length){
-  out.push(left[0] < right[0] ? left.shift() : right.shift());
-}
-while(left.length){
-  out.push(left.shift());
-}
-while(right.length){
-  out.push(right.shift());
-}
-return out;
+  var out = [];
+  while (left.length && right.length) {
+    out.push(left[0] < right[0] ? left.shift() : right.shift());
+  }
+  while (left.length) {
+    out.push(left.shift());
+  }
+  while (right.length) {
+    out.push(right.shift());
+  }
+  return out;
 
 };
 
 function binarySearch(arr, item) {
-  // Your code here
+  // Create a node
+  function Node(value, left, right) {
+    this.value = value;
+    this.left = left || null;
+    this.right = right || null;
+  };
+  // Create a Tree to place node and tracks length
+  function Tree() {
+    this.root = null;
+    this.length = 0;
+  };
+  // Create function to add Node to Tree
+  Tree.prototype.add = function(value) {
+    let node = new Node(value);
+    this.length += 1;
+    // if no value in root then new Node is root value
+    if (this.root === null) {
+      return this.root = node;
+    }
+    let currentNode = this.root;
+    let parentNode = null;
+
+    while (currentNode) {
+      parentNode = currentNode;
+
+      if (value.id < currentNode.value.id) {
+        currentNode = currentNode.left;
+
+        if (currentNode === null) {
+          return parentNode.left = node;
+        } else {
+          currentNode = currentNode.right;
+
+          if (currentNode === null) {
+            return parentNode.right = node;
+          }
+        }
+      }
+    }
+  }
+};
 }
 
 // Tests
