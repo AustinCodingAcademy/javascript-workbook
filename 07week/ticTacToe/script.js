@@ -21,7 +21,7 @@ function Square(props) {
           xIsNext: !this.state.xIsNext,//toggling boolean value of 'xIsNext' state in Board component
 });
     }
-        renderSquare(i) {//drawing out board as tracked by state in Board component
+        renderSquare(i) {//drawing out board as it is tracked by state in Board component
           return (<Square value={this.state.squares[i]}//returning values specified by state and passing in (i)
           onClick={() => this.handleClick(i)}/>//sending (i) to handleClick and ultimately updates the board adding value of (i)
   );
@@ -58,21 +58,7 @@ function Square(props) {
         }
       }
 
-      // class TicTacToe extends React.Component {
-      //   render() {
-      //     return (
-      //       <div className="game">
-      //         <div className="game-board">
-      //           <Board />
-      //         </div>
-      //         <div className="game-info">
-      //           <div>{/* status */}</div>
-      //           <ol>{/* TODO */}</ol>
-      //         </div>
-      //       </div>
-      //     );
-      //   }
-      // }
+
 
       function checkForWin(squares)  {//function taking in squares
         const winningCells = [//setting big array to index the possible win square matches
