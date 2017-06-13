@@ -15,6 +15,7 @@ class App extends React.Component {
         this.setState({
           userlist: data.results
         })
+        console.log(this.state.userlist);
       })
     })
   }
@@ -23,7 +24,7 @@ class App extends React.Component {
     return (
       this.state.userlist.map(user =>
         <li key={user.name.last}>  <img alt="pic of user" src={user.picture.large}/> <br/>
-            Name:{user.name.first} {user.name.last} <br/> DOB: {user.dob}
+            Name:{user.name.first} {user.name.last} <br/> DOB: {user.dob.slice(0,10)}
         </li>
       )
     )
