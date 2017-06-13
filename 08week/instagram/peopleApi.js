@@ -4,7 +4,7 @@ class PeopleApi extends React.Component{
   constructor(props) {
     super(props);
     this.state ={
-      people: [],
+      people: []
       fName: '',
       lName: '',
       pic:''
@@ -35,8 +35,13 @@ class PeopleApi extends React.Component{
   render(){
     const names =this.state.people.map((person)=>{
       return (<div key={person}>
+<<<<<<< HEAD
           <div>{person[0]} {person[1]}</div>
           <img src={person[2]} />
+=======
+          <div>{person.fName} {person.lName}</div>
+          <img src={this.state.people.pic} />
+>>>>>>> origin/gh-pages
           </div>);
       });
       return (
