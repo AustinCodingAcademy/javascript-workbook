@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 //catFight app, person has a cat, will combat other cats, cat's votes will be the metric,
-// so get cats with votes.
+// so get cats with votes. api key: MTkxNTAw
 class catFight extends Component {
   constructor(props) {
     super(props);
