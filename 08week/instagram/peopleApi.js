@@ -4,7 +4,7 @@ class PeopleApi extends React.Component{
   constructor(props) {
     super(props);
     this.state ={
-      people: [],
+      people: []
       fName: '',
       lName: '',
       pic:''
@@ -35,8 +35,8 @@ class PeopleApi extends React.Component{
   render(){
     const names =this.state.people.map((person)=>{
       return (<div key={person}>
-          <div>{person[0]} {person[1]}</div>
-          <img src={this.state.pic} />
+          <div>{person.fName} {person.lName}</div>
+          <img src={this.state.people.pic} />
           </div>);
       });
       return (
