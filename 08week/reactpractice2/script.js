@@ -15,19 +15,21 @@ class App extends React.Component {
         this.setState({
           userlist: data.results
         })
+        console.log(this.state.userlist);
+
       })
     })
   }
 
   userInfo = () => {
     return (
-      this.state.userlist.map(user => {
+      this.state.userlist.map(user =>
         <li key={user.cell}>
           <img alt="user Image" src={user.picture.large}/> <br/>
-          Name: {user.name.first} {user.name.last} <br/>
-          DOB: {user.dob}
+          Name: {user.name.first.slice(0,1)} {user.name.last.slice(0,10)} <br/>
+          DOB: {user.dob.slice(0,10)}
         </li>
-      })
+      )
     )
   }
 
@@ -40,3 +42,5 @@ class App extends React.Component {
     )
   }
 }
+
+ReactDOM.render(<App />, document.getElementById('root'));
