@@ -7,46 +7,16 @@ import './App.css';
 //Changed to 'IngReCat', input ingredients, output recipes and cats. eventually will be able to filter
 //results according to cuisine, but lets get it working first
 // mashape's spoonacular api key -H 'X-Mashape-Key: YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o' \
-class IngReCat extends Component {
+class IngReCat extends Component{
   constructor(props) {
     super(props);
     this.state ={
-      ingredients: '',
-      recipes: []
+      recipes: [],
+      ingredients:''
       }
-    }
-
-  // class IngForm extends Component {
-  //   constructor(props){
-  //     super(props);
-  //     this.state = {value:''};
-  //
-  //     this.handleChange = this.handleChange.bind(this);
-  //     this.handleSubmit = this.handleSubmit.bind(this);
-  //
-  //   }
-  //
-  //   handleChange(event) {
-  //     this.setState({value: event.target.value});
-  //   }
-  //   handleSubmit(event){
-  //     //get the api-call data
-  //   }
-  //
-  //   render(){
-  //     return(
-  //       <h1>Enter Your Ingredients</h1>
-  //       <form onSubmit = {this.handleSubmit}>
-  //         <label>Ingredients:
-  //         <input type="text" value={this.state.value} onChange ={this.handleChange} />
-  //         </label>
-  //         <input type="submit" value ="Submit" />
-  //       );
-  //     }
-  //   }
-
+  }
   // componentDidMount() {
-  //    const url = 'https://randomuser.me/api/?results=1';
+  //    const url = 'https://randomuser.me/api/?results=10';
   //    fetch(url)
   //    .then((response) => {
   //      response.json().then((data) =>{
@@ -59,7 +29,7 @@ class IngReCat extends Component {
   //           })
   //         });
   //       });
-
+    // console.log(this.state.people);
 
   render() {
 
@@ -67,15 +37,49 @@ class IngReCat extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to IngReCat!!</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, enter ingredients.
         </p>
-        <p>Hello</p>
+         <IngForm />
       </div>
     );
   }
 }
 
-export IngReCat App;
+class IngForm extends Component {
+  constructor(props){
+    super(props);
+    this.state = {value:''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+  handleSubmit(event){
+    console.log(this.state.value);
+
+    //get the api-call data
+  }
+
+  render(){
+    return(
+      <div>
+        <h1>Enter Your Ingredients</h1>
+        <form onSubmit = {this.handleSubmit}>
+          <label>Ingredients:
+          <input type="text" value={this.state.value} onChange ={this.handleChange} />
+          </label>
+          <input type="submit" value ="Submit" />
+        </form>
+        </div>
+      );
+    }
+  }
+
+export default IngReCat;

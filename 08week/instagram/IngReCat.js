@@ -25,11 +25,6 @@ class IngReCat extends React.Component{
   //       });
     // console.log(this.state.people);
 
-
-    //this.setState(this.state.thumbnails = authors);
-      //  img.src = author.picture.medium;
-      //  span.innerHTML = `${author.name.first} ${author.name.last}`;
-
   render(){
     // const ingredients =this.state.people.map((ing)=>{
       return (<div>
@@ -51,9 +46,12 @@ class IngForm extends React.Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
+    console.log(this.state.value);
   }
   handleSubmit(event){
-    //get the api-call data
+    event.preventDefault();
+    this.state.ingredients = this.state.value;
+    console.log(this.state.ingredients);
   }
 
   render(){
@@ -72,11 +70,7 @@ class IngForm extends React.Component {
   }
 
 
-//     return(
-//
-//     )
-//   }
-// }
+
 
 // class InstagremSearch extends React.Component {
 //   constructor(){
