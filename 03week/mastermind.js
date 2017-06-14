@@ -1,5 +1,6 @@
 'use strict';
 
+//Constants
 const assert = require('assert');
 const colors = require('colors/safe');
 const readline = require('readline');
@@ -8,6 +9,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//Board display and functionality
 let board = [];
 let solution = '';
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -18,6 +20,7 @@ function printBoard() {
   }
 }
 
+//Generating a Solution
 function generateSolution() {
   for (let i = 0; i < 4; i++) {
     const randomIndex = getRandomInt(0, letters.length);
@@ -29,16 +32,17 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+//Generating a Hint
 function generateHint() {
-  // your code here
+
   var guess = guess.split('');
   var solution = solution.split('');
     console.log(guess);
     console.log(solution);
   }
 
+//Entering a Guess
 function mastermind(guess) {
-  // your code here
   if (guess [''] ===solution ['']) {
    return "You guessed it!";
  }
@@ -49,6 +53,7 @@ function mastermind(guess) {
  var guess = 'bcda';
 }
 
+//Prompt whether Guess matches Solution (color/number)
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
