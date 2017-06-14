@@ -15,35 +15,34 @@ class IngReCat extends Component {
       }
     }
 
-class IngForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {value:''};
+  class ingForm extends Component {
+    constructor(props){
+      super(props);
+      this.state = {value:''};
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
 
-  }
+    }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-  handleSubmit(event){
-    //get the api-call data
-  }
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+    handleSubmit(event){
+      //get the api-call data
+    }
 
-  render(){
-    return(
-      <h1>Enter Your Ingredients</h1>
-      <form onSubmit = {this.handleSubmit}>
-        <label>Ingredients:
-        <input type="text" value={this.state.value} onChange ={this.handleChange} />
-        </label>
-        <input type="submit" value ="Submit" />
-      );
-  }
-}
-
+    render(){
+      return(
+        <h1>Enter Your Ingredients</h1>
+        <form onSubmit = {this.handleSubmit}>
+          <label>Ingredients:
+          <input type="text" value={this.state.value} onChange ={this.handleChange} />
+          </label>
+          <input type="submit" value ="Submit" />
+        );
+      }
+    }
 
   componentDidMount() {
      const url = 'https://randomuser.me/api/?results=1';
@@ -59,6 +58,8 @@ class IngForm extends React.Component {
             })
           });
         });
+      }
+    }
 
   render() {
     return (
@@ -76,4 +77,4 @@ class IngForm extends React.Component {
   }
 }
 
-export default App;
+export IngReCat App;
