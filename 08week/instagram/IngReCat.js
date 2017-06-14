@@ -1,5 +1,5 @@
 'use strict';
-
+// mashape's spoonacular api key -H 'X-Mashape-Key: YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o' \
 class IngReCat extends React.Component{
   constructor(props) {
     super(props);
@@ -41,7 +41,7 @@ class IngForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.getRecipes = this.getIngredients.bind(this);
   }
 
   handleChange(event) {
@@ -52,6 +52,10 @@ class IngForm extends React.Component {
     event.preventDefault();
     this.state.ingredients = this.state.value.split(',');
     console.log(this.state.ingredients[0]);
+    this.getRecipes(this.state.ingredients)
+  }
+  getRecipes(ingList){
+    fetch
   }
 
   render(){
