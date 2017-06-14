@@ -15,7 +15,7 @@ class IngReCat extends Component {
       }
     }
 
-  class ingForm extends Component {
+  class IngForm extends Component {
     constructor(props){
       super(props);
       this.state = {value:''};
