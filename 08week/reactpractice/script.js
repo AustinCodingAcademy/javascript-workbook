@@ -23,8 +23,8 @@ class App extends React.Component {
   renderUsers = () => {
     return (
       this.state.userlist.map(user =>
-        <li key={user.name.last}>  <img alt="pic of user" src={user.picture.large}/> <br/>
-            Name:{user.name.first} {user.name.last} <br/> DOB: {user.dob.slice(0,10)}
+        <li key={user.cell}>  <img alt="pic of user" src={user.picture.large}/> <br/>
+            Name:{user.name.first.slice(0,1)} {user.name.last.slice(0,10)} <br/> DOB: {user.dob.slice(0,10)}
         </li>
       )
     )
