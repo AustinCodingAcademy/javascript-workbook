@@ -50,8 +50,8 @@ class IngForm extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    this.state.ingredients = this.state.value;
-    console.log(this.state.ingredients);
+    this.state.ingredients = this.state.value.split(',');
+    console.log(this.state.ingredients[0]);
   }
 
   render(){
