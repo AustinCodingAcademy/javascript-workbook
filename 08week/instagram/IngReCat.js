@@ -80,27 +80,31 @@ class IngForm extends React.Component {
 
 }
 
-// class RecipeResults extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state ={
-//       results: this.state.recipes
-//       }
-//     }
-//
-//     render(){
-//       results.map(rec => {
-//         let name = rec.title;
-//         let pic = rec.image;
-//         return [name, pic];
-//       }
-//     return(
-//       <div>
-//         {results}
-//         </div>
-//       );
-//     }
-//}
+class RecipeResults extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      results: this.state.recipes
+      }
+    }
+
+    render(){
+      this.state.results.map(rec => {
+        let name = rec.title;
+        let pic = rec.image;
+
+        return(
+          <div>
+            <ul>
+             <li> {rec.title}</li>
+             <li>{rec.image}</li>
+            </ul>
+          </div>
+      );});
+
+    }
+
+}
 
 //   submitForm(e) {
 //     event.preventDefault();
@@ -117,4 +121,4 @@ class IngForm extends React.Component {
 
 
 ReactDOM.render(<IngReCat />, document.querySelector('#fetch'));
-// ReactDOM.render(<RecipeResults />, document.querySelector('#results'));
+ReactDOM.render(<RecipeResults />, document.querySelector('#results'));
