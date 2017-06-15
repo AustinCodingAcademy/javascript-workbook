@@ -52,19 +52,23 @@ class IngReCat extends React.Component{
 
          }).then((response) => {
             return response.json().then((data) =>{
-              this.state.recipes = data;
+              this.setState({
+                recipes: data.split('')
+              })
               // .map(recipe =>{
               //   return recipe;
 
               console.log(this.state.recipes);
               });
             });
+          let results = this.state.recipes.map(rec => {
+              return <div><img src={rec.image} /><p>{rec.title}</p></div>;
+            })
+
           };
 
         render(){
-          let results = this.state.recipes.map(rec => {
-            return <div><img src={rec.image} /><p>{rec.title}</p></div>;
-          })
+
           return(
             <div>
               <div>
@@ -76,7 +80,11 @@ class IngReCat extends React.Component{
                     <input type="submit" value ="Submit" />
                 </form>
               </div>
-              <div>{results}</div>
+              <div>{results.map(rec =>{
+                return <div> <p>rec.title</p>
+                            <img src={rec.image} />
+                        </div>
+              })}</div>
               </div>
               )
             }
