@@ -84,9 +84,14 @@ class IngReCat extends React.Component{
                     <input type="submit" value ="Submit" />
                 </form>
               </div>
+<<<<<<< HEAD
               <div>{results}
               </div>
+=======
+              <div>{results}</div>
+>>>>>>> 369431b2ca9804e98ba21f5f2db8103ae1fa6b02
               </div>
+          
               )
             }
 
