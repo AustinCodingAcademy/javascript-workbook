@@ -15,8 +15,7 @@ class App extends React.Component {
         this.setState({
           userlist: data.results
         })
-        console.log(this.state.userlist);
-
+        console.log(this.state.userlist)
       })
     })
   }
@@ -25,7 +24,7 @@ class App extends React.Component {
     return (
       this.state.userlist.map(user =>
         <li key={user.cell}>
-          <img alt="user Image" src={user.picture.large}/> <br/>
+          <img alt="user" src={user.picture.large}/> <br/>
           Name: {user.name.first.slice(0,1)} {user.name.last.slice(0,10)} <br/>
           DOB: {user.dob.slice(0,10)}
         </li>
@@ -36,11 +35,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        Check me Out:
+      Am I cool or what?
         <ul>{this.userInfo()}</ul>
       </div>
     )
   }
+
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
