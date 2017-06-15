@@ -55,9 +55,10 @@ class IngForm extends React.Component {
 
    }).then((response) => {
       return response.json().then((data) =>{
-        this.state.recipes = data.map(recipe =>{
-          return recipe;
-        });
+        this.state.recipes = data;
+        // .map(recipe =>{
+        //   return recipe;
+
         console.log(this.state.recipes);
         });
       });
@@ -79,16 +80,28 @@ class IngForm extends React.Component {
 
 }
 
-
-
-// class InstagremSearch extends React.Component {
-//   constructor(){
-//     super();
+// class RecipeResults extends React.Component {
+//   constructor(props){
+//     super(props);
 //     this.state ={
-//       username: ''
+//       results: this.state.recipes
+//       }
 //     }
-//   }
 //
+//     render(){
+//       results.map(rec => {
+//         let name = rec.title;
+//         let pic = rec.image;
+//         return [name, pic];
+//       }
+//     return(
+//       <div>
+//         {results}
+//         </div>
+//       );
+//     }
+//}
+
 //   submitForm(e) {
 //     event.preventDefault();
 //
@@ -104,4 +117,4 @@ class IngForm extends React.Component {
 
 
 ReactDOM.render(<IngReCat />, document.querySelector('#fetch'));
-// ReactDOM.render(<InstagreamSearch />, document.querySelector('#search'));
+// ReactDOM.render(<RecipeResults />, document.querySelector('#results'));
