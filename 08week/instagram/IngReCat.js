@@ -55,7 +55,10 @@ class IngForm extends React.Component {
 
    }).then((response) => {
       return response.json().then((data) =>{
-        console.log(data);
+        this.state.recipes = data.map(recipe =>{
+          return recipe;
+        });
+        console.log(this.state.recipes);
         });
       });
     };
