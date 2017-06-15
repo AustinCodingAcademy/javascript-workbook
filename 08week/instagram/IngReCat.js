@@ -9,102 +9,109 @@ class IngReCat extends React.Component{
       }
     }
 
-  // componentDidMount() {
-
-    // console.log(this.state.people);
-
-  render(){
-    // const ingredients =this.state.people.map((ing)=>{
-      return (<div>
-        <IngForm />
-
-          </div>);
-      };
-}
-
-class IngForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {value:''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.getRecipes = this.getRecipes.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-    console.log(this.state.value);
-  }
-  handleSubmit(event){
-    event.preventDefault();
-    this.state.ingredients = this.state.value.split(',');
-    console.log(this.state.ingredients[0]);
-    this.getRecipes()
-  }
-  getRecipes(){
-    let url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1";
-    fetch(url, {
-      method: "GET",
-      // body: JSON.stringify(data),
-     headers: {
-       Accept: "application/json",
-       "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
-      //  "Content-Type": "application/json"
-     }
-
-   }).then((response) => {
-      return response.json().then((data) =>{
-        this.state.recipes = data;
-        // .map(recipe =>{
-        //   return recipe;
-
-        console.log(this.state.recipes);
-        });
-      });
-    };
-
-  render(){
-    return(
-      <div>
-        <h1>Enter Your Ingredients</h1>
-        <form onSubmit = {this.handleSubmit}>
-          <label>Ingredients:
-          <input type="text" value={this.state.value} onChange ={this.handleChange} />
-          </label>
-          <input type="submit" value ="Submit" />
-        </form>
-        </div>
-      );
-    }
-
-}
-
-class RecipeResults extends React.Component {
-  constructor(props){
-    super(props);
-    this.state ={
-      results: this.state.recipes
-      }
-    }
-
     render(){
-      this.state.results.map(rec => {
-        let name = rec.title;
-        let pic = rec.image;
+      // const ingredients =this.state.people.map((ing)=>{
+        return (<div>
+          <IngForm />
 
-        return(
-          <div>
-            <ul>
-             <li> {rec.title}</li>
-             <li>{rec.image}</li>
-            </ul>
-          </div>
-      );});
+            </div>);
+        };
+      }
 
-    }
+    class IngForm extends React.Component {
+      constructor(props){
+        super(props);
+        this.state = {value:''};
 
-}
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.getRecipes = this.getRecipes.bind(this);
+      }
+
+      handleChange(event) {
+        this.setState({value: event.target.value});
+        console.log(this.state.value);
+      }
+      handleSubmit(event){
+        event.preventDefault();
+        this.state.ingredients = this.state.value.split(',');
+        console.log(this.state.ingredients[0]);
+        this.getRecipes();
+      }
+
+        getRecipes(){
+          let url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1";
+          fetch(url, {
+              method: "GET",
+              // body: JSON.stringify(data),
+             headers: {
+               Accept: "application/json",
+               "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
+              //  "Content-Type": "application/json"
+           }
+
+         }).then((response) => {
+            return response.json().then((data) =>{
+              this.state.recipes = data;
+              // .map(recipe =>{
+              //   return recipe;
+
+              console.log(this.state.recipes);
+              });
+            });
+          };
+
+        render(){
+          let results = this.state.recipes.map(rec => {
+            return <div><img src={rec.image} /><p>{rec.title}</p></div>;
+          })
+          return(
+            <div>
+              <div>
+                <h1>Enter Your Ingredients</h1>
+                  <form onSubmit = {this.handleSubmit}>
+                    <label>Ingredients:
+                      <input type="text" value={this.state.value} onChange ={this.handleChange} />
+                    </label>
+                    <input type="submit" value ="Submit" />
+                </form>
+              </div>
+              <div>{results}</div>
+              </div>
+              )
+            }
+
+  }
+
+
+
+
+
+// class RecipeResults extends React.Component {
+//   constructor(props){
+//     super(props);
+//     this.state ={
+//       results: this.state.recipes
+//       }
+//     }
+//
+//     render(){
+//       this.state.results.map(rec => {
+//         let name = rec.title;
+//         let pic = rec.image;
+//
+//         return(
+//           <div>
+//             <ul>
+//              <li> {rec.title}</li>
+//              <li>{rec.image}</li>
+//             </ul>
+//           </div>
+//       );});
+//
+//     }
+//
+// }
 
 //   submitForm(e) {
 //     event.preventDefault();
@@ -121,4 +128,4 @@ class RecipeResults extends React.Component {
 
 
 ReactDOM.render(<IngReCat />, document.querySelector('#fetch'));
-ReactDOM.render(<RecipeResults />, document.querySelector('#results'));
+// ReactDOM.render(<RecipeResults />, document.querySelector('#results'));
