@@ -10,19 +10,7 @@ class IngReCat extends React.Component{
     }
 
   // componentDidMount() {
-  //    const url = 'https://randomuser.me/api/?results=10';
-  //    fetch(url)
-  //    .then((response) => {
-  //      response.json().then((data) =>{
-  //       this.setState({
-  //         people: data.results.map((person)=> {
-  //           let fName = person.name.first;
-  //           let lName = person.name.last;
-  //           let pic = person.picture.thumbnail;
-  //           return [fName, lName, pic];
-  //           })
-  //         });
-  //       });
+
     // console.log(this.state.people);
 
   render(){
@@ -41,7 +29,7 @@ class IngForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getRecipes = this.getIngredients.bind(this);
+    this.getRecipes = this.getRecipes.bind(this);
   }
 
   handleChange(event) {
@@ -52,11 +40,25 @@ class IngForm extends React.Component {
     event.preventDefault();
     this.state.ingredients = this.state.value.split(',');
     console.log(this.state.ingredients[0]);
-    this.getRecipes(this.state.ingredients)
+    this.getRecipes()
   }
-  getRecipes(ingList){
-    fetch
-  }
+  getRecipes(){
+    let url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1";
+    fetch(url, {
+      method: "GET",
+      // body: JSON.stringify(data),
+     headers: {
+       Accept: "application/json",
+       "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
+      //  "Content-Type": "application/json"
+     }
+
+   }).then((response) => {
+      return response.json().then((data) =>{
+        console.log(data);
+        });
+      });
+    };
 
   render(){
     return(
@@ -71,8 +73,8 @@ class IngForm extends React.Component {
         </div>
       );
     }
-  }
 
+}
 
 
 
