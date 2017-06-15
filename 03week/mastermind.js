@@ -53,7 +53,7 @@ function mastermind(guess) {
  var guess = 'bcda';
 }
 
-//Prompt whether Guess matches Solution (color/number)
+//Prompt whether Guess matches Solution's color, number or both
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     console.log( mastermind(guess) );
