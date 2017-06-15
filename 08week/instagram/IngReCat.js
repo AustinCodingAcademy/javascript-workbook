@@ -80,12 +80,9 @@ class IngReCat extends React.Component{
                     <input type="submit" value ="Submit" />
                 </form>
               </div>
-              <div>{results.map(rec =>{
-                return <div> <p>rec.title</p>
-                            <img src={rec.image} />
-                        </div>
-              })}</div>
+              <div>{results}</div>
               </div>
+          
               )
             }
 
