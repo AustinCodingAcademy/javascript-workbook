@@ -23,57 +23,42 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+//Horizontal Win
+
 function horizontalWin(boardSpot) {
-
-  if(boardSpot === "topleft"){
-    topleft = "X";
-    return;
+  if(board[0][0] === board[0][1] && board[0][0] === board[0][2] && board[0][0] ===boardSpot) {
+    return boardSpot;
   }
-
-  if(boardSpot === "topmiddle"){
-    topmiddle = "X";
-    return;
+  if(board[1][0] === board[1][1] && board[1][0] === board[1][2] && board[1][1] ===boardSpot) {
+    return boardSpot;
   }
-
-  if(boardSpot === "topright"){
-    topright = "X";
-    return;
+  if(board[2][0] === board[2][1] && board[2][2] === board[2][0] && board[2][0] ===boardSpot) {
+    return boardSpot;
   }
 }
+
+//Vertical Win
 
 function verticalWin(boardSpot) {
-
-  if(boardSpot === "topleft"){
-    top = "X";
-    return;
+  if(board[0][0] === board[1][0] && board[2][0] === board[0][0] && board[0][0] ===boardSpot) {
+    return boardSpot;
   }
-
-  if(boardSpot === "middleleft"){
-    middleleft = "X";
-    return;
+  if(board[0][1] === board[1][1] && board[2][1] === board[0][1] && board[0][1] ===boardSpot) {
+    return boardSpot;
   }
-
-  if(boardSpot === "bottomleft"){
-    topmiddle = "X";
-    return;
+  if(board[0][2] === board[1][2] && board[2][2] === board[0][2] && board[0][2] ===boardSpot) {
+    return boardSpot;
   }
 }
 
+//Diagonal Win
+
 function diagonalWin() {
-
-  if(boardSpot === "topleft"){
-    topleft = "X";
-    return;
+  if(board[0][0] === board[1][1] && board[2][2] === board[0][0] && board[1][1] ===boardSpot) {
+    return boardSpot;
   }
-
-  if(boardSpot === "middlemiddle"){
-    middlemiddle = "X";
-    return;
-  }
-
-  if(boardSpot === "bottomright"){
-    bottomright = "X";
-    return;
+  if(board[0][2] === board[1][1] && board[0][2] === board[0][2] && board[1][1] ===boardSpot) {
+    return boardSpot;
   }
 }
 
