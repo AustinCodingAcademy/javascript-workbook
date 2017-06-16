@@ -37,7 +37,7 @@ class IngReCat extends React.Component {
       }
       handleSubmit(event) {
         event.preventDefault();
-//trying to isolate the strings from whitespace
+
         this.state.ingredients = this.state.value.split(',');
         let ing = this.state.ingredients;
         console.log(this.state.ingredients[0]);
