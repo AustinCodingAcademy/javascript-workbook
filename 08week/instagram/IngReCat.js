@@ -6,14 +6,15 @@ class IngReCat extends React.Component {
       this.state = {
         recipes: [],
         ingredients: '',
-        ing: []
+        ing: [],
+        menu: []
       }
     }
     render() {
       // const ingredients =this.state.people.map((ing)=>{
       return (
         <IngForm />
-        
+
         );
       };
     }
@@ -82,13 +83,14 @@ class IngReCat extends React.Component {
           });
         }
 
-      render() {
+      render(){
         try{
-          let menu = this.state.recipes.map(rec =>
-                    <div key={rec.title}> <p>{rec.title}</p>
+          this.state.menu = this.state.recipes.map((rec)=>{
+            return(<div key={rec.id}>
+                     <p>{rec.title}</p>
                         <img src={rec.image} />
                     </div>);
-          }
+                  })}
         catch(e){
           this.state.recipes = <p>"No menu yet"</p>
         }
@@ -103,10 +105,9 @@ class IngReCat extends React.Component {
                 </label>
                 <input type = "submit" value = "Submit" />
                 </form>
-                <li> {this.menu}results soon </li>
-          </div>
 
-
+            <div>{this.state.menu}</div>
+            </div>
               );
         }
       }
