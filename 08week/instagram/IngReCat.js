@@ -8,7 +8,6 @@ class IngReCat extends React.Component {
         ingredients: ''
       }
     }
-
     render() {
       // const ingredients =this.state.people.map((ing)=>{
       return ( < div >
@@ -18,16 +17,16 @@ class IngReCat extends React.Component {
       };
     }
 
-    class IngForm extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          value: ''
-        };
+  class IngForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        value: ''
+      };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.getRecipes = this.getRecipes.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      //this.getRecipes = this.getRecipes.bind(this);
       }
 
       handleChange(event) {
@@ -38,42 +37,43 @@ class IngReCat extends React.Component {
       }
       handleSubmit(event) {
         event.preventDefault();
+//trying to isolate the strings from whitespace
         this.state.ingredients = this.state.value.split(',');
+        let ing = this.state.ingredients;
         console.log(this.state.ingredients[0]);
-        this.getRecipes();
+        console.log(ing.length);
+        console.log(ing[2].trim());
+        console.log(ing.forEach(x => {x.trim();}));
+        console.log(ing);
+
+      //Form Works, fetch works....putting it together
+      //  this.getRecipes();
       }
 
-      getRecipes() {
-        let url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1";
-        fetch(url, {
-          method: "GET",
-          // body: JSON.stringify(data),
-          headers: {
-            Accept: "application/json",
-            "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
-            //  "Content-Type": "application/json"
-          }
-
-        }).then((response) => {
-          return response.json().then((data) => {
-            this.setState({
-              recipes: data.split('')
-            })
-            // .map(recipe =>{
-            //   return recipe;
-
-            console.log(this.state.recipes);
-          });
-          let results = this.state.recipes.map(rec => {
-            return <div > < img src = {
-              rec.image
-            }
-            /><p>{rec.title}</p > < /div>;
-          });
-
-        })
-
-      };
+      // getRecipes() {
+      //   let url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1";
+      //   fetch(url, {
+      //     method: "GET",
+      //     // body: JSON.stringify(data),
+      //     headers: {
+      //       Accept: "application/json",
+      //       "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
+      //       //  "Content-Type": "application/json"
+      //     }
+      //
+      //   }).then((response) => {
+      //     return response.json().then((data) => {
+      //       this.setState({
+      //         recipes: data.split('')
+      //       })
+      //       // .map(recipe =>{
+      //       //   return recipe;
+      //
+      //       console.log(this.state.recipes);
+      //     });
+      //     // let results = this.state.recipes.map(rec => {
+      //     //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
+      //     });
 
       render() {
         //   results.map((rec) =>{
@@ -81,44 +81,23 @@ class IngReCat extends React.Component {
         //                 <img src={rec.image} />
         //             </div>});
 
-        return ( <
-          div >
-          <
-          div >
-          <
-          h1 > Enter Your Ingredients < /h1> <
-          form onSubmit = {
-            this.handleSubmit
-          } >
-          <
-          label > Ingredients:
-          <
-          input type = "text"
-          value = {
-            this.state.value
-          }
-          onChange = {
-            this.handleChange
-          }
-          /> <
-          /label> <
-          input type = "submit"
-          value = "Submit" / >
-          <
-          /form> <
-          /div> <
-          div >
-          <
-          li > {
-            results
-          } < /li> <
-          /div>
+        return (
 
+          <div>
+            <h1> Enter Your Ingredients < /h1>
+              <form onSubmit = {this.handleSubmit} >
+                <label > Ingredients:
+                  <input type = "text" value = {this.state.value}  onChange = {this.handleChange} />
+                </label>
+                <input type = "submit" value = "Submit" />
+                </form>
+                <li> results soon </li>
+          </div>
 
-        )
+        );
       }
-
     }
+
 
 
 
