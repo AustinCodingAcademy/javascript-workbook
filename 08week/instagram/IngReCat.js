@@ -88,7 +88,7 @@ class IngReCat extends React.Component {
 
         return (
 
-          <div>
+
             <h1> Enter Your Ingredients < /h1>
               <form onSubmit = {this.handleSubmit} >
                 <label > Ingredients:
@@ -97,7 +97,7 @@ class IngReCat extends React.Component {
                 <input type = "submit" value = "Submit" />
                 </form>
                 <li> {recipes}results soon </li>
-          </div>
+        
 
         );
       }
