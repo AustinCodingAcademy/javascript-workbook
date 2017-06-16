@@ -5,7 +5,8 @@ class IngReCat extends React.Component {
       super(props);
       this.state = {
         recipes: [],
-        ingredients: ''
+        ingredients: '',
+        ing: []
       }
     }
     render() {
@@ -39,10 +40,11 @@ class IngReCat extends React.Component {
         event.preventDefault();
 
         this.state.ingredients = this.state.value.split(',');
-        let ing = this.state.ingredients.map(x => x.trim());;
+        this.state.ing = this.state.ingredients.map(x => x.trim());;
         console.log(this.state.ingredients[0]);
-        console.log(ing.length);
-        console.log(ing[2]);
+        // console.log(ing.length);
+        // console.log(ing[2]);
+        //ing[0] = "apples";
         this.getRecipes();
 
 
@@ -51,10 +53,11 @@ class IngReCat extends React.Component {
       }
 //"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1"
       getRecipes() {
+        let ing = this.state.ing;
         let baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
         //apples%2Cflour%2Csugar
         let endUrl = "&limitLicense=false&number=5&ranking=1";
-        fetch(baseurl+trimIng[0]+endUrl, {
+        fetch(baseUrl+ing[0]+endUrl, {
           method: "GET",
           // body: JSON.stringify(data),
           headers: {
@@ -62,12 +65,16 @@ class IngReCat extends React.Component {
             "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
             //  "Content-Type": "application/json"
             }}).then((response) => {
+              console.log(response);
               return response.json().then((data) => {
+                console.log(data);
                 this.setState({
-                  recipes: data.split('')
+
+                  recipes: data
             // .map(recipe =>{
             //   return recipe;
-              });
+          }
+            );
 
           // let results = this.state.recipes.map(rec => {
           //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
@@ -78,17 +85,17 @@ class IngReCat extends React.Component {
       render() {
         try{
           let menu = this.state.recipes.map(rec =>
-                    <div> <p>rec.title</p>
+                    <div> <p>{rec.title}</p>
                         <img src={rec.image} />
                     </div>);
           }
         catch(e){
           this.state.recipes = <p>"No menu yet"</p>
-        }}
+        }
 
         return (
 
-
+          <div>
             <h1> Enter Your Ingredients < /h1>
               <form onSubmit = {this.handleSubmit} >
                 <label > Ingredients:
@@ -96,12 +103,15 @@ class IngReCat extends React.Component {
                 </label>
                 <input type = "submit" value = "Submit" />
                 </form>
-                <li> {menu}results soon </li>
+                <li> {this.menu}results soon </li>
+          </div>
 
 
-        );
+              );
+        }
       }
-    }
+
+
 
 
 
