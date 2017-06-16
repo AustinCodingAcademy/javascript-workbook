@@ -39,51 +39,56 @@ class IngReCat extends React.Component {
         event.preventDefault();
 
         this.state.ingredients = this.state.value.split(',');
-        let ing = this.state.ingredients;
+        let ing = this.state.ingredients.map(x => x.trim());;
         console.log(this.state.ingredients[0]);
         console.log(ing.length);
-        console.log(ing[2].trim());
-        let triming = ing.map(x => x.trim());
+        console.log(ing[2]);
+        this.getRecipes();
 
-        console.log(triming);
 
       //Form Works, fetch works....putting it together
       //  this.getRecipes();
       }
+//"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1"
+      getRecipes() {
+        let baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
+        //apples%2Cflour%2Csugar
+        let endUrl = "&limitLicense=false&number=5&ranking=1";
+        fetch(baseurl+trimIng[0]+endUrl, {
+          method: "GET",
+          // body: JSON.stringify(data),
+          headers: {
+            Accept: "application/json",
+            "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
+            //  "Content-Type": "application/json"
+            }}).then((response) => {
+              return response.json().then((data) => {
+                this.setState({
+                  recipes: data.split('')
+            // .map(recipe =>{
+            //   return recipe;
+              });
 
-      // getRecipes() {
-      //   let url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1";
-      //   fetch(url, {
-      //     method: "GET",
-      //     // body: JSON.stringify(data),
-      //     headers: {
-      //       Accept: "application/json",
-      //       "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
-      //       //  "Content-Type": "application/json"
-      //     }
-      //
-      //   }).then((response) => {
-      //     return response.json().then((data) => {
-      //       this.setState({
-      //         recipes: data.split('')
-      //       // .map(recipe =>{
-      //       //   return recipe;
-      //
-      //       console.log(this.state.recipes);
-      //     });
-      //     // let results = this.state.recipes.map(rec => {
-      //     //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
-      //     });
+          // let results = this.state.recipes.map(rec => {
+          //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
+            });
+          });
+        }
 
       render() {
-        //   results.map((rec) =>{
-        //     return <div> <p>rec.title</p>
-        //                 <img src={rec.image} />
-        //             </div>});
+        try{
+          let menu = this.state.recipes.map(rec =>
+                    <div> <p>rec.title</p>
+                        <img src={rec.image} />
+                    </div>);
+          }
+        catch(e){
+          this.state.recipes = <p>"No menu yet"</p>
+        }}
 
         return (
 
-          <div>
+
             <h1> Enter Your Ingredients < /h1>
               <form onSubmit = {this.handleSubmit} >
                 <label > Ingredients:
@@ -91,12 +96,13 @@ class IngReCat extends React.Component {
                 </label>
                 <input type = "submit" value = "Submit" />
                 </form>
-                <li> results soon </li>
-          </div>
+                <li> {menu}results soon </li>
+
 
         );
       }
     }
+
 
 
 
