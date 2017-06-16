@@ -43,8 +43,9 @@ class IngReCat extends React.Component {
         console.log(this.state.ingredients[0]);
         console.log(ing.length);
         console.log(ing[2].trim());
-        console.log(ing.forEach(x => {x.trim();}));
-        console.log(ing);
+        let triming = ing.map(x => x.trim());
+
+        console.log(triming);
 
       //Form Works, fetch works....putting it together
       //  this.getRecipes();
@@ -65,7 +66,6 @@ class IngReCat extends React.Component {
       //     return response.json().then((data) => {
       //       this.setState({
       //         recipes: data.split('')
-      //       })
       //       // .map(recipe =>{
       //       //   return recipe;
       //
