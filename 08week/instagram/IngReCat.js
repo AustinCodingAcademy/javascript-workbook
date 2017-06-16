@@ -11,9 +11,9 @@ class IngReCat extends React.Component {
     }
     render() {
       // const ingredients =this.state.people.map((ing)=>{
-      return ( < div >
+      return (
         <IngForm />
-        </div>
+        
         );
       };
     }
@@ -85,7 +85,7 @@ class IngReCat extends React.Component {
       render() {
         try{
           let menu = this.state.recipes.map(rec =>
-                    <div> <p>{rec.title}</p>
+                    <div key={rec.title}> <p>{rec.title}</p>
                         <img src={rec.image} />
                     </div>);
           }
