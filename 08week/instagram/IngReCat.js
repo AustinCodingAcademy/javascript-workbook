@@ -86,10 +86,12 @@ class IngReCat extends React.Component {
       render(){
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
+            var urlName = rec.title.replace(/\s+/g, '-').toLowerCase();
             return(<div key={rec.id} >
-                     <p>{rec.title}</p>
+                     <p><a href="https://spoonacular.com/recipes/{urlName}+'-'+{rec.id}">{rec.title}</a></p>
                         <img className="recPic" src={rec.image} />
-                      
+                        // onClick = {this.clickImage.bind(this)}
+
                     </div>);
                   })}
         catch(e){
