@@ -83,14 +83,16 @@ class IngReCat extends React.Component {
           });
         }
 //want to have a local var but isn't taking for some reason
+// onClick = {this.clickImage.bind(this)}
+// <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
       render(){
+        let recUrl = "https://spoonacular.com/recipes/";
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
-            var urlName = rec.title.replace(/\s+/g, '-').toLowerCase();
+            var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase();
             return(<div key={rec.id} >
-                     <p><a href="https://spoonacular.com/recipes/{urlName}+'-'+{rec.id}">{rec.title}</a></p>
+                     <p><a href={recUrl+urlTitle+'-'+rec.id}>{rec.title}</a></p>
                         <img className="recPic" src={rec.image} />
-                        // onClick = {this.clickImage.bind(this)}
 
                     </div>);
                   })}
