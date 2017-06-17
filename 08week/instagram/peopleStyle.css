@@ -1,3 +1,15 @@
 div{
   color: blue;
 }
+#results{
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.recPic {
+  height: 300px;
+  width: 300px;
+  //border: black solid 1px;
+
+}

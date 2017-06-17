@@ -82,13 +82,14 @@ class IngReCat extends React.Component {
             });
           });
         }
-
+//want to have a local var but isn't taking for some reason
       render(){
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
-            return(<div key={rec.id}>
+            return(<div key={rec.id} >
                      <p>{rec.title}</p>
-                        <img src={rec.image} />
+                        <img className="recPic" src={rec.image} />
+                      
                     </div>);
                   })}
         catch(e){
