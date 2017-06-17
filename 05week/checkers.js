@@ -24,7 +24,7 @@ function Board() {
   this.checkers = [];
   // in-play checker pieces // creates checker pieces
   this.createCheckers = function() {
-    var whitePositions = [
+    var whitePositions = [];
       // [0, 1],
       // [0, 3],
       // [0, 5],
@@ -37,9 +37,9 @@ function Board() {
       // [2, 3],
       // [2, 5],
       // [2, 7]
-    ];
+    
 
-    var blackPositions = [
+    var blackPositions = [];
       // [5, 0],
       // [5, 2],
       // [5, 4],
@@ -52,7 +52,7 @@ function Board() {
       // [7, 2],
       // [7, 4],
       // [7, 6]
-    ];
+    
     let whiteChecker = new Checker('white');
     let blackChecker = new Checker('black');
 // create and push white checkers
@@ -75,7 +75,7 @@ function Board() {
     // console.log(whitePositions)
       // console.log(blackPositions)
       // this.grid.push(whitePositions, blackPositions)
-    console.log(this.grid)
+    // console.log(this.grid)
   }
 
   this.createGrid = function() {
@@ -87,6 +87,28 @@ function Board() {
         this.grid[row].push(null);
       }
     }
+// user chooses which checker to move
+    this.selectChecker = (row, column) =>{
+      return this.grid[row][column];
+    };
+// KILL CHECKER
+this.killChecker = (position) => {
+// let positionX = position[0];
+// let positionY = position[1];
+// let kill = this.selectChecker(positionX, positionY);
+// let index = this.checkers.indexOf(kill);
+// index.splice([0],[1]);
+// this.grid[positionX][positionY] = null;
+ 
+//  console.log(positionY);
+//  console.log(positionY);
+//  console.log(kill);
+let kill = this.selectChecker(position[0], position[1]);
+this.checkers.splice(indexOf(kill),1);
+this.grid[position[0]][position[1]] = null;
+
+
+};
 
 
   };
@@ -129,6 +151,23 @@ function Game() {
     // Your code here
     this.board.createCheckers();
   };
+
+  this.moveChecker = (start, end) => {
+    let startRow = start[0];
+    let startCol = start[1];
+    let endRow = end[0];
+    let endCol = end[1];
+    let checker = this.board.selectChecker(startRow, startCol);
+    this.board.grid[endRow][endCol] = checker;
+    this.board.grid[startRow][startCol] = null;
+    // console.log(this.board.checkers.indexOf(checker));
+    if(Math.abs(startRow)-Math.abs(endRow) === 2){
+      let midpointX = Math.abs(startRow) - Math.abs(endRow) / 2;
+      let midpointY = Math.abs(startCol) - Math.abs(endCol) / 2;
+      this.killChecker(midpointX,midpointY);
+    };
+
+      };
 }
 
 function getPrompt() {
