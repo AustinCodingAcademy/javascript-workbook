@@ -15,12 +15,13 @@ class App extends React.Component {
         this.setState({
           userlist: data.results
         })
-        console.log(this.state.userlist);
+        // console.log(this.state.userlist);
       })
     })
   }
 
   renderUsers = () => {
+    console.log(this.state.userlist)
     return (
       this.state.userlist.map(user =>
         <li key={user.cell}>  <img alt="pic of user" src={user.picture.large}/> <br/>

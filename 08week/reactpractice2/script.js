@@ -5,38 +5,51 @@ class App extends React.Component {
     super();
 
     this.state = {
-      userlist: []
+      winelist: []
     }
   }
 
+  // componentDidMount() {
+  //   fetch('https://randomuser.me/api/?results=20').then((response) => {
+  //     response.json().then((data) => {
+  //       this.setState({
+  //         userlist: data.results
+  //       })
+  //       console.log(this.state.userlist)
+  //     })
+  //   })
+  // }
+
+
   componentDidMount() {
-    fetch('https://randomuser.me/api/?results=20').then((response) => {
-      response.json().then((data) => {
+    fetch('https://services.wine.com/api/beta2/service.svc/json/categorymap?filter=categories(490+124)+rating(90|95)&apikey=562422cbdaa35a13c2c2f4a44ba18688').then((response) => {
+      response.json().then((result) => {
         this.setState({
-          userlist: data.results
+          // userlist: result.Categories[0][0]
+          winelist: result
         })
-        console.log(this.state.userlist)
+        // console.log(this.state.winelist)
       })
     })
   }
 
-  userInfo = () => {
-    return (
-      this.state.userlist.map(user =>
-        <li key={user.cell}>
-          <img alt="user" src={user.picture.large}/> <br/>
-          Name: {user.name.first.slice(0,1)} {user.name.last.slice(0,10)} <br/>
-          DOB: {user.dob.slice(0,10)}
-        </li>
-      )
-    )
+  wineinfo = () => {
+    console.log(this.state.winelist)
+    // return (
+    //   this.state.winelist.map((wine) =>
+    //     <li key={wine.id}>
+    //       Name: {wine.name} {wine.type} <br/>
+    //       SCORE: {wine.score}
+    //     </li>
+    //   )
+    // )
   }
 
   render() {
     return (
       <div>
-      Am I cool or what?
-        <ul>{this.userInfo()}</ul>
+      Red wines (score 90-95)
+        <ul>{this.wineinfo()}</ul>
       </div>
     )
   }
