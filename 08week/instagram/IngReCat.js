@@ -7,8 +7,8 @@ class IngReCat extends React.Component {
         recipes: [],
         ingredients: '',
         recipe: {
-          recIng:[] ,
-          recIns:''
+          recIng:["future recipe"] ,
+          recIns:"future recipe"
         },
         ing: [],
         menu: []
