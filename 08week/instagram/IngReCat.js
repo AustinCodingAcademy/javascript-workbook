@@ -6,6 +6,7 @@ class IngReCat extends React.Component {
       this.state = {
         recipes: [],
         ingredients: '',
+        recipe: {},
         ing: [],
         menu: []
       }
@@ -93,7 +94,7 @@ class IngReCat extends React.Component {
             return(<div key={rec.id} >
                      <p><a href={recUrl+urlTitle+'-'+rec.id}>{rec.title}</a></p>
                         <img className="recPic" src={rec.image} />
-
+                        <div></div>
                     </div>);
                   })}
         catch(e){
