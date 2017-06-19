@@ -29,6 +29,7 @@ class IngReCat extends React.Component {
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.getIndRec = this.getIndRec.bind(this);
       //this.getRecipes = this.getRecipes.bind(this);
       }
 
@@ -108,6 +109,7 @@ class IngReCat extends React.Component {
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
       render(){
       //  let recUrl = "https://spoonacular.com/recipes/";
+        let selRec = this.state.recipe.map()
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
