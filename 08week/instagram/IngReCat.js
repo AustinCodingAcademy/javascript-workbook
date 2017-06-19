@@ -83,6 +83,36 @@ class IngReCat extends React.Component {
             });
           });
         }
+
+        getIndRec(id){
+          let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
+
+          fetch(recBaseUrl, {
+            method: "GET"
+
+            headers: {
+              Accept: "application/json",
+              "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
+
+              }}).then((response) => {
+                console.log(response);
+                return response.json().then((data) => {
+                  console.log(data);
+                  this.setState({
+
+                    recipe: data
+
+              // .map(recipe =>{
+              //   return recipe;
+            });
+
+            // let results = this.state.recipes.map(rec => {
+            //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
+              console.log(data);
+              });
+            });
+
+        }
 //want to have a local var but isn't taking for some reason
 // onClick = {this.clickImage.bind(this)}
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
