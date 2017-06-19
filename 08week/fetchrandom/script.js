@@ -10,7 +10,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/?results=20').then((response) => {
+    fetch('https://randomuser.me/api/?results=3').then((response) => {
       response.json().then((data) => {
         this.setState({
           userlist: data.results
