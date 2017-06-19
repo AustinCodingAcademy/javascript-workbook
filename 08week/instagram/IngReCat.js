@@ -81,9 +81,8 @@ class IngReCat extends React.Component {
           let recId = id;
           let recEndUrl = "/information?includeNutrition=false";
 
-          fetch(recBaseUrl+recId+recEndUrl) {
+          fetch(recBaseUrl+recId+recEndUrl, {
             method: "GET",
-
             headers: {
               Accept: "application/json",
               "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
