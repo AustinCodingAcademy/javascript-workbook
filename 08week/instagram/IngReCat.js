@@ -77,17 +77,13 @@ class IngReCat extends React.Component {
             }
 
         getIndRec(id){
-<<<<<<< HEAD
-          let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
 
-          fetch(recBaseUrl, {
-            method: "GET",
-=======
+          //let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
           let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
           let recId = id;
           let recEndUrl = "/information?includeNutrition=false";
->>>>>>> ecd5e8bb9fcd520bb51e0d6b497ec3b9136889db
 
+  
           fetch(recBaseUrl+recId+recEndUrl, {
             method: "GET",
             headers: {
