@@ -88,7 +88,7 @@ class IngReCat extends React.Component {
           let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
 
           fetch(recBaseUrl, {
-            method: "GET"
+            method: "GET",
 
             headers: {
               Accept: "application/json",
