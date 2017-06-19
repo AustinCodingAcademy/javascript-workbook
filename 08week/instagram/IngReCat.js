@@ -98,9 +98,10 @@ class IngReCat extends React.Component {
                 console.log(response);
                 return response.json().then((data) => {
 
-                  this.setState({
+                  this.state.recipe.setState({
+                    recIng: data.extendedIngredients.map(ing => <li>{ing}</li>),
+                    instructions: <p>{this.state.recipe.instructions}</p>
 
-                    recipe: data
                   });
               console.log(data);
 
@@ -108,7 +109,8 @@ class IngReCat extends React.Component {
             });
           }
 
-
+          // let recIng = this.state.recipe.extendedIngredients.map(ing => <li>{ing.originalString}</li>);
+          // let instructions = this.state.recipe.instructions;
 //want to have a local var but isn't taking for some reason
 // onClick = {this.clickImage.bind(this)}
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
@@ -127,7 +129,7 @@ class IngReCat extends React.Component {
               return(<div key={rec.id}>
                      <button onClick={()=>{this.getIndRec(rec.id)}}>{rec.title}</button>
                         <img className="recPic" src={rec.image} />
-                        <div className="indRec"><ul>{recIng}</ul> <p>{instructions}</p></div>
+                        <div className="indRec"><ul>{this.state.recipe.recIng}</ul> <p>{this.state.recipe.instructions}</p></div>
                     </div>);
                   });
 
