@@ -6,7 +6,10 @@ class IngReCat extends React.Component {
       this.state = {
         recipes: [],
         ingredients: '',
-        recipe: {},
+        recipe: {
+          recIng:[] ,
+          recIns:''
+        },
         ing: [],
         menu: []
       }
@@ -116,14 +119,21 @@ class IngReCat extends React.Component {
 
 
         try{
+
+          // let recIng = this.state.recipe.extendedIngredients.map(ing => <li>{ing.originalString}</li>);
+          // let instructions = this.state.recipe.instructions;
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
             this.state.menu = this.state.recipes.map((rec)=>{
               return(<div key={rec.id}>
                      <button onClick={()=>{this.getIndRec(rec.id)}}>{rec.title}</button>
                         <img className="recPic" src={rec.image} />
-                        <div className="indRec"></div>
+                        <div className="indRec"><ul>{recIng}</ul> <p>{instructions}</p></div>
                     </div>);
                   });
+
+
+
+
                 }
         catch(e){
           this.state.menu = <p>"No menu yet"</p>
