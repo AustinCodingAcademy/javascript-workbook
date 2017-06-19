@@ -88,7 +88,7 @@ class IngReCat extends React.Component {
           let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
 
           fetch(recBaseUrl, {
-            method: "GET"
+            method: "GET",
 
             headers: {
               Accept: "application/json",
@@ -120,15 +120,15 @@ class IngReCat extends React.Component {
         let recUrl = "https://spoonacular.com/recipes/";
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
-            var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase();
+          //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
             return(<div key={rec.id} >
-                     <p><a  rel="external" href={recUrl+urlTitle+'-'+rec.id}>{rec.title}</a></p>
+                     <p><button onClick={this.getIndRec(rec.id)}>{rec.title}</button></p>
                         <img className="recPic" src={rec.image} />
-                        <div></div>
+                        <div className="indRec"></div>
                     </div>);
                   })}
         catch(e){
-          this.state.recipes = <p>"No menu yet"</p>
+          this.state.menu = <p>"No menu yet"</p>
         }
 
         return (
