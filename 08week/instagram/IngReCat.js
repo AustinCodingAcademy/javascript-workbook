@@ -61,33 +61,27 @@ class IngReCat extends React.Component {
         let endUrl = "&limitLicense=false&number=5&ranking=1";
         fetch(baseUrl+ing[0]+endUrl, {
           method: "GET",
-          // body: JSON.stringify(data),
           headers: {
             Accept: "application/json",
             "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o",
-            //  "Content-Type": "application/json"
+
             }}).then((response) => {
               console.log(response);
               return response.json().then((data) => {
                 console.log(data);
                 this.setState({
-
                   recipes: data
-            // .map(recipe =>{
-            //   return recipe;
-          }
-            );
-
-          // let results = this.state.recipes.map(rec => {
-          //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
-            });
-          });
-        }
+                  });
+                });
+              });
+            }
 
         getIndRec(id){
-          let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
+          let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
+          let recId = id;
+          let recEndUrl = "/information?includeNutrition=false";
 
-          fetch(recBaseUrl, {
+          fetch(recBaseUrl+recId+recEndUrl) {
             method: "GET",
 
             headers: {
@@ -101,18 +95,12 @@ class IngReCat extends React.Component {
                   this.setState({
 
                     recipe: data
+                  });
 
-              // .map(recipe =>{
-              //   return recipe;
-            });
-
-            // let results = this.state.recipes.map(rec => {
-            //   return <div > < img src = {rec.image}/><p>{rec.title}</p >< /div>;
               console.log(data);
               });
             });
-
-        }
+          }
 //want to have a local var but isn't taking for some reason
 // onClick = {this.clickImage.bind(this)}
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
@@ -121,14 +109,15 @@ class IngReCat extends React.Component {
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
-            return(<div key={rec.id} >
-                     <p><button onClick={this.getIndRec(rec.id)}>{rec.title}</button></p>
+            return(<div key={rec.id}>
+                     <button onClick={this.getIndRec(rec.id)}>{rec.title}</button>
                         <img className="recPic" src={rec.image} />
                         <div className="indRec"></div>
                     </div>);
                   })}
         catch(e){
           this.state.menu = <p>"No menu yet"</p>
+          console.log(e);
         }
 
         return (
