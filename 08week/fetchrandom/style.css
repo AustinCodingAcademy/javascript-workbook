@@ -1,0 +1,9 @@
+body {
+  background-color: lightgrey;
+}
+
+li {
+  display: inline-block;
+  margin: 20px 40px;
+  font-size: 15px;
+}
