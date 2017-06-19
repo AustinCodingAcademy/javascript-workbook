@@ -111,16 +111,20 @@ class IngReCat extends React.Component {
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
       render(){
       //  let recUrl = "https://spoonacular.com/recipes/";
-        let selRec = this.state.recipe.map()//mapping the individual recipe output
+        // let selRec = this.state.recipe.map()//mapping the individual recipe output
+
+
+
         try{
-          this.state.menu = this.state.recipes.map((rec)=>{
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
-            return(<div key={rec.id}>
+            this.state.menu = this.state.recipes.map((rec)=>{
+              return(<div key={rec.id}>
                      <button onClick={this.getIndRec(rec.id)}>{rec.title}</button>
                         <img className="recPic" src={rec.image} />
                         <div className="indRec"></div>
                     </div>);
-                  })}
+                  });
+                }
         catch(e){
           this.state.menu = <p>"No menu yet"</p>
           console.log(e);
@@ -143,13 +147,16 @@ class IngReCat extends React.Component {
         }
       }
 
-class CatPic extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-             catPic: this.state.recipe.map
-          };
-          "http://thecatapi.com/api/images/get?format=src"
+// class CatPic extends React.Component {
+//         constructor(props) {
+//           super(props);
+//           this.state = {
+//              catPic: "http://thecatapi.com/api/images/get?format=src"
+//           };
+//         }
+//         render(){
+//           return(<a href={catPic}><img src={catPic}/></a>)
+//         }
 
 
 
@@ -201,4 +208,4 @@ class CatPic extends React.Component {
 
 
     ReactDOM.render( < IngReCat / > , document.querySelector('#fetch'));
-    // ReactDOM.render(<RecipeResults />, document.querySelector('#results'));
+    //ReactDOM.render(<CatPic />, document.querySelector('#catPic'));

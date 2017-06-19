@@ -13,3 +13,9 @@ div{
   //border: black solid 1px;
 
 }
+
+#catPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
