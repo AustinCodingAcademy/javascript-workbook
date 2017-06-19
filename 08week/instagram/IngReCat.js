@@ -122,7 +122,7 @@ class IngReCat extends React.Component {
           this.state.menu = this.state.recipes.map((rec)=>{
             var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase();
             return(<div key={rec.id} >
-                     <p><a href={recUrl+urlTitle+'-'+rec.id}>{rec.title}</a></p>
+                     <p><a  rel="external" href={recUrl+urlTitle+'-'+rec.id}>{rec.title}</a></p>
                         <img className="recPic" src={rec.image} />
                         <div></div>
                     </div>);
