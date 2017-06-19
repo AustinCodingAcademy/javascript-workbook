@@ -83,7 +83,7 @@ class IngReCat extends React.Component {
           let recId = id;
           let recEndUrl = "/information?includeNutrition=false";
 
-  
+
           fetch(recBaseUrl+recId+recEndUrl, {
             method: "GET",
             headers: {
@@ -107,7 +107,7 @@ class IngReCat extends React.Component {
 // onClick = {this.clickImage.bind(this)}
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
       render(){
-        let recUrl = "https://spoonacular.com/recipes/";
+      //  let recUrl = "https://spoonacular.com/recipes/";
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
