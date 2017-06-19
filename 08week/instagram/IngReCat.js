@@ -111,7 +111,7 @@ class IngReCat extends React.Component {
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
       render(){
       //  let recUrl = "https://spoonacular.com/recipes/";
-        let selRec = this.state.recipe.map()
+        let selRec = this.state.recipe.map()//mapping the individual recipe output
         try{
           this.state.menu = this.state.recipes.map((rec)=>{
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
@@ -143,13 +143,13 @@ class IngReCat extends React.Component {
         }
       }
 
-class IndRec extends React.Component {
+class CatPic extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
-             recipe: this.state.recipe.map
+             catPic: this.state.recipe.map
           };
-
+          "http://thecatapi.com/api/images/get?format=src"
 
 
 
