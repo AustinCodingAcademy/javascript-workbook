@@ -93,16 +93,18 @@ class IngReCat extends React.Component {
               }}).then((response) => {
                 console.log(response);
                 return response.json().then((data) => {
-                  console.log(data);
+
                   this.setState({
 
                     recipe: data
                   });
-
               console.log(data);
+
               });
             });
           }
+
+
 //want to have a local var but isn't taking for some reason
 // onClick = {this.clickImage.bind(this)}
 // <a href="https://spoonacular.com/recipes/{urlName}-{rec.id}"
@@ -138,6 +140,13 @@ class IngReCat extends React.Component {
               );
         }
       }
+
+class IndRec extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+             recipe: this.state.recipe.map
+          };
 
 
 
