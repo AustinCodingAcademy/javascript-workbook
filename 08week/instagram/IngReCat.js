@@ -119,7 +119,7 @@ class IngReCat extends React.Component {
           //var urlTitle = rec.title.replace(/\s+/g, '-').toLowerCase(); //{recUrl+urlTitle+'-'+rec.id}>{rec.title}-- this is for querying the website of the recipe.
             this.state.menu = this.state.recipes.map((rec)=>{
               return(<div key={rec.id}>
-                     <button onClick={this.getIndRec(rec.id)}>{rec.title}</button>
+                     <button onClick={()=>{this.getIndRec(rec.id)}}>{rec.title}</button>
                         <img className="recPic" src={rec.image} />
                         <div className="indRec"></div>
                     </div>);
