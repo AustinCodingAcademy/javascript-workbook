@@ -7,7 +7,8 @@ class TowersOfHanoi extends React.Component {
       a: [100,75,50,25],
       b: [],
       c: [],
-      block: null
+      block: null,
+      //win: ""
     }
   }
 
@@ -23,6 +24,29 @@ class TowersOfHanoi extends React.Component {
       return false;
     }
   }
+
+  checkForWin = () => {
+    console.log("check for win this.state.a +b", (this.state.b.length === 4 || this.state.c.length === 4));
+    if ((this.state.b.length === 4 || this.state.c.length === 4)){
+      return "you win!"
+    }
+    else {
+      return '';
+    }
+  }
+
+  // componentDidUpdate(){
+  //
+  //   //checkfor win
+  //   if(this.checkForWin()) {
+  //     const obj = {};
+  //     obj['win'] = this.checkForWin();
+  //     this.setState(obj);
+  //   }
+  //   //update
+  //
+  // }
+
   clickStack = (event) => {
     const letter = event.target.getAttribute('data-stack');
     const stack = this.state[letter].slice();
@@ -37,9 +61,15 @@ class TowersOfHanoi extends React.Component {
 
         stack.push(this.state.block);
         obj['block'] = null;
+
+
       }
     }
     obj[letter] = stack;
+
+    //this.setState(obj);
+    // CHECK FOR WIN HERE THEN ADD TO OBJ
+    //obj['win'] = this.checkForWin();
     this.setState(obj);
     // can't do this
     // this.setState({
@@ -49,6 +79,7 @@ class TowersOfHanoi extends React.Component {
   }
 
   render() {
+    const win = this.checkForWin();
     const aBlocks = this.state.a.map((size) => {
       return (<div key={size} data-block={size}></div>)
     });
@@ -61,15 +92,18 @@ class TowersOfHanoi extends React.Component {
 
     return (
       <div>
-      <div data-stack="a" onClick={this.clickStack}>
-      {aBlocks}
+        <div data-stack="a" onClick={this.clickStack}>
+        {aBlocks}
       </div>
-      <div data-stack="b" onClick={this.clickStack}>
-      {bBlocks}
+        <div data-stack="b" onClick={this.clickStack}>
+        {bBlocks}
       </div>
-      <div data-stack="c" onClick={this.clickStack}>
-      {cBlocks}
+        <div data-stack="c" onClick={this.clickStack}>
+        {cBlocks}
       </div>
+        <div id="win">
+          {win}
+        </div>
       </div>
     );
   }
