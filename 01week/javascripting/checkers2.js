@@ -70,19 +70,19 @@ function Board() {
 
   // prints out the board
   this.viewGrid = function() {
-    // add our column numbers
+    // add column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
-      // we start with our row number in our array
+      // start with row number in array
       let rowOfCheckers = [row];
-      // a loop within a loop
+      // loop within a loop
       for (let column = 0; column < 8; column++) {
-        // if the location is "truthy" (contains a checker piece, in this case)
+        // if the location is "truthy" (contains a checker piece)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
           rowOfCheckers.push(this.grid[row][column].symbol);
         } else {
-          // just push in a blank space
+          //push in a blank space
           rowOfCheckers.push(' ');
         }
       }
@@ -94,7 +94,6 @@ function Board() {
     console.log(string);
 
   };
-
 
   function Game() {
     this.board = new Board();
