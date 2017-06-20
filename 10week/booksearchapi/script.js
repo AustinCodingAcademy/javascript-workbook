@@ -15,16 +15,16 @@ class App extends React.Component {
       response.json().then((data) => {
         var templist = [];
         data.items.map((withit) => {
+          //This will map and return free ebook with download link
           if (withit.accessInfo.hasOwnProperty('epub')) {
             if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
               templist.push(withit)
             }
           }
         })
-          this.setState({
-              listit: templist
-          })
-
+        this.setState({
+            listit: templist
+        })
       })
     })
   }
@@ -34,8 +34,9 @@ class App extends React.Component {
     return (
       this.state.listit.map((listitem) =>
         <li key={listitem.id}>
-          <img alt="dsf" src={listitem.volumeInfo.imageLinks.thumbnail}/><br/>
-          {listitem.accessInfo.epub.downloadLink}
+          <a href={listitem.accessInfo.epub.downloadLink}>
+          <img alt="dsf" src={listitem.volumeInfo.imageLinks.thumbnail}/>
+          </a><br/>
         </li>
       )
     )
