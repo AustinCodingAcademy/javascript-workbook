@@ -12,7 +12,8 @@ const board = [
   [' ', ' ', ' ']
 ];
 
-let playerTurn = 'X';
+let playerX = 'X';
+let playerO = 'O';
 
 function printBoard() {
   console.log('   0  1  2');
@@ -22,8 +23,6 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-
-//Horizontal Win
 
 function horizontalWin(boardSpot) {
   if(board[0][0] === board[0][1] && board[0][0] === board[0][2] && board[0][0] ===boardSpot) {
@@ -37,8 +36,6 @@ function horizontalWin(boardSpot) {
   }
 }
 
-//Vertical Win
-
 function verticalWin(boardSpot) {
   if(board[0][0] === board[1][0] && board[2][0] === board[0][0] && board[0][0] ===boardSpot) {
     return boardSpot;
@@ -51,8 +48,6 @@ function verticalWin(boardSpot) {
   }
 }
 
-//Diagonal Win
-
 function diagonalWin() {
   if(board[0][0] === board[1][1] && board[2][2] === board[0][0] && board[1][1] ===boardSpot) {
     return boardSpot;
@@ -63,29 +58,13 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-
-  //check for vertical win
-  if(topleft === playerTurn && middleleft === playerTurn && bottomleft === playerTurn){
-    //win
-    console.log("player wins!");
+if(boardSpot = 'X') {
+  return "Player X wins!";
   }
-
-  if(topmiddle === playerTurn && middlemiddle === playerTurn && bottommiddle === playerTurn){
-    //win
-    console.log("player wins!");
-  }
-  //check for win
-  if(topright === playerTurn && middleright === playerTurn && bottomright === playerTurn){
-
-    console.log("player wins!");
-  }
+if(boardSpot = 'O') {
+  return "Player O wins!";
 }
 
-function ticTacToe(row, column) {
-
-}
-
-function getPrompt() {
 
 // Tests
 
