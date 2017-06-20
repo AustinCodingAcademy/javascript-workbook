@@ -32,8 +32,14 @@ class App extends React.Component {
           //   }
           // }
 
+          // This will map and return free ebook with download link
+          // console.log(withit.volumeInfo.publishedDate.slice(0,4));
+          if (withit.volumeInfo.hasOwnProperty('publishedDate')) {
+            var year = parseInt(withit.volumeInfo.publishedDate.slice(0,4));
+            if (year > 1990) {
               templist.push(withit)
-
+            }
+          }
 
         })
         this.setState({
