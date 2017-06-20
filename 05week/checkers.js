@@ -8,9 +8,15 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  } else {
+    this.symbol = String.fromCharCode(0x125CF);
   // Your code here
+  }
 }
+
 
 function Board() {
   this.grid = [];
@@ -39,6 +45,7 @@ function Board() {
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
           rowOfCheckers.push(this.grid[row][column].symbol);
+          // rowOfCheckers.push('hello');
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -52,17 +59,99 @@ function Board() {
     console.log(string);
   };
 
+  this.checkers = [];
+
+
+  this.createCheckers = function() {
+      const whiteChecker = new Checker('white');
+      const blackChecker = new Checker('black');
+      this.grid[0][1] = whiteChecker;
+      this.grid[0][3] = whiteChecker;
+      this.grid[0][5] = whiteChecker;
+      this.grid[0][7] = whiteChecker;
+      this.grid[1][0] = whiteChecker;
+      this.grid[1][2] = whiteChecker;
+      this.grid[1][4] = whiteChecker;
+      this.grid[1][6] = whiteChecker;
+      this.grid[2][1] = whiteChecker;
+      this.grid[2][3] = whiteChecker;
+      this.grid[2][5] = whiteChecker;
+      this.grid[2][7] = whiteChecker;
+
+      this.grid[5][0] = blackChecker;
+      this.grid[5][2] = blackChecker;
+      this.grid[5][4] = blackChecker;
+      this.grid[5][6] = blackChecker;
+      this.grid[6][1] = blackChecker;
+      this.grid[6][3] = blackChecker;
+      this.grid[6][5] = blackChecker;
+      this.grid[6][7] = blackChecker;
+      this.grid[7][0] = blackChecker;
+      this.grid[7][2] = blackChecker;
+      this.grid[7][4] = blackChecker;
+      this.grid[7][6] = blackChecker;
+
+      this.checkers.push(blackChecker, blackChecker, blackChecker, blackChecker, blackChecker,
+      blackChecker, blackChecker, blackChecker, blackChecker, blackChecker, blackChecker,
+      blackChecker);
+
+
+      this.checkers.push(whiteChecker, whiteChecker, whiteChecker, whiteChecker,
+      whiteChecker, whiteChecker, whiteChecker, whiteChecker, whiteChecker,
+      whiteChecker, whiteChecker, whiteChecker);
+    }
+
+  this.selectChecker = function(row, column) {
+    return(this.grid[row][column]);
+  }
+
+
+
   // Your code here
+  this.killChecker = function(position) {
+    let coordinate = this.selectChecker(position[0], position[1]);
+    let killedChecker = this.checkers.indexOf(coordinate);
+    this.checkers.splice(killedChecker, 1);
+    this.grid[position[0]][position[1]] = null;
+  }
 }
+
+
 function Game() {
 
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
+
   };
-}
+
+  this.moveChecker = function(start, end) {
+    //the "start" and "end" indivudal parameters are actually arrays containing 2 coordinate values [0, 0]
+
+    //you select the first and second coordinate values of the start array
+    const checker = this.board.selectChecker(start[0], start[1]);
+
+     //You put add the checker into the end position.  Setting it equal to checker allows it to exist
+    this.board.grid[end[0]][end[1]] = checker;
+
+    //Now that the checker has been moved, you can null out what was in the original position
+    this.board.grid[start[0]][start[1]] = null;
+
+
+    let distance = Math.abs(end[0]-start[0]);
+
+    if (distance === 2) {
+      let rowMidpoint = (Number(start[0]) + Number(end[0])) / 2;
+      let colMidpoint = (Number(start[1]) + Number(end[1])) / 2;
+      let killPosition = [rowMidpoint, colMidpoint];
+      this.board.killChecker(killPosition);
+    }
+     this.board.grid[start[0]][start[1]] = null;
+   };
+  }
+
 
 function getPrompt() {
   game.board.viewGrid();
