@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 101px;
-  background-color: aliceblue;
+  background-color: lightgrey;
   margin: 25px;
 }
 
@@ -24,7 +24,7 @@
 
 [data-block="75"] {
   height: 75px;
-  background-color: red;
+  background-color: black;
 }
 
 [data-block="100"] {

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForWin();
   }
  })
-});
+);
 
 // document.querySelectorAll('[data-stack]').forEach(data-block => {
 //   cell.addEventListener('click', function() {

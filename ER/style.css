@@ -1,0 +1,38 @@
+body {
+  background-color: #4d3a5b;
+}
+
+.container-fluid {
+  background-image: url("gmER2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  color: #E0E0E0;
+  opacity: 0.7;
+}
+
+.text-center {
+  padding-top: 150px;
+  font-size: 80px;
+}
+
+a:active {
+  color: #26E6B2;
+}
+
+.navbar {
+  color: #E0E0E0;
+  padding-left: 850px;
+  /*display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;*/
+  /*border-bottom: 1px solid #26E6B2;*/
+}
+
+/*.container {
+  padding-top: 30px;
+  text-align: center;
+}*/

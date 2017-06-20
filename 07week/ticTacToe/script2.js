@@ -17,7 +17,7 @@ class TicTacToe extends React.Component {
     };
   }
 
-  clickCell = (event) => {
+  clickCell(event) => {
     const cellLetter = event.target.getAttribute('data-cell');
     const obj = {};
     obj[cellLetter] = this.state.playerTurn;
@@ -28,13 +28,10 @@ class TicTacToe extends React.Component {
     // } else {
     //   obj['playerTurn'] = 'X';
     // }
-
     // { a: 'X', playerTurn: 'O' }
 
     this.setState(obj);
-
-    //this.checkWin();
-
+    this.checkWin();
   }
 
   render() {
@@ -47,6 +44,7 @@ class TicTacToe extends React.Component {
       ['c', 'f', 'i'],
       ['a', 'e', 'i'],
       ['c', 'e', 'g']
+     ]
     ];
 
     let playerWon = '';

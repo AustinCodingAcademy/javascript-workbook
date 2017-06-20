@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(`[data-cell="${combo[1]}"]`).innerText === playerTurn &&
         document.querySelector(`[data-cell="${combo[2]}"]`).innerText === playerTurn
       ) {
-          return true;
+        return true;
       }
     });
   }
