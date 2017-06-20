@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // document.querySelectorAll('[data-cell]').forEach((cell) =>  {
   //   // console.log(cell);
   //       cell.innerText = "x";
-  // })
+
 
   // //Use onClick for eventlistener...
   // // document.querySelector('[data-cell="0"]').onClick = function() {
@@ -20,11 +20,72 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
 
   // Let's put a listener on the first item. Target it first.
-  document.querySelector('[data-cell="0"]').addEventListener('click', function() {
-    this.innerText = playerTurn;
-    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
-    // we want X to toggle. Set playerturn above, then set this to playerturn.
+  // document.querySelector('[data-cell="0"]').addEventListener('click', function() {
+  //   this.innerText = playerTurn;
+  //   playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+    // we want X to toggle. Set playerturn variable to X above, then set this to playerturn.
     // after it's set, we want it to toggle. Ternary takes care of that. Start at
     // X, then to O, otherwise it must already be O so set it back equal to X.
+
+    document.querySelectorAll('[data-cell]').forEach((cell) =>  {
+          cell.addEventListener('click', function() {
+      this.innerText = playerTurn;
+      if (checkforWin()) {
+        document.querySelector('#announce-winner').innerText = (`Player ${playerTurn}`)
+      }
+      playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+      });
+    })
+
+    // Determine winner
+    // function checkforWin () {
+    //   if (
+    //     document.querySelector('[data-cell="0"]') === playerTurn &&
+    //     document.querySelector('[data-cell="1"]') === playerTurn &&
+    //     document.querySelector('[data-cell="2"]') === playerTurn
+    //   ) {
+    //     return true;
+    //   }
+    //   return false;
+
+      // let's try writing this in a loop so that we can concisely cover all option
+      // for winning
+    // }
+    function checkforWin () {
+      const winningCombos = [
+        ['a', 'b', 'c'],
+        ['e', 'f', 'g'],
+        ['h', 'i', 'j'],
+        ['a', 'd', 'g'],
+        ['b', 'e', 'h'],
+        ['c', 'f', 'i'],
+        ['a', 'e', 'i'],
+        ['c', 'e', 'g']
+        // Changed it from numbers to letters, was confusing when referencing indices
+        // within an array.
+        // [0, 1, 2],
+        // [3, 4, 5],
+        // [6, 7, 8],
+        // [0, 3, 6],
+        // [1, 4, 7],
+        // [2, 5, 8],
+        // [0, 4, 8],
+        // [2, 4, 6]
+      ];
+      // Iterate over each of them.
+      return winningCombos.some((combo) => {
+        return (combo.every((letter) => {
+          return document.querySelector(`[data-cell="${letter}"]`).innerText === playerTurn;
+        });
+      //     // using a template below to track wins by cell.
+      //     document.querySelector(`[data-cell="${combo[0]}"]`).innerText === playerTurn &&
+      //     document.querySelector(`[data-cell="${combo[1]}"]`).innerText === playerTurn &&
+      //     document.querySelector(`[data-cell="${combo[2]}"]`).innerText === playerTurn
+      //   ) {
+      //     return true;
+    });
   });
+
+}
+
 });

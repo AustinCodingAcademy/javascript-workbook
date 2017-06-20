@@ -16,7 +16,7 @@ class Instagram extends React.Component{
     this.submitForm = this.submitForm.bind(this)
     this.changeInput = this.changeInput.bind(this)
   }
-  //binding here is common convention, it will attach info to this and can resolve
+  //binding here is common convention, it will attach info to 'this' and can resolve
   //potential performance issues
 
   componentDidMount() {
@@ -24,17 +24,17 @@ class Instagram extends React.Component{
     this.setState({
       accessToken: accessToken
     });
-    //we use didMount above since this generation or assignment of a token is an action
+    //we use didMount above since the generation or assignment of a token is an action
     //that happens in the browser. We want to hold our access Token and keep it in
     //the window since we saw that we were having issues with regeneration of the token.
 
-    //This was specifically built to hold it (the access Token). We made it a variable.
+    //The if statement below was specifically built to hold it (the access Token). We made it a variable.
 
     if (accessToken) {
       this.fetchUser(accessToken);
     }
   }
-//Now we call the access Token -- if it appears, grab the users's accesstoken and
+//We called the access Token above -- if it appears, we grab the users's accesstoken and
 //use it in the function below were it is attached to the URL
 
   fetchUser(accessToken) {
@@ -58,19 +58,24 @@ class Instagram extends React.Component{
       })
   }
 
-  // My accessToken is the only one I have access to at this time. Now I am using
+  // My accessToken is the only one I have access to at this time.
   //
   fetchThumbnails() {
     fetchJsonp(`https://api.instagram.com/v1/users/${this.state.userId}/media/recent/?access_token=${this.state.accessToken}`, {
-// WE variablized the userId and accessToken above. Why? Our keys are empty in the initial
+// We variablized the userId and accessToken above. Why? Our keys are empty in the initial
 //component. We want them updated after the state changed so we refer to the state here
       method: 'GET'
       //WHY ARE WE CALLING THE METHOD "GET" HERE? ISN'T FETCH GET?
     }).then((response) => {
+            //stating that the response needs to be converted to json
       response.json().then((json) => {
+        //then manipulating the json data that is returned to setState and call
+        //on specific objects
         this.setState({
           images: json.data.map((post) => {
             return post.images;
+            // specifically calling the images from each post and using them
+            // to display the thumbnails
           })
         });
       });
@@ -82,12 +87,17 @@ class Instagram extends React.Component{
     console.log(this.state);
     this.fetchThumbnails();
   }
+  //Above outlines what happens when I click the submit button. This will be changing
+  // after I tweak the CSS.
 
   changeInput(event) {
     this.setState({
       userName: event.target.value
     });
   }
+  //Changing the input, in this case the userName, does not impact the info that
+  // is fetched. It literally just changes the text and userID etc remains the same.
+  //WHY?
 
   clickImage(event) {
     event.preventDefault();
@@ -97,6 +107,8 @@ class Instagram extends React.Component{
       selected: event.target.getAttribute('data-image')
     });
   }
+//Using the DOM, I can see that when I click on the images, the URLs for the thumbnail
+// displayed is there. How can I call a different size thumbnail?
 
   render() {
     const thumbnails = this.state.images.map((image) => {
@@ -106,6 +118,8 @@ class Instagram extends React.Component{
         </div>
       );
     });
+//The image thumbnail dot notation will render the default 150x150. The data-image
+// tag is explaining what I want displayed after I click.
 
     console.log(this.state.selected);
 
@@ -118,6 +132,7 @@ class Instagram extends React.Component{
           {thumbnails}
         </div>
         <img src={this.state.selected} />
+        //I need to make the image appear over the rows of the thumbnails. 
       </div>
     )
   }
@@ -128,7 +143,7 @@ class InstagramSearch extends React.Component {
     return (
       <form onSubmit={this.props.onSubmit}>
         <input onChange={this.props.onChangeInput} />
-        <button type="submit">Submit</button>
+        <button type="submit">Start</button>
       </form>
     )
   }
