@@ -10,15 +10,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://www.googleapis.com/books/v1/volumes?q=pride+prejudice&download=epub&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4').then((response) => {
+    fetch('https://www.googleapis.com/books/v1/volumes?q=pride+prejudice&download=epub&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4')
+    .then((response) => {
       response.json().then((data) => {
-        // if (data.items.volumeInfo.accessInfo.epub.hasOwnProperty('downloadLink')) {
-        if (data.items.hasOwnProperty('volumeInfo')) {
-
+        var templist = [];
+        data.items.map((withit) => {
+          if (withit.accessInfo.hasOwnProperty('epub')) {
+            if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
+              templist.push(withit)
+            }
+          }
+        })
           this.setState({
-              listit: data.items
+              listit: templist
           })
-        }
+
       })
     })
   }
@@ -29,7 +35,7 @@ class App extends React.Component {
       this.state.listit.map((listitem) =>
         <li key={listitem.id}>
           <img alt="dsf" src={listitem.volumeInfo.imageLinks.thumbnail}/><br/>
-          {listitem.volumeInfo.accessInfo.epub.downloadLink}
+          {listitem.accessInfo.epub.downloadLink}
         </li>
       )
     )
