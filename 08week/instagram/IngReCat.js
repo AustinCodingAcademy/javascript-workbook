@@ -6,7 +6,7 @@ class IngReCat extends React.Component {
     this.state = {};
   }
   render() {
-    return <IngForm />;
+    return (<IngForm />);
   }
 }
 
@@ -77,7 +77,7 @@ class IngForm extends React.Component {
     let ing = this.state.ing;
     let baseUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-    //apples%2Cflour%2Csugar
+
     let endUrl = "&limitLicense=false&number=5&ranking=1";
     fetch(baseUrl + ing[0] + endUrl, {
       method: "GET",
@@ -96,6 +96,7 @@ class IngForm extends React.Component {
     });
   }
 
+<<<<<<< HEAD
   // renderIngredients(instructions) {
   //   console.log(instructions);
   //   return(
@@ -106,21 +107,37 @@ class IngForm extends React.Component {
   //   );
   // }          //{this.renderIngredients(this.state.instructions[rec.id])}
 
+=======
+  // renderIng (instructions){
+  //   return (
+  //     instructions.recIng.map(ing => <li>{ing.originalString}</li>)
+  //   );
+  // }//   {this.state.instructions[rec.id].recIng.map(rec => <li>rec.originalString</li>)}
+  // // <ul>{this.renderIng(this.state.instructions[rec.id])}</ul>
+>>>>>>> 3a5712ebff3f959a6c58e4b84fb5f4d42d94af0d
 
   renderInstructions(instructions) {
+    let ingredients = instructions.recIng.map(ing =><li key="id">{ing}</li>)
     return (
+<<<<<<< HEAD
       <div className="instructions">
+=======
+      <div>
+        <ul>{ingredients}</ul>
+>>>>>>> 3a5712ebff3f959a6c58e4b84fb5f4d42d94af0d
         {instructions.instructions}
       </div>
     );
   }
 
   render() {
+//getting close, must find how to reference recIng
     let menu = this.state.recipes.map(rec => {
       return (
         <div key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
           <img className="recPic" src={rec.image} />
+
           {this.state.instructions[rec.id]
             ? this.renderInstructions(this.state.instructions[rec.id])
             : ""}
