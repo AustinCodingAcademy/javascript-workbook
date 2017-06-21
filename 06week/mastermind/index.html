@@ -6,6 +6,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <h2>Mastermind</h2>
+  <!-- <h4>To begin, type in 4 letters</h4>
+  <h4>The hint will consist of two numbers, like so "2-1". The first number indicates
+  the correct number of guesses. The second number means you have the correct letter guessed, button
+but it is in the wrong spot. -->
+  <!-- </h4> -->
 <div id="board">
   <div class="row">
       <span>a</span>
@@ -13,14 +19,18 @@
       <span>c</span>
       <span>d</span>
       <span>2-1</span>
+
+  <input type="text" id="guess"/>
+<!-- Enter guess there -->
+  <button type="button">Submit</button>
   </div>
 </div>
-  <input type="text"/>
-<!-- Enter guess there -->
-  <button>Submit</button>
+
+
+
   <!-- Everytime submit is clicked, run thorugh the algorithm and then push it in to the board.  -->
   <!-- Push things into the DOM, instead of your board. The code will still work from last exercise. -->
-   <div id="announce-game-won"></div>
+
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
