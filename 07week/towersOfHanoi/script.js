@@ -7,56 +7,69 @@ class TowersOfHanoi extends React.Component {
       a:[100, 25, 50, 25],
       b:[],
       c:[],
-      held: null
+      blockheld: null
     }
   }
 // all blocks start in the first row, so they were moved to a.
 
-  clickStack = (e) => {
+moveBlock = (event) => {
 
-    const letter = e.target.getAttribute('data-stack');
-    const stack = this.state[letter].slice();
-    let block;
-    
-    if (this.state.block) {
-      const block = stack.pop();
-      console.log(block)
+    const clickedStack = event.target.getAttribute('data-stack');
+    const blocks = this.state[clickedStack].slice();
+    const obj = {};
+// first step of the move function - when a stack is clicked, you hold the top one (blockheld).
+ // slice allows you to do that. data-stack indicates which array to target.
+
+    if (this.state["blockHeld"].length === 0) {
+      const block = blocks.pop();
+      obj["blockHeld"] = block;
+// when top block is removed from original array, it's added to a new and empty array.
+
     } else {
-      stack.push(this.state.block);
-      const ['block'] = null;
+      if (blocks.length === 0 || this.state["blockHeld"] < blocks[blocks.length-1]) {
+        blocks.push(this.state["blockHeld"]);
+        obj["blockHeld"] = [];
+      }
     }
-      const update = {};
-      update[letter] = stack;
-      update ['block'] = block;
-
+    obj[clickedStack] = blocks;
+    this.setState(obj);
+// need more clarification on this part here
   }
-    this.setState(update);
+
 
   render () {
-    const aBlocks = this.ste.a.map((size)) => {
-      return (<div data-block=(size)></div>;
+    var didWin;
+    if (this.state["b"].length === 4 || this.state["c"].length === 4) {
+      didWin = (<div> YOU WON! </div>);
+      return didWin;
+    };
+
+    const aBlocks = this.state.a.map((block) => {
+      return (<div data-block={block}></div>)
     });
 
-    const bBlocks = this.ste.a.map((size)) => {
-      return (<div data-block=(size)></div>;
+    const bBlocks = this.state.b.map((block) => {
+      return (<div data-block={block}></div>)
     });
 
-    const cBlocks = this.ste.a.map((size)) => {
-      return (<div data-block=(size)></div>;
+    const cBlocks = this.state.c.map((block) => {
+      return (<div data-block={block}></div>)
     });
 
-  return (
-    <div data-stack="a" onClick={this.clickStack}>
-    {aBlocks}
-    </div>
-    <div data-stack="b" onClick={this.clickStack}>
-    {bBlocks}
-    </div>
-    <div data-stack="c" onClick={this.clickStack}>
-    {cBlocks}
-    </div>
-  )
-    )
+    return (
+      <div>
+        <div data-stack="a" onClick={this.moveBlock}>
+          {aBlocks} <div className="clicker">click on the blue</div>
+        </div>
+        <div data-stack="b" onClick={this.moveBlock}>
+          {bBlocks} <div className="clicker">click on the blue</div>
+        </div>
+        <div data-stack="c" onClick={this.moveBlock}>
+          {cBlocks} <div className="clicker">click on the blue</div>
+        </div>
+        <div> {didWin} </div>
+      </div>
+    );
   }
 }
 
