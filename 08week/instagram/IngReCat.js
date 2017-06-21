@@ -141,15 +141,11 @@ class IngForm extends React.Component {
 }
 
 class CatPic extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
+  constructor() {
+    super();
 
-    };
       this.resetCatPic = this.resetCatPic.bind(this);
-  }
-
+    };
 
   resetCatPic() {
     this.setState({
@@ -170,8 +166,8 @@ class CatPic extends React.Component {
   render() {
     return (
       <div>
-        <a href="http://thecatapi.com"><img src={this.state.kitty} /></a>
-        <button onClick={() => this.resetCatPic()}>New Cat</button>
+        <a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&size=med" /></a>
+        <button onClick={this.resetCatPic}>New Cat</button>
       </div>
     );
   }
