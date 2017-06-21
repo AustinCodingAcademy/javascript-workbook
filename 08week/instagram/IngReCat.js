@@ -24,7 +24,7 @@ class IngForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.getIndRec = this.getIndRec.bind(this);
+    this.getIndRec = this.getIndRec.bind(this);
     this.getRecipes = this.getRecipes.bind(this);
   }
 
@@ -96,9 +96,20 @@ class IngForm extends React.Component {
     });
   }
 
+  // renderIngredients(instructions) {
+  //   console.log(instructions);
+  //   return(
+  //
+  //     <div className="ingredients">
+  //     {instructions.recIng}
+  //     </div>
+  //   );
+  // }          //{this.renderIngredients(this.state.instructions[rec.id])}
+
+
   renderInstructions(instructions) {
     return (
-      <div>
+      <div className="instructions">
         {instructions.instructions}
       </div>
     );
