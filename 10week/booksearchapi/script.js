@@ -6,15 +6,17 @@ class App extends React.Component {
 
     this.state = {
       listit: [],
-      bookname: null
+      bookname: null,
+      startidx: 1
     }
     this.submitForm = this.submitForm.bind(this)
     this.changeInput = this.changeInput.bind(this)
+    this.increaseIndex = this.increaseIndex.bind(this)
   }
 
   fetchBook() {
     console.log(this.state.bookname);
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=40&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=40&startIndex=${this.state.startidx}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
     .then((response) => {
       response.json().then((data) => {
         console.log(data.totalItems);
@@ -57,6 +59,14 @@ class App extends React.Component {
     )
   }
 
+  increaseIndex(event) {
+    event.preventDefault();
+    this.setState((prevState) => (
+      {startidx: prevState.startidx + 40}
+    ))
+    this.fetchBook();
+  }
+
   submitForm(event) {
     event.preventDefault();
     console.log(this.state);
@@ -69,12 +79,16 @@ class App extends React.Component {
     });
   }
 
+  // <button type="submit" onClick={this.increaseIndex()}>MORE</button>
+
+
   render() {
     return (
       <div>
         <BookTitleSearch onSubmit={this.submitForm} onChangeInput={this.changeInput} /><br/>
         Here's the results:
         <ul>{this.listinfo()}</ul>
+        <button type="submit" onClick={this.increaseIndex}>MORE</button>
       </div>
     )
   }
@@ -91,7 +105,7 @@ class BookTitleSearch extends React.Component {
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
-        <input onChange={this.props.onChangeInput} />
+        <input onChange={this.props.onChangeInput} className="center"/>
         <button type="submit">Submit</button>
       </form>
     )
