@@ -6,7 +6,7 @@ class IngReCat extends React.Component {
     this.state = {};
   }
   render() {
-    return (<IngForm />);
+    return <IngForm />;
   }
 }
 
@@ -24,7 +24,7 @@ class IngForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getIndRec = this.getIndRec.bind(this);
+    // this.getIndRec = this.getIndRec.bind(this);
     this.getRecipes = this.getRecipes.bind(this);
   }
 
@@ -59,9 +59,8 @@ class IngForm extends React.Component {
     }).then(response => {
       console.log(response);
       return response.json().then(data => {
-        var recIng = data.extendedIngredients.map(ing => ing.originalString);
+        var recIng = data.extendedIngredients.map(ing => ing);
         var instructions = data.instructions;
-        console.log(recIng);
         this.setState({
           instructions: {
             ...this.state.instructions,
@@ -77,7 +76,7 @@ class IngForm extends React.Component {
     let ing = this.state.ing;
     let baseUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-
+    //apples%2Cflour%2Csugar
     let endUrl = "&limitLicense=false&number=5&ranking=1";
     fetch(baseUrl + ing[0] + endUrl, {
       method: "GET",
@@ -96,42 +95,20 @@ class IngForm extends React.Component {
     });
   }
 
-
-  // renderIngredients(instructions) {
-  //   console.log(instructions);
-  //   return(
-  //
-  //     <div className="ingredients">
-  //     {instructions.recIng}
-  //     </div>
-  //   );
-  // }          //{this.renderIngredients(this.state.instructions[rec.id])}
-
-  // renderIng (instructions){
-  //   return (
-  //     instructions.recIng.map(ing => <li>{ing.originalString}</li>)
-  //   );
-  // }//   {this.state.instructions[rec.id].recIng.map(rec => <li>rec.originalString</li>)}
-  // // <ul>{this.renderIng(this.state.instructions[rec.id])}</ul>
-
   renderInstructions(instructions) {
-    let ingredients = instructions.recIng.map(ing =><li key={ing}>{ing}</li>)
     return (
-      <div className="instructions">
       <div>
-        <ul>{ingredients}</ul>
         {instructions.instructions}
       </div>
     );
   }
 
   render() {
-      let menu = this.state.recipes.map(rec => {
+    let menu = this.state.recipes.map(rec => {
       return (
         <div key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
           <img className="recPic" src={rec.image} />
-
           {this.state.instructions[rec.id]
             ? this.renderInstructions(this.state.instructions[rec.id])
             : ""}
