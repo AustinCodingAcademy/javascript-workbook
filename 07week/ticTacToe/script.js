@@ -2,8 +2,8 @@
 
 class TicTacToe extends React.Component {  //Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
   constructor(props) {
-    super(props);
-    this.state = {    //creating the state -- the empty cells essentially
+    super(props); //passes props down to rest of components
+    this.state = {    //creating the state -- the empty cells essentially.  Dictates the way component reacts/changes.  Anytime the state changes, the DOM is triggered.  Sees changes on your DOM and re-renders it in efficient way.
       a: '',
       b: '',
       c: '',
@@ -35,9 +35,9 @@ class TicTacToe extends React.Component {  //Components let you split the UI int
 
   }
 
-  render() {
-    const combos = [
-      ['a', 'b', 'c'],
+  render() { //The render method returns the needed component markup, which can be a single child component or null or false (in case you don't want any rendering).
+    const combos = [  // Whatever you return from your render() method represents how your view should look in the real browser DOM.
+      ['a', 'b', 'c'],   //list of winning combos
       ['d', 'e', 'f'],
       ['g', 'h', 'i'],
       ['a', 'd', 'g'],
@@ -47,9 +47,9 @@ class TicTacToe extends React.Component {  //Components let you split the UI int
       ['c', 'e', 'g']
     ];
 
-    let playerWon = '';
+    let playerWon = '';  //creates the playerWon
 
-    combos.forEach((combo) => {
+    combos.forEach((combo) => {  //runs through each of the combos using higher order function for each
       if (
         this.state[combo[0]] &&
         this.state[combo[0]] === this.state[combo[1]] &&
@@ -86,3 +86,4 @@ class TicTacToe extends React.Component {  //Components let you split the UI int
 }
 
 ReactDOM.render(<TicTacToe />, document.getElementById('tic-tac-toe'));
+//ReactDOM.render(component, where in the html you are going to be changing)
