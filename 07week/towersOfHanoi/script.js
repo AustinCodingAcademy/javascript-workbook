@@ -4,12 +4,13 @@ class TowersOfHanoi extends React.Component {
   constructor() {
     super()
     this.state = {
-      a:[100, 25],
-      b:[50, 75],
+      a:[100, 25, 50, 25],
+      b:[],
       c:[],
-      block: null
+      held: null
     }
   }
+// all blocks start in the first row, so they were moved to a.
 
   clickStack = (e) => {
     const letter = e.target.getAttribute('data-stack');
