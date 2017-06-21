@@ -117,19 +117,20 @@ class IngForm extends React.Component {
         </div>
       );
     });
-
+    // <label>
+    // {" "}Ingredients:
+    // </label>
     return (
-      <div>
+      <div className="form">
         <h1> Enter Your Ingredients </h1>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            {" "}Ingredients:
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </label>
+
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+
           <input type="submit" value="Submit" />
         </form>
 
@@ -138,15 +139,42 @@ class IngForm extends React.Component {
     );
   }
 }
-  // class ResetCat extends React.Component { Adding a component for the cat
-  //   constructor(props){
-  //     super(props);
-  //     this.state ={
-  //       kitty:
-  //     }
-  //   }
-  //
+
+class CatPic extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
+
+    };
+      this.resetCatPic = this.resetCatPic.bind(this);
+  }
+
+
+  resetCatPic() {
+    this.forceUpdate();
+  }
+  //   this.setState({
+  //     kitty:  "http://thecatapi.com/api/images/get?format=src&size=med"
+  //   });
   // }
+  // reset() {
+  //   this.setState({
+  //     kitty: <a href="http://thecatapi.com">
+  //       <img src="http://thecatapi.com/api/images/get?format=src&size=med" />
+  //   });
+  // }
+
+  render() {
+    return (
+      <div>
+        <a href="http://thecatapi.com"><img src={this.state.kitty} /></a>
+        <button onClick={() => this.resetCatPic()}>New Cat</button>
+      </div>
+    );
+  }
+}
+
 // class RecipeResults extends React.Component {
 //   constructor(props){
 //     super(props);
@@ -174,4 +202,4 @@ class IngForm extends React.Component {
 // }
 
 ReactDOM.render(<IngReCat />, document.querySelector("#fetch"));
-//ReactDOM.render(<CatPic />, document.querySelector('#catPic'));
+ReactDOM.render(<CatPic />, document.querySelector("#catPic"));
