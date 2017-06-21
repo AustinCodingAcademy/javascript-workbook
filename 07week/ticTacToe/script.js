@@ -33,12 +33,13 @@ class TicTacToe extends React.Component {
     // {a: 'X', playerTurn; 'O'}
     this.setState(obj);
     // Above is the method of how you update the state. You just use it.
-    (this.checkWin();
-
+    this.checkWin();
   }
 
 
   render() {
+    // all possible winning combinations
+    //moved to render part so it check for the Win
     const combos = [
       ['a', 'b', 'c'],
       ['d', 'e', 'f'],
@@ -48,17 +49,17 @@ class TicTacToe extends React.Component {
       ['c', 'f', 'i'],
       ['a', 'e', 'i'],
       ['c', 'e', 'g'],
-    ];
+  ];
 
-    let playerWon = '';
+  let playerWon = '';
 
 // For Each allows us to bypass the next state change, the one that
 // was breaking everything
     combos.forEach((combo) => {
       if (
       this.state[combo[0]] &&
-      this.state[combo[0]] === this.state.[combo[1]] &&
-      this.state[combo[0]] === this.state.[combo[2]]
+      this.state[combo[0]] === this.state[combo[1]] &&
+      this.state[combo[0]] === this.state[combo[2]]
       ) {
       playerWon = this.state[combo[0]];
       }
@@ -72,7 +73,6 @@ class TicTacToe extends React.Component {
             <div data-cell="a" onClick={this.clickCell}>{this.state.a}</div>
             <div data-cell="b" onClick={this.clickCell}>{this.state.b}</div>
             <div data-cell="c" onClick={this.clickCell}>{this.state.c}</div>
-            // You can use dot notation for a single string here.not numbers.
           </div>
           <div className="row">
             <div data-cell="d" onClick={this.clickCell}>{this.state.d}</div>
@@ -80,12 +80,12 @@ class TicTacToe extends React.Component {
             <div data-cell="f" onClick={this.clickCell}>{this.state.f}</div>
           </div>
           <div className="row">
-            <div data-cell="g" onClick={this.clickCell}>{this.state[g]}</div>
-            <div data-cell="h" onClick={this.clickCell}>{this.state[h]}</div>
-            <div data-cell="i" onClick={this.clickCell}>{this.state[i]}</div>
+            <div data-cell="g" onClick={this.clickCell}>{this.state.g}</div>
+            <div data-cell="h" onClick={this.clickCell}>{this.state.h}</div>
+            <div data-cell="i" onClick={this.clickCell}>{this.state.i}</div>
           </div>
         </div>
-        <div style={{display: this.state.won}}
+        <div> Player {playerWon} Won!</div>
       </div>
 
 
