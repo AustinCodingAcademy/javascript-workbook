@@ -1,39 +1,43 @@
 'use strict';
 
-class Alert extends React.Component {
-  constructor(props) {
-    super(props);
+
+class Welcome extends React.Component {
+  constructor() {
+    super();
     this.state = {
-      message: 'Well done! You successfully read this important message.',
-      type: this.props.type
-    }
+      name: 'there',
+      color: 'red'
+    };
   }
 
-  changeType = (e) => {
+  changeName = (e) => {
+    let color;
+    if (e.target.value.length % 3 === 0 && e.target.value.length % 5 === 0) {
+      color = 'blue';
+    } else if (e.target.value.length % 3 === 0) {
+      color = 'green';
+    } else if (e.target.value.length % 5 === 0) {
+      color = 'red';
+    } else {
+      color = 'black';
+    }
+
     this.setState({
-      type: e.target.value
-    })
+      name: e.target.value,
+      color: color
+    });
   }
 
   render() {
     return (
-      <div className={`alert alert-${this.state.type}`} role="alert">
-        <span>{this.sate.message}</span>
-        <input onChange={this.changeType} />
+      <div>
+        <h1 style={ {color: this.state.color} }>Hello, {this.state.name}!</h1>
+        <input type="text" onChange={this.changeName} />
       </div>
-    )
+    );
   }
-
-
-  const = [
-    'success',
-    'warning',
-    'danger',
-    'info'
-  ].map((type) => {
-    return (<Alert type={type} />)
-  })
 }
 
 
-ReactDOM.render(<div>{types}</div>, document.querySelector('#bootstrap'));
+
+ReactDOM.render(<Welcome />, document.getElementById('welcome'));

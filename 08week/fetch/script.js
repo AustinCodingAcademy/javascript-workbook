@@ -1,24 +1,30 @@
-'use strict';
+// 'use strict';
 
-<ul id="top-stories"></ul>
+function createNode(element) {
+      return document.createElement(element);
+  }
 
+  function append(parent, el) {
+    return parent.appendChild(el);
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty').then((res) => {
-    res.json().then((storyIds) => {
-      storyIds.slice(0, 10).forEach((storyId) => {
-        fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`).then((res) => {
-          res.json().then((story) => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = story.url;
-            a.innerText = story.title;
-            li.appendChild(a);
-            document.getElementById('top-stories').appendChild(li);
-          });
-        });
-      });
-    });
+  const ul = document.getElementById('authors');
+  const url = 'https://randomuser.me/api/?results=10';
+  fetch(url)
+  .then((resp) => resp.json())
+  .then(function(data) {
+    let authors = data.results;
+    return authors.map(function(author) {
+      let li = createNode('li'),
+          img = createNode('img'),
+          span = createNode('span');
+      img.src = author.picture.medium;
+      span.innerHTML = `${author.name.first} ${author.name.last}`;
+      append(li, img);
+      append(li, span);
+      append(ul, li);
+    })
+  })
+  .catch(function(error) {
+    console.log(JSON.stringify(error));
   });
-});
-ReactDOM.render(<div>{types}</div>, document.querySelector('#fetch'));
