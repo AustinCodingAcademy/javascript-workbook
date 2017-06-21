@@ -13,11 +13,14 @@ class TowersOfHanoi extends React.Component {
 // all blocks start in the first row, so they were moved to a.
 
   clickStack = (e) => {
+
     const letter = e.target.getAttribute('data-stack');
     const stack = this.state[letter].slice();
     let block;
+    
     if (this.state.block) {
       const block = stack.pop();
+      console.log(block)
     } else {
       stack.push(this.state.block);
       const ['block'] = null;
