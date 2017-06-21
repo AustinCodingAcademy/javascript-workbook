@@ -17,6 +17,7 @@ class App extends React.Component {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=40&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
     .then((response) => {
       response.json().then((data) => {
+        console.log(data.totalItems);
         var templist = [];
         data.items.map((withit) => {
           // This will map and return free ebook with download link
