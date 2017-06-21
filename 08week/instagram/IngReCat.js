@@ -16,7 +16,7 @@ class IngForm extends React.Component {
     this.state = {
       value: "",
       recipes: [],
-      ingredients: "",
+      ingredients: [],
       instructions: {},
       ing: [],
       menu: []
@@ -96,8 +96,10 @@ class IngForm extends React.Component {
   }
 
   renderInstructions(instructions) {
+    let ingredients = instructions.recIng.map(ing => <li key={ing}>{ing}</li>);
     return (
       <div>
+        <ul>{ingredients}</ul>
         {instructions.instructions}
       </div>
     );
