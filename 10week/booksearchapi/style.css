@@ -4,11 +4,16 @@ body {
 
 li {
   display: inline-block;
-  margin: 20px 40px;
+  margin: 20px 20px;
   font-size: 15px;
 }
 
 .center {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+.borderit {
+  border: 2px solid red;
 }

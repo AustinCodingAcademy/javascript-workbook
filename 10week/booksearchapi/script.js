@@ -51,7 +51,7 @@ class App extends React.Component {
     return (
       this.state.listit.map((listitem) =>
         <li key={listitem.id}>
-          <a href={listitem.accessInfo.epub.downloadLink}>
+          <a href={listitem.accessInfo.epub.downloadLink} className="borderit">
           <img alt="book cover" src={listitem.volumeInfo.imageLinks.thumbnail}/>
           </a><br/>
         </li>
@@ -87,7 +87,7 @@ class App extends React.Component {
       <div>
         <BookTitleSearch onSubmit={this.submitForm} onChangeInput={this.changeInput} /><br/>
         Here's the results:
-        <ul>{this.listinfo()}</ul>
+        <ul className="center">{this.listinfo()}</ul>
         <button type="submit" onClick={this.increaseIndex}>MORE</button>
       </div>
     )
@@ -104,8 +104,8 @@ class BookTitleSearch extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.onSubmit}>
-        <input onChange={this.props.onChangeInput} className="center"/>
+      <form onSubmit={this.props.onSubmit} className="center">
+        <input onChange={this.props.onChangeInput}/>
         <button type="submit">Submit</button>
       </form>
     )
