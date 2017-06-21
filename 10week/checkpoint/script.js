@@ -147,7 +147,7 @@ class InstagramSearch extends React.Component {
     return (
       <form onSubmit={this.props.onSubmit}>
         <input onChange={this.props.onChangeInput} />
-        <button className="btn btn-success" type="submit">Start</button>
+        <button type="submit">Start</button>
       </form>
     )
   }
