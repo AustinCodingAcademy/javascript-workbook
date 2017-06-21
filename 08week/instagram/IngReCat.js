@@ -138,7 +138,15 @@ class IngForm extends React.Component {
     );
   }
 }
-
+  // class ResetCat extends React.Component { Adding a component for the cat
+  //   constructor(props){
+  //     super(props);
+  //     this.state ={
+  //       kitty:
+  //     }
+  //   }
+  //
+  // }
 // class RecipeResults extends React.Component {
 //   constructor(props){
 //     super(props);
