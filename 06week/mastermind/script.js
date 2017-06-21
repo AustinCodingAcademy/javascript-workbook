@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //   board.push(guess+ " " + generateHint(guess))
-  // }
+    board.push(guess+ " " + generateHint(guess))
+  })
 
 document.querySelector('button').onClick = function() {
   let guess = document.querySelector('#guess').value.toLowerCase();
@@ -77,4 +77,5 @@ document.querySelector('button').onClick = function() {
   console.log(board);
   document.querySelector('#board').appendChild(newDiv);
   }
-})
+ )
+}
