@@ -59,7 +59,7 @@ class IngForm extends React.Component {
     }).then(response => {
       console.log(response);
       return response.json().then(data => {
-        var recIng = data.extendedIngredients.map(ing => ing);
+        var recIng = data.extendedIngredients.map(ing => ing.originalString);
         var instructions = data.instructions;
         this.setState({
           instructions: {
