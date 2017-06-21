@@ -88,7 +88,9 @@ class App extends React.Component {
         <BookTitleSearch onSubmit={this.submitForm} onChangeInput={this.changeInput} /><br/>
         Here's the results:
         <ul className="center">{this.listinfo()}</ul>
-        <button type="submit" onClick={this.increaseIndex}>MORE</button>
+        <div className="center bottom">
+          <button type="submit" onClick={this.increaseIndex}>MORE</button>
+        </div>
       </div>
     )
   }

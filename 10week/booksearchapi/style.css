@@ -1,5 +1,5 @@
 body {
-  background-color: lightgrey;
+  background-color: #a3b4d1;
 }
 
 li {
@@ -16,4 +16,8 @@ li {
 
 .borderit {
   border: 2px solid red;
+}
+
+.bottom {
+  margin-bottom: 80px;
 }
