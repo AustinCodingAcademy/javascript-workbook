@@ -11,6 +11,8 @@ class TowersOfHanoi extends React.Component {
     }
   }
 
+// this is where it will be checked if the block is smaller than the last on the stack
+// to verify if it is valid for the game rules
   isLegal = function(stackArray, block) {
     console.log(stackArray[stackArray.length - 1]);
     console.log(block);
@@ -32,7 +34,9 @@ class TowersOfHanoi extends React.Component {
       const block = stack.pop();
       obj['block'] = block;
     } else {
-      // check if a valid move
+      // check if the move is legal
+      // as explained in class??
+      // after watching video
       if ( this.isLegal(stack, this.state.block) ) {
 
         stack.push(this.state.block);
@@ -41,13 +45,12 @@ class TowersOfHanoi extends React.Component {
     }
     obj[letter] = stack;
     this.setState(obj);
-    // can't do this
-    // this.setState({
-    //   letter: stack
-    // })
+// ???
 
   }
 
+// explained that a copy of each stack needed to be created
+// map aBlocks, bBlocks, cBlocks
   render() {
     const aBlocks = this.state.a.map((size) => {
       return (<div key={size} data-block={size}></div>)
