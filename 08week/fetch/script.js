@@ -132,7 +132,9 @@ class Instagram extends React.Component{
           {thumbnails}
         </div>
         <img src={this.state.selected} />
-        //I need to make the image appear over the rows of the thumbnails. 
+        //At this point, I updated the state with the higher resolution image, overrode
+        // the empty state. 
+        //I need to make the image appear over the rows of the thumbnails.
       </div>
     )
   }

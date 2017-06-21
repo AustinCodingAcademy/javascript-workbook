@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (checkforWin()) {
         document.querySelector('#announce-winner').innerText = (`Player ${playerTurn}`)
       }
+      //This toggles from X to O, then back to X.
       playerTurn = (playerTurn === 'X') ? 'O' : 'X';
       });
     })
@@ -72,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // [0, 4, 8],
         // [2, 4, 6]
       ];
-      // Iterate over each of them.
+      // Iterate over each of them. Does data cell equal a === playerTurn? If true,
+      // it returns true and goes to the next index in the combo. When false, it will
+      // not move on. Some function requires that at least one is true.
       return winningCombos.some((combo) => {
         return (combo.every((letter) => {
           return document.querySelector(`[data-cell="${letter}"]`).innerText === playerTurn;
@@ -85,7 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
       //     return true;
     });
   });
-
-}
-
+ }
 });
