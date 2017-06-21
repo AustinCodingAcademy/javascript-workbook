@@ -152,7 +152,9 @@ class CatPic extends React.Component {
 
 
   resetCatPic() {
-    this.forceUpdate();
+    this.setState({
+      kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
+    });
   }
   //   this.setState({
   //     kitty:  "http://thecatapi.com/api/images/get?format=src&size=med"
