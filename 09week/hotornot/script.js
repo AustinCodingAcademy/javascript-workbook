@@ -7,6 +7,7 @@ class Person extends React.Component {
       value: '',
       user: null,
       guesses: [], // { guess: 22, age: 35 , thumbnail src: http://213.com/123}, {}, {}
+      score: 0
     };
     this.handleChange = this.handleChange.bind(this);
     this.checkAge = this.checkAge.bind(this);
@@ -19,9 +20,9 @@ class Person extends React.Component {
   fetchUser() {
     let url = 'https://randomuser.me/api/?results=1';
     fetch(url).then((response) => {
-      // console.log("response ",response);
+      console.log("response ",response);
       response.json().then(jsonObj => {
-        // console.log("jsonObj.results[0] ",jsonObj.results);
+        console.log("jsonObj.results[0] ",jsonObj.results);
         this.setState({
           user: jsonObj.results[0],
 
@@ -39,11 +40,13 @@ class Person extends React.Component {
     e.preventDefault();
     console.log('Age submitted: ' + this.state.value);
     //set state of guess and age.
-
+    let tempScore = Math.abs(this.state.value - this.getAge(this.state.user.dob.slice(0,10)));
     this.setState(({guesses, value, user}) => {
+      // let tempScore = this.state.user - ;
       return {
         value: "",
-        guesses: [ ...guesses, { guess: value, age: this.getAge(user.dob.slice(0,10)), thumbnail: this.state.user.picture.thumbnail } ]
+        guesses: [ ...guesses, { guess: value, age: this.getAge(user.dob.slice(0,10)), thumbnail: this.state.user.picture.thumbnail } ],
+        score: this.state.score + tempScore
       };
     });
     this.fetchUser();
@@ -80,19 +83,19 @@ class Person extends React.Component {
     return (
       <div>
 
-      { this.state.guesses.length ? this.createGuessesHTML() : "" }
-      <img src={this.state.user.picture.large} />
+
+      <img className= "pad-top" src={this.state.user.picture.large} />
       <br />
       Name: {this.state.user.name.first.toUpperCase()}
 
       <br />
       <form onSubmit = {this.checkAge}>
       <label>
-      <input placeholder="enter age" type="number" name="ageInput"
+      <input placeholder="Enter an age" type="number" name="ageInput"
       value={this.state.value} onChange={this.handleChange} />
       </label>
 
-      <input type="submit" value="Submit" />
+      <input className="btn btn-primary" type="submit" value="Submit" />
       </form>
       </div>
     )
@@ -100,8 +103,19 @@ class Person extends React.Component {
 
   render() {
     return (
-      <div>
-      { this.state.user ? this.renderUser() : "Loading" }
+      <div className="container-fluid">
+        <div className="row">
+        <div id="main">
+        { this.state.user ? this.renderUser() : "Loading" }
+        </div>
+        <div id="guesses">
+        { this.state.guesses.length ? this.createGuessesHTML() : "" }
+        </div>
+        <div id="score">
+        <h3>Current Score:</h3>
+        { this.state.score }
+        </div>
+        </div>
       </div>
     )
   }

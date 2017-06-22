@@ -1,6 +1,17 @@
 li {
   list-style-type: none;
+  margin-top: 5px;
 }
 em {
   font-size: 2em;
+}
+center {
+  margin: 0 auto;
+}
+body {
+  margin-top:20px;
+}
+.pad-top {
+  padding-top:20px;
+
 }
