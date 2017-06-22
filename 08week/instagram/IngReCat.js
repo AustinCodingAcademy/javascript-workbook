@@ -110,7 +110,11 @@ class IngForm extends React.Component {
       return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
-          <img className="recPic" src={rec.image} alt="http://thecatapi.com/api/images/get?format=src&size=med" />
+          <img
+            className="recPic"
+            src={rec.image}
+            alt="http://thecatapi.com/api/images/get?format=src&size=med"
+          />
           {this.state.instructions[rec.id]
             ? this.renderInstructions(this.state.instructions[rec.id])
             : ""}
@@ -134,7 +138,7 @@ class IngForm extends React.Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <div className ="recipe"> {menu}</div>
+        <div className="recipe"> {menu}</div>
       </div>
     );
   }
@@ -143,17 +147,32 @@ class IngForm extends React.Component {
 class CatPic extends React.Component {
   constructor() {
     super();
-      this.state = {
-        kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
-      }
-      this.resetCatPic = this.resetCatPic.bind(this);
+    this.state = {
+      kitty: 'http://thecatapi.com/api/images/get?format=src&size=med"'
     };
+    this.resetCatPic = this.resetCatPic.bind(this);
+  }
 
   resetCatPic() {
-    this.forceUpdate();
-    //   kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
-    // });
+    let newCat = "http://thecatapi.com/api/images/get?format=src&size=med";
+    fetch(newCat)
+      .then(function(response) {
+        console.log(response);
+        return response.blob();
+      })
+      .then((myBlob) => {
+        console.log(myBlob);
+        // debugger
+        this.setState({
+          kitty:  URL.createObjectURL(myBlob)
+        });
+      });
   }
+
+  //  this.forceUpdate();
+  //   kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
+  // });
+
   //   this.setState({
   //     kitty:  "http://thecatapi.com/api/images/get?format=src&size=med"
   //   });
@@ -168,7 +187,9 @@ class CatPic extends React.Component {
   render() {
     return (
       <div>
-        <a href="http://thecatapi.com"><img className="catPic" src={this.state.kitty} /></a>
+        <a href="http://thecatapi.com">
+          <img className="catPic" src={this.state.kitty} />
+        </a>
         <button onClick={this.resetCatPic}>New Cat</button>
       </div>
     );

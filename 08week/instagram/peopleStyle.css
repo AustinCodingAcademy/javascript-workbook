@@ -21,10 +21,13 @@ div{
 }
 
 #catPic {
+  height: 400px;
+  width: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #edebf5;
+
 }
 
 .form {
