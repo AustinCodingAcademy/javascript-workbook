@@ -1,19 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 //catFight app, person has a cat, will combat other cats, cat's votes will be the metric,
 // so get cats with votes. api key: MTkxNTAw\
 //Changed to 'IngReCat', input ingredients, output recipes and cats. eventually will be able to filter
 //results according to cuisine, but lets get it working first
 // mashape's spoonacular api key -H 'X-Mashape-Key: YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o' \
+
 class IngReCat extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    return <IngForm />;
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React</h2>
+        </div>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <IngForm />
+      </div>
+    );
   }
 }
 
@@ -23,7 +35,7 @@ class IngForm extends Component {
     this.state = {
       value: "",
       recipes: [],
-      ingredients: [],
+      ingredients: "",
       instructions: {},
       ing: [],
       menu: []
@@ -43,10 +55,12 @@ class IngForm extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-
-    this.state.ingredients = this.state.value.split(",");
-    this.state.ing = this.state.ingredients.map(x => x.trim());
-    console.log(this.state.ingredients[0]);
+    this.setState({
+      ing: this.state.ingredients.split("").map(x => x.trim())
+    });
+    // this.state.ingredients = this.state.value.split(",");
+    // this.state.ing = this.state.ingredients.map(x => x.trim());
+    // console.log(this.state.ingredients[0]);
 
     this.getRecipes();
   }
@@ -103,10 +117,10 @@ class IngForm extends Component {
   }
 
   renderInstructions(instructions) {
-    let ingredients = instructions.recIng.map(ing => <li key={ing}>{ing}</li>);
+    let ingList = instructions.recIng.map(ing => <li key={ing}>{ing}</li>);
     return (
       <div className="recipeIns">
-        <ul>{ingredients}</ul>
+        <ul>{ingList}</ul>
         {instructions.instructions}
       </div>
     );
@@ -148,7 +162,7 @@ class IngForm extends Component {
         <div className="recipe"> {menu}</div>
       </div>
     );
-  };
+  }
 }
 
 class CatPic extends Component {
@@ -167,15 +181,14 @@ class CatPic extends Component {
         console.log(response);
         return response.blob();
       })
-      .then((myBlob) => {
+      .then(myBlob => {
         console.log(myBlob);
         // debugger
         this.setState({
-          kitty:  URL.createObjectURL(myBlob)
+          kitty: URL.createObjectURL(myBlob)
         });
       });
-  };
-
+  }
 
   render() {
     return (
@@ -185,10 +198,9 @@ class CatPic extends Component {
         </a>
         <button onClick={this.resetCatPic}>New Cat</button>
       </div>
-      );
-    }
+    );
   }
-
+}
 
 // ReactDOM.render(<IngReCat />, document.querySelector("#fetch"));
 // ReactDOM.render(<CatPic />, document.querySelector("#catPic"));
