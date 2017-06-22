@@ -148,8 +148,8 @@ class IngForm extends Component {
         <div className="recipe"> {menu}</div>
       </div>
     );
-  }
-
+  };
+}
 
 class CatPic extends Component {
   constructor() {
@@ -174,22 +174,8 @@ class CatPic extends Component {
           kitty:  URL.createObjectURL(myBlob)
         });
       });
-  }
+  };
 
-  //  this.forceUpdate();
-  //   kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
-  // });
-
-  //   this.setState({
-  //     kitty:  "http://thecatapi.com/api/images/get?format=src&size=med"
-  //   });
-  // }
-  // reset() {
-  //   this.setState({
-  //     kitty: <a href="http://thecatapi.com">
-  //       <img src="http://thecatapi.com/api/images/get?format=src&size=med" />
-  //   });
-  // }
 
   render() {
     return (
@@ -199,35 +185,10 @@ class CatPic extends Component {
         </a>
         <button onClick={this.resetCatPic}>New Cat</button>
       </div>
-    );
+      );
+    }
   }
-}
-}
-// class RecipeResults extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state ={
-//       results: this.state.recipes
-//       }
-//     }
-//
-//     render(){
-//       this.state.results.map(rec => {
-//         let name = rec.title;
-//         let pic = rec.image;
-//
-//         return(
-//           <div>
-//             <ul>
-//              <li> {rec.title}</li>
-//              <li>{rec.image}</li>
-//             </ul>
-//           </div>
-//       );});
-//
-//     }
-//
-// }
+
 
 // ReactDOM.render(<IngReCat />, document.querySelector("#fetch"));
 // ReactDOM.render(<CatPic />, document.querySelector("#catPic"));
