@@ -113,9 +113,10 @@ class Instagram extends React.Component{
   render() {
     const thumbnails = this.state.images.map((image) => {
       return (
-        <div key={image.thumbnail.url} className="col">
+          <div key={image.thumbnail.url} className="col-3">
           <img src={image.thumbnail.url} data-image={image.standard_resolution.url} onClick={this.clickImage.bind(this)}/>
-        </div>
+          </div>
+
       );
     });
 //The image thumbnail dot notation will render the default 150x150. The data-image
@@ -127,11 +128,13 @@ class Instagram extends React.Component{
 
     return(
       <div>
+        <div className="jumbotron">
+        <img src={this.state.selected} />
+        </div>
         <InstagramSearch onSubmit={this.submitForm} onChangeInput={this.changeInput}/>
         <div className="row">
           {thumbnails}
         </div>
-        <img src={this.state.selected} />
       </div>
     )
   }
@@ -145,10 +148,12 @@ class Instagram extends React.Component{
 class InstagramSearch extends React.Component {
   render() {
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <div className="col">
+      <form className="col" onSubmit={this.props.onSubmit}>
         <input onChange={this.props.onChangeInput} />
-        <button type="submit">Start</button>
+        <button className="col-1 center btn btn-success" type="submit">Start</button>
       </form>
+      </div>
     )
   }
 }
