@@ -14,9 +14,9 @@ class App extends React.Component {
     this.increaseIndex = this.increaseIndex.bind(this)
   }
 
-  fetchBook() {
+  fetchBook(index) {
     console.log(this.state.bookname);
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=40&startIndex=${this.state.startidx}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=40&startIndex=${index}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
     .then((response) => {
       response.json().then((data) => {
         console.log(data.totalItems);
@@ -61,16 +61,19 @@ class App extends React.Component {
 
   increaseIndex(event) {
     event.preventDefault();
-    this.setState((prevState) => (
-      {startidx: prevState.startidx + 40}
-    ))
-    this.fetchBook();
+    const newIndex = this.state.startidx + 40
+    this.setState((prevState) => ({
+      startidx: newIndex
+    }))
+    console.log('STARTIDX_INDEX', this.state.startidx);
+    console.log('NEW_INDEX', newIndex);
+    this.fetchBook(newIndex);
   }
 
   submitForm(event) {
     event.preventDefault();
     console.log(this.state);
-    this.fetchBook();
+    this.fetchBook(this.state.startidx);
   }
 
   changeInput(event) {
