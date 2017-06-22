@@ -6,7 +6,7 @@ class Person extends React.Component {
     this.state = {
       value: '',
       user: null,
-      guesses: [], // { guess: 22, age: 35 }, {}, {}
+      guesses: [], // { guess: 22, age: 35 , thumbnail src: http://213.com/123}, {}, {}
     };
     this.handleChange = this.handleChange.bind(this);
     this.checkAge = this.checkAge.bind(this);
@@ -43,18 +43,18 @@ class Person extends React.Component {
     this.setState(({guesses, value, user}) => {
       return {
         value: "",
-        guesses: [ ...guesses, { guess: value, age: this.getAge(user.dob.slice(0,10)) } ]
+        guesses: [ ...guesses, { guess: value, age: this.getAge(user.dob.slice(0,10)), thumbnail: this.state.user.picture.thumbnail } ]
       };
     });
     this.fetchUser();
   }
 
   createGuessesHTML() {
-    return this.state.guesses.map(({guess, age}) => {
+    return this.state.guesses.map(({guess, age, thumbnail}) => {
       // guess
       // const guess = guess.guess
       // const age = guess.age
-      return <li>Your guess:  {guess} Actual Age: {age}</li>
+      return <li><img src={ thumbnail }></img>Your guess: {guess} Actual Age: {age}</li>
     });
     // let list = ""
     // return (
@@ -74,7 +74,6 @@ class Person extends React.Component {
       return age;
   }
 
-
   renderUser = () => {
     console.info("this.state.user in renderUser ",this.state.user);
     var birthDate = new Date(this.state.user.dob.slice(0,10));
@@ -85,7 +84,7 @@ class Person extends React.Component {
       <img src={this.state.user.picture.large} />
       <br />
       Name: {this.state.user.name.first.toUpperCase()}
-      
+
       <br />
       <form onSubmit = {this.checkAge}>
       <label>
