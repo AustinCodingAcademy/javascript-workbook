@@ -8,7 +8,7 @@ class SearchBar extends Component  {
       term: ''
     };
   }
-  //constructiong and setting state for SearchBar compnent. It gets an empty string as state which will
+  //constructing and setting state for SearchBar compnent. It gets an empty string as state which will
   //hold data entered as term prop
   render() {
     return (
