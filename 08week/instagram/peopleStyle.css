@@ -21,13 +21,18 @@ div{
 }
 
 #catPic {
-  height: 400px;
-  width: 600px;
+
   display: flex;
   justify-content: center;
   align-items: center;
   background: #edebf5;
 
+}
+
+.catPic {
+  margin: 10px;
+  height: 430px;
+  width: auto;
 }
 
 .form {
@@ -52,8 +57,4 @@ div{
 
 button {
   margin: 5px;
-}
-
-.catPic {
-  margin: 10px;
 }
