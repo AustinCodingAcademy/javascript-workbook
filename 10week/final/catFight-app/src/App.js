@@ -57,13 +57,15 @@ class IngForm extends Component {
   //the value is getting lost.
   handleSubmit(event) {
     event.preventDefault();
+
     this.setState({
-      ing: this.state.value.split("").map(x => x.trim())
+       this.ing: this.state.value
+
     });
     // this.state.ingredients = this.state.value.split(",");
     // this.state.ing = this.state.ingredients.map(x => x.trim());
     // console.log(this.state.ingredients[0]);
-
+    console.log(ing);
     this.getRecipes();
   }
   getIndRec(id) {
