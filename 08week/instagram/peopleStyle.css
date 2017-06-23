@@ -22,6 +22,9 @@ div{
 
 #catPic {
 
+  /*height: 400px;
+  width: 600px;*/
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,10 +32,12 @@ div{
 
 }
 
+
+/*actual picture*/
 .catPic {
   margin: 10px;
-  height: 430px;
   width: auto;
+  height: 475px;
 }
 
 .form {
