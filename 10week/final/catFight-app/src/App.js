@@ -59,13 +59,13 @@ class IngForm extends Component {
     event.preventDefault();
 
     this.setState({
-       this.ing: this.state.value
+       ing: this.state.value
 
     });
     // this.state.ingredients = this.state.value.split(",");
     // this.state.ing = this.state.ingredients.map(x => x.trim());
     // console.log(this.state.ingredients[0]);
-    console.log(ing);
+    console.log(this.state.ing);
     this.getRecipes();
   }
   getIndRec(id) {
@@ -103,7 +103,7 @@ class IngForm extends Component {
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
     //increasing recipe return count to render them in 5 ct collections
     let endUrl = "&limitLicense=false&number=10&ranking=1";
-    fetch(baseUrl + ing[0] + endUrl, {
+    fetch(baseUrl + ing + endUrl, {
       method: "GET",
       headers: {
         Accept: "application/json",
