@@ -99,8 +99,8 @@ class IngForm extends Component {
     let ing = this.state.ing;
     let baseUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-    //apples%2Cflour%2Csugar
-    let endUrl = "&limitLicense=false&number=5&ranking=1";
+    //increasing recipe return count to render them in 5 ct collections
+    let endUrl = "&limitLicense=false&number=10&ranking=1";
     fetch(baseUrl + ing[0] + endUrl, {
       method: "GET",
       headers: {
@@ -129,7 +129,8 @@ class IngForm extends Component {
   }
 
   render() {
-    let menu = this.state.recipes.map(rec => {
+    // let menu = this.state.recipes.map(rec =>
+    let menu = this.state.recipes.slice(0,5).map(rec =>{
       return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
