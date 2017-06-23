@@ -20,7 +20,7 @@ $(document).ready(function(){
     checkForWin();
   });
 
-// This prints the guess on the board.
+// this is going to print the guess onto the board
 
   function addGuess() {
     guess = $('#text').val();
@@ -46,7 +46,7 @@ $(document).ready(function(){
     }
   }
 
-//This creates the answer.
+//This is generating the solution
   function generateSolution() {
     for (let i = 0; i < 4; i++) {
       const randomIndex = getRandomInt(0, letters.length);
@@ -70,13 +70,11 @@ return Math.floor(Math.random() * (max - min)) + min;
 
     let rightLetterWrongPlace = 0;
     let rightLetterRightPlace = 0;
-    //
+
     for (let i = 0; i < splitSolution.length; i++) {
-      // console.log(`solution: ${splitSolution}`)
-      // console.log(`guess: ${splitGuess}`)
+
       if (splitSolution[i] === splitGuess[i]) {
         splitSolution[i] = null;
-        // return(splitSolution);
         rightLetterRightPlace++;
       }
     }
@@ -97,9 +95,9 @@ return Math.floor(Math.random() * (max - min)) + min;
   }
 
   function checkForWin(guess) {
-    //turns() makes sure that you haven't done too many turns.
+    //this is limiting your number of turns
     turns();
-    if (rightLetterRightPlace === 4) {
+    if (rightLetterRightPlace = 4) {
       return('You guessed it!');
     } else {
       generateHint(solution, guess);
