@@ -1,3 +1,29 @@
+body { background: #222 }
+#octo #cat { fill: #fff }
+#octo { position: fixed; height: 100%; width: 100% }
+
+#octo .part {
+   animation-name: fade;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease-out;
+   fill: #333;
+}
+
+#octo #part1 { animation-delay: 0.000s }
+#octo #part2 { animation-delay: 0.125s }
+#octo #part3 { animation-delay: 0.250s }
+#octo #part4 { animation-delay: 0.375s }
+#octo #part5 { animation-delay: 0.500s }
+#octo #part6 { animation-delay: 0.625s }
+#octo #part7 { animation-delay: 0.750s }
+#octo #part8 { animation-delay: 0.875s }
+
+@keyframes fade {
+    0%,25%  { fill: #fff }
+    50%,75% { fill: #333 }
+}
+
 .App {
   text-align: center;
 }
