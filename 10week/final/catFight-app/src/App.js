@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import octo from "./octoCat.svg";
+//import octo from "./octoCat.svg";
 import "./App.css";
 
 //catFight app, person has a cat, will combat other cats, cat's votes will be the metric,
@@ -17,7 +17,7 @@ class IngReCat extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={octo} className="App-logo" alt="logo" />
+          <img src="./src/catFork2.jpg" className="App-logo" alt="logo" />
           <h2>Welcome to IngReCat!</h2>
 
         </div>
