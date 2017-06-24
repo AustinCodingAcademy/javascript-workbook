@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import octo from "./octoCat.svg";
 import "./App.css";
-
+import img from "./catFork2.jpg";
 //catFight app, person has a cat, will combat other cats, cat's votes will be the metric,
 // so get cats with votes. api key: MTkxNTAw\
 //Changed to 'IngReCat', input ingredients, output recipes and cats. eventually will be able to filter
@@ -17,7 +17,11 @@ class IngReCat extends Component {
     return (
       <div className="App">
         <div className="App-header">
+<<<<<<< HEAD
           <img src="./src/catFork2.jpg" className="App-logo" alt="logo" />
+=======
+          <img src={require("./catFork2.jpg")} alt="logo" className="App-logo" />
+>>>>>>> b3212262cb12014ecca57f910ef05875c2074c08
           <h2>Welcome to IngReCat!</h2>
 
         </div>
@@ -201,7 +205,7 @@ class CatPic extends Component {
     return (
       <div>
         <a href="http://thecatapi.com">
-          <img className="catPic" src={this.state.kitty} />
+          <img className="catPic" src={this.state.kitty} alt="logo" />
         </a>
         <button onClick={this.resetCatPic}>New Cat</button>
       </div>
