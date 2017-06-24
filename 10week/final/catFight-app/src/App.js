@@ -17,7 +17,7 @@ class IngReCat extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={require("./catFork2.jpg")} className="App-logo" />
+          <img src={require("./catFork2.jpg")} alt="logo" className="App-logo" />
           <h2>Welcome to IngReCat!</h2>
 
         </div>
@@ -201,7 +201,7 @@ class CatPic extends Component {
     return (
       <div>
         <a href="http://thecatapi.com">
-          <img className="catPic" src={this.state.kitty} />
+          <img className="catPic" src={this.state.kitty} alt="logo" />
         </a>
         <button onClick={this.resetCatPic}>New Cat</button>
       </div>
