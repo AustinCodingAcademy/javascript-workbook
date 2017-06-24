@@ -59,7 +59,7 @@ class IngForm extends Component {
     event.preventDefault();
 
     this.setState({
-       ing: this.state.value
+       ing: [this.state.value]
 
     });
     // this.state.ingredients = this.state.value.split(",");
@@ -103,7 +103,7 @@ class IngForm extends Component {
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
     //increasing recipe return count to render them in 5 ct collections
     let endUrl = "&limitLicense=false&number=10&ranking=1";
-    fetch(baseUrl + ing + endUrl, {
+    fetch(baseUrl + ing[0] + endUrl, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -169,7 +169,7 @@ class IngForm extends Component {
     );
   }
 }
-
+//need to render the catpic somewhere...not currently happening.
 class CatPic extends Component {
   constructor() {
     super();
