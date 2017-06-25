@@ -1,3 +1,8 @@
+body {
+  background-color: grey;
+  padding: 50px;
+}
+
 div[data-cell] {
   width: 100px;
   height: 100px;
@@ -10,9 +15,4 @@ div[data-cell] {
 
 .row {
   clear: both;
-}
-
-#announce-winner {
-  clear: both;
-  font-size: 50px;
 }
