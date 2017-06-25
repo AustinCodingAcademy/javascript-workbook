@@ -14,40 +14,79 @@ class App extends React.Component {
     this.increaseIndex = this.increaseIndex.bind(this)
   }
 
+  // fetchBook(index) {
+  //   console.log(this.state.bookname);
+  //   fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=10&startIndex=${index}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
+  //   .then((response) => {
+  //     response.json().then((data) => {
+  //       var templist = [];
+  //       data.items.map((withit) => {
+  //         // This will map and return free ebook with download link
+  //         if (withit.accessInfo.hasOwnProperty('epub')) {
+  //           if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
+  //             templist.push(withit);
+  //             console.log(withit);
+  //           }
+  //         }
+  //
+  //         // This will map and return free ebook with download link
+  //         // console.log(withit.volumeInfo.publishedDate.slice(0,4));
+  //         // if (withit.volumeInfo.hasOwnProperty('publishedDate')) {
+  //         //   var year = parseInt(withit.volumeInfo.publishedDate.slice(0,4));
+  //         //   if (year > 1990) {
+  //         //     templist.push(withit)
+  //         //   }
+  //         // }
+  //
+  //       })
+  //       this.setState({
+  //           listit: templist
+  //       })
+  //     })
+  //     .catch((error) => {
+  //       console.error('fsdfadfasdfasdf');
+  //     });
+  //   })
+  // }
+
   fetchBook(index) {
     console.log(this.state.bookname);
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=40&startIndex=${index}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
-    .then((response) => {
-      response.json().then((data) => {
-        console.log(data.totalItems);
-        var templist = [];
-        data.items.map((withit) => {
-          // This will map and return free ebook with download link
-          if (withit.accessInfo.hasOwnProperty('epub')) {
-            if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
-              templist.push(withit)
+    var stillMore = new Boolean(true);
+    var templist = [];
+    var indexX = index;
+    console.log(indexX);
+
+    for (var i = 1; i < 3; i++) {
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=1&startIndex=${i}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
+      .then((response) => {
+        response.json().then((data) => {
+          data.items.map((withit) => {
+
+            // This will map and return free ebook with download link
+            if (withit.accessInfo.hasOwnProperty('epub')) {
+              if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
+                templist.push(withit);
+                console.log(withit);
+              }
             }
-          }
 
-          // This will map and return free ebook with download link
-          // console.log(withit.volumeInfo.publishedDate.slice(0,4));
-          // if (withit.volumeInfo.hasOwnProperty('publishedDate')) {
-          //   var year = parseInt(withit.volumeInfo.publishedDate.slice(0,4));
-          //   if (year > 1990) {
-          //     templist.push(withit)
-          //   }
-          // }
+          })
+        })
+        .catch((error) => {
+          console.error('fsdfadfasdfasdf');
+          stillMore = false;
+        });
 
-        })
-        this.setState({
-            listit: templist
-        })
       })
+    }
+    this.setState({
+        listit: templist
     })
+
   }
 
   listinfo = () => {
-    console.log(this.state.listit)
+    // console.log(this.state.listit)
     return (
       this.state.listit.map((listitem) =>
         <li key={listitem.id}>
@@ -65,14 +104,12 @@ class App extends React.Component {
     this.setState((prevState) => ({
       startidx: newIndex
     }))
-    console.log('STARTIDX_INDEX', this.state.startidx);
-    console.log('NEW_INDEX', newIndex);
     this.fetchBook(newIndex);
   }
 
   submitForm(event) {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     this.fetchBook(this.state.startidx);
   }
 
