@@ -102,7 +102,7 @@ function Board() {
         //     // this.checkers.push(whiteChecker)
         //   }
         // };
-        for(var w = 0; w <= whitePositions.length-1; w++){
+        for (var w = 0; w <= whitePositions.length - 1; w++) {
           let x = whitePositions[w][0];
           let y = whitePositions[w][1];
           this.grid[x][y] = whiteChecker;
@@ -144,7 +144,7 @@ function Board() {
       this.grid[position[0]][position[1]] = null;
     };
   };
-  console.log(this.checkers)
+  // console.log(this.checkers)
 }
 
 function Game() {
@@ -167,17 +167,38 @@ function Game() {
     this.board.grid[startRow][startCol] = null;
     // console.log(this.board.checkers.indexOf(checker));
 
-    var killPosition = (midpointX, midpointY) => {
-      return midpointX = (Math.abs(startRow) - Math.abs(endRow)) / 2;
-      return midpointY = (Math.abs(startCol) - Math.abs(endCol)) / 2;
+    this.midPoint = (x1, x2, y1, y2) => {
+      return [((x1 + x2) / 2), ((y1 + y2) / 2)];
+    }
+
+    var killPosition = (start, end) => {
+      let startRow = start[0];
+      let startCol = start[1];
+      let endRow = end[0];
+      let endCol = end[1];
+      return midPoint(startRow, endRow, startCol, endCol);
     };
 
-    if (Math.abs(startRow) - Math.abs(endRow) === 2) {
+    if ((Math.abs(startRow) - Math.abs(endRow)) === 2) {
+      return this.board.killChecker(killPosition);
 
-      this.board.killChecker(killPosition);
     };
+
+
+    //   this.killPosition = (midpointX, midpointY) => {
+    //     return midpointX = (Math.abs(startRow) - Math.abs(endRow)) / 2;
+    //     return midpointY = (Math.abs(startCol) - Math.abs(endCol)) / 2;
+    //     console.log(midpointY +"midY")
+
+    //   if (Math.abs(startRow) - Math.abs(endRow) === 2) {
+
+    //     this.board.killChecker(killPosition);
+    //   };
+    // };
   };
 }
+
+
 
 function getPrompt() {
   game.board.viewGrid();
