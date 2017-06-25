@@ -55,9 +55,11 @@ class App extends React.Component {
     var templist = [];
     var indexX = index;
     console.log(indexX);
+    var startSearchHere = 1;
+    var maxRes = 40;
 
-    for (var i = 1; i < 3; i++) {
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=1&startIndex=${i}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
+    for (var i = 1; i <= 4; i++) {
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=${maxRes}&startIndex=${startSearchHere}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
       .then((response) => {
         response.json().then((data) => {
           data.items.map((withit) => {
@@ -66,22 +68,23 @@ class App extends React.Component {
             if (withit.accessInfo.hasOwnProperty('epub')) {
               if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
                 templist.push(withit);
-                console.log(withit);
               }
             }
 
           })
+          console.log(templist);
+          this.setState({
+            listit:templist
+          })
+
         })
         .catch((error) => {
           console.error('fsdfadfasdfasdf');
           stillMore = false;
         });
-
       })
+      startSearchHere+=(maxRes+2);
     }
-    this.setState({
-        listit: templist
-    })
 
   }
 
