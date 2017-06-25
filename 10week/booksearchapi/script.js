@@ -53,37 +53,43 @@ class App extends React.Component {
     console.log(this.state.bookname);
     var stillMore = new Boolean(true);
     var templist = [];
-    var indexX = index;
-    console.log(indexX);
     var startSearchHere = 1;
-    var maxRes = 40;
+    var maxRes = 1;
 
-    for (var i = 1; i <= 4; i++) {
+    for (var i = 1; i <= 22; i++) {
+      console.log(startSearchHere);
+
       fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=${maxRes}&startIndex=${startSearchHere}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
       .then((response) => {
         response.json().then((data) => {
-          data.items.map((withit) => {
 
+
+          data.items.map((withit) => {
             // This will map and return free ebook with download link
             if (withit.accessInfo.hasOwnProperty('epub')) {
               if (withit.accessInfo.epub.hasOwnProperty('downloadLink')) {
                 templist.push(withit);
               }
             }
-
           })
+
+
           console.log(templist);
           this.setState({
             listit:templist
           })
 
         })
+
+
         .catch((error) => {
           console.error('fsdfadfasdfasdf');
           stillMore = false;
         });
+
+
       })
-      startSearchHere+=(maxRes+2);
+      startSearchHere+=(maxRes);
     }
 
   }
