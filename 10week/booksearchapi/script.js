@@ -56,7 +56,7 @@ class App extends React.Component {
     var startSearchHere = 1;
     var maxRes = 1;
 
-    for (var i = 1; i <= 22; i++) {
+    for (var i = 1; i <= 100; i++) {
       console.log(startSearchHere);
 
       fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=${maxRes}&startIndex=${startSearchHere}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
@@ -98,7 +98,7 @@ class App extends React.Component {
     // console.log(this.state.listit)
     return (
       this.state.listit.map((listitem) =>
-        <li key={listitem.id}>
+        <li key={listitem.accessInfo.epub.downloadLink}>
           <a href={listitem.accessInfo.epub.downloadLink} className="borderit">
           <img alt="book cover" src={listitem.volumeInfo.imageLinks.thumbnail}/>
           </a><br/>
