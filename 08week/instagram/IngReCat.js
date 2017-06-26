@@ -15,8 +15,8 @@ class IngForm extends React.Component {
     super(props);
     this.state = {
       value: "",
-      recipes: [],
-      ingredients: [],
+      recipes: {},
+      ingredients: {},
       instructions: {},
       ing: [],
       menu: []
@@ -77,7 +77,7 @@ class IngForm extends React.Component {
     let baseUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
     //apples%2Cflour%2Csugar
-    let endUrl = "&limitLicense=false&number=5&ranking=1";
+    let endUrl = "&limitLicense=false&number=10&ranking=1";
     fetch(baseUrl + ing[0] + endUrl, {
       method: "GET",
       headers: {
@@ -89,7 +89,10 @@ class IngForm extends React.Component {
       return response.json().then(data => {
         console.log(data);
         this.setState({
-          recipes: data
+          recipes : {
+            page1: data.slice(0,5),
+            page2: data.slice(5)
+          }
         });
       });
     });
@@ -106,7 +109,8 @@ class IngForm extends React.Component {
   }
 
   render() {
-    let menu = this.state.recipes.map(rec => {
+    console.log(this.state.recipes.page1);
+    let menu = this.state.recipes.page1.map(rec => {
       return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
@@ -120,10 +124,8 @@ class IngForm extends React.Component {
             : ""}
         </div>
       );
-    });
-    // <label>
-    // {" "}Ingredients:
-    // </label>
+    }
+
     return (
       <div className="form">
         <h1> Enter Your Ingredients </h1>
@@ -141,7 +143,9 @@ class IngForm extends React.Component {
         <div className="recipe"> {menu}</div>
       </div>
     );
-  }
+  };
+}
+
 }
 
 class CatPic extends React.Component {
