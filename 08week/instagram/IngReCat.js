@@ -16,7 +16,7 @@ class IngForm extends React.Component {
     this.state = {
       value: "",
       recipes: {},
-      ingredients: {},
+      ingredients: [],
       instructions: {},
       ing: [],
       menu: []
@@ -89,10 +89,10 @@ class IngForm extends React.Component {
       return response.json().then(data => {
         console.log(data);
         this.setState({
-          recipes : {
-            page1: data.slice(0,5),
-            page2: data.slice(5)
-          }
+          recipes : data
+          //   page1: [data.slice(0,5)],
+          //   page2: [data.slice(5)]
+          // }
         });
       });
     });
@@ -109,22 +109,26 @@ class IngForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.recipes.page1);
-    let menu = this.state.recipes.page1.map(rec => {
-      return (
-        <div className="recipe" key={rec.id}>
-          <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
-          <img
-            className="recPic"
-            src={rec.image}
-            alt="http://thecatapi.com/api/images/get?format=src&size=med"
-          />
-          {this.state.instructions[rec.id]
-            ? this.renderInstructions(this.state.instructions[rec.id])
-            : ""}
-        </div>
-      );
-    }
+    console.log(this.state.recipes);
+    let menu = this.state.recipes.map(function(rec, i){
+
+
+       return (
+          <div className="recipe" key={rec.id}>
+            <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
+            <img
+              className="recPic"
+              src={rec.image}
+              alt="http://thecatapi.com/api/images/get?format=src&size=med"
+            />
+            {this.state.instructions[rec.id]
+              ? this.renderInstructions(this.state.instructions[rec.id])
+              : ""
+            }
+          </div>);
+        }
+      })
+
 
     return (
       <div className="form">
@@ -142,11 +146,12 @@ class IngForm extends React.Component {
 
         <div className="recipe"> {menu}</div>
       </div>
-    );
+    )
   };
 }
 
-}
+
+
 
 class CatPic extends React.Component {
   constructor() {
