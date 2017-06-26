@@ -44,6 +44,7 @@ class IngForm extends Component {
       instructions: {},
       ing: [],
       menu: []
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -119,9 +120,10 @@ class IngForm extends Component {
       return response.json().then(data => {
         console.log(data);
         this.setState({
-          recipes: [data.slice(0,5)],
-          recipes: [data.slice(5)]
+          recipes1: [data.slice(0,5)],
+          recipes2: [data.slice(5)]
         });
+        console.log(this.state.recipes1)
       });
     });
   }
@@ -137,8 +139,9 @@ class IngForm extends Component {
   }
 
   render() {
+    let n =1;
     // let menu = this.state.recipes.map(rec =>
-    let menu = this.state.recipes[0].map(rec =>{
+    let menu = this.state.recipes1.map(rec =>{
       return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
