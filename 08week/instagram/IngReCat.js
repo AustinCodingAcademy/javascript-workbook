@@ -110,8 +110,8 @@ class IngForm extends React.Component {
 
   render() {
     console.log(this.state.recipes.page1);
-    let menu = this.state.recipes.page1.map(rec => {
-      return (
+    let menu = this.state.recipes.page1.map(rec =>
+      // return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
           <img
@@ -124,7 +124,6 @@ class IngForm extends React.Component {
             : ""}
         </div>
       );
-    }
 
     return (
       <div className="form">
@@ -142,11 +141,11 @@ class IngForm extends React.Component {
 
         <div className="recipe"> {menu}</div>
       </div>
-    );
-  };
+    )
+  }
 }
 
-}
+
 
 class CatPic extends React.Component {
   constructor() {
