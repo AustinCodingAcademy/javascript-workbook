@@ -119,7 +119,8 @@ class IngForm extends Component {
       return response.json().then(data => {
         console.log(data);
         this.setState({
-          recipes: data
+          recipes: [data.slice(0,5)],
+          recipes: [data.slice(5)]
         });
       });
     });
@@ -137,7 +138,7 @@ class IngForm extends Component {
 
   render() {
     // let menu = this.state.recipes.map(rec =>
-    let menu = this.state.recipes.slice(0,5).map(rec =>{
+    let menu = this.state.recipes[0].map(rec =>{
       return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
@@ -174,7 +175,7 @@ class IngForm extends Component {
     );
   }
 }
-//need to render the catpic somewhere...not currently happening.
+
 class CatPic extends Component {
   constructor() {
     super();
