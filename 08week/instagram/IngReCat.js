@@ -109,7 +109,7 @@ class IngForm extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
+
     console.log(this.state.recipes.page1);
     let menu = this.state.recipes.page1.map(rec =>
       // return (
@@ -125,7 +125,7 @@ class IngForm extends React.Component {
             : ""}
         </div>
       );
-=======
+
     console.log(this.state.recipes);
     let menu = this.state.recipes.map(function(rec, i){
 
@@ -146,7 +146,7 @@ class IngForm extends React.Component {
         }
       })
 
->>>>>>> origin/gh-pages
+
 
     return (
       <div className="form">
@@ -165,18 +165,16 @@ class IngForm extends React.Component {
         <div className="recipe"> {menu}</div>
       </div>
     )
-<<<<<<< HEAD
   }
 }
 
 
-=======
+
   };
 }
 
 
 
->>>>>>> origin/gh-pages
 
 class CatPic extends React.Component {
   constructor() {
