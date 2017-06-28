@@ -94,15 +94,7 @@ function Board() {
           [7, 6]
         ];
 
-        // create and push white checkers
-        // for (var i = 0; i <= 2; i++) {
-        //   for (var j = 1; j <= 7; j += 2) {
-        //     if ((i === 1) && (j % 2 !== 0)) { j = j - 1 }
-        //     this.grid[i][j] = whiteChecker;
-        //     // this.checkers.push(whiteChecker)
-        //   }
-        // };
-        for (var w = 0; w <= whitePositions.length - 1; w++) {
+                for (var w = 0; w <= whitePositions.length - 1; w++) {
           let x = whitePositions[w][0];
           let y = whitePositions[w][1];
           this.grid[x][y] = whiteChecker;
@@ -120,15 +112,7 @@ function Board() {
 
 
         };
-        // create and push black checkers
-
-        // for (var h = 5; h <= 7; h++) {
-        //   for (var k = 1; k <= 7; k += 2) {
-        //     if ((h === 6) && (k % 2 !== 1)) { k = k - 1 }
-        //     this.grid[h][k] = blackChecker;
-        //     this.checkers.push(blackChecker)
-        //   }
-        // };
+        
 
       }
       // user chooses which checker to move
@@ -152,7 +136,7 @@ function Game() {
   this.board = new Board();
 
   this.start = function() {
-    this.board.createGrid();
+    this.boar.dcreateGrid();
     // Your code here
     this.board.createCheckers();
   };
