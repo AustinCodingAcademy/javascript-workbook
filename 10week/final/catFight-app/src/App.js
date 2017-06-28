@@ -139,9 +139,10 @@ class IngForm extends Component {
   }
 
   render() {
-    let n =1;
+    let menu;
     // let menu = this.state.recipes.map(rec =>
-    let menu = this.state.recipes1.map(rec =>{
+    if(this.state.recipes1){
+     menu = this.state.recipes1[0].map(rec =>{
       return (
         <div className="recipe" key={rec.id}>
           <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
@@ -156,6 +157,7 @@ class IngForm extends Component {
         </div>
       );
     });
+  }
     // <label>
     // {" "}Ingredients:
     // </label>
