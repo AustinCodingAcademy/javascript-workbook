@@ -109,26 +109,27 @@ class IngForm extends React.Component {
   }
 
   render() {
-    let n =1;
-    // let menu = this.state.recipes.map(rec =>
-    let menu = this.state.recipes1.map(rec =>{
-      return (
-        <div className="recipe" key={rec.id}>
-          <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
-          <img
-            className="recPic"
-            src={rec.image}
-            alt="http://thecatapi.com/api/images/get?format=src&size=med"
-          />
-          {this.state.instructions[rec.id]
-            ? this.renderInstructions(this.state.instructions[rec.id])
-            : ""}
-        </div>
-      );
-    });
-    // <label>
-    // {" "}Ingredients:
-    // </label>
+    let menu;
+    // try{
+    if(this.state.page1){
+      menu = this.state.page1[0].map(rec =>{
+        return (
+          <div className="recipe" key={rec.id}>
+            <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
+            <img
+              className="recPic"
+              src={rec.image}
+              alt="http://thecatapi.com/api/images/get?format=src&size=med"
+            />
+            {this.state.instructions[rec.id]
+              ? this.renderInstructions(this.state.instructions[rec.id])
+              : ""}
+          </div>
+        );
+      });
+    }
+    // catch(e){}
+
     return (
       <div className="form">
         <h1> Enter Your Ingredients </h1>
