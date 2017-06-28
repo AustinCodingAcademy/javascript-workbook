@@ -39,7 +39,7 @@ class IngForm extends Component {
     super(props);
     this.state = {
       value: "",
-      recipes: [],
+      recipes: {},
       ingredients: "",
       instructions: {},
       ing: [],
