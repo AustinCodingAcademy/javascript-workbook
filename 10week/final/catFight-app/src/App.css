@@ -59,6 +59,7 @@ div{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #3c3e63;
 }
 #results{
   display: flex;
@@ -82,7 +83,7 @@ div{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #edebf5;
+  background: #d7f708;
 
 }
 /*actual picture*/
