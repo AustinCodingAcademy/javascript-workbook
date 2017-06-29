@@ -56,7 +56,7 @@ class App extends React.Component {
     var startSearchHere = 1;
     var maxRes = 1;
 
-    for (var i = 1; i <= 100; i++) {
+    for (var i = 1; i <= 50; i++) {
       console.log(startSearchHere);
 
       fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.bookname}&download=epub&maxResults=${maxRes}&startIndex=${startSearchHere}&key=AIzaSyCWCAyFHX_qCtN9SmHcgDk20ZmzIvWI5z4`)
