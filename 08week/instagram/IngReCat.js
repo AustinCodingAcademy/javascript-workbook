@@ -211,7 +211,7 @@ class CatPic extends React.Component {
         <a href="http://thecatapi.com">
           <img className="catPic" src={this.state.kitty} />
         </a>
-        <button onClick={this.resetCatPic}>New Cat</button>
+        <button className="btn-class" onClick={this.resetCatPic}>New Cat</button>
       </div>
     );
   }
