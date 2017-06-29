@@ -18,7 +18,7 @@ class IngForm extends React.Component {
       recipes: {},
       ingredients: [],
       instructions: {},
-      ing: [],
+      ing: "",
       menu: []
     };
 
@@ -36,11 +36,26 @@ class IngForm extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    let ingString = this.state.value.split(",").map(x => x.trim());
 
-    this.state.ingredients = this.state.value.split(",");
-    this.state.ing = this.state.ingredients.map(x => x.trim());
-    console.log(this.state.ingredients[0]);
+    ingString = ingString.map((x,i)=>{
 
+      let lastIdx = ingString.length-1;
+      console.log(lastIdx)
+      if(i == lastIdx){
+        return x;
+      }
+      else{
+        return x+"%2C";
+      }
+    });
+    ingString.join('');
+
+    console.log(ingString)
+    this.setState({
+       ing: ingString.join('')
+
+    });
     this.getRecipes();
   }
   getIndRec(id) {
@@ -78,7 +93,7 @@ class IngForm extends React.Component {
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
     //apples%2Cflour%2Csugar
     let endUrl = "&limitLicense=false&number=10&ranking=1";
-    fetch(baseUrl + ing[0] + endUrl, {
+    fetch(baseUrl + ing + endUrl, {
       method: "GET",
       headers: {
         Accept: "application/json",
