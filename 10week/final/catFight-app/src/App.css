@@ -130,6 +130,8 @@ div{
   background-image: linear-gradient(to top, #FCE374, #FCDF5B);
   background-color: #FCE374;
   font-weight: 700;
+  margin-bottom: 60px;
+  margin-top: 35px;
   }
   .btn-class:hover, .btn-class:active{
   border:6px solid #967D09;
