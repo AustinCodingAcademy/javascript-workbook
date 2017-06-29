@@ -17,12 +17,13 @@ class IngReCat extends Component {
     return (
       <div className="App">
         <div className="App-header">
-
-
-          <img src={require("./catFork2.jpg")} alt="logo" className="App-logo" />
+          <img
+            src={require("./catFork3.jpg")}
+            alt="logo"
+            className="App-logo"
+          />
 
           <h2>Welcome to CatFork!</h2>
-
         </div>
         <p className="App-intro">
           To get started, enter a single ingredient and submit.
@@ -42,9 +43,8 @@ class IngForm extends Component {
       recipes: {},
       ingredients: [],
       instructions: {},
-      ing: [],
+      ing: "",
       menu: []
-
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -63,10 +63,21 @@ class IngForm extends Component {
   //the value is getting lost.
   handleSubmit(event) {
     event.preventDefault();
+    let ingString = this.state.value.split(",").map(x => x.trim());
 
+    ingString = ingString.map((x, i) => {
+      let lastIdx = ingString.length - 1;
+      console.log(lastIdx);
+      if (i == lastIdx) {
+        return x;
+      } else {
+        return x + "%2C";
+      }
+    });
+
+    console.log(ingString);
     this.setState({
-       ing: [this.state.value]
-
+      ing: ingString.join("")
     });
     // this.state.ingredients = this.state.value.split(",");
     // this.state.ing = this.state.ingredients.map(x => x.trim());
@@ -109,7 +120,7 @@ class IngForm extends Component {
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
     //increasing recipe return count to render them in 5 ct collections
     let endUrl = "&limitLicense=false&number=10&ranking=1";
-    fetch(baseUrl + ing[0] + endUrl, {
+    fetch(baseUrl + ing + endUrl, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -120,19 +131,25 @@ class IngForm extends Component {
       return response.json().then(data => {
         console.log(data);
         this.setState({
-          recipes1: [data.slice(0,5)],
+          recipes1: [data.slice(0, 5)],
           recipes2: [data.slice(5)]
         });
-        console.log(this.state.recipes1)
+        console.log(this.state.recipes1);
       });
     });
   }
 
   renderInstructions(instructions) {
-    let ingList = instructions.recIng.map(ing => <li key={ing}>{ing}</li>);
+    let ingList = instructions.recIng.map(ing =>
+      <li key={ing}>
+        {ing}
+      </li>
+    );
     return (
       <div className="recipeIns">
-        <ul>{ingList}</ul>
+        <ul>
+          {ingList}
+        </ul>
         {instructions.instructions}
       </div>
     );
@@ -141,23 +158,25 @@ class IngForm extends Component {
   render() {
     let menu;
     // let menu = this.state.recipes.map(rec =>
-    if(this.state.recipes1){
-     menu = this.state.recipes1[0].map(rec =>{
-      return (
-        <div className="recipe" key={rec.id}>
-          <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
-          <img
-            className="recPic"
-            src={rec.image}
-            alt="http://thecatapi.com/api/images/get?format=src&size=med"
-          />
-          {this.state.instructions[rec.id]
-            ? this.renderInstructions(this.state.instructions[rec.id])
-            : ""}
-        </div>
-      );
-    });
-  }
+    if (this.state.recipes1) {
+      menu = this.state.recipes1[0].map(rec => {
+        return (
+          <div className="recipe" key={rec.id}>
+            <button onClick={() => this.getIndRec(rec.id)}>
+              {" "}{rec.title}{" "}
+            </button>
+            <img
+              className="recPic"
+              src={rec.image}
+              alt="http://thecatapi.com/api/images/get?format=src&size=med"
+            />
+            {this.state.instructions[rec.id]
+              ? this.renderInstructions(this.state.instructions[rec.id])
+              : ""}
+          </div>
+        );
+      });
+    }
     // <label>
     // {" "}Ingredients:
     // </label>
@@ -165,7 +184,6 @@ class IngForm extends Component {
       <div className="form">
         <h1> Enter Your Ingredients </h1>
         <form onSubmit={this.handleSubmit}>
-
           <input
             type="text"
             value={this.state.value}
@@ -175,7 +193,9 @@ class IngForm extends Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <div className="recipe"> {menu}</div>
+        <div className="recipe">
+          {" "}{menu}
+        </div>
       </div>
     );
   }
