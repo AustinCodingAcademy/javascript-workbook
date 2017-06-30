@@ -98,6 +98,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  getPrompt();
+  console.log('Only run the tests on this one!')
 
 }
