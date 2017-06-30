@@ -16,18 +16,21 @@ class IngReCat extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img
-            src={require("./catForkEggTrans.jpg")}
-            alt="logo"
-            className="App-logo"
-          />
-
-          <h2>Welcome to CatFork!</h2>
+        <div className="row">
+          <div className="App-header">
+            <h1>Cat</h1>
+            <img
+              src={require("./catForkEggTrans.png")}
+              alt="logo"
+              className="App-logo"
+            />
+            <div className="app-side">
+              <h1>Fork</h1>
+            </div>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, enter a single ingredient and submit.
-        </p>
+
+        <h1 className="App-intro">Welcomes You</h1>
         <CatPic />
         <IngForm />
       </div>
@@ -130,6 +133,7 @@ class IngForm extends Component {
       console.log(response);
       return response.json().then(data => {
         console.log(data);
+        // let recipes1 = data.slice(0,5)
         this.setState({
           recipes1: [data.slice(0, 5)],
           recipes2: [data.slice(5)]
@@ -182,7 +186,7 @@ class IngForm extends Component {
     // </label>
     return (
       <div className="form">
-        <h1> Enter Your Ingredients </h1>
+        <h1> Enter Comma-Separated Ingredients and Submit</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -232,7 +236,9 @@ class CatPic extends Component {
         <a href="http://thecatapi.com">
           <img className="catPic" src={this.state.kitty} alt="logo" />
         </a>
-        <button  className="btn-class" onClick={this.resetCatPic}>New Cat</button>
+        <button className="btn-class" onClick={this.resetCatPic}>
+          New Cat
+        </button>
       </div>
     );
   }
