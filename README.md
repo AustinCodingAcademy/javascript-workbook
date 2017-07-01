@@ -61,13 +61,19 @@ show up.
 
 ![Contributing workflow](https://docs.google.com/drawings/d/1WeKQxOHgPKfwjy_eKtlJO62Fu4XTCWFeqkAh1oIqICM/pub?w=960&h=720)
 
+### Running the apps
+Simply run `node path/to/file.js`
+
+example `node 01week/rockPaperScissors.js`
+
 ### Running Tests
 Tests are a great way to make sure you code works the way you planned it would,
 and to make sure you don't break something in the future. We will be using them
 to test our understanding of the lesson. It's also our main way to assign grades
 for an assignment.
 
-To run a the tests on a file] run `npm test path/to/file.js`, etc.
+To run a the tests on a file run `npm test path/to/file.js`, etc.
+
 ### Running the Linter
 Simply run `npm run lint`
 
