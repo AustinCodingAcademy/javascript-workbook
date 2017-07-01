@@ -7,22 +7,40 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//variables
+let vowels = ['a','e','i','o','u','y'];
+let dice = [];
+let fvind;
 
-function pigLatin(word) {
+//if word starts with a vowel
+function pigLatin(word){
+  let firstlet = word.charAt();
+  if(firstlet === ('a'||'e'||'i'||'o'||'u'||'y')){
+    console.log(word+'nay');
+  }
+  else{
+    for(var i = 0; i < vowels.length; i++){
+      dice.push(word.indexOf(vowels[i]));
+    }
+//filter the indexes and get the minimum, slice and rearrange. Send it.
+    dice = dice.filter(x=>x>=0);
 
-  // Your code here
-
-}
-
+    fvind = (Math.min.apply(null,dice));
+    let pig = word.slice(0, fvind);
+    let latin = word.slice(fvind) + pig + 'ay';
+    return latin;
+  }
+};
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+  rl.question('word ', (word) => {
+    console.log( pigLatin((word.toLowerCase())) );
     getPrompt();
   });
 }
+getPrompt();
 
-// Tests
+//Tests
 
 if (typeof describe === 'function') {
 
@@ -49,3 +67,5 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+module.exports = pigLatin;

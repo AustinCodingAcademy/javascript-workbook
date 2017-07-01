@@ -1,0 +1,113 @@
+{
+  "basics": {
+    "name": "Stefan Bemelmans",
+    "label": "",
+    "picture": "",
+    "email": "stefanbemelmans898@gmail.com",
+    "phone": "xxx.xxx.xxxx",
+    "website": "www.linkedin.",
+    "summary": "Chef Turned Software Developer",
+    "location": {
+      "address": "",
+      "postalCode": "78702",
+      "city": "Austin",
+      "countryCode": "",
+      "region": ""
+    },
+    "profiles": [
+      {
+        "network": "Git-Hub",
+        "username": "stefanbemelmans",
+        "url": "https://github.com/stefanbemelmans"
+      },
+      {
+        "network": "Git-Hub",
+        "username": "stackbaxter",
+        "url": "https://github.com/stackbaxter"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "stackbaxter",
+        "url": "https://www.linkedin.com/in/stackbaxter/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "The Austin Club",
+      "position": "Lead Line Cook",
+      "website": "www.theaustinclub.com",
+      "startDate": "11/01/2016",
+      "endDate": "",
+      "summary": "",
+      "highlights": [
+        "Working with a great people.",
+        "Benefits"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "The Cornucopia Project",
+      "position": "Chef Consultant",
+      "website": "http://cornucopiaproject.org/",
+      "startDate": "2015/06",
+      "endDate": "2015/07",
+	      "summary": "Worked with the program assistant director to develop dishes and logistics for the organizations first open house that was held at the community gardens of Peterborough, New Hampshire. The event featured organic gardening powerhouses and authors Barbara Damrosch and Eliot Coleman. ",
+	      "highlights": [
+		"It was a wonderful opportunity to help and support a community organization that is comprised of good people doing good things."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Austin Coding Academy",
+      "area": "Full-Stack Engineering",
+      "studyType": "Certificate",
+      "startDate": "2017/1",
+      "endDate": "2017/9",
+      "gpa": "4.0",
+      "courses": [
+        "HTML, CSS, E"
+      ]
+    },
+    {
+      "institution": "New England Culinary Institute",
+      "area": "Culinary Arts",
+      "studyType": "Bachelor of Arts",
+      "startDate": "2012/6",
+      "endDate": "2014/7",
+      "gpa": "3.7",
+      "courses": []
+    }
+  ],
+  "awards": ["2012 NECI B.A. Student Asian Appetizer Challenge - People's Choice"],
+  "publications": [],
+  "skills": [
+    {	
+      "name": "Web Dev",
+      "level": "",
+      "keywords": [
+        ""
+      ]
+    }
+    {
+      "name": "",
+      "level": "",
+      "keywords": []
+    }
+  ],
+  "languages": [
+    {
+      "language": "",
+      "fluency": ""
+    }
+  ],
+  "interests": [
+    {
+      "name": "",
+      "keywords": []
+    }
+  ],
+  "references": []
+}

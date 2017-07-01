@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+let piece;
 
 let stacks = {
   a: [4, 3, 2, 1],
@@ -19,23 +20,65 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(piece, stack) {
   // Your code here
+  stacks[stack].push(piece);
+  printStacks();
 
 }
 
-function isLegal() {
+function isLegal(piece, startStack, endStack) {
   // Your code here
+  console.log(stacks[endStack].length);
+  if(stacks[endStack].length !== 0){
 
+    console.log(stacks[endStack][endStack.length-1]);
+    if(stacks[endStack][endStack.length-1] > piece){
+      console.log('moving');
+      movePiece(piece, endStack);
+      return true;
+    }
+    else{
+      console.log('not moving');
+      movePiece(piece, startStack);
+      return false;
+    }
+    console.log(stacks[endStack][endStack.length-1]);
+    if(stacks[endStack][endStack.length-1] > piece){
+      console.log('moving');
+      movePiece(piece, endStack);
+      return true;
+    }
+    else{
+      console.log('not moving');
+      movePiece(piece, startStack);
+      return false;
+    }
+  }
+  else{
+    movePiece(piece, endStack);
+    return true;
+  }
 }
 
 function checkForWin() {
   // Your code here
-
+  if(stacks['b'].length === 4 || stacks['c'].length === 4){
+    return true;
+  }
+  else{return false;}
 }
 
-function towersOfHanoi(startStack, endStack) {
+function towersOfHanoi(startStack, endStack, piece) {
   // Your code here
+  if(checkForWin()){
+    console.log('you win!');
+  }
+  piece = stacks[startStack].pop();
+  isLegal(piece, startStack, endStack);
+
+
+
 
 }
 
@@ -44,6 +87,9 @@ function getPrompt() {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
+      if(checkForWin()){
+        console.log('You Win!');
+      }
       getPrompt();
     });
   });
@@ -87,7 +133,5 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-
   getPrompt();
-
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mastermind</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="close" class="container">
+      <div id="closedisplay" >C</div>
+
+        <p>Right Letter Wrong Place</p>
+    </div>
+    <div id="board" class="container">
+        <!-- <div class="gBoard">B</div>
+        <div class="gBoard">B</div>
+        <div class="gBoard">B</div>
+        <div class="gBoard">B</div> -->
+    </div>
+    <div id="exact" class="container">
+        <div id="exactdisplay"></div>
+        <p>Right Letter Right Place</p>
+    </div>
+  </div>
+  <div id="inguess">
+    <input type="text" name="guess" value="">
+  </div>
+
+  <div id="announce-game-won"></div>
+
+<!-- onclick="gameReset()" -->
+  <button id="reset">RESET</button>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

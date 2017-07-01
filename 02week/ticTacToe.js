@@ -1,3 +1,4 @@
+
 'use strict';
 
 const assert = require('assert');
@@ -23,41 +24,110 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+//horizontal win logic
 function horizontalWin() {
   // Your code here
+  if( (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn &&
+   board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)){
+
+    return true;
+
+  }
 }
 
+//vertical win logic
 function verticalWin() {
   // Your code here
+  if( (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn &&
+   board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)){
+
+    return true;
+
+  }
 }
 
+//diagnol win logic
 function diagonalWin() {
   // Your code here
+  if( (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[2][0] === playerTurn &&
+   board[1][1] === playerTurn && board[0][2])){
+
+    return true;
+  }
 }
 
+//checking for all the wins
 function checkForWin() {
-  // Your code here
+  // trying to sort out the end of game function with option to play again, reset board....
+  if((horizontalWin()) || (verticalWin()) || (diagonalWin()) ){
+    console.log('\n'+ playerTurn + ' Wins');
+    console.log('Would you like to play again?');
+    rl.question('y/n',(again) => {
+      if(playAgain(again)){
+        resetBoard();
+        playerTurn = 'X';
+        getPrompt();
+      }
+      else{
+        console.log('Goodbye');
+        process.exit(0);
+      }
+      return true;
+    })
+  }
+}
+//Play again option
+
+function playAgain(again){
+  if(again.toLowerCase() !=='y'){
+    return false;
+  }
+  else{
+    return true;
+  }
 }
 
+function resetBoard(){
+  board = [[],[]];
+}
+
+//need to sort out the 'play again' function, perhaps separate it.
+
+//getting the move and win check method
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  printBoard();
+  checkForWin();
+  playerTurn = (playerTurn === 'X') ?  'O' : 'X';
 }
 
+  // rl.question('Y/N', (again) => {
+      //
+    // }
+    //   else{
+    //     console.log('Goodbye');
+    //   }
+
+
+
+
+
+//prompt and move input
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
+
       getPrompt();
-    });
-  });
+
+    })
+  })
 
 }
-
-
-
-// Tests
+getPrompt();
+//Tests
 
 if (typeof describe === 'function') {
 
@@ -86,8 +156,4 @@ if (typeof describe === 'function') {
       assert.equal(checkForWin(), true);
     });
   });
-} else {
-
-  getPrompt();
-
 }

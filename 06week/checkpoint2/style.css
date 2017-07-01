@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+}
+.container > div {
+  flex: 1; /*grow*/
+}
+
+p{
+  align-self: center;
+  font-size: 15px;
+  font-family: Cambria;
+}
+#close{
+  flex-direction: column;
+  align-items: center;
+  background-color: blue;
+  width: 30%;
+  height: 80px;
+  margin: 5px;
+  justify-content: space-around;
+}
+#close > div{
+  text-align: center;
+  width: 20px;
+  /*background: #9090f0;*/
+}
+
+#board{
+  flex-direction: column-reverse;
+  text-align: center;
+  background: #87b6df;
+  width: 40%;
+  height: 500px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+  font-family: Cambria;
+
+}
+#board >div{
+  text-align: center;
+  width: 25%;
+  background: green;
+}
+
+#exact {
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  width: 30%;
+  height: 80px;
+  margin: 5px;
+  justify-content: space-around;
+
+}
+#exact > div{
+  text-align: center;
+  width: 20px;
+  background:
+}

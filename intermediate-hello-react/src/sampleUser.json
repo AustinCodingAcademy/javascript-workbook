@@ -1,0 +1,24 @@
+{
+  "results": [{
+    "name": {
+      "title": "mr",
+      "first": "fred",
+      "last": "martinez"
+    },
+    "location": {
+      "street": "9919 wycliff ave",
+      "city": "everett",
+      "state": "new york",
+      "postcode": 35779
+    },
+    "id": {
+      "name": "SSN",
+      "value": "672-10-0504"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/95.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/95.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/95.jpg"
+    }
+  }]
+}
