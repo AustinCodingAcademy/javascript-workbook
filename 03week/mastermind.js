@@ -10,6 +10,7 @@ const rl = readline.createInterface({
 let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let hint = '';
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -28,13 +29,39 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(guess) {
+  let g = guess.split('');
+  let s = solution.split('');
+  let dub = [];
+  let yes = 0 ;
+  let almost = 0 ;
+  for(let i=0; i<s.length; i++){
+    //identifies correct letter and index
+    if(s[i]===g[i]){
+      dub.push(g[i]);
+      yes++;
+    }
+    //identifies only correct letter
+    else if(s.includes(g[i]) && (dub.includes(g[i]) === false)){
+      dub.push(g[i]);
+      almost++;
+    }
+  }
+  hint = `${yes}-${almost}`;
+  return hint;
 }
 
 function mastermind(guess) {
-  // solution = 'abcd'; // uncomment this when developing
-  // your code here
+  generateHint(guess);
+  //check for win
+  if(guess===solution){
+    return 'You guessed it!';
+  }
+  //return board with guess and hint
+  else {
+    board.push(guess+': '+hint);
+    printBoard();
+  }
 }
 
 

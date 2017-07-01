@@ -24,24 +24,45 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-}
+  for (var i = 0; i < board.length; i++) {
+    if ((board[i][0] !== ' ') &&
+    (board[i][0] === board[i][1] && board[i][0] === board[i][2])) {
+      return true;
+    };
+  };
+};
 
 function verticalWin() {
-  // Your code here
-}
+  for (var i = 0; i < board.length; i++) {
+    if ((board[0][i] !== ' ') &&
+    (board[0][i] === board[1][i] && board[0][i] === board[2][i])) {
+      return true;
+    };
+  };
+};
 
 function diagonalWin() {
-  // Your code here
-}
+  if ((board[1][1] !== ' ') &&
+  ((board[0][0] === board[1][1] && board[0][0] === board[2][2]) ||
+  (board[0][2] === board[1][1] && board[0][2] === board[2][0]))) {
+    return true;
+  };
+};
 
 function checkForWin() {
-  // Your code here
-}
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    return true;
+  };
+};
 
 function ticTacToe(row, column) {
-  // Your code here
-}
+  if (board[row][column] === ' '){
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  };
+};
+
 
 function getPrompt() {
   printBoard();

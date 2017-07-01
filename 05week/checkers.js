@@ -1,4 +1,5 @@
 'use strict';
+var beep = require('beepbeep');
 
 const assert = require('assert');
 const readline = require('readline');
@@ -8,12 +9,19 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if(color === 'white') {
+    this.symbol = String.fromCharCode(0x125CB);
+  }
+  else if (color === 'black') {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
 function Board() {
   this.grid = [];
+  this.checkers = [];
+
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -52,7 +60,35 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.createCheckers = function() {
+    //create all white checkers
+    for (var i = 0; i <= 2; i++) {
+      for (var j = 1; j <= 7; j+=2) {
+        if ((i === 1) && (j % 2 !== 0)) (j = j - 1);
+        let whiteChecker = new Checker('white');
+        this.grid[i][j] = whiteChecker;
+        this.checkers.push(whiteChecker);
+      }
+    };
+     //create all black checkers
+    for (var i = 5; i <= 7; i++) {
+      for (var j = 1; j <= 7; j+=2) {
+        if ((i === 5 || i === 7) && (j % 2 !== 0)) (j = j - 1);
+        let blackChecker = new Checker('black');
+        this.grid[i][j] = blackChecker;
+        this.checkers.push(blackChecker);
+      }
+    };
+  }
+
+  this.selectChecker = function(row, column) {
+    return this.grid[row][column];
+  }
+
+  this.killChecker = function(row, col) {
+    this.checkers.splice(this.selectChecker(row, col), 1);
+    this.grid[row][col] = null;
+  }
 }
 function Game() {
 
@@ -60,8 +96,40 @@ function Game() {
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createCheckers();
   };
+
+  this.moveChecker = function(start, end) {
+    const checker = this.board.selectChecker(start[0], start[1]);
+    const endSpot = this.board.grid[end[0]][end[1]];
+
+    if (checker) {
+      if (endSpot) {
+        beep(2);
+        console.log('there is already a piece there');
+      }
+      else if(endSpot === null) {
+        if (start[0] - end[0] === 2 || start[0] - end[0] === - 2) {
+          if(checker.symbol === String.fromCharCode(0x125CB)) {
+            let killrow = end[0] - 1;
+            let killcol = end[1] - 1;
+            this.board.killChecker(killrow , killcol)
+          }
+          if(checker.symbol === String.fromCharCode(0x125CF)) {
+            let killrow = start[0] - 1;
+            let killcol = end[1] - 1;
+            this.board.killChecker(killrow , killcol)
+          }
+        }
+        this.board.grid[end[0]][end[1]] = checker;
+        this.board.grid[start[0]][start[1]] = null;
+      }
+    }
+    else {
+      beep(3);
+      console.log('Please select a starting place with a checker')
+    }
+  }
 }
 
 function getPrompt() {

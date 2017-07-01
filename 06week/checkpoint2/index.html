@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mastermind</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="container-fluid">
+    <div class="card text-center my-5">
+        <div class="card-header">Mastermind: The Game</div>
+        <div class="card-block">
+            <h4 class="card-title"></h4>
+            <p class="card-text">Click on a color to add it to your guess!</p>
+            <img id="bluebtn" src="blue.png" />
+            <img id="greenbtn" src="green.png" />
+            <img id="pinkbtn" src="pink.png" />
+            <img id="redbtn" src="red.png" />
+
+            <div class="game container">
+                <div class="row">
+                    <div class="guess" data-cell="0"></div>
+                    <div class="guess" data-cell="1"></div>
+                    <div class="guess" data-cell="2"></div>
+                    <div class="guess" data-cell="3"></div>
+                    <button class="btn btn-primary">Check guess!</button>
+                </div>
+                <h5>Result:</h5>
+                <div id="win"></div>
+                <div class="row" id="jabba">
+                    <div data-cell="4"></div>
+                    <div data-cell="5"></div>
+                    <div data-cell="6"></div>
+                    <div data-cell="7"></div>
+                    <div id="yes">Correct:</div>
+                    <div id="almost">Almost:</div>
+                </div>
+            </div>
+            <br><br>
+            <div class="container old">
+                <h5>Guesses So Far</h5>
+            </div>
+            <div class="card-footer text-muted"></div>
+        </div>
+    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+
+</html>
