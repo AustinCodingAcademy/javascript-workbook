@@ -39,9 +39,9 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('egg'), 'eggyay');
       assert.equal(pigLatin('emission'), 'emissionyay');
     });
-    it('should auto lowercase word before translation', () => {
-      assert.equal(pigLatin('HeLlO'), 'ellohay');
-      assert.equal(pigLatin('RoCkEt'), 'ocketray');
+    it('should lowercase and trim word before translation', () => {
+      assert.equal(pigLatin('HeLlO '), 'ellohay');
+      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
   });
 } else {
