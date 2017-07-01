@@ -103,10 +103,12 @@ class IngForm extends React.Component {
       console.log(response);
       return response.json().then(data => {
         console.log(data);
+        let page1 = data.slice(0,5);
+        let page2 = data.slice(5);
         this.setState({
           recipes : data,
-            page1: [data.slice(0,5)],
-            page2: [data.slice(5)]
+            page1: page1,
+            page2: page2
           })
         });
       });
