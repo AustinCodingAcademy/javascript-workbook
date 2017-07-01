@@ -68,7 +68,7 @@
       "endDate": "2017/9",
       "gpa": "4.0",
       "courses": [
-        "HTML, CSS, E"
+        "Javascript Full Stack"
       ]
     },
     {
@@ -85,10 +85,9 @@
   "publications": [],
   "skills": [
     {	
-      "name": "Web Dev",
-      "level": "",
-      "keywords": [
-        ""
+      "name": "Web Development",
+      "level": "3-5",
+      "keywords": ["HTML", "CSS", "Git-Hub",""
       ]
     }
     {
