@@ -8,12 +8,19 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  this.color = color;
+  if (this.color === 'white'){
+    this.symbol = String.fromCharCode(0x125CB)
+  }
+  else if (color === 'black'){
+    this.symbol = String.fromCharCode(0x125CF)
+  }
 }
 
 function Board() {
   this.grid = [];
+  this.checkers = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -52,16 +59,70 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.createCheckers = function(){
+    let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+                          [1, 0], [1, 2], [1, 4], [1, 6],
+                          [2, 1], [2, 3], [2, 5], [2, 7]];
+
+    let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+                          [6, 1], [6, 3], [6, 5], [6, 7],
+                          [7, 0], [7, 2], [7, 4], [7, 6]];
+    for (let i = 0; i <= 11; i++){
+      let whiteChecker = new Checker('white');
+      this.checkers.push(whiteChecker);
+      let coordinate = whitePositions[i];
+      this.grid[coordinate[0]][coordinate[1]] = whiteChecker;
+      //return grid
+    }
+    for (let i = 0; i <= 11; i++){
+      let blackChecker = new Checker('black');
+      this.checkers.push(blackChecker);
+      let coordinate = blackPositions[i];
+      this.grid[coordinate[0]][coordinate[1]] = blackChecker
+    }
+  };
 }
+
+this.selectChecker = function(row, column){
+  return this.grid[row][column];
+}
+this.killChecker = function(row, column){
+  this.checkers.splice(this.selectChecker(row, column), 1)
+  this.grid[row][column] = null;
+}
+
 function Game() {
 
   this.board = new Board();
-
   this.start = function() {
     this.board.createGrid();
-    // Your code here
-  };
+    this.board.createCheckers();
+  }
+  this.moveChecker = function(start, end){
+    const checker = this.board.selectChecker(start[0], start[1]);
+    const finalPlace = this.board.grid[end[0]][end[1]];
+    if (checker){
+      if finalPlace {
+        beep(2);
+        console.log('There is a piece here')
+      }
+      else if (finalPlace === null){
+        if(start[0] - end[0] === 2|| start[0] - end[0] === - 2){
+          if(checker.symbol === String.fromCharCode(0x125CB)){
+            let killrow = end[0]-1;
+            let killcol = end[1]-1;
+            this.board.killChecker(killrow, killcol)
+          }
+        }
+        this.board.grid[end[0]][end[1]]= checker;
+        this.board.grid[start[0]][start[1]] = null;
+      }
+    }
+    else {
+      beep(3);
+      console.log('Please pick a starting spot with a checker')
+    }
+  }
 }
 
 function getPrompt() {
