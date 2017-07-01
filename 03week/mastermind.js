@@ -33,7 +33,7 @@ function generateHint() {
 }
 
 function mastermind(guess) {
-  // solution = 'abcd'; // uncomment this when developing
+  solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
 }
 
