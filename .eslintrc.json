@@ -4,7 +4,9 @@
     "indent": ["error", 2]
   },
   "env": {
-    "es6": true
+    "es6": true,
+    "mocha": true,
+    "node": true
   },
   "parserOptions": {
     "ecmaFeatures": {
