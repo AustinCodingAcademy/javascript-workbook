@@ -1,16 +1,37 @@
 "use strict";
+
 // mashape's spoonacular api key -H 'X-Mashape-Key: YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o' \
-class IngReCat extends React.Component {
+class IngReCat extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    return <IngForm />;
+    return (
+      <div className="App">
+        <div className="row">
+          <div className="App-header">
+            <h1>Cat</h1>
+            <img
+              src={require("./catForkEggTrans.png")}
+              alt="logo"
+              className="App-logo"
+            />
+            <div className="app-side">
+              <h1>Fork</h1>
+            </div>
+          </div>
+        </div>
+
+        <h1 className="App-intro">Welcomes You</h1>
+        <CatPic />
+        <IngForm />
+      </div>
+    );
   }
 }
 
-class IngForm extends React.Component {
+class IngForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,28 +55,30 @@ class IngForm extends React.Component {
     });
     console.log(this.state.value);
   }
+
+  //the value is getting lost.
   handleSubmit(event) {
     event.preventDefault();
     let ingString = this.state.value.split(",").map(x => x.trim());
 
-    ingString = ingString.map((x,i)=>{
-
-      let lastIdx = ingString.length-1;
-      console.log(lastIdx)
-      if(i == lastIdx){
+    ingString = ingString.map((x, i) => {
+      let lastIdx = ingString.length - 1;
+      console.log(lastIdx);
+      if (i == lastIdx) {
         return x;
-      }
-      else{
-        return x+"%2C";
+      } else {
+        return x + "%2C";
       }
     });
-    ingString.join('');
 
-    console.log(ingString)
+    console.log(ingString);
     this.setState({
-       ing: ingString.join('')
-
+      ing: ingString.join("")
     });
+    // this.state.ingredients = this.state.value.split(",");
+    // this.state.ing = this.state.ingredients.map(x => x.trim());
+    // console.log(this.state.ingredients[0]);
+    console.log(this.state.ing);
     this.getRecipes();
   }
   getIndRec(id) {
@@ -91,7 +114,7 @@ class IngForm extends React.Component {
     let ing = this.state.ing;
     let baseUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-    //apples%2Cflour%2Csugar
+    //increasing recipe return count to render them in 5 ct collections
     let endUrl = "&limitLicense=false&number=10&ranking=1";
     fetch(baseUrl + ing + endUrl, {
       method: "GET",
@@ -103,23 +126,27 @@ class IngForm extends React.Component {
       console.log(response);
       return response.json().then(data => {
         console.log(data);
-        let page1 = data.slice(0,5);
-        let page2 = data.slice(5);
+        // let recipes1 = data.slice(0,5)
         this.setState({
-          recipes : data,
-            page1: page1,
-            page2: page2
-          })
+          recipes1: [data.slice(0, 5)],
+          recipes2: [data.slice(5)]
         });
+        console.log(this.state.recipes1);
       });
-    };
-
+    });
+  }
 
   renderInstructions(instructions) {
-    let ingredients = instructions.recIng.map(ing => <li key={ing}>{ing}</li>);
+    let ingList = instructions.recIng.map(ing =>
+      <li key={ing}>
+        {ing}
+      </li>
+    );
     return (
       <div className="recipeIns">
-        <ul>{ingredients}</ul>
+        <ul>
+          {ingList}
+        </ul>
         {instructions.instructions}
       </div>
     );
@@ -127,12 +154,14 @@ class IngForm extends React.Component {
 
   render() {
     let menu;
-    // try{
-    if(this.state.page1){
-      menu = this.state.page1[0].map(rec =>{
+    // let menu = this.state.recipes.map(rec =>
+    if (this.state.recipes1) {
+      menu = this.state.recipes1[0].map(rec => {
         return (
           <div className="recipe" key={rec.id}>
-            <button onClick={() => this.getIndRec(rec.id)}> {rec.title} </button>
+            <button onClick={() => this.getIndRec(rec.id)}>
+              {" "}{rec.title}{" "}
+            </button>
             <img
               className="recPic"
               src={rec.image}
@@ -145,13 +174,13 @@ class IngForm extends React.Component {
         );
       });
     }
-    // catch(e){}
-
+    // <label>
+    // {" "}Ingredients:
+    // </label>
     return (
       <div className="form">
-        <h1> Enter Your Ingredients </h1>
+        <h1> Enter Comma-Separated Ingredients and Submit</h1>
         <form onSubmit={this.handleSubmit}>
-
           <input
             type="text"
             value={this.state.value}
@@ -161,13 +190,15 @@ class IngForm extends React.Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <div className="recipe"> {menu}</div>
+        <div className="recipe">
+          {" "}{menu}
+        </div>
       </div>
     );
   }
 }
 
-class CatPic extends React.Component {
+class CatPic extends Component {
   constructor() {
     super();
     this.state = {
@@ -183,67 +214,31 @@ class CatPic extends React.Component {
         console.log(response);
         return response.blob();
       })
-      .then((myBlob) => {
+      .then(myBlob => {
         console.log(myBlob);
         // debugger
         this.setState({
-          kitty:  URL.createObjectURL(myBlob)
+          kitty: URL.createObjectURL(myBlob)
         });
       });
   }
-
-  //  this.forceUpdate();
-  //   kitty: "http://thecatapi.com/api/images/get?format=src&size=med"
-  // });
-
-  //   this.setState({
-  //     kitty:  "http://thecatapi.com/api/images/get?format=src&size=med"
-  //   });
-  // }
-  // reset() {
-  //   this.setState({
-  //     kitty: <a href="http://thecatapi.com">
-  //       <img src="http://thecatapi.com/api/images/get?format=src&size=med" />
-  //   });
-  // }
 
   render() {
     return (
       <div>
         <a href="http://thecatapi.com">
-          <img className="catPic" src={this.state.kitty} />
+          <img className="catPic" src={this.state.kitty} alt="logo" />
         </a>
-        <button className="btn-class" onClick={this.resetCatPic}>New Cat</button>
+        <button className="btn-class" onClick={this.resetCatPic}>
+          New Cat
+        </button>
       </div>
     );
   }
 }
 
-// class RecipeResults extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state ={
-//       results: this.state.recipes
-//       }
-//     }
-//
-//     render(){
-//       this.state.results.map(rec => {
-//         let name = rec.title;
-//         let pic = rec.image;
-//
-//         return(
-//           <div>
-//             <ul>
-//              <li> {rec.title}</li>
-//              <li>{rec.image}</li>
-//             </ul>
-//           </div>
-//       );});
-//
-//     }
-//
-// }
+// ReactDOM.render(<IngReCat />, document.querySelector("#fetch"));
+// ReactDOM.render(<CatPic />, document.querySelector("#catPic"));
 
 ReactDOM.render(<IngReCat />, document.querySelector("#fetch"));
 ReactDOM.render(<CatPic />, document.querySelector("#catPic"));
