@@ -68,7 +68,7 @@
       "endDate": "2017/9",
       "gpa": "4.0",
       "courses": [
-        "Javascript Full Stack"
+        "HTML, CSS, JQuery, Github, Javascript, React, MongoDB"
       ]
     },
     {
@@ -79,13 +79,22 @@
       "endDate": "2014/7",
       "gpa": "3.7",
       "courses": []
+    },
+    {
+      "institution": "Northern Essex Community College",
+      "area": "Computer Science",
+      "studyType": "Bac",
+      "startDate": "2012/6",
+      "endDate": "2014/7",
+      "gpa": "3.7",
+      "courses": []
     }
   ],
-  "awards": ["2012 NECI B.A. Student Asian Appetizer Challenge - People's Choice"],
+  "awards": ["06/17 Austin Coding Academy: Perfect Attendance, Javascript 211 (Intermediate Class, I had perfect attendance in the first class but they didn't give awards out for it then)","2012 NECI B.A. Student Asian Appetizer Challenge - People's Choice"],
   "publications": [],
   "skills": [
-    {	
-      "name": "Web Development",
+    {
+      "name": "",
       "level": "3-5",
       "keywords": ["HTML", "CSS", "Git-Hub",""
       ]
