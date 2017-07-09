@@ -30,7 +30,7 @@ class NameFilter extends React.Component {
   search(event) {
     console.log(event.target.value);
     const filteredName = this.state.person.filter(names => {
-      return names.results.name.toLowerCase().includes(event.target.value.toLowerCase());
+      return names.results.name.first.toLowerCase().includes(event.target.value.toLowerCase());
     });
     this.setState({ filtered: filteredName })
   }
@@ -38,8 +38,10 @@ class NameFilter extends React.Component {
   render() {
     const person = this.state.filteredName.map((names) => {
       return (
-        <li key={names.results.name}>
+        <div>
+        <li key={names.results.name.first}>
         </li>
+        </div>
       )
     });
     return (
