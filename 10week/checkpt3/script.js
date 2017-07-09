@@ -1,41 +1,44 @@
+
 'use strict';
 
-class checkpoint extends React.Component {
+class NameFilter extends React.Component {
   constructor() {
     super();
     this.state = {
       person: [],
-      filteredname: []
+      filteredName: []
     }
 
-  fetch('https://randomuser.me/api/?results=5')
-  .then(function(response) {
-    return response.json();
-  })
-     .then(function(person) {
-        const name = this.state.name.slice();
-        name.push(person);
-        this.setState({
-          name: name,
-          filtered: names
+    fetch('https://randomuser.me/api/?results=5')
+    .then((response) => {
+      return response.json();
+    })
+
+      .then((names) => {
+          const person = this.state.person.slice();
+          person.push(names);
+          this.setState({
+            person: person,
+            filteredName: person
+          });
         });
-      });
+
 
     this.search = this.search.bind(this);
   }
 
   search(event) {
     console.log(event.target.value);
-    const filtered = this.state.name.filter(function(person) {
-      return person.title.toLowerCase().includes(event.target.value.toLowerCase());
+    const filteredName = this.state.person.filter(names => {
+      return names.results.name.toLowerCase().includes(event.target.value.toLowerCase());
     });
-    this.setState({ filterednam: filtered })
+    this.setState({ filtered: filteredName })
   }
 
   render() {
-    const name = this.state.filtered.map(function(person) {
+    const person = this.state.filteredName.map((names) => {
       return (
-        <li key={person.name}>
+        <li key={names.results.name}>
         </li>
       )
     });
@@ -43,15 +46,14 @@ class checkpoint extends React.Component {
       <div>
         <input type="text" onChange={this.search} />
         <ul>
-          {filtered}
+          {person}
         </ul>
       </div>
     );
   }
 }
 
-ReactDOM.render(<checkpoint />, document.getElementById('checkpoint'));
-
+ReactDOM.render(<NameFilter />, document.getElementById('name-filter'));
 
 
 
