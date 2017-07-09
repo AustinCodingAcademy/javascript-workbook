@@ -29,7 +29,7 @@ class checkpoint extends React.Component {
     const filtered = this.state.name.filter(function(person) {
       return person.title.toLowerCase().includes(event.target.value.toLowerCase());
     });
-    this.setState({ filtered: filtered })
+    this.setState({ filterednam: filtered })
   }
 
   render() {
@@ -62,10 +62,10 @@ ReactDOM.render(<checkpoint />, document.getElementById('checkpoint'));
 
 
 
-
-
-
-
+//
+//
+//
+//
 // 'use strict';
 //
 //
