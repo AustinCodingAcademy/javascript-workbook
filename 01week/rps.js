@@ -58,11 +58,7 @@ function checkForWin() {
 checkForWin();
 
 function checkForTie() {
-  if (player === 'rock' && computer === 'rock') {
-    console.log('Tie');
-  } else if (player === 'paper' && computer === 'paper') {
-    console.log('Tie');
-  } else if (player === 'scissors' && computer === 'scissors') {
+  if (player === computer) {
     console.log('Tie');
   } else {
     console.log('You didn\'t spell something right');
