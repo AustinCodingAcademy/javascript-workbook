@@ -46,7 +46,7 @@ function twoTruths (a, b) {
   if (a > 0 && b > 0) {
     return 'they\'re both true!';
   }
-  return;
+  return 'function failed';
 }
 
 twoTruths(10, 1);
@@ -56,7 +56,7 @@ function oneTruth (a, b) {
   if (a > 0 || b > 0) {
     return 'one of these things is true!';
   }
-  return;
+  return 'function failed';
 }
 
 oneTruth(0, 1);
@@ -64,7 +64,7 @@ oneTruth(0, 1);
 // Write a JavaScript program that runs when both things are not true.
 function noTruths (a, b) {
   if ((a > 0 && b > 0) || (a > 0 || b > 0)) {
-    return;
+    return 'function failed';
   }
   return 'none of these things are true!';
 }
