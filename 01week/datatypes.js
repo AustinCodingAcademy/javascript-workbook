@@ -39,7 +39,7 @@ function addition (a, b) {
   return a + b;
 }
 
-addition (2, 100);
+addition(2, 100);
 
 // Write a JavaScript program that runs only when 2 things are true.
 function twoTruths (a, b) {
