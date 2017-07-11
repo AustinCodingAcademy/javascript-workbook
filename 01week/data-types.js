@@ -9,7 +9,7 @@ console.log(displayDateAndTime());
 
 // the following function satisfies item 2
 
-function changeToString (num) {
+function changeToString(num) {
   var myString = num.toString();
   console.log(myString);
 }
