@@ -2,39 +2,35 @@
 // the following function satisfies item 1
 
 function displayDateAndTime() {
-  var currentDateAndTime = new Date();
-  console.log(currentDateAndTime);
+  return new Date();
 }
 
-displayDateAndTime();
+console.log(displayDateAndTime());
 
 // the following function satisfies item 2
 
-function changeToString () {
-  var num = prompt('Please enter a number.');
+function changeToString (num) {
   var myString = num.toString();
   console.log(myString);
 }
 
-changeToString();
+changeToString(6);
 
 // the following function satisfies item 3
 
-function changeToNumber() {
-  var myString = prompt('Please enter a number');
-  var num = parseInt(myString);
-  console.log(typeof num + '' + num);
+function changeToNumber(myString) {
+  return parseInt(myString);
 }
 
-changeToNumber();
+console.log(changeToNumber('2017'));
 
 // the following function satisfies item 4
 
 function getType(data) {
-  return typeof (data);
+  return typeof data;
 }
 
-getType('bob');
+getType(30);
 
 // the following function satisfies item 5
 
@@ -46,11 +42,7 @@ addNumbers(2,30.6);
 
 // the following function satisfies items 6-8
 
-function makeFood() {
-  var beans = prompt('Would you like beans? Y/N.')
-  var rice = prompt('Would you like rice? Y/N.')
-  beans = beans.toLowerCase();
-  rice = rice.toLowerCase();
+function makeFood(beans, rice) {
   if (beans === 'y' && rice === 'y') {
     console.log('Burrito');
   } else if (beans === 'n' || rice === 'n') {
@@ -60,4 +52,4 @@ function makeFood() {
   }
 }
 
-makeFood();
+makeFood('y', 'y');
