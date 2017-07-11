@@ -7,10 +7,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors (hand1, hand2) {
-  var a = convertToNum(hand1);
-  var b = convertToNum(hand2);
+  var a = convertToNum((hand1.trim()));
+  var b = convertToNum((hand2.trim()));
+
+  console.log(a);
+  console.log(b);
 
   if (a === b) {
     return 'It\'s a tie!';
