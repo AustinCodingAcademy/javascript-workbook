@@ -11,15 +11,12 @@ function rockPaperScissors (hand1, hand2) {
   var a = convertToNum((hand1.trim()));
   var b = convertToNum((hand2.trim()));
 
-  console.log(a);
-  console.log(b);
-
   if (a === b) {
     return 'It\'s a tie!';
   } else if ((a - b + 3) % 3 === 1) {
-    return 'Player 1 wins!';
+    return 'Hand 1 wins!';
   } else {
-    return 'Player 2 wins!';
+    return 'Hand 2 wins!';
   }
 }
 
@@ -33,8 +30,6 @@ function convertToNum (hand) {
     return 0; // rock
   }
 }
-
-rockPaperScissors('rock','rock');
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
