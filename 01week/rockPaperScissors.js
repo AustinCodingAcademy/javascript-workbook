@@ -8,11 +8,31 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors (hand1, hand2) {
+  var a = convertToNum(hand1);
+  var b = convertToNum(hand2);
 
-  // Write code here
-
+  if (a === b) {
+    return 'It\'s a tie!';
+  } else if ((a - b + 3) % 3 === 1) {
+    return 'Player 1 wins!';
+  } else {
+    return 'Player 2 wins!';
+  }
 }
+
+// convert input to number
+function convertToNum (hand) {
+  if (hand.length === 8) {
+    return 2; // scissors
+  } else if (hand.length === 5) {
+    return 1; // paper
+  } else if (hand.length === 4) {
+    return 0; // rock
+  }
+}
+
+rockPaperScissors('rock','rock');
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {

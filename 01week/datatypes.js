@@ -22,12 +22,7 @@ function convertStringtoNum (stringInput) {
 convertStringtoNum('8');
 
 /* Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-Boolean
-Null
-Undefined
-Number
-NaN
-String */
+Boolean Null Undefined Number NaN String */
 function identifyType (input) {
   return typeof input;
 }
