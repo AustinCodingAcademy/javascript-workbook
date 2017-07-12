@@ -57,12 +57,9 @@ function checkForWin() {
 
 checkForWin();
 
+// Tyring out a ternary operator. this works.
 function checkForTie() {
-  if (player === computer) {
-    console.log('Tie');
-  } else {
-    console.log('You didn\'t spell something right');
-  }
+  player === computer ? console.log('Tie') : console.log('You didn\'t spell something right');
 }
 
 function printChoices() {
