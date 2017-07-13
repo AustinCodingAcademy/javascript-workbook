@@ -31,7 +31,6 @@ function dataType(){
   const num = "Number";
   const nan = "NaN";
   const str = "String";
-
 }
 
 //Add 2 numbers together
