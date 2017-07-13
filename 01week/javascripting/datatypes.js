@@ -30,7 +30,7 @@ if (10<20 && 50>30);{
 
 //Runs if one or both are true
 if (100 > 50 || 25<30) {
-    console.log("Hey, it works!");
+  console.log("Hey, it works!");
 } else {
   console.log("Nah, wrong.");
 }
