@@ -7,17 +7,22 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+function rockPaperScissors (hand1, hand2) {
+  hand1 = hand1.toLowerCase().trim();
+  hand2 = hand2.toLowerCase().trim();
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  } else if ((hand1 === 'rock') && (hand2 === 'scissors') || (hand1 === 'scissors') && (hand2 === 'paper')) {
+    return "Hand one wins!";
+  } else {
+    return "Hand two wins!";
+  }
 }
 
-function getPrompt() {
+function getPrompt () {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
