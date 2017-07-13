@@ -21,12 +21,17 @@ function rockPaperScissors (hand1, hand2) {
   return;
 }
 
+function handTwoAI () {
+  var choiceArray = ['rock', 'paper', 'scissors'];
+  return choiceArray[Math.floor(Math.random() * 3)];
+}
+
 function getPrompt () {
   rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log(rockPaperScissors(answer1, answer2));
+    // rl.question('hand2: ', (answer2) => {
+      console.log(rockPaperScissors(answer1, handTwoAI()));
       getPrompt();
-    });
+    // });
   });
 }
 
