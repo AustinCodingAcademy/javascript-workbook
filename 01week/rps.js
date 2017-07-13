@@ -1,16 +1,11 @@
 'use strict';
 // Rock Paper Scissors.
 // global variables go here
-var player;
-var computer;
 // Player 1 is the user
+var player = prompt('Rock, Paper or Scissors?');
+player = player.toLowerCase();
+var computer;
 
-function playerChoice() {
-  player = prompt('Rock, Paper or Scissors?');
-  player = player.toLowerCase();
-}
-
-playerChoice();
 
 // Player 2 is the computer
 
