@@ -8,33 +8,24 @@ const rl = readline.createInterface({
 });
 
 function rockPaperScissors (hand1, hand2) {
-  var a = convertToNum((hand1.trim()));
-  var b = convertToNum((hand2.trim()));
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
 
-  if (a === b) {
+  if (hand1 === hand2) {
     return 'It\'s a tie!';
-  } else if ((a - b + 3) % 3 === 1) {
-    return 'Hand 1 wins!';
+  } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
+    return 'Hand one wins!';
   } else {
-    return 'Hand 2 wins!';
+    return 'Hand two wins!';
   }
+  return;
 }
 
-// convert input to number
-function convertToNum (hand) {
-  if (hand.length === 8) {
-    return 2; // scissors
-  } else if (hand.length === 5) {
-    return 1; // paper
-  } else if (hand.length === 4) {
-    return 0; // rock
-  }
-}
 
-function getPrompt() {
+function getPrompt () {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
