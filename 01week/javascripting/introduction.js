@@ -40,7 +40,7 @@ ReturnType('Hello');
 ReturnType(10);
 ReturnType();
 ReturnType(true);
-ReturnType();
+ReturnType(0/0);
 
 
 // Write a JavaScript program that adds 2 numbers together.
