@@ -8,11 +8,27 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+
 
   // Write code here
-
+function rockPaperScissors(hand1, hand2){
+  if (hand1 === hand2){
+    return "It's a tie!";
+  }else if (hand1==='rock' && hand2==='paper') {
+    return "Hand two wins!";
+  }else if (hand1==='rock' && hand2 === 'scissors') {
+    return "Hand one wins!";
+  }else if (hand1 === 'paper' && hand2 === 'scissors') {
+    return "Hand two wins!";
+  }else if (hand1 === 'paper' && hand2 === 'rock') {
+    return "Hand one wins!";
+  }else if (hand1 === 'scissors' && hand2 === 'paper') {
+    return "Hand one wins!";
+  }else if (hand1 === 'scissors' && hand2 === 'rock') {
+    return "Hand 2 wins!";
+  }
 }
+console.log(rockPaperScissors());
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
