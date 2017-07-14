@@ -7,41 +7,41 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-function rockPaperScissors (hand1, hand2) {
+function rockPaperScissors (hand1) {
+  var words = ['rock', 'paper', 'scissors'];
+  var num = Math.floor(Math.random() * words.length);
+  var hand2 = words[num];
+//function rockPaperScissors (hand1, hand2) {
   if (hand1 === hand2) {
-    return "It's a tie!";
-} else if (hand1 === 'rock') {
-  if (hand2 === 'paper') {
-    return 'Hand two wins!';
-  } else {
-    return 'Hand one wins!';
-  }
-} else if (hand1 === 'rock') {
-  if (hand2 === 'scissors');
-  return 'Hand one wins!';
-} else {
-  return 'Hand two wins!';
-}
-  else if (hand1 === 'paper'){
-  if (hand2 === 'rock');
-  return("Hand one wins!");
-} else {
-  else if (hand2 === 'scissors');
-  if (hand1 === 'paper');
-  return('Hand two wins!');
-}
-  else if (hand2 === 'scissors');
-  if (hand1 === 'paper');
-  return('Hand two wins!');
+  return "It's a tie!";
 
-  else if (hand1 ==='scissors');
-  if(hand2 === 'paper');
-  return('Hand one wins!');
+    if (hand1 === hand2) {
+      return "It's a tie!";
+    } else if (hand1 === 'rock') {
 
-  if(hand2 === 'rock');
-  elseif(hand1 === 'scissors');
-  return('Hand two wins!');
-}
+    if (hand2 === 'paper') {
+      return 'Hand two wins!';
+    } else {
+      return 'Hand one wins!';
+    }
+
+    } else if (hand1 === 'scissors') {
+      if (hand2 === 'rock') {
+      return 'Hand two wins!';
+    } else {
+      return 'Hand one wins!';
+    }
+
+    } else if (hand1 === 'paper') {
+      if (hand2 === 'rock') {
+        return 'Hand one wins!';
+      } else {
+        return 'Hand two wins!';
+      }
+
+      }
+
+    }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
