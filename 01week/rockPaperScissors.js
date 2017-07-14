@@ -1,4 +1,11 @@
-'use strict';
+"use strict";
+
+//2 players
+//three options; rock, paper, scissors
+//matching options equal tie
+//paper beats rock
+//scissors beats paper
+//rock beats scissors
 
 const assert = require('assert');
 const readline = require('readline');
@@ -9,10 +16,43 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  const rock = "Rock";
+  const paper = "Paper";
+  const scissors = "Scissors";
 
-  // Write code here
+  if (hand1 === hand2) {
+    console.log("TIE");
+  }
+  if (hand1 === rock){
+    if (hand2 === paper){
+      console.log("PLAYER 2 WINS");
+    }
+    else{
+      console.log("PLAYER 1 WINS");
+        }
+      }
+    }
+  if (hand1 === paper){
+    if (hand2 === scissors){
+      console.log("PLAYER 2 WINS");
+    }
+    else{
+      console.log("PLAYER 1 WINS");
+        }
+      }
+  if (hand1 === scissors){
+    if (hand2 === rock){
+      console.log("PLAYER 2 WINS");
+    }
+    else{
+    console.log("PLAYER 1 WINS");
+        }
+      }
 
-}
+
+
+
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
