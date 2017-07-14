@@ -70,7 +70,7 @@ OnlyOneisTrue(true,false);
 // Write a JavaScript program that runs when both things are not true.
 function NoneTrue(b,c) {
   if (b !== true && c !== true) {
-  console.log("Neither statement evaluates to true!");
+    console.log("Neither statement evaluates to true!");
   }
 }
 NoneTrue(false, false);
