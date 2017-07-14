@@ -7,7 +7,6 @@ function displayDateAndTime(currentDate, currentTime) {
   console.log(currentDate && currentTime);
 }
 return(displayDateAndTime);
-}
 
 //Convert number to string//
 const number = >0;
