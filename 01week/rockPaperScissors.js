@@ -1,5 +1,24 @@
 'use strict';
 
+var input = ['rock', 'scissors', 'paper'];
+var output = ['It\'s a tie!', 'Hand one wins!', 'Hand two wins!', 'Invalid Input: You may only enter "rock", "paper", or "scissors".'];
+// The winner is determined by assigning a numerical value to all of player1's
+// and player2's possible choices and then summing them. The numerical values
+// were selected such that there would be a unique sum for each possible outcome.
+// The player1InputValue array conforms to order of input array, i.e. 1 = rock.
+var player1InputValue = [1, 10, 100];
+// The player2InputValue array conforms to order of input array, i.e. -1 = rock.
+var player2InputValue = [-1, -10, -100];
+// The inputSum array lists all possible sums of player1InputValue + player2InputValue
+var inputSum = [0, -90, -9, 99, 90, 9, -99];
+// A sum of 0 is a tie. The sums -90, -9, and 99 coorespond to player1 winning,
+// while the remaining sums coorespond to player2 winning. These outcomes are
+// represented in the inputSumToOutputIndex array, using the same indexes. The
+// value of the inputSumToOutputIndex array corrsponds to the output array index.
+// Ex: Index 4 corresponds to 99 and 1. The 1 value refers to output[1]
+var inputSumToOutputIndex = [0, 1, 1, 1, 2, 2, 2];
+var player1InputValueIndex, player2InputValueIndex;
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -8,59 +27,22 @@ const rl = readline.createInterface({
 });
 
 function randomHands () {
-  var newHand = 'rock';
-  var rand = Math.random();
-  if (rand < 0.33) {
-    newHand = 'paper';
-  } else if (rand > 0.66) {
-    newHand = 'scissors';
-  }
-  return rockPaperScissors(newHand, newHand);
+  var inputIndex = Math.floor(Math.random() * input.length);
+  return rockPaperScissors(input[inputIndex], input[inputIndex]);
 }
 
-function rockPaperScissors (hand1, hand2) {
-  var winner = null;
-  var value1 = 0;
-  var value2 = 0;
-  switch (hand1.toLowerCase().trim()) {
-    case 'rock':
-      value1 = 1;
-      break;
-    case 'scissors':
-      value1 = 10;
-      break;
-    case 'paper':
-      value1 = 100;
-      break;
+function rockPaperScissors (player1Input, player2Input) {
+  // Determines the Index to the value of the player's hand
+  player1InputValueIndex = input.indexOf(player1Input.toLowerCase().trim());
+  player2InputValueIndex = input.indexOf(player2Input.toLowerCase().trim());
+  if (player1InputValueIndex === -1 || player2InputValueIndex === -1) {
+    // Index not found. Must be invalid input
+    return output[3];
+  } else {
+    // Sums the values of the two hands. Determines the index of the sum in the inputSum array.
+    // Uses this index in the inputSumToOutputIndex array to determine the index of the output array.
+    return output[inputSumToOutputIndex[inputSum.indexOf(player1InputValue[player1InputValueIndex] + player2InputValue[player2InputValueIndex])]];
   }
-  switch (hand2.toLowerCase().trim()) {
-    case 'rock':
-      value2 = -1;
-      break;
-    case 'scissors':
-      value2 = -10;
-      break;
-    case 'paper':
-      value2 = -100;
-      break;
-  }
-  var sum = value1 + value2;
-  switch (sum) {
-    case 0:
-      winner = 'It\'s a tie!';
-      break;     // HAND1    vs.   HAND2
-    case -90:    // scissors       paper
-    case -9:     // rock           scissora
-    case 99:     // paper          rock
-      winner = 'Hand one wins!';
-      break;
-    case -99:    // rock           paper
-    case 9:      // scissors       rock
-    case 90:     // paper          scissors
-      winner = 'Hand two wins!';
-      break;
-  }
-  return winner;
 }
 
 function getPrompt () {
@@ -73,7 +55,6 @@ function getPrompt () {
 }
 
 // Tests
-
 if (typeof describe === 'function') {
   describe('#rockPaperScissors()', () => {
     it('should detect a tie', () => {
@@ -98,6 +79,10 @@ if (typeof describe === 'function') {
     });
     it('should randomize both hands to same value and detect a tie', () => {
       assert.equal(randomHands(), 'It\'s a tie!');
+    });
+    it('should detect invalid input', () => {
+      assert.equal(rockPaperScissors('rock ', 'xixxrx'), 'Invalid Input: You may only enter "rock", "paper", or "scissors".');
+      assert.equal(rockPaperScissors('rocky ', 'sCiSsOrs'), 'Invalid Input: You may only enter "rock", "paper", or "scissors".');
     });
   });
 } else {
