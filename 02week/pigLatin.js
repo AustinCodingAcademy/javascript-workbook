@@ -7,15 +7,35 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+function pigLatin (word) {
+  // List out vowels
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
 
-function pigLatin(word) {
+  // Set word to lowercase and trim off any extra input
+  word = word.toLowerCase().trim();
 
-  // Your code here
+  // Break word up into an array
+  var result = word.split('');
 
+  // Test first index of array for a vowel
+  if (vowels.includes(word.charAt(0))) {
+    return word + 'yay';
+  } else {
+    for (var i = 0; i < word.length; i++) {
+      // Test first letter for consonant
+      if (!vowels.includes(word[i])) {
+      // if consonant shift out letters and push to end of array.  Works from inside out
+        result.push(result.shift());
+      } else {
+        // If consonant found push 'ay' and join result
+        result.push('ay');
+        return result.join('');
+      }
+    }
+  }
 }
 
-
-function getPrompt() {
+function getPrompt () {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
