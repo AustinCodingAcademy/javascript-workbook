@@ -7,13 +7,27 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+function pigLatin (word) {
+  word = word.trim().toLowerCase();
+  var x = word[0];
+  var y = null;
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  var matches = [];
 
-function pigLatin(word) {
-
-  // Your code here
-
+  if (x === 'a' || x === 'e' || x === 'i' || x === 'o' || x === 'u') {
+    return word + 'yay';
+  } else {
+    for (var i = 0; i < vowels.length; i++) {
+      if (word.indexOf(vowels[i]) > -1) {
+        matches.push(word.indexOf(vowels[i]));
+        matches.sort();
+        y = matches[0];
+      }
+    }
+    return word.slice(y) + word.slice(0, y) + 'ay';
+  }
+  return;
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
