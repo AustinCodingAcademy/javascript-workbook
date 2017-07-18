@@ -49,7 +49,7 @@ Addem(4,5);
 
 // Write a JavaScript program that runs only when 2 things are true.
 function TwoTrue(x,y) {
-  if (x === true && y === true) {
+  if (x && y) {
     console.log("Yeah! Both things are true!");
   }
 }
