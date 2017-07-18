@@ -9,9 +9,25 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  var vowels = ['e', 'a', 'i', 'o', 'u'];
+  var firstVowelNum;
+  var firstPart;
+  var secondPart;
+  var results = [];
+  for (var i = 0; i <= vowels.length; i++) {
+    if (word.indexOf(vowels[i]) > -1) {
+      results.push(parseInt(word.indexOf(vowels[i])));
+      // firstVowelNum = word.indexOf(vowels[i]);
+    }
+  }
+  results.sort();
+  var firstVowel = results[0];
+  firstPart = word.slice(0, results[0]);
+  secondPart = word.slice(results[0]);
+  console.log(secondPart + firstPart + 'ay');
+  // console.log(results);
 
-  // Your code here
-
+return;
 }
 
 
