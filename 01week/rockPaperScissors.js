@@ -1,3 +1,5 @@
+RPS
+
 'use strict';
 
 const assert = require('assert');
@@ -7,11 +9,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+  if (hand1 === hand2) {
+      return "Its a tie!";
+  } else if (hand1 === "rock" && hand2 === "scissors") {
+      return "Rock wins";
+  } else if (hand1 === "paper" && hand2 === "rock") {
+      return "Paper wins";
+  } else if (hand1 === "scissors" && hand2 === "paper") {
+      return "Scissors win";
+  }
 }
 
 function getPrompt() {
@@ -47,5 +54,3 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
-
-}
