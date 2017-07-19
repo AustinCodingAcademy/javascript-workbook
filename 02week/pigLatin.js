@@ -13,12 +13,17 @@ function pigLatin(word) {
   var firstPart;
   var secondPart;
   var results = [];
-  function printWord(part2, part1) {
-    console.log(part2 + part1 + 'ay');
-  }
   for (var i = 0; i <= vowels.length; i++) {
     if (word.indexOf(vowels[i]) > -1) {
       results.push(parseInt(word.indexOf(vowels[i])));
+    }
+  }
+  // the nested function below checks to see if the first letter is a vowel and then concats accordingly
+  function printWord(part2, part1) {
+    if (part1 === '') {
+      console.log(part2 + part1 + 'yay');
+    } else {
+      console.log(part2 + part1 + 'ay');
     }
   }
 
@@ -28,14 +33,13 @@ function pigLatin(word) {
   secondPart = word.slice(firstVowel);
   printWord(secondPart, firstPart);
   // console.log(results);
-
 return;
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    ( pigLatin(answer) );
     getPrompt();
   });
 }
