@@ -49,7 +49,7 @@ const pigLatin = word => {
   // If the vowels array includes the first indexed letter of str
   if (vowels.includes(word[0])) {
 
-    // Return the given string with 'way' added at the end
+    // Return the given string with 'yay' added at the end
     return word += 'yay';
 
     // The vowels array DOES NOT include the first indexed letter of str
