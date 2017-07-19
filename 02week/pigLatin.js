@@ -8,9 +8,16 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+var pigLatin function(word) {
 
-  // Your code here
+   var plWord = word;
+
+   var firstLetter = word.charAt(0);
+
+   return(word.slice(1)+firstLetter+'ay');
+  };
+
+  pigLatin("Trevor");
 
 }
 
