@@ -3,7 +3,7 @@
 
 // Write a JavaScript program to display the current day and time.
 function CurrentDateTime() {
-  return new Date();
+   return new Date();
 }
 console.log(new CurrentDateTime());
 
