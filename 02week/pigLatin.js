@@ -8,11 +8,30 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
-
-  // Your code here
-
+function pigLatin(str) {
+  let validateStr = str.split('')
+  for (var i = 0; i < validateStr.length; i++) {
+    if (parseInt(validateStr[i])) {
+      return 'This string cannot contain numbers';
+    }
+  }
+  const vowels = 'aeiou'.split('')
+  const results = []
+  str = str.trim().toLowerCase()
+  if (vowels.includes(str[0])) {
+    return `${str}yay`
+  } else {
+    for (let i = 0; i < str.length; i++) {
+      if (!vowels.includes(str[i])) {
+        results.push(str[i])
+      } else {
+          let newString = str.split('').splice(str.indexOf(str[i]), str.length)
+         return newString.join('') + results.join('') + 'ay'
+      }
+    }
+  }
 }
+
 
 
 function getPrompt() {
@@ -43,6 +62,11 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
+    it('should not container numbers', () => {
+      assert.equal(pigLatin('m1212'), "This string cannot contain numbers");
+
+    });
+
   });
 } else {
 
