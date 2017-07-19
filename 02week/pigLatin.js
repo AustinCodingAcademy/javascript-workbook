@@ -13,16 +13,20 @@ function pigLatin(word) {
   var firstPart;
   var secondPart;
   var results = [];
+  function printWord(part2, part1) {
+    console.log(part2 + part1 + 'ay');
+  }
   for (var i = 0; i <= vowels.length; i++) {
     if (word.indexOf(vowels[i]) > -1) {
       results.push(parseInt(word.indexOf(vowels[i])));
     }
   }
+
   results.sort();
   var firstVowel = results[0];
   firstPart = word.slice(0, firstVowel);
   secondPart = word.slice(firstVowel);
-  console.log(secondPart + firstPart + 'ay');
+  printWord(secondPart, firstPart);
   // console.log(results);
 
 return;
