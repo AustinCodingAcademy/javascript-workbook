@@ -12,6 +12,7 @@ let board = [
   [' ', ' ', ' ']
 ];
 
+asdas
 let playerTurn = 'X';
 
 function printBoard() {
