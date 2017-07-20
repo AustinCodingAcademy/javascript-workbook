@@ -8,10 +8,17 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin (word) {
+  var word = word.trim().toLowerCase();
+  var firstVowelPos = word.match(/([aeiou].*?)/).index;
+  var firstPart = word.slice(firstVowelPos);
+  var secondPart = word.slice(0, firstVowelPos);
 
-  // Your code here
-
+  if (firstVowelPos === 0) {
+    console.log(firstPart + secondPart + 'yay');
+  } else {
+    console.log(firstPart + secondPart + 'ay');
+  }
 }
 
 
