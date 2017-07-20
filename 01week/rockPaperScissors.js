@@ -11,9 +11,9 @@ function rockPaperScissors (hand1) {
   var words = ['rock', 'paper', 'scissors'];
   var num = Math.floor(Math.random() * words.length);
   var hand2 = words[num];
-//function rockPaperScissors (hand1, hand2) {
-  if (hand1 === hand2) {
-  return "It's a tie!";
+
+   if (hand1 === hand2) {
+    return "It's a tie!";
 
     if (hand1 === hand2) {
       return "It's a tie!";
