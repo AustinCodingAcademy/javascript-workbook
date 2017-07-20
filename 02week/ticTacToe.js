@@ -22,10 +22,21 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
+function clearBoard() {
+  for (var i = 0; i < board.length; i ++) {
+    board[i] = [' ', ' ', ' '];
+  }
+  console.log("New Game!!!");
+  playerTurn = 'X';
+}
 
 function printWinner(winner) {
   console.log(winner + ' won!');
+  clearBoard();
+  // getPrompt();
 }
+
+
 
 function horizontalWin() {
   // Your code here
@@ -68,7 +79,6 @@ function checkForWin() {
   verticalWin();
   diagonalWin();
   // Your code here
-  console.log('checkForWin');
 }
 
 function ticTacToe(row, column) {
