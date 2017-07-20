@@ -23,25 +23,61 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
+function printWinner(winner) {
+  console.log(winner + ' won!');
 }
 
-function verticalWin() {
+function horizontalWin() {
   // Your code here
+  if ((board[0][0] === 'X') && (board[0][1] === 'X') && (board[0][2] === 'X') ||
+      (board[1][0] === 'X') && (board[1][1] === 'X') && (board[1][2] === 'X') ||
+      (board[2][0] === 'X') && (board[2][1] === 'X') && (board[2][2] === 'X')) {
+        printWinner('X');
+  } else if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === 'O') ||
+            (board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === 'O') ||
+            (board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === 'O')) {
+        printWinner('O');
+  }
+}
+
+
+function verticalWin() {
+  //Your code here
+  if ((board[0][0] === 'X') && (board[1][0] === 'X') && (board[2][0] === 'X') ||
+      (board[0][1] === 'X') && (board[1][1] === 'X') && (board[2][1] === 'X') ||
+      (board[0][2] === 'X') && (board[1][2] === 'X') && (board[2][2] === 'X')) {
+        printWinner('X');
+  } else if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === 'O') ||
+            (board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === 'O') ||
+            (board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === 'O')) {
+        printWinner('O');
+  }
 }
 
 function diagonalWin() {
   // Your code here
+  if ((board[0][0] === 'X') && (board[1][1] === 'X') && (board[2][2] === 'X')) {
+    printWinner('X');
+  } else if ((board[0][0] === 'O') && (board[1][1] === 'O') && (board[2][2] === 'O')) {
+    printWinner('O');
+  }
 }
 
 function checkForWin() {
+  horizontalWin();
+  verticalWin();
+  diagonalWin();
   // Your code here
+  console.log('checkForWin');
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';
+  checkForWin();
 }
+
+// semi-related note: look into every() method
 
 function getPrompt() {
   printBoard();

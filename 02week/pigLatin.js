@@ -26,20 +26,20 @@ function pigLatin(word) {
       console.log(part2 + part1 + 'ay');
     }
   }
-
+  // the bit below to end of parent function operates on data passed to said function and returns arguments for printWord() call
   results.sort();
   var firstVowel = results[0];
   firstPart = word.slice(0, firstVowel);
   secondPart = word.slice(firstVowel);
   printWord(secondPart, firstPart);
-  // console.log(results);
+
 return;
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    ( pigLatin(answer) );
+    pigLatin(answer);
     getPrompt();
   });
 }
