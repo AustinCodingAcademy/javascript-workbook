@@ -1,17 +1,16 @@
 'use strict';
 
-function pigLatin(word) {
+function pigLatin (word) {
   word = word.toLowerCase().trim();
   var vowelIndex = word.search(/a|e|i|o|u/);
   if (vowelIndex < 1) {
-    return word + "yay";
+    return word + 'yay';
   } else {
-    return word.substr(vowelIndex) + word.substr(0, vowelIndex) + "ay";
+    return word.substr(vowelIndex) + word.substr(0, vowelIndex) + 'ay';
   }
 }
 
 // Tests
-
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -19,15 +18,14 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-function getPrompt() {
+function getPrompt () {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
 
 if (typeof describe === 'function') {
-
   describe('#pigLatin()', () => {
     it('should translate a simple word', () => {
       assert.equal(pigLatin('car'), 'arcay');
@@ -47,7 +45,5 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-
   getPrompt();
-
 }
