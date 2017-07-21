@@ -9,15 +9,37 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  var vowels = ['e', 'a', 'i', 'o', 'u'];
+  var firstPart;
+  var secondPart;
+  var results = [];
+  for (var i = 0; i <= vowels.length; i++) {
+    if (word.indexOf(vowels[i]) > -1) {
+      results.push(parseInt(word.indexOf(vowels[i])));
+    }
+  }
+  // the nested function below checks to see if the first letter is a vowel and then concats accordingly
+  function printWord(part2, part1) {
+    if (part1 === '') {
+      console.log(part2 + part1 + 'yay');
+    } else {
+      console.log(part2 + part1 + 'ay');
+    }
+  }
+  // the bit below to end of parent function operates on data passed to said function and returns arguments for printWord() call
+  results.sort();
+  var firstVowel = results[0];
+  firstPart = word.slice(0, firstVowel);
+  secondPart = word.slice(firstVowel);
+  printWord(secondPart, firstPart);
 
-  // Your code here
-
+return;
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    pigLatin(answer);
     getPrompt();
   });
 }
