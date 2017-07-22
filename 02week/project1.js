@@ -1,4 +1,6 @@
 'use strict';
+
+//
 var cars = ['ford', 'nissan', 'acura', 'buick'];
 var moreCars = ['bmw', 'toyota', 'kia', 'honda'];
 var totalCars = cars.concat(moreCars);
@@ -18,6 +20,7 @@ function combineCars () {
 function checkIndexOf () {
   console.log(totalCars.indexOf('honda'));
   console.log(totalCars.lastIndexOf('ford'));
+  return;
 }
 
 function joinCars () {
@@ -48,20 +51,24 @@ function sliceCars () {
 
 function spliceCars () {
   carsInReverse.splice(2, 2, 'ford', 'honda');
+  return;
 }
 
 function pushNewCars () {
   carsInReverse.push('buick', 'ford');
+  return;
 }
 
 function popLastCar () {
   carsInReverse.pop();
   console.log(carsInReverse[8]);
+  return;
 }
 
 function shiftFirstCar () {
   carsInReverse.shift();
   console.log(carsInReverse[0]);
+  return;
 }
 
 function addCarToFront () {
