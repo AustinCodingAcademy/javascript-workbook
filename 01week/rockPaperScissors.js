@@ -9,6 +9,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//Game functions go here
+
 function rockPaperScissors(hand1, hand2) {
   if (hand1 === hand2) {
       return "Its a tie!";
