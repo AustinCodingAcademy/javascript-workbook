@@ -7,11 +7,28 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//Pig Latin Translator
 
-function pigLatin(word) {
-  
-
+function translate(word) {
+  let array = word.split('');
+  let vowels = ['a','e','i','o','u'];
+  let newWord = '';
+    for(var i = 0; i < vowels.length-1; i++) {
+      for(var y = 0; y < word.length-1; y++) {
+        if(word[y] === vowels[i]) {
+          for(var x = y; x < word.length; x++){
+            newWord = newWord + word[x];
+          }
+          for(var n = 0; n < y; n++){
+            newWord = newWord + word[n];
+          }
+            return newWord + "ay";
+          }
+        }
+    }
 }
+
+translate("apple");
 
 
 function getPrompt() {
