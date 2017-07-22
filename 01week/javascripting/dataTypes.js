@@ -2,7 +2,6 @@ Data types
 
 'use strict';
 
-
 //Display date and time//
 const currentDate = date;
 const currentTime = time;
