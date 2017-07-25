@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
+//my code
 function pigLatin(word) {
   //This code stores the list of vowels so that the words can be searched for vowels.
   const vowelArray = ['a', 'e', 'i', 'o', 'u'];
