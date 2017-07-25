@@ -101,4 +101,4 @@ var numbers = [23, 45, 0 , 2];
 function addTwo(item) {
   console.log(item + 2);
 }
-numbers.forEach(addTwo)
+console.log(numbers.forEach(addTwo));

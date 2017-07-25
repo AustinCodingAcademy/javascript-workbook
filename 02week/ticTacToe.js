@@ -25,6 +25,7 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+
 }
 
 function verticalWin() {
@@ -40,7 +41,7 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
 }
 
 function getPrompt() {
