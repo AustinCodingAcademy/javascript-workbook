@@ -20,7 +20,7 @@ function printStacks () {
 }
 
 function movePiece (startStack, endStack) {
-  //Test to see if move is legal and if it is, pop startStack and push to endStack
+  // Test to see if move is legal and if it is, pop startStack and push to endStack
   if (isLegal(startStack, endStack)) {
     stacks[endStack].push(stacks[startStack].pop());
     return true;
@@ -44,7 +44,7 @@ function isLegal (startStack, endStack) {
   }
 }
 
-function checkForWin() {
+function checkForWin () {
   if (stacks.b.length === 4 || stacks.c.length === 4) {
     console.log('You Won!!!');
     return true;
@@ -57,7 +57,7 @@ function towersOfHanoi (startStack, endStack) {
   movePiece(startStack, endStack);
 }
 
-function getPrompt() {
+function getPrompt () {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
@@ -71,7 +71,6 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
@@ -105,10 +104,6 @@ if (typeof describe === 'function') {
       assert.equal(checkForWin(), false);
     });
   });
-
-
 } else {
-
   getPrompt();
-
 }
