@@ -29,6 +29,7 @@ function printStacks() {
 
 function checkForWin() {
   // Your code here
+  // Either stacks can have 4 and wins
   if (stacks.b.length === 4 || stacks.c.length === 4) {
     console.log(`You've Won Sister!`);
   }
