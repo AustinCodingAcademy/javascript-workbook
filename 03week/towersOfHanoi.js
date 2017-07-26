@@ -45,6 +45,7 @@ function isLegal (startStack, endStack) {
 }
 
 function checkForWin () {
+  // If either stacks b or c have an index of 4 check declare win
   if (stacks.b.length === 4 || stacks.c.length === 4) {
     console.log('You Won!!!');
     return true;
@@ -59,8 +60,8 @@ function towersOfHanoi (startStack, endStack) {
 
 function getPrompt () {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
+  rl.question('start stack: ', (startStack) => { // node prompt question
+    rl.question('end stack: ', (endStack) => { // node prompt question
       towersOfHanoi(startStack, endStack);
       checkForWin();
       getPrompt();
@@ -72,7 +73,7 @@ function getPrompt () {
 
 if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
-    it('should be able to move a block', () => {
+    it('should be able to move a block', () => { // Describes exactly what should occur when the test is run
       towersOfHanoi('a', 'b');
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
