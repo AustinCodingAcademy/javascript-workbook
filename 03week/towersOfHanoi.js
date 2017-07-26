@@ -1,7 +1,7 @@
 'use strict';
-
-const assert = require('assert');
-const readline = require('readline');
+// Try to understand testing better
+const assert = require('assert'); // Mocha assertion library
+const readline = require('readline'); // node readline prompt
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
