@@ -10,6 +10,7 @@ const rl = readline.createInterface({
 let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let WON_MESSAGE = 'You guessed it!';
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -28,14 +29,58 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function getCount(str, char) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function generateHint(guess) {
+  let redDot = 0;
+  let whiteDot = 0;
+
+  let found = '';
+  for (let i = 0; i < guess.length; i++) {
+    if (solution[i] === guess[i]) {
+      redDot++;
+      found += guess[i];
+    }
+  }
+
+  for (let i = 0; i < guess.length; i++) {
+    let char = guess[i];
+
+    if (solution[i] !== char && solution.indexOf(char) > -1 && getCount(found, char) < getCount(solution, char)) {
+      whiteDot++;
+      found += char;
+    }
+  }
+
+  return redDot + '-' + whiteDot;
+}
+
+function determineIfWon(hint) {
+  return hint === '4-0';
 }
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  let singleLine = {
+    guess: guess,
+    hint: generateHint(guess)
+  };
+
+  board.push(singleLine);
+
+  if (determineIfWon(singleLine.hint)) {
+    console.log(WON_MESSAGE);
+    return WON_MESSAGE;
+  }
 }
+
 
 
 function getPrompt() {
@@ -71,7 +116,6 @@ if (typeof describe === 'function') {
   });
 
 } else {
-
   generateSolution();
   getPrompt();
 }
