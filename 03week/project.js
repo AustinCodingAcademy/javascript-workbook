@@ -2,20 +2,6 @@
 
 var carsInReverse = ['Ford', 'BMW', 'Toyota', 'Nissan', 'Chevy', 'Mercedes', 'Lexus', 'Honda'];
 
-
-// forEach
-// Create an array called numbers with the following items: 23, 45, 0, 2
-// Write code that will add 2 to each item in the array numbers.
-var numbers = [23, 45, 0, 2];
-function addTwo() {
-  numbers.forEach(function(element) {
-    console.log(element + 2);
-  });
-  return;
-}
-
-addTwo();
-
 // for loop
 // Use a for loop to console.log each item in the array carsInReverse.
 
