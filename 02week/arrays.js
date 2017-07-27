@@ -56,7 +56,7 @@ carsInReverse.push('Ford', 'Honda');
 console.log(carsInReverse);
 
 // Pop
-carsInReverse.pop('Honda');
+carsInReverse.pop();
 console.log(carsInReverse);
 
 // Shift

@@ -20,23 +20,41 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+if (isLegal (startStack, endStack)) {
+  stacks[endStack].pop(stacks [
+    startStack].push());
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function isLegal() {
-  // Your code here
+  var begin = stacks[startStack];
+  var end = stacks[endStack];
 
+  if (begin.length === 0) {
+     return false;
+   } else if (finish.length === 0) {
+     return true;
+   } else {
+     var topStart = begin[begin.length - 1];
+     var topEnd = finish[finish.length - 1];
+     return topStart < topEnd;
+   }
 }
 
 function checkForWin() {
-  // Your code here
-
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log('Winner!');
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  movePiece(startStack, endStack);
 }
 
 function getPrompt() {
@@ -48,6 +66,8 @@ function getPrompt() {
     });
   });
 }
+
+
 
 // Tests
 
