@@ -33,6 +33,7 @@ function checkForWin() {
   // Your code here
   if (stacks.c.length === 4 || stacks.b.length === 4) {
     console.log(`YOU'VE WON!`);
+    return true;
   }
 
 }
