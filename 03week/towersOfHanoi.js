@@ -13,33 +13,50 @@ let stacks = {
   c: []
 };
 
-function printStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+
+function printStacks () {
+  console.log('a: ' + stacks.a);
+  console.log('b: ' + stacks.b);
+  console.log('c: ' + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
 
+function movePiece (startStack, endStack) {
+    stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
-  // Your code here
+// push the topPiece in the start array onto the end of the end array
+function isLegal (startStack, endStack) {
+  let movingBlock = stacks[startStack][(stacks[startStack].length - 1)];
+  let comparingBlock = stacks[endStack][(stacks[endStack].length - 1)];
+  // return topBlock;
+  // return destBlockPos;
 
+  if (movingBlock < comparingBlock || !comparingBlock) {
+    return true;
+  }
+    console.log('illegal move');
+    return false;
+  }
+
+function checkForWin () {
+  if (stacks['b'].length === 4 || stacks['c'].length === 4) {
+    console.log('you win');
+    return true;
+  }
+  return false;
 }
 
-function checkForWin() {
-  // Your code here
-
+function towersOfHanoi (startStack, endStack) {
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin();
+  }
 }
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
 
-}
 
-function getPrompt() {
+function getPrompt () {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
