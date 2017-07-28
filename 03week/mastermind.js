@@ -21,7 +21,7 @@ function generateSolution() {
   for (let i = 0; i < 4; i++) {
     const randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
-  }
+  } //*Don't do anything with this*
 }
 
 function getRandomInt(min, max) {
@@ -30,6 +30,9 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
+  // most of your logic
+  // white point if it's right letter, wrong place 1-1 (R)
+  // red point if it's right letter, right place 1-1 (L)
 }
 
 function mastermind(guess) {
