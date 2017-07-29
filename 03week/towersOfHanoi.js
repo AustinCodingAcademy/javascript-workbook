@@ -25,15 +25,16 @@ function movePiece(startStack, endStack) {
 
 function isLegal(startStack, endStack) {
   if(startStack.length === 0){
-  console.log('This is an empty array, choose another');
-  return false;
-} else if(endStack.length === 0){
-  return true;
-} else if(stacks[startStack][stacks[startStack].length - 1] > stacks[endStack][stacks[endStack].length - 1]){
-  console.log('This is illegal!  Please choose another stack');
-  return false;
-} else {
-  return true;
+    console.log('This is an empty array, choose another');
+    return false;
+  } else if(endStack.length === 0){
+    return true;
+  } else if(stacks[startStack][stacks[startStack].length - 1] > stacks[endStack][stacks[endStack].length - 1]){
+    console.log('This is illegal!  Please choose another stack');
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function checkForWin() {
@@ -46,9 +47,9 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  //startStack = startStack.toLowerCase().trim();
-  //endStack = endStack.toLowerCase().trim();
-  /*if((startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c')){
+  startStack = startStack.toLowerCase().trim();
+  endStack = endStack.toLowerCase().trim();
+  if((startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c')){
     if(isLegal(startStack, endStack)){
       movePiece(startStack, endStack);
       checkForWin();
@@ -57,8 +58,7 @@ function towersOfHanoi(startStack, endStack) {
     }
   } else {
     console.log('Please choose either a, b, or c, please!');
-    }
-  }*/
+  }
 }
 
 function getPrompt() {
