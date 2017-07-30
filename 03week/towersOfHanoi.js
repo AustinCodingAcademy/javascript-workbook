@@ -1,10 +1,17 @@
 'use strict';
 
-var stacks = {
+// This program simulates the popular "Towers of Hanoi" puzzle. The stacks
+// object represents all the pegs and disks (pieces) used in the puzzle. all
+// of the disks are initially placed on peg 'a' and must be placed in order
+// on either peg 'b' or 'c' to solve the puzzle.
+
+let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
+// If more pieces are added, maxPiece needs to be changed accordingly
+const maxPiece = 4;
 
 function printStacks () {
   console.log('a: ' + stacks.a);
@@ -18,15 +25,21 @@ function movePiece (startStack, endStack) {
 }
 
 function isLegal (startStack, endStack) {
-  let startStackVal = 5;
-  let endStackVal = 5;
-  if (stacks[startStack].length > 0) {
-    startStackVal = stacks[startStack].pop();
-    stacks[startStack].push(startStackVal);
-  }
+  //  endStackVal is initially set to maxPiece + 1 to represent an empty peg.
+  //  It's value must be greater than the largest piece in order to allow
+  //  a piece of size maxPiece to be moved onto the peg using the simple
+  //  comparison used in this function.
+  let endStackVal = maxPiece + 1;
   if (stacks[endStack].length > 0) {
-    endStackVal = stacks[endStack].pop();
-    stacks[endStack].push(endStackVal);
+    //  In essence, the .slice().pop() combo returns the last value of an array
+    //  without altering it. [The value is popped from a copy of the array.]
+    endStackVal = stacks[endStack].slice().pop();
+  }
+  //  startStackVal is set to endStackVal prevent someone from trying to move
+  //  a piece from an empty peg to an empty peg. The comparison will fail.
+  let startStackVal = endStackVal;
+  if (stacks[startStack].length > 0) {
+    startStackVal = stacks[startStack].slice().pop();
   }
   if (startStackVal < endStackVal) {
     return true;
