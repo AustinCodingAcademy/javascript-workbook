@@ -12,50 +12,51 @@ function printStacks () {
   console.log('c: ' + stacks.c);
 }
 
-function movePiece (first, second) {
-  var piece = stacks[first].pop();
-  stacks[second].push(piece);
+function movePiece (startStack, endStack) {
+  const piece = stacks[startStack].pop();
+  stacks[endStack].push(piece);
 }
 
-function isLegal (first, second) {
-  var legal = false;
-  var firstVal = 5;
-  var secondVal = 5;
-  if (stacks[first].length > 0) {
-    debugger;
-    firstVal = stacks[first].pop();
-    stacks[first].push(firstVal);
-    debugger;
+function isLegal (startStack, endStack) {
+  let startStackVal = 5;
+  let endStackVal = 5;
+  if (stacks[startStack].length > 0) {
+    startStackVal = stacks[startStack].pop();
+    stacks[startStack].push(startStackVal);
   }
-  if (stacks[second].length > 0) {
-    debugger;
-    secondVal = stacks[second].pop();
-    stacks[second].push(secondVal);
-    debugger;
+  if (stacks[endStack].length > 0) {
+    endStackVal = stacks[endStack].pop();
+    stacks[endStack].push(endStackVal);
   }
-  if (firstVal < secondVal) {
-    debugger;
-    legal = true;
+  if (startStackVal < endStackVal) {
+    return true;
   }
-  debugger;
-  return legal;
+  return false;
+}
+
+function isValid (stackName) {
+  if (stackName === 'a' || stackName === 'b' || stackName === 'a') {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function checkForWin () {
-  var win = false;
-  var aLengthTest = stacks.a.length + 1;
-  var bLengthTest = stacks.b.length + 1;
-  var cLengthTest = stacks.c.length + 1;
-  if (aLengthTest * bLengthTest * cLengthTest === 5) {
-    win = true;
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    return true;
   }
-  return win;
+  return false;
 }
 
 function towersOfHanoi (startStack, endStack) {
-  if (isLegal(startStack, endStack)) {
-    movePiece(startStack, endStack);
-    checkForWin();
+  startStack = startStack.trim().toLowerCase();
+  endStack = endStack.trim().toLowerCase();
+  if (isValid(startStack) && isValid(endStack)) {
+    if (isLegal(startStack, endStack)) {
+      movePiece(startStack, endStack);
+      checkForWin();
+    }
   }
 }
 
