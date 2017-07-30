@@ -31,15 +31,15 @@ function isLegal (startStack, endStack) {
   //  comparison used in this function.
   let endStackVal = maxPiece + 1;
   if (stacks[endStack].length > 0) {
-    //  In essence, the .slice().pop() combo returns the last value of an array
-    //  without altering it. [The value is popped from a copy of the array.]
-    endStackVal = stacks[endStack].slice().pop();
+    //  The .slice(-1)[0] method returns the last value of endStack without
+    //  altering it.
+    endStackVal = stacks[endStack].slice(-1)[0];
   }
   //  startStackVal is set to endStackVal prevent someone from trying to move
   //  a piece from an empty peg to an empty peg. The comparison will fail.
   let startStackVal = endStackVal;
   if (stacks[startStack].length > 0) {
-    startStackVal = stacks[startStack].slice().pop();
+    startStackVal = stacks[startStack].slice(-1)[0];
   }
   if (startStackVal < endStackVal) {
     return true;
