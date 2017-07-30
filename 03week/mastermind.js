@@ -65,6 +65,7 @@ if (typeof describe === 'function') {
       assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
+                              //'abcd'
       assert.equal(generateHint('aabb'), '1-1');
     });
 
