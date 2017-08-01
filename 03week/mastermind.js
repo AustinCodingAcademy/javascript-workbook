@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -28,13 +28,47 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(itemsArr) {
+  return `${itemsArr.length} are correct`
+  //
 }
+
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  // The guess should contain 4 items which would compare each item position to
+  // the solution's items and position
+  // Create solution into an array in order to compare the index of each item
+  const solutionArr = solution.split('');
+  // pushing the guess to the board to then check against solution
+  const boardLength = board.push(guess);
+  // if boardLength is equal to 4 compare to solution
+  const correctItemsArr = [];
+
+  if (boardLength === 4) {
+    // console.log(solutionArr, 'arr')
+
+    for (let i = 0; i < board.length; i++) {
+
+      for (let e = 0; e < solutionArr.length; e++) {
+
+        if (board[i] === solutionArr[e]) {
+          correctItemsArr.push(i)
+        }
+      }
+    }
+    if (correctItemsArr.length === 4) {
+      console.log('You are a BOSS! You guessed all 4 items correctly!')
+      return 'You are a BOSS! You guessed all 4 items correctly!'
+    } else {
+      console.log(generateHint(correctItemsArr))
+    }
+    board = [];
+  }
+
+  // if true then check for win(items and position are eqaul)
+  // if items and posiitons are not equal run hint
+  console.log(boardLength, 'length');
 }
 
 
