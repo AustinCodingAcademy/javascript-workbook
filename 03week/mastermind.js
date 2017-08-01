@@ -1,8 +1,8 @@
 'use strict';
 
-/***************************************************
-*** This program simulates a game of Mastermind. ***
-***************************************************/
+/**************************************************
+*** This program simulates a game of Mastermind ***
+**************************************************/
 
 //  letterChoices are used to represent the possible color choices.
 //  This array can not use numbers or the global consts:
