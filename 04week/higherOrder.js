@@ -2,28 +2,53 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+function forEach (arr, callback) {
+  arr = ['candybars'];
+  const candybars = ['Mars', 'Snickers', 'Twix', 'Butterfinger'];
+  candybars.forEach((candybars) => {
+    console.log(`I like to eat ${candybars}`);
+  });
 }
 
-function map(arr, callback) {
-  // Your code here
+function map (arr, callback) {
+  arr = ['mycandybars'];
+  const mycandybars = ['Mars', 'Snickers', 'Twix', 'Butterfinger'];
+  const unwrap = mycandybars.map((mycandybars) => {
+    return `unwrap mycandybars`;
+  });
+  console.log(unwrap);
 }
 
-function filter(arr, callback) {
-  // Your code here
+function filter (arr, callback) {
+  arr = ['chocolate'];
+  const chocolate = ['Mars', 'Snickers', 'Twix', 'Butterfinger'];
+  const moreThanFive = chocolate.filter((chocolate) => {
+    return chocolate.length > 4;
+  });
+  console.log(moreThanFive);
 }
 
-function some(arr, callback) {
-  // Your code here
+function some (arr, callback) {
+  arr = ['favcandybars'];
+  const favcandybars = ['Mars', 'Snickers', 'Twix', 'Butterfinger'];
+  const endWithS = favcandybars.some((favcandybars) => {
+    return favcandybars[0] === 'S';
+  });
+
+  console.log(endWithS);
 }
 
-function every(arr, callback) {
-  // Your code here
+function every (arr, callback) {
+  arr = ['chocolatecandybars'];
+  const chocolatecandybars = ['Mars', 'Snickers', 'Twix', 'Butterfinger'];
+  const allStartWithR = chocolatecandybars.every((chocolatecandybars) => {
+    return chocolatecandybars[0] === 'R';
+  });
+
+  console.log(allStartWithR);
 }
 
 if (typeof describe === 'function') {
-
   describe('#forEach()', () => {
     it('should call the callback the array.length number of times', () => {
       let count = 0;
