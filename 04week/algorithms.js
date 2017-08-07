@@ -16,14 +16,79 @@ for (let i = 0; i < 1000; i++) {
 
 function bubbleSort(arr) {
   // Your code here
+  do {
+    var swapped = false;
+    for (var i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        // swap
+        let holding = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = holding;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  return arr;
 }
 
 function mergeSort(arr) {
   // Your code here
+  if (arr.length < 2) {
+    return arr;
+  }
+
+  // split that ish
+  var mid = Math.round(arr.length / 2);
+  var left = arr.slice(0, mid);
+  var right = arr.slice(mid, arr.length);
+
+  // am i doin it right?
+  // console.log(`L:${left} R:${right}`);
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+
+  // something to hold the arr
+  var sorted = [];
+
+  // checking to ensure there's stuffz here
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      sorted.push(left.shift());
+      // console.log(`sorted: ${sorted}`);
+    } else {
+      sorted.push(right.shift());
+      // console.log(`sorted: ${sorted}`);
+    }
+  }
+  // join that ish
+  return sorted.concat(left, right);
 }
 
 function binarySearch(arr, item) {
   // Your code here
+  let min = 0;
+  let max = arr.length - 1;
+  let guess = Math.floor(min + max / 2);
+  let correct = false;
+
+  if (arr.indexOf(item) === -1) {
+    return false;
+  } else {
+    do {
+      if (arr[guess] === item) {
+        correct = true;
+        return guess;
+      } else if (arr[guess] < item) {
+        // min = guess + 1;
+        guess = Math.floor((guess + arr.length - 1) / 2);
+      } else {
+        // max = guess - 1;
+        guess = Math.floor(min + guess / 2);
+      }
+    } while (!correct);
+  }
 }
 
 // Tests
