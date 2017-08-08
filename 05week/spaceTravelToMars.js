@@ -10,6 +10,40 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember {
+  constructor (name, job, specialSkill, ship) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  enterShip (ship) {
+    this.ship = ship;
+    return ship.crew.push(this);
+  }
+}
+
+
+class Ship {
+  constructor (name, type, ability, crew) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement () {
+    if (this.crew.length === 0) {
+      return "Can't perform a mission yet.";
+    }
+    return this.ability;
+  }
+}
+
+
+
+// var CrewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+// console.log(CrewMember1.enterShip);
+// console.log(CrewMember1);
 
 //tests
 if (typeof describe === 'function'){
