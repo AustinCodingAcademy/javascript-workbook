@@ -10,6 +10,7 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember
 
 //tests
 if (typeof describe === 'function'){

@@ -35,40 +35,53 @@ function generateHint(itemsArr) {
 
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+  // solution = 'abcd'; Comment this out to generate a random solution
   // The guess should contain 4 items which would compare each item position to
   // the solution's items and position
-  // Create solution into an array in order to compare the index of each item
+
+  // Create solution into an array in order to compare the index of each item on the board
   const solutionArr = solution.split('');
-  // pushing the guess to the board to then check against solution
+
+  // push the guess to the board to then check against solution
   const boardLength = board.push(guess);
-  // if boardLength is equal to 4 compare to solution
+
+  // An array that will give the correct items to generate hint
   const correctItemsArr = [];
 
-  if (boardLength === 4) {
-    // console.log(solutionArr, 'arr')
 
+  // Check to see if the board has a guess of 4 items
+  if (boardLength === 4) {
+
+    // Iterate through the length of the items on the board
     for (let i = 0; i < board.length; i++) {
 
+      // Iterate through the length of the items in the solution
       for (let e = 0; e < solutionArr.length; e++) {
 
+        // if the items on the board are equal in both item and position, they will be pushed to the correctItemsArr
         if (board[i] === solutionArr[e]) {
           correctItemsArr.push(i)
         }
       }
     }
+
+    // if the correctItemsArr is equal to 4, then the player has guessed all items and position correctly
     if (correctItemsArr.length === 4) {
       console.log('You are a BOSS! You guessed all 4 items correctly!')
-      return 'You are a BOSS! You guessed all 4 items correctly!'
+      // return 'You are a BOSS! You guessed all 4 items correctly!'
     } else {
+
+      // if the correctItemsArr does not equal for, the hint will be called with the number of correct items
       console.log(generateHint(correctItemsArr))
     }
+
+    // once the player has guessed, the board will be cleared
     board = [];
   }
 
-  // if true then check for win(items and position are eqaul)
-  // if items and posiitons are not equal run hint
-  console.log(boardLength, 'length');
+  // // if true then check for win(items and position are eqaul)
+  // // if items and posiitons are not equal run hint
+  // console.log(boardLength, 'length');
 }
 
 
