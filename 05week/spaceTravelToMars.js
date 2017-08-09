@@ -22,8 +22,6 @@ class CrewMember {
     this.ship.crew.push(this.crewMember1);
   }
 }
-const crewMember1 = new CrewMember('Rick Martinez', 'pilot',
-'chemistry');
 
 class Ship {
   constructor(name, type, ability) {
@@ -32,10 +30,14 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
+  missionStatement() {
+
+  }
 }
 
-
-
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+const ship1 = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascent into low orbit');
+crewMember1.enterShip(ship1);
 
 //tests
 if (typeof describe === 'function'){
