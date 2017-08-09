@@ -17,7 +17,8 @@ class CrewMember {
     this.ship = null;
   }
   enterShip(shipName) {
-    shipName.crew.push(this.name);
+    this.ship = shipName;
+    shipName.crew.push(this);
   }
 }
 
@@ -27,6 +28,14 @@ class Ship {
     this.type = type;
     this.ability = ability;
     this.crew = [];
+  }
+  missionStatement(shipMessage){
+    if(this.crew.length) {
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet."
+    }
+
   }
 }
 
