@@ -28,15 +28,40 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint (guess) {
   // your code here
+  let redCount = 0;
+  let whiteCount = 0;
+  let checked = [];
+
+  for (var i = 0; i < solution.length; i++) {
+    var solutionIndex = solution.indexOf(guess[i]);
+    if (solution[i] === guess[i]) {
+      redCount++;
+      checked.push(guess[i]);
+    } else if (solutionIndex !== -1 && !isDupe(guess[i], checked)) {
+      whiteCount++;
+      checked.push(guess[i]);
+    }
+  }
+
+  return `${redCount}-${whiteCount}`;
 }
 
-function mastermind(guess) {
+function isDupe (letter, checked) {
+  return checked.includes(letter);
+}
+
+function mastermind (guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
-}
+  var hint = generateHint(guess);
+  board.push(hint);
 
+  if (hint === '4-0') {
+    return 'You guessed it!';
+  }
+}
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
