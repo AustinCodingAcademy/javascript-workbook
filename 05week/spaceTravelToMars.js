@@ -9,7 +9,43 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Class of CrewMember, built with TDD
+class CrewMember {
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null
+  }
+  enterShip(ship1) {
+    this.ship = ship1;
+    this.ship.crew.push(this);
+  }
+}
+
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement(shipMessage) {
+    if(this.crew.length) {
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet."
+    }
+  }
+}
+
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+const crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+const ship1 = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascent into low orbit');
+const ship2 = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+
+crewMember1.enterShip(ship1);
+
 
 //tests
 if (typeof describe === 'function'){
