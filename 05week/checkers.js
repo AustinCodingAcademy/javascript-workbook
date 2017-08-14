@@ -8,14 +8,52 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+let PLAYER1 = '0';
+let PLAYER2 = '1';
+
+let PLAYER1_SET = [[1, 0], [3, 0], [5, 0], [7, 0],
+                   [0, 1], [2, 1], [4, 1], [6, 1],
+                   [1, 2], [3, 2], [5, 2], [7, 2]];
+
+let PLAYER2_SET = [[0, 5], [2, 5], [4, 5], [6, 5],
+                   [1, 6], [3, 6], [5, 6], [7, 6],
+                   [0, 7], [2, 7], [4, 7], [6, 7]];
+
+
+class Checker {
+  constructor(symbol, row, col) {
+    this.symbol = symbol;
+    this.row = row;
+    this.col = col;
+  }
+
+  updateChecker(row, col) {
+    this.row = row;
+    this.col = col;
+  }
+
+  toString() {
+    console.log("symbol: " + this.symbol);
+    console.log("row: " + this.row);
+    console.log("col: " + this.col);
+  }
 }
 
-function Board() {
-  this.grid = [];
+class Board {
+  constructor() {
+    this.name = 'Board';
+    this.grid = [];
+    this.checkers = [];
+    for (let i = 0; i < PLAYER1_SET.length; i++) {
+      this.checkers.push(new Checker(PLAYER1, PLAYER1_SET[i][1], PLAYER1_SET[i][0]));
+    }
+    for (let i = 0; i < PLAYER2_SET.length; i++) {
+      this.checkers.push(new Checker(PLAYER2, PLAYER2_SET[i][1], PLAYER2_SET[i][0]));
+    }
+  }
+
   // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
+  createGrid() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -24,10 +62,40 @@ function Board() {
         this.grid[row].push(null);
       }
     }
-  };
+  }
+
+  setInitialGrid() {
+    for (let i = 0; i < this.checkers.length; i++) {
+      let row = this.checkers[i].row;
+      let col = this.checkers[i].col;
+
+      this.grid[row][col] = this.checkers[i];
+    }
+  }
+
+  killChecker(row, col) {
+    for (let i = 0; i < this.checkers.length; i++) {
+      if (this.checkers[i].row === row && this.checkers[i].col === col) {
+        this.checkers.splice(i, 1);
+        break;
+      }
+    }
+    this.grid[row][col] = null;
+  }
+
+  updateChecker(rowStart, colStart, rowEnd, colEnd) {
+    this.grid[rowEnd][colEnd] = this.grid[rowStart][colStart];
+    this.grid[rowStart][colStart] = null;
+
+    for (let i = 0; i < this.checkers.length; i++) {
+      if (this.checkers[i].row === rowStart && this.checkers[i].col === colStart) {
+        this.checkers[i].updateChecker(rowEnd, colEnd);
+      }
+    }
+  }
 
   // prints out the board
-  this.viewGrid = function() {
+  viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -50,19 +118,53 @@ function Board() {
       string += "\n";
     }
     console.log(string);
-  };
+  }
 
-  // Your code here
 }
-function Game() {
 
-  this.board = new Board();
 
-  this.start = function() {
+class Game {
+  constructor() {
+    this.board = new Board();
+  }
+
+  start() {
     this.board.createGrid();
-    // Your code here
-  };
+    this.board.setInitialGrid();
+    this.board.viewGrid();
+  }
+
+  moveChecker(checkerStart, checkerEnd) {
+    let rowStart = parseInt(checkerStart[0]);
+    let colStart = parseInt(checkerStart[1]);
+    let rowEnd = parseInt(checkerEnd[0]);
+    let colEnd = parseInt(checkerEnd[1]);
+
+    if (!this.board.grid[rowStart][colStart]) {
+      return;
+    }
+    if (this.board.grid[rowEnd][colEnd]) {
+      return;
+    }
+
+    // Determine if jump operation
+    if (Math.abs(rowStart - rowEnd) === 2 && Math.abs(colStart - colEnd) === 2) {
+      let rowMiddle = Math.min(rowStart, rowEnd) + 1;
+      let colMiddle = Math.min(colStart, colEnd) + 1;
+
+      if (!this.board.grid[rowMiddle, colMiddle]) {
+        return;
+      }
+
+      this.board.killChecker(rowMiddle, colMiddle);
+    }
+
+    this.board.updateChecker(rowStart, colStart, rowEnd, colEnd);
+
+    this.board.viewGrid();
+  }
 }
+
 
 function getPrompt() {
   game.board.viewGrid();
@@ -90,8 +192,8 @@ if (typeof describe === 'function') {
     });
   });
 
-  describe('Game.moveChecker()', function () {
-    it('should move a checker', function () {
+  describe('Game.moveChecker()', function() {
+    it('should move a checker', function() {
       assert(!game.board.grid[4][1]);
       game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
