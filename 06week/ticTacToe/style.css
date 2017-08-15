@@ -37,16 +37,6 @@ button {
   color: red;
 }
 
-.X:after {
-  color: orange;
-  content: 'X';
-}
-
-.O:after {
-  color: blue;
-  content: 'O';
-}
-
 .currentTurn {
   text-transform: uppercase;
   font-size: 2em;
