@@ -31,7 +31,6 @@ function printBoard() {
 function horizontalWin() {
 
   }
-}
 
 function verticalWin() {
   // Your code here
