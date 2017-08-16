@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const readline = require('readline');
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -82,12 +83,18 @@ function ticTacToe(row, column) {
   }
 }
 
+// Run the game
 function getPrompt() {
+  // Print the board with current moves
   printBoard();
+  // Tell me whose turn it is
   console.log("It's Player " + playerTurn + "'s turn.");
+  // Ask for row, number between 0 - 2
   rl.question('row: ', (row) => {
+    // Ask for column, number between 0 - 2
     rl.question('column: ', (column) => {
       if (!ticTacToe(row, column)) {
+        // If both row and column are not typed in, run prompt again, with current moved logged
         getPrompt();
       } else {
         process.exit(0);
@@ -130,4 +137,4 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
-} 
+}
