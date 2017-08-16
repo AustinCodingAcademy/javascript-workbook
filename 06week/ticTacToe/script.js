@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
 
       let coords = playerTurn === 1 ? coordsX.sort().join() : coordsO.sort().join();
-      console.log(`${coordsX} coords sorted`);
+      // console.log(`${coordsX} coords sorted`);
 
       let userWon = false;
       for (let i = 0; i < wins.length; i++) {
         let win = wins[i];
-        console.log(`${win} possible win`);
+        // console.log(`${win} possible win`);
 
         let gotWin = true;
         for (let j = 0; j < win.length; j++) {
