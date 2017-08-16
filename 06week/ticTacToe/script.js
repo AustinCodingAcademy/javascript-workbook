@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // clear board
     document.querySelector('button').addEventListener('click', (e) => {
       document.querySelector('#announce-winner').innerHTML = '';
+      document.querySelector('#clear').innerHTML = 'CLEAR BOARD';
+      document.querySelector('button').disabled = true;
       coordsX = [];
       coordsO = [];
       dataCells.forEach((cell) => {
@@ -34,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function onGridClick(event) {
       // console.log(`${event.type} got fired`);
+      document.querySelector('button').disabled = false;
 
       if (!event.target.innerHTML) {
         playerTurn === 1 ? event.target.innerHTML = 'X' : event.target.innerHTML = 'O';
@@ -91,6 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         } else {
           // check draw;
+          if (coordsO.length + coordsX.length === 9) {
+            document.querySelector('#announce-winner').innerHTML = 'It\'s a DRAW!';
+            document.querySelector('#clear').innerHTML = 'START OVER';
+          }
         }
       }
     }
