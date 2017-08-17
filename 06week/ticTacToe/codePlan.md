@@ -23,4 +23,5 @@ Check for win
   Reset button live
     Use attribute selector to target all data-cells and .removeChild()
 
+
 Continue as long as no win
