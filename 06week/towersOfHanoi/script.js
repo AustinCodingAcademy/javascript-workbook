@@ -10,8 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     stack.addEventListener('click', onStackClick);
   });
 
+  document.querySelectorAll('[data-block]').forEach((block) => {
+    block.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  });
+
   function onStackClick(e) {
-    //debugger;
+    // debugger;
     if (activeBlock) {
       nextBlock = e.target.children[e.target.children.length - 1];
       console.log(nextBlock);
