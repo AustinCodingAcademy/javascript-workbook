@@ -26,7 +26,7 @@ function binarySearch(arr, item) {
   // Your code here
 }
 
-// Tests
+
 
 if (typeof describe === 'function') {
 
