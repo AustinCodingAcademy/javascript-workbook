@@ -1,0 +1,33 @@
+body {
+  font-family: helvetica;
+  padding: 3%;
+}
+
+div {
+  border: 1px black solid;
+  min-height: 50px;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  height: 20px;
+  border: 1px black solid;
+}
+
+.container {
+  height: 100%;
+}
+
+.board {
+  height: auto;
+}
+
+.guess {
+  width: 80vw;
+}
