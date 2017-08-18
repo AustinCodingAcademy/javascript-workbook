@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < 4; i++) {
         const randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
-        solution = 'ABCD'; // comment out if you want a random solution
+        // solution = 'ABCD'; // comment out if you want a random solution
       }
       console.log(`${solution} solution`);
     }
