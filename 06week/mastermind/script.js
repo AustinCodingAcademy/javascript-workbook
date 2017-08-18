@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tries++;
 
+      document.querySelector('#user_guess').value = '';
+
       if (tries === possibleAttempts) {
         document.querySelector('.instruction').style.display = 'none';
         document.querySelector('.outcome').style.display = 'block';
