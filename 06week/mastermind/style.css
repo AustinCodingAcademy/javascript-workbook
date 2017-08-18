@@ -1,18 +1,27 @@
 body {
-  font-family: helvetica;
+  font-family: 'Roboto Condensed', sans-serif;
   padding: 3%;
 }
 
 div {
-  border: 1px black solid;
-  min-height: 50px;
+  /*border: .5px red solid;*/
+  min-height: 4em;
   box-sizing: border-box;
   margin: auto;
   text-align: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
+}
+
+h2 {
+  font-family: 'Bungee Inline', cursive;
 }
 
 form {
@@ -24,10 +33,27 @@ form {
   height: 100%;
 }
 
+.main {
+  padding: 2%;
+  height: 22em;
+  width: 100%;
+  border: 1px grey solid;
+  line-height: 1.5em;
+}
+
+.outcome {
+  padding: .5em;
+  height: 5em;
+}
+
 .board {
   height: auto;
 }
 
 .guess {
-  width: 80vw;
+  width: 70vw;
+  padding: 1%;
+  font-size: 1em;
+  vertical-align: middle;
+  border-bottom: 1px grey solid;
 }

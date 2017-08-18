@@ -2,48 +2,70 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Your code here
+  let letters = ['A', 'B', 'C', 'D']; // dictate how hard you want it to be
+  let possibleAttempts = 3; // dictates how many attempts allowed
   createBoard();
   playGame();
 
   function playGame() {
-    let letters = ['A', 'B', 'C', 'D'];
     let solution = '';
     let tries = 0;
     generateSolution();
 
     // check game logic when user hits submit
-    document.querySelector('#submit').addEventListener('click', checkWin);
+    document.querySelector('#submit').addEventListener('click', mastermind);
 
-    function checkWin() {
+    // reset the board
+    document.querySelector('#tryAgain').addEventListener('click', resetBoard);
+
+    function mastermind() {
+      // debugger;
       let guess = document.querySelector('#user_guess').value.toUpperCase();
-      console.log(`${guess} user guess`);
+      console.log(`${tries} user tries`);
 
       function generateHint() {
+        let sol = solution.split('');
         let redCount = 0;
         let whiteCount = 0;
-        let checked = [];
 
         for (var i = 0; i < solution.length; i++) {
-          var solutionIndex = solution.indexOf(guess[i]);
-          if (solution[i] === guess[i]) {
+          var solIndex = sol.indexOf(guess[i]);
+          if (sol[i] === guess[i]) {
             redCount++;
-            checked.push(guess[i]);
-          } else if (solutionIndex !== -1 && !isDupe(guess[i], checked)) {
+            sol[i] = null;
+          } else if (solIndex !== -1) {
             whiteCount++;
-            checked.push(guess[i]);
           }
         }
 
         return `${redCount}-${whiteCount}`;
       }
 
+      if (guess.length != solution.length) {
+        alert(`Please enter ${letters.length} characters`);
+        return;
+      }
+
       let hint = generateHint();
 
       document.querySelector('.row' + [tries]).innerHTML = hint === '4-0' ? `${solution} <br> You guessed it!` : `${guess} - ${hint}`;
+
       tries++;
 
-      function isDupe(letter, checked) {
-        return checked.includes(letter);
+      if (tries === possibleAttempts) {
+        document.querySelector('.instruction').style.display = 'none';
+        document.querySelector('.outcome').style.display = 'block';
+      }
+    }
+
+    function resetBoard() {
+      debugger;
+      tries = 0;
+      document.querySelector('.instruction').style.display = 'flex';
+      document.querySelector('.outcome').style.display = 'none';
+      document.querySelector('#user_guess').value = '';
+      for (let i = 0; i < possibleAttempts; i++) {
+        document.querySelector('.row' + [i]).innerHTML = '';
       }
     }
 
@@ -51,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < 4; i++) {
         const randomIndex = getRandomInt(0, letters.length);
         solution += letters[randomIndex];
-        // solution = 'ABCD'; // comment out if you want a random solution
+        solution = 'ABCD'; // comment out if you want a random solution
       }
       console.log(`${solution} solution`);
     }
@@ -75,10 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cont.appendChild(h1);
 
+    let main = document.createElement('div');
+    main.setAttribute('class', 'main');
+    cont.appendChild(main);
+
     // create instruction
     let instruc = document.createElement('div');
     instruc.setAttribute('class', 'instruction');
-    instruc.innerHTML = '<h2>ABCD</h2><p> Instructions:<br>The number on the left indicates how many letters are in the correct place while the number on the right indicates a correct letter, but incorrect place.</p><br>Enter your guess:';
+    instruc.innerHTML = `<p>Combinations based on the following letters:</p><h2>${letters.join(' ')}</h2><p> Instructions:<br>The number on the left indicates how many letters are in the correct place while the number on the right indicates a correct letter, but incorrect placement.</p>`;
+
+    let instrucTwo = document.createElement('div');
+    instrucTwo.setAttribute('class', 'instruction');
+    instrucTwo.innerHTML = `<p>Enter your guess:</p>`;
 
     // create form for input
     let f = document.createElement('input');
@@ -92,17 +122,34 @@ document.addEventListener('DOMContentLoaded', () => {
     button.innerHTML = 'SUBMIT';
     button.id = 'submit';
 
-    cont.appendChild(instruc);
-    instruc.appendChild(f);
-    instruc.appendChild(button);
+    let outcome = document.createElement('div');
+    outcome.id = 'outcome';
+    outcome.setAttribute('class', 'outcome');
+    outcome.style.display = 'none';
+
+    let announce = document.createElement('h2');
+    announce.id = 'announce';
+    announce.innerHTML = 'GAME OVER';
+    outcome.appendChild(announce);
+
+    let buttonTwo = document.createElement('button');
+    buttonTwo.innerHTML = 'TRY AGAIN';
+    buttonTwo.id = 'tryAgain';
+    outcome.appendChild(buttonTwo);
+
+    instrucTwo.appendChild(f);
+    instrucTwo.appendChild(button);
+    main.appendChild(instruc);
+    instruc.appendChild(instrucTwo);
+    main.appendChild(outcome);
 
     // create board
     let board = document.createElement('div');
     board.setAttribute('class', 'board');
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < possibleAttempts; i++) {
       let guessRow = document.createElement('div');
-      guessRow.setAttribute('class', 'guess row'+[i]);
+      guessRow.setAttribute('class', 'guess row' + [i]);
       board.appendChild(guessRow);
     }
 
