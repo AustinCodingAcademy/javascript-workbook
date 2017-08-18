@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Your code here
   let letters = ['A', 'B', 'C', 'D']; // dictate how hard you want it to be
-  let possibleAttempts = 3; // dictates how many attempts allowed
+  let possibleAttempts = Number(prompt(`How many tries would you like?`)); // dictates how many attempts allowed
   createBoard();
   playGame();
 
