@@ -61,9 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#announce').innerHTML = `YOU WIN!`;
       }
 
+      // game over
       if (tries === possibleAttempts) {
         document.querySelector('#instruction').style.display = 'none';
         document.querySelector('#outcome').style.display = 'block';
+        document.querySelector('#showSolution').innerHTML = `Solution: ${solution}`;
       }
     }
 
@@ -140,6 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
     announce.id = 'announce';
     announce.innerHTML = 'GAME OVER';
     outcome.appendChild(announce);
+
+    let sol = document.createElement('p');
+    sol.id = 'showSolution';
+    sol.innerHTML = '';
+    outcome.appendChild(sol);
 
     let buttonTwo = document.createElement('button');
     buttonTwo.innerHTML = 'PLAY AGAIN';
