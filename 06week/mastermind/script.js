@@ -48,23 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let hint = generateHint();
 
-      document.querySelector('.row' + [tries]).innerHTML = hint === '4-0' ? `${solution} <br> You guessed it!` : `${guess} - ${hint}`;
+      document.querySelector('.row' + [tries]).innerHTML = `${guess} - ${hint}`;
 
       tries++;
 
       document.querySelector('#user_guess').value = '';
 
+      // check win
+      if (hint === '4-0') {
+        document.querySelector('#instruction').style.display = 'none';
+        document.querySelector('#outcome').style.display = 'block';
+        document.querySelector('#announce').innerHTML = `YOU WIN!`;
+      }
+
       if (tries === possibleAttempts) {
-        document.querySelector('.instruction').style.display = 'none';
-        document.querySelector('.outcome').style.display = 'block';
+        document.querySelector('#instruction').style.display = 'none';
+        document.querySelector('#outcome').style.display = 'block';
       }
     }
 
     function resetBoard() {
-      debugger;
       tries = 0;
-      document.querySelector('.instruction').style.display = 'flex';
-      document.querySelector('.outcome').style.display = 'none';
+      document.querySelector('#instruction').style.display = 'flex';
+      document.querySelector('#outcome').style.display = 'none';
       document.querySelector('#user_guess').value = '';
       for (let i = 0; i < possibleAttempts; i++) {
         document.querySelector('.row' + [i]).innerHTML = '';
@@ -106,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // create instruction
     let instruc = document.createElement('div');
     instruc.setAttribute('class', 'instruction');
+    instruc.id = 'instruction';
     instruc.innerHTML = `<p>Combinations based on the following letters:</p><h2>${letters.join(' ')}</h2><p> Instructions:<br>The number on the left indicates how many letters are in the correct place while the number on the right indicates a correct letter, but incorrect placement.</p>`;
 
     let instrucTwo = document.createElement('div');
@@ -135,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     outcome.appendChild(announce);
 
     let buttonTwo = document.createElement('button');
-    buttonTwo.innerHTML = 'TRY AGAIN';
+    buttonTwo.innerHTML = 'PLAY AGAIN';
     buttonTwo.id = 'tryAgain';
     outcome.appendChild(buttonTwo);
 
