@@ -4,8 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Your code here
   let letters = ['A', 'B', 'C', 'D']; // dictate how hard you want it to be
   let possibleAttempts = Number(prompt(`How many tries would you like?`)); // dictates how many attempts allowed
+  while (!isNumber(possibleAttempts)) {
+    possibleAttempts = Number(prompt(`How many tries would you like? Please enter a number:`));
+  }
+
   createBoard();
   playGame();
+
+  function isNumber(obj) {
+    return !isNaN(parseFloat(obj));
+  }
 
   function playGame() {
     let solution = '';
@@ -70,13 +78,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetBoard() {
-      tries = 0;
       document.querySelector('#instruction').style.display = 'flex';
       document.querySelector('#outcome').style.display = 'none';
       document.querySelector('#user_guess').value = '';
       for (let i = 0; i < possibleAttempts; i++) {
         document.querySelector('.row' + [i]).innerHTML = '';
       }
+      possibleAttempts = Number(prompt(`How many tries would you like?`));
+
+      while (!isNumber(possibleAttempts)) {
+        possibleAttempts = Number(prompt(`How many tries would you like? Please enter a number:`));
+      }
+
+      playGame();
     }
 
     function generateSolution() {
