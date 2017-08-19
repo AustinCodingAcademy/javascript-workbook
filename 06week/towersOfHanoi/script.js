@@ -30,7 +30,6 @@ let myBlock = document.querySelectorAll('.theBlock'); // assign to a var for eas
     });
   });
   function checkWinner () {
-      // win function looks at the stack children and if there are 4 in any stack alert for the win
     if ((myStack[1].children.length === 4) || (myStack[2].children.length === 4)) {
       alert('A winner is you!');
     }
