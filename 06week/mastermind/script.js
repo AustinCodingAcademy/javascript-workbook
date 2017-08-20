@@ -32,24 +32,28 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(`${tries} user tries`);
 
       function generateHint() {
+        debugger;
         let sol = solution.split('');
         let redCount = 0;
         let whiteCount = 0;
+        let checked = [];
 
         for (var i = 0; i < solution.length; i++) {
-          var solIndex = sol.indexOf(guess[i]);
+          var solIndex = guess.indexOf(sol[i]);
           if (sol[i] === guess[i]) {
             redCount++;
+            checked.push(sol[i]);
             sol[i] = null;
-          } else if (solIndex !== -1) {
+          } else if (solIndex !== -1 && !((checked.join(',')).includes(sol[i]))) {
             whiteCount++;
+            checked.push(sol[i]);
           }
         }
 
         return `${redCount}-${whiteCount}`;
       }
 
-      if (guess.length != solution.length) {
+      if (guess.length !== solution.length) {
         alert(`Please enter ${letters.length} characters`);
         return;
       }
