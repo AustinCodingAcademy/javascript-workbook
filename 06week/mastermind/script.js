@@ -89,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       while (!isNumber(possibleAttempts)) {
         possibleAttempts = Number(prompt(`How many tries would you like? Please enter a number:`));
       }
-
+      document.querySelector('.container').remove();
+      createBoard();
       playGame();
     }
 
