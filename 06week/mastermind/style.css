@@ -1,0 +1,160 @@
+body {
+    background: #000;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+#game {
+    width: 500px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 1em auto;
+    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.5);
+}
+
+#game .mm-line {
+    transition: background-color 0.3s ease;
+    background-color: #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid black;
+    line-height: 0;
+    vertical-align: middle;
+    color: #666;
+}
+
+#game .mm-line.mm-solution {
+    background-color: white;
+    color: #999;
+    border-bottom: 10px solid black;
+}
+
+#game .mm-line.selected {
+    background-color: #66998e;
+    color: white;
+}
+
+#game .mm-line .mm-num {
+    height: 100%;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 10px;
+    width: 20px;
+}
+
+#game .mm-line .mm-slot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: background-color 0.5s ease;
+    background-color: #222;
+    border: 2px solid #333;
+    margin: 3px;
+    border-radius: 50%;
+}
+
+#game .mm-line .mm-slot.selected {
+    border-color: white;
+    animation: hilite 0.3s ease;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+#game .mm-line .mm-status {
+    margin-left: 10px;
+    display: inline-block;
+    float: right;
+}
+
+#game .mm-line .mm-status span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 20px;
+}
+
+#game .mm-line .mm-status .mm-status-correct {
+    color: black;
+}
+
+#game .mm-line .mm-status .mm-status-wrongplace {
+    color: black;
+}
+
+#controls {
+    width: 300px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#controls a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 2px;
+    transition: transform 0.3s ease;
+}
+
+#controls a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+[data-peg] {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+[data-peg="0"] {
+    background-color: red !important;
+}
+
+[data-peg="1"] {
+    background-color: yellow !important;
+}
+
+[data-peg="2"] {
+    background-color: green !important;
+}
+
+[data-peg="3"] {
+    background-color: blue !important;
+}
+
+[data-peg="4"] {
+    background-color: purple !important;
+}
+
+[data-peg="5"] {
+    background-color: cyan !important;
+}
+
+@keyframes hilite {
+    0% {
+        border-color: black;
+    }
+    100% {
+        border-color: black;
+    }
+}
+
+input#gameReset {
+  width: 25%;
+  margin: 0 auto;
+  display: block;
+  height: 30px;
+  background-color: green;
+  border: green;
+  font-size: 150%;
+  color: white;
+  box-shadow: 2px 2px 2px gray;
+
+}
+input#gameReset:hover {
+  background-color: darkgreen;
+}
