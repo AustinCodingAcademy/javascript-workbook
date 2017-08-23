@@ -48,23 +48,23 @@ class TicTacToe extends React.Component {
     for (let i = 0; i < 9; i += 3) {
       if (square[i].innerHTML) {
         if((square[i].innerHTML === square[i + 1].innerHTML) && (square[i + 1].innerHTML === square[i + 2].innerHTML)) {
-          alert(square[i].innerHTML + "!" + "You Win!");
+          alert(square[i].innerHTML + "!" + " You Win!");
         }
       }
     }
     for (let i = 0; i < 4; i++) {
       if (square[i].innerHTML) {
         if((square[i].innerHTML === square[i + 3].innerHTML) && (square[i + 3].innerHTML === square[i + 6].innerHTML)) {
-          alert(square[i].innerHTML + "!" + "You Win!");
+          alert(square[i].innerHTML + "!" + " You Win!");
         }
       }
     }
     if (square[4].innerHTML) {
      if (((square[0].innerHTML + square[4].innerHTML + square[8].innerHTML) === 'XXX') || ((square[0].innerHTML + square[4].innerHTML + square[8].innerHTML) === 'OOO')) {
-       alert(qSelect[4].innerHTML + "!" + "You Win!");
+       alert(qSelect[4].innerHTML + "!" + " You Win!");
      }
      if ((square[2].innerHTML === square[4].innerHTML) && (square[4].innerHTML === square[6].innerHTML)) {
-       alert(square[4].innerHTML + "!" + "You Win!");
+       alert(square[4].innerHTML + "!" + " You Win!");
      }
    }
   }
