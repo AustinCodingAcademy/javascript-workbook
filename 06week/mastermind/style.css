@@ -60,7 +60,7 @@ h1 {
 
 p {
   font-family: 'Roboto Condensed', sans-serif;
-  
+
 }
 
 /*Guess Button*/
@@ -68,71 +68,3 @@ p {
   display:flex;
   margin: 20px;
 }
-
-
-
-
-
-
-
-/*body {
-background:lightblue;
-}
-
-h1 {
-  margin: 20px;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-.board {
-  background:white;
-  width:30%;
-  height: 96vh;
-  margin: 20px;
-}
-
-.answerContainer {
-  box-sizing:border-box;
-  display:flex;
-  width: 100%;
-  height: 10%;
-  /*padding-top: 2%;
-  border: 1px black solid;
-}
-
-.answer {
- width:70%;
- height:100%;
- border: 1px solid black;
-}
-
-.buttonContainer{
-  width:30%;
-  height:100%;
-  border: 1px solid black;
-}
-
-.submit-button {
-  width:80%;
-  height:80%;
-  color: grey;
-  margin:auto;
-}
-
-/*.text {
-  margin: 0;
-}
-.guessContainer {
-  box-sizing:border-box;
-  display:flex;
-  width: 100%;
-  height: 80%;
-  border: 1px black solid;
-}
-
-.selectContainer {
-  box-sizing:border-box;
-  display:flex;
-  width: 100%;
-  height: 10%;
-  border: 1px black solid;
-}*/
