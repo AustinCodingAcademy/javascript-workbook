@@ -1,5 +1,5 @@
 {
-  "name": "tictactoe",
+  "name": "towersofhanoi",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1"
-  },
-  "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-react": "^6.24.1"
-  },
-  "description": ""
+  }
 }
