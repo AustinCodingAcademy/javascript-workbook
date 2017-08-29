@@ -1,5 +1,5 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Your code here
+  // Which element was clicked on
 });
