@@ -3,7 +3,7 @@ create a text area box that user can type in a status
 when the user submits the status,
  the status should appear in chronological order in Time line box to the side
 a user is able to delete a status
-a use is able to edit a status
+a user is able to edit a status
 use react-bootstrap
 
 change style when:
@@ -11,16 +11,17 @@ a user focuses on the new status box
 the latest status in the timeline should have it’s own style
 **/
 
-
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import Timeline from './TimeLine';
-import 'bootstrap/less/bootstrap.less'
 import './App.css';
+// import 'bootstrap/less/bootstrap.less'
+
 
 // Create Two Components
-// One parent that takes a user's status
-// One child that displays all the statuses
+// One parent that takes a user's status - App
+// One child that displays all the statuses - TimeLine
 class App extends Component {
 
   constructor(props){
@@ -67,8 +68,8 @@ class App extends Component {
     this.setState({timeLine: deleteCardList});
   };
 
-  handleCardChange = (id, input) => {
 
+  handleCardChange = (id, input) => {
     const currentCard = {
       ...this.state.timeLine.find((card) => card.id === id),
       // setting the value of "text" to 'input'
@@ -84,11 +85,10 @@ class App extends Component {
       ...this.state,
       timeLine: updatedTimeLine,
     })
-
   }
 
-  toggleEditField = (id) => {
 
+  toggleEditField = (id) => {
     const currentCard = {
       ...this.state.timeLine.find((card) => card.id === id),
     }
@@ -106,31 +106,45 @@ class App extends Component {
       ...this.state,
       timeLine: updatedTimeLine,
     })
-
   }
+
 
   render () {
     return (
       <div className="App">
 
-        <h1>ENTER YOUR POST BELOW</h1>
+        <div className="well" style={{maxWidth: 400, margin: '0 auto 10px'}}>
+          <h2>
+            ENTER POST BELOW </h2>
+          <h5>
+            Click on the post to edit </h5>
+          <h5>
+            Hit the X to delete </h5>
+        </div>
 
-        <h3>Click on the post to edit</h3>
+        <Form className="well" style={{maxWidth: 400, margin: '0 auto 10px'}}>
+          <input
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.inputValue}
+            type="form" />
+          <Button
+            bsSize="small"
+            bsStyle="primary"
+            block
+            onClick={this.handleClick}> Submit </Button>
+        </Form>
 
-        <h3>Hit the X to delete</h3>
+        <div className="well" style={{maxWidth: 400, margin: '0 auto 10px'}}>
+          <h2>
+            TIMELINE </h2>
+          <Timeline
+            handleClick={this.toggleEditField}
+            handleChange={this.handleCardChange}
+            deleteStatus={this.deleteCardStatus}
+            list={this.state.timeLine} />
+        </div>
 
-        <input
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.inputValue}
-          type="text" />
 
-        <Button bsStyle="success" onClick={this.handleClick}>Submit</Button>
-
-        <Timeline
-          handleClick={this.toggleEditField}
-          handleChange={this.handleCardChange}
-          deleteStatus={this.deleteCardStatus}
-          list={this.state.timeLine} />
 
       </div>
     );
