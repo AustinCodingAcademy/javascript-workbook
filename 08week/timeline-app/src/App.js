@@ -12,7 +12,7 @@ the latest status in the timeline should have it’s own style
 **/
 
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, ButtonToolbar } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import Timeline from './TimeLine';
 import './App.css';
@@ -127,11 +127,13 @@ class App extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.inputValue}
             type="form" />
-          <Button
-            bsSize="small"
-            bsStyle="primary"
-            block
-            onClick={this.handleClick}> Submit </Button>
+          <ButtonToolbar>
+            <Button
+              bsSize="small"
+              bsStyle="primary"
+              block
+              onClick={this.handleClick}> Submit </Button>
+          </ButtonToolbar>
         </Form>
 
         <div className="well" style={{maxWidth: 400, margin: '0 auto 10px'}}>
