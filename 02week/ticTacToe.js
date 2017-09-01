@@ -23,7 +23,7 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-//code here
+
 function horizontalWin() {
   return board[0].every(square => square === playerTurn) || board[1].every(square => square === playerTurn) || board[2].every(square => square === playerTurn);
 }

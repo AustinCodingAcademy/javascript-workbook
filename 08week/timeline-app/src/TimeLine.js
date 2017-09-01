@@ -7,7 +7,7 @@ export default class Timeline extends Component {
     if(this.props.list && this.props.list.length > 0){
       return this.props.list.map((card, index) => {
         return(
-          
+
           <div key={index}>
 
             <h2

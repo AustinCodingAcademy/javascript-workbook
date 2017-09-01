@@ -12,8 +12,7 @@ the latest status in the timeline should have it’s own style
 **/
 
 import React, { Component } from 'react';
-import { Button, ButtonToolbar } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
+import { Button, ButtonToolbar, Form } from 'react-bootstrap';
 import Timeline from './TimeLine';
 import './App.css';
 // import 'bootstrap/less/bootstrap.less'
