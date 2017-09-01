@@ -1,0 +1,6 @@
+table, tr, th, td {
+  border: 1px solid black;
+}
+.alpha {
+  text-align: center;
+}
