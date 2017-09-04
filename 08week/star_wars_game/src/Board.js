@@ -4,6 +4,11 @@ import Category from './Category';
 class Board extends Component {
 
   render() {
+    if(this.props.boardState === 'question'){
+      
+    } else {
+
+    }
     // Planets, Spaceships, Vehicles, People, Films, Species
     const categories = Object.keys(this.props.board);
     // console.log(categories);
@@ -40,3 +45,27 @@ export default Board;
 // <Category id="people"/>
 // <Category id="films"/>
 // <Category id="species"/>
+
+/*
+if(this.props.board[props.category][props.square]['state'] === 'activeA') {
+  return (
+        <div className='answerDisplay'>
+          <p>{this.props.board[props.category][props.square]['question']}</p>
+          <input type='text'></input>
+          <input type='text'></input>
+          <input type='submit'></input>
+        </div>
+  )
+} else if (this.props.board[props.category][props.square]['state'] === 'activeB') {
+  return (
+        <div className='answerDisplay'>
+          <p>{this.props.board[props.category][props.square]['question']}</p>
+          <input type='text'></input>
+          <input type='submit'></input>
+        </div>
+  )
+} else {
+
+}
+
+*/

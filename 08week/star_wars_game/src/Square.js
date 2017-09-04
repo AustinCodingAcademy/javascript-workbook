@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Square = (props)=> {
@@ -5,12 +6,19 @@ const Square = (props)=> {
 
   return (
     props.square['squareState'] === 'activeA'? (
-      <div className = 'blue' onClick={() => props.handleClick(props.category, props.square['id'])}>
-        <h4>{props.square['question']}</h4>
+      <div className = 'blue'>
+        <h6>{props.square['question']}</h6>
       </div>
-    ) :
-    (
-      <div className = 'blue' onClick={() => props.handleClick(props.category, props.square['id'])}>
+    ) : props.square['squareState'] === 'activeB'? (
+      <div className = 'blue'>
+        <h6>Steal</h6>
+      </div>
+    ) : props.square['squareState'] === 'complete'? (
+      <div className = 'blue'>
+        <h6>Answer</h6>
+      </div>
+    ) : (  // default
+      <div className = 'blue'>
         <h4>{props.square['r1Money']}</h4>
       </div>
     )

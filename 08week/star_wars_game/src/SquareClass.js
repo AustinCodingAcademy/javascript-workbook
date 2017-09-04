@@ -1,4 +1,3 @@
-
 //     state: This will control behavior: pending, activeA, activeB, complete
 //       - pending: Display: Money;  clickable
 //       - active A: Display: Question, Money; not clicable; blue glow (1st attempt)

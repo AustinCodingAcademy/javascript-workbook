@@ -134,23 +134,38 @@ class StarWars extends Component {
       currentPlayer: this.game['currentPlayer'],
       input: '',
       message: '',
-      board: {}
+      board: {},
     };  // this.state object
   }  //Constructor
 
   initState() {
     console.log('initialize');
     [0,1,2,3,4].forEach((id, index)=>{
-      const newSquare = new SquareClass(id);
-      newSquare.question = `What is 1 + ${id}`;
-      newSquare.answer = 1 + id;
-      this.game['board']['planets'].push(newSquare);
-      // console.log('planets[id]', this.game['board']['planets'][id]);
-      this.game['board']['ships'].push(new SquareClass(id));
-      this.game['board']['vehicles'].push(new SquareClass(id));
-      this.game['board']['people'].push(new SquareClass(id));
-      this.game['board']['films'].push(new SquareClass(id));
-      this.game['board']['species'].push(new SquareClass(id));
+      // Pulling the questions via Fetch.  Populating the planets category
+      const planetSquare = new SquareClass(id);
+      planetSquare.question = `1 + ${id}`;
+      planetSquare.answer = 1 + id;
+      this.game['board']['planets'].push(planetSquare);
+
+      // Pulling the questions via Fetch.  Populating the spaceships category
+      const shipSquare = new SquareClass(id);
+      this.game['board']['ships'].push(shipSquare);
+
+      // Pulling the questions via Fetch.  Populating the vehicles category
+      const vehicleSquare = new SquareClass(id);
+      this.game['board']['vehicles'].push(vehicleSquare);
+
+      // Pulling the questions via Fetch.  Populating the people category
+      const peopleSquare = new SquareClass(id);
+      this.game['board']['people'].push(peopleSquare);
+
+      // Pulling the questions via Fetch.  Populating the films category
+      const filmSquare = new SquareClass(id);
+      this.game['board']['films'].push(filmSquare);
+
+      // Pulling the questions via Fetch.  Populating the species category
+      const speciesSquare = new SquareClass(id);
+      this.game['board']['species'].push(speciesSquare);
     });
     console.log('this.game.board',this.game['board']);
     // console.log('planets[id]', this.game['board']['planets'][0]);
@@ -164,10 +179,18 @@ class StarWars extends Component {
     this.setState( { board : this.game['board'] } );
   }
 
+
   handleClick = (category, square)=> {
+
     console.log('handleClick');
-    console.log('clicked square', category, square);
-    this.game['board'][category][square]['squareState'] = 'activeA';
+    console.log('clicked square before', category, square, this.game['board'][category][square]['squareState']);
+    this.game['board'][category][square]['squareState'] =
+      this.game['board'][category][square]['squareState'] === 'pending'? 'activeA' :
+      this.game['board'][category][square]['squareState'] === 'activeA'? 'activeB' :
+      this.game['board'][category][square]['squareState'] === 'activeB'? 'complete' :
+      'complete'; // square is done.
+
+    console.log('after', category, square, this.game['board'][category][square]['squareState']);
     this.setState( { board : this.game['board'] } );
   }  // handleClick
 
