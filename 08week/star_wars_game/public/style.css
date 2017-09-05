@@ -8,6 +8,14 @@ font-family: 'Open Sans', sans-serif;
 color: #FFD700;
 text-shadow: -1px 0 #FEFEFF, 0 3px #FEFEFF, 1px 0 #FEFEFF, 0 1px #FEFEFF;
 }
+h2 {
+  color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 2px black
+}
 Button:hover {
   transform: scale(1.2);
 }
@@ -20,6 +28,7 @@ Button {
 }*/
 h4 {
   color: #FFD700;
+  margin: 0;
   font-family: sans-serif;
   font-size: 30px;
   background: #2962ff;
@@ -52,6 +61,8 @@ h6 {
   margin: 20px;
   background-image: url('lightsabre.png');
   background-repeat: no-repeat;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 #category {
   margin: 5px;
@@ -60,7 +71,7 @@ h6 {
   /*border: 10px solid black;*/
 }
 #collectionItem {
-  height: 75px;
+  height: 50px;
   margin: 5px;
   border-radius: 5px;
   border: none;
@@ -83,6 +94,74 @@ h6 {
 .collection {
   width: 100%;
   border: none;
+}
+#playersFrame{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  /*justify-content: space-around;*/
+  height: 150px;
+  /*margin-bottom: 10px;
+  margin-top: 10px;*/
+}
+.scoreCard {
+  width: 25%;
+  margin-top: 10px;
+  background-color: #2962ff;
+  border: 10px solid #4e342e;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-top: 5px;
+  box-shadow: -1px 3px 10px black;
+}
+p {
+  font-size: 12px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  color: white;
+}
+#inputFrame {
+  display: flex;
+  justify-content: center;
+  height: 25px;
+}
+#keystrokeListener{
+  width: 30px;
+  height: 20px;
+  background: white;
+  box-shadow: 2px 2px 2px black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-right: 15px;
+}
+#guessInput{
+  width: 175px;
+  height: 20px;
+  background: white;
+  box-shadow: 2px black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
+  margin:0px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 2px black;
+}
+#submitGuess{
+  height: 20px;
+  box-shadow: 2px 2px 2px black;
+  background-color: white;
+  font-size: 12px;
+}
+.inputPara {
+  margin-top: 0px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+#commentFrame {
+  diplay: flex;
+  justify-content: center;
+  height: 20px
 }
 /*#answerBox{
     height: 100%;

@@ -1,19 +1,18 @@
-
 import React from 'react';
 
 const Square = (props)=> {
 
 
   return (
-    props.square['squareState'] === 'activeA'? (
+    props.square['squareState'] === 'active'? (
       <div className = 'blue'>
         <h6>{props.square['question']}</h6>
       </div>
-    ) : props.square['squareState'] === 'activeB'? (
+    ) : props.square['squareState'] === 'steal'? (
       <div className = 'blue'>
         <h6>Steal</h6>
       </div>
-    ) : props.square['squareState'] === 'complete'? (
+    ) : props.square['squareState'] === 'answer'? (
       <div className = 'blue'>
         <h6>Answer</h6>
       </div>

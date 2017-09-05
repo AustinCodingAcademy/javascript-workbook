@@ -102,12 +102,13 @@ class StarWars extends Component {
   constructor() {
     super();
     this.game = {
+      startGame: false,
       round: 1,
       currentPlayer: 'Q',
       player: {
-        Q: { name: '', score: null, attempted: null, correct: null },
-        B: { name: '', score: null, attempted: null, correct: null },
-        P: { name: '', score: null, attempted: null, correct: null }
+        Q: { name: 'Q', score: 0, attempted: 0, correct: 0 },
+        B: { name: 'B', score: 0, attempted: 0, correct: 0 },
+        P: { name: 'P', score: 0, attempted: 0, correct: 0 }
       },
       input: '',
       message: '',
@@ -126,7 +127,10 @@ class StarWars extends Component {
         people:   [],
         films:    [],
         species:  []
-      }
+      },
+      boardState: 'default',
+      activeCategory: '',
+      activeSquare: null
     };  // this.game object
 
     this.state = {
@@ -135,6 +139,9 @@ class StarWars extends Component {
       input: '',
       message: '',
       board: {},
+      boardState: this.game['boardState'],
+      activeCategory: '',
+      activeSquare: null,
     };  // this.state object
   }  //Constructor
 
@@ -175,23 +182,94 @@ class StarWars extends Component {
   startClick = ()=> {
     console.log('startClick');
     this.initState()
+    this.game['startGame'] = true;
     // console.log('this.game...planets again',this.game['board']['planets']);
     this.setState( { board : this.game['board'] } );
   }
 
+  resetClick = ()=> {
+    console.log('resetClick');
+    this.game['startGame'] = true;
+    this.game['round'] = 1;
+    this.game['currentPlayer'] = 'Q';
+    this.game['player']['Q']['name'] = 'Q';
+    this.game['player']['Q']['score'] = 0;
+    this.game['player']['Q']['attempted'] = 0;
+    this.game['player']['Q']['correct'] = 0;
+    this.game['player']['B']['name'] = 'B';
+    this.game['player']['B']['score'] = 0;
+    this.game['player']['B']['attempted'] = 0;
+    this.game['player']['B']['correct'] = 0;
+    this.game['player']['P']['name'] = 'P';
+    this.game['player']['P']['score'] = 0;
+    this.game['player']['P']['attempted'] = 0;
+    this.game['player']['P']['correct'] = 0;
+    this.game['input'] = '';
+    this.game['message'] = '';
+    this.game['board']['planets'] = [];
+    this.game['board']['ships'] = [];
+    this.game['board']['vehicles'] = [];
+    this.game['board']['people'] = [];
+    this.game['board']['films'] = [];
+    this.game['board']['species'] = [];
+    this.game['boardState'] = 'default';
+    this.game['activeCategory'] = '';
+    this.game['activeSquare'] = null;
+    this.initState()
+
+    const resetState = {
+      round: this.game['round'],
+      currentPlayer: this.game['currentPlayer'],
+      input: '',
+      message: '',
+      board: this.game['board'],
+      boardState: this.game['boardState'],
+      activeCategory: '',
+      activeSquare: null,
+    };  // reset object
+
+    // console.log('this.game...planets again',this.game['board']['planets']);
+    this.setState( resetState );
+  }
 
   handleClick = (category, square)=> {
-
     console.log('handleClick');
     console.log('clicked square before', category, square, this.game['board'][category][square]['squareState']);
-    this.game['board'][category][square]['squareState'] =
-      this.game['board'][category][square]['squareState'] === 'pending'? 'activeA' :
-      this.game['board'][category][square]['squareState'] === 'activeA'? 'activeB' :
-      this.game['board'][category][square]['squareState'] === 'activeB'? 'complete' :
-      'complete'; // square is done.
+
+    this.game.activeCategory = category;
+    this.game.activeSquare = square;
+    switch (this.game['board'][category][square]['squareState']) {
+      case 'pending':
+        this.game['board'][category][square]['squareState'] = 'active';
+        this.game['boardState'] = 'question';
+        break;
+      case 'active':
+        this.game['board'][category][square]['squareState'] = 'steal';
+        this.game['boardState'] = 'question';
+        break;
+      case 'steal':
+        this.game['board'][category][square]['squareState'] = 'answer';
+        this.game['boardState'] = 'default';
+        break;
+      default:
+        this.game['board'][category][square]['squareState'] = 'answer';
+        this.game['boardState'] = 'default';
+        break;
+    }
+
+    // this.game['board'][category][square]['squareState'] =
+    //   this.game['board'][category][square]['squareState'] === 'pending'? 'activeA' :
+    //   this.game['board'][category][square]['squareState'] === 'activeA'? 'activeB' :
+    //   this.game['board'][category][square]['squareState'] === 'activeB'? 'complete' :
+    //   'complete';  // square is done.
 
     console.log('after', category, square, this.game['board'][category][square]['squareState']);
-    this.setState( { board : this.game['board'] } );
+    this.setState( {
+      board : this.game['board'],
+      boardState : this.game['boardState'],
+      activeCategory : this.game['activeCategory'],
+      activeSquare : this.game['activeSquare']
+     } );
   }  // handleClick
 
   handleKey = (event)=> {
@@ -224,12 +302,20 @@ class StarWars extends Component {
       <div>
         <Control
           startClick={this.startClick}
+          resetClick={this.resetClick}
+          startGame={this.game['startGame']}
+          currentPlayer={this.state['currentPlayer']}
+          playerInfo={this.game['player']}
+          classQ = "player"
         />
 
         <Board
           handleClick={this.handleClick}
           handleKey={this.handleKey}
           board = {this.state['board']}
+          boardState = {this.state['boardState']}
+          actCat = {this.state['activeCategory']}
+          actSq = {this.state['activeSquare']}
         />
 
       </div>
