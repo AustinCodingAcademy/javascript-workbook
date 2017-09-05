@@ -36,9 +36,14 @@ class App extends Component {
       <div className="App">
         <form>
           <FormGroup bsSize="large">
-            <FormControl type="text" onChange={(e) => this.handleChange(e)}   value={this.state.inputValue} placeholder="Update" />
+            <FormControl
+              type="text"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.inputValue}
+              placeholder="Update"
+            />
           </FormGroup>
-        </form>  
+        </form>
         // <input
         //     onChange={(e) => this.handleChange(e)}
         //     value={this.state.inputValue}
