@@ -33,10 +33,24 @@ class Control extends Component {
           </div>
           <div id="inputFrame">
             <p className='inputPara'>User Selected:</p>
-            <input type='text' id='keystrokeListener'></input>
+            <input
+              type='text'
+              id='keystrokeListener'
+              value={this.props.currentPlayer}
+              onChange={this.props.handleKey}
+            />
             <p className='inputPara'>Sumbit Guess:</p>
-            <input type='text' id='guessInput'></input>
-            <input type='submit' id='submitGuess'></input>
+            <input
+              type='text'
+              id='guessInput'
+              value = {this.props.input}
+              onChange={this.props.handleInputChange}
+            />
+            <input
+              type='submit'
+              id='submitGuess'
+              onClick={this.props.handleSubmit}
+            />
           </div>
           <div id="commentFrame">
             <h6>{this.props.message}</h6>
@@ -70,10 +84,24 @@ class Control extends Component {
           </div>
           <div id="inputFrame">
             <p className='inputPara'>User Selected:</p>
-            <input type='text' id='keystrokeListener'></input>
+            <input
+              type='text'
+              id='keystrokeListener'
+              value={this.props.currentPlayer}
+              onChange={this.props.handleKey}
+            />
             <p className='inputPara'>Sumbit Guess:</p>
-            <input type='text' id='guessInput'></input>
-            <input type='submit' id='submitGuess'></input>
+              <input
+                type='text'
+                id='guessInput'
+                value = {this.props.input}
+                onChange={this.props.handleInputChange}
+              />
+              <input
+                type='submit'
+                id='submitGuess'
+                onClick={this.props.handleSubmit}
+              />
           </div>
           <div id="commentFrame">
             <h6>{this.props.message}</h6>

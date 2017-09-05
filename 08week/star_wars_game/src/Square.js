@@ -14,7 +14,7 @@ const Square = (props)=> {
       </div>
     ) : props.square['squareState'] === 'answer'? (
       <div className = 'blue'>
-        <h6>Answer</h6>
+        <h6>{props.square['answer']}</h6>
       </div>
     ) : (  // default
       <div className = 'blue'>

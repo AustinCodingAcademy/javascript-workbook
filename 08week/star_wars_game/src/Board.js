@@ -10,14 +10,15 @@ class Board extends Component {
     // console.log(this.props.board['vehicles']);
     return (
       this.props.boardState === 'question'? (
-        <div>
-          <h2>{this.props.board[this.props.actCat][this.props.actSq]['question']}</h2>
+        <div id='questionWrapper'>
+          <div id='questionSection'>
+            <h2 id='questionDisplay'>{this.props.board[this.props.actCat][this.props.actSq]['question']}</h2>
+          </div>
         </div>
       ) : (
         <div
           className='black'
           id="board"
-          onKeyPress={this.props.handleKey}
         >
         {
           categories.map((cat, idx) =>
@@ -46,3 +47,5 @@ export default Board;
 // <Category id="people"/>
 // <Category id="films"/>
 // <Category id="species"/>
+
+// onKeyPress={this.props.handleKey}

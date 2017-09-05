@@ -1,12 +1,14 @@
 body {
   background-color:  #0d47a1;
   text-align: center;
-}
 
+}
 h1 {
-font-family: 'Open Sans', sans-serif;
-color: #FFD700;
-text-shadow: -1px 0 #FEFEFF, 0 3px #FEFEFF, 1px 0 #FEFEFF, 0 1px #FEFEFF;
+  font-family: 'Open Sans', sans-serif;
+  color: #FFD700;
+  text-shadow: -1px 0 #FEFEFF, 0 3px #FEFEFF, 1px 0 #FEFEFF, 0 1px #FEFEFF;
+  margin-top:15px;
+  margin-bottom:20px;
 }
 h2 {
   color: white;
@@ -16,16 +18,14 @@ h2 {
   margin-bottom: 5px;
   text-shadow: 2px 2px 2px black
 }
-Button:hover {
-  transform: scale(1.2);
+h3 {
+  color: #FFD700;
+  font-family: sans-serif;
+  font-size: 40px;
+  background: #2962ff;
+  text-shadow: 3px 3px 3px black;
+  margin: 0px;
 }
-Button {
-  width: 300px;
-  margin-top: 10px;
-}
-/*ul{
-  border: 1px solid black;
-}*/
 h4 {
   color: #FFD700;
   margin: 0;
@@ -35,14 +35,6 @@ h4 {
   text-shadow: 3px 3px 3px black;
   line-height: 100%;
 }
-h3 {
-  color: #FFD700;
-  font-family: sans-serif;
-  font-size: 40px;
-  background: #2962ff;
-  text-shadow: 3px 3px 3px black;
-  margin: 0px;
-}
 h6 {
   color: white;
   /*font-weight: bolder;*/
@@ -50,6 +42,13 @@ h6 {
   font-weight: 100;
   font-size: 20px;
   background: #2962ff;
+}
+Button:hover {
+  transform: scale(1.2);
+}
+Button {
+  width: 300px;
+  margin-top: 10px;
 }
 #board {
   display: flex;
@@ -73,6 +72,7 @@ h6 {
 #collectionItem {
   height: 50px;
   margin: 5px;
+  padding-left: 20px;
   border-radius: 5px;
   border: none;
   font-size: 50px;
@@ -113,6 +113,7 @@ h6 {
   margin-right: 15px;
   padding-top: 5px;
   box-shadow: -1px 3px 10px black;
+  border-radius: 10px;
 }
 p {
   font-size: 12px;
@@ -163,21 +164,26 @@ p {
   justify-content: center;
   height: 20px
 }
-/*#answerBox{
-    height: 100%;
-    width:100%;
-}*/
-/*#answerDisplay {
-  position: absolute;
-  background: #2962ff;
-  /*border: 5px solid white;*/
-  /*width: 95%;
-  height: 500px;
-  margin-top: 7px;
+#questionWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
+#questionSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2962ff;
+  border-radius: 10px;
+  height: auto;
+  width: 600px;
+  padding: 20px;
+  border: 5px solid black;
+  height: 300px;
 
-#keyInput {
-  width: 10px;
-  background: white;
-  height: 25px;
-}*/
+
+}
+#questionDisplay {
+  font-size: 60px;
+  text-shadow:4px 4px 4px black;
+}
