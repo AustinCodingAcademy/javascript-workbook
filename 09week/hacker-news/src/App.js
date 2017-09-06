@@ -60,16 +60,28 @@ class App extends Component {
   }
   // Create method to render each story title
   renderStories() {
+    const styles = {
+
+    }
     // Return the map of topStories array, pass in 'story' as element, 'key' as iterator
     return this.state.topStories.map((story, key) => {
       // Multiline return statement
       return (
         // Define 'key' so React knows where to place element in relation to other elements
-        <div key={key}>
-          <h4>{key + 1}</h4>
-          <h5>{story.by}</h5>
-          <a className='link' href={story.url} target='_blank'> {story.title} </a>
-          <p>{story.score} points</p>
+        <div key={key} style={{paddingBottom: 30}}>
+
+          <h4> {key + 1} </h4>
+          <h5> {story.by} </h5>
+          <h3>
+            <a
+              className='link'
+              href={story.url}
+              target='_blank'
+              style={{textDecoration: 'none'}}>
+              {story.title}
+            </a>
+          </h3>
+          <p> {story.score} points </p>
           <hr></hr>
 
         </div>
