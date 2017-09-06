@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.link{
+  font-size: 30px;
+  height: 40px;
+}
+.link:hover {
+  text-decoration: underline;
+  color: yellow;
+}
