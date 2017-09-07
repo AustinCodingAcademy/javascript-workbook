@@ -9748,15 +9748,15 @@ class Fetch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      countries: []
     };
   }
   componentDidMount() {
     fetch('https://services.groupkt.com/country/get/all').then(response => {
       response.json().then(data => {
-        const countries = data.RestResponse.result;
-        this.setState({ countries });
-        console.log(countries);
+        this.setState({
+          countries: data.RestResponse.result
+        });
       });
     });
   }
@@ -9765,43 +9765,51 @@ class Fetch extends React.Component {
       'table',
       { className: 'myTable' },
       React.createElement(
-        'tr',
+        'thead',
         null,
         React.createElement(
-          'th',
+          'tr',
           null,
-          'Country'
-        ),
-        React.createElement(
-          'th',
-          null,
-          'Alpha 2 Code'
-        ),
-        React.createElement(
-          'th',
-          null,
-          'Alpha 3 Code'
+          React.createElement(
+            'th',
+            null,
+            'Country'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Alpha 2 Code'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Alpha 3 Code'
+          )
         )
       ),
-      this.state.countries.map(country => React.createElement(
-        'tr',
-        { key: country.alpha3_code },
-        React.createElement(
-          'td',
-          null,
-          country.name
-        ),
-        React.createElement(
-          'td',
-          { className: 'alpha' },
-          country.alpha2_code
-        ),
-        React.createElement(
-          'td',
-          { className: 'alpha' },
-          country.alpha3_code
-        )
-      ))
+      React.createElement(
+        'tbody',
+        null,
+        this.state.countries.map(country => React.createElement(
+          'tr',
+          { key: country.alpha3_code },
+          React.createElement(
+            'td',
+            null,
+            country.name
+          ),
+          React.createElement(
+            'td',
+            { className: 'alpha' },
+            country.alpha2_code
+          ),
+          React.createElement(
+            'td',
+            { className: 'alpha' },
+            country.alpha3_code
+          )
+        ))
+      )
     );
   }
 }
