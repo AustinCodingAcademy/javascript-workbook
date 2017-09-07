@@ -1,0 +1,8 @@
+[
+  {
+    "srcDir": ".",
+    "destDir": "lib",
+    "files": "**/*.jsx",
+    "command": "npm run build"
+  }
+]

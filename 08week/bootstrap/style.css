@@ -1,1 +1,37 @@
+#container {
+  /*width: 30%;*/
+  margin: 10px;
+}
 
+label, input {
+  display: block;
+}
+
+button {
+  margin-top: 10px !important;
+}
+
+form {
+  border: 2px dashed gray;
+  padding: 10px;
+}
+
+.main-img {
+  height: 200px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: gray;
+  background-image: url("../img/sample-background.jpg");
+}
+
+.main-img > h1 {
+  line-height: 200px;
+}
+
+.beige {
+  background: beige;
+}
+
+.azure {
+  background: azure;
+}
