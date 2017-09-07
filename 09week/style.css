@@ -1,0 +1,37 @@
+h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 300%;
+  font-family: 'Bitter', serif;
+  background-color: #31B0D5;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-family: 'Bitter', sans-serif;
+  font-size: 100%;
+}
+
+h3 {
+  font-size: 150%;
+  color: grey;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-bottom: .5em;
+}
+
+article {
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 2em;
+}
+
+.card {
+  padding: .5em;
+  min-height: 9em;
+}
+
+.header {
+}
