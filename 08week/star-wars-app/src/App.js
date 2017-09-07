@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import head from 'lodash/head'
 import RaisedButton from 'material-ui/RaisedButton';
+import Heroes from './Heroes'
 
 
 // Use swapi.co to access list of Star Wars characters
@@ -69,6 +71,9 @@ class App extends Component {
   componentDidMount() {
     // Using the above const, call the StarWars API for a character
     this.fetchStarWarsCharacters();
+    this.setState({
+      swapiCharURL: this.state.swapiCharURL + 1,
+    })
   }
 
   // Check to see if the API call is working
@@ -82,22 +87,39 @@ class App extends Component {
   // This pops the center displayed name >
   // Adds the characterCard name to the Light or Dark array
   handleClick = (e) => {
+    e.preventDefault();
+
+    const firstResult = head(this.state.fetchResults);          // Luke
+
+    const newFetchResults = this.state.fetchResults.slice(1);   // Empty array
+
     // Create a characterCard object to hold info
     if (e.target.innerHTML === 'Seek only the Light') {
+
+      console.log(firstResult);
       this.setState({
-        lightArray: this.state.name,
+        lightArray: [
+          ...this.state.lightArray,
+          firstResult,
+        ],
+        fetchResults: newFetchResults,
         swapiCharURL: this.state.swapiCharURL + 1,
       });
       this.fetchStarWarsCharacters();
-    } else {
+    }
+    else {
       this.setState({
-        darkArray: this.state.name,
+        darkArray: [
+          ...this.state.darkArray,
+          firstResult,
+        ],
+        fetchResults: newFetchResults,
         swapiCharURL: this.state.swapiCharURL + 1,
       });
       this.fetchStarWarsCharacters();
     }
 
-    };
+  };
 
   //   // FROM TIMELINE APP
   //   // New push method format
@@ -112,7 +134,9 @@ class App extends Component {
     // if (this.state.requestFailed) { return <h3>Request Failed</h3> }
     // Ensure there is SW data to be rendered
     // if (this.state.isFetching) { return <h3>Loading...</h3> }
-
+    const {
+      fetchResults,
+    } = this.state
     return (
       <div className="App">
 
@@ -120,33 +144,30 @@ class App extends Component {
           <h1>Does the character belong to the Light or Dark?</h1>
           <h2>Click the button to assign them to a side</h2>
         </div>
+        
         <div>
-          <h1>{this.state.name}</h1>
-          <RaisedButton label="Seek only the Light" onClick={this.handleClick} />
-          <RaisedButton backgroundColor='grey' labelColor='#fff' label="Come to the Dark" onClick={this.handleClick} />
+          <h1>{fetchResults && fetchResults.length > 0 ? fetchResults[0].name : ''}</h1>
+          <RaisedButton
+            label="Seek only the Light"
+            onClick={this.handleClick}
+          />
+          <RaisedButton
+            backgroundColor='grey'
+            labelColor='#fff'
+            label="Come to the Dark"
+            onClick={this.handleClick}
+          />
         </div>
 
-        <div>
-          <ul>
-            {this.state.fetchResults.length > 0
-              && this.state.fetchResults
-              .map((character, index) => {
-                return <li key={index}>{character.name}</li>
-              })
-            }
-          </ul>
-        </div>
+        <Heroes
+          heroes={this.state.lightArray}
+          type="light"
+        />
 
-        <div>
-          <ul>
-            {this.state.fetchResults.length > 0
-              && this.state.fetchResults
-              .map((character, index) => {
-                return <li key={index}>{character.name}</li>
-              })
-            }
-          </ul>
-        </div>
+        <Heroes
+          heroes={this.state.darkArray}
+          type="dark"
+        />
 
       </div>
     );
