@@ -9748,12 +9748,11 @@ class Fetch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countries: []
-
+      list: []
     };
   }
   componentDidMount() {
-    fetch('http://services.groupkt.com/country/get/all').then(response => {
+    fetch('https://services.groupkt.com/country/get/all').then(response => {
       response.json().then(data => {
         const countries = data.RestResponse.result;
         this.setState({ countries });
