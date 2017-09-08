@@ -5,12 +5,11 @@ import './Heroes.css'
 const Heroes = (props) => {
   return (
     <div
-    style={{
-      backgroundColor: props.type === 'light' ? 'pink' : 'gray',
-    }}
+      style={{
+        backgroundColor: props.type === 'light' ? 'white' : 'white',
+      }}
     >
-      {props.heroes.length > 0
-        && props.heroes
+      {props.heroes.length > 0 && props.heroes
         .map((character, index) => {
           return (
             <li

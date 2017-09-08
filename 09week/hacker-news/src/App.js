@@ -60,9 +60,6 @@ class App extends Component {
   }
   // Create method to render each story title
   renderStories() {
-    const styles = {
-
-    }
     // Return the map of topStories array, pass in 'story' as element, 'key' as iterator
     return this.state.topStories.map((story, key) => {
       // Multiline return statement
