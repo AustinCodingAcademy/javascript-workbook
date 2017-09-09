@@ -1,0 +1,29 @@
+body{
+  background-color: #fff;
+  color: black;
+}
+a{
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: red;
+}
+article{
+  border: 1px solid #777;
+  padding: 0 2%;
+}
+.child{
+  margin: 0 5%;
+  background-color: #e2dddd;
+
+}
+.btn{
+  float: right;
+}
+.title{
+  font-size: 150%;
+}
+.header{
+  text-align: center;
+}
