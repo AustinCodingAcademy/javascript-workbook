@@ -1,0 +1,29 @@
+body{
+  background-image: url('http://www.nmgncp.com/data/out/303/6319784-space-background-wallpaper.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #000;
+  font-family: monospace;
+}
+.title{
+  text-align: center;
+  font-family: 'starjedi';
+  color: white;
+}
+li{
+  list-style-type: none;
+  display: inline;
+}
+article{
+  margin: 2%;
+}
+input{
+  background-color: black;
+  border: 1px solid white;
+  width: 25%;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  color: white;
+}
