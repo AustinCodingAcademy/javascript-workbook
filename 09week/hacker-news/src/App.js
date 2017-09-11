@@ -22,6 +22,8 @@ class Details extends Component {
   }
 }
 
+// **** To insert screenshots, use https://www.producthunt.com/posts/enpose  ****
+
 // Parent
 class App extends Component {
   constructor(props) {
