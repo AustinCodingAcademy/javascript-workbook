@@ -1,0 +1,33 @@
+/*Background*/
+body {
+  background-image: url('https://i.ytimg.com/vi/KaZ0g5CcJX0/hqdefault.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Roboto',sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+  color: Red;
+}
+/*Return function section*/
+input {
+  background-color: black;
+  border: 1px solid white;
+  width: 25%;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  color: white;
+}
+
+article {
+  margin: 2%;
+}
+
+li {
+  list-style-type: none;
+  display: inline;
+}
