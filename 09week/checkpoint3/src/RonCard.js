@@ -19,10 +19,7 @@ const RonCard = (props) => {
         <QuotePresenter quote={props.quote} />
 
       </CardText>
-      <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
-      </CardActions>
+      
     </Card>
   )
 }
