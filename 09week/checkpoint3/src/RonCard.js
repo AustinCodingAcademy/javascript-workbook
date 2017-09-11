@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import QuotePresenter from './QuotePresenter';
+import React from 'react';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 
 
 const RonCard = (props) => {
@@ -13,13 +11,6 @@ const RonCard = (props) => {
         >
         <img src={props.img} alt="Ron Swanson" />
       </CardMedia>
-
-      <CardText>
-
-        <QuotePresenter quote={props.quote} />
-
-      </CardText>
-      
     </Card>
   )
 }

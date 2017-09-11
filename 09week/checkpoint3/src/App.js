@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import FlatButton from 'material-ui/FlatButton';
-import QuotePresenter from './QuotePresenter';
+import RaisedButton from 'material-ui/FlatButton';
 import RonCard from './RonCard';
 
 
@@ -31,20 +30,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <RonCard
           img={this.state.img}
           quote={this.state.quote}
         />
-
-        <FlatButton
-          backgroundColor="yellow"
-          hoverColor='blue'
+        <RaisedButton
           label="Get another Ron Swanson quote"
           onClick={() => this.fetchQuote()}
-          style={{marginTop: 20}}
+          primary={true}
+          style={{
+            marginTop: 20,
+            marginBottom: 20,
+          }}
         />
-
       </div>
     );
   }
