@@ -9,7 +9,8 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let hint = '';
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -28,19 +29,41 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(guess) {
+  let myGuess = guess.split('');
+  let theSolution = solution.split('');
+  let array = [];
+  let correctLetterCorrectPlace = 0;
+  let correctLetterWrongPlace = 0;
+  // Locate the correct letter and the correct index
+  for (let i = 0; i < theSolution.length; i++) {
+    if (theSolution[i] === myGuess[i]) {
+      array.push(myGuess[i]);
+      correctLetterCorrectPlace++;
+      // Locates the correct letter guessed but in wrong index
+    } else if (theSolution.includes(myGuess[i]) && (array.includes(myGuess[i]) === false)) {
+      array.push(myGuess[i]);
+      correctLetterWrongPlace++;
+    }
+  }
+  hint = `${correctLetterCorrectPlace}-${correctLetterWrongPlace}`;
+  return hint;
 }
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  generateHint(guess);
+  // Checks for win else returns myGuess with a hint
+  if(guess === solution) {
+    return 'You guessed it!';
+  } else {
+    board.push(guess + ': ' + hint);
+    printBoard();
+  }
 }
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    mastermind(guess);
+    console.log(mastermind(guess));
     printBoard();
     getPrompt();
   });
@@ -49,9 +72,9 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
+      solution = 'abcd';
       mastermind('aabb');
       assert.equal(board.length, 1);
     });
@@ -62,9 +85,11 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
+      solution = 'abcd';
       assert.equal(generateHint('abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
+      solution = 'abcd';
       assert.equal(generateHint('aabb'), '1-1');
     });
 
