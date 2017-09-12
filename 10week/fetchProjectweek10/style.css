@@ -1,0 +1,39 @@
+.card {
+  padding: .5em;
+  margin-bottom: 1em;
+}
+
+img {
+  max-height: 300px;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+}
+
+h4 {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.mainHeader {
+  display: flex;
+  flex-direction: column;
+  max-height: 170px;
+  width: 100%;
+  background-color: #bbb;
+  color: #fff;
+  padding: 3% 0 3% 0;
+  margin-bottom: 1%;
+  position: fixed;
+  z-index: 1000;
+}
+
+.clear {
+  padding-top: 165px;
+}
