@@ -1,0 +1,33 @@
+/*Background*/
+body {
+  background-image: url('https://i.pinimg.com/originals/e1/b7/59/e1b75944d113a74d7f8b1b7898e1c97f.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Roboto',sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+  color: Red;
+}
+/*Return function section*/
+input {
+  background-color: black;
+  border: 1px solid white;
+  width: 25%;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  color: white;
+}
+
+article {
+  margin: 2%;
+}
+
+li {
+  list-style-type: none;
+  display: inline;
+}
