@@ -1,0 +1,15 @@
+h1 {
+  font-size: 3em;
+  font-family: sans-serif;
+  color: cadetblue;
+  text-shadow: 2px 2px 2px black;
+}
+
+h1:hover {
+  color: red;
+}
+
+ul {
+  color: green;
+  font-size: 1.3em;
+}
