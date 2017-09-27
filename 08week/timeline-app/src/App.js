@@ -34,21 +34,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form>
-          <FormGroup bsSize="large">
-            <FormControl
-              type="text"
-              onChange={(e) => this.handleChange(e)}
-              value={this.state.inputValue}
-              placeholder="Update"
-            />
-          </FormGroup>
-        </form>
-        // <input
-        //     onChange={(e) => this.handleChange(e)}
-        //     value={this.state.inputValue}
-        //     type="text"
-        // />
+        <input
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.inputValue}
+            type="text"
+        />
         <button onClick={this.handleClick}>Submit</button>
         <TimeLine deleteStatus={this.deleteStatus} list={this.state.timeLine} />
       </div>
