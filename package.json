@@ -7,7 +7,6 @@
     "url": "git+https://github.com/AustinCodingAcademy/javascript-workbook.git"
   },
   "scripts": {
-    //"lint": "htmllint {*.html,./**/*.html} && stylelint ./**/*.css && eslint .",
     "test": "mocha",
     "start": "cd . && http-server -c-1",
     "javascripting": "javascripting",
