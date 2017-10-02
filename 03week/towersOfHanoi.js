@@ -49,6 +49,6 @@ function getPrompt() {
   });
 }
 
-  getPrompt();
+getPrompt();
 
 
