@@ -6,7 +6,7 @@ let displayDate = function(){
 	console.log(date);
 }
 
-displayDate();
+displayDate(); // prints the date
 
 // Write a JavaScript function to convert a number to a string.
 let convertNumbertoString = function() {
@@ -15,7 +15,7 @@ let convertNumbertoString = function() {
 	console.log(typeof n);
 }
 
-convertNumbertoString();
+convertNumbertoString(); // string
 
 // Write a JavaScript function to convert a string to the number. 
 let convertStringtoNumber = function() {
@@ -24,7 +24,7 @@ let convertStringtoNumber = function() {
 	console.log(typeof n);
 }
 
-convertStringtoNumber();
+convertStringtoNumber(); // number
 
 // Write a JavaScript function that takes in different datatypes and prints out whether they are a:
 function datatype(x) {
@@ -47,7 +47,7 @@ let addNumbers = function(){
 	console.log(c);
 }
 
-addNumbers();
+addNumbers(); // 3
 
 // Write a JavaScript function that runs only when 2 things are true.
 function goodHotdog(foodType, numberRating){
@@ -58,10 +58,10 @@ function goodHotdog(foodType, numberRating){
 	}
 }
 
-goodHotdog("hotdog", 7);
-goodHotdog("hotdog", 2);
-goodHotdog("hamburger", 7);
-goodHotdog("hamburger", 2);
+goodHotdog("hotdog", 7); // Delicious hotdog
+goodHotdog("hotdog", 2); // Not delicious hotdog
+goodHotdog("hamburger", 7); // Not delicious hotdog
+goodHotdog("hamburger", 2); // Not delicious hotdog
 
 // Write a JavaScript function that runs when 1 of 2 things are true.
 function Hotdog(foodType){
@@ -72,9 +72,9 @@ function Hotdog(foodType){
 	}
 }
 
-Hotdog("hotdog");
-Hotdog("hot dog");
-Hotdog("hamburger");
+Hotdog("hotdog"); // hotdog
+Hotdog("hot dog"); // hotdog
+Hotdog("hamburger"); // Not a hotdog
 
 // Write a JavaScript function that runs when both things are not true.
 function bothFalse (x, y){
@@ -85,6 +85,6 @@ function bothFalse (x, y){
 	}
 }
 
-bothFalse(0, 0);
-bothFalse(false, false);
-bothFalse(true, true);
+bothFalse(0, 0); // both are false
+bothFalse(false, false); // both are false
+bothFalse(true, true); // could be true
