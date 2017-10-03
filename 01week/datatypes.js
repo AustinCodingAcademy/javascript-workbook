@@ -10,14 +10,16 @@ displayDate();
 
 //Convert a number to a string.
 let numString = function(x) {
-  console.log(x.toString());
+  let ting = toString(x);
+  console.log(typeof(ting));
 }
 
 numString(2);
 
 //Convert a string to a number.
 let stringNum = function(x) {
-  console.log(x.parseInt());
+  let ting = parseInt(x);
+  console.log(typeof(ting));
 }
 
 stringNum('55');
@@ -30,14 +32,14 @@ let printDatat = function(arg) {
 printDatat('what is this?');
 
 //adds two numbers
-let add = function(x, y); {
+let add = function(x, y) {
   console.log(x + y);
 }
 
 add(1, 2);
 
 //Runs if two things are true.
-let whatever = function(arg1, arg2); {
+let whatever = function(arg1, arg2) {
   if (arg1 && arg2) {
     console.log('OK!')
   } else {
@@ -48,5 +50,23 @@ let whatever = function(arg1, arg2); {
 whatever(1, 1);
 
 //Runs when one of Two things are true.
+let whateverTwo = function(arg1, arg2) {
+  if (arg1 || arg2) {
+    console.log('OK!!')
+  } else {
+    return;
+  }
+}
+
+whateverTwo(1, 0);
 
 //Runs if two things are both not true.
+let whateverThree = function(arg1, arg2) {
+  if (arg1 && arg2) {
+    return;
+  } else {
+    console.log('OK!!!');
+  }
+}
+
+whateverThree(0, 0);
