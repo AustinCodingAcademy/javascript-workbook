@@ -23,21 +23,21 @@ console.log(addi);
 const oner = 1;
 const twoer = 2;
 const fourer = 4;
+
 if (oner+oner === twoer && twoer+twoer === fourer) {
   console.log("It Works");
-} else {
+	} else {
   console.log("It doesn't work");
 }
 
 if (oner+oner === twoer || twoer+twoer === fourer) {
   console.log("It Works");
-} else {
+	} else {
   console.log("It doesn't work");
 }
 
 if (oner+twoer === fourer && fourer+fourer === oner) {
   console.log("It works");
-} else {
+	} else {
   console.log("It doesn't work");
 }
-
