@@ -52,43 +52,27 @@ function addNumbers(num1, num2) {
 }
 console.log(addNumbers(16, 28));
 
-//declare function, only runs when two things true
-// pass in two arguments
-//if statement to run comparison
-// use logical operator &&
+//Combined last 3 questions into one function
+//declare function, pass two arguments
+//write multiple if/else statements
+//Use && operator to check if two things are true
+//Use || operator to check if one thing is true
+//Use && and ! operators to run function when both things are untrue
 
-function findTrue(item1, item2) {
-  if (item1 && item1 < item2) {
-    return 'Both are true';
+function condition(item1, item2) {
+    if(item1 && item2 === 7) {
+      return 'Both are true';
+    }
+    else if(item1 === item2 || (item1 / item2) === 2){
+      return 'One is true';
+    }
+    else if(item1 !== 8 && item1 !== item2) {
+      return 'Runs when untrue';
+    }
+    else {
+      return 'Try agai';
+    }
   }
-  else {
-    return 'Both are not true';
-  }
-}
-console.log(findTrue(5, 17));
-
-//declare function that runs when one thing is true
-// pass two arguments
-//if statement to run comparison
-// use the || 'or' operator to check for truthy
-
-function findOne(item1, item2) {
-  if (item1 || item1 === item2) {
-    return 'One is true!';
-  }
-  else {
-    return 'Both are not true';
-  }
-}
-console.log(findOne(5, 17));
-
-//declare function that runs when two things are not true
-//pass two arguments
-//if statement to run comparison
-//use the ! 'not' operator to check if arg. are false
-function findFalse(item1, item2) {
-  if(item1 !== 0 && item1 !== item2) {
-    return 'GoodJob!'
-  }
-}  
-  console.log(findFalse(5, 17));
+console.log(condition(12, 7));
+console.log(condition(10, 5));
+console.log(condition(5, 8));
