@@ -15,11 +15,8 @@ var readable = console.log(today.toString());
 var num = 13
 var n = console.log(num.toString)
 
-//first method to convert string to number
-//input a string into parseInt() method and returns number
-//or...
 //set var to a string
-//use Number() method
+//use parseInt() method
 
 var str = `15 Years`
 var int = console.log(parseInt(str))
