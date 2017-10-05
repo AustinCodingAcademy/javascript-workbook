@@ -7,12 +7,26 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
-  // check if RPS, if not, else
+var hand1Wins = "HAND1 WINS " + hand1 + " beats " + hand2;
+var hand2Wins = "HAND2 WINS " + hand2 + " beats " + hand1;
 
+  if (hand1 === hand2) {
+    console.log ("No winner, try again");
+  } else if (hand1 === 'rock' && hand2 === 'paper') {
+    console.log(hand2Wins);
+  } else if (hand1 === 'rock' && hand2 === 'scissors') {
+    console.log(hand1Wins);
+  } else if (hand1 === 'paper' && hand2 === 'rock') {
+    console.log(hand1Wins);
+  } else if (hand1 === 'paper' && hand2 === 'scissors') {
+    console.log(hand2Wins);
+  } else if (hand1 === 'scissors' && hand2 === 'rock') {
+    console.log(hand2Wins);
+  } else if (hand1 === 'scissors' && hand2 === 'paper') {
+    console.log(hand1Wins);
+  }
 }
 
 function getPrompt() {
