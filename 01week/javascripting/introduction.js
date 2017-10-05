@@ -1,1 +1,2 @@
-console.log('hello');
+'use script'
+console.log ('hello');
