@@ -38,7 +38,6 @@ datatype(15); // number
 datatype(NaN); // nan
 datatype("hello world"); // string
 
-
 // Write a JavaScript function that adds 2 numbers together.
 let addNumbers = function(){
 	let a = 1;
