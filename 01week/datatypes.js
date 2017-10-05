@@ -5,7 +5,7 @@
 //make new var to store the today var and toDateString method
 //use var today with toTimeString method
 
-var today = new date();
+var today = new Date();
 var readable = console.log(today.toString());
 
 //create a var to convert.
@@ -29,14 +29,19 @@ var int = console.log(parseInt(str))
 //use the typeOf method on the variable
 
 var dataType = `words words words`
-var result = console.log(typeOf(dataType)))
+var result = console.log(typeof(dataType)))
 
-//make two variables that use parseInt() method
-//add the two variables with ansD.
+//Create two var that can be a string or number, the string must contain a number though
+//Create a function with the two var
+//Inside the function, add the two var together
+//Use parseInt() to take the number out of the string
 
-var numOne = parseInt(`44`)
-var numTwo = parseInt(`55`)
-ansD.value = console.log(numOne + numTwo)
+var numOne = `13`
+var numTwo = `17`
+
+function add (numOne, numTwo) {
+  return parseInt(numOne) + parseInt(numTwo)
+}
 
 //write a function that returns a true if two var are truthy
 //if both var are true, show "nope"
