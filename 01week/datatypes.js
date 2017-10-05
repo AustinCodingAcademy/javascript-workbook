@@ -5,15 +5,15 @@
 //make new var to store the today var and toDateString method
 //use var today with toTimeString method
 
-var today = new date(dateString);
-console.log(today);
+var today = new date();
+var readable = console.log(today.toString());
 
 //create a var to convert.
 //input a number into var convert
 //use convert and toString() method to make the number a string
 
 var num = 13
-var n = num.toString
+var n = console.log(num.toString)
 
 //first method to convert string to number
 //input a string into parseInt() method and returns number
@@ -22,21 +22,21 @@ var n = num.toString
 //use Number() method
 
 var str = `15 Years`
-var int = parseInt(str)
+var int = console.log(parseInt(str))
 
 //tells what type of datatype your input is
 //create a variable of any main datatype
 //use the typeOf method on the variable
 
 var dataType = `words words words`
-var result = typeOf(dataType)
+var result = console.log(typeOf(dataType)))
 
 //make two variables that use parseInt() method
 //add the two variables with ansD.
 
 var numOne = parseInt(`44`)
 var numTwo = parseInt(`55`)
-ansD.value = numOne + numTwo
+ansD.value = console.log(numOne + numTwo)
 
 //write a function that returns a true if two var are truthy
 //if both var are true, show "nope"
