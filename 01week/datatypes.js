@@ -120,6 +120,7 @@
 //use an if statement telling program what to console.log('true') if either of the varaibles are true
 //use blank else statement so the function sudo-stops.
 //call the function
+//blablablabla
 
 // var pizza = 1;
 // var beer = 1;
