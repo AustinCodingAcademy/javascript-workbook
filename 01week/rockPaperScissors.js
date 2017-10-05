@@ -10,7 +10,39 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  hand1 = hand1.toString();
+  hand1 = hand1.toLowerCase();
+  hand1 = hand1.trim();
+
+  hand2 = hand2.toString();
+  hand2 = hand2.toLowerCase();
+  hand2 = hand2.trim();
+
+  if (hand1 === 'rock') {
+    if (hand2 === 'rock') {
+      console.log("It's a tie!!");
+    } else if (hand2 === 'scissors') {
+      console.log("Hand one wins!");
+    } else {
+      console.log("Hand two wins!");
+    }
+  } else if (hand1 === 'scissors') {
+      if (hand2 === 'rock') {
+      console.log("Hand two wins!");
+    } else if (hand2 === 'scissors') {
+        console.log("It's a tie!");
+    } else {
+      console.log("Hand one wins!");
+    }
+  } else if (hand1 === 'paper') {
+      if (hand2 === 'rock') {
+        console.log("Hand one wins!");
+      } else if (hand2 === 'scissors') {
+        console.log("Hand two wins!");
+      } else {
+        console.log("It's a tie!");
+    }
+  }
 
 }
 
