@@ -3,7 +3,7 @@
 // Write a JavaScript function to display the current day and time.
 let displayDate = function(){
 	let date = new Date();
-	console.log(date);
+	console.log("Todays date is " + date);
 }
 
 displayDate(); // prints the date
@@ -12,7 +12,7 @@ displayDate(); // prints the date
 let convertNumbertoString = function() {
 	let num = 15;
 	let n = num.toString();
-	console.log(typeof n);
+	console.log("This is a " + typeof n);
 }
 
 convertNumbertoString(); // string
@@ -21,14 +21,14 @@ convertNumbertoString(); // string
 let convertStringtoNumber = function() {
 	let hello = "Hello world";
 	let n = Number(hello);
-	console.log(typeof n);
+	console.log("This is a " + typeof n);
 }
 
 convertStringtoNumber(); // number
 
 // Write a JavaScript function that takes in different datatypes and prints out whether they are a:
 function datatype(x) {
-	console.log(typeof x);
+	console.log("This is a " + typeof x);
 }
 
 datatype(true); // boolean
@@ -39,14 +39,12 @@ datatype(NaN); // nan
 datatype("hello world"); // string
 
 // Write a JavaScript function that adds 2 numbers together.
-let addNumbers = function(){
-	let a = 1;
-	let b = 2; 
+function addNumbers(a,b){
 	let c = a + b;
-	console.log(c);
+	console.log("The answer is " + c);
 }
 
-addNumbers(); // 3
+addNumbers(2, 1); // 3
 
 // Write a JavaScript function that runs only when 2 things are true.
 function goodHotdog(foodType, numberRating){
@@ -80,10 +78,10 @@ function bothFalse (x, y){
 	if (!(x || y)){
 		console.log("Both are false");
 	} else {
-		console.log("Could be true");
+		console.log("Both are true");
 	}
 }
 
 bothFalse(0, 0); // both are false
 bothFalse(false, false); // both are false
-bothFalse(true, true); // could be true
+bothFalse(true, true); // both are true
