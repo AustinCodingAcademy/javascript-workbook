@@ -11,6 +11,8 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  let answer1 = hand1.toLowerCase();
+  let answer2 = hand2.toLowerCase();
 
 }
 
