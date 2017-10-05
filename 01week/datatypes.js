@@ -62,13 +62,13 @@ whateverTwo(1, 0);
 
 //Runs if two things are both not true.
 let whateverThree = function(arg1, arg2) {
-  if (arg1 && arg2) {
-    return;
+  if (arg1 === false && arg2 === false) {
+    console.log('OK!5!');
   } else {
-    console.log('OK!!!');
+    return;
   }
 }
 
-whateverThree(0, 0);
+whateverThree(false, true);
 
 //Scratch
