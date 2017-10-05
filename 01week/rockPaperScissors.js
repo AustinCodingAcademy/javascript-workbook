@@ -9,9 +9,15 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
+  let h1lc= hand1.toLowerCase();
+  let h2lc= hand2.toLowerCase();
   // Write code here
 
+    if (h1lc===h2lc) {
+      return "It's a tie!";
+    } else if (h1lc=== "rock" && h2lc==="scissors"){
+      return "hand 1 wins";
+    }
 }
 
 function getPrompt() {
