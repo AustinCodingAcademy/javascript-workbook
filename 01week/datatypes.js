@@ -36,7 +36,7 @@ var result = console.log(typeof(dataType)))
 var numOne = `13`
 var numTwo = `17`
 
-function add (numOne, numTwo) {
+function add(numOne, numTwo) {
   return parseInt(numOne) + parseInt(numTwo)
 }
 
