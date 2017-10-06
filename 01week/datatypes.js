@@ -2,6 +2,10 @@
 // Class: 211 Java Tue/Thur
 // Instructor: Renee Dudley
 // Date: 10/04/17
+//
+
+//resolving conflicts
+'use strict';
 
 
 
