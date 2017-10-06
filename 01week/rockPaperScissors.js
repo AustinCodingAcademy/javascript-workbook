@@ -16,6 +16,7 @@ function rockPaperScissors(hand1, hand2) {
   //if hand1 is paper and hand2 is scissors - return hand 2 wins
   //if hand1 is rock and hand2 is scissors - return hand1 wins
   //use ternary statements to make comparisons
+  
   if(hand1 === hand2) {
     return "It's a tie";
   }
