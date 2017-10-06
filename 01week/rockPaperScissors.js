@@ -10,8 +10,24 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
-
+  // check for tie - if hand1 is the same as hand2 return tie.
+  //check for win.
+  //if hand1 is rock and hand2 is paper - return hand2 wins
+  //if hand1 is paper and hand2 is scissors - return hand 2 wins
+  //if hand1 is rock and hand2 is scissors - return hand1 wins
+  //use ternary statements to make comparisons
+  if(hand1 === hand2) {
+    return "It's a tie";
+  }
+  else if(hand1 === 'rock') {
+    return hand2 === 'paper' ? "Hand two wins!" : "Hand one wins!";
+  }
+  else if(hand1 === 'paper') {
+    return hand2 === 'rock' ? "Hand one wins!" : "Hand two wins!";
+  }
+  else if(hand1 === 'scissors') {
+    return hand2 === 'rock' ? "Hand two wins!" : "Hand one wins!";
+  }
 }
 
 function getPrompt() {
