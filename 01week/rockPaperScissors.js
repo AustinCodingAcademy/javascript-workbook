@@ -10,8 +10,12 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  //if hand 1 is equal to hand 2, display tie
+  if(hand1 === hand2) {
+     return "It's a tie!";
+  }else if () {
 
+  }
 }
 
 function getPrompt() {
