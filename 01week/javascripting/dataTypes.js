@@ -26,7 +26,7 @@ console.log(numToString(2326));
 
 //convert string to number
 //declare a function, pass one argument
-//return argument using the Number() method
+//return argument using  Number() method
 
 function stringToNumber(item) {
   return Number(item);
