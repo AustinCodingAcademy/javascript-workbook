@@ -1,3 +1,3 @@
 'use strict';
 
-const nameArr = ['renee', 'cory', 'stephanie', 'eric', 'mike'];
+const nameArr = ['renee', 'cory', 'stephanie', 'eric', 'mike', 'mark'];
