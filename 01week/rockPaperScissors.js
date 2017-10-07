@@ -9,24 +9,24 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-  let h1lc= hand1.toLowerCase();
-  let h2lc= hand2.toLowerCase();
+  let h1lc= hand1.toLowerCase().trim();
+  let h2lc= hand2.toLowerCase().trim();
   // Write code here
 
     if (h1lc===h2lc) {
       return "It's a tie!";
     } else if (h1lc=== 'rock' && h2lc==='scissors'){
-      return 'hand one wins';
+      return 'Hand one wins!';
     }
     else if (h1lc==="rock" && h2lc==='paper'){
       return 'Hand two wins!'
-    } else if (h1lc==="paper" && h2lc==='rock'{
+    } else if (h1lc==="paper" && h2lc==='rock'){
       return 'Hand 1 wins'
     } else if (h1lc==='paper' && h2lc==='scissors'){
       return 'Hand two wins!'
     } else if (h1lc==='scissors' && h2lc==='paper'){
       return 'hand 1 wins'
-    } else if (h1lc==='scissors' && h2lc==='rock'{
+    } else if (h1lc==='scissors' && h2lc==='rock'){
       return 'hand 2 wins'
     } else {
       return 'invalid input'
