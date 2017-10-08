@@ -70,7 +70,7 @@ function condition(item1, item2) {
       return 'Runs when untrue';
     }
     else {
-      return 'Try agai';
+      return 'Try again';
     }
   }
 console.log(condition(12, 7));
