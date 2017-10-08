@@ -8,13 +8,16 @@
 var today = new Date();
 var readable = console.log(today.toString());
 
+//create a function that will supply the resulting string
 //create a var to convert.
 //input a number into var convert
 //use convert and toString() method to make the number a string
 
-var num = 13
-var n = console.log(num.toString)
-
+function toNumber() {
+  var num = 13
+  var n = console.log(num.toString)
+  return n
+}
 //set var to a string
 //use parseInt() method
 
@@ -46,7 +49,7 @@ function add(numOne, numTwo) {
 // if one is false and one is true, show "yep!"
 
 function truest(thingOne, thingTwo) {
-    if (thingOne && thingTwo === `true`){
+  if (thingOne && thingTwo === `true`) {
     return `nope`
   } else if (thingOne && thingTwo === `false`) {
     return 'nope'
