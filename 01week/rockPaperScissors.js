@@ -10,12 +10,27 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  //if hand 1 is equal to hand 2, display tie
   if(hand1 === hand2) {
-     return "It's a tie!";
-  }else if () {
-
+     return "*14 It's a tie!";
   }
+if(hand1 === 'rock' && hand2 === 'paper'){
+  return "* 17 Hand two wins!";
+}
+if(hand1 === 'rock' && hand2 === 'scissors'){
+  return "*20 Hand one wins!";
+}
+if(hand1 === 'paper' && hand2 === 'rock' ){
+  return "*23 Hand one wins!";
+}
+if(hand1 === 'paper' && hand2 === 'scissors'){
+  return "*26 Hand two wins!";
+}
+if(hand1 === 'scissors' && hand2 === 'rock'){
+  return "*29 Hand two wins!";
+}
+if(hand1 === 'scissors' && hand2 === 'paper'){
+  return "* 32 Hand one wins!";
+}
 }
 
 function getPrompt() {
@@ -26,6 +41,7 @@ function getPrompt() {
     });
   });
 }
+
 
 // Tests
 
