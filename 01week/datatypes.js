@@ -75,7 +75,7 @@ Hotdog("hamburger"); // Not a hotdog
 
 // Write a JavaScript function that runs when both things are not true.
 function bothFalse (x, y){
-	if (!(x || y)){
+	if (x || y){
 		console.log("Both are false");
 	} else {
 		console.log("Both are true");
@@ -85,3 +85,4 @@ function bothFalse (x, y){
 bothFalse(0, 0); // both are false
 bothFalse(false, false); // both are false
 bothFalse(true, true); // both are true
+bothFalse(false, true); // both are true
