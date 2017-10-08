@@ -5,8 +5,9 @@
 //make new var to store the today var and toDateString method
 //use var today with toTimeString method
 
-var today = new Date();
-var readable = console.log(today.toString());
+var today = new Date(year, month[, date[, hours[, minutes[, seconds[, milliseconds]]]]]);
+var date = today.getDate();
+var readable = console.log(date.toString());
 
 //create a function that will supply the resulting string
 //create a var to convert.
@@ -29,7 +30,7 @@ var int = console.log(parseInt(str))
 //use the typeOf method on the variable
 
 var dataType = `words words words`
-var result = console.log(typeof(dataType)))
+var result = console.log(typeof(dataType))
 
 //Create two var that can be a string or number, the string must contain a number though
 //Create a function with the two var
