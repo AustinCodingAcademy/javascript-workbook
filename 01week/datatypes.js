@@ -37,11 +37,9 @@ var result = console.log(typeof(dataType))
 //Inside the function, add the two var together
 //Use parseInt() to take the number out of the string
 
-var numOne = `13`
-var numTwo = `17`
-
 function add(numOne, numTwo) {
-  return parseInt(numOne) + parseInt(numTwo)
+  var total =  (parseInt(numOne) + parseInt(numTwo));
+  return total('13', '17')
 }
 
 //write a function that returns a true if two var are truthy
