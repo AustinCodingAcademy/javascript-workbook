@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 // Compare hand1 and hand2 inputs and spit out a result
 // written inside a whole function using if statements
 // rock beats scissors; paper beats rock; scissors beat paper
-// argument
+// put the bulk in argument to minimize lines using pipes and ampersands
 function rockPaperScissors(hand1, hand2) {
   if (hand1 === hand2){
     return 'Tie!';
