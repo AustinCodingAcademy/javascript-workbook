@@ -1,3 +1,13 @@
+// Student: Jon Gorman
+// Class: 211 JavaScript Tue/Thur
+// Instructor: Renee Dudley
+// Date: 10/10/17
+//
+//Make a function for rock paper scissors game
+//function should include a way to check for a tie
+//function should include a way to check for player one win
+//function should include a way to check for player two win
+//function should have a way to check that game is played correctly i.e.(no use of words other tha those needed for game
 'use strict';
 
 const assert = require('assert');
@@ -14,14 +24,14 @@ var result1 = Plaer2.fontcolor("orange");
 function rockPaperScissors(hand1, hand2) {
 //check for a tie
  if(hand1 === hand2){
-  return '\x1b[5m\x1b[31m Its a Tie\n You need to redo the turn! \x1b[0m';
+  return '\x1b[5m\x1b[31mIts a Tie\nYou need to redo the turn! \x1b[0m';
   // Write code here
  }else if(hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'paper' && hand2 === 'rock' || hand1 === 'scissors' && hand2 === 'paper'){
-     return result
+     return '\x1b[32m\x1b[32mHand1 Wins! \x1b[0m'
  }else if (hand1 === 'rock' && hand2 === 'paper' || hand1 === 'paper' && hand2 === 'scissors' || hand1 === 'scissors' && hand2 === 'rock'){
-     return
+     return '\x1b[34mHand2 Wins!\x1b[0m'
  }else if (hand1 && hand2 !== 'rock', 'paper', 'scissors'){
-     return "Your tryig to play a different game!"
+     return '\x1b[4mYour tryig to play a different game!\x1b[0m'
  }
 }
 function getPrompt() {
