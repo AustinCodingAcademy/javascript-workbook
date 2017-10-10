@@ -9,25 +9,28 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-var hand1Wins = "HAND1 WINS " + hand1 + " beats " + hand2;
-var hand2Wins = "HAND2 WINS " + hand2 + " beats " + hand1;
-var noWinner = "No winner, try again";
+    let hand1Convert = hand1.toLowerCase().trim();
+    let hand2Convert = hand2.toLowerCase().trim();
 
-  if (hand1 === hand2) {
-    return noWinner;
-  } else if (hand1 === 'rock' && hand2 === 'paper') {
-    return hand2Wins;
-  } else if (hand1 === 'rock' && hand2 === 'scissors') {
-    return hand1Wins;
-  } else if (hand1 === 'paper' && hand2 === 'rock') {
-    return hand1Wins;
-  } else if (hand1 === 'paper' && hand2 === 'scissors') {
-    return hand2Wins;
-  } else if (hand1 === 'scissors' && hand2 === 'rock') {
-    return hand2Wins;
-  } else if (hand1 === 'scissors' && hand2 === 'paper') {
-    return hand1Wins;
-  }
+    var hand1Wins = "Hand one wins!";
+    var hand2Wins = "Hand two wins!";
+    var noWinner = "It's a tie!";
+
+    if (hand1Convert === hand2Convert) {
+        return noWinner;
+    } else if (hand1Convert === 'rock' && hand2Convert === 'paper') {
+        return hand2Wins;
+    } else if (hand1Convert === 'rock' && hand2Convert === 'scissors') {
+        return hand1Wins;
+    } else if (hand1Convert === 'paper' && hand2Convert === 'rock') {
+        return hand1Wins;
+    } else if (hand1Convert === 'paper' && hand2Convert === 'scissors') {
+        return hand2Wins;
+    } else if (hand1Convert === 'scissors' && hand2Convert === 'rock') {
+        return hand2Wins;
+    } else if (hand1Convert === 'scissors' && hand2Convert === 'paper') {
+        return hand1Wins;
+    }
 }
 
 function getPrompt() {
