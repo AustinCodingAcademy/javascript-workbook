@@ -11,8 +11,13 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-  let answer1 = hand1.toLowerCase();
-  let answer2 = hand2.toLowerCase();
+  let y = hand1.toLowerCase().trim();
+  let x = hand2.toLowerCase().trim();
+
+  // if else for each condition of x v. y
+  // return answer
+
+  console.log(y + " " + x);
 
 }
 
