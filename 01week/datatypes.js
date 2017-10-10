@@ -5,9 +5,8 @@
 //make new var to store the today var and toDateString method
 //use var today with toTimeString method
 
-var today = new Date(year, month[, date[, hours[, minutes[, seconds[, milliseconds]]]]]);
-var date = today.getDate();
-var readable = console.log(date.toString());
+var today = new Date(1985, 11, 1);
+console.log(today.toDateString());
 
 //create a function that will supply the resulting string
 //create a var to convert.
