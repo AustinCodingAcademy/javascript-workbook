@@ -3,36 +3,32 @@
 // function that receives data for get date and get time using object
 // define variable for new date and implement it into string
 
-var currentDay = new Date(),
-      day = currentDay.getDate(),
-      month = currentDay.getMonth() + 1,
-      year = currentDay.getFullYear();
-  console.log(day + "/" + month + "/" + year);
 
+var currentDay = new Date();
 
+function currentDay (){
+  return [currentDay.toDateString(), currentDay.toTimeString()]
+}
 
-  var currentTime = new Date(),
-      hours = currentTime.getHours(),
-      minutes = currentTime.getMinutes();
-
-	if (minutes < 10) {
-	 minutes = "0" + minutes;
-  }
-
-	console.log(hours + ":" + minutes);
-
+ console.log(currentDay());
 //Write a JavaScript program to convert a number to a string.
 // function that defines two variables and use toString method
 
+function numToString () {
+
 var num = 2;
     var n = num.toString();
+
+  }
     console.log (n);
 
 //Write a JavaScript program to convert a string to the number.
 // define two variables and then parse a string argument and return a interger
-
+function strToNum () {
 var str = 2;
     var n = parseInt(str);
+
+  }
     console.log (n * n);
 
 
@@ -49,9 +45,12 @@ console.log (typeof (null));
 
 //Write a JavaScript program that adds 2 numbers together.
 //Define two variables that equal a number and console.log them with a + sign
+function addNum () {
 
 var x = 4;
 var y = 5;
+
+}
 console.log(4+5);
 
 
