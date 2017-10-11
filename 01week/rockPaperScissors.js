@@ -17,22 +17,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-var Player1 = "Hand1 Wins!!";
-var Plaer2 = "Hand2 Wins!!";
-var result = Player1.fontcolor("green");
-var result1 = Plaer2.fontcolor("orange");
-function rockPaperScissors(hand1, hand2) {
+
+function rockPaperScissors(a, b) {
 //check for a tie
+    const hand1 = a.toLowerCase().trim();
+
+    const hand2 = b.toLowerCase().trim();
+
+
  if(hand1 === hand2){
-  return '\x1b[5m\x1b[31mIts a Tie\nYou need to redo the turn! \x1b[0m';
+  return "It's a tie!";
   // Write code here
  }else if(hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'paper' && hand2 === 'rock' || hand1 === 'scissors' && hand2 === 'paper'){
-     return '\x1b[32m\x1b[32mHand1 Wins! \x1b[0m'
+     return "Hand one wins!"
  }else if (hand1 === 'rock' && hand2 === 'paper' || hand1 === 'paper' && hand2 === 'scissors' || hand1 === 'scissors' && hand2 === 'rock'){
-     return '\x1b[34mHand2 Wins!\x1b[0m'
- }else if (hand1 && hand2 !== 'rock', 'paper', 'scissors'){
-     return '\x1b[4mYour tryig to play a different game!\x1b[0m'
+     return "Hand two wins!"
  }
+ // else if (hand1 && hand2 !== 'rock', 'paper', 'scissors'){
+ //     return "\sYour tryig to play a different game!\s"
+ // }
 }
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
@@ -69,3 +72,4 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+//"good programmers look both ways before crossing one way street"
