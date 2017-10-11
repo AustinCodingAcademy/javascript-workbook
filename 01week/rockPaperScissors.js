@@ -19,24 +19,22 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(a, b) {
-//check for a tie
+    // make variables that allow the function to pass the test ie. lowercase and whitespace.
     const hand1 = a.toLowerCase().trim();
-
     const hand2 = b.toLowerCase().trim();
-
-
- if(hand1 === hand2){
-  return "It's a tie!";
-  // Write code here
- }else if(hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'paper' && hand2 === 'rock' || hand1 === 'scissors' && hand2 === 'paper'){
-     return "Hand one wins!"
- }else if (hand1 === 'rock' && hand2 === 'paper' || hand1 === 'paper' && hand2 === 'scissors' || hand1 === 'scissors' && hand2 === 'rock'){
-     return "Hand two wins!"
- }
- // else if (hand1 && hand2 !== 'rock', 'paper', 'scissors'){
- //     return "\sYour tryig to play a different game!\s"
- // }
+    //check for a tie
+    if (hand1 === hand2) {
+        return "It's a tie!";
+        // Write code here
+        // Check for hand one win
+    } else if (hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'paper' && hand2 === 'rock' || hand1 === 'scissors' && hand2 === 'paper') {
+        return "Hand one wins!"
+        //Check for player two win
+    } else if (hand1 === 'rock' && hand2 === 'paper' || hand1 === 'paper' && hand2 === 'scissors' || hand1 === 'scissors' && hand2 === 'rock') {
+        return "Hand two wins!"
+    }
 }
+
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
@@ -73,3 +71,6 @@ if (typeof describe === 'function') {
 
 }
 //"good programmers look both ways before crossing one way street"
+//// else if (hand1 && hand2 !== 'rock', 'paper', 'scissors'){
+//     return "\sYour tryig to play a different game!\s"
+// }
