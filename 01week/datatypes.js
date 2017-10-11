@@ -5,8 +5,12 @@
 //make new var to store the today var and toDateString method
 //use var today with toTimeString method
 
-var today = new Date(1985, 11, 1);
-console.log(today.toDateString());
+function dateDisplay() {
+  var today = new Date(1985, 10, 1);
+  console.log(today.toDateString());
+}
+
+dateDisplay();
 
 //create a function that will supply the resulting string
 //create a var to convert.
@@ -15,14 +19,20 @@ console.log(today.toDateString());
 
 function toNumber() {
   var num = 13
-  var n = console.log(num.toString)
-  return n
+  return num.toString()
 }
+
+toNumber();
+
 //set var to a string
 //use parseInt() method
 
+function stringNum(){
 var str = `15 Years`
-var int = console.log(parseInt(str))
+return str.parseInt()
+}
+
+stringNum();
 
 //tells what type of datatype your input is
 //create a variable of any main datatype
@@ -47,9 +57,9 @@ function add(numOne, numTwo) {
 // if one is false and one is true, show "yep!"
 
 function truest(thingOne, thingTwo) {
-  if (thingOne && thingTwo === `true`) {
+  if (thingOne === true && thingTwo === true) {
     return `nope`
-  } else if (thingOne && thingTwo === `false`) {
+  } else if (thingOne === false && thingTwo === false) {
     return 'nope'
   } else {
     return 'yep!'
@@ -60,7 +70,7 @@ function truest(thingOne, thingTwo) {
 //if both var are false, show a confirmation message
 
 function womp(dumb, dumber) {
-  if (dumb && dumber === `false`) {
+  if (dumb === false && dumber === false) {
     return `yes, they're both false`
   }
 };
