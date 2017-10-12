@@ -12,12 +12,10 @@ function dateDisplay() {
 
 dateDisplay();
 
-//create a function that will supply the resulting string
 //create a var to convert.
 //input a number into var convert
 //use convert and toString() method to make the number a string
-
-function toNumber() {
+unction toNumber() {
   var num = 13
   return num.toString()
 }
@@ -27,7 +25,7 @@ toNumber();
 //set var to a string
 //use parseInt() method
 
-function stringNum(){
+vfunction stringNum(){
 var str = `15 Years`
 return str.parseInt()
 }
@@ -47,9 +45,10 @@ var result = console.log(typeof(dataType))
 //Use parseInt() to take the number out of the string
 
 function add(numOne, numTwo) {
-  var total =  (parseInt(numOne) + parseInt(numTwo));
-  return total('13', '17')
+  return parseInt(numOne) + parseInt(numTwo)
 }
+
+add(`13`, `17`);
 
 //write a function that returns a true if two var are truthy
 //if both var are true, show "nope"
@@ -57,20 +56,26 @@ function add(numOne, numTwo) {
 // if one is false and one is true, show "yep!"
 
 function truest(thingOne, thingTwo) {
-  if (thingOne === true && thingTwo === true) {
+    if ((thingOne === true && thingTwo === true) || (thingOne === false && thingTwo === false)){
     return `nope`
-  } else if (thingOne === false && thingTwo === false) {
-    return 'nope'
   } else {
     return 'yep!'
   }
 };
 
+truest();
+
 //write a function that only runs when both var are false
 //if both var are false, show a confirmation message
 
-function womp(dumb, dumber) {
+const dumb = dfs
+const
+
+
+function womp() {
   if (dumb === false && dumber === false) {
     return `yes, they're both false`
   }
 };
+
+womp()
