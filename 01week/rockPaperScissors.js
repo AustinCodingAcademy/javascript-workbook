@@ -10,26 +10,15 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
+const wins = ['hand 1 wins','hand 2 wins', 'its a tie!'];
+
   if(hand1 === hand2) {
-     return "*14 It's a tie!";
+     return wins[2];
   }
-if(hand1 === 'rock' && hand2 === 'paper'){
-  return "* 17 Hand two wins!";
-}
-if(hand1 === 'rock' && hand2 === 'scissors'){
-  return "*20 Hand one wins!";
-}
-if(hand1 === 'paper' && hand2 === 'rock' ){
-  return "*23 Hand one wins!";
-}
-if(hand1 === 'paper' && hand2 === 'scissors'){
-  return "*26 Hand two wins!";
-}
-if(hand1 === 'scissors' && hand2 === 'rock'){
-  return "*29 Hand two wins!";
-}
-if(hand1 === 'scissors' && hand2 === 'paper'){
-  return "* 32 Hand one wins!";
+if(hand1 === 'rock' && hand2 === 'paper' || hand1 === 'scissors' && hand2 === 'rock' ||hand1 === 'paper' && hand2 === 'scissors' ){
+  return wins[1];
+} else {
+  return wins[0];
 }
 }
 
