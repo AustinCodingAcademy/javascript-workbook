@@ -1,3 +1,7 @@
+//student:Jon Gorman
+//Assignment: Tests in rockPaperScissors
+//Instructor: Reneee Dudley
+//Date: 10/13/2017
 'use strict';
 
 const assert = require('assert');
@@ -12,6 +16,7 @@ function rockPaperScissors(a, b) {
     // make variables that allow the function to pass the test ie. lowercase and whitespace.
     const hand1 = a.toLowerCase().trim();
     const hand2 = b.toLowerCase().trim();
+
     //check for a tie
     if (hand1 === hand2) {
         return "It's a tie!";
@@ -50,6 +55,8 @@ if (typeof describe === 'function') {
             assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
             assert.equal(rockPaperScissors('scissors', 'rock'), "Hand two wins!")
             assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
+            assert.equal(rockPaperScissors('scissors', 'paper'), "Hand one wins!");
+            assert.equal(rockPaperScissors('paper', 'rock'), "Hand one wins!");
         });
         it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
             assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
