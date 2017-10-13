@@ -1,46 +1,47 @@
 `use strict`
 
 //returns current date and time
-//make a today var, which is assigned a new date instance
+//create a function that inputs the year, month, and day
 //make new var to store the today var and toDateString method
-//use var today with toTimeString method
+//use var today with toDateString method
 
-function dateDisplay() {
-  var today = new Date(1985, 10, 1);
-  console.log(today.toDateString());
+function dateDisplay(year, month, date) {
+  var today = new Date(year, month, date);
+  return today.toDateString();
 }
 
-dateDisplay();
+dateDisplay(1985, 10, 1);
 
-//create a var to convert.
-//input a number into var convert
-//use convert and toString() method to make the number a string
-unction toNumber() {
-  var num = 13
-  return num.toString()
+//create a function with one argument.
+//the argument should be a number
+//return the argument with the toString() method to make the number a string
+
+function toNumber(number) {
+  return number.toString()
 }
 
-toNumber();
+toNumber(13);
 
-//set var to a string
-//use parseInt() method
+//create a fucntion that receives one argument
+//argument should be a string
+//use parseInt() method on argument to pull a number out
 
-vfunction stringNum(){
-var str = `15 Years`
-return str.parseInt()
+function stringNum(str){
+  return parseInt(str);
 }
 
-stringNum();
+stringNum('15 years');
 
-//tells what type of datatype your input is
-//create a variable of any main datatype
-//use the typeOf method on the variable
+//create a function with one argument
+//use the typeOf method on the argument and return the result
 
-var dataType = `words words words`
-var result = console.log(typeof(dataType))
+function dataType(dT){
+  return typeof(dT);
+}
 
-//Create two var that can be a string or number, the string must contain a number though
-//Create a function with the two var
+dataType(`words words words`);
+
+//Create a function with two arguments
 //Inside the function, add the two var together
 //Use parseInt() to take the number out of the string
 
@@ -57,25 +58,24 @@ add(`13`, `17`);
 
 function truest(thingOne, thingTwo) {
     if ((thingOne === true && thingTwo === true) || (thingOne === false && thingTwo === false)){
-    return `nope`
+    return `nope`;
   } else {
-    return 'yep!'
+    return 'yep!';
   }
-};
+}
 
-truest();
+truest(true, false);
 
-//write a function that only runs when both var are false
-//if both var are false, show a confirmation message
+//write a function with two arguments
+//if both arguments are false, show a confirmation message
+//if either argument is true, return a negative response
 
-const dumb = dfs
-const
-
-
-function womp() {
+function womp(dumb, dumber) {
   if (dumb === false && dumber === false) {
     return `yes, they're both false`
+  } else {
+    return 'nah, try again'
   }
 };
 
-womp()
+womp(false, true);
