@@ -5,24 +5,24 @@
 // Wrap this in a function. "Write a program" === make a function
 
 
-  function firstProgram (){
-    const d = new Date();
-    const n = d.toLocaleString();
-     return  console.log("Current date and time is: " + n);
-  }
+function firstProgram() {
+  const d = new Date();
+  const n = d.toLocaleString();
+  return console.log("Current date and time is: " + n);
+}
 
 firstProgram();
 
 
 
-  // Write a JavaScript program to convert a number to a string.
+// Write a JavaScript program to convert a number to a string.
 //assign variable, write function that receives a number and converts it to a string, using num.toString();
 // Wrap this in a function. "Write a program" === make a function.Also this wouldn't convert the number to a string.
 
 function secondProgram() {
-const fifteen = 15;
-const nts = fifteen.toString();
-console.log("These will not add: " + (15 + nts))
+  const fifteen = 15;
+  const nts = fifteen.toString();
+  console.log("These will not add: " + (15 + nts))
 }
 
 secondProgram();
@@ -33,14 +33,14 @@ secondProgram();
 //parseint a string argumqewriopnt and return an interger
 // Wrap this in a function. "Write a program" === make a function. Make your variable names descriptive.
 
-function thirdProgram() {
+const thirdProgram = () => {
   const convertThis = parseInt("5");
-return console.log("These will add: " + (5 + convertThis));
+  return console.log("These will add: " + (5 + convertThis));
 }
 
 thirdProgram();
 
- //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
+//Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // Boolean
 // Null
 // Undefined
@@ -51,19 +51,19 @@ thirdProgram();
 // Wrap this in a function. "Write a program" === make a function.
 
 
-function fourthProgram(){
+function fourthProgram() {
   const verified = true;
   const nullified = null;
   const myNumber = 12;
   const myNotANumber = "twelvish";
   const myString = "adc";
 
-console.log("This is a type of: " + typeof(verified));
-console.log("This is a type of: " + nullified);
-console.log("This is a type of: " + typeof(b));
-console.log("This is a type of: " + typeof(5));
-console.log("This is a parseInted string: " + parseInt(myNotANumber));
-console.log("This is a type of: " + typeof('myString'));
+  console.log("This is a type of: " + typeof(verified));
+  console.log("This is a type of: " + nullified);
+  console.log("This is a type of: " + typeof(b));
+  console.log("This is a type of: " + typeof(5));
+  console.log("This is a parseInted string: " + parseInt(myNotANumber));
+  console.log("This is a type of: " + typeof('myString'));
 }
 
 fourthProgram();
@@ -74,7 +74,7 @@ fourthProgram();
 
 function fifthProgram() {
   const adds2numbers = 1 + 1;
-console.log("Here's what happens when you add two numbers: " + adds2numbers);
+  console.log("Here's what happens when you add two numbers: " + adds2numbers);
 }
 
 fifthProgram();
@@ -85,37 +85,32 @@ fifthProgram();
 // This function runs if hair is black and eyes are brown. I need it to run if hair evaluates to true and eyes evaluate to brown.
 
 
-function sixthProgram(hair, eyes, arms){
-  let theyHaveBlackHair = false;
-if( hair === "black"){
- theyHaveBlackHair = true;
-}
-   if( theyHaveBlackHair === true && eyes === "brown" && arms < 3){
-    console.log('these things are all true')
-
+function sixthProgram(hair, eyes) {
+  if (hair && eyes === "brown") {
+    console.log("congrats");
   }
 }
 
-sixthProgram("black","brown",2);
+sixthProgram("black", "brown");
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
 // function that has an if statement using 2 variables with a ||
 // This function runs if oldest is the boolean true or if youngest is the boolean true. I need it to run if oldest EVALUATES to true or if youngest EVALUATES to true.
 
-function seventhProgram(oldest, youngest){
-  if(oldest > 17 || youngest > 25){
+function seventhProgram(oldest, youngest) {
+  if (oldest || youngest) {
     console.log("One of these two are true")
   }
 }
-seventhProgram(16,27);
+seventhProgram(16, 27);
 
 //Write a JavaScript program that runs when both things are not true.
 //function with if statement using 2 variables with !true
 // This function runs if vegan is not the boolean true or if vegetarian is not the boolean true. I need it to run if vegan EVALUATES to false and if vegetarian EVALUATES to false
 function boththingsarenottrue(vegan, vegetarian) {
-  if(vegan == false && vegetarian === false){
+  if (!vegan && !vegetarian) {
     console.log("carnivore!")
   }
 }
 
-boththingsarenottrue(0,false);
+boththingsarenottrue(0, 0);
