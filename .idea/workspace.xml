@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88df4f3e-2a9d-4ac9-a447-298f51cadcf2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02week/pigLatin.js" afterPath="$PROJECT_DIR$/02week/pigLatin.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,38 +19,18 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="308">
+              <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pigLatin.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pigLatin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/02week/pigLatin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rockPaperScissors.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/01week/rockPaperScissors.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tests.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/02week/tests.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="242">
+              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -98,8 +77,8 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1892" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="28" />
     <option name="y" value="135" />
     <option name="width" value="1859" />
     <option name="height" value="1033" />
@@ -211,15 +190,15 @@
       <workItem from="1507254811281" duration="6805000" />
       <workItem from="1507905610779" duration="240000" />
       <workItem from="1507989430820" duration="24000" />
-      <workItem from="1507989528782" duration="2376000" />
+      <workItem from="1507989528782" duration="2744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25233000" />
+    <option name="totallyTimeSpent" value="25601000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1892" y="135" width="1859" height="1033" extended-state="0" />
+    <frame x="28" y="135" width="1859" height="1033" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15809628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -504,8 +483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="308">
+          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -518,18 +497,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02week/pigLatin.js">
+    <entry file="file://$PROJECT_DIR$/01week/rockPaperScissors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
+        <state relative-caret-position="264">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/01week/rockPaperScissors.js">
+    <entry file="file://$PROJECT_DIR$/02week/pigLatin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
           <folding />
         </state>
       </provider>

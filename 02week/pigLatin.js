@@ -18,6 +18,7 @@
 //find a way to index where in the string the vowel is located
 //then use slice or split to remove previous consonants
 // then concatonate the previous consonants with the variable = "ay"
+//some more stuff....................
 
 const assert = require('assert');
 const readline = require('readline');
