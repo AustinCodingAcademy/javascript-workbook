@@ -1,4 +1,23 @@
-'use strict';
+//student:Jon Gorman
+//Assignment: pigLatin
+//Instructor: Reneee Dudley
+//Date: 10/14/2017
+
+//**Whitboard
+//Make a function that utilizes pigLatin game which includes the following constraints:
+//must split a word back to its first vowel and add it to the end with a "ay".
+  //*Use split function ".split()"
+  //*must be able to look for first vowel
+  //*must add the consonants to the end in original order. ie brew would be ewbray ".concat()"
+//must handle small words like car and dog
+//must handle larger words like "create" and "valley"
+//must handle words that start in vowel, returning the word with just ay on the end. eggya
+//must lowercase and trim.
+
+//** whiteboard revision "
+//find a way to index where in the string the vowel is located
+//then use slice or split to remove previous consonants
+// then concatonate the previous consonants with the variable = "ay"
 
 const assert = require('assert');
 const readline = require('readline');
