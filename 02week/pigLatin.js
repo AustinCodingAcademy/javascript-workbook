@@ -20,6 +20,7 @@
 // then concatonate the previous consonants with the variable = "ay"
 //some more stuff....................
 //is this working
+//is this still working
 
 const assert = require('assert');
 const readline = require('readline');
