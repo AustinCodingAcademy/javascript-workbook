@@ -8,8 +8,6 @@ npm-debug.log*
 
 # OS artifacts
 *.DS_Store
-<<<<<<< HEAD
+
 .idea
-=======
-.idea
->>>>>>> d8812e22e1c85f0a2c37ee7b8f1d717331daf4bd
+
