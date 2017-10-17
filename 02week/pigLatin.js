@@ -9,7 +9,24 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
+  let hi5= word.toLowerCase().trim();
+if (hi5.indexOf("a")===0){
+  console.log(word + "yay")
+} else if (hi5.indexOf("e")===0){
+  console.log(word + "yay")
+} else if (hi5.indexOf("i")===0){
+  console.log(word + "yay")
+} else if (hi5.indexOf("o")===0){
+  console.log(word + "yay")
+} else if (hi5.indexOf("u")===0){
+  console.log(word + "yay")
+}  else if (hi5.indexOf("a" )===1) {
+  console.log (hi5.substring(1,10) + hi5.substring(0,1) + "ay")
+}  else if (hi5.indexOf("e" )===1) {
+  console.log (hi5.substring(1,10) + hi5.substring(0,1) + "ay")
+}  else {
+  console.log(word)
+}
   // Your code here
 
 }
