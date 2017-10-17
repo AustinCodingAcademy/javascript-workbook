@@ -10,23 +10,39 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
   let hi5= word.toLowerCase().trim();
-if (hi5.indexOf("a")===0){
-  console.log(word + "yay")
-} else if (hi5.indexOf("e")===0){
-  console.log(word + "yay")
-} else if (hi5.indexOf("i")===0){
-  console.log(word + "yay")
-} else if (hi5.indexOf("o")===0){
-  console.log(word + "yay")
-} else if (hi5.indexOf("u")===0){
-  console.log(word + "yay")
-}  else if (hi5.indexOf("a" )===1) {
-  console.log (hi5.substring(1,10) + hi5.substring(0,1) + "ay")
-}  else if (hi5.indexOf("e" )===1) {
-  console.log (hi5.substring(1,10) + hi5.substring(0,1) + "ay")
-}  else {
-  console.log(word)
-}
+  let x= hi5.indexOf('e');
+  let v= hi5.indexOf('a');
+  let b= hi5.indexOf('i');
+  let n= hi5.indexOf('o');
+  let m= hi5.indexOf('u');
+  let arr = []
+  if (x>-1){
+    arr.push(x);
+  }
+  if(v>-1){
+    arr.push(v);
+  }
+  if(b>-1){
+    arr.push(b);
+  }
+  if(n>-1){
+    arr.push(n);
+  }
+  if(m>-1){
+    arr.push(m);
+  }
+  arr.sort()
+  let shft = arr.shift()
+  if(shft===0){
+    return(hi5+"yay")
+  } else {
+    let p1 = hi5.substring(shft, hi5.length)
+    let p2 = hi5.substring(0,shft)
+    return (p1+p2+"ay")
+  }
+
+
+
   // Your code here
 
 }
