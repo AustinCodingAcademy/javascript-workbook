@@ -12,13 +12,22 @@ function rockPaperScissors(hand1, hand2) {
 
 const wins = ["Hand one wins!","Hand two wins!", "It's a tie!"];
 
-  if(hand1 === hand2) {
-     return wins[2];
+if(hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors'){
+  if( hand2 === 'rock' || hand2 === 'paper' || hand2 === 'scissors'){
+    if(hand1 === hand2) {
+       return wins[2];
+    }
+  if(hand1 === 'rock' && hand2 === 'paper' || hand1 === 'scissors' && hand2 === 'rock' || hand1 === 'paper' && hand2 === 'scissors' ){
+    return wins[1];
+  } else {
+    return wins[0];
   }
-if(hand1 === 'rock' && hand2 === 'paper' || hand1 === 'scissors' && hand2 === 'rock' ||hand1 === 'paper' && hand2 === 'scissors' ){
-  return wins[1];
-} else {
-  return wins[0];
+  } else {
+    return "Please enter rock, paper, or scissors"
+  }
+
+} else{
+  return "Please enter rock,paper, or scissors"
 }
 }
 
