@@ -3,7 +3,7 @@
 //Instructor: Reneee Dudley
 //Date: 10/14/2017
 
-//**Whitboard
+//**Criteria of piLatin
 //Make a function that utilizes pigLatin game which includes the following constraints:
 //must split a word back to its first vowel and add it to the end with a "ay".
 //*Use split function ".split()"
@@ -14,13 +14,18 @@
 //must handle words that start in vowel, returning the word with just ay on the end. eggya
 //must lowercase and trim.
 
-//** whiteboard revision "
-//find a way to index where in the string the vowel is located
-//then use slice or split to remove previous consonants
-// then concatonate the previous consonants with the variable = "ay"
-//some more stuff....................
-//is this working
-//is this still working
+//** whiteboard pigLatin revision "
+//wont need global scope/storage.
+//Main function name is pigLatin()
+//Look at the tests to determine all the criteria needed to make the function pass.
+//Use "if statement" to determine if the argument begins with a vowel Using .match().
+//If the argument begins with a vowel then use .concat() to add "yay" to the end of the argument.
+//Else if does not start with vowel use .search() on the string to locate first vowel.
+//Use .slice() to slice the string after the vowel. Also keep in mind the .Also keep in mind space and case, toLowerCase().trim()
+//Use .slice() to get contents of string before the vowel. Also keep in mind space and case, toLowerCase().trim()
+// then concatenate the previous consonants with the variable = "ay"
+
+
 
 const assert = require('assert');
 const readline = require('readline');
