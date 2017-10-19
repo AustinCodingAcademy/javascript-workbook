@@ -21,6 +21,8 @@ const rl = readline.createInterface({
 
 
 const pigLatinr=(word)=> {
+  const lowerCase = word.toLowerCase().trim()
+  
   //checkFirstVowel goes here!!!
   word.split(``);
   word.push(`ay`);
