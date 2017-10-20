@@ -1,5 +1,5 @@
 'use strict';
-
+//
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -25,6 +25,7 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  //
 }
 
 function verticalWin() {
@@ -41,6 +42,7 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   // Your code here
+
 }
 
 function getPrompt() {

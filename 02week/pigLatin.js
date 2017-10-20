@@ -34,23 +34,18 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-
 function pigLatin(word) {
-    // Your code here
-    // let word1 = word.toLowerCase().trim();
-    let firstCheck = word.charAt(0);
-    let suffix1 = "yay"
-    if (firstCheck.match(/[aeiou]/gi)) {
-        return word.concat(suffix1);
-
-    } else {
-        let suffix2 = 'ay';
-        let vowelIn = word.search(/[aeiou]/gi);//searches for vowel and returns vowel in string.
-        let arr = word.slice(0, vowelIn).toLowerCase().trim();//slices the string grabbing everything before the first vowel.Trim & Lowercase need to be used here ot pass tests
-        let arr1 = word.slice(vowelIn).toLowerCase().trim();//slices the string leaving everthing after the first vowel.Trim & Lowercase need to be used here ot pass tests.
-        return arr1.concat(arr) + suffix2;
+    word = word.toLowerCase().trim();
+    if (word.charAt(0).match(/[aeiouy]/gi)) {
+        return word.concat('yay');
     }
+    return (
+        word.slice(word.search(/[aeiouy]/gi))
+            .concat(word.slice(0, word.search(/[aeiouy]/gi))) + 'ay'
+    );
 }
+pigLatin('sylvia');
+
 
 
 function getPrompt() {
