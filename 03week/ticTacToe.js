@@ -24,19 +24,19 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  //horizontalWin(), checks if there are three X's or O's in [0][0], [0][1], [0][2], indexOf method
 }
 
 function verticalWin() {
-  // Your code here
+  //verticalWin(), checks if there are three X's or O'ss in [0][0], [1][0], [2][0]; [0][1], [1][1], [2][1]; [0][2], [1][2], [2][2]; indexOf method
 }
 
 function diagonalWin() {
-  // Your code here
+  //diagonalWin(), checks if there are three X's or O's in [0][0], [1][1], [2][2]; [0][2], [1][1], [2][0]; indexOf method
 }
 
 function checkForWin() {
-  // Your code here
+  //checkForWin(), check if horizontalWin, verticalWin, diagonalWin have three of the same values, if else statements
 }
 
 function ticTacToe(row, column) {
