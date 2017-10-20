@@ -11,7 +11,19 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
-
+    function pigLatin(word) {
+        if (word.charAt(0).match(/[aeiouy]/gi)) {
+            return word.concat('yay');
+        }
+        return (
+            word
+                .slice(word.search(/[aeiouy]/gi))
+                .concat(word.slice(0, word.search(/[aeiouy]/)))
+                .toLowerCase()
+                .trim() + 'ay'
+        );
+    }
+    pigLatin('sylvia');
 }
 
 
