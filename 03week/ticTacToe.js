@@ -40,7 +40,12 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  //ticTacToe(), begin the game with player X
+  //playerXTurn(), place an X in the column/row that player X chooses, splice method on var board
+  //playerOTurn(), switch to player O, place an O in the column/row that player O chooses, splice method on var board
+  //switch back to player X, run the same code again
+  //Between every turn, run checkForWin
+
 }
 
 function getPrompt() {
