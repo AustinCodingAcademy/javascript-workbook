@@ -24,15 +24,30 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  //horizontalWin(), checks if there are three X's or O's in [0][0], [0][1], [0][2], indexOf method
+  //horizontalWin(), checks if there are three X's or O's in [0][0], [0][1], [0][2], etc, indexOf method
+  if (printBoard.indexOf(printBoard) === ((([0][0]) && [0][1] && [0][2]) || ([1][0] && [1][1] && [1][2]) || ([2][0] && [2][1] && [2][2])) {
+    return 'You Win!'
+  } else {
+    const getPrompt;
+  }
 }
 
 function verticalWin() {
-  //verticalWin(), checks if there are three X's or O'ss in [0][0], [1][0], [2][0]; [0][1], [1][1], [2][1]; [0][2], [1][2], [2][2]; indexOf method
+  //verticalWin(), checks if there are th ree X's or O'ss in [0][0], [1][0], [2][0]; [0][1], [1][1], [2][1]; [0][2], [1][2], [2][2]; indexOf method
+  if (printBoard.indexOf(printBoard) === ((([0][0]) && [1][0] && [2][0]) || ([0][1] && [1][1] && [2][1]) || ([0][2] && [1][2] && [2][2])) {
+    return 'You Win!'
+  } else {
+    const getPrompt;
+  }
 }
 
 function diagonalWin() {
   //diagonalWin(), checks if there are three X's or O's in [0][0], [1][1], [2][2]; [0][2], [1][1], [2][0]; indexOf method
+  if (printBoard.indexOf(printBoard) === ((([0][0]) && [1][1] && [2][2]) || ([0][2] && [1][1] && [2][0])) {
+    return 'You Win!'
+  } else {
+    const getPrompt;
+  }
 }
 
 function checkForWin() {
@@ -41,8 +56,8 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   //ticTacToe(), begin the game with player X
-  //playerXTurn(), place an X in the column/row that player X chooses, splice method on var board
-  //playerOTurn(), switch to player O, place an O in the column/row that player O chooses, splice method on var board
+  //playerXTurn(), set playerTurn to 'X' - place an X in the column/row that player X chooses, splice method on var board
+  //playerOTurn(), change playerTurn to 'O' - switch to player O, place an O in the column/row that player O chooses, splice method on var board
   //switch back to player X, run the same code again
   //Between every turn, run checkForWin
 
