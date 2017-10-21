@@ -10,17 +10,19 @@ const rl = readline.createInterface({
 
 
 
-function rockPaperScissors(hand1, hand2) {
-  const choices = ["",'rock','paper','scissors'];
-const a = choices.indexOf(hand1);
-const b = choices.indexOf(hand2);
+const rockPaperScissors = (hand1, hand2) => {
 
+const handOneTrimmedAndLowered = hand1.toLowerCase().trim()
+const handTwoTrimmedAndLowered = hand2.toLowerCase().trim();
+const choices = ['rock','paper','scissors'];
+const a = choices.indexOf(handOneTrimmedAndLowered);
+const b = choices.indexOf(handTwoTrimmedAndLowered);
 const wins = ["Hand one wins!","Hand two wins!", "It's a tie!"];
 
-if( a > 0 && b > 0){
+if( a !== -1 && b !== -1){
     if(hand1 === hand2) {
        return wins[2];
-    } else if(hand1 === 'rock' && hand2 === 'paper' || hand1 === 'scissors' && hand2 === 'rock' || hand1 === 'paper' && hand2 === 'scissors' ){
+    } else if(handOneTrimmedAndLowered === 'rock' && handTwoTrimmedAndLowered === 'paper' || handOneTrimmedAndLowered === 'scissors' && handTwoTrimmedAndLowered === 'rock' || handOneTrimmedAndLowered === 'paper' && handTwoTrimmedAndLowered === 'scissors' ){
     return wins[1];
   } else {
     return wins[0];
@@ -33,7 +35,7 @@ if( a > 0 && b > 0){
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
