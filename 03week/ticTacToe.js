@@ -26,7 +26,7 @@ function printBoard() {
 function horizontalWin() {
   //horizontalWin(), checks if there are three X's or O's in [0][0], [0][1], [0][2], etc, indexOf method
   if (printBoard.indexOf(printBoard) === ((([0][0]) && [0][1] && [0][2]) || ([1][0] && [1][1] && [1][2]) || ([2][0] && [2][1] && [2][2])) {
-    return 'You Win!'
+    return 'You Win!';
   } else {
     const getPrompt;
   }
@@ -35,7 +35,7 @@ function horizontalWin() {
 function verticalWin() {
   //verticalWin(), checks if there are th ree X's or O'ss in [0][0], [1][0], [2][0]; [0][1], [1][1], [2][1]; [0][2], [1][2], [2][2]; indexOf method
   if (printBoard.indexOf(printBoard) === ((([0][0]) && [1][0] && [2][0]) || ([0][1] && [1][1] && [2][1]) || ([0][2] && [1][2] && [2][2])) {
-    return 'You Win!'
+    return 'You Win!';
   } else {
     const getPrompt;
   }
@@ -44,7 +44,7 @@ function verticalWin() {
 function diagonalWin() {
   //diagonalWin(), checks if there are three X's or O's in [0][0], [1][1], [2][2]; [0][2], [1][1], [2][0]; indexOf method
   if (printBoard.indexOf(printBoard) === ((([0][0]) && [1][1] && [2][2]) || ([0][2] && [1][1] && [2][0])) {
-    return 'You Win!'
+    return 'You Win!';
   } else {
     const getPrompt;
   }
@@ -52,6 +52,9 @@ function diagonalWin() {
 
 function checkForWin() {
   //checkForWin(), check if horizontalWin, verticalWin, diagonalWin have three of the same values, if else statements
+  if (diagonalWin || verticalWin || horizontalWin) {
+    return 'Play again?';
+  }
 }
 
 function ticTacToe(row, column) {
@@ -60,7 +63,7 @@ function ticTacToe(row, column) {
   //playerOTurn(), change playerTurn to 'O' - switch to player O, place an O in the column/row that player O chooses, splice method on var board
   //switch back to player X, run the same code again
   //Between every turn, run checkForWin
-
+  if(playerTurn = 'X')
 }
 
 function getPrompt() {
