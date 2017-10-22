@@ -12,24 +12,28 @@ const rl = readline.createInterface({
 
 const rockPaperScissors = (hand1, hand2) => {
 
-const handOneTrimmedAndLowered = hand1.toLowerCase().trim()
-const handTwoTrimmedAndLowered = hand2.toLowerCase().trim();
-const choices = ['rock','paper','scissors'];
-const a = choices.indexOf(handOneTrimmedAndLowered);
-const b = choices.indexOf(handTwoTrimmedAndLowered);
-const wins = ["Hand one wins!","Hand two wins!", "It's a tie!"];
+  hand1 = hand1.toLowerCase().trim()
+  hand2 = hand2.toLowerCase().trim();
+  const choices = ['rock', 'paper', 'scissors'];
+  const a = choices.indexOf(hand1);
+  const b = choices.indexOf(hand2);
+  const wins = ["Hand one wins!", "Hand two wins!", "It's a tie!"];
 
-if( a !== -1 && b !== -1){
-    if(hand1 === hand2) {
-       return wins[2];
-    } else if(handOneTrimmedAndLowered === 'rock' && handTwoTrimmedAndLowered === 'paper' || handOneTrimmedAndLowered === 'scissors' && handTwoTrimmedAndLowered === 'rock' || handOneTrimmedAndLowered === 'paper' && handTwoTrimmedAndLowered === 'scissors' ){
-    return wins[1];
+  if (a !== -1 && b !== -1) {
+    if (hand1 === hand2) {
+      return wins[2];
+    } else if (hand1 === 'rock' && hand2 === 'scissors') {
+      return wins[0];
+    } else if (hand1 === 'paper' && hand2 === 'rock') {
+      return wins[0];
+    } else if (hand1 === 'scissors' && hand2 === 'paper') {
+      return wins[0];
+    } else {
+      return wins[1];
+    }
   } else {
-    return wins[0];
+    return "Please enter rock,paper, or scissors";
   }
-} else{
-  return "Please enter rock,paper, or scissors";
-}
 };
 
 function getPrompt() {
