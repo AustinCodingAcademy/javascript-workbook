@@ -19,13 +19,12 @@ firstProgram();
 //assign variable, write function that receives a number and converts it to a string, using num.toString();
 // Wrap this in a function. "Write a program" === make a function.Also this wouldn't convert the number to a string.
 
-function secondProgram() {
-  const fifteen = 15;
-  const nts = fifteen.toString();
+function secondProgram(number) {
+  const nts = number.toString();
   console.log("These will not add: " + (15 + nts))
 }
 
-secondProgram();
+secondProgram(15);
 
 
 
@@ -33,12 +32,12 @@ secondProgram();
 //parseint a string argumqewriopnt and return an interger
 // Wrap this in a function. "Write a program" === make a function. Make your variable names descriptive.
 
-const thirdProgram = () => {
-  const convertThis = parseInt("5");
-  return console.log("These will add: " + (5 + convertThis));
+const thirdProgram = (string) => {
+  const convertThis = parseInt(string);
+  return console.log(convertThis);
 }
 
-thirdProgram();
+thirdProgram('023');
 
 //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // Boolean
@@ -51,33 +50,24 @@ thirdProgram();
 // Wrap this in a function. "Write a program" === make a function.
 
 
-function fourthProgram() {
-  const verified = true;
-  const nullified = null;
-  const myNumber = 12;
-  const myNotANumber = "twelvish";
-  const myString = "adc";
+function fourthProgram(input) {
 
-  console.log("This is a type of: " + typeof(verified));
-  console.log("This is a type of: " + nullified);
-  console.log("This is a type of: " + typeof(b));
-  console.log("This is a type of: " + typeof(5));
-  console.log("This is a parseInted string: " + parseInt(myNotANumber));
-  console.log("This is a type of: " + typeof('myString'));
+  console.log("This is a type of: " + typeof(input));
+
 }
 
-fourthProgram();
+fourthProgram(5);
 
 // Write a JavaScript program that adds 2 numbers together.
 //function that adds intergers and numbers and displays the result, use +
 
 
-function fifthProgram() {
-  const adds2numbers = 1 + 1;
+function fifthProgram(x,y) {
+  const adds2numbers = x + y;
   console.log("Here's what happens when you add two numbers: " + adds2numbers);
 }
 
-fifthProgram();
+fifthProgram(2,3);
 
 
 //Write a JavaSc\gh'ript program that runs only when 2 things are true.
@@ -86,8 +76,8 @@ fifthProgram();
 
 
 function sixthProgram(hair, eyes) {
-  if (hair && eyes === "brown") {
-    console.log("congrats");
+  if (hair && eyes) {
+    console.log("congrats both things are true");
   }
 }
 
