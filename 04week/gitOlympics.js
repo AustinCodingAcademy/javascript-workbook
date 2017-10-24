@@ -1,11 +1,10 @@
 'use strict'
 
-const arr = ['a', 'b', 'c'];
+const arr = ['a', 'b', 'd'];
 
 let printListOfOlympians =(arr)=> {
 
-arr.forEach(i => console.log(i));
-
+ arr.forEach(i => console.log(i));
 }
 
 }
