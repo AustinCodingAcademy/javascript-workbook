@@ -1,6 +1,6 @@
 'use strict'
 
-const arr = ['a', 'b', 'd'];
+const arr = ['a', 'b', 'e'];
 
 let printListOfOlympians =(arr)=> {
 
