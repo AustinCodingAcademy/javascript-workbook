@@ -64,7 +64,7 @@ let bothThingsFalse = function(a,b){
 displayDate();
 numberToString(99);
 stringToNumber("100");
-whatDataType(null);
+whatDataType(NaN);
 whatDataType(true);
 whatDataType("words");
 addition(4,3);
