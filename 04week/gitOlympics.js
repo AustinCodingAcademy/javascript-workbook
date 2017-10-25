@@ -2,9 +2,11 @@
 
 const arr = ['a', 'b', 'e'];
 
-let printListOfOlympians =(arr)=> {
+let printListOfOlympians =(ar)=> {
 
  arr.forEach(i => console.log(i));
 }
 
 }
+
+printListOfOlympians(arr);
