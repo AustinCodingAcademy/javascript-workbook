@@ -62,10 +62,11 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abdc'), '2-2');
+      let expected = ('2'.red)+'-'+('2'.white)
+      assert.equal(generateHint('abdc'), expected);
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('aabb'), '1-1');
+      assert.equal(generateHint('aabb'), expected);
     });
 
   });
