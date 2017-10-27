@@ -13,20 +13,42 @@ let stacks = {
   c: []
 };
 
+
+let a = stacks.a;
+let b = stacks.b;
+let c = stacks.c;
+
+// let startStack = getPrompt();
+// let endStack = getPrompt();
+// let a = stacks.a;
+// let b = stacks.b;
+// let c = stacks.c;
+//check for valid input as far as move <= 4
+//Check for valid/basic move. Should be able to move to an empty stack, and only move the top block. {a:[4,3,2],b:[1],c[]}
+//Should be able to move to an Non-empty stack. {a:[4,3,2],b:[1],c[]}
+//Should check for an illegal move. Should not be able to stack large on small. !={a:[4,3],b:[1,2],c[]}
+//Should be able to check for a win. {a:[],b:[],c[4,3,2,1]}
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
-function movePiece() {
-  // Your code here
+function checkValidInput() {
 
 }
 
+function movePiece(startStack, endStack) {
+  stacks[endStack].push(stacks[startStack].pop());
+  //   stacks.b.push(stacks.a.pop());
+}
+
+
+
 function isLegal() {
   // Your code here
-
+  stack[endStacks];
+        // [endStack[-1]] <= [startStack[-1]]
 }
 
 function checkForWin() {
@@ -36,8 +58,10 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+if (isLegal === true){
+    movePiece(startStack, endStack);
 }
+}towersOfHanoi();
 
 function getPrompt() {
   printStacks();
@@ -48,6 +72,46 @@ function getPrompt() {
     });
   });
 }
+
+// if (typeof describe === 'function') {
+//
+//     describe('#towersOfHanoi()', () => {
+//         it('should be able to move a block', () => {
+//             towersOfHanoi('a', 'b');
+//             assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+//         });
+//     });
+//
+//     describe('#isLegal()', () => {
+//         it('should not allow an illegal move', () => {
+//             stacks = {
+//                 a: [4, 3, 2],
+//                 b: [1],
+//                 c: []
+//             };
+//             assert.equal(isLegal('a', 'b'), false);
+//         });
+//         it('should allow a legal move', () => {
+//             stacks = {
+//                 a: [4, 3, 2, 1],
+//                 b: [],
+//                 c: []
+//             };
+//             assert.equal(isLegal('a', 'c'), true);
+//         });
+//     });
+//     describe('#checkForWin()', () => {
+//         it('should detect a win', () => {
+//             stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+//             assert.equal(checkForWin(), true);
+//             stacks = { a: [1], b: [4, 3, 2], c: [] };
+//             assert.equal(checkForWin(), false);
+//         });
+//     });
+// } else {
+//
+//     getPrompt();
+
 
 getPrompt();
 
