@@ -37,10 +37,9 @@ function isLegal(startStack, endStack) {
 
 //check for all 4 items in the C stack
 function checkForWin() {
-  if (stacks.c.length === 1) {
-    return 'you win!',
+  if (stacks.c.length === 4) {
       //Reset game
-      rl.question(' Press Enter to reset ', (resetAnswer) => {
+      rl.question(' You Win! Press Enter to reset ', (resetAnswer) => {
         if (resetAnswer === '') {
           stacks = {
             a: [4, 3, 2, 1],
