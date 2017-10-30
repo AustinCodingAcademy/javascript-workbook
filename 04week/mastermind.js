@@ -28,7 +28,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(solution,guess) {
+function generateHint(guess) {
   // your code here
   console.log(solution)
   let solutionArray = solution.split('')
