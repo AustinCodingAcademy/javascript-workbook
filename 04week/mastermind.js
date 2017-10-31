@@ -10,6 +10,7 @@ const rl = readline.createInterface({
 let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let counter = 0
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -30,37 +31,41 @@ function getRandomInt(min, max) {
 
 function generateHint(guess) {
   // your code here
-  console.log(solution)
-  let solutionArray = solution.split('')
-  let guessArray= guess.split('')
-  var correctLetterLocations = 0
-  let correctLetters = 0
+  let solutionArray = solution.split('');
+  let guessArray= guess.split('');
+  var correctLetterLocations = 0;
+  let correctLetters = 0;
   for(let x = 0; x < solutionArray.length; x++){
     if(guessArray[x]===solutionArray[x]){
       solutionArray[x]= null;
       correctLetterLocations ++;
     }
-    for (let s = 0; s < solutionArray.length; s++){
-      let targetIndex = solutionArray.indexOf(guessArray[s])
-      if(targetIndex > -1){
-        correctLetters++;
-        solutionArray[s] = null
-      }
-
-    }
   }
 
-  return correctLetterLocations.red +'-' + correctLetters.white
+  for (let s = 0; s < solutionArray.length; s++){
+      console.log("for iteration " + s +"the solutionArray is  " + solutionArray + " and the guessArray is " + guessArray)
+      let targetIndex = solutionArray.indexOf(guessArray[s]);
+      console.log(targetIndex)
+      if(targetIndex > -1){
+        solutionArray[targetIndex] = null
+        correctLetters++;
+      }
+    }
+    return correctLetterLocations.toString().red +'-' + correctLetters.toString().white
+  }
 
-
-
-}
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+//  solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
-  if (guess === 'abcd'){
-    return "You guessed it!"
+  if (guess === solution){
+    console.log("You guessed it!")
+  } else {
+    let hint = generateHint(guess)
+    console.log(hint)
+    counter++
+  } if ( counter> 10 ){
+    process.exit();
   }
 }
 
@@ -103,4 +108,5 @@ if (typeof describe === 'function') {
 
   generateSolution();
   getPrompt();
+
 }
