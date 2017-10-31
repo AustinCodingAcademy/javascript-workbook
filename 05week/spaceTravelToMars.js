@@ -8,9 +8,45 @@ let jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
+/*
+crewmember class shpuld have the following attributes:
+- name,
+-job,
+specialSkill,
+ship; the ship the crewmember is currently on
+crewmember class should have a functino called: enterShip
+this function takes in a ship object
+this function adds the crew member to the ships crew
 
+The ship class should have the following attributes
+nametype
+abilitylist of crew, this is a list of crew currently in the ship
+The ship class should have the folliwng function
+-misssionstatement() is function returns the ships ability as a astring
+if there is a crewmember whose job matches the ships typeof
+otherwise it should return cant perform this mission yet
+
+
+*/
 // Your code here
+class crewMember{
+  constructor(name, job, specialSkill, ship){
+  this.name = name;
+  this.job= job;
+  this.specialSkill= specialSkill;
+  this.ship = ship;
 
+  enterShip(ship){
+    this.pop
+  }
+}
+}
+let Andrew = new crewMember('Andrew', 'pilot', 'cuisine','Mav' )
+
+class ship {
+  constructor(name, type, ability,)
+
+}
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
