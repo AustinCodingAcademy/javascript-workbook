@@ -7,6 +7,10 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//will need an isLegal function
+//will need a function to change turns
+//will need a checkForWin function
+
 
 function Checker() {
   // Your code here
@@ -61,6 +65,11 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+    this.moveChecker = (whichPiece, toWhere) => {
+      const pieceChoice = whichPiece.split('')
+      const spotToMove = toWhere.split('')
+      console.log(whichPiece, toWhere);
+    }
   };
 }
 
