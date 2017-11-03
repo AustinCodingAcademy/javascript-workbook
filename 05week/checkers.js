@@ -64,7 +64,7 @@ function Game() {
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    //moveChecker(), this function will take the array position you give for your first piece and move it to the array position for toWhere, split method to split the string into an array
     this.moveChecker = (whichPiece, toWhere) => {
       const pieceChoice = whichPiece.split('')
       const spotToMove = toWhere.split('')
