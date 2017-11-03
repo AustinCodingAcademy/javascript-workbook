@@ -11,6 +11,10 @@ const rl = readline.createInterface({
 //will need a function to change turns
 //will need a checkForWin function
 
+//moveChecker(), this function will take the array position you give for your first piece and move it to the array position for toWhere, split method to split the string into an array
+//isLegal(), find out if the move you make is a legal move, if statements
+//checkForWin(), check if one player has no pieces left, if statements
+//removePiece(), remove a piece if the moveChecker function moves over an opponent's piece, splice method 
 
 function Checker() {
   // Your code here
@@ -70,6 +74,8 @@ function Game() {
       const spotToMove = toWhere.split('')
       console.log(whichPiece, toWhere);
     }
+    this.isLegalChoice = (whichPiece, toWhere) =>
+
   };
 }
 
