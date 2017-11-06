@@ -10,9 +10,10 @@ const rl = readline.createInterface({
 //will need an isLegal function
 //will need a function to change turns
 //will need a function to move checkers
+//will need a function to remove jumped checkers
 //will need a checkForWin function
 
-//moveChecker(), you'll input a starting position and an end position.  Each will have two digits because of 8x8 grid.  A coordinate.  
+//moveChecker(), you'll input a starting position and an end position.  Each will have two digits because of 8x8 grid.  A coordinate.
 //isLegal(), find out if the move you make is a legal move, if statements
 //checkForWin(), check if one player has no pieces left, if statements
 //removePiece(), remove a piece if the moveChecker function moves over an opponent's piece, splice method
@@ -108,6 +109,9 @@ function Game() {
     const end = endingPosition.split('');
     this.board.grid[end[0]][end[1]] = this.board.grid[start[0]][start[1]];
     this.board.grid[start[0]][start[1]] = null;
+  }
+  this.isLegal=(beginning, end)=>{
+    
   }
 
 }
