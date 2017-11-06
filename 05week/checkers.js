@@ -9,19 +9,26 @@ const rl = readline.createInterface({
 
 //will need an isLegal function
 //will need a function to change turns
+//will need a function to move checkers
 //will need a checkForWin function
 
-//moveChecker(), this function will take the array position you give for your first piece and move it to the array position for toWhere, split method to split the string into an array
+//moveChecker(), you'll input a starting position and an end position.  Each will have two digits because of 8x8 grid.  A coordinate.  
 //isLegal(), find out if the move you make is a legal move, if statements
 //checkForWin(), check if one player has no pieces left, if statements
-//removePiece(), remove a piece if the moveChecker function moves over an opponent's piece, splice method 
+//removePiece(), remove a piece if the moveChecker function moves over an opponent's piece, splice method
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+if (color === 'white') {
+  this.symbol = string.fromCharCode(0x125CF);
+  this.color = "white";
+  } else {
+  this.symbol = string.fromCharCode(0x125CB);
+  }
 }
 
 function Board() {
   this.grid = [];
+  this.checkers = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -60,24 +67,52 @@ function Board() {
     console.log(string);
   };
 
+  // populates the grid with checkers
+ this.createCheckers = () => {
+   // loops through the 8 rows
+   for (let row = 0; row < 8; row++) {
+     // ignores rows which should be empty
+     if (row === 3 || row === 4) continue;
+     // loops through the 8 columns
+     for (let col = 0; col < 8; col++) {
+       // sets current color based on the current row
+       let color = (row < 3 ? 'white' : 'black');
+       // alternates cells to populate with either white or black checkers
+       // then pushes checker to array named checkers
+       if (row % 2 === 0 && col % 2 === 1) {
+         this.grid[row][col] = new Checker(color);
+         this.checkers.push(this.grid[row][col]);
+       } else if (row % 2 === 1 && col % 2 === 0) {
+         this.grid[row][col] = new Checker(color);
+         this.checkers.push(this.grid[row][col]);
+       }
+     }
+   }
+ };
+}
+
   // Your code here
 }
 function Game() {
-
+  //Create a new board
+  //start on the black checker's turns
+  //populate the board and checkers on it
   this.board = new Board();
-
-  this.start = function() {
+  this.turn = 'black';
+  this.start = () => {
     this.board.createGrid();
-    //moveChecker(), this function will take the array position you give for your first piece and move it to the array position for toWhere, split method to split the string into an array
-    this.moveChecker = (whichPiece, toWhere) => {
-      const pieceChoice = whichPiece.split('')
-      const spotToMove = toWhere.split('')
-      console.log(whichPiece, toWhere);
-    }
-    this.isLegalChoice = (whichPiece, toWhere) =>
+    this.board.createCheckers();
+  }
+  this.moveChecker = (startingPosition, endingPosition) => {
+    const beginning = startingPosition.split('');
+    const end = endingPosition.split('');
+    this.board.grid[end[0]][end[1]] = this.board.grid[start[0]][start[1]];
+    this.board.grid[start[0]][start[1]] = null;
+  }
 
-  };
 }
+
+
 
 function getPrompt() {
   game.board.viewGrid();
