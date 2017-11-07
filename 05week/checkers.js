@@ -113,7 +113,9 @@ function Game() {
     this.board.grid[end[0]][end[1]] = this.board.grid[start[0]][start[1]];
     this.board.grid[start[0]][start[1]] = null;
   }
-  //isLegal()
+  //isLegal(), check to se if the chosen positions are odd or equal zero.  Checkers cannot be moved to those locations, use modulo
+  //Check if the starting and ending position inputs are divisible by two
+  //
   this.isLegal=(beginning, end)=>{
 
   }
