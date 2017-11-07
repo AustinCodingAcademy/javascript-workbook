@@ -104,14 +104,18 @@ function Game() {
     this.board.createGrid();
     this.board.createCheckers();
   }
+  //moveChecker(), move a checker from the beginning location to the end location
+  //split the player input into an array.  The first number is the Y axis and the second number is the X axis
+  //Move from startingPositionto endingPosition
   this.moveChecker = (startingPosition, endingPosition) => {
     const beginning = startingPosition.split('');
     const end = endingPosition.split('');
     this.board.grid[end[0]][end[1]] = this.board.grid[start[0]][start[1]];
     this.board.grid[start[0]][start[1]] = null;
   }
+  //isLegal()
   this.isLegal=(beginning, end)=>{
-    
+
   }
 
 }
