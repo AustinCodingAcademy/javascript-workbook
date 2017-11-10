@@ -89,13 +89,13 @@ function Board() {
        }
      }
    }
- };
-}
+};
+
 
   // Your code here
-}
 
-function Game() {
+
+Class Game() {
   //Create a new board
   //start on the black checker's turns
   //populate the board and checkers on it
