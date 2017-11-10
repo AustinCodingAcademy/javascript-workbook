@@ -119,12 +119,12 @@ function Game() {
   //check to see if the inputs equal zero.
   //if the inputs are divisible by 2 or equal zero, not a legal move
   this.isLegal=(beginning, end)=>{
-    if(beginning)
-  }
-
+    if (start[0] % 2 === 0 && start[1] % 2 === 0) return false;
+        else if (start[0] % 2 === 1 && start[1] % 2 === 1) return false;
+        else if (end[0] % 2 === 0 && end[1] % 2 === 0) return false;
+        else if (end[0] % 2 === 1 && end[1] % 2 === 1) return false;
+        else return true;  }
 }
-
-
 
 function getPrompt() {
   game.board.viewGrid();
