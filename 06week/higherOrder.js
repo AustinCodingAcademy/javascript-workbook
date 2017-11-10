@@ -1,25 +1,160 @@
 'use strict';
 
 const assert = require('assert');
+//
+//
+// // for filter test:
+// let array1 = [1,2,3,4,5];
+//
+// let evenFilter = function(num){
+//   return num%2 === 0;
+// };
+//
+// let oddFilter = function(num){
+//   return !evenFilter(num);
+// };
+//
+// function myFilterImpl(arr, callback) {
+//   let savedOff = [];
+//   for (let i=0; i<arr.length; i++){
+//     let element = arr[i];
+//     if (callback(element) === true){
+//       savedOff.push(element);
+//     }
+//   }return savedOff;
+// }
+//
+//   // let expected = [2,4];
+//
+//   let mappedEven = array1.map(myFilterImpl())
+//   let evenResults = myFilterImpl(array1, evenFilter);
+//   console.log("evenResults: " +evenResults);
+//   let oddResults = myFilterImpl(array1, oddFilter);
+//   console.log("oddResults: " +oddResults);
+//
+// // for map:
+//
+// let array2 = [99,87,23,67,13,77];
+//
+// let gradeConverter = function(num){
+//   let round = parseInt(num/10);
+//   if (round <7) {
+//     return 'F';
+//   } else if (round ===7){
+//     return 'C';
+//   } else if (round === 8){
+//     return 'B';
+//   } else if (round >8) {
+//     return 'A';
+//   }
+// };
+//
+// function map(arr, callback) {
+//   let results = [];
+//   for (let i=0; i<arr.length; i++){
+//     let element = arr[i];
+//     results.push(callback(element));
+//   }return results;
+// };
+//
+// let converted = myMapImpl(array2, gradeConverter);
+// console.log(converted);
+//
+// // for some
+// let array3 = [1,2,3,4,5,6,7,8,9,10];
+// let array4 = [1,2,3,4,-5,6,7,8,9,10];
+//
+// let isPos = function(num) {
+//   if (num>0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
+//
+// let isNeg = function(num) {
+//   if (num<0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
+//
+// let mySomeImp = function (arr,callback) {
+//   for (var i=0; i<arr.length; i++){
+//     let numb = arr[i];
+//     if (callback(numb) === true) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+//
+// console.log('array3 has some negative values: '+mySomeImp(array1,isNeg));
+// console.log('array4 has some negative values: '+mySomeImp(array2,isNeg));
+//
+// // for Every
+//
+// let myEveryImp = function(arr,callback) {
+//   for (var i=0; i<arr.length; i++){
+//     let numb = arr[i];
+//     if (callback(numb) === false) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+//
+// console.log('Ever value in array3 is a positive value: '+myEveryImp(array1,isPos));
+// console.log('Ever value in array4 is a positive value: '+myEveryImp(array2,isPos));
 
 function forEach(arr, callback) {
-  // Your code here
+  let count = 0;
+  for (var a=0; a<arr.length; a++){
+    count++;
+    let element = arr[a];
+    callback(element);
+  }
+  return count;
 }
 
 function map(arr, callback) {
-  // Your code here
-}
+  let results = [];
+  for (let i=0; i<arr.length; i++){
+    let element = arr[i];
+    results.push(callback(element));
+  }return results;
+};
+
 
 function filter(arr, callback) {
-  // Your code here
-}
+  let savedOff = [];
+  for (let i=0; i<arr.length; i++){
+    let element = arr[i];
+    if (callback(element) === true){
+      savedOff.push(element);
+    }
+  }return savedOff;
+};
 
 function some(arr, callback) {
-  // Your code here
+  for (var i=0; i<arr.length; i++){
+      let numb = arr[i];
+      if (callback(numb) === true) {
+        return true;
+      }
+    }
+  return false;
 }
 
 function every(arr, callback) {
-  // Your code here
+  for (var i=0; i<arr.length; i++){
+    let numb = arr[i];
+    if (callback(numb) === false) {
+      return false;
+    }
+  }
+  return true;
 }
 
 if (typeof describe === 'function') {
