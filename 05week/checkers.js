@@ -67,7 +67,7 @@ function Board() {
   this.viewGrid = function() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
-    for (let row = 0; row < 8; row++) {
+    for (let row = 0; row < 8; row++)  {
       // we start with our row number in our array
       const rowOfCheckers = [row];
       // a loop within a loop
