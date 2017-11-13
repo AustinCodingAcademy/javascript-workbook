@@ -42,7 +42,7 @@ const userArray = [
     },
 ];
 
-fourPeople = userArray.map(function(famousPeeps){
+fourPeople = userArray.map((famousPeeps) =>{
     return famousPeeps.customer.customerName + ' paid $' + famousPeeps.customer.productPrice + ' for a ' +  famousPeeps.customer.product + ' in ' + famousPeeps.customer.customerCity + ' ' + famousPeeps.customer.customerState;
 });
 console.log(fourPeople);
