@@ -8,11 +8,13 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function Checker(s) {
   // Your code here
-}
+    this.symbol = s;
+  }
 
 function Board() {
+  this.checkers = [];
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -24,6 +26,34 @@ function Board() {
         this.grid[row].push(null);
       }
     }
+
+    this.addPiece(7,0,'X')
+    this.addPiece(5,0,'X')
+    this.addPiece(6,1,'X')
+    this.addPiece(7,2,'X')
+    this.addPiece(5,2,'X')
+    this.addPiece(6,3,'X')
+    this.addPiece(7,4,'X')
+    this.addPiece(5,4,'X')
+    this.addPiece(6,5,'X')
+    this.addPiece(7,6,'X')
+    this.addPiece(5,6,'X')
+    this.addPiece(6,7,'X')
+    this.addPiece(1,0,'O')
+    this.addPiece(0,1,'O')
+    this.addPiece(2,1,'O')
+    this.addPiece(1,2,'O')
+    this.addPiece(0,3,'O')
+    this.addPiece(2,3,'O')
+    this.addPiece(1,4,'O')
+    this.addPiece(0,5,'O')
+    this.addPiece(2,5,'O')
+    this.addPiece(1,6,'O')
+    this.addPiece(0,7,'O')
+    this.addPiece(2,7,'O')
+
+
+
   };
 
   // prints out the board
@@ -53,6 +83,30 @@ function Board() {
   };
 
   // Your code here
+  /* This funcion when called will add a piece to the board at the location passed in x and y (and the piece passed in i.e. symbol)
+  */
+    this.addPiece= function (xlocation, ylocation, symbol){
+      let piece = new Checker(symbol)
+      this.grid[xlocation][ylocation] = piece;
+      this.checkers.push(piece)
+
+
+  }; this.removePiece = function (xlocation,ylocation){
+    let removedPiece = this.grid[xlocation][ylocation]
+    this.grid[xlocation][ylocation]= null;
+    let Arrindex = this.checkers.indexOf(removedPiece);
+    this.checkers.splice(Arrindex,1)
+
+
+  }
+    this.movePiece = function  (startxlocation,startylocation, endxlocation,endylocation){
+
+    let startlocation= this.grid[startxlocation][startylocation]
+    this.grid[endxlocation][endylocation] = startlocation;
+    this.grid[startxlocation][startylocation]= null;
+
+  }
+
 }
 function Game() {
 
@@ -62,6 +116,18 @@ function Game() {
     this.board.createGrid();
     // Your code here
   };
+this.moveChecker = function(whichPiece,toWhere){
+ let translationOne = whichPiece.split('')
+ let translationTwo = toWhere.split('')
+
+
+ this.board.movePiece(translationOne[0],translationOne[1],translationTwo[0],translationTwo[1]);
+if (translationOne[0]=== (translationTwo[0])-2 || translationOne[1] === (translationTwo[1])-2){
+  let one= (translationTwo[0])-1;
+  let two = (translationTwo[1])-1;
+  removePiece(one,two)
+}
+}
 }
 
 function getPrompt() {
