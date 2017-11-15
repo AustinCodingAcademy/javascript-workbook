@@ -16,21 +16,22 @@ class App extends Component {
      ]
 
   };
-
   renderPosts = () => {
     return this.state.timelineData.map((item, key) => {
-        return <p key={key}>{item}</p>
-        console.log(item)
-    });
+      return (
+        <div>
+          <p>{item.post}</p> <p>{item.name}</p>
+          <button onClick={this.renderPosts}><a>like</a></button>
+        </div>
+      );
+      /*item = this.state.timelineData.post;
+      return <div><p key={key}>{item}</p></div>*/
+    })
     this.setState({})
   }
-     /*User inputs task, on submit it's added to list */
-   render(){
-    return(
-        <div>
-        <p>{this.render.post}</p> <p>{this.renderPosts.name}</p> <a>like</a>
-        </div>
-    );
+  render() {
+    return this.renderPosts(this.state.timelineData)
   }
+
 }
 export default App;
