@@ -10,10 +10,8 @@ class App extends Component {
     state = {
         playerTurn: "X",
        grid: {},
-       board: [
-           [0,1,2],
-           [3,4,5],
-           [6,7,8]
+       boxes: [
+          "", "", "","", "", "","", ""
        ]
     };
   handleClick(boxes){
@@ -31,15 +29,29 @@ if(!this.state.grid[boxes]){
   }
 }
 
-  render(boxes) {
-      status = 'Next player is:  ' + (this.state.playerTurn);
+  render() {
+      // const status = findWinner(this.state.boxes);
+      // if (status) {
+      //     return  'Winner: ' + status;
+      //
+      // }console.log('winner');
+      // } else {
+      //     status = 'Next Players: ' + (this.state.playerTurn === 'X' ? 'O' : 'X')
+      // }
+      // let status;
+      // if(this.state.grid[0] && this.state.grid[1] === this.state.playerTurn){
+      // status = 'Winner:  ' + (this.state.playerTurn);
+      // status = 'Next player is:  ' + (this.state.playerTurn);
       let status;
       if(this.state.grid[0] && this.state.grid[1] === this.state.playerTurn){
-      status = 'Winner:  ' + (this.state.playerTurn);
+          status =  'Winner:  ' + (this.state.playerTurn);
 
 
           console.log('match')
       }
+
+
+
 
       return (
           <div>
@@ -67,22 +79,22 @@ if(!this.state.grid[boxes]){
 
 export default App;
 
-// function findWinner(boxes)  {
-//     const lines = [
-//         [0, 1, 2],
-//         [3, 4, 5],
-//         [6, 7, 8],
-//         [0, 3, 6],
-//         [1, 4, 7],
-//         [2, 5, 8],
-//         [0, 4, 8],
-//         [2, 4, 6],
-//     ];
-//     for (let i = 0; i < lines.length; i++) {
-//         const [a, b, c] = lines[i];
-//         if (boxes[a] && boxes[a]=== boxes[b] === boxes[a] === boxes[c]) {
-//             return boxes[a];
-//         }
-//     }
-//     return null;
-// }
+function findWinner(boxes)  {
+    const lines = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+        const [a, b, c] = lines[i];
+        if (boxes[a] && boxes[a]=== boxes[b] === boxes[a] === boxes[c]) {
+            return boxes[a];
+        }
+    }
+    return null;
+}
