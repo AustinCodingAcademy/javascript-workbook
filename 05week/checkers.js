@@ -95,6 +95,7 @@ function Board() {
     let removedPiece = this.grid[xlocation][ylocation]
     this.grid[xlocation][ylocation]= null;
     let Arrindex = this.checkers.indexOf(removedPiece);
+    if(Arrindex>0){
     this.checkers.splice(Arrindex,1)
 
 
@@ -117,16 +118,24 @@ function Game() {
     // Your code here
   };
 this.moveChecker = function(whichPiece,toWhere){
+  let startRow = whichPiece[0];
+  let startCol = whichPiece[1];
+  let endRow = toWhere[0];
+  let endCol = toWhere[1];
  let translationOne = whichPiece.split('')
  let translationTwo = toWhere.split('')
 
 
  this.board.movePiece(translationOne[0],translationOne[1],translationTwo[0],translationTwo[1]);
-if (translationOne[0]=== (translationTwo[0])-2 || translationOne[1] === (translationTwo[1])-2){
-  let one= (translationTwo[0])-1;
-  let two = (translationTwo[1])-1;
-  removePiece(one,two)
-}
+ let side1 = (startCol- endRow);
+ let notCapture = (side1==1 || side1 == -1)
+ if(!notCapture){
+   let rowtoRemove = startRow>endRow? startRow-1: endRow -1;
+   
+   let coltoRemove = startCol>endCol? startCol-1:endCol - 1;
+   this.board.removePiece(rowtoRemove, coltoRemove)
+ }
+
 }
 }
 
