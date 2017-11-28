@@ -30,7 +30,7 @@ class TicTacToe extends React.Component {
     if (turnCounter % 2){
       currentPlayer = 'O';
     } else {
-      currentPlayer = 'X';
+      currentPlayer = 'X'; 
     }
 
     // another if-statement to determine if the move is valid or not. If I dont have this, players would be able to override another player's move (ie, switch their 'X' for an 'O'). The if-statment only allows the move is you click on an empty (null) div
