@@ -9,7 +9,66 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
+// crewmember class shpuld have the following attributes:
+// - name,
+// -job,
+// specialSkill,
+// ship; the ship the crewmember is currently on
+// crewmember class should have a functino called: enterShip
+// this function takes in a ship object
+// this function adds the crew member to the ships crew
+//
+// The ship class should have the following attributes
+// nametype
+// ability
+// 4list of crew, this is a list of crew currently in the ship
+// The ship class should have the folliwng function
+// -misssionstatement() is function returns the ships ability as a astring
+// if there is a crewmember whose job matches the ships typeof
+// otherwise it should return cant perform this mission yet
+//
+
+
 // Your code here
+
+class CrewMember {
+  constructor(name, job, specialSkill){
+  this.name = name;
+  this.job= job;
+  this.specialSkill= specialSkill;
+  this.ship = null
+
+  }
+  enterShip(ship){
+    ship.crew.push(this)
+    this.ship = ship
+  }
+}
+let Andrew = new CrewMember('Andrew', 'pilot', 'cuisine','Mav' )
+
+class Ship {
+  constructor(name, type, ability,){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew= []
+  }
+  missionStatement(ability){
+
+    for(let i = 0;i< this.crew.length; i++){
+      let crewmemberr = this.crew[i];
+      let crewjob = crewmemberr.job
+      if(jobTypes[crewjob]== this.type || crewjob === 'programmer'){
+        return this.ability
+      } else {
+        return "Can't perform a mission yet")
+      }
+    }
+  }
+}
+let Mav = new Ship('mav','Mav', 'Ascends to Mars')
+Andrew.enterShip(Mav)
+
 
 //tests
 if (typeof describe === 'function'){

@@ -4,23 +4,94 @@ const assert = require('assert');
 
 function forEach(arr, callback) {
   // Your code here
+  for(let i=0; i< arr.length; i++){
+    let elementt = arr[i];
+     callback(elementt)
+
+}
 }
 
-function map(arr, callback) {
+
   // Your code here
+  let array = [99,87,23,67,13,77];
+let gradeConverter = function(num){
+  return num*num
 }
 
-function filter(arr, callback) {
-  // Your code here
+let myMapImpl= function(arr,callback){
+  let x = []
+  for(let i=0; i< arr.length; i++){
+    let elementt = arr[i];
+    let p = callback(elementt)
+    x.push(p)
+  }
+  return x
 }
 
-function some(arr, callback) {
+let converted = myMapImpl(array, gradeConverter)
+console.log(converted)
+
+
   // Your code here
+  let arrrray = [1,2,3,4,5];
+let evenFilter = function(num){
+  return num%2===0
+};
+let expected= [2,4]
+
+function myFilterImpl(arr, callback){
+  let savedOff = []
+  for(let i = 0; i < array.length; i++ ){
+    let element = arr[i]
+    if(callback(element)===true){
+
+      savedOff.push(element)
+    }
+  }
+  return savedOff
 }
+
+let filtered = myFilterImpl(array,evenFilter)
+console.log(myFilterImpl)
+
+
+
+  // Your code here
+  let some = function(arr, callback){
+    for(let i = 0; i < arr.length; i++){
+      let x = arr[i];
+      if(callback(x)=== true){
+        console.log('At least one fulfills the condition')
+
+        return true
+
+      } else{
+        console.log('none fulfill the condition ')
+
+
+      }
+    }return false
+  }
+
 
 function every(arr, callback) {
   // Your code here
-}
+    for(let i = 0; i < arr.length; i++){
+      let x = arr[i];
+      if(callback(x)=== !true){
+        console.log('not all meet the condition')
+
+        return false
+
+      } else{
+        console.log('every one meets the condition')
+
+
+      }
+    }return true
+  }
+
+
 
 if (typeof describe === 'function') {
 
