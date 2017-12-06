@@ -31,10 +31,11 @@ class ListUsers extends React.Component{
       this.initialDraw();
     }
     var usersmap =   this.state.users.map((user)=>{
-        return <div>{user.first_name} {user.last_name} <div> <img src= {user.avatar}/></div>z</div>
+        return <div>{user.first_name} {user.last_name} <div> <img src= {user.avatar}/></div></div>
 
       })
-  return
+  return(
+
 
 
     <div>
