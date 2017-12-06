@@ -1,0 +1,12 @@
+[data-stack] {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 500px;
+  background-image: url("towersOfHanoi.jpg");
+  margin: 25px;
+  width: 425px;
+  flex-direction: column-reverse;
+  border-radius: 25px;
+
+}
