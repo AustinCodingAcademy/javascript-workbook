@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -10,125 +10,68 @@ class App extends Component {
   state = {
     playerTurn: "X",
     grid: {},
-    boxes: [
-      "", "", "", "", "", "", "", ""
-    ]
+    board: [
+      [0,1,2],
+      [3,4,5],
+      [6,7,8]
+    ],
   };
 
+
+
   handleClick(boxes) {
-// if(findWinner(boxes)){
-//     return;
-// }
-//if nothing in box then refer to state.
-    if (!this.state.grid[boxes]) {
-      const newGrid = {...this.state.grid};
-      newGrid[boxes] = this.state.playerTurn;
-      const playerTurn = this.state.playerTurn === 'X' ? 'O' : 'X';
-      this.setState({grid: newGrid, playerTurn});
-    }
-
-    // function findWinner(newBoxes) {
-    //   const lines = [
-    //     [0, 1, 2],
-    //     [3, 4, 5],
-    //     [6, 7, 8],
-    //     [0, 3, 6],
-    //     [1, 4, 7],
-    //     [2, 5, 8],
-    //     [0, 4, 8],
-    //     [2, 4, 6],
-    //   ];
-    //   for (let i = 0; i < lines.length; i++) {
-    //     const [a, b, c] = lines[i];
-    //     if (newBoxes[a] && newBoxes[a] === newBoxes[b] === newBoxes[a] === newBoxes[c]) {
-    //       return newBoxes[a];
-    //     }
-    //   }
-    //   // return null;
-    // }
-
-    //   function show() {
-    //     let status = 'Next player is:  ' + (this.state.playerTurn);
-    //     console.log(this.state.grid);
-    //     if(this.state.grid[0] && this.state.grid[1] === this.state.playerTurn){
-    //       let status = 'Winner:  ' + (this.state.playerTurn);
-    //       console.log('match')
-    //     }
-    //   }
+      if (!this.state.grid[boxes]) {
+        const playerTurn = this.state.playerTurn === 'X' ? 'O' : 'X';
+        const newGrid = {...this.state.grid};
+        this.setState({grid: newGrid, playerTurn});
+        newGrid[boxes] = this.state.playerTurn;
+      }
   }
+renderBoard() {
+    return this.state.board.map((row, key) => {
+      return (
+        <div className="row" key={key}>
+          {row.map((num, index) => {
+            return <div key={index} className="boardBox" onClick={()=> this.handleClick(num)}>{this.state.grid[num]}</div>
+          })}
+        </div>
+      )
+    })
+}
 
   render() {
-    // const status = findWinner(this.state.boxes);
-    // if (status) {
-    //     return  'Winner: ' + status;
-    //
-    // }console.log('winner');
-    // } else if {
-    //     status = 'Next Players: ' + (this.state.playerTurn === 'X' ? 'O' : 'X')
-    // }
-    let status;
-    const newGrid = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
 
-    console.log(this.state.grid);
-    status = 'Next player is:  ' + (this.state.playerTurn);
-    const turns =[this.state.grid];
-    newGrid.map((matches) => {
-      if (matches === turns) {
-        status = 'Winner:  ' + (this.state.playerTurn);
-      }
-      });
+    console.log(this.state.grid)
+    console.log(this.state.playerTurn)
+    let games;
+    games = <h1> It is {this.state.playerTurn}'s turn</h1>
+    const currentGrid = this.state.grid;
+    if(this.state.playerTurn === currentGrid[0]) {
+      games = <h1> The winner is: {this.state.playerTurn}</h1>;
+      console.log('match')
+    }
+
 
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="row">
-          <div className="boardBox" onClick={() => this.handleClick(0)}>{this.state.grid[0]}</div>
-          <div className="boardBox" onClick={() => this.handleClick(1)}>{this.state.grid[1]}</div>
-          <div className="boardBox" onClick={() => this.handleClick(2)}>{this.state.grid[2]}</div>
-        </div>
-        <div className="row">
-          <div className="boardBox" onClick={() => this.handleClick(3)}>{this.state.grid[3]}</div>
-          <div className="boardBox" onClick={() => this.handleClick(4)}>{this.state.grid[4]}</div>
-          <div className="boardBox" onClick={() => this.handleClick(5)}>{this.state.grid[5]}</div>
-        </div>
-        <div className="row">
-          <div className="boardBox" onClick={() => this.handleClick(6)}>{this.state.grid[6]}</div>
-          <div className="boardBox" onClick={() => this.handleClick(7)}>{this.state.grid[7]}</div>
-          <div className="boardBox" onClick={() => this.handleClick(8)}>{this.state.grid[8]}</div>
-        </div>
+        <div className="status">{games}</div>
+        {this.renderBoard()}
       </div>
     );
   }
 }
 
-
 export default App;
 
-// function findWinner(newBoxes)  {
-//     const lines = [
-//         [0, 1, 2],
-//         [3, 4, 5],
-//         [6, 7, 8],
-//         [0, 3, 6],
-//         [1, 4, 7],
-//         [2, 5, 8],
-//         [0, 4, 8],
-//         [2, 4, 6],
-//     ];
-//     for (let i = 0; i < lines.length; i++) {
-//         const [a, b, c] = lines[i];
-//         if (newBoxes[a] && newBoxes[a]=== newBoxes[b] === newBoxes[a] === newBoxes[c]) {
-//             return newBoxes[a];
-//         }
-//     }
-//     return null;
-// }
+
+// console.log(this.state.playerTurn)
+// let games;
+// const winner = [...this.state.wins];
+// winner.map((item, index) => {
+//   if(this.state.grid[item, index] === "X"){
+//     console.log('match')
+//     console.log(this.state.grid[item])
+//     games = <h1> The winner is: {this.state.playerTurn}</h1>;
+//   }
+// })
+// console.log(this.state.grid)
