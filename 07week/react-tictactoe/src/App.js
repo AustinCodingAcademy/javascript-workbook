@@ -25,6 +25,7 @@ class App extends Component {
         const newGrid = {...this.state.grid};
         this.setState({grid: newGrid, playerTurn});
         newGrid[boxes] = this.state.playerTurn;
+
       }
   }
 renderBoard() {
