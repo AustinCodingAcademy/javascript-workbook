@@ -8,35 +8,35 @@ class App extends Component {
   //if no win chnge player
 
   state = {
-    playerTurn: "X",
+    playerTurn: 'X',
     grid: {},
     board: [
       [0, 1, 2],
       [3, 4, 5],
       [6, 7, 8]
     ],
-    // gameWone; false,
+    gameWone: false,
   };
 
-
   handleClick(boxes) {
+
     console.log('first line of handelClick')
     if (!this.state.grid[boxes]) {
       console.log(this.state);
       const playerTurn = this.state.playerTurn === 'X' ? 'O' : 'X';
+      // const playerTurn = this.state.playerTurn;
+
       console.log('after turnary')
       const newGrid = {...this.state.grid};
       this.setState({grid: newGrid, playerTurn});
       newGrid[boxes] = this.state.playerTurn;
+
     }
-    // const currentGrid = this.state.grid;
-    // if(this.state.playerTurn === currentGrid[0]) {
-    //   console.log('if statement in handelClick')
-    //   this.setState({gameWone: true})
-    // }
+    // console.log('right before if in handleClick')
   }
 
   renderBoard() {
+
     console.log('this is renderBoard')
     return this.state.board.map((row, key) => {
       return (
@@ -48,28 +48,50 @@ class App extends Component {
         </div>
       )
     })
+
   }
 
-  render() {
+  gameWon () {
     console.log('render');
     console.log(this.state.grid)
     console.log(this.state.playerTurn)
-    let games;
-    const currentGrid = this.state.grid;
-    if (this.state.playerTurn === currentGrid[0]) {
-      console.log('here it is!')
-      games = <h1> The winner is: {this.state.playerTurn}</h1>;
-      console.log('match')
-    }else {
-      games = <h1> It is {this.state.playerTurn}'s turn</h1>
-
-      console.log('else Statement')
+    const topRow = this.state.grid[0] && this.state.grid[1] && this.state.grid[2];
+    const middleRow = this.state.grid[3] && this.state.grid[4] && this.state.grid[5];
+    const bottomRow = this.state.grid[6] && this.state.grid[7] && this.state.grid[8];
+    const leftColumn = this.state.grid[0] && this.state.grid[3] && this.state.grid[6];
+    const middleColumn = this.state.grid[1] && this.state.grid[4] && this.state.grid[7];
+    const rightColumn = this.state.grid[2] && this.state.grid[5] && this.state.grid[8];
+    const forwardSlash = this.state.grid[6] && this.state.grid[4] && this.state.grid[2];
+    const backSlash = this.state.grid[0] && this.state.grid[4] && this.state.grid[8];
+    if (('X' === topRow) || ('X' === middleRow) || ('X' === bottomRow) || ('X' === leftColumn)
+    || ( 'X' === middleColumn) || ('X' === rightColumn) || ('X' === forwardSlash) || ('X' === backSlash)){
+      this.setState({gameWone: true});
+      this.setState({playerTurn: 'X'})
+      console.log(this.state);
+      console.log('if statement in handelClick')
+      return
     }
 
+  }
+
+  render() {
+
+    let games;
+
+    if (this.state.gameWone === true) {
+
+      games = <h1> The winner is: {this.state.playerTurn}</h1>;
+      console.log('here it is!')
+
+      console.log('match')
+
+    } else if (this.state.gameWone === false) {
+       games = <h1> It is {this.state.playerTurn}'s turn</h1>
+      console.log('else Statement of render')
+      this.gameWon()
+    }
     return (
-
       <div>
-
         <div className="status">{games}</div>
         {this.renderBoard()}
       </div>
