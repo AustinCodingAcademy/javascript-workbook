@@ -33,10 +33,14 @@ class App extends Component {
 
     }
     // console.log('right before if in handleClick')
+    const newBoard = this.state.grid;
+    if(newBoard[0]=== this.state.playerTurn && newBoard[1] === 'X' && newBoard[2] === 'X'){
+      this.setState({gameWone: true});
+      this.setState({playerTurn: 'X'})
+    }
+
   }
-
   renderBoard() {
-
     console.log('this is renderBoard')
     return this.state.board.map((row, key) => {
       return (
@@ -51,28 +55,43 @@ class App extends Component {
 
   }
 
-  gameWon () {
-    console.log('render');
-    console.log(this.state.grid)
-    console.log(this.state.playerTurn)
-    const topRow = this.state.grid[0] && this.state.grid[1] && this.state.grid[2];
-    const middleRow = this.state.grid[3] && this.state.grid[4] && this.state.grid[5];
-    const bottomRow = this.state.grid[6] && this.state.grid[7] && this.state.grid[8];
-    const leftColumn = this.state.grid[0] && this.state.grid[3] && this.state.grid[6];
-    const middleColumn = this.state.grid[1] && this.state.grid[4] && this.state.grid[7];
-    const rightColumn = this.state.grid[2] && this.state.grid[5] && this.state.grid[8];
-    const forwardSlash = this.state.grid[6] && this.state.grid[4] && this.state.grid[2];
-    const backSlash = this.state.grid[0] && this.state.grid[4] && this.state.grid[8];
-    if (('X' === topRow) || ('X' === middleRow) || ('X' === bottomRow) || ('X' === leftColumn)
-    || ( 'X' === middleColumn) || ('X' === rightColumn) || ('X' === forwardSlash) || ('X' === backSlash)){
+
+  gameWon() {
+  //   console.log('render');
+  //   console.log(this.state.grid)
+  //   console.log(this.state.playerTurn)
+  //   const topRow = this.state.grid[0] && this.state.grid[1] && this.state.grid[2];
+  //   const middleRow = this.state.grid[3] && this.state.grid[4] && this.state.grid[5];
+  //   const bottomRow = this.state.grid[6] && this.state.grid[7] && this.state.grid[8];
+  //   const leftColumn = this.state.grid[0] && this.state.grid[3] && this.state.grid[6];
+  //   const middleColumn = this.state.grid[1] && this.state.grid[4] && this.state.grid[7];
+  //   const rightColumn = this.state.grid[2] && this.state.grid[5] && this.state.grid[8];
+  //   const forwardSlash = this.state.grid[6] && this.state.grid[4] && this.state.grid[2];
+  //   const backSlash = this.state.grid[0] && this.state.grid[4] && this.state.grid[8];
+  //   if ('X' === topRow) {
+  //     this.setState({gameWone: true});
+  //     this.setState({playerTurn: 'X'})
+  //   }
+  //   if ('X' === middleRow) {
+  //     this.setState({gameWone: true});
+  //     this.setState({playerTurn: 'X'})
+  //   }
+
+
+  // || ('X' === bottomRow) || ('X' === leftColumn)){
+  // || ( 'X' === middleColumn) || ('X' === rightColumn) || ('X' === forwardSlash) || ('X' === backSlash))
+
+  //   console.log(this.state);
+  //   console.log('if statement in handelClick')
+  //   return
+  // }
+    const newBoard = this.state.grid;
+    if(newBoard[0]=== 'X' && newBoard[1] === 'X' && newBoard[2] === 'X'){
       this.setState({gameWone: true});
       this.setState({playerTurn: 'X'})
-      console.log(this.state);
-      console.log('if statement in handelClick')
-      return
     }
-
   }
+
 
   render() {
 
