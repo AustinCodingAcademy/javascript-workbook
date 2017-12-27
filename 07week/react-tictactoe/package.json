@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "delay": "^2.0.0",
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-delay-render": "^0.1.2",
     "react-dom": "^16.1.1",

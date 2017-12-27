@@ -1,14 +1,23 @@
+//Create board.
+//Keep track of player turn. default is "X" for player one. If empty place marker.
+//Create check for win function that notifies the players at the correct time!
+//If no win then change player
+//Create a reset button that works at any time in the game.
+//Style the game so it is freaking awesome :}.
+//Style the code!
 import React, {Component} from 'react';
-// import logo from './logo.svg';
 import './App.css';
+import RaisedButton from 'material-ui/RaisedButton';
+
+// var styles = {
+//   color:'violet',
+//   backgroundImage: 'url('+https://media0.giphy.com/media/BHNfhgU63qrks/giphy.gif+')'
+// };
 
 class App extends Component {
-  // need to keep track of player turn. default is "X" for player one. If empty place
-  //player turn, then check for win.
-  //if no win chnge player
 
   state = {
-    playerTurn: 'X',
+    playerTurn: '1',
     grid: {},
     board: [
       [0, 1, 2],
@@ -16,6 +25,7 @@ class App extends Component {
       [6, 7, 8]
     ],
     gameWone: false,
+    image: 'http://www.gifimagesdownload.com/wp-content/uploads/2016/02/background-gif-451.gif'
   };
 
   handleClick(boxes) {
@@ -23,23 +33,14 @@ class App extends Component {
     console.log('first line of handelClick')
     if (!this.state.grid[boxes]) {
       console.log(this.state);
-      const playerTurn = this.state.playerTurn === 'X' ? 'O' : 'X';
-      // const playerTurn = this.state.playerTurn;
-
-      console.log('after turnary')
+      const playerTurn = this.state.playerTurn === '1' ? '0' : '1';
+      console.log('after ternery')
       const newGrid = {...this.state.grid};
       this.setState({grid: newGrid, playerTurn});
       newGrid[boxes] = this.state.playerTurn;
-
     }
-    // console.log('right before if in handleClick')
-    const newBoard = this.state.grid;
-    if(newBoard[0]=== this.state.playerTurn && newBoard[1] === 'X' && newBoard[2] === 'X'){
-      this.setState({gameWone: true});
-      this.setState({playerTurn: 'X'})
-    }
-
   }
+
   renderBoard() {
     console.log('this is renderBoard')
     return this.state.board.map((row, key) => {
@@ -52,67 +53,103 @@ class App extends Component {
         </div>
       )
     })
-
   }
 
-
-  gameWon() {
-  //   console.log('render');
-  //   console.log(this.state.grid)
-  //   console.log(this.state.playerTurn)
-  //   const topRow = this.state.grid[0] && this.state.grid[1] && this.state.grid[2];
-  //   const middleRow = this.state.grid[3] && this.state.grid[4] && this.state.grid[5];
-  //   const bottomRow = this.state.grid[6] && this.state.grid[7] && this.state.grid[8];
-  //   const leftColumn = this.state.grid[0] && this.state.grid[3] && this.state.grid[6];
-  //   const middleColumn = this.state.grid[1] && this.state.grid[4] && this.state.grid[7];
-  //   const rightColumn = this.state.grid[2] && this.state.grid[5] && this.state.grid[8];
-  //   const forwardSlash = this.state.grid[6] && this.state.grid[4] && this.state.grid[2];
-  //   const backSlash = this.state.grid[0] && this.state.grid[4] && this.state.grid[8];
-  //   if ('X' === topRow) {
-  //     this.setState({gameWone: true});
-  //     this.setState({playerTurn: 'X'})
-  //   }
-  //   if ('X' === middleRow) {
-  //     this.setState({gameWone: true});
-  //     this.setState({playerTurn: 'X'})
-  //   }
-
-
-  // || ('X' === bottomRow) || ('X' === leftColumn)){
-  // || ( 'X' === middleColumn) || ('X' === rightColumn) || ('X' === forwardSlash) || ('X' === backSlash))
-
-  //   console.log(this.state);
-  //   console.log('if statement in handelClick')
-  //   return
-  // }
-    const newBoard = this.state.grid;
-    if(newBoard[0]=== 'X' && newBoard[1] === 'X' && newBoard[2] === 'X'){
-      this.setState({gameWone: true});
-      this.setState({playerTurn: 'X'})
+  boardButton() {
+    if (this.state.grid === '1' || '0') {
+      window.location.reload();
+      // this.setState({grid: {}});
+      // this.setState({gamWone: false});
+      // this.setState({playerTurn: 'X'});
     }
   }
 
+  gameWon() {
+    const newBoard = this.state.grid;
+    //topRow
+    if (newBoard[0] === '1' && newBoard[1] === '1' && newBoard[2] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[0] === '0' && newBoard[1] === '0' && newBoard[2] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    //middleRow
+    if (newBoard[3] === '1' && newBoard[4] === '1' && newBoard[5] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[3] === '0' && newBoard[4] === '0' && newBoard[5] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    //bottomRow
+    if (newBoard[6] === '1' && newBoard[7] === '1' && newBoard[8] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[6] === '0' && newBoard[7] === '0' && newBoard[8] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    //rightColumn
+    if (newBoard[0] === '1' && newBoard[3] === '1' && newBoard[6] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[0] === '0' && newBoard[3] === '0' && newBoard[6] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    // middleColumn
+    if (newBoard[1] === '1' && newBoard[4] === '1' && newBoard[7] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[1] === '0' && newBoard[4] === '0' && newBoard[7] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    // righColumn
+    if (newBoard[2] === '1' && newBoard[5] === '1' && newBoard[8] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[2] === '0' && newBoard[5] === '0' && newBoard[8] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    // forwardSlash
+    if (newBoard[6] === '1' && newBoard[4] === '1' && newBoard[2] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[6] === '0' && newBoard[4] === '0' && newBoard[2] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+    // backSlash
+    if (newBoard[0] === '1' && newBoard[4] === '1' && newBoard[8] === '1') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '1'})
+    } else if (newBoard[0] === '0' && newBoard[4] === '0' && newBoard[8] === '0') {
+      this.setState({gameWone: true});
+      this.setState({playerTurn: '0'})
+    }
+  }
 
   render() {
-
     let games;
-
     if (this.state.gameWone === true) {
-
       games = <h1> The winner is: {this.state.playerTurn}</h1>;
       console.log('here it is!')
-
       console.log('match')
 
     } else if (this.state.gameWone === false) {
-       games = <h1> It is {this.state.playerTurn}'s turn</h1>
+      games = <h1> It is {this.state.playerTurn}'s turn</h1>
       console.log('else Statement of render')
       this.gameWon()
     }
+
     return (
-      <div>
+      <div className="game" style = {{backgroundImage: `url(${this.state.image})`}}>
         <div className="status">{games}</div>
-        {this.renderBoard()}
+        <div className="gameBoard">{this.renderBoard()}</div>
+        <RaisedButton className="boardButton" onClick={() => this.boardButton()} label="Clear Board" primary={true}/>
       </div>
     );
   }
@@ -121,15 +158,5 @@ class App extends Component {
 export default App;
 
 
-// console.log(this.state.playerTurn)
-// let games;
-// const winner = [...this.state.wins];
-// winner.map((item, index) => {
-//   if(this.state.grid[item, index] === "X"){
-//     console.log('match')
-//     console.log(this.state.grid[item])
-//     games = <h1> The winner is: {this.state.playerTurn}</h1>;
-//   }
-// })
-// console.log(this.state.grid)
-//111
+{/*<Button className="Button" onClick={() => this.boardButton()} primary>Primary</Button>*/
+}
