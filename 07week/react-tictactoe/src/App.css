@@ -1,39 +1,8 @@
-/*.App {*/
-    /*text-align: center;*/
-/*}*/
-
-/*.App-logo {*/
-    /*animation: App-logo-spin infinite 20s linear;*/
-    /*height: 80px;*/
-/*}*/
-
-/*.App-header {*/
-    /*background-color: #222;*/
-    /*height: 150px;*/
-    /*padding: 20px;*/
-    /*color: white;*/
-/*}*/
-
-/*.App-title {*/
-    /*font-size: 1.5em;*/
-/*}*/
-
-/*.App-intro {*/
-    /*font-size: large;*/
-/*}*/
-
-/*@keyframes App-logo-spin {*/
-    /*from {*/
-        /*transform: rotate(0deg);*/
-    /*}*/
-    /*to {*/
-        /*transform: rotate(360deg);*/
-    /*}*/
-/*}*/
-
+.body {
+    display: flex;
+    justify-content: center;
+}
 .game {
-    /*display: flex;*/
-    /*justify-content: center;*/
     margin-top: 0px;
 }
 
@@ -42,18 +11,23 @@
     justify-content: center;
     color: white;
 }
-
+.outerBoard{
+    display: flex;
+    justify-content: center;
+}
 .gameBoard {
-    /*display: flex;*/
-    /*justify-content: center;*/
     height: 320px;
     width: 318px;
     margin-top: 0px;
-    margin-left: 38%;
+}
+.outerButton {
+    display: flex;
+    justify-content: center;
 }
 
 .boardButton {
+    display: flex;
+    justify-content: center;
     margin-bottom: 300px;
-    margin-left: 42%;
     width: 200px;
 }

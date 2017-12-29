@@ -9,11 +9,6 @@ import React, {Component} from 'react';
 import './App.css';
 import RaisedButton from 'material-ui/RaisedButton';
 
-// var styles = {
-//   color:'violet',
-//   backgroundImage: 'url('+https://media0.giphy.com/media/BHNfhgU63qrks/giphy.gif+')'
-// };
-
 class App extends Component {
 
   state = {
@@ -30,11 +25,11 @@ class App extends Component {
 
   handleClick(boxes) {
 
-    console.log('first line of handelClick')
+    // console.log('first line of handelClick')
     if (!this.state.grid[boxes]) {
       console.log(this.state);
       const playerTurn = this.state.playerTurn === '1' ? '0' : '1';
-      console.log('after ternery')
+      // console.log('after ternery')
       const newGrid = {...this.state.grid};
       this.setState({grid: newGrid, playerTurn});
       newGrid[boxes] = this.state.playerTurn;
@@ -42,7 +37,7 @@ class App extends Component {
   }
 
   renderBoard() {
-    console.log('this is renderBoard')
+    // console.log('this is renderBoard')
     return this.state.board.map((row, key) => {
       return (
         <div className="row" key={key}>
@@ -106,7 +101,7 @@ class App extends Component {
       this.setState({gameWone: true});
       this.setState({playerTurn: '0'})
     }
-    // righColumn
+    // rightColumn
     if (newBoard[2] === '1' && newBoard[5] === '1' && newBoard[8] === '1') {
       this.setState({gameWone: true});
       this.setState({playerTurn: '1'})
@@ -136,20 +131,25 @@ class App extends Component {
     let games;
     if (this.state.gameWone === true) {
       games = <h1> The winner is: {this.state.playerTurn}</h1>;
-      console.log('here it is!')
-      console.log('match')
+      setInterval(function(){window.location.reload()}, 3000);
+      // console.log('here it is!')
+      // console.log('match')
 
     } else if (this.state.gameWone === false) {
       games = <h1> It is {this.state.playerTurn}'s turn</h1>
-      console.log('else Statement of render')
+      // console.log('else Statement of render')
       this.gameWon()
     }
 
     return (
-      <div className="game" style = {{backgroundImage: `url(${this.state.image})`}}>
+      <div className="game" style={{backgroundImage: `url(${this.state.image})`}}>
         <div className="status">{games}</div>
-        <div className="gameBoard">{this.renderBoard()}</div>
-        <RaisedButton className="boardButton" onClick={() => this.boardButton()} label="Clear Board" primary={true}/>
+        <div className="outerBoard">
+          <div className="gameBoard">{this.renderBoard()}</div>
+        </div>
+        <div className="outerButton">
+          <RaisedButton className="boardButton" onClick={() => this.boardButton()} label="Clear Board" primary={true}/>
+        </div>
       </div>
     );
   }
@@ -158,5 +158,3 @@ class App extends Component {
 export default App;
 
 
-{/*<Button className="Button" onClick={() => this.boardButton()} primary>Primary</Button>*/
-}
