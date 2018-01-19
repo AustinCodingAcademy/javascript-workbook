@@ -22,6 +22,7 @@ function sumOfTwoNumbers(num1, num2) {
   return num1 + num2
 };
 
+
 //test if one of two arguments is true
 function oneIsTrue(arg1, arg2){
   if(arg1 || arg2){
