@@ -14,6 +14,7 @@ function findTime(){
 //also displays date
 Date();
 
+
 //convert number to string
 function numToString(num) {
   return num.toString()
