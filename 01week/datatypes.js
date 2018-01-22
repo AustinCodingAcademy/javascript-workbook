@@ -13,8 +13,7 @@ getCurrentDateTime() //call the function
 //Write a javascript program to convert a number to a string
 
 function toString(num) { //create the function with a number argument
-  num = num.toString() //convert the number (num) to a string
-  return num; //return the converted number
+return num.toString() //convert the number (num) to a string
 }
 
 toString(20) //call the function with an argument
@@ -23,8 +22,7 @@ toString(20) //call the function with an argument
 //Write a JavaScript program to convert a string to the number
 
 function toNumber(str) { //create the function with a string argument
-  str = Number(str); //convert the string (str) to a number
-  return str; //return the converted string
+  return Number(str); //convert the string (str) to a number
 }
 
 toNumber('8') //call the function with an argument
@@ -33,8 +31,7 @@ toNumber('8') //call the function with an argument
 //Write a JavaScript program that takes in different datatypes and prints out whether they are a...
 
 function whatIsIt(data) {//create the function with a data argument
-  data = typeof(data)//make data equal to it's data type
-  return data//return the data type
+  return typeof(data)//return the data type
 }
 
 whatIsIt('4')//call the function with an argument
