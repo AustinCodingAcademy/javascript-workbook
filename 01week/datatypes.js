@@ -1,7 +1,7 @@
 'use strict';
 console.log('here');
 //Write a JavaScript program that adds 2 numbers together.
-function sumOfTwoNumbers(num1, mum2) {
+const sumOfTwoNumbers=(num1, mum2)=>{
   return num1 + mum2
 }
 
