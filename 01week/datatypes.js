@@ -26,9 +26,6 @@ function dataType(value) {
   return typeof value
 };
 
-//returns datat type INCLUDING NaN
-typeof
-
 //adds two numbers together
 function sumOfTwoNumbers(num1, num2) {
   return num1 + num2
@@ -50,7 +47,7 @@ function twoAreTrue(arg1, arg2){
 
 //test if one of two arguments is true
 function oneIsTrue(arg1, arg2){
-  if((arg1 || arg2) && !(arg1 && arg2)){
+  if(arg1 || arg2){
     return "one argument is true"
   } else {
     return "nope"
