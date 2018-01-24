@@ -7,47 +7,40 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-// 1. create function that determins if user 1 wins, user 2 wins or it's a tie
-//2. Create fucntion that parses user inputs and formats it correctly
-//2. create a long if/ else/if  test for a tie first, then test for user1 win, ELSE user2 wins
-//3. return the result of the game
-
-// const possibleHands = ['rock', 'paper', 'scissors']
+//1. Create a function that makes entires all lower case and removes whitespace PLUS checks that user inputs are valid
+//2. create function that determins if user 1 wins, user 2 wins or it's a tie ONLY if the validation function passes inside this function, create a long if/ else/if  test for a tie first, then test for user1 win, ELSE user2 wins
+//3. return the result of the game OR "invalid"
 
 
-
-const rockPaperScissors=(hand1, hand2)=> {
-  // Write code here
+const isItValid=(hand1, hand2)=> {//check to see if answers are valid before comparing
   const possibleHands = ["rock", "paper", "scissors"];
-
-  let newHand1 = hand1.toLowerCase().trim();//remove caps and white space
-  let newHand2 = hand2.toLowerCase().trim();//remove caps and white space
-
-  if(possibleHands.includes(newHand1) == true && possibleHands.includes(newHand2) === true) {
-  // if (hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors' && //FIXME
-  // hand2 === 'rock' || hand1 === 'paper' || hand1 === 'scissors')
-  // {
-
-    if (newHand1 === newHand2) {
-      return 'It`s a tie!!'
-    } else if (newHand1 === 'rock' && newHand2 === 'scissors' ||
-    newHand1 === 'scissors' && newHand2 === 'paper' ||
-    newHand1 === 'paper' && newHand2 ==='rock'){
-      return 'Hand 1 wins!!'
-    }else{
-      return 'Hand 2 wins!!'
-    }
-
+  const newHand1 = hand1.toLowerCase().trim();//remove caps and white space
+  const newHand2 = hand2.toLowerCase().trim();//remove caps and white space
+  if(possibleHands.includes(newHand1) === true && possibleHands.includes(newHand2) === true) {
+    return rockPaperScissors(newHand1, newHand2);//run rockPaperScissors() only if both entries are valid
   }else{
-    return 'Inavlid entry!! Please type rock, paper or scissors.'
+    return 'Inavlid entry!! Please type rock, paper or scissors.'//else tell user of invalid entry(ies)
   }
 }
 
-function getPrompt() {
+
+const rockPaperScissors=(newHand1, newHand2)=> {//this runs ONLY if isItValid() passes
+  if (newHand1 === newHand2) {//first check for a tie
+    return 'It`s a tie!!'//if true, it's a tie, if false move on
+  } else if (newHand1 === 'rock' && newHand2 === 'scissors' ||//if no tie, check if hand1 is a winner
+    newHand1 === 'scissors' && newHand2 === 'paper' ||
+    newHand1 === 'paper' && newHand2 ==='rock'){
+    return 'Hand 1 wins!!'//if true, hand1 wins
+  }else{
+    return 'Hand 2 wins!!'//else hand2 wins (no need to set conditions here)
+  }
+
+}
+
+const getPrompt=()=> {//change to ES6 syntax
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log(rockPaperScissors(answer1, answer2));
+      console.log(isItValid(answer1, answer2));//changed this to call the new validation function
       getPrompt();
     });
   });
@@ -79,38 +72,3 @@ if (typeof describe === 'function') {
 
   getPrompt();
 }
-
-//score
-
-
-// const scoreAnalyzer=(score)=> {
-//   if (score >= 80) {
-//     return 'High'
-//   }else if (score < 80 && score >= 60 ){
-//     return 'Average'
-//   }else{
-//     return 'Low'
-//   }
-// }
-
-// scoreAnalyzer(59);
-//
-//
-// //swith
-//
-// const analyzeDataType=(input)=> {
-//   const inputType = typeof input;
-//   switch (inputType) {
-//   case 'number':
-//   case 'boolean':
-//     return 'go ahead'
-//     break;
-//   case 'string':
-//     return false
-//     break;
-//   default:
-//     return 'no'
-//
-//   }
-// }
-// analyzeDataType(false);
