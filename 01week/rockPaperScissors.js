@@ -7,7 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
   if (hand1 === hand2){return "It's a tie!"}
   else if(hand1 === "rock" && hand2=== "scissors"){return "Hand one wins!"}
