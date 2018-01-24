@@ -20,7 +20,7 @@ Scissors beats paper | paper beats rock | rock beats scissors | both hands equal
 2. Create function that determines if user1 wins, user2 wins or it's a tie. Inside this function, create an if else/if else conditional for a tie first, then test for user1 win, ELSE user2 wins
 
 -a tie can be detrmined if both inputs are equal
--a hand1 win can be detrmined by comparing both inputs and accunting for 3 separate ways hand1 could win.
+-a hand1 win can be detrmined by comparing both inputs and accounting for 3 separate ways hand1 could win.
 -a hand2 win does not need to be directly determined, since if a tie or hand1 win has not occured, it's the only other possible outcome.
 3. return the result of the game (hand1 win, hand2 win, tie)
 
