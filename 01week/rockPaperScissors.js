@@ -7,15 +7,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//1. Create a function that makes entires all lower case and removes whitespace PLUS checks that user inputs are valid
-//2. create function that determins if user 1 wins, user 2 wins or it's a tie ONLY if the validation function passes inside this function, create a long if/ else/if  test for a tie first, then test for user1 win, ELSE user2 wins
-//3. return the result of the game OR "invalid"
-
+//Whiteboard plan:
+//1. Create a function that makes inputs all lower case and removes whitespace (and store them in variables) PLUS checks that user inputs are valid. If everything passes, move on to #2 ELSE display "invalid entry"
+//2. Create function that determines if user1 wins, user2 wins or it's a tie. Inside this function, create an if else/if else conditional for a tie first, then test for user1 win, ELSE user2 wins
+//3. return the result of the game (hand1 win, hand2 win, tie)
 
 const isItValid=(hand1, hand2)=> {//check to see if answers are valid before comparing
-  const possibleHands = ["rock", "paper", "scissors"];
+  const possibleHands = ["rock", "paper", "scissors"];//array of valid inputs
   const newHand1 = hand1.toLowerCase().trim();//remove caps and white space
   const newHand2 = hand2.toLowerCase().trim();//remove caps and white space
+
   if(possibleHands.includes(newHand1) === true && possibleHands.includes(newHand2) === true) {
     return rockPaperScissors(newHand1, newHand2);//run rockPaperScissors() only if both entries are valid
   }else{
@@ -34,7 +35,6 @@ const rockPaperScissors=(newHand1, newHand2)=> {//this runs ONLY if isItValid() 
   }else{
     return 'Hand 2 wins!!'//else hand2 wins (no need to set conditions here)
   }
-
 }
 
 const getPrompt=()=> {//change to ES6 syntax
