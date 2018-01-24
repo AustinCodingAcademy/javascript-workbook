@@ -7,10 +7,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//Whiteboard plan:
-//1. Create a function that makes inputs all lower case and removes whitespace (and store them in variables) PLUS checks that user inputs are valid. If everything passes, move on to #2 ELSE display "invalid entry"
-//2. Create function that determines if user1 wins, user2 wins or it's a tie. Inside this function, create an if else/if else conditional for a tie first, then test for user1 win, ELSE user2 wins
-//3. return the result of the game (hand1 win, hand2 win, tie)
+/*Whiteboard plan:
+Rules-
+Scissors beats paper | paper beats rock | rock beats scissors | both hands equal is a tie
+
+1. Create a function that makes inputs all lower case and removes whitespace (and store them in variables) PLUS checks that user inputs are valid. If everything passes, move on to #2 ELSE display "invalid entry"
+
+-use toLowerCase() and trim() to force inputs to lower case and to remove whitespace
+-use includes() to verify that both inputs exactly match the valid options which are stored in an array
+-if both inputs are valid, move onto the next function, if both are not valid, display "invalid input"
+
+2. Create function that determines if user1 wins, user2 wins or it's a tie. Inside this function, create an if else/if else conditional for a tie first, then test for user1 win, ELSE user2 wins
+
+-a tie can be detrmined if both inputs are equal
+-a hand1 win can be detrmined by comparing both inputs and accunting for 3 separate ways hand1 could win.
+-a hand2 win does not need to be directly determined, since if a tie or hand1 win has not occured, it's the only other possible outcome.
+3. return the result of the game (hand1 win, hand2 win, tie)
+
+*/
+
 
 const isItValid=(hand1, hand2)=> {//check to see if answers are valid before comparing
   const possibleHands = ["rock", "paper", "scissors"];//array of valid inputs
