@@ -9,10 +9,29 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  hand1=hand1.toLowerCase();
+  hand2=hand2.toLowerCase();
 
-  // Write code here
-
+  if (hand1===hand2){
+    return 'TIE';
+  }else if (hand1 === 'rock' && hand2 === 'scissors')  {
+    return 'Hand 1 won the Electoral College (but not the popular vote)';
+  }else if (hand1 === 'rock' && hand2 === 'paper'){
+    return 'Hand 2 has the UPPER Hand (is it 2020 yet?)';
+  }else if (hand1 === 'paper' && hand2 === 'rock'){
+    return 'Hand 1 has the EEEEU-gest Hands';
+  }else if (hand1 === 'paper' && hand2 === 'scissors'){
+    return 'Hand 2 has a MUCH bigger nuclear button than Hand 1';
+  }else if (hand1 === 'scissors' && hand2 === 'paper'){
+    return 'Hand 1 is making Rock, Paper, Scissors GREAT Again! (with hats made in Indonesia)';
+  }else if (hand1 === 'scissors' && hand2 === 'rock'){
+    return 'With a little help form the Russians, Hand 2 Wins (but Hand 1 wrote a bestselling book)';
+  }else {
+    return 'BUT HER EMAILS! Give me some good input!';
+  }
 }
+
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
