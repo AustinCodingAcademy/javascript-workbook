@@ -1,3 +1,0 @@
-if("hello"){
-  return "This"
-}else {"That"}
