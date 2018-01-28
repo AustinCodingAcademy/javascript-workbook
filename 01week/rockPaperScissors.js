@@ -1,5 +1,7 @@
 'use strict';
 
+//There are 2 users (User 1 and User 2). There will be 3 functions that will focus on User 1 with a win, loss and a tie.  User 1 will determine the conditional based on the input; rock, paper or scisssors.
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -7,10 +9,9 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
+//Function User 1 rock can win with scissors, lose with paper and tie with rock.
+//Function User 1 paper can win with rock, lose with scissors and tie with paper.
+//Function User 2 scissors can win with paper. lose with rock and tie with scissors.
 
 }
 
