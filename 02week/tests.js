@@ -9,10 +9,9 @@ const rl = readline.createInterface({
 });
 
 
-
-const rockPaperScissors=(hand1, hand2)=>{
-  const hand1 += hand1.toLowerCase().trim()
-  const hand2 += hand2.toLowerCase().trim()
+const rockPaperScissors = (user1, user2) => {
+  const hand1 = user1.toLowerCase().trim()
+  const hand2 = user2.toLowerCase().trim()
   if(possibleHands.includes(hand1) === true && possibleHands.includes(hand2) === true){
       if (hand1 === hand2) {
           return "It's a tie!"
@@ -30,7 +29,7 @@ const rockPaperScissors=(hand1, hand2)=>{
           return "please enter either rock, paper or scissors."
         }
   }
-
+}
 
 
 function getPrompt() {
