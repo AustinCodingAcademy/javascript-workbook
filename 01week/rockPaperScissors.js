@@ -12,6 +12,38 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
+  //First, check for ties
+  if (hand1===hand2) {
+    return "Tie"
+  }
+
+  //Next, check for Hand 1 wins
+  else if (hand1==='rock' && hand2==='sciccors'){
+    return "Hand 1 wins"
+  }
+  else if(hand1==='paper' && hand2==='rock'){
+    return "Hand 1 wins"
+  }
+  else if(hand1==='sciccors' && hand2==='paper'){
+    return "Hand 1 wins"
+  }
+
+  //Now, check for Hand 2 wins
+  else if (hand1==='rock' && hand2==='paper'){
+    return "Hand 2 wins"
+  }
+  else if(hand1==='paper' && hand2==='scissors'){
+    return "Hand 2 wins"
+  }
+  else if(hand1==='scissors' && hand2==='rock'){
+    return "Hand 2 wins"
+  }
+
+  //If none of of the above returns pass, display an error
+  else {
+    return "Error! Accepted inputs are: rock, paper, scissors"
+  }
+
 }
 
 function getPrompt() {
