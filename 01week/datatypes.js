@@ -2,6 +2,7 @@
 //1. Write a JavaScript program that will display current date and time.
 
 function getTime(){
+  console.log('test')
 const currentDate = new Date(),
       day = currentDate.getDate(),
       month = currentDate.getMonth() + 1,
