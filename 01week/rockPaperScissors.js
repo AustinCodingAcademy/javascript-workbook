@@ -45,8 +45,18 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
   });
-} else {
+} else if {
+  it('hand1 should win'), ()
+    assert.equal(rockPaperScissors('rock', 'paper'), "Hand one wins!");
+    assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand one wins!");
+    assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+  getPrompt();
 
+} else {
+  it('hand2 should win'), ()
+    assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
+    assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
+    assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand two wins!");
   getPrompt();
 
 }
