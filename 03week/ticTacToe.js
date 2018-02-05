@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -27,27 +28,35 @@ function printBoard() {
 }
 
 function horizontalWin() {
-
-  if (rowZero[0] === playerTurn && rowZero[1] === playerTurn && rowZero[2] === playerTurn) {
+  if ((rowZero[0] === playerTurn && rowZero[1] === playerTurn && rowZero[2] === playerTurn) ||
+    (rowOne[0] === playerTurn && rowOne[1] === playerTurn && rowOne[2] === playerTurn) ||
+    (rowTwo[0] === playerTurn && rowTwo[1] === playerTurn && rowTwo[2] === playerTurn)){
     console.log(`${playerTurn} wins!`)
   }
 }
 
 function verticalWin() {
-
+  if ((rowZero[0] === playerTurn && rowOne[0] === playerTurn && rowTwo[0] === playerTurn) ||
+    (rowZero[1] === playerTurn && rowOne[1] === playerTurn && rowTwo[1] === playerTurn) ||
+    (rowZero[2] === playerTurn && rowOne[2] === playerTurn && rowTwo[2] === playerTurn)) {
+    console.log(`${playerTurn} wins!`)
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((rowZero[0] === playerTurn && rowOne[1] === playerTurn && rowTwo[2] === playerTurn) ||
+    (rowZero[2] === playerTurn && rowOne[1] === playerTurn && rowTwo[0] === playerTurn)) {
+    console.log(`${playerTurn} wins!`)
+  }
 }
 
 function checkForWin() {
-  console.log('im in checkwin')
   horizontalWin()
+  verticalWin()
+  diagonalWin()
 }
 
 function switchPlayerTurn() {
-  checkForWin();
 
   if (playerTurn === 'X'){
     playerTurn = 'O'
@@ -59,15 +68,17 @@ function switchPlayerTurn() {
 function ticTacToe(row, column) {
 
 
-  if (row === '0') {
+  if (row == 0) {
     rowZero.splice(column, 1, playerTurn)
-  } else if (row === '1'){
+  } else if (row == 1){
     rowOne.splice(column, 1, playerTurn)
-  } else if (row === '2'){
+  } else if (row == 2){
     rowTwo.splice(column, 1, playerTurn)
   }
 
+  console.log(board)
 
+  checkForWin();
   switchPlayerTurn();
 
 }
