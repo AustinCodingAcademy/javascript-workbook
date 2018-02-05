@@ -13,6 +13,9 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let rowZero = board[0]
+let rowOne = board[1]
+let rowTwo = board[2]
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,11 +27,14 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+
+  if (rowZero[0] === playerTurn && rowZero[1] === playerTurn && rowZero[2] === playerTurn) {
+    console.log(`${playerTurn} wins!`)
+  }
 }
 
 function verticalWin() {
-  // Your code here
+
 }
 
 function diagonalWin() {
@@ -36,11 +42,34 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  // Your code here
+  console.log('im in checkwin')
+  horizontalWin()
+}
+
+function switchPlayerTurn() {
+  checkForWin();
+
+  if (playerTurn === 'X'){
+    playerTurn = 'O'
+  } else {
+    playerTurn = 'X'
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+
+
+  if (row === '0') {
+    rowZero.splice(column, 1, playerTurn)
+  } else if (row === '1'){
+    rowOne.splice(column, 1, playerTurn)
+  } else if (row === '2'){
+    rowTwo.splice(column, 1, playerTurn)
+  }
+
+
+  switchPlayerTurn();
+
 }
 
 function getPrompt() {
