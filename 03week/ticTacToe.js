@@ -28,14 +28,17 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  if ((rowZero[0] === playerTurn && rowZero[1] === playerTurn && rowZero[2] === playerTurn) ||
-    (rowOne[0] === playerTurn && rowOne[1] === playerTurn && rowOne[2] === playerTurn) ||
-    (rowTwo[0] === playerTurn && rowTwo[1] === playerTurn && rowTwo[2] === playerTurn)){
+
+  if ((rowZero[0] == playerTurn && rowZero[1] == playerTurn && rowZero[2] == playerTurn) ||
+    (rowOne[0] == playerTurn && rowOne[1] == playerTurn && rowOne[2] == playerTurn) ||
+    (rowTwo[0] == playerTurn && rowTwo[1] == playerTurn && rowTwo[2] == playerTurn)){
     console.log(`${playerTurn} wins!`)
   }
+
 }
 
 function verticalWin() {
+
   if ((rowZero[0] === playerTurn && rowOne[0] === playerTurn && rowTwo[0] === playerTurn) ||
     (rowZero[1] === playerTurn && rowOne[1] === playerTurn && rowTwo[1] === playerTurn) ||
     (rowZero[2] === playerTurn && rowOne[2] === playerTurn && rowTwo[2] === playerTurn)) {
@@ -44,6 +47,7 @@ function verticalWin() {
 }
 
 function diagonalWin() {
+
   if ((rowZero[0] === playerTurn && rowOne[1] === playerTurn && rowTwo[2] === playerTurn) ||
     (rowZero[2] === playerTurn && rowOne[1] === playerTurn && rowTwo[0] === playerTurn)) {
     console.log(`${playerTurn} wins!`)
@@ -75,8 +79,6 @@ function ticTacToe(row, column) {
   } else if (row == 2){
     rowTwo.splice(column, 1, playerTurn)
   }
-
-  console.log(board)
 
   checkForWin();
   switchPlayerTurn();
