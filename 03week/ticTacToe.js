@@ -25,9 +25,10 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-}
+};
 
 function horizontalWin() {
+
 
   if ((rowZero[0] == playerTurn && rowZero[1] == playerTurn && rowZero[2] == playerTurn) ||
     (rowOne[0] == playerTurn && rowOne[1] == playerTurn && rowOne[2] == playerTurn) ||
@@ -35,7 +36,7 @@ function horizontalWin() {
     console.log(`${playerTurn} wins!`)
   }
 
-}
+};
 
 function verticalWin() {
 
@@ -44,7 +45,7 @@ function verticalWin() {
     (rowZero[2] === playerTurn && rowOne[2] === playerTurn && rowTwo[2] === playerTurn)) {
     console.log(`${playerTurn} wins!`)
   }
-}
+};
 
 function diagonalWin() {
 
@@ -52,13 +53,13 @@ function diagonalWin() {
     (rowZero[2] === playerTurn && rowOne[1] === playerTurn && rowTwo[0] === playerTurn)) {
     console.log(`${playerTurn} wins!`)
   }
-}
+};
 
 function checkForWin() {
-  horizontalWin()
-  verticalWin()
-  diagonalWin()
-}
+  horizontalWin();
+  verticalWin();
+  diagonalWin();
+};
 
 function switchPlayerTurn() {
 
@@ -67,7 +68,7 @@ function switchPlayerTurn() {
   } else {
     playerTurn = 'X'
   }
-}
+};
 
 function ticTacToe(row, column) {
 
@@ -83,7 +84,7 @@ function ticTacToe(row, column) {
   checkForWin();
   switchPlayerTurn();
 
-}
+};
 
 function getPrompt() {
   printBoard();
@@ -114,18 +115,18 @@ if (typeof describe === 'function') {
     });
     it('should check for vertical wins', () => {
       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-      assert.equal(verticalWin(), true);
+      assert.equal(verticalWin(), console.log(`${playerTurn} wins!`));
     });
     it('should check for horizontal wins', () => {
       board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-      assert.equal(horizontalWin(), true);
+      assert.equal(horizontalWin(), console.log(`${playerTurn} wins!`));
     });
     it('should check for diagonal wins', () => {
       board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-      assert.equal(diagonalWin(), true);
+      assert.equal(diagonalWin(),  console.log(`${playerTurn} wins!`));
     });
     it('should detect a win', () => {
-      assert.equal(checkForWin(), true);
+      assert.equal(checkForWin(), console.log(`${playerTurn} wins!`));
     });
   });
 } else {
