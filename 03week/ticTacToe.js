@@ -14,6 +14,9 @@ let board = [
 ];
 
 let playerTurn = 'X';
+
+//each row on the board is a seperate array. Each of these arrays are set to a
+//different variable to more easily mainpulate them
 let rowZero = board[0]
 let rowOne = board[1]
 let rowTwo = board[2]
@@ -28,8 +31,7 @@ function printBoard() {
 };
 
 function horizontalWin() {
-
-
+//checks for the 3 cases of a horizontal win
   if ((rowZero[0] == playerTurn && rowZero[1] == playerTurn && rowZero[2] == playerTurn) ||
     (rowOne[0] == playerTurn && rowOne[1] == playerTurn && rowOne[2] == playerTurn) ||
     (rowTwo[0] == playerTurn && rowTwo[1] == playerTurn && rowTwo[2] == playerTurn)){
@@ -39,7 +41,7 @@ function horizontalWin() {
 };
 
 function verticalWin() {
-
+//checks for the 3 cases of a vert win
   if ((rowZero[0] === playerTurn && rowOne[0] === playerTurn && rowTwo[0] === playerTurn) ||
     (rowZero[1] === playerTurn && rowOne[1] === playerTurn && rowTwo[1] === playerTurn) ||
     (rowZero[2] === playerTurn && rowOne[2] === playerTurn && rowTwo[2] === playerTurn)) {
@@ -48,21 +50,24 @@ function verticalWin() {
 };
 
 function diagonalWin() {
-
+//checks for last 2 cases of win, diagonally
   if ((rowZero[0] === playerTurn && rowOne[1] === playerTurn && rowTwo[2] === playerTurn) ||
     (rowZero[2] === playerTurn && rowOne[1] === playerTurn && rowTwo[0] === playerTurn)) {
     console.log(`${playerTurn} wins!`)
   }
 };
 
+
 function checkForWin() {
+  //8 winning cases are checked with these 3 seperate functions
   horizontalWin();
   verticalWin();
   diagonalWin();
+
 };
 
 function switchPlayerTurn() {
-
+//checks for which playerTurn it is and alternates back and forth each turn
   if (playerTurn === 'X'){
     playerTurn = 'O'
   } else {
@@ -71,8 +76,8 @@ function switchPlayerTurn() {
 };
 
 function ticTacToe(row, column) {
-
-
+  //using splice() to delete index (indicated by column input) in
+  //array (indicated by row input)  and replacing with playerTurn
   if (row == 0) {
     rowZero.splice(column, 1, playerTurn)
   } else if (row == 1){
@@ -82,7 +87,7 @@ function ticTacToe(row, column) {
   }
 
   checkForWin();
-  switchPlayerTurn();
+  switchPlayerTurn();//switches player turn ONLY after board is set and win is checked for
 
 };
 
