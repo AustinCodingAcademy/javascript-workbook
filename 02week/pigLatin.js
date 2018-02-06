@@ -39,7 +39,7 @@ function pigLatin() {
 
 
 function getPrompt() {
-  rl.question('orange ', (answer) => {
+  rl.question('consonant', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
