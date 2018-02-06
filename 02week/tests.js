@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 const possibleHands = ["rock", "paper", "scissors"];
 const assert = require('assert');
