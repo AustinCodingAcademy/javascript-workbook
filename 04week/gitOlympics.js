@@ -1,7 +1,8 @@
 'use strict';
 
+const olympain = ['Athena', 'Apollo', 'Aphrodite', 'Ares', 'Artemis']
+
 const printListOfOlympians = () => {
-  const olympain = ['Athena', 'Apollo', 'Aphrodite', 'Ares', 'Artemis']
   olympain.forEach((olympian) => {
     console.log(olympian, 'olympain')
   })
