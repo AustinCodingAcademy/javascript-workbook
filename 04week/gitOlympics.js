@@ -8,3 +8,5 @@ const printListOfOlympians = () => {
 }
 
 printListOfOlympians()
+
+console.log('Hello World!')
