@@ -25,10 +25,8 @@ const rockPaperScissors = (user1, user2) => {
                  (hand1 === "paper" && hand2 === "scissors") ||
                  (hand1 === "scissors" && hand2 === "rock")) {
           return "Hand two wins!"
-        } else {
-          return "please enter either rock, paper or scissors."
         }
-  }
+  }else{return "please enter either rock, paper or scissors."}
 }
 
 
@@ -57,9 +55,9 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
     });
     it('should detect when the input is valid', () => {
-      assert.equal(rockPaperScissors('stone', 'book'), false );
-      assert.equal(rockPaperScissors('hello', 'knives'), false);
-      assert.equal(rockPaperScissors('stone ', 'knives'), false);
+      assert.equal(rockPaperScissors('stone', 'book'), "please enter either rock, paper or scissors." );
+      assert.equal(rockPaperScissors('hello', 'knives'), "please enter either rock, paper or scissors.");
+      assert.equal(rockPaperScissors('stone ', 'knives'), "please enter either rock, paper or scissors.");
     });
   });
 }
