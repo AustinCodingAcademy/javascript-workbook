@@ -7,3 +7,5 @@ const printListOfOlympians = (userArr)=> {
 }
 
 printListOfOlympians (['Amy','Bill','Phil','Sara','Liv'] )
+
+//Made a change to commit. 
