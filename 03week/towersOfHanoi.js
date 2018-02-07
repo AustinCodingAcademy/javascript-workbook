@@ -20,17 +20,17 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
+  // This function will say which piece will move to which stack.
 
 }
 
 function isLegal() {
-  // Your code here
+  // Checks to see if a smaller number is already there in that stack (illegal)-- if it is empty or larger, it is a legal move.
 
 }
 
 function checkForWin() {
-  // Your code here
+  // check and see if the array [4,3,2,1] is stacked in order on stack c.
 
 }
 
@@ -51,4 +51,4 @@ function getPrompt() {
 
 getPrompt();
 
-
+test
