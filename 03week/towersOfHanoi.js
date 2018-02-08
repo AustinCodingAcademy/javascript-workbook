@@ -22,6 +22,8 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
+  //should pop last piece
+  //unshift that piece onto new tower
 
 }
 
@@ -35,6 +37,7 @@ function isLegal() {
 function checkForWin() {
   // Your code here
   //if c: [4, 3, 2, 1] then you win
+  //will not work if stacked on b--jk
 }
 
 function towersOfHanoi(startStack, endStack) {
