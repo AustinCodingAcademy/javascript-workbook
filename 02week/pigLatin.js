@@ -9,8 +9,15 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+    //This code classifies the vowels so that the words can be searched for vowels.
+    const vowelArray = ['a', 'e', 'i', 'o', 'u'];
 
-  // Your code here
+
+     //This code trims the word and changes it all to lowercase.
+     word = word.toLowerCase().trim();
+
+     //This code splits the string into individual letters, so each letter may be looped individually.
+     let wordArray = word.split('');
 
 }
 
