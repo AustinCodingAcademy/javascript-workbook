@@ -19,6 +19,25 @@ function pigLatin(word) {
      //This code splits the string into individual letters, so each letter may be looped individually.
      let wordArray = word.split('');
 
+     let counter = 0;
+     while(!isAVowel(wordArray[0])) {
+       wordArray.push(wordArray.shift());
+       counter++;
+     }
+     if(counter === 0) {
+       return wordArray.join('') + 'yay';
+     } else {
+       return wordArray.join('') + 'ay';
+     }
+   }
+   //This checks to see if a vowel is present.
+   const isAVowel = (letter) => {
+     if(letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+       return true;
+     } else {
+       return false;
+     }
+    }
 
 }
 
