@@ -77,7 +77,7 @@ const towersOfHanoi = (startStack, endStack) => {
     movePiece(startStack, endStack)
   }
   if (checkForWin()) { // check for win will be called each time to see if the user has won.  If the winner has won, the user will receive a message and the board will re-set.  It gets printed in the in the getPrompt funciton below
-    console.log('winner winner chicken dinner');
+    // console.log('winner winner chicken dinner');
     stacks = {
       a: [4, 3, 2, 1],
       b: [],
@@ -105,7 +105,7 @@ if (typeof describe === 'function') {
 
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
-      towersOfHanoi('a', 'c');
+      towersOfHanoi('a', 'b');
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
