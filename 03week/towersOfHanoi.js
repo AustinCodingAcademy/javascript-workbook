@@ -24,14 +24,8 @@ const movePiece = (startStack, endStack) => {
   return stacks[endStack].push(stacks[startStack].pop());
   //This function will take the last array value in startStack, and will move it to the last position in the endStack.
 }
-
-function isLegal() {
-  // pop it and push it to the end of the array, then call the checkforwin function.
-
-}
-
-function checkForWin() {
-    const checkForWin = () => {
+const checkForWin = () => {
+//This will check to see if there are 4 pieces in stack c.
    if (stacks.c.length === 4) {
       return true;
   }else{
@@ -40,6 +34,7 @@ function checkForWin() {
  }
 }
 const isLegal = (startStack, endStack) => {
+// This will pop it and push it to the end of the array, then call the checkforwin function.
   let startTest = stacks[startStack][stacks[startStack].length - 1];
   let endTest = stacks[endStack][stacks[endStack].length - 1];
 
