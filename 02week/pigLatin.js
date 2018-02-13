@@ -3,16 +3,33 @@
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+ input: process.stdin,
+ output: process.stdout
 });
 
+const pigLatin = (input) => {
+  const vowelArray = ["a","e","i","o","u"]
+  if(typeof input === typeof "String"){
+    input = input.trim().toLowerCase()
+    if(vowelArray.includes(input[0])){
+      return input + "yay"
+    }else{
+       let lowestVowelIndex = 45
+       let splitLetter
+       vowelArray.forEach((vowel)=> {
+         let vowelIndex = input.indexOf(vowel)
+         if((vowelIndex > -1) && (vowelIndex < lowestVowelIndex)){
+           lowestVowelIndex = vowelIndex
+           splitLetter = input[lowestVowelIndex]
+          }
+       })
+       return input.substr(lowestVowelIndex) + input.split(splitLetter)[0] + "ay"
+   }
+  }else {'please enter a word to be translated'}
+ }
 
-function pigLatin(word) {
 
-  // Your code here
 
-}
 
 
 function getPrompt() {
@@ -22,7 +39,7 @@ function getPrompt() {
   });
 }
 
-// Tests
+
 
 if (typeof describe === 'function') {
 
