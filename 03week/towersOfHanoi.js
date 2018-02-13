@@ -19,23 +19,58 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // This function will say which piece will move to which stack.
+function movePiece(startStack, endStack) {
+  return stacks[endStack].push(stacks[startStack].pop());
+
+  //
 
 }
 
 function isLegal() {
-  // Checks to see if a smaller number is already there in that stack (illegal)-- if it is empty or larger, it is a legal move.
+  // pop it and push it to the end of the array, then call the checkforwin function.
 
 }
 
 function checkForWin() {
-  // check and see if the array [4,3,2,1] is stacked in order on stack c.
+  // Your code here
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  if ((startStack === 'a') && (endStack === 'b' || endStack === 'c')) {
+    console.log('stackTest True')
+    return true;
+  } else if ((startStack === 'b') && (endStack === 'a' || endStack === 'c')) {
+    console.log('stackTest True')
+    return true;
+  } else if ((startStack === 'c') && (endStack === 'a' || endStack === 'b')) {
+    console.log('stackTest True')
+    return true;
+  }
+}
+const isLegal = (startStack, endStack) => {
+  let startTest = stacks[startStack][stacks[startStack].length - 1];
+  let endTest = stacks[endStack][stacks[endStack].length - 1];
+
+
+  if ((startTest < endTest) || (stacks[endStack].length === 0)) {
+    return true;
+  } else {
+    return false;
+  }
+  // if ((stacks[endStack].length === 0) || (stacks[startStack].length -1) < (stacks[endStack].length -1)){
+  //   return true;
+  // }else{
+  //   console.log('not working');
+}
+
+
+// stackTest(startStack,endStack);
+// let pieceTest = false;
+
+
+
+// console.log('stack test = ' + stackTest);
 
 }
 
@@ -50,5 +85,3 @@ function getPrompt() {
 }
 
 getPrompt();
-
-test
