@@ -13,17 +13,16 @@ let stacks = {
   c: []
 };
 
-function printStacks() {
+const printStacks = () => {
+//This function will show the playing board on the console.
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-function movePiece(startStack, endStack) {
+const movePiece = (startStack, endStack) => {
   return stacks[endStack].push(stacks[startStack].pop());
-
-  //
-
+  //This function will take the last array value in startStack, and will move it to the last position in the endStack.
 }
 
 function isLegal() {
@@ -32,47 +31,57 @@ function isLegal() {
 }
 
 function checkForWin() {
-  // Your code here
-
-}
-
-function towersOfHanoi(startStack, endStack) {
-  if ((startStack === 'a') && (endStack === 'b' || endStack === 'c')) {
-    console.log('stackTest True')
-    return true;
-  } else if ((startStack === 'b') && (endStack === 'a' || endStack === 'c')) {
-    console.log('stackTest True')
-    return true;
-  } else if ((startStack === 'c') && (endStack === 'a' || endStack === 'b')) {
-    console.log('stackTest True')
-    return true;
+    const checkForWin = () => {
+   if (stacks.c.length === 4) {
+      return true;
+  }else{
+      return false;
   }
+ }
 }
 const isLegal = (startStack, endStack) => {
   let startTest = stacks[startStack][stacks[startStack].length - 1];
   let endTest = stacks[endStack][stacks[endStack].length - 1];
 
-
-  if ((startTest < endTest) || (stacks[endStack].length === 0)) {
-    return true;
-  } else {
-    return false;
-  }
-  // if ((stacks[endStack].length === 0) || (stacks[startStack].length -1) < (stacks[endStack].length -1)){
-  //   return true;
-  // }else{
-  //   console.log('not working');
+    if ((startTest < endTest) || (stacks[endStack].length === 0)) {
+      return true;
+    } else {
+      console.log('Nope.')
+      return false;
+    } else{
+      console.log(' This is not working.');
+    }
 }
-
-
-// stackTest(startStack,endStack);
-// let pieceTest = false;
-
-
-
-// console.log('stack test = ' + stackTest);
-
+  const stackTest = (startStack, endStack) => {
+    if ((startStack === 'a') && (endStack === 'b' || endStack === 'c')) {
+      console.log('The stackTest is True.')
+      return true;
+    } else if ((startStack === 'b') && (endStack === 'a' || endStack === 'c')) {
+      console.log('The stackTest is True.')
+      return true;
+    } else if ((startStack === 'c') && (endStack === 'a' || endStack === 'b')) {
+      console.log('The stackTest is True.')
+      return true;
+    }
+  console.log('stack test = ' + stackTest);
 }
+ const towersOfHanoi = (startStack, endStack) => {
+    if (isLegal(startStack, endStack)) {
+      // If isLegal is true, then cue movePiece
+      movePiece(startStack, endStack)
+   } else {
+     return 'This move is not legal.'
+   }if (checkForWin()){
+     console.log('You won!')
+   }
+   if (checkForWin()) {
+     console.log('You won!');
+     stacks = {
+       a: [4, 3, 2, 1],
+       b: [],
+       c: []
+    };
+    }
 
 function getPrompt() {
   printStacks();
