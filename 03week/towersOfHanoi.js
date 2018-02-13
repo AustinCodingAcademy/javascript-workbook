@@ -25,15 +25,15 @@ const movePiece = (startStack, endStack) => {
   //This function will take the last array value in startStack, and will move it to the last position in the endStack.
 };
 const checkForWin = () => {
-//This will check to see if there are 4 pieces in stack c.
-   if (stacks.c.length === 4) {
-      return true;
+//This will check to see if there is an array [4,3,2,1] in stack c.
+  if (stacks.c.length === 4) {
+    return true;
   }else{
-      return false;
+    return false;
   }
 };
 const isLegal = (startStack, endStack) => {
-// This will pop it and push it to the end of the array, then call the checkforwin function.
+// This will check to see if a smaller number is already in a stack, and if it is empty or a larger number is in that stack, it is a legal move.
   if (stackTest(startStack, endStack)){
     let startTest = stacks[startStack][stacks[startStack].length - 1];
     let endTest = stacks[endStack][stacks[endStack].length - 1];
@@ -47,31 +47,31 @@ const isLegal = (startStack, endStack) => {
   }
 };
 const stackTest = (startStack, endStack) => {
-    if ((startStack === 'a') && (endStack === 'b' || endStack === 'c')) {
-      console.log('The stackTest is True.');
+  if ((startStack === 'a') && (endStack === 'b' || endStack === 'c')) {
+      //console.log('The stackTest is True.');
       return true;
-    } else if ((startStack === 'b') && (endStack === 'a' || endStack === 'c')) {
-      console.log('The stackTest is True.');
+  } else if ((startStack === 'b') && (endStack === 'a' || endStack === 'c')) {
+      //console.log('The stackTest is True.');
       return true;
-    } else if ((startStack === 'c') && (endStack === 'a' || endStack === 'b')) {
-      console.log('The stackTest is True.');
+  } else if ((startStack === 'c') && (endStack === 'a' || endStack === 'b')) {
+      //console.log('The stackTest is True.');
       return true;
-    }
+  }
   //console.log('stack test = ' + stackTest);
 };
 const towersOfHanoi = (startStack, endStack) => {
-    if (isLegal(startStack, endStack)) {
+  if (isLegal(startStack, endStack)) {
       // If isLegal is true, then cue movePiece
-      movePiece(startStack, endStack);
-   } else {
-     return 'This move is not legal.';
+    movePiece(startStack, endStack);
+  } else {
+    return 'This move is not legal.';
    }
-   if (checkForWin()) {
-     console.log('You won!');
-     stacks = {
-       a: [4, 3, 2, 1],
-       b: [],
-       c: []
+  if (checkForWin()) {
+    console.log('You won!');
+    stacks = {
+     a: [4, 3, 2, 1],
+     b: [],
+     c: []
     };
   }
 };
