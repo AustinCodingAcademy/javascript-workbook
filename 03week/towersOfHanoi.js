@@ -78,7 +78,7 @@ const movePiece = (startStack, endStack) => {
 
 //determines if move is legal, and if so, allows move to be made
 const isLegal = (startStack, endStack) => {
-if (stacks[startStack].length === 0){ /*cannot draw from an empty stack*/
+  if (stacks[startStack].length === 0){ /*cannot draw from an empty stack*/
     console.log('--Nice try, loser. google the rules')
     return true
   }else if (stacks[startStack][stacks[startStack].length-1] > stacks[endStack][stacks[endStack].length-1]) {
@@ -101,8 +101,8 @@ const checkForWin = () => {
 
 //starts a new game after the old one has been completed
 const startNewGame = () => {
-console.log('')
-console.log("NEW GAME")
+  console.log('')
+  console.log("NEW GAME")
   stacks = {
     a: [4, 3, 2, 1],
     b: [],
