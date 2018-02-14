@@ -57,14 +57,19 @@ const checkMoveCounter = (moveCounter) => {
 //finalArray variable and winningArray variable both declared in the checkForWin function
 //are equal to each other.
 const compareWinningArrays = (finalArray, winningArray) => {
-  if(finalArray.length == winningArray.length){
-    for(var i = 0 ; i = finalArray.length; i++){
-      if(finalArray[i] === winningArray[i]){
-          return true;
-      }else return false
-    }
-  }
+   winningArray.forEach((num, key)=> {
+      if(finalArray[key] === num){
+         return true
+      }
+   })
 }
+// if(finalArray.length == winningArray.length){
+//   for(var i = 0 ; i = finalArray.length; i++){
+//     if(finalArray[i] === winningArray[i]){
+//         return true;
+//     }else return false
+//   }
+// }
 
 //the checkForWin function calls the compareWinningArrays function and checkMoveCounter function
 //to check for a winning score.
