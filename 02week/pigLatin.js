@@ -8,15 +8,38 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin() {
+  return
+}
 
   // Your code here
 
-}
+  const pigLatinGame = (str) => {
+
+    //looking for the first vowel occurring vowel
+    const firstVowel = str.match(/[aeiou]/);
+
+    //using the indexOf() method of the string searching within the firstVowel
+    const firstVowelPosition = str.indexOf(firstVowel);
+
+    //console.log(firstVowelPosition)
+
+    //if the first position is greater than the index 0; if it doesnt start with a vowel,
+    //return using the str.slice() method to chance when there is a vowel and add'ay'
+    if(firstVowelPosition > 0) {
+      return str.slice(firstVowelPosition) + str.slice(0, firstVowelPosition) + 'ay';
+    }
+    // if the word does not start with a vowel add 'way'
+    return str + 'way';
+  }
+
+
+
+  pigLatinGame('consonant');
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('consonant', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
