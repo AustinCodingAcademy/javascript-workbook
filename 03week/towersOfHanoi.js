@@ -107,4 +107,31 @@ function getPrompt() {
 }
 
 getPrompt();
-//third commit
+
+
+//tests
+if (typeof describe === 'function') {
+
+  describe('#towersOfHanoi()', () => {
+    it('should count the number of moves', () => {
+      assert.equal(pigLatin(''), '');
+      assert.equal(pigLatin(''), '');
+    });
+    it('', () => {
+      assert.equal(pigLatin(''), '');
+      assert.equal(pigLatin(''), '');
+    });
+    it('', () => {
+      assert.equal(pigLatin(''), '');
+      assert.equal(pigLatin(''), '');
+    });
+    it('', () => {
+      assert.equal(pigLatin(' '), '');
+      assert.equal(pigLatin(' '), '');
+    });
+  });
+} else {
+
+  getPrompt();
+
+}
