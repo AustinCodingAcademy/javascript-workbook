@@ -36,3 +36,11 @@ for(num=1; num<=1000; num++) {
 
 // do...while loop
 // Use a do...while loop to console.log the numbers from 1 to 1000.
+
+var numWhile = 1;
+
+do {
+  numWhile++;
+  console.log(numWhile);
+
+} while (numWhile<=999);
