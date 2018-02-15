@@ -7,12 +7,37 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//This checks to see if a vowel is present.
+const isAVowel = (letter) => {
+if(letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+  return true;
+} else {
+  return false;
+}
+}
 
 function pigLatin(word) {
+    //This code classifies the vowels so that the words can be searched for vowels.
+    const vowelArray = ['a', 'e', 'i', 'o', 'u'];
 
-  // Your code here
 
-}
+     //This code trims the word and changes it all to lowercase.
+     word = word.toLowerCase().trim();
+
+     //This code splits the string into individual letters, so each letter may be looped individually.
+     let wordArray = word.split('');
+
+     let counter = 0;
+     while(!isAVowel(wordArray[0])) {
+       wordArray.push(wordArray.shift());
+       counter++;
+     }
+     if(counter === 0) {
+       return wordArray.join('') + 'yay';
+     } else {
+       return wordArray.join('') + 'ay';
+     }
+   }
 
 
 function getPrompt() {
