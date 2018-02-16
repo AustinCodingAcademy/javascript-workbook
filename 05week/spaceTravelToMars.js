@@ -10,6 +10,45 @@ let jobTypes = {
 };
 
 // Your code here
+// Create a class called called CrewMember
+    //Name
+    //Job
+    //Special Skill
+    //Ship 
+      //Find ships abilities
+    //enterShip()
+      //push crewmemer name to ship
+      //push ship to crewmember (ship property within crewmember)
+
+class CreMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+}
+
+
+//Create a class called Ship
+    //Name
+    //Type
+    //Ability (determines mission statement)
+    //missionSatement() pr
+    //extend crewmemeber information []
+
+class Ship {
+  constructor(name, type, ability){
+    this.name = name;
+    this.type = type; 
+    this.ability = ability;
+  }
+  
+}
+
+
+//Class communication 
+
 
 //tests
 if (typeof describe === 'function'){
