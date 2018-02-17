@@ -10,6 +10,11 @@ let jobTypes = {
 };
 
 // Your code here
+// Create Class CrewMember and make (name, job, specialSkill, ship)
+// Rick Martinez is the new CrewMember with (name, job, specialSkill)
+// Another Class to describe the ship and with it adding a new class, 'ability'
+// mission statement for method added in Ship
+
 
 //tests
 if (typeof describe === 'function'){
