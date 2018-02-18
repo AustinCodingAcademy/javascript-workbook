@@ -26,6 +26,10 @@ class CreMember {
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
+
+    const enterShip = (ship) => {
+
+    }
   }
 }
 
@@ -42,8 +46,11 @@ class Ship {
     this.name = name;
     this.type = type; 
     this.ability = ability;
-  }
   
+    const missionStatement = (ability) => {
+      
+    }
+  }
 }
 
 
