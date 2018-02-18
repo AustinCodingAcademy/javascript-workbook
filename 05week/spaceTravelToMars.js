@@ -20,16 +20,16 @@ let jobTypes = {
       //push crewmemer name to ship
       //push ship to crewmember (ship property within crewmember)
 
-class CreMember {
+class CrewMember {
   constructor(name, job, specialSkill, ship){
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
-
-    const enterShip = (ship) => {
-
-    }
+  }
+  enterShip(shipCheck) {
+    this.ship = shipCheck;
+     shipCheck.crew.push(this);
   }
 }
 
@@ -46,13 +46,21 @@ class Ship {
     this.name = name;
     this.type = type; 
     this.ability = ability;
-  
-    const missionStatement = (ability) => {
-      
-    }
+    this.crew = [];
+  }
+  missionStatement(mission) {
+    if (this.crew.length) {
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet."
+    }  
   }
 }
 
+let CrewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+let CrewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
 
 //Class communication 
 
