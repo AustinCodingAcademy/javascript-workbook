@@ -20,9 +20,9 @@ let jobTypes = {
       //push crewmemer name to ship
       //push ship to crewmember (ship property within crewmember)
 
-class CreMember {
-  constructor(name, job, specialSkill, ship){
-    this.name = name;
+class CrewMember {
+  constructor(crewName, job, specialSkill, ship){
+    this.crewName = crewName;
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
@@ -37,9 +37,10 @@ class CreMember {
     //missionSatement() pr
     //extend crewmemeber information []
 
-class Ship {
-  constructor(name, type, ability){
-    this.name = name;
+class Ship extends CrewMember {
+  constructor(shipName, type, ability, crewName, job){
+    super(crewName, job)
+    this.shipName = name;
     this.type = type; 
     this.ability = ability;
   }
