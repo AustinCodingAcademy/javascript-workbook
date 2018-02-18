@@ -11,10 +11,7 @@ let jobTypes = {
 
 // Your code here
 // Create a class called called CrewMember
-    //Name
-    //Job
-    //Special Skill
-    //Ship 
+    //Name, Job, Special Skill, Ship 
       //Find ships abilities
     //enterShip()
       //push crewmemer name to ship
@@ -35,14 +32,12 @@ class CrewMember {
 
 
 //Create a class called Ship
-    //Name
-    //Type
-    //Ability (determines mission statement)
-    //missionSatement() pr
-    //extend crewmemeber information []
+    //Name, Type, Ability (determines mission statement)
+    //missionSatement() 
+      //check abilitys for mission
 
 class Ship {
-  constructor(name, type, ability){
+  constructor(name, type, ability, crew){
     this.name = name;
     this.type = type; 
     this.ability = ability;
@@ -61,8 +56,6 @@ let CrewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 let CrewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
 let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
-
-//Class communication 
 
 
 //tests
