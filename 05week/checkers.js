@@ -12,10 +12,12 @@ function Checker() {
   // Your code here
 }
 
-function Board() {
-  this.grid = [];
-  // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
+class Board {
+  constructor() {
+    this.grid = []
+  }
+  // method that creates an 8x8 array, filled with null values
+  createGrid() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -24,10 +26,8 @@ function Board() {
         this.grid[row].push(null);
       }
     }
-  };
-
-  // prints out the board
-  this.viewGrid = function() {
+  }
+  viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -50,18 +50,18 @@ function Board() {
       string += "\n";
     }
     console.log(string);
-  };
+  }
 
   // Your code here
 }
-function Game() {
 
-  this.board = new Board();
-
-  this.start = function() {
+class Game {
+  constructor() {
+    this.board = new Board;
+  }
+  start() {
     this.board.createGrid();
-    // Your code here
-  };
+  }
 }
 
 function getPrompt() {
@@ -79,7 +79,6 @@ game.start();
 
 
 // Tests
-
 if (typeof describe === 'function') {
   describe('Game', () => {
     it('should have a board', () => {
@@ -90,8 +89,8 @@ if (typeof describe === 'function') {
     });
   });
 
-  describe('Game.moveChecker()', function () {
-    it('should move a checker', function () {
+  describe('Game.moveChecker()', () => {
+    it('should move a checker', () => {
       assert(!game.board.grid[4][1]);
       game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
