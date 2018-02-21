@@ -9,12 +9,45 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Notes
 // Create Class CrewMember and make (name, job, specialSkill, ship)
 // Rick Martinez is the new CrewMember with (name, job, specialSkill)
 // Another Class to describe the ship and with it adding a new class, 'ability'
 // mission statement for method added in Ship
 
+
+// Your code here
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  this.enterShip = function(ship) {
+    ship.crew.push(this);
+    this.ship = ship;
+  }
+}
+
+const newMember = new CrewMember ('Commander Lewis')
+console.log(newMember)
+
+class Ship {
+  constructor(name, type, ability, crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement() {
+    if(crewMember job matches the ship type){
+      console.log(this.ability)
+    } else {
+      console.log('Cant run missionStatement. Mission Failed.')
+    }
+  }
+}
 
 //tests
 if (typeof describe === 'function'){
