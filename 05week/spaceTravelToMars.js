@@ -11,17 +11,36 @@ let jobTypes = {
 
 // Your code here
 class CrewMember {
-  constructor(name, job, specialSkill, ship){
+  constructor(name, job, specialSkill){
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
-    this.ship = null
+    this.ship = null;
   }
-
+  enterShip(ship){
+    this.ship = ship
+    ship.crew.push(this)
+  }
 }
-var crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry')
 
-//tests
+
+class Ship {
+  constructor(name, type, ability, crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement(){
+    if(this.crew.length){
+      return this.ability
+    }else {
+      return "Can't perform a mission yet."
+    }
+  }
+}
+
+ //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
