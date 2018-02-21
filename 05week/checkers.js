@@ -13,7 +13,7 @@ function Checker() {
 }
 
 class Board {
-  constructor(){
+  constructor() {
     this.grid = []
   }
   // method that creates an 8x8 array, filled with null values
@@ -27,7 +27,7 @@ class Board {
       }
     }
   }
-  viewGrid(){
+  viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -56,7 +56,7 @@ class Board {
 }
 
 class Game {
-  constructor(){
+  constructor() {
     this.board = new Board;
   }
   start() {
@@ -89,8 +89,8 @@ if (typeof describe === 'function') {
     });
   });
 
-  describe('Game.moveChecker()', function () {
-    it('should move a checker', function () {
+  describe('Game.moveChecker()', () => {
+    it('should move a checker', () => {
       assert(!game.board.grid[4][1]);
       game.moveChecker('50', '41');
       assert(game.board.grid[4][1]);
