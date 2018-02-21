@@ -4,8 +4,6 @@
 # Austin Coding Academy
 
 ## JavaScript Workbook
-This is my workbook! 
--Clayton
 
 ### Claiming your workbook
 1. Click the 'Fork' button (choose your account if prompted).
