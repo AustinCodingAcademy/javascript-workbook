@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "htmllint {*.html,./**/*.html} && stylelint ./**/*.css && eslint .",
-    "test": "mocha",
+    "test": "mocha --no-timeouts",
     "start": "cd . && http-server -c-1",
     "javascripting": "javascripting",
     "functional-javascript": "functional-javascript"
