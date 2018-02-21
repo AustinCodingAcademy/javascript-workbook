@@ -9,7 +9,7 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// create a class named CrewMember that takes in the 3 arguments
 class CrewMember {
   constructor(name, job, specialSkill){
     this.name = name;
