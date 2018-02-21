@@ -29,37 +29,26 @@ const printBoard = () => {
 // wins based if certain combinations of board array values are the same.
 
 const horizontalWin = () => {
-  if((board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") ||
-     (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") ||
-     (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X")){
+  if((board[0][0] === player && board[0][1] === player && board[0][2] === player) ||
+     (board[1][0] === player && board[1][1] === player && board[1][2] === player) ||
+     (board[2][0] === player && board[2][1] === player && board[2][2] === player)){
      return true
-  }else if((board[0][0] === "O" && board[0][1] === "O" && board[0][2] === "O") ||
-     (board[1][0] === "O" && board[1][1] === "O" && board[1][2] === "O") ||
-     (board[2][0] === "O" && board[2][1] === "O" && board[2][2] === "O")){
-     return true
-   }
+  }
 }
 
 const verticalWin = () => {
-  if((board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") ||
-     (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") ||
-     (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X")){
+  if((board[0][0] === player && board[1][0] === player && board[2][0] === player) ||
+     (board[0][1] === player && board[1][1] === player && board[2][1] === player) ||
+     (board[0][2] === player && board[1][2] === player && board[2][2] === player)){
      return  true
-  } else if((board[0][0] === "O" && board[1][0] === "O" && board[2][0] === "O") ||
-     (board[0][1] === "O" && board[1][1] === "O" && board[2][1] === "O") ||
-     (board[0][2] === "O" && board[1][2] === "O" && board[2][2] === "O")){
-     return  true
-   }
+  }
 }
 
 const diagonalWin = () => {
-  if((board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") ||
-     (board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X")){
+  if((board[0][0] === player && board[1][1] === player && board[2][2] === player) ||
+     (board[0][2] === player && board[1][1] === player && board[2][0] === player)){
      return true
-  }else if((board[0][0] === "O" && board[1][1] === "O" && board[2][2] === "O") ||
-     (board[0][2] === "O" && board[1][1] === "O" && board[2][0] === "O")){
-     return true
-   }
+  }
 }
 
 //write a function with no argument to be called back later, that returns the winner and prints the board
