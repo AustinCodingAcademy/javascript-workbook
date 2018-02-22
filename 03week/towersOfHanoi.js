@@ -23,10 +23,10 @@ const printStacks = () => {
 
 //the isItLegal function will be called back to determine if the input is valid.
 const isItLegal = (startStack, endStack) => {
-  if((startStack === "a" || startStack === "b" || startStack === "c") &&
-     (endStack === "a" || endStack === "b" || endStack === "c")){
+  const possibleInputs = ["a", "b", "c"]
+  if(possibleInputs.includes(startStack) && possibleInputs.includes(endStack)){
     return "it is a valid input"
-  }else return "it is not a valid input"
+  }
 }
 
 //assuming the input was deemed valid the movePiece function is called to check if the designated move
@@ -40,7 +40,7 @@ const movePiece = (startStack, endStack) => {
       stacks[endStack].push(stacks[startStack].pop())
       moveCounter ++
       return "block was moved!"
-  }else return "invalid move"
+  }
 }
 
 //the checkMoveCounter function references the moveCounter variable at the end of the game when it is called
@@ -48,10 +48,9 @@ const movePiece = (startStack, endStack) => {
 const checkMoveCounter = (moveCounter) => {
   if(moveCounter <= 15){
     return "great job"
-  }else{
-    return "too many moves"
   }
 }
+
 
 //compareWinningArrays function is called in the checkForWin function it determines if the
 //finalArray variable and winningArray variable both declared in the checkForWin function
@@ -61,7 +60,7 @@ const compareWinningArrays = (finalArray, winningArray) => {
     for(var i = 0 ; i = finalArray.length; i++){
       if(finalArray[i] === winningArray[i]){
           return true;
-      }else return false
+      }
     }
   }
 }
@@ -69,8 +68,8 @@ const compareWinningArrays = (finalArray, winningArray) => {
 //the checkForWin function calls the compareWinningArrays function and checkMoveCounter function
 //to check for a winning score.
 const checkForWin = (startStack, endStack) => {
-  let finalArray = stacks[endStack].valueOf()
-  let winningArray = [4, 3, 2, 1]
+  const finalArray = stacks[endStack].valueOf()
+  const winningArray = [4, 3, 2, 1]
   if(compareWinningArrays(finalArray, winningArray)){
     if(checkMoveCounter(moveCounter)){
       return true
@@ -86,12 +85,8 @@ const towersOfHanoi = (startStack, endStack) => {
   if(isItLegal(startStack, endStack)){
     if(movePiece(startStack, endStack)){
       if(checkForWin(startStack, endStack)){
-        return "Congratulations you win!"
-      }
-      else {
-        return "Next Move";
-          printStacks()
-      }
+         return "Congratulations you win!"
+      }else console.log("Next Move");
     }
     else console.log("invalid move")
   }
@@ -119,19 +114,19 @@ if (typeof describe === 'function') {
   describe('towersOfHanoi()', () => {
     it('should count the number of moves', () => {
       assert.equal(checkMoveCounter('15'), "great job");
-      assert.equal(checkMoveCounter('17'), "too many moves")
-      assert.equal(checkMoveCounter('20'), "too many moves");
+      assert.equal(checkMoveCounter('17'), undefined)
+      assert.equal(checkMoveCounter('20'), undefined);
     });
     it('should check to see if the input is valid', () => {
       assert.equal(isItLegal('a', 'b'), "it is a valid input");
-      assert.equal(isItLegal('h', 'd'), "it is not a valid input");
+      assert.equal(isItLegal('h', 'd'), undefined);
     });
     it('should check if a block was moved', () => {
       assert.equal(movePiece('a', 'c'), "block was moved!");
-      assert.equal(movePiece('a', 'c'), "invalid move");
-      assert.equal(movePiece('b', 'a'), "invalid move");
+      assert.equal(movePiece('a', 'c'), undefined);
+      assert.equal(movePiece('b', 'a'), undefined);
     });
-    it('should check if the run a turn', () => {
+    it('should check if it completes a turn', () => {
       assert.equal(towersOfHanoi('a', 'b'), "Next Move");
       assert.equal(towersOfHanoi('a', 'c'), "Next Move");
       assert.equal(towersOfHanoi('b', 'c'), "Next Move");
