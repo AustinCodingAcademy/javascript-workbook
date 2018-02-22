@@ -1,20 +1,21 @@
-'use strict';
-
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-
-function Checker() {
-  // Your code here
-}
+// 'use strict';
+//
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+//
+//
+// function Checker() {
+//   // Your code here
+// }
 
 class Board {
   constructor(){
   this.grid = [];
+  }
   // creates an 8x8 array, filled with null values
   createGrid(){
     // loop to create the 8 rows
@@ -25,7 +26,29 @@ class Board {
         this.grid[row].push(null);
       }
     }
-  };
+  }
+  printBoardWithPieces(){
+	 this.grid[0].forEach((block, index) => {
+	  if(index % 2 === 1){
+	     block = "x";
+	    }
+	  });
+	 this.grid[1].forEach((block, index) => {
+		  if(index % 2 === 0){
+		     block = "x";
+		    }
+	  });
+ 	 this.grid[6].forEach((block, index) => {
+	  if(index % 2 === 1){
+	     block = "o";
+	    }
+	  });
+  this.grid[7].forEach((block, index) => {
+	  if(index % 2 === 0){
+	     block = "o";
+	    }
+  });
+  }
 
   // prints out the board
   viewGrid() {
@@ -51,13 +74,17 @@ class Board {
       string += "\n";
     }
     console.log(string);
-  };
+  }
 
   // Your code here
 }
+
+const begingingBoard = new Board();
+printBoardWithPieces();
 class Game {
-  constructor(){}
-  this.board = new Board();
+  constructor(){
+   this.board = new Board();
+  }
 
   start() {
     this.board.createGrid();
