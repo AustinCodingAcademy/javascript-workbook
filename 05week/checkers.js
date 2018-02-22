@@ -12,10 +12,11 @@ function Checker() {
   // Your code here
 }
 
-function Board() {
+class Board {
+  constructor(){
   this.grid = [];
   // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
+  createGrid(){
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -27,7 +28,7 @@ function Board() {
   };
 
   // prints out the board
-  this.viewGrid = function() {
+  viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -54,11 +55,11 @@ function Board() {
 
   // Your code here
 }
-function Game() {
-
+class Game {
+  constructor(){}
   this.board = new Board();
 
-  this.start = function() {
+  start() {
     this.board.createGrid();
     // Your code here
   };
