@@ -83,10 +83,13 @@ const checkForWin = (startStack, endStack) => {
 // the game and comments results of invalid moves, invalid inputs as well as declaring a winner
 const towersOfHanoi = (startStack, endStack) => {
   if(isItLegal(startStack, endStack)){
+    console.log(`line 86`);
     if(movePiece(startStack, endStack)){
+      console.log(`line 88`);
       if(checkForWin(startStack, endStack)){
+        console.log(`line 90`);
          return "Congratulations you win!"
-      }else console.log("Next Move");
+      }else console.log("line 92 Next Move");
     }
     else console.log("invalid move")
   }
