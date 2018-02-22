@@ -27,11 +27,20 @@ const printBoard = () => {
 
 // write 3 functions that take in one argument (player) which is either x or o and checks for posible
 // wins based if certain combinations of board array values are the same.
+const checkForWinningPattern = (row) => {
+  let isWinningPattern = false
+  row.forEach(cell => {
+    if(cell !== player){
+      isWinningPattern = true
+    }
+  })
+  return isWinningPattern
+}
 
 const horizontalWin = () => {
-  if((board[0][0] === player && board[0][1] === player && board[0][2] === player) ||
-     (board[1][0] === player && board[1][1] === player && board[1][2] === player) ||
-     (board[2][0] === player && board[2][1] === player && board[2][2] === player)){
+  if(checkForWinningPattern(board[0]) ||
+  checkForWinningPattern(board[1]) ||
+  checkForWinningPattern(board[2])){
      return true
   }
 }
@@ -78,12 +87,12 @@ const alternatePlayers = () => {
 //array to the same value of the player variable. then adds 1 to turnCounter
 // if the turn counter is greater than or equal to 5 check for a winner
 const ticTacToe = (row, column) => {
-  alternatePlayers()
   board[row][column] = player
   turnCounter ++
   if(turnCounter >= 5){
     checkForWin();
     }
+  alternatePlayers()
 }
 // ticTacToe(0,0)//x
 // ticTacToe(1,1)//o
