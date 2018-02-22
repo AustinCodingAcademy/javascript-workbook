@@ -15,7 +15,6 @@ let jobTypes = {
 // Another Class to describe the ship and with it adding a new class, 'ability'
 // mission statement for method added in Ship
 
-
 // Your code here
 class CrewMember {
   constructor(name, job, specialSkill, ship){
