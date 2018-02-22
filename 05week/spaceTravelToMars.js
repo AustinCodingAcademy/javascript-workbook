@@ -14,24 +14,30 @@ let jobTypes = {
 // Rick Martinez is the new CrewMember with (name, job, specialSkill)
 // Another Class to describe the ship and with it adding a new class, 'ability'
 // mission statement for method added in Ship
+// If a specific CrewMember does not go to the specific ship, the mission will Fail
+
 
 // Your code here
+
+// Create class for CrewMember with a name, job, specialSkill, and ship
 class CrewMember {
-  constructor(name, job, specialSkill, ship){
+  constructor(name, job, specialSkill, ship) {
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
   }
-  this.enterShip = function(ship) {
-    ship.crew.push(this);
-    this.ship = ship;
+  // create a method for CrewMember to enter ship using the push method
+  enterShip = (ships) => {
+    //console.log(this.name)
+    ships.crew.push(this)
   }
 }
-
+// add a newMember, Commander Lewis
 const newMember = new CrewMember ('Commander Lewis')
 console.log(newMember)
 
+// Creating a class for Ship with a name, type, ability, and crew
 class Ship {
   constructor(name, type, ability, crew){
     this.name = name;
@@ -39,11 +45,19 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
-  missionStatement() {
-    if(crewMember job matches the ship type){
-      console.log(this.ability)
+
+  // Need to state that in order for the missionStatement to pass, the CrewMember
+  // will have to match the ship type
+  // Create a method called missionStatement, if the crewMember enters the correct
+  // ship, missionStatement will return true
+
+  missionStatement = () => {
+    if(this.crew) {
+      return true
+      console.log('Mission Successful. Mission Accomplished.')
     } else {
-      console.log('Cant run missionStatement. Mission Failed.')
+      return false
+      console.log('Cant perform a mission yet.')
     }
   }
 }
