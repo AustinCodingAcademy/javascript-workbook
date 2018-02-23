@@ -14,7 +14,7 @@
 
 class Board {
   constructor(){
-  this.grid = [];
+    this.grid = [];
   }
   // creates an 8x8 array, filled with null values
   createGrid(){
@@ -43,11 +43,11 @@ class Board {
 	     block = "o";
 	    }
 	  });
-  this.grid[7].forEach((block, index) => {
+    this.grid[7].forEach((block, index) => {
 	  if(index % 2 === 0){
 	     block = "o";
 	    }
-  });
+    });
   }
 
   // prints out the board
