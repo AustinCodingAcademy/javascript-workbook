@@ -7,9 +7,27 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// Notes
+
+// Next step is to find how to differentiate the 12 pieces for each player
+// Have a Red pieces (R) and Black Pieces (B)
+// Next is to how to add each player pieces into the correct index(s)
+// Need to make sure that the player piece can only move one direction
+// Next is to make sure if move is legal
+// Need to remove a piece if another piece jumps over
+// Need to state that once a piece is moved, it cannot move back to the opposite direction
+// Players can only win when they run out of legal moves
+// Once both players run out of legal moves, the player with the most pieces, win.
+// The player with the less pieces will lose.
 
 function Checker() {
   // Your code here
+  // Need to print out checker pieces
+  if(color === 'red') {
+
+  }
+
+
 }
 
 function Board() {
@@ -76,21 +94,6 @@ function getPrompt() {
 
 const game = new Game();
 game.start();
-
-
-// Notes
-
-// Next step is to find how to differentiate the 12 pieces for each player
-// Next is to how to add each player pieces into the correct index(s)
-// Need to make sure that the player piece can only move one direction
-// Next is to make sure if move is legal
-// Need to remove a piece if another piece jumps over
-// Need to state that once a piece is moved, it cannot move back to the opposite direction
-// Players can only win when they run out of legal moves
-// Once both players run out of legal moves, the player with the most pieces, win.
-// The player with the less pieces will lose.
-
-
 
 
 // Tests
