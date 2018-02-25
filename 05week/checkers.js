@@ -182,7 +182,6 @@ const isLegalMove = (source, destination) => {
   let goodRowMove = (Math.abs(destinationRow - sourceRow)<=2);
   let goodColumnMove = (Math.abs(destinationColumn - sourceColumn)===1);
   return (goodRowMove && goodColumnMove);
-
 }
 
 
