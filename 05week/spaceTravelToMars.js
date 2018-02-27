@@ -21,9 +21,9 @@ class CrewMember {
   // the enterShip method when called sets a ship to the crewmember it is called
   // on and pushes that crewmember to the empty crew array of that pertaining to
   // that Ship.
-  enterShip(ship){
-    this.ship = ship
-    ship.crew.push(this)
+  enterShip(shipObjectInstance){
+    this.ship = shipObjectInstance
+    shipObjectInstance.crew.push(this)
   }
 }
 
