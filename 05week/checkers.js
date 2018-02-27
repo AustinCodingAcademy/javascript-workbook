@@ -20,18 +20,21 @@ const rl = readline.createInterface({
 // Once both players run out of legal moves, the player with the most pieces, win.
 // The player with the less pieces will lose.
 
-function Checker() {
+function Checker(color) {
   // Your code here
+
   // Need to print out checker pieces
   if(color === 'red') {
-
+    this.symbol = 'R';
+  } else {
+    this.symbol = 'B'
   }
-
-
 }
 
 function Board() {
   this.grid = [];
+  this.checkerPosition = [];
+
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
     // loop to create the 8 rows
@@ -71,7 +74,54 @@ function Board() {
   };
 
   // Your code here
+
+  // Printing out checker pieces to designated row and column
+  this.makeCheckers = () => {
+    const blackPieces = [
+      [0, 1], [0, 3], [0, 5],[0, 7],
+      [1, 0], [1, 2], [1, 4],[1, 6],
+      [2, 1], [2, 3], [2, 5],[2, 7]
+    ];
+
+    // Assigning black checker pieces
+    const blackChecker = new Checker('black')
+    blackPieces.forEach((pieces) => {
+      this.checkerPosition.push(pieces)
+      this.grid[pieces[0]][pieces[1]] = blackChecker
+    })
+
+    const redPieces = [
+      [5, 0], [5, 2], [5, 4],[5, 6],
+      [6, 1], [6, 3], [6, 5],[6, 7],
+      [7, 0], [7, 2], [7, 4],[7, 6]
+    ];
+
+    // Assigning red checker pieces
+    const redChecker = new Checker('red')
+    redPieces.forEach((pieces) => {
+      this.checkerPosition.push(pieces)
+      this.grid[pieces[0]][pieces[1]] = redChecker
+    })
+
+    // return checkerPosition
+  };
+  // Printing the checker pieces to the grid
+  this.selectChecker = (row, column) => {
+    return this.grid[row][column];
+    console.log(this.selectChecker)
+  };
+  this.killChecker = (position) => {
+    const destroyChecker = this.selectChecker(position[0], position[1]);
+    const checkerIndex = this.checkers.indexOf(destroyChecker);
+    if (destroyChecker !== null) {
+      this.checkers.splice(checkerIndex, 1);
+      this.grid[position[0]][position[1]] = null;
+    }
+    // this.checkers.splice(index, 1);
+    // this.grid[position[0]][position[1]] = null;
+  };
 }
+
 function Game() {
 
   this.board = new Board();
@@ -79,6 +129,35 @@ function Game() {
   this.start = function() {
     this.board.createGrid();
     // Your code here
+
+    // Making a method to create the game and move pieces
+    this.board.makeCheckers();
+  };
+  this.moveChecker = (source, destination) => {
+    // Creating a variable equals parseInt, and calling '0' & '1'
+    // from the user input from source (argument)
+    const beginRow = parseInt(source.charAt(0));
+    const beginCol = parseInt(source.charAt(1));
+    // Creating another variable for destination and assigning numbers to the
+    // destination argument
+    const finishRow = parseInt(destination.charAt(0));
+    const finishCol = parseInt(destination.charAt(1));
+    // Calling the grid board to assign the Red and Black pieces to move
+    // in the correct row and column
+    this.board.grid[finishRow][finishCol] = this.board.grid[beginRow][beginCol];
+    // Calling the pieces to reassign the source piece as null
+    this.board.grid[beginRow][beginCol] = null;
+
+    // Taking pieces
+    if(Math.abs(finishRow - beginRow) === 2) {
+      let killRow = finishRow - beginRow > 0 ? beginRow + 1 : finishRow + 1;
+      let killCol = finishCol - finishRow > 0 ? finishCol + 1 : finishRow + 1;
+
+      this.board.grid[killRow][killCol] = null;
+      this.board.checkerPosition.push();
+    } else {
+      return false
+    }
   };
 }
 
