@@ -2,6 +2,7 @@
 //
 // const assert = require('assert');
 const arrayOfItems = ['apple', 'orange', 'bannana', 'grape'];
+const arrayOfNumbers = [23, 45, 12, 4, 95]
 //-------------------------------------------
 
 // const forEach = (arr, callback) => {
@@ -11,30 +12,42 @@ const arrayOfItems = ['apple', 'orange', 'bannana', 'grape'];
 // }
 //
 // const arrayModifierForEach = (item) => {
-//   return item.toUpperCase();
+//   return   'for each' + item;
 // };
 //
-// forEach(arrayOfItems, arrayModifierForEach)
-
-
 // //--------------------------------------------
-const map = (arr, callback) => {
-  const modifiedArray = []
-  arrayOfItems.forEach((item) => {
-    modifiedArray.push(callback(item))
-  })
-  return modifiedArray
-}
 
-const arrayModifierMap = (item) => {
-  return item.toUpperCase()
-}
-
-// //--------------------------------------------
-// function filter(arr, callback) {
-//   // Your code here
+// const map = (arr, callback) => {
+//   const modifiedArray = []
+//   arrayOfItems.forEach((item) => {
+//     modifiedArray.push(callback(item))
+//   })
+//   return modifiedArray
 // }
 //
+// const arrayModifierMap = (item) => {
+//   return item + ' mapped'
+// };
+
+// //--------------------------------------------
+
+const filter = (arr, callback) => {
+  const modifiedArray = []
+  arr.forEach((item) => {
+    modifiedArray.push(callback(item))
+  })
+  return console.log(modifiedArray)
+}
+
+const arrayModifierFilter = (item) => {
+  if(item >= 25){
+    return item
+  }else return 
+}
+
+filter(arrayOfNumbers, arrayModifierFilter)
+
+// //------------------------------------------------
 // function some(arr, callback) {
 //   // Your code here
 // }
