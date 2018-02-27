@@ -1,13 +1,12 @@
 'use strict';
 
 const assert = require('assert');
-const arrayOfItems = ['apple', 'orange', 'bannana', 'grape'];
-const arrayOfNumbers = [23, 45, 12, 4, 95]
+
 //-------------------------------------------
 
 const forEach = (arr, callback) => {
   for(var i = 0 ; i < arr.length ; i++){
-    console.log(callback(arrayOfItems[i]));
+    callback(arr[i]);
   }
 }
 
@@ -19,7 +18,7 @@ const arrayModifierForEach = (item) => {
 
 const map = (arr, callback) => {
   const modifiedArray = []
-  arrayOfItems.forEach((item) => {
+  arr.forEach((item) => {
     modifiedArray.push(callback(item))
   })
   return modifiedArray
