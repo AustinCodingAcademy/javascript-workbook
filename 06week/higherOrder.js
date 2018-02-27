@@ -4,24 +4,33 @@
 const arrayOfItems = ['apple', 'orange', 'bannana', 'grape'];
 //-------------------------------------------
 
-function forEach(arr, callback) {
-  for(var i = 0 ; i < arr.length ; i++){
-    console.log(callback(arrayOfItems[i]));
-  }
-}
-
-const arrayModifier = (item) => {
-  return item.toUpperCase();
-};
-
-forEach(arrayOfItems, arrayModifier)
+// const forEach = (arr, callback) => {
+//   for(var i = 0 ; i < arr.length ; i++){
+//     console.log(callback(arrayOfItems[i]));
+//   }
+// }
+//
+// const arrayModifierForEach = (item) => {
+//   return item.toUpperCase();
+// };
+//
+// forEach(arrayOfItems, arrayModifierForEach)
 
 
 // //--------------------------------------------
-// function map(arr, callback) {
-//   // Your code here
-// }
-//
+const map = (arr, callback) => {
+  const modifiedArray = []
+  arrayOfItems.forEach((item) => {
+    modifiedArray.push(callback(item))
+  })
+  return modifiedArray
+}
+
+const arrayModifierMap = (item) => {
+  return item.toUpperCase()
+}
+
+// //--------------------------------------------
 // function filter(arr, callback) {
 //   // Your code here
 // }
