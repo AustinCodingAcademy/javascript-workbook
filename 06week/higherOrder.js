@@ -2,16 +2,37 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
-}
+const myEachFor = (arr, callback) => {
+  const eachFormatted =[]
+  // console.log(arr)
+  for (let i=0; i < arr.length; i++){
+    callback(item);
+    eachFormatted.push(callback(item));
 
-function map(arr, callback) {
-  // Your code here
-}
+  }
+  return eachFormatted;
+};
 
-function filter(arr, callback) {
-  // Your code here
+const myMap = (arr, callback) => {
+  const formatted =[]
+  // console.log(arr)
+  arr.forEach((item) => {
+    callback(item);
+    formatted.push(callback(item));
+    console.log(callback(item));
+  });
+  return formatted;
+};
+
+const IAmNotaFilter = (arr,callback)=>{
+  const filterFormatted=[]
+  for (let j=0; j < arr.length; j++){
+    if (arr[j] === true){
+      callback(item);
+      filterFormatted.push(arr[j]);
+    }
+  }
+  return filterFormatted;
 }
 
 function some(arr, callback) {
