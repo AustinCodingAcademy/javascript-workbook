@@ -23,7 +23,7 @@ function map(arr, callback) {
   // Create a map() function that takes an array of items and a function that
   // returns an array with each item manipulated by that function.
   const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    arr2.map((item) =>{
+    arr2.map((item) => {
       return item
     })
 
