@@ -20,12 +20,22 @@ function map(arr, callback) {
 
   // Your code here
   // Creating an array
+  // Create a map() function that takes an array of items and a function that
+  // returns an array with each item manipulated by that function.
   const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  return
+    arr2.map((item) =>{
+      return item
+    })
+
 }
 
 function filter(arr, callback) {
   // Your code here
+  // Create a filter() function that takes an array of items and a function that
+  // returns an array with only the items that return true in the function.
+  arr2.filter((items) => {
+    return items > 5
+  })
 }
 
 function some(arr, callback) {
