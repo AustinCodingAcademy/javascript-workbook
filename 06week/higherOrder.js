@@ -40,6 +40,12 @@ function filter(arr, callback) {
 
 function some(arr, callback) {
   // Your code here
+  const colour = ['red', 'blue', 'green', 'yellow', 'white', 'pink', 'black']
+
+  const startWithR = colour.some(colours) => {
+    return colour [0] === 'y';
+  });
+  console.log(startWithR);
 }
 
 function every(arr, callback) {
