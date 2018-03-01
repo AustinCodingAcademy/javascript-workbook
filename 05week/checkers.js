@@ -26,7 +26,6 @@ class Checker{
 class Board{
   constructor(){
     this.grid = [];
-
   }
   // creates an 8x8 array, filled with null values
   createGrid() {
@@ -66,36 +65,98 @@ class Board{
     console.log(string);
   };
 
-  // Your code here
+  createCheckers(){
+    const whiteMarks = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ]
+    const blackMarks = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ]
+
+    for(let i = 0; i < 12; i++) {
+      let whiteRow = whiteMarks[i][0];
+      let whiteColumn = whiteMarks[i][1];
+      let whiteChecker = new Checker('white');
+      this.grid[whiteRow][whiteColumn] = whiteChecker;
+    }
+
+    for(let i = 0; i < 12; i++) {
+      let blackRow = blackMarks[i][0];
+      let blackColumn = blackMarks[i][1];
+      let blackChecker = new Checker('black');
+      this.grid[blackRow][blackColumn] = blackChecker;
+    }
+  }
 }
 //_______________________________________________________________
 
 class Game {
   constructor(){
-    this.board = new Board();
+    this.beginingBoard = new Board();
   }
+
   start() {
-    this.board.createGrid();
-    // Your code here
-  };
+    this.beginingBoard.createGrid();
+    this.beginingBoard.createCheckers();
+  }
+
+  movePiece(whichPiece, toWhere){
+    const startRow = parseInt(whichPiece.charAt(0));
+    const startColumn = parseInt(whichPiece.charAt(1));
+    const endRow = parseInt(toWhere.charAt(0));
+    const endColumn = parseInt(toWhere.charAt(1));
+
+    isLegalInput(){
+      const legalStart = ((startRow >= 0 && startRow < 8) && (startColumn >= 0 && startColumn < 8));
+      const legalEnd = ((endRow >= 0 && endRow < 8) && (endColumn >= 0 && endColumn < 8));
+      if(legalStart && legalEnd){
+        return true
+      }
+    }
+
+    isLegalMove(){
+      const legalRowMove = (endRow - startRow);
+      const legalColumMove = (endColumn - startColumn);
+      if(legalRowMove === 1 && legalColumMove === 1){
+        return true;
+      }else if(legalRowMove === 2 && legalColumMove === 2) {
+        return true;
+      }else{
+        return false;
+      }
+    };
+
+    if(isLegalInput()){
+      if(isLegalMove() && this.board.grid[endRow][endColumn] === null){
+        this.beginingBoard.grid[endRow][endColumn] = this.board.grid[startRow][startColumn];
+        this.beginingBoard.grid[startRow][startColumn] = null;
+      }else{console.log('Illegal Move');}
+    }else{console.log('Illegal Input');}
+  }
 }
 
 //_______________________________________________________________
 
-function getPrompt() {
-  game.board.viewGrid();
+const getPrompt = () => {
+  game.beginingBoard.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
-      game.moveChecker(whichPiece, toWhere);
+      game.movePiece(whichPiece, toWhere);
       getPrompt();
     });
   });
 }
 
+//_______________________________________________________________
+
 const game = new Game();
 game.start();
 
-
+//_______________________________________________________________
 // Tests
 
 if (typeof describe === 'function') {
