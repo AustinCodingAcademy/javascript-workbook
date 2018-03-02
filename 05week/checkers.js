@@ -11,19 +11,18 @@ const rl = readline.createInterface({
 class Checker{
   constructor(color){
     this.color = color;
-    this.mark = null;
-  }
-  createChecker(){
-    if(this.color = 'white'){
+    if(this.color == 'white') {
       this.mark = 'W'
-    }else{
+    }else if(this.color =='black'){
       this.mark = 'B'
+    }else{
+      this.mark = null
     }
   }
 }
 //_______________________________________________________________
 
-class Board{
+class Board {
   constructor(){
     this.grid = [];
   }
@@ -51,7 +50,9 @@ class Board{
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+
+          console.log(this.grid[row][column].mark);
+          rowOfCheckers.push(this.grid[row][column].mark);
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -65,7 +66,7 @@ class Board{
     console.log(string);
   };
 
-  createCheckers(){
+  createCheckers() {
     const whiteMarks = [
       [0, 1], [0, 3], [0, 5], [0, 7],
       [1, 0], [1, 2], [1, 4], [1, 6],
@@ -77,18 +78,19 @@ class Board{
       [7, 0], [7, 2], [7, 4], [7, 6]
     ]
 
-    for(let i = 0; i < 12; i++) {
+    for (let i = 0; i < 12; i++) {
       let whiteRow = whiteMarks[i][0];
       let whiteColumn = whiteMarks[i][1];
-      let whiteChecker = new Checker('white');
-      this.grid[whiteRow][whiteColumn] = whiteChecker;
+      //let whiteChecker = new Checker('white');
+      // console.log(`this is the grid ${this.grid}`)
+      this.grid[whiteRow][whiteColumn] = new Checker('white');
     }
 
-    for(let i = 0; i < 12; i++) {
+    for (let i = 0; i < 12; i++) {
       let blackRow = blackMarks[i][0];
       let blackColumn = blackMarks[i][1];
-      let blackChecker = new Checker('black');
-      this.grid[blackRow][blackColumn] = blackChecker;
+      // console.log(`this is the grid ${this.grid}`)
+      this.grid[blackRow][blackColumn] = new Checker('black');
     }
   }
 }
@@ -96,12 +98,12 @@ class Board{
 
 class Game {
   constructor(){
-    this.beginingBoard = new Board();
+    this.beginningBoard = new Board();
   }
 
   start() {
-    this.beginingBoard.createGrid();
-    this.beginingBoard.createCheckers();
+    this.beginningBoard.createGrid();
+    this.beginningBoard.createCheckers();
   }
 
   movePiece(whichPiece, toWhere){
@@ -110,15 +112,15 @@ class Game {
     const endRow = parseInt(toWhere.charAt(0));
     const endColumn = parseInt(toWhere.charAt(1));
 
-    isLegalInput(){
+    isLegalInput = () => {
       const legalStart = ((startRow >= 0 && startRow < 8) && (startColumn >= 0 && startColumn < 8));
       const legalEnd = ((endRow >= 0 && endRow < 8) && (endColumn >= 0 && endColumn < 8));
       if(legalStart && legalEnd){
         return true
       }
-    }
+    };
 
-    isLegalMove(){
+    isLegalMove = () => {
       const legalRowMove = (endRow - startRow);
       const legalColumMove = (endColumn - startColumn);
       if(legalRowMove === 1 && legalColumMove === 1){
@@ -132,8 +134,8 @@ class Game {
 
     if(isLegalInput()){
       if(isLegalMove() && this.board.grid[endRow][endColumn] === null){
-        this.beginingBoard.grid[endRow][endColumn] = this.board.grid[startRow][startColumn];
-        this.beginingBoard.grid[startRow][startColumn] = null;
+        this.beginningBoard.grid[endRow][endColumn] = this.board.grid[startRow][startColumn];
+        this.beginningBoard.grid[startRow][startColumn] = null;
       }else{console.log('Illegal Move');}
     }else{console.log('Illegal Input');}
   }
@@ -142,7 +144,7 @@ class Game {
 //_______________________________________________________________
 
 const getPrompt = () => {
-  game.beginingBoard.viewGrid();
+  game.beginningBoard.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
       game.movePiece(whichPiece, toWhere);
