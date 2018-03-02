@@ -33,6 +33,7 @@ function filter(arr, callback) {
   // Your code here
   // Create a filter() function that takes an array of items and a function that
   // returns an array with only the items that return true in the function.
+const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   arr2.filter((items) => {
     return items > 5
   })
@@ -48,8 +49,12 @@ function some(arr, callback) {
   console.log(startWithR);
 }
 
+const arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 function every(arr, callback) {
   // Your code here
+  return arr > 1
+  console.log(arr3.every(arr3));
+  }
 }
 
 if (typeof describe === 'function') {
