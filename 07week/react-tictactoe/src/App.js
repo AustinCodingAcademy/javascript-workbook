@@ -10,13 +10,21 @@ class App extends Component {
     this.state={
       playerTurn: 'X',
       board: [
-        [[null],[null], [null] ],
+        [[null],[null], [null]],
         [[null],[null],[null]],
         [[null],[null],[null]]
       ]
-
     }
   }
+
+  handleclick (row,index){
+
+    console.log('Clicked');
+
+
+
+  }
+
   render() {
     const rowStyle = {
       backgroundColor: 'pink',
@@ -42,13 +50,25 @@ class App extends Component {
 
       <div>
         {this.state.board.map((row, index) => {
+          console.log(row);
           return <div key = {index} style = {rowStyle}>
 
             {row.map((box,i)=>{
-              return <div key = {i} style = {boxStyle}>{row[i]}</div>
+              return <div key = {i} style = {boxStyle} > {row[i]}
+                <button onClick={this.handleclick}></button>
+
+
+
+
+              </div>
+
+
+
             })}
 
+
           </div>
+
 
         })};
 
@@ -57,6 +77,46 @@ class App extends Component {
       </div>
     );
   }
+}
+
+class Board extends Component {
+  render (){
+    return(
+      <div>
+      </div>
+
+    );
+
+
+  }
+
+}
+
+class boardRow extends Component{
+  render(){
+    return(
+      <div>
+      </div>
+
+    );
+
+  }
+
+}
+
+class box extends Component{
+  render(){
+    return(
+      <div>
+        <button className="square" onClick= {()=>this.setState({value: 'X'})}>
+          {this.state.value}
+        </button>
+      </div>
+
+    );
+
+  }
+
 }
 
 export default App;
