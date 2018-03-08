@@ -9,9 +9,46 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// create a class named CrewMember that takes in the 3 arguments and sets
+// a fourth property called ship to Null
+class CrewMember {
+  constructor(name, job, specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  // the enterShip method when called sets a ship to the crewmember it is called
+  // on and pushes that crewmember to the empty crew array of that pertaining to
+  // that Ship.
+  enterShip(shipObjectInstance){
+    this.ship = shipObjectInstance
+    shipObjectInstance.crew.push(this)
+  }
+}
 
-//tests
+// create a class named Ship that takes in the 3 arguments and sets
+// a fourth property called crew equal to an empty array
+class Ship {
+  constructor(name, type, ability){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  // the mission statement methond when called evaluates if the ship it is called
+  // on contains a crewmember in its crew array, if so it returns the ability of
+  // that ship, else it returns the string "Can't perform a mission yet."
+  missionStatement(){
+    if(this.crew.length){
+      return this.ability
+    }else {
+      return "Can't perform a mission yet."
+    }
+  }
+}
+
+ //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
