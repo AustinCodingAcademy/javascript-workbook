@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Tile.css';
 
 export default class Tile extends Component {
   tileClick (props){
@@ -7,7 +8,7 @@ export default class Tile extends Component {
   }
   render (){
     return (
-      <div className= {"tile" + this.props.loc} onClick={() => this.tileClick.(this.props)}>
+      <div className= {"tile " + this.props.loc} onClick={() => this.tileClick(this.props)}>
       <p>{this.props.value}</p>
       </div>
 
