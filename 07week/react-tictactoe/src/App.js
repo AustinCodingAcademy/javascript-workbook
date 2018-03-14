@@ -55,7 +55,7 @@ class App extends Component {
 
             {row.map((box,i)=>{
               return <div key = {i} style = {boxStyle} > {row[i]}
-                <button onClick={this.handleclick}></button>
+
 
 
 
