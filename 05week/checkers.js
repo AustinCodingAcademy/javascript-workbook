@@ -79,16 +79,16 @@ class Board {
     ]
 
     for (let i = 0; i < 12; i++) {
-      let whiteRow = whiteMarks[i][0];
-      let whiteColumn = whiteMarks[i][1];
+      const whiteRow = whiteMarks[i][0];
+      const whiteColumn = whiteMarks[i][1];
       //let whiteChecker = new Checker('white');
       // console.log(`this is the grid ${this.grid}`)
       this.grid[whiteRow][whiteColumn] = new Checker('white');
     }
 
     for (let i = 0; i < 12; i++) {
-      let blackRow = blackMarks[i][0];
-      let blackColumn = blackMarks[i][1];
+      const blackRow = blackMarks[i][0];
+      const blackColumn = blackMarks[i][1];
       // console.log(`this is the grid ${this.grid}`)
       this.grid[blackRow][blackColumn] = new Checker('black');
     }
