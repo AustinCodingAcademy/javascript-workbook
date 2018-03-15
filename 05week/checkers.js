@@ -8,14 +8,26 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker{
+  constructor(color){
+    this.color = color;
+    if(this.color == 'white') {
+      this.mark = 'W'
+    }else if(this.color =='black'){
+      this.mark = 'B'
+    }else{
+      this.mark = null
+    }
+  }
 }
+//_______________________________________________________________
 
-function Board() {
-  this.grid = [];
+class Board {
+  constructor(){
+    this.grid = [];
+  }
   // creates an 8x8 array, filled with null values
-  this.createGrid = function() {
+  createGrid() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -27,7 +39,7 @@ function Board() {
   };
 
   // prints out the board
-  this.viewGrid = function() {
+  viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -38,7 +50,9 @@ function Board() {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+
+          console.log(this.grid[row][column].mark);
+          rowOfCheckers.push(this.grid[row][column].mark);
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -52,32 +66,99 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  createCheckers() {
+    const whiteMarks = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ]
+    const blackMarks = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ]
+
+    for (let i = 0; i < 12; i++) {
+      const whiteRow = whiteMarks[i][0];
+      const whiteColumn = whiteMarks[i][1];
+      //let whiteChecker = new Checker('white');
+      // console.log(`this is the grid ${this.grid}`)
+      this.grid[whiteRow][whiteColumn] = new Checker('white');
+    }
+
+    for (let i = 0; i < 12; i++) {
+      const blackRow = blackMarks[i][0];
+      const blackColumn = blackMarks[i][1];
+      // console.log(`this is the grid ${this.grid}`)
+      this.grid[blackRow][blackColumn] = new Checker('black');
+    }
+  }
 }
-function Game() {
+//_______________________________________________________________
 
-  this.board = new Board();
+class Game {
+  constructor(){
+    this.beginningBoard = new Board();
+  }
 
-  this.start = function() {
-    this.board.createGrid();
-    // Your code here
-  };
+  start() {
+    this.beginningBoard.createGrid();
+    this.beginningBoard.createCheckers();
+  }
+
+  movePiece(whichPiece, toWhere){
+    const startRow = parseInt(whichPiece.charAt(0));
+    const startColumn = parseInt(whichPiece.charAt(1));
+    const endRow = parseInt(toWhere.charAt(0));
+    const endColumn = parseInt(toWhere.charAt(1));
+
+    isLegalInput = () => {
+      const legalStart = ((startRow >= 0 && startRow < 8) && (startColumn >= 0 && startColumn < 8));
+      const legalEnd = ((endRow >= 0 && endRow < 8) && (endColumn >= 0 && endColumn < 8));
+      if(legalStart && legalEnd){
+        return true
+      }
+    };
+
+    isLegalMove = () => {
+      const legalRowMove = (endRow - startRow);
+      const legalColumMove = (endColumn - startColumn);
+      if(legalRowMove === 1 && legalColumMove === 1){
+        return true;
+      }else if(legalRowMove === 2 && legalColumMove === 2) {
+        return true;
+      }else{
+        return false;
+      }
+    };
+
+    if(isLegalInput()){
+      if(isLegalMove() && this.board.grid[endRow][endColumn] === null){
+        this.beginningBoard.grid[endRow][endColumn] = this.board.grid[startRow][startColumn];
+        this.beginningBoard.grid[startRow][startColumn] = null;
+      }else{console.log('Illegal Move');}
+    }else{console.log('Illegal Input');}
+  }
 }
 
-function getPrompt() {
-  game.board.viewGrid();
+//_______________________________________________________________
+
+const getPrompt = () => {
+  game.beginningBoard.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
-      game.moveChecker(whichPiece, toWhere);
+      game.movePiece(whichPiece, toWhere);
       getPrompt();
     });
   });
 }
 
+//_______________________________________________________________
+
 const game = new Game();
 game.start();
 
-
+//_______________________________________________________________
 // Tests
 
 if (typeof describe === 'function') {
