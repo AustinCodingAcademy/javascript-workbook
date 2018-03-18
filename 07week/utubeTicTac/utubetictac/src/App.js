@@ -14,13 +14,13 @@ class App extends Component {
         ' ', ' ', ' ',
         ' ', ' ', ' '
       ],
-      turn: 'x',
+      turn: 'X',
       winner:null
     }
 
   }
 updateBoard(loc,player){
-  if(this.state.gameBoard[loc] === 'x' || this.state.gameBoard === 'o' || this.state.winner){
+  if(this.state.gameBoard[loc] === 'X' || this.state.gameBoard === 'O' || this.state.winner){
 
     return;
   }
@@ -30,45 +30,46 @@ updateBoard(loc,player){
 
 
   const topRow = this.state.gameBoard[0] + this.state.gameBoard[1] + this.state.gameBoard[2];
-  if (topRow.match (/xxx|ooo/)){
+  if (topRow.match (/XXX|OOO/)){
     this.setState({winner: this.state.turn});
     return;
   }
   const middleRow = this.state.gameBoard[3] + this.state.gameBoard[4] + this.state.gameBoard[5];
-  if (middleRow.match(/xxx|ooo/)){
+  if (middleRow.match(/XXX|OOO/)){
     this.setState({winner: this.state.turn});
   }
   const bottomRow = this.state.gameBoard[6] + this.state.gameBoard[7] + this.state.gameBoard[8];
-  if (bottomRow.match(/xxx|ooo/)){
+  if (bottomRow.match(/XXX|OOO/)){
     this.setState({winner: this.state.turn});
   }
   const leftCol = this.state.gameBoard[0] + this.state.gameBoard[3] + this.state.gameBoard[6];
-  if (leftCol.match(/xxx|ooo/)){
+  if (leftCol.match(/XXX|OOO/)){
     this.setState({winner: this.state.turn});
   }
   const middleCol = this.state.gameBoard[1] + this.state.gameBoard[4] + this.state.gameBoard[7];
-  if (middleCol.match(/xxx|ooo/)){
+  if (middleCol.match(/XXX|OOO/)){
     this.setState({winner: this.state.turn});
   }
   const rightCol = this.state.gameBoard[2] + this.state.gameBoard[5] + this.state.gameBoard[8];
-  if (rightCol.match(/xxx|ooo/)){
+  if (rightCol.match(/XXX|OOO/)){
     this.setState({winner: this.state.turn});
   }
   const leftDiag = this.state.gameBoard[0] + this.state.gameBoard[4] + this.state.gameBoard[8];
-  if (leftDiag.match(/xxx|ooo/)){
+  if (leftDiag.match(/XXX|OOO/)){
     this.setState({winner: this.state.turn});
   }
   const rightDiag = this.state.gameBoard[2] + this.state.gameBoard[4] + this.state.gameBoard[6];
-  if (rightDiag.match(/xxx|ooo/)){
+  if (rightDiag.match(/XXX|OOO/)){
       this.setState({winner: this.state.turn});
   return;
 
 }
 const moves = this.state.gameBoard.join('').replace(/ /g, '');
 if (moves.length === 9){
-  this.setState({winner: 'd'});
+  //this.setState({winner: 'd'});
+  alert('DRAW: Reset the board')
 }
-this.setState({turn: (this.state.turn === 'x') ? 'o' : 'x'});
+this.setState({turn: (this.state.turn === 'X') ? 'O' : 'X'});
 
 }
 
@@ -82,7 +83,7 @@ resetBoard(){
       ' ', ' ', ' ',
       ' ', ' ', ' '
     ],
-    turn: 'x',
+    turn: 'X',
     winner:null
   })
 }
