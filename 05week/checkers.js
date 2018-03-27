@@ -175,9 +175,9 @@ const isLegalInput = (sourceRow, sourceColumn, destinationRow, destinationColumn
   // const sourceColumn = parseInt(source.charAt(1));
   // const destinationRow = parseInt(destination.charAt(0));
   // const destinationColumn = parseInt(destination.charAt(1));
-  let sourceGood = (sourceRow >= 0 && sourceRow < 8) && (sourceColumn >= 0 && sourceColumn < 8);
-  let destinationGood = (destinationRow >= 0 && destinationRow < 8) && (destinationColumn >= 0 && destinationColumn < 8);
-  return (sourceGood && destinationGood);
+  const sourceGood = (sourceRow >= 0 && sourceRow < 8) && (sourceColumn >= 0 && sourceColumn < 8);
+  const destinationGood = (destinationRow >= 0 && destinationRow < 8) && (destinationColumn >= 0 && destinationColumn < 8);
+  return sourceGood && destinationGood;
 }
 
 const isLegalMove = (sourceRow, sourceColumn, destinationRow, destinationColumn) => {
@@ -185,8 +185,8 @@ const isLegalMove = (sourceRow, sourceColumn, destinationRow, destinationColumn)
   // const sourceColumn = parseInt(source.charAt(1));
   // const destinationRow = parseInt(destination.charAt(0));
   // const destinationColumn = parseInt(destination.charAt(1));
-  let goodRowValue = (Math.abs(destinationRow - sourceRow));
-  let goodColumnValue = (Math.abs(destinationColumn - sourceColumn));
+  const goodRowValue = (Math.abs(destinationRow - sourceRow));
+  const goodColumnValue = (Math.abs(destinationColumn - sourceColumn));
   if (goodRowValue === 1 && goodColumnValue === 1){
     return true;
   } else if  (goodRowValue === 2 && goodColumnValue === 2) {
