@@ -38,10 +38,10 @@ class Ship {
   }
 }
 
-let CrewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-let CrewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
-let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+const CrewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+const CrewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+const mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+const hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
 
 
 
