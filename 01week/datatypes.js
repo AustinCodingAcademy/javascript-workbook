@@ -1,13 +1,13 @@
 //Write a JavaScript program to display the current day and time
 
 function findTime(){
-const now = new Date(); //find date
-const date = (now.getMonth() + 1) + "/" + now.getDate(); //display month/day
-const time = now.getHours() + ":" + now.getMinutes(); //display hour:minute
-const dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; //array for day of the week
-const day = dayArray[now.getDay()]; //get string day of week
-const dateTime = "It is " + day + ", " + date + " at " + time + "."; //display time and date in string
-return dateTime;
+  const now = new Date(); //find date
+  const date = (now.getMonth() + 1) + "/" + now.getDate(); //display month/day
+  const time = now.getHours() + ":" + now.getMinutes(); //display hour:minute
+  const dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; //array for day of the week
+  const day = dayArray[now.getDay()]; //get string day of week
+  const dateTime = "It is " + day + ", " + date + " at " + time + "."; //display time and date in string
+  return dateTime;
 }
 
 findTime();
@@ -15,7 +15,7 @@ findTime();
 // Write a JavaScript program to convert a number to a string.
 
 function numToString(num) {
-return num.toString();
+  return num.toString();
 };
 
 numToString(4);
@@ -31,7 +31,7 @@ strToNum('10');
 
 
 function whatsMyType (arg) {
-return typeof (arg)
+  return typeof (arg)
 }
 
 whatsMyType('allofthethings')
