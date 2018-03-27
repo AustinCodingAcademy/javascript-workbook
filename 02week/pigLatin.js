@@ -45,8 +45,8 @@ const validation = (word) => {
 }
 
 const convert = (word) => {
-  let trimmedWord = word.trim();
-  let convertedWord = trimmedWord.toLowerCase();
+  const trimmedWord = word.trim();
+  const convertedWord = trimmedWord.toLowerCase();
   return convertedWord;
 }
 
