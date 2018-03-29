@@ -2,25 +2,88 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+//-------------------------------------------
+
+const forEach = (arr, callback) => {
+  for(var i = 0 ; i < arr.length ; i++){
+    callback(arr[i]);
+  }
 }
 
-function map(arr, callback) {
-  // Your code here
+const arrayModifierForEach = (item) => {
+  return   'for each' + item;
+};
+
+// //--------------------------------------------
+
+const map = (arr, callback) => {
+  const modifiedArray = []
+  arr.forEach((item) => {
+    modifiedArray.push(callback(item))
+  })
+  return modifiedArray
 }
 
-function filter(arr, callback) {
-  // Your code here
+const arrayModifierMap = (item) => {
+  return item + ' mapped'
+};
+
+// //--------------------------------------------
+
+const filter = (arr, callback) => {
+  const modifiedArray = []
+  for(var i = 0; i < arr.length; i++){
+    if(callback(arr[i])){
+      modifiedArray.push(arr[i])
+    }
+  }
+  return modifiedArray
 }
+
+const arrayModifierFilter = (item) => {
+  if(item >= 25){
+    return true
+  }
+}
+
+
+// //------------------------------------------------
 
 function some(arr, callback) {
-  // Your code here
+  for(var i =  0; i < arr.length; i++){
+    if(callback(arr[i])){
+      return true
+    }else{continue}
+  }return false
 }
 
-function every(arr, callback) {
-  // Your code here
+const arrayModifierSome = (num) => {
+  if(num >= 96){
+    return true;
+  }
 }
+
+
+// //-------------------------------------------------
+
+const every = (arr, callback) => {
+  for(var i = 0; i<arr.length; i++){
+    if(callback(arr[i])){
+      continue;
+    }else{
+      return false
+    }
+  }
+  return true
+}
+
+const arrayModifierEvery = (num) => {
+  if (num >= 4){
+    return true
+  }
+}
+
+// //-------------------------------------------------
 
 if (typeof describe === 'function') {
 
