@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -24,23 +25,87 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if ( board[0][0] === playerTurn && board[0][1] === playerTurn && board [0][2] === playerTurn) {
+    // console.log('horizontal win');
+    return true;
+  } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board [1][2] === playerTurn) {
+    // console.log('horizontal win');
+    return true;
+  } else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board [2][2] === playerTurn) {
+    // console.log('horizontal win');
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+    // console.log('vertical win');
+    return true;
+  } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn){
+    // console.log('vertical win');
+    return true;
+  } else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
+    // console.log('vertical win');
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+    // console.log('diagonal win')
+    return true;
+  } else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board [2][0] === playerTurn) {
+    // console.log('diagonal win')
+    return true;
+  } else {
+    return false;
+  }
 }
 
+
 function checkForWin() {
-  // Your code here
+  if (horizontalWin()) {
+    console.log('HORIZONTAL WIN. STARTING GAME OVER.');
+    return true;
+  } else if (verticalWin()) {
+    console.log('VERTICAL WIN, STARTING GAME OVER.');
+    return true;
+  } else if (diagonalWin()) {
+    console.log('DIAGONAL WIN. STARTING GAME OVER.');
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  if (board[row][column] === ' ') {
+
+
+    board[row][column] = playerTurn;
+    if (checkForWin()){
+      board = [
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+      ];
+      playerTurn='X';
+    }else{
+      if (playerTurn === 'X') {
+        playerTurn = 'O';
+      } else {
+        playerTurn = 'X';
+      }
+    }
+
+  } else {
+    console.log('CHEATER, CHEATER, PUMPKIN EATER THAT SPOT IS TAKEN')
+  }
+  return playerTurn;
 }
 
 function getPrompt() {
@@ -64,22 +129,42 @@ if (typeof describe === 'function') {
   describe('#ticTacToe()', () => {
     it('should place mark on the board', () => {
       ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        [' ', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
     it('should alternate between players', () => {
       ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        ['O', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
     it('should check for vertical wins', () => {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+      board = [
+        [' ', 'X', ' '],
+        [' ', 'X', ' '],
+        [' ', 'X', ' ']
+      ];
       assert.equal(verticalWin(), true);
     });
     it('should check for horizontal wins', () => {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      board = [
+        ['X', 'X', 'X'],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+      ];
       assert.equal(horizontalWin(), true);
     });
     it('should check for diagonal wins', () => {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+      board = [
+        ['X', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', 'X']
+      ];
       assert.equal(diagonalWin(), true);
     });
     it('should detect a win', () => {
