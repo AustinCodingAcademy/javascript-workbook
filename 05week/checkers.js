@@ -1,3 +1,5 @@
+// UPDATED FOR ILLEGAL MOVES
+
 'use strict';
 
 const assert = require('assert');
