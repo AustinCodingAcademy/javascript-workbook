@@ -1,0 +1,17 @@
+.tile {
+  width: 30%;
+  height: 150px;
+  font-size: 60px;
+  background: yellow;
+  color: black;
+  border: 8px solid red;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  line-height: 150px;
+}
+p{
+  margin: 0;
+  padding: 0;
+
+}

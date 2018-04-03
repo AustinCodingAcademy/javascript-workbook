@@ -1,0 +1,21 @@
+button {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 20px;
+  font-style: bold;
+  /*border: 4px black;*/
+
+}
+
+.container{
+  width: 950px;
+  margin: auto;
+}
+
+.menu {
+  text-align: center;
+  width: 90%;
+  
+}
