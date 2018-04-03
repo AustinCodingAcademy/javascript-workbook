@@ -126,13 +126,15 @@ class Game {
       this.board.createCheckers();
     };
     this.moveChecker = (source, destination) => {
-      if (isLegalInput(source, destination) && isLegalMove (source,destination)) {
+      const sourceRow = parseInt(source.charAt(0));
+      const sourceColumn = parseInt(source.charAt(1));
+      const destinationRow = parseInt(destination.charAt(0));
+      const destinationColumn = parseInt(destination.charAt(1));
+
+      if (isLegalInput(sourceRow, sourceColumn, destinationRow, destinationColumn) && isLegalMove (sourceRow, sourceColumn, destinationRow, destinationColumn) && this.board.grid[destinationRow][destinationColumn] === null) {
 
 
-        const sourceRow = parseInt(source.charAt(0));
-        const sourceColumn = parseInt(source.charAt(1));
-        const destinationRow = parseInt(destination.charAt(0));
-        const destinationColumn = parseInt(destination.charAt(1));
+
         this.board.grid[destinationRow][destinationColumn] = this.board.grid[sourceRow][sourceColumn];
         this.board.grid[sourceRow][sourceColumn] = null;
         if (Math.abs(destinationRow - sourceRow) === 2) {
@@ -140,15 +142,19 @@ class Game {
           let jumpedColumn = destinationColumn - sourceColumn > 0 ? sourceColumn + 1 : destinationColumn + 1;
           this.board.grid[jumpedRow][jumpedColumn] = null;
           this.board.checkers.pop();
-
-
         }
-
-
       }else{
         console.log('Illegal Move');
       }
+
+      // this.isLegalInput = (source,destination) => {
+      //   let sourceGood = (sourceRow >= 0 && sourceRow < 8) && (sourceColumn >= 0 && sourceColumn < 8);
+      //   let destinationGood = (destinationRow >= 0 && destinationRow < 8) && (destinationColumn >= 0 && destinationColumn < 8);
+      //   return (sourceGood && destinationGood);
+      // };
     }
+
+
 
 
   }
@@ -164,25 +170,35 @@ class Game {
 // }
 
 
-const isLegalInput = (source, destination) => {
-  const sourceRow = parseInt(source.charAt(0));
-  const sourceColumn = parseInt(source.charAt(1));
-  const destinationRow = parseInt(destination.charAt(0));
-  const destinationColumn = parseInt(destination.charAt(1));
-  let sourceGood = (sourceRow >= 0 && sourceRow < 8) && (sourceColumn >= 0 && sourceColumn < 8);
-  let destinationGood = (destinationRow >= 0 && destinationRow < 8) && (destinationColumn >= 0 && destinationColumn < 8);
-  return (sourceGood && destinationGood);
+const isLegalInput = (sourceRow, sourceColumn, destinationRow, destinationColumn) => {
+  // const sourceRow = parseInt(source.charAt(0));
+  // const sourceColumn = parseInt(source.charAt(1));
+  // const destinationRow = parseInt(destination.charAt(0));
+  // const destinationColumn = parseInt(destination.charAt(1));
+  const sourceGood = (sourceRow >= 0 && sourceRow < 8) && (sourceColumn >= 0 && sourceColumn < 8);
+  const destinationGood = (destinationRow >= 0 && destinationRow < 8) && (destinationColumn >= 0 && destinationColumn < 8);
+  return sourceGood && destinationGood;
 }
 
-const isLegalMove = (source, destination) => {
-  const sourceRow = parseInt(source.charAt(0));
-  const sourceColumn = parseInt(source.charAt(1));
-  const destinationRow = parseInt(destination.charAt(0));
-  const destinationColumn = parseInt(destination.charAt(1));
-  let goodRowMove = (Math.abs(destinationRow - sourceRow)<=2);
-  let goodColumnMove = (Math.abs(destinationColumn - sourceColumn)===1);
-  return (goodRowMove && goodColumnMove);
+const isLegalMove = (sourceRow, sourceColumn, destinationRow, destinationColumn) => {
+  // const sourceRow = parseInt(source.charAt(0));
+  // const sourceColumn = parseInt(source.charAt(1));
+  // const destinationRow = parseInt(destination.charAt(0));
+  // const destinationColumn = parseInt(destination.charAt(1));
+  const goodRowValue = (Math.abs(destinationRow - sourceRow));
+  const goodColumnValue = (Math.abs(destinationColumn - sourceColumn));
+  if (goodRowValue === 1 && goodColumnValue === 1){
+    return true;
+  } else if  (goodRowValue === 2 && goodColumnValue === 2) {
+    return true;
+  } else{
+    return false;
+  }
 
+
+  // let goodRowMove = (Math.abs(destinationRow - sourceRow)<=2);
+  // let goodColumnMove = (Math.abs(destinationColumn - sourceColumn)<=2);
+  // return (goodRowMove && goodColumnMove);
 }
 
 
