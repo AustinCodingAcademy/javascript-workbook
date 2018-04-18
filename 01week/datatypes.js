@@ -69,7 +69,6 @@ function twoTruths(num1, num2) {
 twoTruths(6, 11);
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
-//
 // ||
 
 function orTrue(num1, num2) {
