@@ -12,30 +12,27 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
   // Create code for paper() to execute win, loss, or tie.
-  function paper(hand1) {
+  // function paper(hand1) {
     if (hand1.toLowerCase() === "paper") {
       if (hand2 === "rock") {
-          // console.log("paper wins");
-          return hand1;
+          return "Hand1 wins";
       } else {
           if (hand2.toLowerCase() === "scissors") {
-              // console.log("scissors wins");
-              return "Hand two wins!";
+              return "Hand2wins!";
           } else if(hand1 === hand1){
             return "It's a tie!";
           }
        }
      }
-  }
+  //}
 
    // Create code for scissors to execute win, loss, or tie.
    if (hand1 === "scissors") {
        if (hand2 === "rock") {
-           // console.log("rock wins");
            return hand2;
        } else {
            if (hand2 === "paper") {
-               // console.log( "scissors wins");
+               console.log( "scissors wins");
                return hand1;
            } else if (hand1 === hand1){
              return "It's a tie!";
@@ -57,19 +54,19 @@ function rockPaperScissors(hand1, hand2) {
       }
   }
 
-  switch(hand1) {
-    case 'paper':
-      paper('paper');
-      break;
-    case hand1:
-      scissors(hand1);
-      break;
-    case hand1:
-      rock(hand1);
-      break;
-    default:
-      "That is not an option!!!";
-  }
+  // switch(hand1) {
+  //   case 'paper':
+  //     paper('paper');
+  //     break;
+  //   case hand1:
+  //     scissors(hand1);
+  //     break;
+  //   case hand1:
+  //     rock(hand1);
+  //     break;
+  //   default:
+  //     "That is not an option!!!";
+  // }
 
 }
 
