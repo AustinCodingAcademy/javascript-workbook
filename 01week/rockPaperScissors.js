@@ -11,18 +11,6 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-  switch(hand1) {
-    case 'paper':
-          paper(hand1);
-      break;
-    case 'scissors':
-      break;
-    case 'rock':
-      break;
-    default:
-      "TEST";
-      break;
-  }
   // Create code for paper() to execute win, loss, or tie.
   function paper(hand1) {
     if (hand1.toLowerCase() === "paper") {
@@ -67,6 +55,19 @@ function rockPaperScissors(hand1, hand2) {
             return "It's a tie!";
           }
       }
+  }
+
+  switch(hand1) {
+    case 'paper':
+          paper(hand1);
+      break;
+    case 'scissors':
+      break;
+    case 'rock':
+      break;
+    default:
+      "TEST";
+      break;
   }
 
 }
