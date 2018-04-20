@@ -20,7 +20,7 @@ function rockPaperScissors(hand1, hand2) {
     } else {
         if (hand2 === "scissors") {
             // console.log("scissors wins");
-            return hand2;
+            return "Hand two wins!";
         } else if(hand1 === hand1){
           return 'It\'s a tie';
         }
@@ -44,10 +44,10 @@ function rockPaperScissors(hand1, hand2) {
 
  if (hand1 === "rock") {
     if (hand2 === "scissors") {
-        return hand1;
+        return "Hand one wins!";
     } else {
         if (hand2 === "paper") {
-            return hand2;
+            return "Hand two wins!";
         } else {
           return "It is a tie";
         }
