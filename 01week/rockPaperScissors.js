@@ -20,7 +20,7 @@ function rockPaperScissors(hand1, hand2) {
     } else {
         if (hand2.toLowerCase() === "scissors") {
             // console.log("scissors wins");
-            return "Hand two wins!";
+            return hand2;
         } else if(hand1 === hand1){
           return "It's a tie!";
         }
@@ -42,13 +42,14 @@ function rockPaperScissors(hand1, hand2) {
        }
    }
 
-   // Create 
+   // Determine the winner and add the toLowerCase()
+   // and trim() methods to pass the tests.
    if (hand1.toLowerCase().trim() === "rock") {
       if (hand2.toLowerCase() === "scissors") {
-          return "Hand one wins!";
+          return hand1;
       } else {
           if (hand2.trim() === "paper") {
-              return "Hand two wins!";
+              return hand2;
           } else if (hand1 === hand1){
             return "It's a tie!";
           }
