@@ -58,8 +58,8 @@ function rockPaperScissors(hand1, hand2) {
   }
 
   switch(hand1) {
-    case hand1:
-      paper(hand1);
+    case 'paper':
+      paper('paper');
       break;
     case hand1:
       scissors(hand1);
