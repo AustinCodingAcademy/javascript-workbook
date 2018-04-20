@@ -11,11 +11,11 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-  if (choice1 === "paper") {
-  if (choice2 === "rock") {
+  if (hand1 === "paper") {
+  if (hand2 === "rock") {
       console.log("paper wins");
   } else {
-      if (choice2 === "scissors") {
+      if (hand2 === "scissors") {
           console.log("scissors wins");
       }
    }
