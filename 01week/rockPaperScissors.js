@@ -22,7 +22,7 @@ function rockPaperScissors(hand1, hand2) {
             // console.log("scissors wins");
             return hand2;
         } else {
-          return 'It\s' a tie';
+          return "It\s a tie";
         }
      }
  }
@@ -30,11 +30,11 @@ function rockPaperScissors(hand1, hand2) {
  // Create code for scissors to execute win, loss, or tie.
  if (hand1 === "scissors") {
      if (hand2 === "rock") {
-         // console.log("rock wins");
+         console.log("rock wins");
          return hand2;
      } else {
          if (hand2 === "paper") {
-             // console.log( "scissors wins");
+             console.log( "scissors wins");
              return hand1;
          } else {
            return "It is a tie";
