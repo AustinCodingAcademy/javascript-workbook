@@ -42,7 +42,8 @@ function rockPaperScissors(hand1, hand2) {
        }
    }
 
-   // Create 
+   // Determine the winner and add the toLowerCase()
+   // and trim() methods to pass the tests.
    if (hand1.toLowerCase().trim() === "rock") {
       if (hand2.toLowerCase() === "scissors") {
           return "Hand one wins!";
