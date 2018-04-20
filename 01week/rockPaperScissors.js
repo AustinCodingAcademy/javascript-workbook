@@ -6,18 +6,20 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+//this is how we manage the terminal ^^
+
 
 
 function rockPaperScissors(hand1, hand2) {
-
+  //console.log(hand1, hand2, "line 14");
   // Write code here
 
 }
-
+//testing librabris - how instructors know it works
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
