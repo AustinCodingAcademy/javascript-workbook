@@ -11,15 +11,31 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+
+  // Create code for paper() to execute win, loss, or tie.
   if (hand1 === "paper") {
-  if (hand2 === "rock") {
-      console.log("paper wins");
-  } else {
-      if (hand2 === "scissors") {
-          console.log("scissors wins");
-      }
-   }
+    if (hand2 === "rock") {
+        console.log("paper wins");
+    } else {
+        if (hand2 === "scissors") {
+            console.log("scissors wins");
+        }
+     }
  }
+
+ // Create code for scissors to execute win, loss, or tie.
+ if (hand1 === "scissors") {
+     if (hand2 === "rock") {
+         console.log("rock wins");
+     } else {
+         if (hand2 === "paper") {
+             console.log( "scissors wins");
+         } else {
+           console.log("It is a tie");
+         }
+     }
+ }
+
 }
 
 function getPrompt() {
