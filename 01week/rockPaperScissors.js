@@ -58,7 +58,7 @@ function rockPaperScissors(hand1, hand2) {
   }
 
   switch(hand1) {
-    case 'paper':
+    case hand1:
           paper(hand1);
       break;
     case 'scissors':
