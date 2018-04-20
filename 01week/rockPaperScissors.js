@@ -16,9 +16,9 @@ function rockPaperScissors(hand1, hand2) {
 
   if(hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'rock') {
     return hand1;
-  } else if(hand2.toLowerCase() === 'scissors') {
+  } else if(hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'scissors') {
     return hand2;
-  } else {
+  } else if(hand1 === hand1){
     return "It's a tie!";
   }
  //  if (hand1.toLowerCase() === "paper") {
