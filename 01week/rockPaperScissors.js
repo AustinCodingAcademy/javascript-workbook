@@ -44,10 +44,10 @@ function rockPaperScissors(hand1, hand2) {
 
  if (hand1 === "rock") {
     if (hand2 === "scissors") {
-        return "rock wins";
+        return hand1;
     } else {
         if (hand2 === "paper") {
-            return "paper wins";
+            return hand2;
         } else {
           return "It is a tie";
         }
