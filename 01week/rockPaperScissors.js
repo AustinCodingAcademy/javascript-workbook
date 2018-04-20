@@ -13,15 +13,6 @@ function rockPaperScissors(hand1, hand2) {
   // Write code here
 
   // Create code for paper() to execute win, loss, or tie.
-
-  // if(hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'rock') {
-  //   return hand1;
-  // } else if(hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'scissors') {
-  //   return hand2;
-  // } else if(hand1 === hand1){
-  //   return "It's a tie!";
-  // }
-  // FUNCTION 1
   if (hand1.toLowerCase() === "paper") {
     if (hand2 === "rock") {
         // console.log("paper wins");
@@ -29,48 +20,40 @@ function rockPaperScissors(hand1, hand2) {
     } else {
         if (hand2.toLowerCase() === "scissors") {
             // console.log("scissors wins");
-            return hand2;
+            return "Hand two wins!";
         } else if(hand1 === hand1){
           return "It's a tie!";
         }
      }
- }
+   }
 
- // Create code for scissors to execute win, loss, or tie.
- if (hand1 === "scissors") {
-     if (hand2 === "rock") {
-         // console.log("rock wins");
-         return hand2;
-     } else {
-         if (hand2 === "paper") {
-             // console.log( "scissors wins");
-             return hand1;
-         } else if (hand1 === hand1){
-           return "It's a tie!";
-         }
-     }
- }
+   // Create code for scissors to execute win, loss, or tie.
+   if (hand1 === "scissors") {
+       if (hand2 === "rock") {
+           // console.log("rock wins");
+           return hand2;
+       } else {
+           if (hand2 === "paper") {
+               // console.log( "scissors wins");
+               return hand1;
+           } else if (hand1 === hand1){
+             return "It's a tie!";
+           }
+       }
+   }
 
- // if(hand1.toLowerCase().trim() === 'rock' && hand2.toLowerCase() === 'scissors') {
- //   return hand1;
- // } else if(hand1.toLowerCase().trim() === 'rock' && hand2.trim() === 'paper') {
- //   return hand2;
- // } else if(hand1 === hand1){
- //   return "It's a tie!";
- // }
-
-// FUNCTION 3
- if (hand1.toLowerCase().trim() === "rock") {
-    if (hand2.toLowerCase() === "scissors") {
-        return hand1;
-    } else {
-        if (hand2.trim() === "paper") {
-            return hand2;
-        } else if (hand1 === hand1){
-          return "It's a tie!";
-        }
-    }
-}
+   // Create 
+   if (hand1.toLowerCase().trim() === "rock") {
+      if (hand2.toLowerCase() === "scissors") {
+          return "Hand one wins!";
+      } else {
+          if (hand2.trim() === "paper") {
+              return "Hand two wins!";
+          } else if (hand1 === hand1){
+            return "It's a tie!";
+          }
+      }
+  }
 
 }
 
