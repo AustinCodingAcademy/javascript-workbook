@@ -19,6 +19,8 @@ function rockPaperScissors(hand1, hand2) {
     } else {
         if (hand2 === "scissors") {
             console.log("scissors wins");
+        } else {
+          console.log("It is a tie");
         }
      }
  }
@@ -35,6 +37,18 @@ function rockPaperScissors(hand1, hand2) {
          }
      }
  }
+
+ if (hand1 === "rock") {
+    if (hand2 === "scissors") {
+        console.log("rock wins");
+    } else {
+        if (hand2 === "paper") {
+            console.log( "paper wins");
+        } else {
+          console.log("It is a tie");
+        }
+    }
+}
 
 }
 
