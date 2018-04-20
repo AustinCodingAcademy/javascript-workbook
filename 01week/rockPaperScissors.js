@@ -9,8 +9,26 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
   // Write code here
+  
+  // function to check the same value for both the hand has same value send the same value as rock, rock, paper, paper, scissor, scissor
+  //display a tie if they are same
+  // add one more check to both hands to check the second conditon where the rock wins over paper h1 =r and h2=s
+  //elseif to check to check the h1=s and h2 set to paper and the scissor should win aganist paper
+  //else to run the other condition
+  //last check to make sure the
+  if(hand1 === hand2){
+    console.log('both the hand are same: Its a tie!');
+  }elseif (hand1 === 'rock' && hand2 === 'paper'){
+    console.log('Hand2 wins: paper wins aganist rock');
+    }
+
+  });
+
+  });
+
+
+
 
 }
 
