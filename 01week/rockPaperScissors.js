@@ -9,16 +9,20 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-    hand1 = hand1.toLowerCase();
+    hand1 = hand1.toLowerCase(); //changes all letters to lower case
     hand2 = hand2.toLowerCase();
-    hand1 = hand1.trim();
+    hand1 = hand1.trim(); //trims whitespace from beginning and end of string
     hand2 = hand2.trim();
-    if (hand1 === hand2) {
+    const rpsArr = ['rock', 'paper', 'scissors'];
+    if (rpsArr.indexOf(hand1) === -1 | rpsArr.indexOf(hand2) === -1) { //checks if both hand1 and hand2 are valid inputs
+      return 'invalid input';
+    } // returns invalid input and prompt() will prompt for new inputs
+    if (hand1 === hand2) { //checks for a tie
       return "It's a tie!"
     } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper') || (hand1 === 'paper'
-     && hand2 === 'rock')) {
+     && hand2 === 'rock')) { //checks for all cases where hand1 wins
       return "Hand one wins!"
-    } else {
+    } else { //if hand1 doesn't win then hand2 wins
       return "Hand two wins!"
     }
 }
