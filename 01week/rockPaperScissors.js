@@ -12,7 +12,7 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
   // Create code for paper() to execute win, loss, or tie.
-  //function paper(hand1) {
+  function paper(hand1) {
     if (hand1.toLowerCase() === "paper") {
       if (hand2 === "rock") {
           // console.log("paper wins");
@@ -26,7 +26,7 @@ function rockPaperScissors(hand1, hand2) {
           }
        }
      }
-  //}
+  }
 
    // Create code for scissors to execute win, loss, or tie.
    if (hand1 === "scissors") {
@@ -59,13 +59,13 @@ function rockPaperScissors(hand1, hand2) {
 
   switch(hand1) {
     case hand1:
-          paper(hand1);
+      paper(hand1);
       break;
     case hand1:
-          scissors(hand1);
+      scissors(hand1);
       break;
     case hand1:
-          rock(hand1);
+      rock(hand1);
       break;
     default:
       "That is not an option!!!";
