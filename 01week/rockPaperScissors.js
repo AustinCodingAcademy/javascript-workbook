@@ -13,7 +13,7 @@ function rockPaperScissors(hand1, hand2) {
   // Write code here
   switch(hand1) {
     case 'paper':
-          scissors(hand1);
+          paper(hand1);
       break;
     case 'scissors':
       break;
