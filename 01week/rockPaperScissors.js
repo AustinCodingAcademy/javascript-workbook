@@ -62,12 +62,13 @@ function rockPaperScissors(hand1, hand2) {
           paper(hand1);
       break;
     case hand1:
+          scissors(hand1);
       break;
-    case 'rock':
+    case hand1:
+          rock(hand1);
       break;
     default:
-      "TEST";
-      break;
+      "That is not an option!!!";
   }
 
 }
