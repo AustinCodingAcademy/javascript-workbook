@@ -1,4 +1,6 @@
 'use strict';
+
+// Create function for paper
 if (hand1.toLowerCase() === "paper") {
   if (hand2 === "rock") {
       return "Hand one wins";
