@@ -12,44 +12,21 @@ function rockPaperScissors(hand1, hand2) {
   // Write code here
   // Create code for paper as first hand to execute win, loss, or tie.
   // Add the toLowerCase() function to pass tests.
-  if (hand1.toLowerCase() === "paper") {
-    if (hand2 === "rock") {
-        return "Hand one wins";
-    } else {
-        if (hand2.toLowerCase() === "scissors") {
-            return "Hand two wins!";
-        } else if(hand1 === hand1){
-          return "It's a tie!";
-        }
-     }
-  }
-
-  // Create code for scissors as first hand to execute win, loss, or tie.
-  if (hand1 === "scissors") {
-     if (hand2 === "rock") {
-         return "Hand two wins!!!";
-     } else {
-         if (hand2 === "paper") {
-          return "Hand one wins";
-         } else if (hand1 === hand1){
-            return "It's a tie!";
-         }
-     }
-  }
-
-  // Determine the winner for rock as first hand and add the toLowerCase()
-  // and trim() methods to pass the tests.
-  if (hand1.toLowerCase().trim() === "rock") {
-    if (hand2.toLowerCase() === "scissors") {
-        return "Hand one wins!";
-    } else {
-        if (hand2.trim() === "paper") {
-          return "Hand two wins!";
-        } else if (hand1 === hand1){
-           return "It's a tie!";
-        }
-    }
-  }
+  if(hand1.toLowerCase() === 'paper' && hand2 === 'rock') {
+    return "Hand one wins!";
+  } else if (hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'scissors') {
+    return "Hand two wins!";
+  } else if (hand1.toLowerCase().trim() === 'scissors' && hand2.toLowerCase() === 'rock') {
+    return "Hand two wins!";
+  } else if (hand1.toLowerCase() === 'scissors' && hand2.trim() === 'paper') {
+    return "Hand one wins!";
+  } else if (hand1.toLowerCase().trim() === 'rock' && hand2.toLowerCase() === 'scissors') {
+    return "Hand one wins!";
+  } else if (hand1.toLowerCase() === 'rock' && hand2.trim() === 'paper') {
+    return "Hand two wins!";
+  } else if(hand1 === hand1) {
+    return "It's a tie!";
+ }
 }
 
 function getPrompt() {
