@@ -10,8 +10,8 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
   // Write code here
-  // Create code for paper as first hand to execute win, loss, or tie.
-  // Add the toLowerCase() function to pass tests.
+  // Create code with if statements for rock, paper, and scissors to execute win, loss, or tie.
+  // Add the toLowerCase() and trim() functions to pass tests.
   if(hand1.toLowerCase() === 'paper' && hand2 === 'rock') {
     return "Hand one wins!";
   } else if (hand1.toLowerCase() === 'paper' && hand2.toLowerCase() === 'scissors') {
