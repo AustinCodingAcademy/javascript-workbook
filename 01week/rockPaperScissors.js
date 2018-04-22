@@ -14,11 +14,9 @@ function rockPaperScissors(hand1, hand2) {
   // Create code for paper() to execute win, loss, or tie.
     if (hand1.toLowerCase() === "paper") {
       if (hand2 === "rock") {
-          // console.log("paper wins");
-          return hand1;
+          return "Hand one wins";
       } else {
           if (hand2.toLowerCase() === "scissors") {
-              // console.log("scissors wins");
               return "Hand two wins!";
           } else if(hand1 === hand1){
             return "It's a tie!";
@@ -30,11 +28,10 @@ function rockPaperScissors(hand1, hand2) {
    if (hand1 === "scissors") {
        if (hand2 === "rock") {
            // console.log("rock wins");
-           return hand2;
+           return "Hand two wins!!!";
        } else {
            if (hand2 === "paper") {
-               // console.log( "scissors wins");
-               return hand1;
+               return "Hand one wins";
            } else if (hand1 === hand1){
              return "It's a tie!";
            }
