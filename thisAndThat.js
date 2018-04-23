@@ -1,0 +1,3 @@
+function ifThisAndThat() {
+  return 'test';
+}
