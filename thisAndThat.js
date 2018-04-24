@@ -5,3 +5,7 @@ function ifThisAndThat() {
 function ifThisAndThatII() {
   return 'test II';
 }
+
+function ifThisAndThatIII() {
+  return 'test III';
+}
