@@ -3,5 +3,14 @@ function ifThisAndThat() {
 }
 
 function ifThisAndThatII() {
-  return 'test II!!!';
+  return 'test II';
+}
+
+function ifThisAndThatIII() {
+  return 'test III';
+}
+
+// Fourth Function()
+function ifThisAndThatIV() {
+  return 'test IV';
 }
