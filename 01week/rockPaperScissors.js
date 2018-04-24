@@ -9,33 +9,25 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-  // Write code here
-  
-  // function to check the same value for both the hand has same value send the same value as rock, rock, paper, paper, scissor, scissor
-  //display a tie if they are same
-  // add one more check to both hands to check the second conditon where the rock wins over paper h1 =r and h2=s
-  //elseif to check to check the h1=s and h2 set to paper and the scissor should win aganist paper
-  //else to run the other condition
-  //last check to make sure the
-  if(hand1 === hand2){
-    console.log('both the hand are same: Its a tie!');
-  }elseif (hand1 === 'rock' && hand2 === 'paper'){
-    console.log('Hand2 wins: paper wins aganist rock');
-    }
+  // remove the spaces and then convert to LowerCase
+  hand1 = (hand1.trim()).toLowerCase(); 
+  hand2 = (hand2.trim()).toLowerCase();
 
-  });
-
-  });
-
-
-
-
+  if (hand1 === hand2) { // hand1 and hand2 are the same
+    return ('It\'s a tie!');
+  }
+  //Cases where hand1 wins
+  else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
+    return ('Hand one wins!');
+  } else { //All other cases Hand2 wins
+    return ('Hand two wins!');
+  }
 }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
