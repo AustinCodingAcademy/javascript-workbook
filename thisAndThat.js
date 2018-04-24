@@ -9,3 +9,7 @@ function ifThisAndThatII() {
 function ifThisAndThatIII() {
   return 'test III';
 }
+
+function ifThisAndThatIV() {
+  return 'test IV';
+}
