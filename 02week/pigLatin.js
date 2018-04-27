@@ -9,9 +9,18 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  word = word.toLowerCase().trim();
+  const vowelIndex = word.search(/[aeiou]/)
+  const str1 = word.slice(vowelIndex)
+  const str2 = word.slice(0, vowelIndex);
+  let str3;
+  if (vowelIndex !== 0) {
+    str3 = 'ay'
+  } else {
+    str3 = 'yay'
+  }
+  const newStr = str1 + str2 + str3;
+  return newStr;
 }
 
 
