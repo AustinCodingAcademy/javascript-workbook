@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
   // Your code here
-  let firstPosition = isVowels(word);
+  let firstPosition = findVowel(word);
 
   if(firstPosition > 0) {
     return word.slice(firstPosition) + word.slice(0, firstPosition) + 'ay';
@@ -18,7 +18,7 @@ function pigLatin(word) {
   return word + 'yay';
 }
 
-const isVowels = (word) => {
+const findVowel = (word) => {
   for(let i = 0; i < word.length; i++) {
     if("aeiou".indexOf(word[i]) !== -1)  {
       return i;
