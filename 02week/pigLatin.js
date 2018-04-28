@@ -15,7 +15,7 @@ function pigLatin(word) {
   if(firstPosition > 0) {
     return word.slice(firstPosition) + word.slice(0, firstPosition) + 'ay';
   }
-  return word + 'way';
+  return word + 'yay';
 }
 
 const isVowels = (word) => {
@@ -33,7 +33,6 @@ function getPrompt() {
   });
 }
 
-console.log(pigLatin('greed'));
 // Tests
 
 if (typeof describe === 'function') {
