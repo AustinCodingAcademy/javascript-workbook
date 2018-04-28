@@ -13,9 +13,10 @@ function pigLatin(word) {
   let firstPosition = findVowel(word);
 
   if(firstPosition > 0) {
-    return word.slice(firstPosition) + word.slice(0, firstPosition) + 'ay';
+    return word.slice(firstPosition).toLowerCase().trim() +
+    word.slice(0, firstPosition).toLowerCase().trim() + 'ay';
   }
-  return word + 'yay';
+  return word.toLowerCase().trim() + 'yay';
 }
 
 const findVowel = (word) => {
