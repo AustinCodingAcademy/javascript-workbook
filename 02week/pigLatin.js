@@ -15,7 +15,7 @@ function pigLatin(word) {
   if(firstPosition > 0) {
     return word.slice(firstPosition) + word.slice(0, firstPosition) + 'ay';
   }
-  return str + 'way';
+  return word + 'way';
 }
 
 const isVowels = (word) => {
