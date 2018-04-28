@@ -9,11 +9,22 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
   // Your code here
+  let firstPosition = isVowels(word);
 
+  if(firstPosition > 0) {
+    return word.slice(firstPosition) + word.slice(0, firstPosition) + 'ay';
+  }
+  return str + 'way';
 }
 
+const isVowels = (word) => {
+  for(let i = 0; i < word.length; i++) {
+    if("aeiou".indexOf(word[i]) !== -1)  {
+      return i;
+    }
+  }
+}
 
 function getPrompt() {
   rl.question('word ', (answer) => {
