@@ -33,6 +33,7 @@ function getPrompt() {
   });
 }
 
+console.log(pigLatin('greed'));
 // Tests
 
 if (typeof describe === 'function') {
