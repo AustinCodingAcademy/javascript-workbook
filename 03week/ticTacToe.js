@@ -13,6 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let counter = 0
 
 function printBoard() {
   console.log('   0  1  2');
@@ -23,24 +24,51 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+
+// X is the first mark on the board followed by O until there is a winner or the board is filled (9 spaces on the board) for a tie game. the tictactoe function takes two arguments the first is row and second is column. board.splice[][] can change the board deleting the blank space and entering new value for the multiarray. for horizontal vertical and diagonal win functions enter the array index information for three connecting boxes with && for the boxes and || for the different winning combinations.
+
+
 function horizontalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+    (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+    (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === PlayerTurn) ||
+    (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+    (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)) {
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === PlayerTurn) ||
+    (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn)) {
+    return true;
+  }
 }
 
+
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    return true;
+    console.log(playerTurn + " Wins");
+  }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+
+  counter += 1
+
+  if (counter % 2 === 0) {
+    playerTurn = 'X', board[row][column] = 'O'
+  } else {
+    playerTurn = 'O', board[row][column] = 'X'
+  }
+
 }
 
 function getPrompt() {
@@ -64,22 +92,42 @@ if (typeof describe === 'function') {
   describe('#ticTacToe()', () => {
     it('should place mark on the board', () => {
       ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        [' ', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
     it('should alternate between players', () => {
       ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+      assert.deepEqual(board, [
+        ['O', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', ' ']
+      ]);
     });
     it('should check for vertical wins', () => {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+      board = [
+        [' ', 'X', ' '],
+        [' ', 'X', ' '],
+        [' ', 'X', ' ']
+      ];
       assert.equal(verticalWin(), true);
     });
     it('should check for horizontal wins', () => {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      board = [
+        ['X', 'X', 'X'],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
+      ];
       assert.equal(horizontalWin(), true);
     });
     it('should check for diagonal wins', () => {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+      board = [
+        ['X', ' ', ' '],
+        [' ', 'X', ' '],
+        [' ', ' ', 'X']
+      ];
       assert.equal(diagonalWin(), true);
     });
     it('should detect a win', () => {
