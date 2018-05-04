@@ -6,8 +6,10 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
-
+// Gather information.
+// Create a function that adds the first consonant to the end
+// of the string plus 'ay'.  If vowel is at the begining of the
+// string, add 'yay' to the end of the string.
 function pigLatin(word) {
   // Your code here
   let firstPosition = findVowel(word);
