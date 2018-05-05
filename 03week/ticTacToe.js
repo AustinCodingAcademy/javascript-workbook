@@ -168,8 +168,10 @@ function ticTacToe(row, column) {
         board[row][column] = 'O';
       }
     }
-
-
+    else if(board[row][column] !== ' '){
+     console.log('Please choose another spot.  Try again!!!');
+     playerTurn = playerTurn == "X" ? "O" : "X";
+   }
 }
 
 
