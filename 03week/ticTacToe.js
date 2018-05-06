@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -25,22 +26,57 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if (board[0][0] === board[0][1] && board[0][0] === board[0][2]) {
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[1][0] === board[1][1] && board[1][0] === board[1][2]) {
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[2][0] === board[2][1] && board[2][0] === board[2][2]) {
+    console.log(playerTurn + " Won!!!");
+  }
 }
 
 function verticalWin() {
   // Your code here
+  if (board[0][0] === board[1][0] && board[0][0] === board[2][0]) {
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[0][1] === board[1][1] && board[0][1] === board[2][1]) {
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[0][2] === board[1][2] && board[0][2] === board[2][2]) {
+    console.log(playerTurn + " Won!!!");
+  }
 }
 
 function diagonalWin() {
   // Your code here
+  if (board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
+    console.log(playerTurn + " Won!!!");
+  }
 }
 
 function checkForWin() {
   // Your code here
+  if (diagonalWin() || verticalWin() || horizontalWin()) {
+    return board.reset();
+ }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  board[row][column] = playerTurn;
+  checkForWin();
+  if (playerTurn === 'X'){
+    return playerTurn = 'O';
+    }
+  else {
+    playerTurn = 'X';
+  }
 }
 
 function getPrompt() {
