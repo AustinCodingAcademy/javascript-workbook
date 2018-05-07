@@ -1,5 +1,7 @@
 'use strict';
 
+// 1.  TEST
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -19,9 +21,25 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+  try {
+     if(startStack == 'a' && (endStack === 'b' || endStack === 'c')) {
+       return true;
+     } else if (startStack === 'b' && (endStack === 'a' || endStack === 'c')) {
+       return true;
+     } else if (startStack === 'c' && (endStack === 'a' || endStack === 'b')) {
+       return true;
+     } else {
+       throw 'Please enter a valid letter.  Please don\'t enter the same letter.'
+     }
+      stacks[endStack].push(stacks[startStack].pop());
 
+      stacks[endStack].forEach(item => {
+        console.log(item);
+      })
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 function isLegal() {
@@ -36,6 +54,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  movePiece('a', 'b');
 
 }
 
