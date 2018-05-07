@@ -13,6 +13,13 @@ let stacks = {
   c: []
 };
 
+/*
+- a, b, c are the stacks/columns that the blocks go on
+- the numbers 1, 2, 3, 4 are the blocks, with 1 being the smallest block and 4 being the largest
+- use .push to add something to the end
+- use .pop to remove what's on the end of the stack
+*/
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -25,12 +32,12 @@ function movePiece() {
 }
 
 function isLegal() {
-  // Your code here
+  // for each stack, check to see that there is no larger number on top of a smaller one
 
 }
 
 function checkForWin() {
-  // Your code here
+  // if stacks "a" and "b" are empty, and "c" has 4, 3, 2, 1 on it in that order, it's a win
 
 }
 
@@ -56,7 +63,11 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      });
     });
   });
 
@@ -80,9 +91,17 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = {
+        a: [],
+        b: [4, 3, 2, 1],
+        c: []
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = {
+        a: [1],
+        b: [4, 3, 2],
+        c: []
+      };
       assert.equal(checkForWin(), false);
     });
   });
