@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -22,25 +23,66 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-
+/*  - Create player X and player O (already completed)
+    - Create board (already completed)
+    - Whiteboard all possible wins. There are 8 possible ways to win on the board.
+    - Write if statements for each possible line that will win.  Horizontal, vertical and diagonal.
+    - Check for wins each time playerTurn.
+    - Return win for the playerTurn that hits a possible win function
+    - Reset board after win.  */
 function horizontalWin() {
-  // Your code here
+  // Function for each horizontal line to show winner for either playerTurn
+  if (board[0][0] === board[0][1] && board[0][0] === board[0][2]) { // row 0 matches colum 0,1,2 wins
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[1][0] === board[1][1] && board[1][0] === board[1][2]) {  // row 1 matches colum 0,1,2 wins
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[2][0] === board[2][1] && board[2][0] === board[2][2]) { // row 2 matches colum 0,1,2 wins
+    console.log(playerTurn + " Won!!!");
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  // Function for each vertical line shows the winner for either playerTurn
+  if (board[0][0] === board[1][0] && board[0][0] === board[2][0]) { // column 0 matches rows 0,1,2 wins
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[0][1] === board[1][1] && board[0][1] === board[2][1]) { // column 1 matches rows 0,1,2 wins
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[0][2] === board[1][2] && board[0][2] === board[2][2]) { // column 2 matches rows 0,1,2 wins
+    console.log(playerTurn + " Won!!!");
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  // Function for each diagonal line shows the winner for either playerTurn
+  if (board[0][0] === board[1][1] && board[0][0] === board[2][2]) {  // diagonal winner for either playerTurn
+    console.log(playerTurn + " Won!!!");
+  }
+  if (board[0][2] === board[1][1] && board[0][2] === board[2][0]) { // diagonal winner for either playerTurn
+    console.log(playerTurn + " Won!!!");
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  // Verify win based on the functions in the parameter.
+  if (diagonalWin() || verticalWin() || horizontalWin()) {
+    return board.reset();
+ }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  // Function for playerTurn and checkForWin.
+  board[row][column] = playerTurn;
+  checkForWin();
+  if (playerTurn === 'X'){ // playerTurn starts with X
+    return playerTurn = 'O'; // next move will switch to playerTurn O
+    }
+  else {
+    playerTurn = 'X'; //switch to playerTurn X
+  }
 }
 
 function getPrompt() {
