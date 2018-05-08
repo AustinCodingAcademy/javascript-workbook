@@ -27,8 +27,12 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+  // when one stack is clicked, remove the last block on it
+  // add that removed block to the next column the user clicks
+  let strClickedPiece = stacks.a[1]
+  if (stacks.b.length - 1 > strClickedPiece) { // to check if there's a block there and if it's bigger than the one being appended
+    let stacks.b = stacks.b.push(strClickedPiece);
+  }
 }
 
 function isLegal() {
