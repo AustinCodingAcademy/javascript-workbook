@@ -30,10 +30,15 @@ function movePiece() {
   // when one stack is clicked, remove the last block on it
   // add that removed block to the next column the user clicks
   let strClickedPiece = stacks.a.pop();
-  if (stacks.b.length - 1 > strClickedPiece) { // to check if the last block present is bigger than the one being appended
+  if (stacks.b[stacks.b.length - 1] > strClickedPiece) { // to check if the last block present is bigger than the one being appended
     let stacks.b = stacks.b.push(strClickedPiece);
+  } else if (stacks.c[stacks.c.length - 1] > strClickedPiece) {
+    let stacks.c = stacks.c.push(strClickedPiece);
+  } else {
+    console.log("Invalid move");
   }
 }
+//how to tell which piece the user clicks on next?
 
 function isLegal() {
   // for each stack, check to see that there is no larger number on top of a smaller one
@@ -42,7 +47,13 @@ function isLegal() {
 
 function checkForWin() {
   // if stacks "a" and "b" are empty, and "c" has 4, 3, 2, 1 on it in that order, it's a win
-
+  if (stacks = {
+      a: [],
+      b: [],
+      c: [4, 3, 2, 1]
+    }) {
+    console.log("You win!");
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
