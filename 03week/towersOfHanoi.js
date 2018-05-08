@@ -18,6 +18,7 @@ let stacks = {
 - the numbers 1, 2, 3, 4 are the blocks, with 1 being the smallest block and 4 being the largest
 - use .push to add something to the end
 - use .pop to remove what's on the end of the stack
+- check to see if the last number on the stack is smaller than the numbers before it
 */
 
 function printStacks() {
@@ -42,7 +43,15 @@ function movePiece() {
 
 function isLegal() {
   // for each stack, check to see that there is no larger number on top of a smaller one
-
+  if (stacks.a[0] || stacks.a[1] || stacks.a[2] < stacks.a[3]) { //check to see if the first three numbers in A's array are less than the fourth number
+    console.log("Invalid move");
+  } else if (stacks.b[0] || stacks.b[1] || stacks.b[2] < stacks.b[3]) { //check to see if the first three numbers in B's array are less than the fourth number
+    console.log("Invalid move");
+  } else if (stacks.c[0] || stacks.c[1] || stacks.c[2] < stacks.c[3]) { //check to see if the first three numbers in C's arrays are less than the fourth number
+    console.log("Invalid move");
+  } else {
+    return true;
+  }
 }
 
 function checkForWin() {
@@ -58,7 +67,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   movePiece();
-  if (isLegal() && checkForWin()) {
+  if (isLegal() && checkForWin() = true) {
     console.log("You win!");
   } else {
     movePiece(); //if there's not a win, the user needs to click and continue moving the blocks
