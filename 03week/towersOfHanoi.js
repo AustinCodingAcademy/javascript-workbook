@@ -29,8 +29,8 @@ function printStacks() {
 function movePiece() {
   // when one stack is clicked, remove the last block on it
   // add that removed block to the next column the user clicks
-  let strClickedPiece = stacks.a[1]
-  if (stacks.b.length - 1 > strClickedPiece) { // to check if there's a block there and if it's bigger than the one being appended
+  let strClickedPiece = stacks.a.pop();
+  if (stacks.b.length - 1 > strClickedPiece) { // to check if the last block present is bigger than the one being appended
     let stacks.b = stacks.b.push(strClickedPiece);
   }
 }
@@ -46,7 +46,13 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  movePiece();
+  if (isLegal() && checkForWin()) {
+    console.log("You win!");
+  } else {
+    movePiece(); //if there's not a win, the user needs to click and continue moving the blocks
+  }
+}
 
 }
 
