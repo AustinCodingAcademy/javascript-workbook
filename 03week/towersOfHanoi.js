@@ -62,6 +62,8 @@ function checkForWin() {
       c: [4, 3, 2, 1]
     }) {
     console.log("You win!");
+  } else {
+    return false;
   }
 }
 
