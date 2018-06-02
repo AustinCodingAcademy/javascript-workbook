@@ -1,0 +1,28 @@
+.list-item {
+  margin-top: 3px;
+}
+
+p {
+  position: relative;
+  top: 2px;
+  display: inline;
+  margin-left: 2px;
+}
+p:hover {
+  cursor: pointer;
+}
+
+.delete {
+  padding: 1px 2.5px;
+  border-radius: 0px;
+  position: relative;
+  left: 2px;
+  font-family: sans-serif;
+  color: grey;
+}
+
+.delete:hover {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
