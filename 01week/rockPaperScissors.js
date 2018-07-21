@@ -8,10 +8,59 @@ const rl = readline.createInterface({
 });
 
 
+// Get user input for hand1 and hand2
+// Check that inputs are truthy
+// Remove whitespace from user inputs and convert toLowerCase
+// Create an array that holds ['rock', 'paper', 'scissors']
+// Check that user input is either rock || paper || scissors
+// if hand1 is the same as hand2,       return 'It's a tie!'
+// if hand1 = rock & hand2 = paper,     return 'Hand two wins!'
+// if hand1 = paper & hand2 = scissors, return 'Hand two wins!'
+// if hand1 = scissors & hand2 = rock,  return 'Hand two wins!' 
+// if hand2 = rock & hand1 = paper,     return 'Hand one wins!' 
+// if hand2 = paper & hand1 = scissors, return 'Hand one wins!'
+// if hand2 = scissors & hand1 = rock,  return 'Hand one wins!' 
+// add else statements to each if statement that returns other hand wins
+// methods: if/else statement, toLowerCase(), trim(), indexOf()
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  
+  if(hand1 && hand2){
+    const handOne = hand1.trim().toLowerCase();
+    const handTwo = hand2.trim().toLowerCase();
+    const possibleHands = ['rock', 'paper', 'scissors'];
 
+    if(possibleHands.indexOf(handOne) > -1 && possibleHands.indexOf(handTwo) > -1 ){
+      if(handOne === handTwo){
+        return 'It\'s a tie!'
+      }
+      if(handOne == 'rock'){
+        if(handTwo == 'paper'){
+          return 'Hand two wins!'
+        } else {
+          return 'Hand one wins!'
+        }
+      } else if(handOne == 'paper'){
+        if(handTwo == 'scissors'){
+          return 'Hand two wins!'
+        } else {
+          return 'Hand one wins!'
+        }
+      } else if(handOne == 'scissors'){
+        if(handTwo == 'rock'){
+          return 'Hand two wins'
+        } else {
+          return 'Hand one wins'
+        }
+      } 
+    } else {
+      return 'Invalid input'
+    }
+
+  } else {
+    return 'Invalid input'
+  }
 }
 
 function getPrompt() {
