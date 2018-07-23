@@ -1,5 +1,5 @@
 //CODE PLAN//
-//write a function inputValid() to scrub code
+//write a function strIsValid() to scrub code
   //trim spaces using trim()
   //make case consistent using toLowerCase()
 
@@ -7,7 +7,7 @@
   //use conditional to evaluate if input string starts with a,e,i,o,u
   //if truthy return original string concatinating 'yay' to the end
 
-//write a function makePigLatin()
+//write a function startsWithConsonant()
   //create variables to hold sliced string from input
     //assign strStartSlice to index 0 of slice to hold value
     //assign strEndSlice to slice from index 1(inclusive) to the end of the string (word.length)
