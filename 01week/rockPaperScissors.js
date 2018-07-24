@@ -10,8 +10,24 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+//first up, write a method for each player to remove spaces and upercase letters from their input.  
+// this will prevent spaces and uppercase from confusing the program by keeping everything consistant. 
+const user1 = hand1.toLowerCase().trim();
+const user2 = hand2.toLowerCase().trim();
 
+//check if both users entered the same value.  If so, return that it's a tie.
+  if (user1 == user2) {
+    return "It is a Tie";
+
+    //Otherwise, give the ways in which player 1 could win
+  } else if((user1 == "Rock" && user2 == "Scissors") || (user1 == "Paper" && user2 == "Rock") || (user1 == "Scissors" && user2 == "Paper")) {
+    return "User1 Wins!";
+
+    //write a code that says anything else would have player 2 win because if it's not a tie, and 
+    //player 1 didn't win, then player 2 must win by defult.  
+    } else {
+      return "User2 Wins!"
+    }
 }
 
 function getPrompt() {
