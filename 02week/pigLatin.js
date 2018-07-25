@@ -10,6 +10,16 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
+
+//check input if its string checkInput()
+//trim input to lowercase lowerCase()
+// use loop to go through wordarray
+// use conditional to check for the vowels a,e,i,o,u,y
+// if true splice the 'element', if not true store it in newArr
+//once loop is complete use .join() to combine array letters into string
+//add 'ay' at the end of the word
+
+
   const checkInput=(input)=>
 {
   if(typeof input=='string')
@@ -23,14 +33,6 @@ const lowerCase=(input)=>
   return input.toLowerCase();
 }
 
-
-//check input if its string checkInput()
-//trim input to lowercase lowerCase()
-// use loop to go through wordarray
-// use conditional to check for the vowels a,e,i,o,u,y
-// if true splice the 'element', if not true store it in newArr
-//once loop is complete use .join() to combine array letters into string
-//add 'ay' at the end of the word
 
 const pigLatin=(word)=>
 {
