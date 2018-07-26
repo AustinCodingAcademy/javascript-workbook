@@ -1,17 +1,19 @@
 //CODE PLAN//
-//write a function strIsValid() to scrub code
-  //trim spaces using trim()
-  //make case consistent using toLowerCase()
+//write a function strIsValid()
+  //check for word input
+
+//function scrubString()
+  //check for extra spaces before and after 
+  //check for consistent case 
 
 //write a function chkForVowelStart()
-  //use conditional to evaluate if input string starts with a,e,i,o,u
+  //use conditional to evaluate if input string starts with a,e,i,o,u (look into index of as a shorter method)
   //if truthy return original string concatinating 'yay' to the end
 
-//write a function startsWithConsonant()
-  //create variables to hold sliced string from input
-    //assign strStartSlice to index 0 of slice to hold value
-    //assign strEndSlice to slice from index 1(inclusive) to the end of the string (word.length)
-  //return concat of strStartSlice, strEndSlice and 'ay'
+//function complexConsonant()
+  //remove consonants or consonant strings through intial vowel (check out array and split)
+  //reattached to end of word (check out join)
+  //add ay to end
 
 
 'use strict';
