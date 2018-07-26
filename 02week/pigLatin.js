@@ -8,7 +8,6 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
 
 
 //check input if its string checkInput()
@@ -20,7 +19,7 @@ function pigLatin(word) {
 //add 'ay' at the end of the word
 
 
-  const checkInput=(input)=>
+const checkInput=(input)=>
 {
   if(typeof input=='string')
   {
@@ -41,7 +40,7 @@ const pigLatin=(word)=>
     word= lowerCase(word);
     const wordarray= word.split("");
     const newArr=[];
-    for(i=0;i<wordarray.length;i++)
+    for(let i=0;i<wordarray.length;i++)
     {
       if(wordarray[i]=='a'|| wordarray[i]=='e' || wordarray[i]=='i' ||wordarray[i]=='o' ||wordarray[i]=='u' || wordarray[i]=='y')
       {
@@ -59,10 +58,9 @@ const pigLatin=(word)=>
     }
 }
 
-pigLatin('StefaN');
 
 
-}
+
 
 
 function getPrompt() {
