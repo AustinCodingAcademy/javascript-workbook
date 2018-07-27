@@ -18,10 +18,11 @@ const rl = readline.createInterface({
 // const checkForVowel = (word)=>{
 //   const vowel = ['a', 'e', 'i', 'o', 'u'];
 //   for (var i = 0; i < word.length; i++) {
-//     word.indexOf(vowel)
+//     return word.indexOf(vowel)
 //   }
   
 // }
+
 
 //changes the input word into a pig latin word (simple)
 const changeWord = (word)=>{
@@ -36,6 +37,7 @@ const changeWord = (word)=>{
 
 //checks to see if the word is not a number
 const isInputValid = (word)=>{
+  //return true or false
   return isNaN(word)
 }
 
