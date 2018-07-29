@@ -1,3 +1,12 @@
+// check to make sure word is not a number
+// scrub word by using toLowerCase() method and trim() method
+
+// make an array out of variable word with split() and use a for loop to run through wordArr to find first instant of a vowel
+// if first letter of word is a vowel, return word + 'yay'
+// if first letter of word is a consonant, slice and assign to a variable.  add
+// that variable to the end + 'ay'
+
+
 'use strict';
 
 const assert = require('assert');
@@ -11,7 +20,34 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
-
+  // let newWord = '';
+  const vowels = ['a','e','i','o','u'];
+  let result;
+  // remove spaces and converts to lower case
+  word = word.toLowerCase().trim();
+    // split word into array containing letters
+  let wordArray = word.split('');
+  console.log(wordArray);
+  // loop through vowels
+  for (let w = 0; w < wordArray.length; w++) {
+    console.log(wordArray[w]);
+    if (!isNaN(wordArray[w])) return 'Invalid input, letters only'
+    for (let v = 0; v < vowels.length; v++) {
+      if (wordArray[0] === vowels[v]) {
+        result = word + 'yay';
+      } else if (vowels[v] === wordArray[w]) {
+        console.log(w+' is the where the vowel is');
+        if (!result) {
+          let removed = word.slice(0, w);
+          console.log(removed);
+          word = word.slice(w);
+          console.log(word);
+          result = word + removed + 'ay';
+        }      
+      }
+    }
+  }
+  return result;
 }
 
 
