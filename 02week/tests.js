@@ -22,8 +22,16 @@ const isInputValid = (hand1, hand2) =>{
   const isHandTwoValid = hand2.match('rock') || hand2.match('paper') || hand2.match('scissors');
 
   console.log(isHandOneValid)
-
   console.log(isHandTwoValid)
+
+  if (isHandOneValid !== null && isHandTwoValid !== null) {
+    return true
+  }
+
+  // if (isHandOneValid && isHandTwoValid === null){
+  //   return 'please enter a valid word'
+  // } 
+
  
 }
 
@@ -46,7 +54,11 @@ function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.toLowerCase().trim();
   hand2 = hand2.toLowerCase().trim();
 
-  isInputValid(hand1, hand2)
+  if(isInputValid(hand1, hand2)){
+    return true
+  } else {
+    return false
+  }
 
   // f(hand1 === hand2){
   //   return 'Its a tie!'
