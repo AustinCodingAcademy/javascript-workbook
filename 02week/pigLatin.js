@@ -7,12 +7,41 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function pigLatin(word) {
-
-  // Your code here
-
+//function will return word in piglatin
+function pigLatin(str) {
+  //arr1 to new array
+  const arr1 = arr2(str);
+  if(arr1 > 0) {
+    //if it doesnt start with a vowel, select first half of letters
+    //add to end of word and add "ay"
+    return str.slice(arr1) + str.slice(0, arr1) + 'ay';
+  }
+  //if it starts with a vowel, return with "yay" at end of word
+  return str + "yay";
 }
+//
+function arr2(str) {
+  for (let i=0; i<str.length; i++) {
+    //locate vowel and check value and type
+    if ("aeiou".indexOf(str[i]) !== -1) {
+      return i;
+    }
+  }
+}
+
+// console.log(pigLatin("hello"));
+
+
+
+  //call function isVaild()- checks lowercase and trim white space and if its a string
+  //first check if word starts with a vowel, no symbols, no numbers
+  //if word starts with a vowel, just add 'yay' to end of word
+
+  // use split() to insert string into array
+
+  //use for loop() through array to check for a vowel
+
+
 
 
 function getPrompt() {
