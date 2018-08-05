@@ -26,9 +26,10 @@ function pigLatin(word) {
   // remove spaces and converts to lower case
   word = word.toLowerCase().trim();
     // split word into array containing letters
-  let wordArray = word.split('');
+  const wordArray = word.split('');
   console.log(wordArray);
   // loop through vowels
+  // use includes**
   for (let w = 0; w < wordArray.length; w++) {
     console.log(wordArray[w]);
     if (!isNaN(wordArray[w])) return 'Invalid input, letters only'
@@ -38,12 +39,12 @@ function pigLatin(word) {
       } else if (vowels[v] === wordArray[w]) {
         console.log(w+' is the where the vowel is');
         if (!result) {
-          let removed = word.slice(0, w);
+          const removed = word.slice(0, w);
           console.log(removed);
           word = word.slice(w);
           console.log(word);
           result = word + removed + 'ay';
-        }      
+        }
       }
     }
   }
