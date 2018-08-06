@@ -68,4 +68,8 @@ const twoFalseWins = (faux1,faux2)=>{
   return "Both False "
 }
 
+<<<<<<< HEAD
 // © 2017 Austin Coding Academy
+=======
+// © 2017 Austin Coding Academy
+>>>>>>> 8ab538ede36bf8d16321c08fadce480b3ac398f0

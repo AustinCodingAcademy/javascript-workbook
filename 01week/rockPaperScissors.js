@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
+ 
   // ROCK scissors PAPER
  // 2 player game where each player's input is compared to one another and the value of their input determines who wins
  //in the game rock is > then scissors but < paper
