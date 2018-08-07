@@ -1,4 +1,4 @@
-5'use strict';
+'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
@@ -24,7 +24,9 @@ const movePiece=(startStack, endStack)=> {
   return stacks[endStack].push(stacks[startStack].pop());node
 
 }
-// conditionals 
+// conditionals check the value of the element ion this case the last value in the array given which was our start stacks the lowest value was one and was place at the end of that array which is found through the.lenght-1 method
+
+
 const isLegal=(startStack,endStack)=> {
   if(valueOfStack (startStack,endStack)) {
   const firstValue = stacks[startStack][stacks[startStack].length-1]
@@ -50,7 +52,7 @@ return true;
 }
 
 
-
+// when 4 values are in  order in the ebnd stack which is our last array the game has been won 
 const checkForWin=()=> {
   if (stacks.c.length === 4){
     return true;
@@ -69,6 +71,7 @@ const towersOfHanoi=(startStack, endStack) => {
   } 
   if (checkForWin()){
     console.log (" YOU ARE A GENIUS YOU WON!!!")
+    // repositions the stacks "RESET"
     stacks = {
       a: [4, 3, 2, 1],
       b: [],
