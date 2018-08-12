@@ -16,21 +16,20 @@ const rl = readline.createInterface({
 //complex word loop until you find a vowel 
 //simple word
 
-// const checkForVowel = (word)=>{
-//   const vowel = ['a', 'e', 'i', 'o', 'u'];
-//   for (var i = 0; i < word.length; i++) {
-//     return word.indexOf(vowel)
-//   }
-  
-// }
 
+//checks if the first letter is a vowel
+const checkForVowel = (word)=>{
+  const splitWord = word.split('')
+  if(splitWord[0]==='a'||splitWord[0]==='e'||splitWord[0]==='i'||splitWord[0]==='o'||splitWord[0]==='u'){
+    return true
+  } else {
+    return false
+  }
+}
 
 //changes the input word into a pig latin word (simple)
 const changeWord = (word)=>{
   const wordArr = word.split('');
-  // const firstLetter = wordArr[0];
-  // const vowels = new Array('a', 'e', 'i', 'o', 'u');
-  // console.log(wordArr[0].includes(vowels))
   const firstLetter = wordArr.shift();
   const pushFirstLetter = wordArr.push(firstLetter);
   const ay = 'ay';
@@ -39,38 +38,37 @@ const changeWord = (word)=>{
   return completeWord
 }
 
-//checks to see if the word is not a number
-const isInputValid = (word)=>{
-  //return true or false
-  const pattern = new RegExp(/[a-z]/);
-  let i = 0;
+const complexWord = (word)=>{
+    const vowelWordArr = word.split('');
+    const yay = 'yay';
+    const pushYay = vowelWordArr.push(yay)
+    const completeVowelWord = vowelWordArr.join('');
+    return completeVowelWord
+}
 
-  for(i = 0; i<word.length; i++){
+//checks to see if the word is not a number
+//return true or false
+const isInputValid = (word)=>{
+  const pattern = new RegExp(/[a-z]/);
+  for(let i = 0; i<word.length; i++){
     if(pattern.test(word[i]) !== true){
       return false;
     }
   } 
   return true;
-
-  //other things I tried:
-
-  // return isNaN(word)
-  // const letters = new Array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-  // return word.match(/[letters]/g);
-  
 }
 
 //the varible word is whatever string the user inputs
 function pigLatin(word) {
-
-  //change word to a lowercase trim word
   word = word.toLowerCase().trim()
-
-  //if word is not a number execute this code else return 'please enter a valid word'
   if(isInputValid(word)){
-    return changeWord(word)
+    if(checkForVowel(word)){
+      return complexWord(word)
+    } else{
+      return changeWord(word)
+    } 
   } else {
-    return 'please enter a valid word'
+    console.log('INVALID WORD')
   }
 }
 
