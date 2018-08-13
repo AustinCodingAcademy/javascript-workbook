@@ -46,6 +46,19 @@ const complexWord = (word)=>{
     return completeVowelWord
 }
 
+// const complexWord = (word)=>{
+//   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
+//   for(let i = 0; i < word.length; i++){
+//     if(vowelArr.includes(word[0])){
+//       return word + 'yay'
+//     } else if(vowelArr.includes(word[i])){
+//       const beforeVowel = word.substring(0, i);
+//       const afterVowel = word.substring(i);
+//       return afterVowel + beforeVowel + 'ay';
+//     }
+//   }
+// }
+
 //checks to see if the word is not a number
 //return true or false
 const isInputValid = (word)=>{
