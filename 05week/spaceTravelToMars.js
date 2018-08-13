@@ -12,13 +12,15 @@ let jobTypes = {
 // Your code here
 
 class CrewMember {
-  constructor(name, job, specialSkill){
-    this.name = name;
-    this.job = job;
-    this.specialSkill = specialSkill;
+  constructor(name, job, specialSkill, ship){
+    this.name = name,
+    this.job = job,
+    this.specialSkill = specialSkill
+    this.ship = null;
   }
-  enterShip(ship){
-    new Ship(ship)
+  enterShip(newShip){
+    newShip.addCrew(this);
+    this.ship = newShip
   }
 }
 
@@ -27,6 +29,10 @@ class Ship {
     this.name = name;
     this.type = type;
     this.ability = ability;
+    this.crew = [];
+  }
+  addCrew(crewMember){
+    this.crew.push(crewMember)
   }
 }
 
