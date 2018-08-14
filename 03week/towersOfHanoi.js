@@ -54,12 +54,11 @@ return true;
 }
 }
 
-
 // when 4 values are in  order in the end stack which is our last array "c" the game has been won 
 const checkForWin=()=> {
-  if (stacks.c.length === 4){
+  if (stacks.c.length === 4 || stacks.b.length === 4){
     return true;
-  }else{
+  } else{
     return false;
   }
 }
@@ -123,8 +122,16 @@ if (typeof describe === 'function') {
     });
   });
   describe('#checkForWin()', () => {
-    it('should detect a win', () => {
+    it('should detect a win at stack b', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      assert.equal(checkForWin(), true);
+      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      assert.equal(checkForWin(), false);
+    });
+  });
+  describe('#checkForWin()', () => {
+    it('should detect a win at stack c', () => {
+      stacks = { a: [], b: [], c: [4,3,2,1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
