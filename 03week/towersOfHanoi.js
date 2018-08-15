@@ -42,6 +42,7 @@ const isLegal=(startStack,endStack)=> {
 }
 }
 //   this function is used to determine which blocks become and endStack or a StartStack in this case there is only 3 possible outcome we have 3 stacks which are the 3 areas where the items will be place . if a is a start stack b and c naturally become end stack same for b"startStack where a and c are now end stacks and when c is a startStack  then naturally a and b now become end stacks
+
 const valueOfStack =(startStack,endStack)=>{
 if (startStack ==='a'&& endStack==="b"|| endStack ==="c"){
   return true;
@@ -135,6 +136,14 @@ if (typeof describe === 'function') {
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
+    });
+  });
+
+  describe('#valueOfStack()', () => {
+    it('check the amount of tokens in a stack', () => {
+
+      assert.equal(valueOfStack('a','c'), true);
+      assert.equal(valueOfStack('b','c'), false);
     });
   });
 
