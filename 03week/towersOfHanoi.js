@@ -13,29 +13,59 @@ let stacks = {
   c: []
 };
 
+//const startStack1 = stacks.a;
+// // objects destructing
+// let {a, b, c} = stacks;
+// console.log(a.length, b.length, c.length);
+
+
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  let delStack = stacks[startStack].pop();
+  stacks[endStack].push(delStack);
 
 }
-
-function isLegal() {
-  // Your code here
+ 
+function isLegal(startStack, endStack) {
+  return (stacks[endStack].length === 0 || stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length -1]);
 
 }
 
 function checkForWin() {
   // Your code here
+  return (stacks.b.length == 4 || stacks.c.length == 4);
+}
+
+function checkForValidInput(startStack, endStack){
+  return (typeof startStack === "string"|| typeof endStack === "string");
 
 }
 
+function checkForOneCharInput(startStack, endStack){
+  const tester = /^[a-z]+$/;
+  if (!tester.test(startStack) || !tester.test(endStack)){
+    return false;
+  }
+}
+
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  
+  if (checkForValidInput(startStack,endStack)){
+    //checkForOneCharInput(startStack, endStack);
+    isLegal(startStack,endStack);
+    //console.log("afterislegal",startStack,endStack);
+    movePiece(startStack,endStack);
+    //console.log("aftermovepiece");
+    checkForWin(startStack);
+    return checkForWin(startStack);
+  }
 
 }
 
@@ -43,6 +73,7 @@ function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
+      //console.log("I am here in going to towersofHanoi");
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
@@ -87,8 +118,24 @@ if (typeof describe === 'function') {
     });
   });
 
+  describe('#checkForValidInput()', () => {
+    it('should not allow numerical inputs', () => {
+      assert.equal(checkForValidInput(1,2), false);
+      assert.equal(checkForValidInput('a', 'b'), true);
+    });
+  });
+
+  describe('(#checkForOneCharInput()', () => {
+    it('it is one char inputs and not falsy values', () => {
+      assert.equal(checkForValidInput(' ','..'), false);
+      assert.equal(checkForValidInput('aaa', 'bbb'), false);
+    });
+  });
+
 } else {
 
   getPrompt();
 
 }
+
+
