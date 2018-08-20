@@ -7,6 +7,33 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+/* WHITEBOARD
+
+Checkers - 8x8
+
+METHODS:
+  movePiece(begCoord, endCoor)
+    - can move forward and backwards from start of game
+    - pieces have to move diagonally
+    - takes begining and end coordinates as pararms
+  checkForWin()
+    - check to see if all pieces are gone for a team
+    - keep a counter of all pieces that have been jumped
+  isMoveLegal()
+    - is the end position not occupied
+  isValidInput()
+    - check to make sure the move coordinates entered are inside the board
+  killPiece()
+    - if an opponent piece is jumped, remove it from the board
+  resetGame()
+    - reset gloabl vars: board, playerTurn
+  initBoard()
+    - initially setup the board
+  switchPlayer()
+    - will toggle current active player
+    - refer to tic tac toe app to see how this was implemented
+
+ */
 
 function Checker() {
   // Your code here
@@ -27,6 +54,7 @@ class Board {
       }
     }
   }
+
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -38,7 +66,8 @@ class Board {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          // rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfCheckers.push(this.grid[row][column]);
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -52,7 +81,36 @@ class Board {
     console.log(string);
   }
 
-  // Your code here
+
+  initializeGrid() {
+    // set initial pieces for first part of grid
+    // loop over first 3 rows
+    for (let row1=0; row1<3; row1++) {
+      // loop over cols of first 3 rows
+      for (let col1=0; col1<8; col1++) {
+        // populate first 3 rows of board
+        if (col1 % 2 === 1 && row1 % 2 === 0) {
+          this.grid[row1][col1] = 'R';
+        } else if (col1 % 2 === 0 && row1 % 2 === 1) {
+          this.grid[row1][col1] = 'R';
+        }
+      }
+    }
+
+    // set initial pieces for latter half of the grid
+    // loop over rows 5-7
+    for (let row2=5; row2<8; row2++) {
+      // loop over cols of rows 5-7
+      for (let col2=0; col2<8; col2++) {
+        // populate rows 5-7 of board
+        if(col2 % 2 === 0 && row2 % 2 === 1) {
+          this.grid[row2][col2] = 'B';
+        } else if (col2 % 2 === 1 && row2 % 2 === 0) {
+          this.grid[row2][col2] = 'B';
+        }
+      }
+    }
+  }
 }
 
 class Game {
@@ -61,6 +119,8 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    // initialize game pieces
+    this.board.initializeGrid();
   }
 }
 
