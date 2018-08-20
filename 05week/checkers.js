@@ -19,7 +19,7 @@ METHODS:
   [] checkForWin()
     - check to see if all pieces are gone for a team
     - keep a counter of all pieces that have been jumped
-  [] isMoveLegal(endPos)
+  [] isMoveLegal(whichPiece, endPos)
     - is the end position not occupied
   [x] isValidInput(whichPiece, endPos)
     - check to make sure the move coordinates entered are inside the board
@@ -158,6 +158,60 @@ class Board {
     }
 
     return isWhichPieceValid && isEndPosValid;
+  }
+
+
+  // makes sure the move entered by user is a legal move
+  /*
+    LEGAL MOVE REQ'S:
+   - endPos must be empty (unoccupied)
+   - piece can move diagonally in any direction
+   - piece can move diagonally 1 space if endPos is empty
+   - piece can move diagonally 2 spaces if endPos is empty and space inbetween is an opponent piece
+
+    ALGORITHM TO CHECK FOR LEGALLY MOVING PIECES DIAGONALLY
+   1. check to make sure endPos is empty
+
+   2. determine whether user is moving only 1 space diag or 2 spaces diag for a jump
+     - this will be wrapped in it's own method since it will be reused elsewhere in code
+     - this can be determined based on subtracting endPos - whichPiece coordinates (end - start)
+
+      SINGLE SPACE MOVES
+      * end - start = -11 = up_left_diag_1-space
+      * end - start = -9  = up_right_diag_1-space
+      * end - start = +11 = down_right_diag_1-space
+      * end - start = +9  = down_left_diag_1-space
+      DOUBLE SPACE MOVE (FOR JUMP)
+      * end - start = -22 = up_left_diag_2-spaces
+      * end - start = -18 = up_right_diag_2-spaces
+      * end - start = +22 = down_right_diag_2-spaces
+      * end - start = +18 = down_left_diag_2-spaces
+
+    3. if double space move (for jump), then check to make sure middle space is opponent piece
+
+    4. return true/false based on evaluation
+
+   */
+  isMoveLegal(whichPiece, endPos) {
+
+  }
+
+  // determines if a move is a single space move
+  // returns true/false
+  isSingleSpaceMove(whichPiece, endPos) {
+    const start = Number(whichPiece);
+    const end = Number(endPos);
+
+    return ((end - start === -11) || (end - start === 11) || (end - start === -9) || (end - start === 9));
+  }
+
+  // determines if a move is a double space move
+  // returns true/false
+  isDoubleSpaceMove(whichPiece, endPos) {
+    const start = Number(whichPiece);
+    const end = Number(endPos);
+
+    return ((end - start === -22) || (end - start === 22) || (end - start === -18) || (end - start === 18));
   }
 
   // can move forward and backwards from start of game
