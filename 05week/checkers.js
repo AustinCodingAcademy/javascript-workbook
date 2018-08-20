@@ -133,14 +133,22 @@ class Board {
       const endRow = endArr[0];
       const endCol = endArr[1];
 
-      // check to make sure whichPiece is correct input
-      if ((pieceRow % 2 === 0) && (validRows.indexOf(pieceRow) !== -1) && (validColsEven.indexOf(pieceCol) !== -1)) {
-        isWhichPieceValid = true;
+      // check to make sure both pieceRow and endRow are valid rows
+      if ((validRows.indexOf(pieceRow) !== -1) && (validRows.indexOf(endRow) !== -1)) {
+        // check to make sure pieceCol is a valid col
+        // if row is even, then col is odd || if row is odd, then col is even
+        if (((pieceRow % 2 === 0) && (validColsOdd.indexOf(pieceCol) !== -1)) || ((pieceRow % 2 === 1) && (validColsEven.indexOf(pieceCol) !== -1))) {
+          // whichPiece has valid row and col
+          isWhichPieceValid = true;
+        }
+        // check to make sure endCol is a valid col
+        // if row is even, then col is odd || if row is odd, then col is even
+        if (((endRow % 2 === 0) && (validColsOdd.indexOf(endCol) !== -1)) || ((endRow % 2 === 1) && (validColsEven.indexOf(endCol) !== -1))) {
+          // endPos has valid row and col
+          isEndPosValid = true;
+        }
       }
-      // check to make sure endPos is correct input
-      else if ((endRow % 2 === 1) && (validRows.indexOf(endRow) !== -1) && (validColsOdd.indexOf(endCol) !== -1)) {
-        isEndPosValid = true;
-      }
+
     }
 
     return isWhichPieceValid && isEndPosValid;
