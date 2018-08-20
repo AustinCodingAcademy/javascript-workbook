@@ -215,12 +215,39 @@ class Board {
         const isRedPiece = (this.grid[startRow][startCol] === this.redPiece);
 
         // get direction of the jumped piece
+        const moveDir = this.getMoveDirection(whichPiece, endPos);
 
+        let jumpedRow = null;
+        let jumpedCol = null;
 
-        // get color of piece being jumped
-        // const jumpedRow
+        // calculate coords of piece being jumped
+        if (moveDir === 'up-left') {
+          jumpedRow = startRow - 11;
+          jumpedCol = startCol - 1;
+        } else if (moveDir === 'up-right') {
+          jumpedRow = startRow - 9;
+          jumpedCol = startCol - 1;
+        } else if (moveDir === 'down-left') {
+          jumpedRow = startRow + 9;
+          jumpedCol = startRow + 1;
+        } else if (moveDir === 'down-right') {
+          jumpedRow = startRow + 11;
+          jumpedCol = startRow + 1;
+        }
+
+        // calculate color of piece being jumped
+        // if jumped piece is black, and piece being moved is red, then legal move
+        if ((this.grid[jumpedRow][jumpedCol] === this.blackPiece) && (isRedPiece)) {
+          isLegalMove = true;
+        }
+        // if jumped piece is red, and piece being moved is black, then legal move
+        else if ((this.grid[jumpedRow][jumpedCol] === this.redPiece) && (!isRedPiece)) {
+          isLegalMove = true;
+        }
       }
     }
+
+    return isLegalMove;
   }
 
   // get move direction
