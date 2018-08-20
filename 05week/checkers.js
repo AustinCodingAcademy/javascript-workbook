@@ -217,23 +217,24 @@ class Board {
         // get direction of the jumped piece
         const moveDir = this.getMoveDirection(whichPiece, endPos);
 
-        let jumpedRow = null;
-        let jumpedCol = null;
+        let jumpedPiece = null;
 
         // calculate coords of piece being jumped
         if (moveDir === 'up-left') {
-          jumpedRow = startRow - 11;
-          jumpedCol = startCol - 1;
+          jumpedPiece = Number(whichPiece) - 11;
         } else if (moveDir === 'up-right') {
-          jumpedRow = startRow - 9;
-          jumpedCol = startCol - 1;
+          jumpedPiece = Number(whichPiece) - 9;
         } else if (moveDir === 'down-left') {
-          jumpedRow = startRow + 9;
-          jumpedCol = startRow + 1;
+          jumpedPiece = Number(whichPiece) + 9;
         } else if (moveDir === 'down-right') {
-          jumpedRow = startRow + 11;
-          jumpedCol = startRow + 1;
+          jumpedPiece = Number(whichPiece) + 11;
         }
+
+        // split jumpedPiece into array
+        const jumpedArr = jumpedPiece.toString().split('');
+        // const jumpedArr = (jumpedPiece)
+        const jumpedRow = jumpedArr[0];
+        const jumpedCol = jumpedArr[1];
 
         // calculate color of piece being jumped
         // if jumped piece is black, and piece being moved is red, then legal move
@@ -284,7 +285,23 @@ class Board {
   // pieces have to move diagonally
   // takes begining and end coordinates as pararms
   movePiece(whichPiece, endPos) {
+    // check to see if legal move
+    if ( this.isMoveLegal(whichPiece, endPos) ) {
+      const startArr = whichPiece.split('');
+      const endArr = endPos.split('');
 
+      const startRow = Number(startArr[0]);
+      const startCol = Number(startArr[1]);
+      const endRow = Number(endArr[0]);
+      const endCol = Number(endArr[1]);
+
+      const movingPieceColor = this.grid[startRow][startCol];
+
+      // move piece to end coords
+      this.grid[endRow][endCol] = movingPieceColor;
+      // set original piece pos = null
+      this.grid[startRow][startCol] = null;
+    }
   }
 
 }
@@ -300,11 +317,15 @@ class Game {
   }
 
   moveChecker(whichPiece, endPos) {
-    console.log(this.board.isValidInput(whichPiece, endPos));
+    console.log("\nis valid input? ", this.board.isValidInput(whichPiece, endPos), "\n");
+
+    console.log(`Moving piece from ${whichPiece} to ${endPos}\n`);
+    this.board.movePiece(whichPiece, endPos);
   }
 }
 
 function getPrompt() {
+  console.log("-----------------------\n")
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
