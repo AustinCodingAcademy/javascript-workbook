@@ -42,7 +42,7 @@ function Checker() {
 
 class Board {
   constructor() {
-    this.grid = []
+    this.grid = [];
     this.redPiece = 'R';
     this.blackPiece = 'B';
   }
@@ -160,7 +160,12 @@ class Board {
     return isWhichPieceValid && isEndPosValid;
   }
 
+  // can move forward and backwards from start of game
+  // pieces have to move diagonally
+  // takes begining and end coordinates as pararms
+  movePiece(whichPiece, endPos) {
 
+  }
 
 }
 
