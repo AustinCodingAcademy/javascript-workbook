@@ -12,24 +12,25 @@ const rl = readline.createInterface({
 Checkers - 8x8
 
 METHODS:
-  movePiece(begCoord, endCoor)
+  [] movePiece(begCoord, endCoor)
     - can move forward and backwards from start of game
     - pieces have to move diagonally
     - takes begining and end coordinates as pararms
-  checkForWin()
+  [] checkForWin()
     - check to see if all pieces are gone for a team
     - keep a counter of all pieces that have been jumped
-  isMoveLegal(endPos)
+  [] isMoveLegal(endPos)
     - is the end position not occupied
-  isValidInput(whichPiece, endPos)
+  [x] isValidInput(whichPiece, endPos)
     - check to make sure the move coordinates entered are inside the board
-  killPiece()
+    - checks to make sure that endPos is one of the 32 possible squares that can be occupied
+  [] killPiece()
     - if an opponent piece is jumped, remove it from the board
-  resetGame()
+  [] resetGame()
     - reset gloabl vars: board, playerTurn
-  initBoard()
+  [x] initializeBoard()
     - initially setup the board
-  switchPlayer()
+  [] switchPlayer()
     - will toggle current active player
     - refer to tic tac toe app to see how this was implemented
 
@@ -42,6 +43,8 @@ function Checker() {
 class Board {
   constructor() {
     this.grid = []
+    this.redPiece = 'R';
+    this.blackPiece = 'B';
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -92,9 +95,9 @@ class Board {
       for (let col1=0; col1<8; col1++) {
         // populate first 3 rows of board
         if (col1 % 2 === 1 && row1 % 2 === 0) {
-          this.grid[row1][col1] = 'R';
+          this.grid[row1][col1] = this.redPiece;
         } else if (col1 % 2 === 0 && row1 % 2 === 1) {
-          this.grid[row1][col1] = 'R';
+          this.grid[row1][col1] = this.redPiece;
         }
       }
     }
@@ -106,14 +109,17 @@ class Board {
       for (let col2=0; col2<8; col2++) {
         // populate rows 5-7 of board
         if(col2 % 2 === 0 && row2 % 2 === 1) {
-          this.grid[row2][col2] = 'B';
+          this.grid[row2][col2] = this.blackPiece;
         } else if (col2 % 2 === 1 && row2 % 2 === 0) {
-          this.grid[row2][col2] = 'B';
+          this.grid[row2][col2] = this.blackPiece;
         }
       }
     }
   }
 
+  // check to make sure the move coordinates entered are inside the board perimeter
+  // checks to make sure that endPos is one of the 32 possible squares that can be occupied
+  // returns true/false
   isValidInput(whichPiece, endPos) {
     const validRows = ['0', '1', '2', '3', '4', '5', '6', '7'];
     const validColsEven = ['0', '2', '4', '6'];
