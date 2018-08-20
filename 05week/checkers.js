@@ -19,9 +19,9 @@ METHODS:
   checkForWin()
     - check to see if all pieces are gone for a team
     - keep a counter of all pieces that have been jumped
-  isMoveLegal()
+  isMoveLegal(endPos)
     - is the end position not occupied
-  isValidInput()
+  isValidInput(whichPiece, endPos)
     - check to make sure the move coordinates entered are inside the board
   killPiece()
     - if an opponent piece is jumped, remove it from the board
@@ -82,6 +82,8 @@ class Board {
   }
 
 
+  // this sets the initial pieces of the board
+  // it runs on the beggining of the game
   initializeGrid() {
     // set initial pieces for first part of grid
     // loop over first 3 rows
@@ -111,6 +113,41 @@ class Board {
       }
     }
   }
+
+  isValidInput(whichPiece, endPos) {
+    const validRows = ['0', '1', '2', '3', '4', '5', '6', '7'];
+    const validColsEven = ['0', '2', '4', '6'];
+    const validColsOdd = ['1', '3', '5', '7'];
+
+    const pieceArr = whichPiece.split('');
+    const endArr = endPos.split('');
+
+    let isWhichPieceValid = false;
+    let isEndPosValid = false;
+
+    // make sure both inputs are 2 chars long
+    if (pieceArr.length === 2 && endArr.length === 2) {
+      const pieceRow = pieceArr[0];
+      const pieceCol = pieceArr[1];
+
+      const endRow = endArr[0];
+      const endCol = endArr[1];
+
+      // check to make sure whichPiece is correct input
+      if ((pieceRow % 2 === 0) && (validRows.indexOf(pieceRow) !== -1) && (validColsEven.indexOf(pieceCol) !== -1)) {
+        isWhichPieceValid = true;
+      }
+      // check to make sure endPos is correct input
+      else if ((endRow % 2 === 1) && (validRows.indexOf(endRow) !== -1) && (validColsOdd.indexOf(endCol) !== -1)) {
+        isEndPosValid = true;
+      }
+    }
+
+    return isWhichPieceValid && isEndPosValid;
+  }
+
+
+
 }
 
 class Game {
@@ -121,6 +158,10 @@ class Game {
     this.board.createGrid();
     // initialize game pieces
     this.board.initializeGrid();
+  }
+
+  moveChecker(whichPiece, endPos) {
+    console.log(this.board.isValidInput(whichPiece, endPos));
   }
 }
 
