@@ -193,7 +193,46 @@ class Board {
 
    */
   isMoveLegal(whichPiece, endPos) {
+    const startArr = whichPiece.split('');
+    const endArr = endPos.split('');
 
+    const startRow = Number(startArr[0]);
+    const startCol = Number(startArr[1]);
+    const endRow = Number(endArr[0]);
+    const endCol = Number(endArr[1]);
+
+    let isLegalMove = false;
+
+    // check to make sure endPos is empty
+    if ( !this.grid[endRow][endCol] ) {
+      // check if move is a single space move
+      if ( this.isSingleSpaceMove(whichPiece, endPos) ) {
+        isLegalMove = true;
+      }
+      // check if move is a double space move
+      else if ( this.isDoubleSpaceMove(whichPiece, endPos) ) {
+        // see if whichPiece is red or black, boolean value
+        const isRedPiece = (this.grid[startRow][startCol] === this.redPiece);
+
+        // get direction of the jumped piece
+
+
+        // get color of piece being jumped
+        // const jumpedRow
+      }
+    }
+  }
+
+  // get move direction
+  // returns string: 'up-left', 'up-right', 'down-left', 'down-right'
+  getMoveDirection(whichPiece, endPos) {
+    const start = Number(whichPiece);
+    const end = Number(endPos);
+
+    if ((end - start === -22) || (end - start === -11)) return 'up-left';
+    else if ((end - start === -18) || (end - start === -9)) return 'up-right';
+    else if ((end - start === 18) || (end - start === 9)) return 'down-left';
+    else if ((end - start === 22) || (end - start === 11)) return 'down-right';
   }
 
   // determines if a move is a single space move
