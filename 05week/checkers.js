@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const colors = require('colors');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -411,10 +412,10 @@ class Game {
   }
 }
 
-// TODO add colored output for current player turn
 function getPrompt() {
   console.log("-----------------------");
   console.log(`Player Turn: ${game.board.playerTurn}\n`);
+
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
