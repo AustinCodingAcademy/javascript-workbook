@@ -411,6 +411,7 @@ class Game {
   }
 }
 
+// TODO add colored output for current player turn
 function getPrompt() {
   console.log("-----------------------");
   console.log(`Player Turn: ${game.board.playerTurn}\n`);
