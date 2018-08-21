@@ -219,25 +219,9 @@ class Board {
         // see if whichPiece is red or black, boolean value
         const isRedPiece = (this.grid[startRow][startCol] === this.redPiece);
 
-        // get direction of the jumped piece
-        const moveDir = this.getMoveDirection(whichPiece, endPos);
-
-        let jumpedPiece = null;
-        const startPiece = Number(whichPiece);
-
-        // calculate coords of piece being jumped
-        if (moveDir === 'up-left') {
-          jumpedPiece = startPiece - 11;
-        } else if (moveDir === 'up-right') {
-          jumpedPiece = startPiece - 9;
-        } else if (moveDir === 'down-left') {
-          jumpedPiece = startPiece + 9;
-        } else if (moveDir === 'down-right') {
-          jumpedPiece = startPiece + 11;
-        }
-
-        // split jumpedPiece into array
-        const jumpedArr = jumpedPiece.toString().split('');
+        // calculate jumped piece coords
+        const jumpedPiece = this.calculateJumpedPiecePos(whichPiece, endPos);
+        const jumpedArr = jumpedPiece.split('');
         const jumpedRow = jumpedArr[0];
         const jumpedCol = jumpedArr[1];
 
@@ -256,8 +240,28 @@ class Board {
     return isLegalMove;
   }
 
+  // calculates the jumped piece position based on start and end coords
+  // returns a 2 char string of coords
   calculateJumpedPiecePos(whichPiece, endPos) {
+    // get direction of the jumped piece
+    const moveDir = this.getMoveDirection(whichPiece, endPos);
 
+    let jumpedPiece = null;
+    const startPiece = Number(whichPiece);
+
+    // calculate coords of piece being jumped
+    if (moveDir === 'up-left') {
+      jumpedPiece = startPiece - 11;
+    } else if (moveDir === 'up-right') {
+      jumpedPiece = startPiece - 9;
+    } else if (moveDir === 'down-left') {
+      jumpedPiece = startPiece + 9;
+    } else if (moveDir === 'down-right') {
+      jumpedPiece = startPiece + 11;
+    }
+
+    // return jumped piece coords as a 2 char string
+    return jumpedPiece.toString();
   }
 
   // get move direction
