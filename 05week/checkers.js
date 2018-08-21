@@ -36,8 +36,8 @@ METHODS:
 
  */
 
-function Checker() {
-  // Your code here
+function Checker(board, whichPiece, endPos) {
+  board.movePiece(whichPiece, endPos);
 }
 
 class Board {
@@ -45,6 +45,7 @@ class Board {
     this.grid = [];
     this.redPiece = 'R';
     this.blackPiece = 'B';
+    this.checkers = [];
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -96,8 +97,10 @@ class Board {
         // populate first 3 rows of board
         if (col1 % 2 === 1 && row1 % 2 === 0) {
           this.grid[row1][col1] = this.redPiece;
+          this.checkers.push(this.redPiece);
         } else if (col1 % 2 === 0 && row1 % 2 === 1) {
           this.grid[row1][col1] = this.redPiece;
+          this.checkers.push(this.redPiece);
         }
       }
     }
@@ -110,8 +113,10 @@ class Board {
         // populate rows 5-7 of board
         if(col2 % 2 === 0 && row2 % 2 === 1) {
           this.grid[row2][col2] = this.blackPiece;
+          this.checkers.push(this.blackPiece);
         } else if (col2 % 2 === 1 && row2 % 2 === 0) {
           this.grid[row2][col2] = this.blackPiece;
+          this.checkers.push(this.blackPiece);
         }
       }
     }
@@ -218,21 +223,21 @@ class Board {
         const moveDir = this.getMoveDirection(whichPiece, endPos);
 
         let jumpedPiece = null;
+        const startPiece = Number(whichPiece);
 
         // calculate coords of piece being jumped
         if (moveDir === 'up-left') {
-          jumpedPiece = Number(whichPiece) - 11;
+          jumpedPiece = startPiece - 11;
         } else if (moveDir === 'up-right') {
-          jumpedPiece = Number(whichPiece) - 9;
+          jumpedPiece = startPiece - 9;
         } else if (moveDir === 'down-left') {
-          jumpedPiece = Number(whichPiece) + 9;
+          jumpedPiece = startPiece + 9;
         } else if (moveDir === 'down-right') {
-          jumpedPiece = Number(whichPiece) + 11;
+          jumpedPiece = startPiece + 11;
         }
 
         // split jumpedPiece into array
         const jumpedArr = jumpedPiece.toString().split('');
-        // const jumpedArr = (jumpedPiece)
         const jumpedRow = jumpedArr[0];
         const jumpedCol = jumpedArr[1];
 
@@ -317,15 +322,16 @@ class Game {
   }
 
   moveChecker(whichPiece, endPos) {
-    console.log("\nis valid input? ", this.board.isValidInput(whichPiece, endPos), "\n");
-
-    console.log(`Moving piece from ${whichPiece} to ${endPos}\n`);
-    this.board.movePiece(whichPiece, endPos);
+    console.log("\nis valid input? ", this.board.isValidInput(whichPiece, endPos));
+    console.log(`Moving piece from ${whichPiece} to ${endPos}`);
+    console.log(`Is valid move? ${this.board.isMoveLegal(whichPiece, endPos)}`);
+    // this.board.movePiece(whichPiece, endPos);
+    Checker(this.board, whichPiece, endPos);
   }
 }
 
 function getPrompt() {
-  console.log("-----------------------\n")
+  console.log("-----------------------\n");
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
