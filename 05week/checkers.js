@@ -43,7 +43,13 @@ function Checker(board, whichPiece, endPos) {
   console.log(`Moving piece from ${whichPiece} to ${endPos}`);
   console.log(`Is valid move? ${board.isMoveLegal(whichPiece, endPos)}`);
   board.movePiece(whichPiece, endPos);
-  board.checkForWin();
+  if ( board.checkForWin() ) {
+    console.log(`==============================`);
+    console.log(`PLAYER:  ${board.checkers[0]}  WINS!!!`);
+    console.log(`==============================`);
+    // TODO reset board
+  }
+
 }
 
 class Board {
@@ -390,9 +396,6 @@ class Board {
     return ((startPiece === this.redPiece) && (this.playerTurn === this.redPiece)) || ((startPiece === this.blackPiece) && (this.playerTurn === this.blackPiece));
   }
 
-
-  // TODO add player switching and display which player's turn it is
-  // TODO restrict moves based on current player turn
   // TODO resetGame fn after a win
 
 }
@@ -415,7 +418,6 @@ class Game {
 function getPrompt() {
   console.log("-----------------------");
   console.log(`Player Turn: ${game.board.playerTurn}\n`);
-
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
