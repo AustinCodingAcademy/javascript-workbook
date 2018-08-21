@@ -38,6 +38,9 @@ METHODS:
  */
 
 function Checker(board, whichPiece, endPos) {
+  console.log("\nis valid input? ", board.isValidInput(whichPiece, endPos));
+  console.log(`Moving piece from ${whichPiece} to ${endPos}`);
+  console.log(`Is valid move? ${board.isMoveLegal(whichPiece, endPos)}`);
   board.movePiece(whichPiece, endPos);
   board.checkForWin();
 }
@@ -45,9 +48,10 @@ function Checker(board, whichPiece, endPos) {
 class Board {
   constructor() {
     this.grid = [];
+    this.checkers = [];
     this.redPiece = 'R';
     this.blackPiece = 'B';
-    this.checkers = [];
+    this.playerTurn = this.blackPiece; // first players turn is black piece
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -377,10 +381,6 @@ class Game {
   }
 
   moveChecker(whichPiece, endPos) {
-    console.log("\nis valid input? ", this.board.isValidInput(whichPiece, endPos));
-    console.log(`Moving piece from ${whichPiece} to ${endPos}`);
-    console.log(`Is valid move? ${this.board.isMoveLegal(whichPiece, endPos)}`);
-    // this.board.movePiece(whichPiece, endPos);
     Checker(this.board, whichPiece, endPos);
   }
 }
