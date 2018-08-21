@@ -256,6 +256,10 @@ class Board {
     return isLegalMove;
   }
 
+  calculateJumpedPiecePos(whichPiece, endPos) {
+
+  }
+
   // get move direction
   // returns string: 'up-left', 'up-right', 'down-left', 'down-right'
   getMoveDirection(whichPiece, endPos) {
