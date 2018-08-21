@@ -38,6 +38,7 @@ METHODS:
 
 function Checker(board, whichPiece, endPos) {
   board.movePiece(whichPiece, endPos);
+  board.checkForWin();
 }
 
 class Board {
@@ -337,6 +338,25 @@ class Board {
       // set original piece pos = null
       this.grid[startRow][startCol] = null;
     }
+  }
+
+  // iterates over this.checkers and checks to see if a player won
+  // returns true/false
+  checkForWin() {
+    let countRed = 0;
+    let countBlack = 0;
+
+    this.checkers.forEach(checker => {
+      // if find a red piece, add it to count
+      if (checker === this.redPiece) {
+        countRed += 1;
+      } else if (checker === this.blackPiece) {
+        countBlack += 1;
+      }
+    });
+
+    // if either red or black count = 0, then game over
+    return ((countRed === 0) || (countBlack === 0));
   }
 
 }
