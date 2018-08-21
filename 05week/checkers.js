@@ -310,6 +310,28 @@ class Board {
 
       const movingPieceColor = this.grid[startRow][startCol];
 
+      // check to see if a piece was jumped
+      if (this.isDoubleSpaceMove(whichPiece, endPos) ) {
+        // get jumped piece coords
+        const jumpedPiece = this.calculateJumpedPiecePos(whichPiece, endPos);
+        const jumpedArr = jumpedPiece.split('');
+        const jumpedRow = jumpedArr[0];
+        const jumpedCol = jumpedArr[1];
+
+        // get jumped piece color
+        const jumpedColor = this.grid[jumpedRow][jumpedCol];
+
+        // remove jumped piece from this.grid
+        this.grid[jumpedRow][jumpedCol] = null;
+
+        // remove jumped piece from this.checkers
+        // get index of jumped color piece so we can remove it from array
+        const jumpedIdx = this.checkers.indexOf(jumpedColor);
+        if (jumpedIdx !== -1) {
+          this.checkers.splice(jumpedIdx, 1);
+        }
+      }
+
       // move piece to end coords
       this.grid[endRow][endCol] = movingPieceColor;
       // set original piece pos = null
