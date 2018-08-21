@@ -306,42 +306,47 @@ class Board {
   movePiece(whichPiece, endPos) {
     // check to see if legal move
     if ( this.isMoveLegal(whichPiece, endPos) ) {
-      const startArr = whichPiece.split('');
-      const endArr = endPos.split('');
+      // check to see if start piece is valid based on playerTurn
+      if ( this.isStartPieceValid(whichPiece) ) {
+        const startArr = whichPiece.split('');
+        const endArr = endPos.split('');
 
-      const startRow = Number(startArr[0]);
-      const startCol = Number(startArr[1]);
-      const endRow = Number(endArr[0]);
-      const endCol = Number(endArr[1]);
+        const startRow = Number(startArr[0]);
+        const startCol = Number(startArr[1]);
+        const endRow = Number(endArr[0]);
+        const endCol = Number(endArr[1]);
 
-      const movingPieceColor = this.grid[startRow][startCol];
+        const movingPieceColor = this.grid[startRow][startCol];
 
-      // check to see if a piece was jumped
-      if (this.isDoubleSpaceMove(whichPiece, endPos) ) {
-        // get jumped piece coords
-        const jumpedPiece = this.calculateJumpedPiecePos(whichPiece, endPos);
-        const jumpedArr = jumpedPiece.split('');
-        const jumpedRow = jumpedArr[0];
-        const jumpedCol = jumpedArr[1];
+        // check to see if a piece was jumped
+        if (this.isDoubleSpaceMove(whichPiece, endPos) ) {
+          // get jumped piece coords
+          const jumpedPiece = this.calculateJumpedPiecePos(whichPiece, endPos);
+          const jumpedArr = jumpedPiece.split('');
+          const jumpedRow = jumpedArr[0];
+          const jumpedCol = jumpedArr[1];
 
-        // get jumped piece color
-        const jumpedColor = this.grid[jumpedRow][jumpedCol];
+          // get jumped piece color
+          const jumpedColor = this.grid[jumpedRow][jumpedCol];
 
-        // remove jumped piece from this.grid
-        this.grid[jumpedRow][jumpedCol] = null;
+          // remove jumped piece from this.grid
+          this.grid[jumpedRow][jumpedCol] = null;
 
-        // remove jumped piece from this.checkers
-        // get index of jumped color piece so we can remove it from array
-        const jumpedIdx = this.checkers.indexOf(jumpedColor);
-        if (jumpedIdx !== -1) {
-          this.checkers.splice(jumpedIdx, 1);
+          // remove jumped piece from this.checkers
+          // get index of jumped color piece so we can remove it from array
+          const jumpedIdx = this.checkers.indexOf(jumpedColor);
+          if (jumpedIdx !== -1) {
+            this.checkers.splice(jumpedIdx, 1);
+          }
         }
-      }
 
-      // move piece to end coords
-      this.grid[endRow][endCol] = movingPieceColor;
-      // set original piece pos = null
-      this.grid[startRow][startCol] = null;
+        // move piece to end coords
+        this.grid[endRow][endCol] = movingPieceColor;
+        // set original piece pos = null
+        this.grid[startRow][startCol] = null;
+        // switch player
+        this.switchPlayer();
+      }
     }
   }
 
@@ -363,6 +368,27 @@ class Board {
     // if either red or black count = 0, then game over
     return ((countRed === 0) || (countBlack === 0));
   }
+
+  // this function toggles this.playerTurn
+  // does not return a value
+  switchPlayer() {
+    return (this.playerTurn === this.blackPiece) ? this.playerTurn = this.redPiece : this.playerTurn = this.blackPiece;
+  }
+
+  // checks to make sure that piece being moved is valid based on this.playerTurn
+  // returns true/false
+  isStartPieceValid(whichPiece) {
+    const startArr = whichPiece.split('');
+    const startRow = Number(startArr[0]);
+    const startCol = Number(startArr[1]);
+
+    // get start piece value
+    const startPiece = this.grid[startRow][startCol];
+
+    // if redpiece turn and startpiece = red, then TRUE || blackpiece turn and startpiece = black, then TRUE
+    return ((startPiece === this.redPiece) && (this.playerTurn === this.redPiece)) || ((startPiece === this.blackPiece) && (this.playerTurn === this.blackPiece));
+  }
+
 
   // TODO add player switching and display which player's turn it is
   // TODO restrict moves based on current player turn
@@ -386,7 +412,8 @@ class Game {
 }
 
 function getPrompt() {
-  console.log("-----------------------\n");
+  console.log("-----------------------");
+  console.log(`Player Turn: ${game.board.playerTurn}\n`);
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
