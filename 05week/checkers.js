@@ -7,24 +7,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// TODO clean up whiteboard
 /* WHITEBOARD
 
 Checkers - 8x8
 
 METHODS:
-  [] movePiece(begCoord, endCoor)
+  [x] movePiece(begCoord, endCoor)
     - can move forward and backwards from start of game
     - pieces have to move diagonally
     - takes begining and end coordinates as pararms
-  [] checkForWin()
+  [x] checkForWin()
     - check to see if all pieces are gone for a team
     - keep a counter of all pieces that have been jumped
-  [] isMoveLegal(whichPiece, endPos)
+  [x] isMoveLegal(whichPiece, endPos)
     - is the end position not occupied
   [x] isValidInput(whichPiece, endPos)
     - check to make sure the move coordinates entered are inside the board
     - checks to make sure that endPos is one of the 32 possible squares that can be occupied
-  [] killPiece()
+  [x] killPiece()
     - if an opponent piece is jumped, remove it from the board
   [] resetGame()
     - reset gloabl vars: board, playerTurn
@@ -358,6 +359,10 @@ class Board {
     // if either red or black count = 0, then game over
     return ((countRed === 0) || (countBlack === 0));
   }
+
+  // TODO add player switching and display which player's turn it is
+  // TODO restrict moves based on current player turn
+  // TODO resetGame fn after a win
 
 }
 
