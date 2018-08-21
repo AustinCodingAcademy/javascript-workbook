@@ -10,10 +10,26 @@ const rl = readline.createInterface({
 
 /* WHITEBOARD
 
-Checkers - 8x8
+Checkers
 
-class Board - METHODS:
+class Board
+  PROPERTIES:
+    this.grid = []
+      - holds the current state of the board and it's pieces
 
+    this.checkers = []
+      - array of pieces remaining on the board (unordered)
+
+    this.redPiece = 'R'
+      - value used for red checker piece
+
+    this.blackPiece = 'B'
+      - value used for black checker piece
+
+    this.playerTurn = this.blackPiece
+      - initialized with first players turn as black piece
+
+  METHODS:
   [x] createGrid()
     - method that creates an 8x8 array, filled with null values
 
