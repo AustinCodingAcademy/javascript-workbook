@@ -1,3 +1,4 @@
+
 'use strict';
 
 const assert = require('assert');
@@ -24,23 +25,92 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  for (i=0;board.length <=3; i++){
+    const A = board[i][0];
+    const B = board[i][1];
+    const C = board[i][2];
+    
+    if(A != ' ' || B != ' ' || C != ' ')
+    {
+      if (A===B===C){
+       return true;
+     }
+   }
+  }
+  return false;
 }
 
 function verticalWin() {
-  // Your code here
+  for (i=0;board.length <=3; i++){
+    const A = board[0][i];
+    const B = board[1][i];
+    const C = board[2][i];
+    // const A = board[0][i];
+    // const B = board[1][i];
+    // const C = board[2][i];
+    
+    // const A = board[0][1];
+    // const B = board[1][1];
+    // const C = board[2][1];
+
+    // const A = board[0][2];
+    // const B = board[1][2];
+    // const C = board[2][2];
+    if(A != ' ' || B != ' ' || C != ' ')
+    {
+      if (A===B===C){
+       return true;
+     }
+   }
+  }
+  return false;
 }
 
 function diagonalWin() {
-  // Your code here
+  const A = board[0][0];
+  const B = board[1][1];
+  const C = board[2][2];
+  const X = board[0][2];
+  // const Y = board[1][1]; use contant B instead all values for win checked
+  const Z = board[2][0];
+  if(A != ' ' || B != ' ' || C != ' '){
+    if (A===B===C){
+      return true;
+    }
+  }
+  if( B != ' ' || Z != ' '|| X != ' '){
+    if (X===B===Z){
+      return true;
+    }
+  }
+  return false;
 }
 
+
 function checkForWin() {
-  // Your code here
+
+  const horizResult = horizontalWin();
+  const vertResult = verticalWin();
+  const diagResult = diagonalWin();
+
+  if (horizResult=== true || vertResult=== true || diagonalWin=== true)
+  {
+    console.log('Player' + playerTurn +  ' Wins!!')
+  }
+  return false;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  const result = checkForWin();
+  if(result == false)
+  {
+   if (playerTurn === 'O') {
+     playerTurn = 'X'
+   } else{
+     playerTurn = 'O'
+   }
+  }
 }
 
 function getPrompt() {
