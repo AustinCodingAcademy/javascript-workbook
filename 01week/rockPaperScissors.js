@@ -7,13 +7,14 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors(player1, player2) {
 
   // Write code here
 
+  // return a message to inform the user the results
 }
 
+// terminal game
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
@@ -34,14 +35,14 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
     });
     it('should detect which hand won', () => {
-      assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
-      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rock', 'paper'), "Player two wins!");
+      assert.equal(rockPaperScissors('paper', 'scissors'), "Player two wins!");
+      assert.equal(rockPaperScissors('rock', 'scissors'), "Player one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
-      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rOcK', ' paper '), "Player two wins!");
+      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Player two wins!");
+      assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Player one wins!");
     });
   });
 } else {
