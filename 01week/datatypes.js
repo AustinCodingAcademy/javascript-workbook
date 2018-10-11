@@ -72,3 +72,4 @@ const displayDayTime = () =>{
     checkIfBothTrue(1,5);
     checkIfEitherTrue(0,7);
     checkIfNoneTrue(0,0);
+    //End of program
