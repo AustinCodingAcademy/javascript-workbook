@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 const currentTime = ()=>{
   const theDate = new Date();
   const hour = theDate.getHours();
