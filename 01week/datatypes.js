@@ -24,7 +24,7 @@ console.log(varType(true));
 console.log(varType(null));
 
 const addMe = (num1, num2) => {
-  return(num1 + num2);
+  return (num1 + num2);
 }
 console.log(addMe(10, 20));
 
