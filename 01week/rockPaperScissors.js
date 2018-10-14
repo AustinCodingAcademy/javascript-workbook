@@ -7,22 +7,26 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const rockPaperScissors=(hand1, hand2)=> {
-  if (hand1==hand2) {return "It's a tie!"
+const rockPaperScissors=(hand1, hand2) => {
+if (hand1 && hand2 == 'rock' || 'paper' || 'scissors') {
+  if (hand1==hand2) {return "It's a tie!";
   } else {
-    if (hand1=='rock' && hand2=='paper') {return 'Hand 2 Wins!'
+    if (hand1=='rock' && hand2=='paper') {return 'Hand 2 Wins!';
     } else {
-      if (hand1=='paper' && hand2=='rock') {return 'Hand 1 Wins!'
+      if (hand1=='paper' && hand2=='rock') {return 'Hand 1 Wins!';
     } else {
-      if (hand1=='paper' && hand2=='scissors') {return 'Hand 2 Wins!'
+      if (hand1=='paper' && hand2=='scissors') {return 'Hand 2 Wins!';
     } else {
-      if (hand2=='paper' && hand1=='scissors') {return 'Hand 1 Wins!'
+      if (hand2=='paper' && hand1=='scissors') {return 'Hand 1 Wins!';
     } else {
-      if (hand2=='rock' && hand1=='scissors') {return 'Hand 2 Wins!'
+      if (hand2=='rock' && hand1=='scissors') {return 'Hand 2 Wins!';
     } else {
-      if (hand2=='scissors' && hand1=='rock') {return 'Hand 1 Wins!'
+      if (hand2=='scissors' && hand1=='rock') {return 'Hand 1 Wins!';
     }
-    }}}}}}}
+  }
+    }}}}}}
+    else { return 'Enter valid move.'}}
+  
 //user enters move as hand1
 //user enters move as hand2
 //if move = rock, paper, or scissros then move is valid otherwise say enter valid move
