@@ -56,7 +56,7 @@ const detachAndSwitchLettersAddAy = (userEntry) => {
         userArr.push(spliceValueString);
         userArr.push('ay');
         const finalUserWord = userArr.join('');
-        console.log(finalUserWord);
+        return finalUserWord;
       }
     }
   }
@@ -77,12 +77,12 @@ const addYayToFirstLetterVowel = (userEntry) => {
 const pigLatin = (userEntry) => {
   if (validWord(userEntry)){
     if (isFirstLetterVowel(userEntry)){
-      addYayToFirstLetterVowel(userEntry);
+      return addYayToFirstLetterVowel(userEntry);
     }else if (isYFirstLetter(userEntry)){
-      detachAndSwitchLettersAddAy(userEntry);
+      return detachAndSwitchLettersAddAy(userEntry);
     }else {
       vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-      detachAndSwitchLettersAddAy(userEntry);
+      return detachAndSwitchLettersAddAy(userEntry);
     }
   } else {
     return 'please enter a valid word';
