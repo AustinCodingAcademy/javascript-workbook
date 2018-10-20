@@ -1,23 +1,23 @@
-// Tests
+let detect = require('../01week/rockPaperScissors.js')
+let assert = require('assert');
 
 if (typeof describe === 'function') {
 
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
+  describe('#rockPaperScissors()', () => {
+    it('should detect a tie', () => {
+      assert.equal(detect.rockPaperScissors('rock', 'rock'), "It's a tie!");
+      assert.equal(detect.rockPaperScissors('paper', 'paper'), "It's a tie!");
+      assert.equal(detect.rockPaperScissors('scissors', 'scissors'), "It's a tie!");
     });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
+    it('should detect which hand won', () => {
+      assert.equal(detect.rockPaperScissors('rock', 'paper'), "Hand two wins!");
+      assert.equal(detect.rockPaperScissors('paper', 'scissors'), "Hand two wins!");
+      assert.equal(detect.rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+    it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
+      assert.equal(detect.rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
+      assert.equal(detect.rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
+      assert.equal(detect.rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
   });
 } else {
