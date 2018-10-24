@@ -1,5 +1,13 @@
 'use strict';
 
+// Player 1 selects tile
+// Check to see if valid selection = isEmpty()
+// Check for win = checkForwin()
+// If valid and no win, change players (and look for empty spots) switchPlayers() (if switch players with no moves left, draw!)
+//(or set a counter to add when you switch players - also do checkForWin after switch players 4 times(?))
+
+
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
