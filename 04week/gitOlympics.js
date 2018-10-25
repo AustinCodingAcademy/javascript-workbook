@@ -1,7 +1,7 @@
 'use strict'
 
 const printListOfOlympians = (arr) =>{
-    array.forEach(element => {
+    arr.forEach(element => {
         console.log(element);
     });
 }
