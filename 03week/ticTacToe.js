@@ -1,7 +1,7 @@
 'use strict';
 
 // Player 1 selects tile
-// Check to see if valid selection = isEmpty()
+// Check to see if valid selection = isValidPick()
 // Check for win = checkForwin()
 // If valid and no win, change players (and look for empty spots) switchPlayers() (if switch players with no moves left, draw!)
 //(or set a counter to add when you switch players - also do checkForWin after switch players 4 times(?))
@@ -21,6 +21,9 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let turnCounter = 0;
+let isItAWinner = false;
+// let winnerWinner = false;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -31,24 +34,74 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
+
+
+const isValidPick = (row,column) =>{
+  let isItValid = false;
+  if(board[row][column] == ' '){
+    isItValid = true;
+  }
+  return isItValid;
 }
 
-function verticalWin() {
-  // Your code here
+const isEntryValid = (row,column) =>{
+  return typeof row == 'number' && typeof column == 'number' && row >= 0 && row <=2 && column >=0 && column <= 2;
 }
 
-function diagonalWin() {
-  // Your code here
+const switchPlayers = () =>{
+  turnCounter++;
+  if (playerTurn == 'X'){
+    playerTurn = 'O'
+  }else{
+    playerTurn = 'X';
+  }
 }
 
-function checkForWin() {
-  // Your code here
+const horizontalWin = () => {
+  for(let x=0;x<2;x++){
+    if(board[x][0] == board[x][1] && board[x][1] == board[x][2] && board[x][1] != ' '){
+      isItAWinner = true;
+    }
+  }
+  return isItAWinner;
 }
 
-function ticTacToe(row, column) {
-  // Your code here
+const verticalWin = () => {
+  for(let y=0;y<2;y++){
+    if(board[0][y] == board[1][y] && board[1][y] == board[2][y] && board[1][y] != ' '){
+      console.log('trying to check vert')
+      isItAWinner = true;
+    }
+  }
+  return isItAWinner;//or return playerTurn(probably not, nevermind??
+}
+
+const diagonalWin = () => {
+  if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ' || board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[1][1] != ' '){
+    isItAWinner = true;
+  }
+  return isItAWinner;//or return playerTurn(probably not, nevermind??
+}
+
+const checkForWin = () => {
+  let winnerWinner = false;
+  console.log(turnCounter)
+  if (horizontalWin() || verticalWin() || diagonalWin()){
+    console.log('its trying!');
+    winnerWinner = true;
+    return winnerWinner;
+  }
+}
+
+const ticTacToe = (row, column) => {
+  if (isEntryValid(row,column) && isValidPick(row,column)){
+    board[row][column] = playerTurn;
+    if(checkForWin()){
+      console.log(playerTurn + ' wins!')
+    }else {
+      switchPlayers();
+    }
+  }else console.log('pick a number between 0 and 2!!')
 }
 
 function getPrompt() {
@@ -62,6 +115,14 @@ function getPrompt() {
   });
 
 }
+
+// const resetBoard = () =>{
+//   playerTurn = 'X';
+//   for(z=0;z<board.length-1;z++){
+//     board[i].fill(' ');
+//   }
+// }
+
 
 
 
