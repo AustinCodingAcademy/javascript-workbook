@@ -69,7 +69,6 @@ const horizontalWin = () => {
 const verticalWin = () => {
   for(let y=0;y<2;y++){
     if(board[0][y] == board[1][y] && board[1][y] == board[2][y] && board[1][y] != ' '){
-      console.log('trying to check vert')
       isItAWinner = true;
     }
   }
