@@ -1,5 +1,12 @@
 'use strict';
 
+/* Function planning
+
+
+
+*/
+
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
