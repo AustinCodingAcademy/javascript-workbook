@@ -34,8 +34,6 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-
-
 const isValidPick = (row,column) =>{
   let isItValid = false;
   if(board[row][column] == ' '){
@@ -45,7 +43,7 @@ const isValidPick = (row,column) =>{
 }
 
 const isEntryValid = (row,column) =>{
-  return typeof row == 'number' && typeof column == 'number' && row >= 0 && row <=2 && column >=0 && column <= 2;
+  return row >= 0 && row <= 2 && column >= 0 && column <= 2;
 }
 
 const switchPlayers = () =>{
@@ -86,17 +84,25 @@ const checkForWin = () => {
   let winnerWinner = false;
   console.log(turnCounter)
   if (horizontalWin() || verticalWin() || diagonalWin()){
-    console.log('its trying!');
     winnerWinner = true;
     return winnerWinner;
   }
 }
 
-const ticTacToe = (row, column) => {
+const resetBoard = () =>{
+  playerTurn = 'X';
+  board.forEach((item,index) => {
+    board[index].fill(' ');
+  });
+  console.log("Let's play again!");
+}
+
+const ticTacToe = (row,column) => {
   if (isEntryValid(row,column) && isValidPick(row,column)){
     board[row][column] = playerTurn;
     if(checkForWin()){
-      console.log(playerTurn + ' wins!')
+      console.log(playerTurn + ' wins!');
+      resetBoard();
     }else {
       switchPlayers();
     }
@@ -121,9 +127,6 @@ function getPrompt() {
 //     board[i].fill(' ');
 //   }
 // }
-
-
-
 
 // Tests
 
