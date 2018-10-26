@@ -48,6 +48,7 @@ const isEntryValid = (row,column) =>{
 
 const switchPlayers = () =>{
   turnCounter++;
+  console.log(turnCounter);
   if (playerTurn == 'X'){
     playerTurn = 'O'
   }else{
@@ -55,10 +56,12 @@ const switchPlayers = () =>{
   }
 }
 
+//try array.every() for horiz win once get working properly
 const horizontalWin = () => {
   for(let x=0;x<2;x++){
     if(board[x][0] == board[x][1] && board[x][1] == board[x][2] && board[x][1] != ' '){
       isItAWinner = true;
+      console.log('horiz win')
     }
   }
   return isItAWinner;
@@ -68,6 +71,7 @@ const verticalWin = () => {
   for(let y=0;y<2;y++){
     if(board[0][y] == board[1][y] && board[1][y] == board[2][y] && board[1][y] != ' '){
       isItAWinner = true;
+      console.log('vert win')
     }
   }
   return isItAWinner;//or return playerTurn(probably not, nevermind??
@@ -76,25 +80,30 @@ const verticalWin = () => {
 const diagonalWin = () => {
   if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ' || board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[1][1] != ' '){
     isItAWinner = true;
+    console.log('diag win');
   }
   return isItAWinner;//or return playerTurn(probably not, nevermind??
 }
 
 const checkForWin = () => {
   let winnerWinner = false;
-  console.log(turnCounter)
   if (horizontalWin() || verticalWin() || diagonalWin()){
     winnerWinner = true;
-    return winnerWinner;
+    // return winnerWinner;
   }
+  return winnerWinner;
 }
 
 const resetBoard = () =>{
+  for(let z=0;z<board.length;z++){
+        board[z].fill(' ');
+      }
+  // board.forEach((item,index) => {
+  //   board[index].fill(' ');
+  // });
   playerTurn = 'X';
-  board.forEach((item,index) => {
-    board[index].fill(' ');
-  });
-  console.log("Let's play again!");
+  turnCounter = 0;
+  console.log("C'mon! Let's play again!");
 }
 
 const ticTacToe = (row,column) => {
