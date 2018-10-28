@@ -21,7 +21,6 @@ let board = [
 ];
 
 let playerTurn = 'X';
-let turnCounter = 0;
 let isItAWinner = false;
 // let winnerWinner = false;
 
@@ -35,11 +34,7 @@ function printBoard() {
 }
 
 const isValidPick = (row,column) =>{
-  let isItValid = false;
-  if(board[row][column] == ' '){
-    isItValid = true;
-  }
-  return isItValid;
+  return board[row][column] == ' ';
 }
 
 const isEntryValid = (row,column) =>{
@@ -47,8 +42,6 @@ const isEntryValid = (row,column) =>{
 }
 
 const switchPlayers = () =>{
-  turnCounter++;
-  console.log(turnCounter);
   if (playerTurn == 'X'){
     playerTurn = 'O'
   }else{
@@ -86,12 +79,7 @@ const diagonalWin = () => {
 }
 
 const checkForWin = () => {
-  let winnerWinner = false;
-  if (horizontalWin() || verticalWin() || diagonalWin()){
-    winnerWinner = true;
-    // return winnerWinner;
-  }
-  return winnerWinner;
+  return horizontalWin() || verticalWin() || diagonalWin()
 }
 
 const resetBoard = () =>{
@@ -102,7 +90,6 @@ const resetBoard = () =>{
   //   board[index].fill(' ');
   // });
   playerTurn = 'X';
-  turnCounter = 0;
   console.log("C'mon! Let's play again!");
 }
 
@@ -111,6 +98,7 @@ const ticTacToe = (row,column) => {
     board[row][column] = playerTurn;
     if(checkForWin()){
       console.log(playerTurn + ' wins!');
+      isItAWinner = false;
       resetBoard();
     }else {
       switchPlayers();
