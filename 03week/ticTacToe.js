@@ -22,7 +22,6 @@ let board = [
 
 let playerTurn = 'X';
 let isItAWinner = false;
-// let winnerWinner = false;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -51,7 +50,7 @@ const switchPlayers = () =>{
 
 //try array.every() for horiz win once get working properly
 const horizontalWin = () => {
-  for(let x=0;x<2;x++){
+  for(let x=0;x<3;x++){
     if(board[x][0] == board[x][1] && board[x][1] == board[x][2] && board[x][1] != ' '){
       isItAWinner = true;
       console.log('horiz win')
@@ -61,13 +60,13 @@ const horizontalWin = () => {
 }
 
 const verticalWin = () => {
-  for(let y=0;y<2;y++){
+  for(let y=0;y<3;y++){
     if(board[0][y] == board[1][y] && board[1][y] == board[2][y] && board[1][y] != ' '){
       isItAWinner = true;
       console.log('vert win')
     }
   }
-  return isItAWinner;//or return playerTurn(probably not, nevermind??
+  return isItAWinner;
 }
 
 const diagonalWin = () => {
@@ -75,20 +74,25 @@ const diagonalWin = () => {
     isItAWinner = true;
     console.log('diag win');
   }
-  return isItAWinner;//or return playerTurn(probably not, nevermind??
+  return isItAWinner;
 }
 
 const checkForWin = () => {
   return horizontalWin() || verticalWin() || diagonalWin()
 }
 
+const checkForDraw = ()=>{
+
+}
+
 const resetBoard = () =>{
-  for(let z=0;z<board.length;z++){
-        board[z].fill(' ');
-      }
-  // board.forEach((item,index) => {
-  //   board[index].fill(' ');
-  // });
+  // for(let z=0;z<board.length;z++){
+  //       board[z].fill(' ');
+  //     }
+  board.forEach((x,index) => {
+    board[index].fill(' ');
+  });
+  //when running through the foreach, and not using the element value, still need to put in a placeholder, x, in order to access the index, right?
   playerTurn = 'X';
   console.log("C'mon! Let's play again!");
 }
@@ -100,7 +104,10 @@ const ticTacToe = (row,column) => {
       console.log(playerTurn + ' wins!');
       isItAWinner = false;
       resetBoard();
-    }else {
+    }//else if(checkForDraw){
+      // console.log("It's a draw!")
+      // resetBoard();
+    else {
       switchPlayers();
     }
   }else console.log('pick a number between 0 and 2!!')
