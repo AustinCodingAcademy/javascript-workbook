@@ -86,9 +86,9 @@ const isEmpty = (xOrO)=>{
 }
 
 const checkForDraw = ()=>{
-  return !board.every((arr1)=>{
-    return arr1.every((arr2)=>{
-      return arr2 == ' ';
+  return !board.every((boardArray)=>{
+    return boardArray.every((IndividualArray)=>{
+      return IndividualArray == ' ';
     });
   });
 }
