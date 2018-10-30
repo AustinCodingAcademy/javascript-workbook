@@ -81,10 +81,6 @@ const checkForWin = () => {
   return horizontalWin() || verticalWin() || diagonalWin()
 }
 
-const isEmpty = (xOrO)=>{
-  return xOrO == ' ';
-}
-
 const checkForDraw = ()=>{
   return !board.every((boardArray)=>{
     return boardArray.every((IndividualArray)=>{
