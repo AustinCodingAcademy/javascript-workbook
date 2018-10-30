@@ -86,15 +86,14 @@ const isEmpty = (xOrO)=>{
 }
 
 const checkForDraw = ()=>{
-  board.forEach((x,index) => {
-    board[index].some(isEmpty);
+  return !board.every((arr1)=>{
+    return arr1.every((arr2)=>{
+      return arr2 == ' ';
+    });
   });
 }
 
 const resetBoard = () =>{
-  // for(let z=0;z<board.length;z++){
-  //       board[z].fill(' ');
-  //     }
   board.forEach((x,index) => {
     board[index].fill(' ');
   });
@@ -110,7 +109,7 @@ const ticTacToe = (row,column) => {
       console.log(playerTurn + ' wins!');
       isItAWinner = false;
       resetBoard();
-    }else if(!checkForDraw){
+    }else if(checkForDraw){
       console.log("It's a draw!")
       resetBoard();
     }else {
