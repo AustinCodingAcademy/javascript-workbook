@@ -81,8 +81,14 @@ const checkForWin = () => {
   return horizontalWin() || verticalWin() || diagonalWin()
 }
 
-const checkForDraw = ()=>{
+const isEmpty = (xOrO)=>{
+  return xOrO == ' ';
+}
 
+const checkForDraw = ()=>{
+  board.forEach((x,index) => {
+    board[index].some(isEmpty);
+  });
 }
 
 const resetBoard = () =>{
@@ -104,10 +110,10 @@ const ticTacToe = (row,column) => {
       console.log(playerTurn + ' wins!');
       isItAWinner = false;
       resetBoard();
-    }//else if(checkForDraw){
-      // console.log("It's a draw!")
-      // resetBoard();
-    else {
+    }else if(!checkForDraw){
+      console.log("It's a draw!")
+      resetBoard();
+    }else {
       switchPlayers();
     }
   }else console.log('pick a number between 0 and 2!!')
