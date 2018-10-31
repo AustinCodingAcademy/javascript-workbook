@@ -1,10 +1,14 @@
 'use strict';
 
-// Player 1 selects tile
-// Check to see if valid selection = isValidPick()
-// Check for win = checkForwin()
-// If valid and no win, change players (and look for empty spots) switchPlayers() (if switch players with no moves left, draw!)
-//(or set a counter to add when you switch players - also do checkForWin after switch players 4 times(?))
+//player 1 selects tile
+//check to see if location on board is available = isValidPick()
+//check to see if input is an actual location on board = isEntryValid()
+//check for win = checkForwin()
+  //if win, display winner, then resetBoard(), make all values = ' '
+  //if not win, checkForDraw() - see if every space is filled
+    //if draw, resetBoard()
+//if no win, switchPlayers() 
+
 
 
 
