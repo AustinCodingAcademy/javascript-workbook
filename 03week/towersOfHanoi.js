@@ -1,6 +1,5 @@
 'use strict';
 
-//Accept user inputs
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -8,97 +7,61 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//Stack to work on
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
 
-//Stack array top index pointer which is not empty
-//If empty array then default is -1
-let stackAIndex = 3;
-let stackBIndex = -1;
-let stackCIndex = -1;
-
-//This function will print present state of the stack
+//Print the currenct stack elements
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-//This function will be called to move elements from one peg to another
-//It will first check the source and destination stack and based on that
-//move will happen. stack index global variables will be utilized to do the move
-//as it keeps track of the available slots in different pegs.
+//This method validates weather the source and destination stacks are
+//valid. It can be only a,b or c.
+function validateStackEntries(startStack, endStack){
+ if((startStack === 'a') || (startStack === 'b') || (startStack === 'c')) 
+ {
+   if(startStack === endStack)
+     return false;
+    if((endStack === 'a') || (endStack === 'b') || (endStack === 'c'))
+     return true;
+   else
+     return false;
+ }
+ else
+   return false;  
+}
+//This function will perform the mobe from source stack to destination stack
 function movePiece(startStack,endStack) {
   if((startStack === 'a') && (endStack === 'b'))
   {
-    if(stackBIndex === -1)
-       stacks.b[0] = stacks.a[stackAIndex];
-    else
-     stacks.b[stackBIndex+1] = stacks.a[stackAIndex];
-
-    stacks.a[stackAIndex] = '';
-    stackBIndex++;
-    stackAIndex--;
+    stacks.b.push(stacks.a.pop());
   }
   else if((startStack === 'a') && (endStack === 'c'))
   {
-    if(stackCIndex === -1)
-      stacks.c[0] = stacks.a[stackAIndex];
-    else
-      stacks.c[stackCIndex+1] = stacks.a[stackAIndex];
-      
-    stacks.a[stackAIndex] = '';
-    stackCIndex++;
-    stackAIndex--;
+    stacks.c.push(stacks.a.pop());
   }
   else if((startStack === 'b') && (endStack === 'a'))
   {
-    if(stackAIndex === -1)
-      stacks.a[0] = stacks.b[stackBIndex];
-    else
-      stacks.a[stackAIndex+1] = stacks.b[stackBIndex];
-
-    stacks.b[stackBIndex] = '';
-    stackAIndex++;
-    stackBIndex--;
+    stacks.a.push(stacks.b.pop());
   }
   else if((startStack === 'b') && (endStack === 'c'))
   {
-    if(stackCIndex === -1)
-      stacks.c[0] = stacks.b[stackBIndex];
-    else
-      stacks.c[stackCIndex+1] = stacks.b[stackBIndex];
-
-    stacks.b[stackBIndex] = '';
-    stackCIndex++;
-    stackBIndex--;
+    stacks.c.push(stacks.b.pop());
   }
   else if((startStack === 'c') && (endStack === 'a'))
   {
-    if(stackAIndex === -1)
-      stacks.a[0] = stacks.c[stackCIndex];
-    else
-      stacks.a[stackAIndex+1] = stacks.c[stackCIndex];
-
-    stacks.c[stackCIndex] = '';
-    stackAIndex++;
-    stackCIndex--;
+    stacks.a.push(stacks.c.pop());
   }
   else if((startStack === 'c') && (endStack === 'b'))
   {
-    if(stackBIndex === -1)
-      stacks.b[0] = stacks.c[stackCIndex];
-    else
-      stacks.b[stackBIndex+1] = stacks.c[stackCIndex];
-
-    stacks.c[stackCIndex] = '';
-    stackBIndex++;
-    stackCIndex--;
+    stacks.b.push(stacks.c.pop());
   }
+
 }
 
 //This function will check if the move is legal or not.
@@ -108,142 +71,64 @@ function movePiece(startStack,endStack) {
 function isLegal(startStack,endStack) {
   if((startStack === 'a') && (endStack === 'b'))
   {
-    if(stackAIndex === -1)
-      return false;
-    else if(stackBIndex === 3)
-      return false;
-    else if(stackBIndex === -1)
-      return true;
-    else if(stacks.a[stackAIndex] >= stacks.b[stackBIndex])
+    if(stacks.a.length <= 0)
+       return false;
+    if(stacks.a[stacks.a.length-1] >= stacks.b[stacks.b.length-1])
       return false;
   }
   else if((startStack === 'a') && (endStack === 'c'))
   {
-    if(stackAIndex === -1)
-      return false;
-    else if(stackCIndex === 3)
-      return false;
-    else if(stackCIndex === -1)
-      return true;
-    else if(stacks.a[stackAIndex] >= stacks.c[stackCIndex])
+    if(stacks.a.length <= 0)
+       return false;
+    if(stacks.a[stacks.a.length-1] >= stacks.c[stacks.length-1])
       return false;
   }
   else if((startStack === 'b') && (endStack === 'a'))
   {
-    if(stackBIndex === -1)
-      return false;
-    else if(stackAIndex === 3)
-      return false;
-    else if(stackAIndex === -1)
-      return true;
-    else if(stacks.b[stackBIndex] >= stacks.a[stackAIndex])
+    if(stacks.b.length <= 0)
+    return false;
+    if(stacks.b[stacks.b.length-1] >= stacks.a[stacks.a.length-1])
       return false;
   }
   else if((startStack === 'b') && (endStack === 'c'))
   {
-    if(stackBIndex === -1)
-      return false;
-    else if(stackCIndex === 3)
-      return false;
-    else if(stackCIndex === -1)
-      return true;
-    else if(stacks.b[stackBIndex] >= stacks.c[stackCIndex])
-      return false;
+    if(stacks.b.length <= 0)
+    return false;
+    if(stacks.b[stacks.b.length-1] >= stacks.c[stacks.b.length-1])
+     return false;
   }
   else if((startStack === 'c') && (endStack === 'a'))
   {
-    if(stackCIndex === -1)
-      return false;
-    else if(stackAIndex === 3)
-      return false;
-    else if(stackAIndex === -1)
-      return true;
-    else if(stacks.c[stackCIndex] >= stacks.a[stackAIndex])
-      return false;
+    if(stacks.c.length <= 0)
+    return false;
+    if(stacks.c[stacks.c.length-1] >= stacks.a[stacks.a.length-1])
+     return false;
   }
   else if((startStack === 'c') && (endStack === 'b'))
   {
-    if(stackCIndex === -1)
-      return false;
-    else if(stackBIndex === 3)
-      return false;
-    else if(stackBIndex === -1)
-      return true;
-    else if(stacks.c[stackCIndex] >= stacks.b[stackBIndex])
-      return false;
+    if(stacks.c.length <= 0)
+    return false;
+    if(stacks.c[stacks.c.length-1] >= stacks.b[stacks.b.length-1])
+     return false;
   }
-
   return true;
 }
 
 //This function will check if if peg b or c has completed the tower. If so, it will display on
 //console which peg has the completed tower
 function checkForWin() {
-  let stackBComplete = true;
-  let stackCComplete = true;
-  for(let indexB=0; indexB < 4; indexB++){
-    if(stacks.b[indexB] != (4-indexB)){
-      stackBComplete = false;
-      break;
-    }
-  }
-
-  if(stackBComplete)
-  {
-    console.log('Stack b tower complete. You win.');
-    return stackBComplete;
-  }
-
-  for(let indexC=0; indexC < 4; indexC++){
-    if(stacks.c[indexC] != (4-indexC)){
-      stackCComplete = false;
-      break;
-    }
-  }
-
-  if(stackCComplete)
-    console.log('Stack c tower complete. You win.');
-  
-  return stackCComplete;
-}
-
-//This method validates weather the source and destination stacks are
-//valid. It can be only a,b or c.
-function validateStackEntries(startStack, endStack){
-
-  if((startStack === 'a') || (startStack === 'b') || (startStack === 'c')) 
-  {
-    if(startStack === endStack)
-      return false;
-
-    if((endStack === 'a') || (endStack === 'b') || (endStack === 'c'))
+    if(stacks.c.length == 4)
+    {
+      console.log('Peg C complete. Yo win!');
       return true;
-    else
-      return false;
-  }
-  else
-    return false;  
+    }
+    else if(stacks.b.length == 4)
+    {
+      console.log('Peg B complete. Yo win!');
+      return true;
+    }
+    return false;
 }
-
-//This function resets the stack to intial state
-function resetStacks(){
-  stacks.a.forEach((item,index) => {
-    stacks.a[index] = 4 - index;
-  });
-  stackAIndex = 3;
-  stacks.b = [];
-  // stacks.b.forEach((item,index) => {
-  //   stacks.b[index] = '';
-  // });
-  stackBIndex = -1;
-  stacks.c = [];
-  // stacks.c.forEach((item,index) => {
-  //   stacks.c[index] = '';
-  // });
-  stackCIndex = -1;
-  console.log('Reset complete.');
-}
-
 //This is the main function which will drive
 //all the function calls for Towers Of Hanoi
 //It will first validate the source and destinations inputs
@@ -258,15 +143,12 @@ function towersOfHanoi(startStack, endStack) {
     console.log('Invalid stack entry. Stack entries should be unique and a,b or c');
     return;
   }
-
   const isLegalMove = isLegal(startStack, endStack);
   if(isLegalMove === false){
     console.log('Illegal move.Try again.');
     return;
   }
-
   movePiece(startStack, endStack);
-
   const isItAWin = checkForWin();
   if(isItAWin === true){
     console.log('Resetting stacks...');
@@ -274,33 +156,44 @@ function towersOfHanoi(startStack, endStack) {
   }
 }
 
+ //This function resets the stack to intial state
+ function resetStacks(){
+  stacks.a = [];
+  for(let i=0;i<4;i++)
+  {
+    stacks.a.push(4-i);
+  };
+  stacks.b = [];
+  stacks.c = [];
+  console.log('Reset complete.');
+}
+
 //This function will prompt the inputs from the user
 //And then call the towerOfHanoi function for processing
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
-      towersOfHanoi(startStack, endStack);
-      getPrompt();
-    });
+     rl.question('end stack: ', (endStack) => {
+       towersOfHanoi(startStack, endStack);
+       getPrompt();
+     });
   });
 }
-
-// Pre designed test cases for validation
+ // Tests
+ // Pre designed test cases for validation
 if (typeof describe === 'function') {
-
-  describe('#towersOfHanoi()', () => {
-    it('should be able to move a block', () => {
-      towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
-    });
-  });
-
-  describe('#isLegal()', () => {
-    it('should not allow an illegal move', () => {
-      stacks = {
-        a: [4, 3, 2],
-        b: [1],
+   describe('#towersOfHanoi()', () => {
+     it('should be able to move a block', () => {
+       towersOfHanoi('a', 'b');
+       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+     });
+   });
+ 
+   describe('#isLegal()', () => {
+     it('should not allow an illegal move', () => {
+       stacks = {
+         a: [4, 3, 2],
+         b: [1],
         c: []
       };
       assert.equal(isLegal('a', 'b'), false);
@@ -328,23 +221,22 @@ if (typeof describe === 'function') {
     });
     it('should allow a legal move', () => {
       stacks = {
-        a: [4, 3, 2, 1],
-        b: [],
-        c: []
-      };
-      assert.equal(isLegal('a', 'c'), true);
+         a: [4, 3, 2, 1],
+         b: [],
+         c: []
+       };
+       assert.equal(isLegal('a', 'c'), true);
+     });
+   });
+   describe('#checkForWin()', () => {
+     it('should detect a win', () => {
+       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+       assert.equal(checkForWin(), true);
+       stacks = { a: [1], b: [4, 3, 2], c: [] };
+       assert.equal(checkForWin(), false);
     });
   });
-  describe('#checkForWin()', () => {
-    it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
-      assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
-      assert.equal(checkForWin(), false);
-    });
-  });
-
-} 
+ } 
 else {
   getPrompt();
 }
