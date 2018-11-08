@@ -12,7 +12,17 @@ let board = [
   [' ', ' ', ' ']
 ];
 
-let playerTurn = 'X';
+let playerTurn  = 'X';
+
+function arrayEqual(arr1, arr2) {
+  if(arr1.length !== arr2.length)
+      return false;
+  for(var i=0; i<arr1.length; i++) {
+      if(arr1[i] !== arr2[i])
+          return false;
+  }
+  return true;
+}
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,23 +34,84 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-}
-
-function verticalWin() {
-  // Your code here
+  const winCombination1 = ['X','X','X'];
+  const winCombination2 = ['O','O','O'];
+  for(let j=0;j<board.length;j++){
+    if(arrayEqual(board[j],winCombination1) || arrayEqual(board[j],winCombination2))
+      return true;
+  };
+  return false;
 }
 
 function diagonalWin() {
-  // Your code here
+  const winCombination1 = ['X','X','X'];
+  const winCombination2 = ['O','O','O'];
+  const diag1 = board.map((value,index) => value[index]);
+  const diag2 = board.map((value,index) => value[2-index]);
+  if(arrayEqual(diag1,winCombination1) || arrayEqual(diag1,winCombination2) ||
+     arrayEqual(diag2,winCombination1) || arrayEqual(diag2,winCombination2))
+     return true;
+
+  return false;
+}
+
+function verticalWin() {
+  const winCombination1 = ['X','X','X'];
+  const winCombination2 = ['O','O','O'];
+  const col1 = board.map((value,index) => value[0]);
+  const col2 = board.map((value,index) => value[1]);
+  const col3 = board.map((value,index) => value[2]);
+
+  if(arrayEqual(col1,winCombination1) || arrayEqual(col2,winCombination1) ||
+     arrayEqual(col3,winCombination1))
+      return true;
+  else if(arrayEqual(col1,winCombination2) || arrayEqual(col2,winCombination2) ||
+      arrayEqual(col3,winCombination2))
+       return true;
+  else
+      return false;
+
 }
 
 function checkForWin() {
-  // Your code here
+  const isHorizontalWin = horizontalWin();
+  const isVerticalWin   = verticalWin();
+  const isDiagonalWin   = diagonalWin();
+  if(isHorizontalWin || isVerticalWin || isDiagonalWin)
+  {
+    console.log("Player",playerTurn,"Won!!");
+    console.log('resetting...');
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    playerTurn = 'X';
+    return false;
+  }
+  else
+  {
+    return true;
+  }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  if((row < 0 || row > 2) &&
+     (column <0 || column > 2))
+    console.log('Invalid input. Row/Column does not exist...');
+  else if(board[row][column] != ' ')
+    console.log("Invalid entry. Block already used. Try another...");
+  else{
+    board[row][column] = playerTurn;
+    if(checkForWin())
+    {
+        if(playerTurn == 'X')
+          playerTurn = 'O';
+        else
+          playerTurn = 'X';   
+    }
+  }
 }
 
 function getPrompt() {
@@ -55,10 +126,7 @@ function getPrompt() {
 
 }
 
-
-
 // Tests
-
 if (typeof describe === 'function') {
 
   describe('#ticTacToe()', () => {
@@ -91,3 +159,5 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+
