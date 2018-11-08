@@ -18,18 +18,9 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = null;
   }
-  enterShip(ship){
-    this.ship = ship;
-    ship.crew.push(this.name);
-  };
-  missionStatement(CrewMember){
-    if (CrewMember.enterShip(mav)){
-      console.log("Ascend into low orbit");
-    } else if (CrewMember.enterShip == 'hermes'){
-      console.log("Interplanetary Space Travel");
-    } else {
-      console.log("Can't perform a mission yet.")
-    }
+  enterShip(Ship){
+    this.ship = Ship;
+    Ship.crew.push(this.name);
   };
 };
 
@@ -40,6 +31,15 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
+  missionStatement(){
+    if (this.crew == 'mav'){
+      console.log("Ascend into low orbit");
+    } else if (this.crew == 'hermes'){
+      console.log("Interplanetary Space Travel");
+    } else{
+      console.log("Can't perform a mission yet.")
+    }
+  };
 };
 
 const mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
