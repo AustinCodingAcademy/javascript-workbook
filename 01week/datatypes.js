@@ -4,6 +4,33 @@ const assert = require("assert");
 
 //____________________________________________________________________________________________________________
 // Write a JavaScript program to display the current day and time.
+function displayDayAndTime() {
+  var today = new Date();
+  var day = today.getDay();
+  var hour = today.getHours();
+  var minute = today.getMinutes();
+  var second = today.getSeconds();
+  var days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  console.log("Today is : " + days[day] + ".");
+  console.log("Current Time : " + hour + " : " + minute + " : " + second);
+
+  return 1;
+}
+
+describe("displayDayAndTime", () => {
+  it("should show the current day and time", () => {
+    assert(displayDayAndTime() === 1);
+  });
+});
 
 //____________________________________________________________________________________________________________
 // Write a JavaScript program to convert a number to a string.
@@ -55,14 +82,41 @@ describe("stringToNumber", () => {
 // String
 
 // solution
-function printDataType(val) {
+function getDataType(val) {
   let type = typeof val;
+
+  switch (type) {
+    case "boolean":
+      return type;
+    case "number":
+      return type;
+    case "string":
+      return type;
+    case "object":
+      return "null";
+  }
+
   return type;
 }
 
-describe("printDataType", () => {
+describe("getDataType", () => {
   it("should return a boolean", () => {
-    assert.equal(printDataType(true), "boolean");
+    assert.equal(getDataType(true), "boolean");
+  });
+  it("should return null", () => {
+    assert.equal(getDataType(null), "null");
+  });
+  it("should return undefined", () => {
+    assert.equal(getDataType(undefined), "undefined");
+  });
+  it("should return a number", () => {
+    assert.equal(getDataType(12), "number");
+  });
+  it("should return nan", () => {
+    assert(isNaN(getDataType()));
+  });
+  it("should return a string", () => {
+    assert.equal(getDataType("this is a string"), "string");
   });
 });
 
