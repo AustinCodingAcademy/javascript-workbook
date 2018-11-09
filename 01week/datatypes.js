@@ -33,6 +33,9 @@ it ("the number inputted should number outputted", () => {
 assert.strictEqual(numberToString("12345"), 12345);
 assert.notStrictEqual(numberToString("12345"), 54321);
 });
+it ("should know when a string can't be turned into a number", () => {
+    assert.equal(numberToString("word"), NaN);
+});
 });
 
 //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
