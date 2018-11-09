@@ -40,7 +40,18 @@ describe("stringToNumber", () => {
 });
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-
+function typeOfDataType(anyStringAtAll) {
+  console.log(anyStringAtAll, "Data type");
+  return typeof "string";
+}
+describe("typeOfDataType", () => {
+  it("if true or false statement say Boolean", () => {
+    assert.notStrictEqual(typeOfDataType("boolean"), true);
+  });
+  it("if no value then say Null", () => {
+    assert.strictEqual(typeOfDataType("object"), Null);
+  }
+});
 //     Boolean
 
 //     Null
