@@ -85,16 +85,10 @@ describe("stringToNumber", () => {
 function getDataType(val) {
   let type = typeof val;
 
-  switch (type) {
-    case "boolean":
-      return type;
-    case "number":
-      return type;
-    case "string":
-      return type;
-    case "object":
-      return "null";
-  }
+  if (type === "boolean") return type;
+  if (type === "number") return type;
+  if (type === "string") return type;
+  if (type === "object") return "null";
 
   return type;
 }
