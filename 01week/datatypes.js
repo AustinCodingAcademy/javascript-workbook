@@ -84,12 +84,6 @@ describe("stringToNumber", () => {
 // solution
 function getDataType(val) {
   let type = typeof val;
-
-  if (type === "boolean") return type;
-  if (type === "number") return type;
-  if (type === "string") return type;
-  if (type === "object") return "null";
-
   return type;
 }
 
@@ -97,8 +91,8 @@ describe("getDataType", () => {
   it("should return a boolean", () => {
     assert.equal(getDataType(true), "boolean");
   });
-  it("should return null", () => {
-    assert.equal(getDataType(null), "null");
+  it("should return object", () => {
+    assert.equal(getDataType(null), "object");
   });
   it("should return undefined", () => {
     assert.equal(getDataType(undefined), "undefined");
@@ -107,7 +101,7 @@ describe("getDataType", () => {
     assert.equal(getDataType(12), "number");
   });
   it("should return nan", () => {
-    assert(isNaN(getDataType()));
+    assert(isNaN(getDataType("not a number")));
   });
   it("should return a string", () => {
     assert.equal(getDataType("this is a string"), "string");
