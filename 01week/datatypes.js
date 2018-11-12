@@ -54,6 +54,7 @@ describe("stringToNumber", () => {
 function dataTypeChecker(value) {
   return typeof value;
 }
+
 console.log(dataTypeChecker(true));
 
 describe("dataTypeChecker", () => {
@@ -89,14 +90,21 @@ describe("dataTypeChecker", () => {
 
 // NaN
 
-console.log(dataTypeChecker(isNaN("")));
+console.log(dataTypeChecker(isNaN("hello" * 7)));
 
 describe("dataTypeChecker", () => {
   it("should check to see if data type is NaN", () => {
-    assert.equal(isNaN("abc123"), "NaN");
+    assert.equal(dataTypeChecker(isNaN("hello" * 7)), "NaN");
   });
 });
 // String
+console.log(dataTypeChecker("hello world"));
+
+describe("dataTypeChecker", () => {
+  it("should check to see if data type is string", () => {
+    assert.equal(dataTypeChecker("hello world"), "string");
+  });
+});
 
 // Write a JavaScript program that adds 2 numbers together.
 
