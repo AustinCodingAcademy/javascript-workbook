@@ -51,30 +51,51 @@ describe("stringToNumber", () => {
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // Boolean
-function isBoolean(value) {
-  return typeof value === "boolean";
+function dataTypeChecker(value) {
+  return typeof value;
 }
+console.log(dataTypeChecker(true));
 
-console.log(typeof isBoolean(true));
-
-describe("isBoolean", () => {
+describe("dataTypeChecker", () => {
   it("should check to see if data type is boolean", () => {
-    assert.equal(typeof isBoolean(true), "boolean");
+    assert.equal(dataTypeChecker(true), "boolean");
   });
 });
 // Null
-function isNull(value) {
-  return value === null;
-}
+console.log(dataTypeChecker(null));
 
-console.log(typeof isNull(null));
-
+describe("dataTypeChecker", () => {
+  it("should check to see if data type is null object", () => {
+    assert.equal(dataTypeChecker(null), "object");
+  });
+});
 // Undefined
+console.log(dataTypeChecker(undefined));
+
+describe("dataTypeChecker", () => {
+  it("should check to see if data type is undefined", () => {
+    assert.equal(dataTypeChecker(undefined), "undefined");
+  });
+});
 
 // Number
+console.log(dataTypeChecker(12345));
+
+describe("dataTypeChecker", () => {
+  it("should check to see if data type is number", () => {
+    assert.equal(dataTypeChecker(12345), "number");
+  });
+});
 
 // NaN
 
+console.log(dataTypeChecker(isNaN("")));
+
+describe("dataTypeChecker", () => {
+  it("should check to see if data type is NaN", () => {
+    assert.equal(isNaN("abc123"), "NaN");
+  });
+});
 // String
 
 // Write a JavaScript program that adds 2 numbers together.
