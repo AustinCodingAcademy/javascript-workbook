@@ -50,22 +50,24 @@ describe("stringToNumber", () => {
 });
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-function checkDataType(anyDataTypeAtAll) {
-  console.log(anyDataTypeAtAll, "Check data type");
-  return anyDataTypeAtAll.typeof();
-}
-console.log(checkDataType);
-
-const anyDataTypeAtAll = true;
-console.log(typeof anyDataTypeAtAll);
-
 // Boolean
-describe("checkDataType", () => {
+function isBoolean(value) {
+  return typeof value === "boolean";
+}
+
+console.log(typeof isBoolean(true));
+
+describe("isBoolean", () => {
   it("should check to see if data type is boolean", () => {
-    assert.equal(checkDataType(anyDataTypeAtAll), "boolean");
+    assert.equal(typeof isBoolean(true), "boolean");
   });
 });
 // Null
+function isNull(value) {
+  return value === null;
+}
+
+console.log(typeof isNull(null));
 
 // Undefined
 
