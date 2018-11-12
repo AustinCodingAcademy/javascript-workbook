@@ -33,10 +33,38 @@ describe("numberToString", () => {
 
 // Write a JavaScript program to convert a string to the number.
 
+//Solution
+function stringToNumber(anyStrAtAll) {
+  console.log(anyStrAtAll, "String being inputted");
+  return Number(anyStrAtAll);
+}
+
+describe("stringToNumber", () => {
+  it("should take any string and turn it into a number", () => {
+    assert.equal(typeof stringToNumber("1234"), "number");
+  });
+  it("the number should be the same as the string inputted", () => {
+    assert.strictEqual(stringToNumber("1234"), 1234);
+    assert.notStrictEqual(stringToNumber("1234"), "number");
+  });
+});
+
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
+function checkDataType(anyDataTypeAtAll) {
+  console.log(anyDataTypeAtAll, "Check data type");
+  return anyDataTypeAtAll.typeof();
+}
+console.log(checkDataType);
+
+const anyDataTypeAtAll = true;
+console.log(typeof anyDataTypeAtAll);
 
 // Boolean
-
+describe("checkDataType", () => {
+  it("should check to see if data type is boolean", () => {
+    assert.equal(checkDataType(anyDataTypeAtAll), "boolean");
+  });
+});
 // Null
 
 // Undefined
