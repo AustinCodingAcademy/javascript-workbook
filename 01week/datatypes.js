@@ -55,16 +55,16 @@ describe("checkDataType", () => {
 //     Null
 describe("checkDataType", () => {
   it("tell you if value is Null", () => {
-    assert.equal(checkDataType(null), "object")
-  })
-})
+    assert.equal(checkDataType(null), "object");
+  });
+});
 
 //     Undefined
 describe("checkDataType", () => {
   it("tell you if value is undefined", () => {
-    assert.equal(checkDataType(undefined), "undefined")
-  })
-})
+    assert.equal(checkDataType(undefined), "undefined");
+  });
+});
 //     Number
 describe("checkDataType", () => {
   it("tell you if value is a number", () => {
@@ -96,7 +96,7 @@ function addition(val1, val2) {
 };
 describe("addition", () => {
   it("tell you if value is a number", () => {
-    assert.equal(addition(num1, num2), "number")
+    assert.equal(addition(num1, num2), "number");
   });
 });
 
