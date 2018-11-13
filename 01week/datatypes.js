@@ -89,12 +89,15 @@ describe("dataTypeChecker", () => {
 });
 
 // NaN
+function isNaN(x) {
+  x = Number(x);
+  return x != x;
+}
+console.log(isNaN(NaN));
 
-console.log(dataTypeChecker(isNaN("hello" * 7)));
-
-describe("dataTypeChecker", () => {
+describe("isNaN", () => {
   it("should check to see if data type is NaN", () => {
-    assert.equal(dataTypeChecker(isNaN("hello" * 7)), "NaN");
+    assert.equal(isNaN(NaN), true);
   });
 });
 // String
@@ -107,9 +110,55 @@ describe("dataTypeChecker", () => {
 });
 
 // Write a JavaScript program that adds 2 numbers together.
+const addTwoNumbers = (x, y) => x + y;
 
+describe("addTwoNumbers", () => {
+  it("should add two numbers", () => {
+    assert.equal(addTwoNumbers(1, 2), "3");
+  });
+});
 // Write a JavaScript program that runs only when 2 things are true.
 
-// Write a JavaScript program that runs when 1 of 2 things are true.
+function twoThingsTrue(x, y) {
+  if ((x = true) && (y = true)) {
+    return "both are true";
+  }
+}
+console.log(twoThingsTrue(true, true));
 
+describe("twoThingsTrue", () => {
+  it("only runs when two things are true", () => {
+    assert.equal(twoThingsTrue(true, true), "both are true");
+  });
+});
+// Write a JavaScript program that runs when 1 of 2 things are true.
+function oneThingTrue(x, y) {
+  if ((x = true) || (y = true)) {
+    return "one of them are true";
+  }
+}
+console.log(oneThingTrue(true, false));
+
+describe("oneThingTrue", () => {
+  it("only runs when one of two things are true", () => {
+    assert.equal(oneThingTrue(true, false), "one of them are true");
+  });
+});
 // Write a JavaScript program that runs when both things are not true.
+const bool1 = false;
+const bool2 = false;
+function bothThingsFalse(x, y) {
+  const success = false;
+  // if (x === false && y === false) {
+  if (!x && !y) {
+    return "both are not true";
+  }
+  return success;
+}
+console.log(bothThingsFalse(bool1, bool2));
+
+describe("bothThingsFalse", () => {
+  it("only runs when both things are false", () => {
+    assert.equal(bothThingsFalse(bool1, bool2), "both are not true");
+  });
+});
