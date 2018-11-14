@@ -11,7 +11,19 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
-
+  // User1 input of rock, paper, or scissors.
+  // User2 input of rock, paper, or scissors.
+  // Compare User1 input to User2 input.
+  // If User1 input is 'rock' and User2 input is 'scissor', User1 wins.
+  // If User1 input is 'rock' and User2 input is 'paper', User2 wins.
+  //If User1 input is 'rock' and User2 input is 'rock', it's a tie.
+  //If User1 input is 'paper' and User2 input is 'rock', User1 wins.
+  //If User1 input is 'paper' and User2 input is 'scissors', User2 wins.
+  //If User1 input is 'paper' and User2 input is 'paper', it's a tie.
+  //If User1 input is 'scissors' and User2 input is 'paper', User1 wins.
+  //If User1 input is 'scissors' and User2 input is 'rock', User2 wins.
+  //If User1 input is 'scissors' and User2 input is 'scissors', it's a tie.
+  
 }
 
 function getPrompt() {
