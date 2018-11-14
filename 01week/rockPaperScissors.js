@@ -11,7 +11,13 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+const tie = "It's a tie!";
+const hand1wins = "Hand one wins!";
+const hand2wins = "hand two wins!";
 
+if (hand1 === hand2) {
+  return tie;
+  }
 }
 
 function getPrompt() {
