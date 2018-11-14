@@ -17,23 +17,41 @@ function rockPaperScissors(hand1, hand2) {
   let hand1norm = hand1.toLowerCase().trim();
   let hand2norm = hand2.toLowerCase().trim();
 
-  // detect win conditions - which hand won?
-  if (
-    (hand1norm === "rock" && hand2norm === "scissors") ||
-    (hand1norm === "paper" && hand2norm === "rock") ||
-    (hand1norm === "scissors" && hand2norm === "paper")
-  ) {
-    return hand1Wins;
-  } else if (
-    (hand2norm === "rock" && hand1norm === "scissors") ||
-    (hand2norm === "paper" && hand1norm === "rock") ||
-    (hand2norm === "scissors" && hand1norm === "paper")
-  ) {
-    return hand2Wins;
-  } else if (hand1norm === hand2norm) {
-    return tie;
-  } else {
-    return "you can only enter rock, paper or scissors";
+  // detect win conditions ("if" statements) - this works and passes
+  //   if (
+  //     (hand1norm === "rock" && hand2norm === "scissors") ||
+  //     (hand1norm === "paper" && hand2norm === "rock") ||
+  //     (hand1norm === "scissors" && hand2norm === "paper")
+  //   ) {
+  //     return hand1Wins;
+  //   } else if (
+  //     (hand2norm === "rock" && hand1norm === "scissors") ||
+  //     (hand2norm === "paper" && hand1norm === "rock") ||
+  //     (hand2norm === "scissors" && hand1norm === "paper")
+  //   ) {
+  //     return hand2Wins;
+  //   } else if (hand1norm === hand2norm) {
+  //     return tie;
+  //   } else {
+  //     return "you can only enter rock, paper or scissors";
+  //   }
+  // }
+
+  // detect win conditions ("switch" statements) - this works and passes
+
+  switch (hand1norm + hand2norm) {
+    case "rockscissors":
+    case "paperrock":
+    case "scissorspaper":
+      return hand1Wins;
+    case "rockpaper":
+    case "paperscissors":
+    case "scissorsrock":
+      return hand2Wins;
+    case "rockrock":
+    case "paperpaper":
+    case "scissorsscissors":
+      return tie;
   }
 }
 
@@ -69,30 +87,3 @@ if (typeof describe === "function") {
 } else {
   getPrompt();
 }
-
-// if (
-//   (hand1norm === "rock" && hand2norm === "scissors") ||
-//   (hand1norm === "paper" && hand2norm === "rock") ||
-//   (hand1norm === "scissors" && hand2norm === "paper")
-// );
-// {
-//   return hand1Wins;
-// } else if (hand1norm === hand2norm) {
-//   return tie;
-// } else {
-//   return hand2Wins;
-// }
-
-// wrong string is entered
-// if (!hand1norm || !hand2norm); {
-//   return "enter selection";
-// }
-
-// else if (
-//   (hand2norm === "rock" && hand1norm === "scissors") ||
-//   (hand2norm === "paper" && hand1norm === "rock") ||
-//   (hand2norm === "scissors" && hand1norm === "paper")
-// );
-// {
-//   return hand2Wins;
-// }
