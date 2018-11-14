@@ -104,7 +104,7 @@ describe("addTwoNumbers", () => {
 // Write a JavaScript program that runs only when 2 things are true.
 
 function bothTrue(con1, con2) {
-  if (!!con1 && !!con2) {
+  if (con1 && con2) {
     return "run";
   }
   return "don't run";
@@ -112,14 +112,14 @@ function bothTrue(con1, con2) {
 
 describe("bothTrue", () => {
   it("should display run if both conditions are true", () => {
-    assert.equal(bothTrue(true, true), "run");
+    assert.equal(bothTrue("hello", 5), "run");
   });
 });
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
 
 function oneTrue(con1, con2) {
-  if (!!con1 & !con2) {
+  if (!!con1 && !con2) {
     return "run";
   }
   return "don't run";
