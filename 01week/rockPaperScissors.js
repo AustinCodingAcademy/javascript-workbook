@@ -22,11 +22,19 @@ else if (hand1 === "rock") {
   if (hand2 === "paper") {
     return( hand2wins);
   }
-  else if (Hand2 === "scissors") {
+  else if (hand2 === "scissors") {
     return (hand1wins);
   }
 }
+else if (hand1 === "paper") {
+  if (hand2 === "rock")
+  return(hand1wins);
 }
+else if (Hand2 === "scissors" ) {
+  return(hand2wins);
+}
+}
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
