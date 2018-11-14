@@ -18,6 +18,14 @@ const hand2wins = "hand two wins!";
 if (hand1 === hand2) {
   return tie;
   }
+else if (hand1 === "rock") {
+  if (hand2 === "paper") {
+    return( hand2wins);
+  }
+  else if (Hand2 === "scissors") {
+    return (hand1wins);
+  }
+}
 }
 
 function getPrompt() {
