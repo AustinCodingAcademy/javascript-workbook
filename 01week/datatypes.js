@@ -49,6 +49,8 @@ function displayType(input) {
   if (display === "number" && isNaN(input)) {
     display = NaN;
   }
+  console.log(display);
+
   return display;
 }
 
