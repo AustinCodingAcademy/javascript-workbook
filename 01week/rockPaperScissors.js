@@ -86,14 +86,14 @@ if (typeof describe === "function") {
       assert.equal(rockPaperScissors("scissors", "scissors"), "It's a tie!");
     });
     it("should detect which hand won", () => {
-      assert.equal(rockPaperScissors("rock", "paper"), "Hand two wins!");
-      assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
-      assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
+      assert.equal(rockPaperScissors("rock", "paper"), "AI wins!");
+      assert.equal(rockPaperScissors("paper", "scissors"), "AI wins!");
+      assert.equal(rockPaperScissors("rock", "scissors"), "Player wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors("rOcK", " paper "), "Hand two wins!");
-      assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Hand two wins!");
-      assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Hand one wins!");
+      assert.equal(rockPaperScissors("rOcK", " paper "), "AI wins!");
+      assert.equal(rockPaperScissors("Paper", "SCISSORS"), "AI wins!");
+      assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Player wins!");
     });
   });
 } else {
