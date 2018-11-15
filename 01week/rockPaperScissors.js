@@ -14,44 +14,60 @@ function rockPaperScissors(hand1, hand2) {
   const hand2Wins = "Hand two wins!";
 
   //trim turn all sting inputs to lower case
-  let hand1norm = hand1.toLowerCase().trim();
-  let hand2norm = hand2.toLowerCase().trim();
+  hand1 = hand1.toLowerCase().trim();
+  hand2 = hand2.toLowerCase().trim();
 
-  // detect win conditions ("if" statements) - this works and passes
+  // detect win conditions ("if" statements) - ***this works and passes***
   //   if (
-  //     (hand1norm === "rock" && hand2norm === "scissors") ||
-  //     (hand1norm === "paper" && hand2norm === "rock") ||
-  //     (hand1norm === "scissors" && hand2norm === "paper")
+  //     (hand1 === "rock" && hand2 === "scissors") ||
+  //     (hand1 === "paper" && hand2 === "rock") ||
+  //     (hand1 === "scissors" && hand2 === "paper")
   //   ) {
   //     return hand1Wins;
   //   } else if (
-  //     (hand2norm === "rock" && hand1norm === "scissors") ||
-  //     (hand2norm === "paper" && hand1norm === "rock") ||
-  //     (hand2norm === "scissors" && hand1norm === "paper")
+  //     (hand2 === "rock" && hand1 === "scissors") ||
+  //     (hand2 === "paper" && hand1 === "rock") ||
+  //     (hand2 === "scissors" && hand1 === "paper")
   //   ) {
   //     return hand2Wins;
-  //   } else if (hand1norm === hand2norm) {
+  //   } else if (hand1 === hand2) {
   //     return tie;
   //   } else {
   //     return "you can only enter rock, paper or scissors";
   //   }
   // }
 
-  // detect win conditions ("switch" statements) - this works and passes
+  // detect win conditions ("switch" statements) - ***this works and passes too***
+  //   switch (hand1 + hand2) {
+  //     case "rockscissors":
+  //     case "paperrock":
+  //     case "scissorspaper":
+  //       return hand1Wins;
+  //     case "rockpaper":
+  //     case "paperscissors":
+  //     case "scissorsrock":
+  //       return hand2Wins;
+  //     case "rockrock":
+  //     case "paperpaper":
+  //     case "scissorsscissors":
+  //       return tie;
+  //   }
+  // }
 
-  switch (hand1norm + hand2norm) {
-    case "rockscissors":
-    case "paperrock":
-    case "scissorspaper":
+  // detect win conditions ("for loop" statement) - ***this workds and passes too***
+  const hand1WinCombo = ["rockscissors", "paperrock", "scissorspaper"];
+  const hand2WinCombo = ["rockpaper", "paperscissors", "scissorsrock"];
+
+  if (hand1 === hand2) {
+    return tie;
+  }
+
+  for (let i = 0; i < hand1WinCombo.length; i++) {
+    if (hand1 + hand2 === hand1WinCombo[i]) {
       return hand1Wins;
-    case "rockpaper":
-    case "paperscissors":
-    case "scissorsrock":
+    } else if (hand1 + hand2 === hand2WinCombo[i]) {
       return hand2Wins;
-    case "rockrock":
-    case "paperpaper":
-    case "scissorsscissors":
-      return tie;
+    }
   }
 }
 
