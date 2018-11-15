@@ -12,23 +12,23 @@ function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.toLowerCase().trim();
   hand2 = hand2.toLowerCase().trim();
   const tie = "It's a tie!";
-  const hand1wins = "Hand one wins!";
-  const hand2wins = "Hand two wins!";
+  const hand1wins = "Player wins!";
+  const hand2wins = "AI wins!";
   let i = 0;
 
   //Check if any hands have a value
   if (!hand1 || !hand2) {
-    return "You must play for both hands!";
+    return "You must enter valid hand!";
   }
 
   //Check if hand one has entered rock, paper, or scissors
   if (hand1 != "rock" && hand1 != "paper" && hand1 != "scissors") {
-    return "You must enter a valid play for hand 1!";
+    return "You must enter a valid hand!";
   }
-  //Check if hand two has entered rock, paper, or scissors
-  if (hand2 != "rock" && hand2 != "paper" && hand2 != "scissors") {
-    return "You must enter a valid play for hand 2!";
-  }
+  // //Check if hand two has entered rock, paper, or scissors
+  // if (hand2 != "rock" && hand2 != "paper" && hand2 != "scissors") {
+  //   return "You must enter a valid play for hand 2!";
+  // }
 
   //Check for tie condition
   if (hand1 === hand2) {
@@ -53,12 +53,26 @@ function rockPaperScissors(hand1, hand2) {
   }
 }
 
+function playerTwoAI() {
+  var hands = ["rock", "paper", "scissors"];
+  let chosen = hands[Math.floor(Math.random() * hands.length)];
+  console.log("AI chose " + chosen);
+  return chosen;
+}
+
+// function getPrompt() {
+//   rl.question("hand1: ", answer1 => {
+//     rl.question("hand2: ", answer2 => {
+//       console.log(rockPaperScissors(answer1, answer2));
+//       getPrompt();
+//     });
+//   });
+// }
+
 function getPrompt() {
-  rl.question("hand1: ", answer1 => {
-    rl.question("hand2: ", answer2 => {
-      console.log(rockPaperScissors(answer1, answer2));
-      getPrompt();
-    });
+  rl.question("Player's Hand: ", answer1 => {
+    console.log(rockPaperScissors(answer1, playerTwoAI()));
+    getPrompt();
   });
 }
 
