@@ -56,17 +56,17 @@ function determineWinner(hand1, hand2) {
   if (hand1 === hand2) return result_tie;
 
   switch (hand1) {
-    case rock:
-      if (hand2 === scissors) return result_hand1Win;
-      else return result_hand2Win;
+  case rock:
+    if (hand2 === scissors) return result_hand1Win;
+    else return result_hand2Win;
 
-    case paper:
-      if (hand2 === rock) return result_hand1Win;
-      else return result_hand2Win;
+  case paper:
+    if (hand2 === rock) return result_hand1Win;
+    else return result_hand2Win;
 
-    case scissors:
-      if (hand2 === paper) return result_hand1Win;
-      else return result_hand2Win;
+  case scissors:
+    if (hand2 === paper) return result_hand1Win;
+    else return result_hand2Win;
   }
 }
 
