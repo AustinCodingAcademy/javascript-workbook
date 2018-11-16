@@ -14,27 +14,28 @@ const result_InputError = "Invalid Input.";
 
 function pigLatin(word) {
   // Your code here
-  //ensure valid input
+  //ensure we received a "word"
   if (word) {
     // + should scrub word before searching for vowel (copy pasta function from rockPaperScissors.js)
     word = scrubADubDub(word);
 
-    // + handle word that begins with a vowel (attach yay to end of word)
-    if (isVowel(word[0])) {
-      word += "yay";
-      return word;
-    }
-
     // get the index of the first vowel in word
     let firstVowelIndex = findVowel(word);
 
-    // + find a way to move any and all letters before vowel to end of word ( substring() ), then add "ay" to end
-    let lettersToMove = word.substring(0, firstVowelIndex);
-    word = word.substring(firstVowelIndex) + lettersToMove + "ay";
+    // if we didn't find a vowel
+    if (firstVowelIndex < 0) {
+      // check for a y
+      let firstYIndex = findY(word);
 
-    // return word
-    return word;
-  } else return result_InputError;
+      // if no vowel and no y, not a word, throw error
+      if (firstYIndex < 0) return result_InputError;
+      // return pig latin of weird Y word
+      else return pigLatinify(word, firstYIndex);
+    }
+
+    // return pig latin
+    return pigLatinify(word, firstVowelIndex);
+  } else return result_InputError; // "word" was empty or undefined
 }
 
 // + find a way to determine if a letter is a vowel (make a function)
@@ -56,7 +57,7 @@ function isVowel(char) {
 // + find a way to determine the location(index) of first vowel in word (make a function)
 /**
  * Function: findVowel(word)
- * Description: traverses through word and returns index of first vowel
+ * Description: traverses through word and returns index of first vowel or -1 if no vowel
  */
 function findVowel(word) {
   for (var i = 0; i < word.length; i++) {
@@ -64,6 +65,37 @@ function findVowel(word) {
       return i;
     }
   }
+  return -1;
+}
+
+// + find a way to move any and all letters before vowel to end of word ( substring() ), then add "ay" to end
+/**
+ * Function: pigLatinify(word)
+ * Description: manipulates a string(word) to it's pig latin form using substring
+ */
+function pigLatinify(word, index) {
+  // + handle word that begins with a vowel (attach yay to end of word)
+  if (index === 0) return word + "yay";
+
+  let lettersToMove = word.substring(0, index);
+  return word.substring(index) + lettersToMove + "ay";
+}
+
+/**
+ * Functions: isY(char) and findY(word)
+ * Description: same functions as isVowel(char) and findVowel(word) used in case of weird word such as pygmy
+ */
+function isY(char) {
+  if (char === "y") return true;
+  else return false;
+}
+function findY(word) {
+  for (var i = 0; i < word.length; i++) {
+    if (isY(word[i])) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -104,6 +136,15 @@ if (typeof describe === "function") {
     it("should lowercase and trim word before translation", () => {
       assert.equal(pigLatin("HeLlO "), "ellohay");
       assert.equal(pigLatin(" RoCkEt"), "ocketray");
+    });
+    // not perfect
+    it("should throw an error upon receiving input that is not a word", () => {
+      assert.equal(pigLatin("123"), result_InputError);
+      assert.equal(pigLatin("..*="), result_InputError);
+    });
+    it("should handle weird english words that use Y as the vowel", () => {
+      assert.equal(pigLatin("lynx"), "ynxlay");
+      assert.equal(pigLatin("pygmy"), "ygmypay");
     });
   });
 } else {
