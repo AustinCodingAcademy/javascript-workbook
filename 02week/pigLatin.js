@@ -39,9 +39,10 @@ function pigLatin(word) {
 }
 
 // + find a way to determine if a letter is a vowel (make a function)
+// + find a way to determine the location(index) of first vowel in word (make a function)
 /**
- * Function: isVowel(char)
- * Description: checks if given char matches any index of vowels array
+ * Functions: isVowel(char) and findVowel(word)
+ * Description: two functions that work together to locate the index of the first vowel in a string(word)
  */
 function isVowel(char) {
   // traverse vowels array
@@ -54,14 +55,29 @@ function isVowel(char) {
   return false;
 }
 
-// + find a way to determine the location(index) of first vowel in word (make a function)
-/**
- * Function: findVowel(word)
- * Description: traverses through word and returns index of first vowel or -1 if no vowel
- */
 function findVowel(word) {
+  // traverse word
   for (var i = 0; i < word.length; i++) {
+    // if a letter is a vowel, return index
     if (isVowel(word[i])) {
+      return i;
+    }
+  }
+  // didnt find a vowel
+  return -1;
+}
+
+/**
+ * Functions: isY(char) and findY(word)
+ * Description: same as isVowel(char) and findVowel(word) used in the case of words that use "Y" as its vowel representation
+ */
+function isY(char) {
+  if (char === "y") return true;
+  else return false;
+}
+function findY(word) {
+  for (var i = 0; i < word.length; i++) {
+    if (isY(word[i])) {
       return i;
     }
   }
@@ -81,22 +97,6 @@ function pigLatinify(word, index) {
   return word.substring(index) + lettersToMove + "ay";
 }
 
-/**
- * Functions: isY(char) and findY(word)
- * Description: same functions as isVowel(char) and findVowel(word) used in case of weird word such as pygmy
- */
-function isY(char) {
-  if (char === "y") return true;
-  else return false;
-}
-function findY(word) {
-  for (var i = 0; i < word.length; i++) {
-    if (isY(word[i])) {
-      return i;
-    }
-  }
-  return -1;
-}
 
 /**
  * Function: scrubADubDub(str)
