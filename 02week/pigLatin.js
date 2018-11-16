@@ -8,16 +8,19 @@ const rl = readline.createInterface({
 });
 
 function pigLatin(word) {
-  word = word.toLowerCase().trim();
-  const vowels = ["a", "e", "i", "o", "u", "y"];
+  // define all the vowels
+  // iterate through the word till we find a vowel
+  // take everything before that vowel
+  // add to the end
+  // add ay
+
+  word = word.trim().toLowerCase();
+  let word2 = word;
   let append;
 
   function isVowel(char) {
-    if (vowels.includes(char)) {
-      return true;
-    } else {
-      return false;
-    }
+    const vowels = ["a", "e", "i", "o", "u", "y"];
+    return vowels.includes(char);
   }
 
   if (isVowel(word[0])) {
@@ -26,21 +29,12 @@ function pigLatin(word) {
     for (let i = 1; i < word.length && !append; i++) {
       if (isVowel(word[i])) {
         append = word.slice(0, i) + "ay";
+        word2 = word.slice(i);
       }
     }
   }
 
-  word = word + append;
-
-  return word;
-
-  // find the first vowel
-  //define all the vowels
-  // iterate through the word till we find a vowel
-
-  //take everything before that vowel
-  //add to the end
-  // add ay
+  return word2 + append;
 }
 
 function getPrompt() {
