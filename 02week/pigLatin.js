@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 
 // given variables
 const vowels = ["a", "e", "i", "o", "u"];
-const result_InputError = "Invalid Input.";
+const err_Input = "That's not a word!";
 
 function pigLatin(word) {
   // Your code here
@@ -18,7 +18,7 @@ function pigLatin(word) {
   if (word) {
     // + should scrub word before searching for vowel
     word = scrubStr(word);
-    if (word === result_InputError) return result_InputError;
+    if (word === err_Input) return err_Input;
 
     // get the index of the first vowel in word
     let firstVowelIndex = findVowel(word);
@@ -29,14 +29,14 @@ function pigLatin(word) {
       let firstYIndex = findY(word);
 
       // if no vowel and no y, not a word, throw error
-      if (firstYIndex < 0) return result_InputError;
+      if (firstYIndex < 0) return err_Input;
       // return pig latin of weird Y word
       else return pigLatinify(word, firstYIndex);
     }
 
     // return pig latin
     return pigLatinify(word, firstVowelIndex);
-  } else return result_InputError; // "word" was empty or undefined
+  } else return err_Input; // "word" was empty or undefined
 }
 
 // + find a way to determine if a letter is a vowel (make a function)
@@ -105,7 +105,7 @@ function pigLatinify(word, index) {
 function scrubStr(str) {
   let scrubbedStr = str.toLowerCase().trim();
   if (regexStr(scrubbedStr)) return scrubbedStr;
-  else return result_InputError;
+  else return err_Input;
 }
 
 /**
@@ -149,12 +149,12 @@ if (typeof describe === "function") {
       assert.equal(pigLatin(" RoCkEt"), "ocketray");
     });
     it("should throw an error upon receiving input that contains non letters", () => {
-      assert.equal(pigLatin("123notaword"), result_InputError);
-      assert.equal(pigLatin("test*="), result_InputError);
+      assert.equal(pigLatin("123notaword"), err_Input);
+      assert.equal(pigLatin("test*="), err_Input);
     });
     it("should throw an error upon receiving more than one word", () => {
-      assert.equal(pigLatin("more then one word"), result_InputError);
-      assert.equal(pigLatin("pig latin this"), result_InputError);
+      assert.equal(pigLatin("more then one word"), err_Input);
+      assert.equal(pigLatin("pig latin this"), err_Input);
     });
     it("should handle weird english words that use Y as the vowel", () => {
       assert.equal(pigLatin("lynx"), "ynxlay");
