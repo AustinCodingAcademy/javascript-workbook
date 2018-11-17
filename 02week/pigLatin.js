@@ -16,8 +16,9 @@ function pigLatin(word) {
   // Your code here
   //ensure we received a "word"
   if (word) {
-    // + should scrub word before searching for vowel (copy pasta function from rockPaperScissors.js)
-    word = scrubADubDub(word);
+    // + should scrub word before searching for vowel
+    word = scrubStr(word);
+    if (word === result_InputError) return result_InputError;
 
     // get the index of the first vowel in word
     let firstVowelIndex = findVowel(word);
@@ -97,13 +98,23 @@ function pigLatinify(word, index) {
   return word.substring(index) + lettersToMove + "ay";
 }
 
-
 /**
- * Function: scrubADubDub(str)
+ * Function: scrubInput(str)
  * Description: applies string methods to ensure the returned string is all lowercase and contains no whitespace
  */
-function scrubADubDub(str) {
-  return str.toLowerCase().trim();
+function scrubStr(str) {
+  let scrubbedStr = str.toLowerCase().trim();
+  if (regexStr(scrubbedStr)) return scrubbedStr;
+  else return result_InputError;
+}
+
+/**
+ * Function: regexInput(str)
+ * Description: applies a regex to given str, return true if regex true, else return false
+ */
+function regexStr(str) {
+  if (/^[a-zA-Z]+$/.test(str)) return true;
+  else return false;
 }
 
 /**
@@ -137,10 +148,13 @@ if (typeof describe === "function") {
       assert.equal(pigLatin("HeLlO "), "ellohay");
       assert.equal(pigLatin(" RoCkEt"), "ocketray");
     });
-    // not perfect
-    it("should throw an error upon receiving input that is not a word", () => {
-      assert.equal(pigLatin("123"), result_InputError);
-      assert.equal(pigLatin("..*="), result_InputError);
+    it("should throw an error upon receiving input that contains non letters", () => {
+      assert.equal(pigLatin("123notaword"), result_InputError);
+      assert.equal(pigLatin("test*="), result_InputError);
+    });
+    it("should throw an error upon receiving more than one word", () => {
+      assert.equal(pigLatin("more then one word"), result_InputError);
+      assert.equal(pigLatin("pig latin this"), result_InputError);
     });
     it("should handle weird english words that use Y as the vowel", () => {
       assert.equal(pigLatin("lynx"), "ynxlay");
