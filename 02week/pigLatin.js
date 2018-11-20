@@ -11,9 +11,14 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+  var vowels = ["a","e","i","o","u"]
+  var firstPostion = str.indexOf(vowels)
 
+  if (firstPosition > 0) {
+    return str.slice(firstPostion) + str.slice(0, firstPostion) +"ay";
+  }
+  return str + "yay";
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
