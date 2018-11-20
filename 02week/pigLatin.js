@@ -16,14 +16,14 @@ let j = 0;
 
 function pigLatin(word) {
   // Your code here
-  // find the first vowel,
-  //checking for vowel
   backOfWord = "";
   word = word.toLowerCase().trim();
   checkEachLetter(word);
   word = word.substring(backOfWord.length);
   //console log
   word += backOfWord;
+  console.log(backOfWord);
+
   //console log
   if (i === 0) {
     word += "yay";
@@ -32,11 +32,6 @@ function pigLatin(word) {
   }
   //console log
   return word;
-
-  // //for (let i = 0; i < wordVowelConditions.length; i++) {
-  //   if (word === "a" && word) {
-  //     return vowel;
-  //   }
 }
 //define all vowels, create an array, iterate through word until we find a vowel
 // index of first
@@ -54,9 +49,9 @@ function checkEachLetter(checkWord) {
     for (j = 0; j < wordVowelConditions.length; j++) {
       console.log(
         "checking if letter " +
-          checkWord[i] +
-          " equals vowel " +
-          wordVowelConditions[j]
+        checkWord[i] +
+        " equals vowel " +
+        wordVowelConditions[j]
       );
       // add letters to backOfWord before vowels
 
@@ -77,6 +72,7 @@ function checkEachLetter(checkWord) {
   }
   return checkWord;
 }
+
 function getPrompt() {
   rl.question("word ", answer => {
     console.log(pigLatin(answer));
