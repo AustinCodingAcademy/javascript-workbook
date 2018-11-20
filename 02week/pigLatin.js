@@ -32,12 +32,6 @@ function pigLatin(str) {
   }
   return str;
 }
-// console.log(PigLatin("consonant"));
-// console.log(PigLatin("california"));
-// console.log(PigLatin("paragraphs"));
-// console.log(PigLatin("glove"));
-// console.log(PigLatin("algorithm"));
-// console.log(PigLatin("eight"));
 
 function getPrompt() {
   rl.question("str", answer => {
