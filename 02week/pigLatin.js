@@ -11,6 +11,7 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+  var str = str.toLowerCase()
   var vowels = ["a","e","i","o","u"]
   var firstPostion = str.indexOf(vowels)
 
