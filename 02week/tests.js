@@ -35,9 +35,7 @@ function rockPaperScissors(hand1, hand2) {
   let h2lose = lose.indexOf(hand2norm);
 
   //if hand 1 index from the win array is the same as hand 2 index from the lose array I know hand 1 is the winner
-  if (h1win === h2lose) {
-    return hand1wins;
-  }
+  checkTie(hand1norm, hand2norm);
 
   //and vice versa
   if (h2win === h1lose) {
