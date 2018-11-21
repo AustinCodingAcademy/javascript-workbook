@@ -19,17 +19,17 @@ function rockPaperScissors(hand1, hand2) {
 
   //Check if any hands have a value
   if (!hand1 || !hand2) {
-    return "You must enter valid hand!";
+    return "You must enter a valid hand!";
   }
 
   //Check if hand one has entered rock, paper, or scissors
   if (hand1 != "rock" && hand1 != "paper" && hand1 != "scissors") {
     return "You must enter a valid hand!";
   }
-  // //Check if hand two has entered rock, paper, or scissors
-  // if (hand2 != "rock" && hand2 != "paper" && hand2 != "scissors") {
-  //   return "You must enter a valid play for hand 2!";
-  // }
+  //Check if hand two has entered rock, paper, or scissors
+  if (hand2 != "rock" && hand2 != "paper" && hand2 != "scissors") {
+    return "You must enter a valid hand!";
+  }
 
   //Check for tie condition
   if (hand1 === hand2) {
@@ -57,7 +57,7 @@ function rockPaperScissors(hand1, hand2) {
 function playerTwoAI() {
   var hands = ["rock", "paper", "scissors"];
   let chosen = hands[Math.floor(Math.random() * hands.length)];
-  console.log("AI chose " + chosen);
+  console.log("AI Two chose " + chosen);
   return chosen;
 }
 
@@ -79,6 +79,47 @@ function getPrompt() {
 
 if (typeof describe === "function") {
   // Write tests here
+  describe("#rockPaperScissors()", () => {
+    it("should detect if user enters anything at all", () => {
+      assert.equal(
+        rockPaperScissors("", "rock"),
+        "You must enter a valid hand!"
+      );
+      assert.equal(
+        rockPaperScissors("paper", ""),
+        "You must enter a valid hand!"
+      );
+    });
+    it("should detect all scenarios where player wins", () => {
+      assert.equal(rockPaperScissors("rock", "scissors"), "Player wins!");
+      assert.equal(rockPaperScissors("paper", "rock"), "Player wins!");
+      assert.equal(rockPaperScissors("scissors", "paper"), "Player wins!");
+    });
+    it("should detect all scenarios where AI wins", () => {
+      assert.equal(rockPaperScissors("paper", "scissors"), "AI wins!");
+      assert.equal(rockPaperScissors("rock", "paper"), "AI wins!");
+      assert.equal(rockPaperScissors("scissors", "rock"), "AI wins!");
+    });
+    it("should detect if Player entered a valid hand(rock, paper or scissors)", () => {
+      assert.equal(
+        rockPaperScissors("rokk", "pap3r"),
+        "You must enter a valid hand!"
+      );
+      assert.equal(
+        rockPaperScissors("papper", "sciss0rs"),
+        "You must enter a valid hand!"
+      );
+      assert.equal(
+        rockPaperScissors("sc1ss0r5", "r0ck "),
+        "You must enter a valid hand!"
+      );
+    });
+    it("should detect if game ends in tie", () => {
+      assert.equal(rockPaperScissors("rock", "rock"), "It's a tie!");
+      assert.equal(rockPaperScissors("paper", "paper"), "It's a tie!");
+      assert.equal(rockPaperScissors("scissors", "scissors"), "It's a tie!");
+    });
+  });
 } else {
   getPrompt();
 }
