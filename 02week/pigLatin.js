@@ -8,24 +8,24 @@ const rl = readline.createInterface({
 });
 
 function pigLatin(word) {
-  // define all the vowels
-  // iterate through the word till we find a vowel
-  // take everything before that vowel
-  // add to the end
-  // add ay
-
+  // Sanitizes input and initializes variables
   word = word.trim().toLowerCase();
   let word2 = word;
   let append;
 
+  // Tests if a character is a vowel and returns true or false
   function isVowel(char) {
     const vowels = ["a", "e", "i", "o", "u", "y"];
     return vowels.includes(char);
   }
 
+  // If the first letter is a vowel, we will simply append "yay"
   if (isVowel(word[0])) {
     append = "yay";
   } else {
+    // Otherwise start a for loop with the second letter.
+    // When a vowel is found, the preceding section of the word had "ay" added to it.
+    // The remainder of the word is stored as word2.
     for (let i = 1; i < word.length && !append; i++) {
       if (isVowel(word[i])) {
         append = word.slice(0, i) + "ay";
@@ -33,7 +33,7 @@ function pigLatin(word) {
       }
     }
   }
-
+  // The two sections of the original word are rearranged and recombined
   return word2 + append;
 }
 
