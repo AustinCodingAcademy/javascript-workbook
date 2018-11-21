@@ -17,7 +17,6 @@ function firstVowel(word) {
       return i; // return the index of the first vowel and use firstVowel() with pigLatin function
     }
   }
-  // return -1;
 }
 
 function pigLatin(word) {
