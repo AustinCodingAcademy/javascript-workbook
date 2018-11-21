@@ -32,10 +32,7 @@ function rockPaperScissors(hand1, hand2) {
     hand2 = scrubADubDub(hand2);
 
     //ensure hand1 and hand2 are specifically "rock", "paper", or "scissors"
-    if (
-      (hand1 === rock || hand1 === paper || hand1 === scissors) &&
-      (hand2 === rock || hand2 === paper || hand2 === scissors)
-    ) {
+    if (checkHand(hand1) && checkHand(hand2)) {
       return determineWinner(hand1, hand2);
     } else return result_error;
   } else return result_error;
@@ -62,6 +59,15 @@ function determineWinner(hand1, hand2) {
     if (hand2 === paper) return result_hand1Win;
     else return result_hand2Win;
   }
+}
+
+/**
+ * Function: checkHand(hand)
+ * Description: ensures that the string passed in is of correct parameters
+ */
+function checkHand(hand) {
+  if (hand === rock || hand === paper || hand === scissors) return true;
+  else return false;
 }
 
 /**
