@@ -32,7 +32,7 @@ function rockPaperScissors(hand1, hand2) {
     return hand1wins;
   }
 }
-var str = "";
+var str = " ";
 var strLower = str.toLowerCase();
 
 strLower.replace(/\s/g, "");
