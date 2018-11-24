@@ -12,6 +12,8 @@ function rockPaperScissors(hand1, hand2) {
   const tie = "It's a tie!";
   const hand1Wins = "Hand one wins!";
   const hand2Wins = "Hand two wins!";
+  const notValid = "Please enter a valid input";
+  const notNumber = "This game doesn't use numbers!";
 
   //trim turn all sting inputs to lower case
   hand1 = hand1.toLowerCase().trim();
@@ -69,6 +71,10 @@ function rockPaperScissors(hand1, hand2) {
       return hand2Wins;
     }
   }
+
+  if (hand1 + hand2 != hand1WinCombo || hand2WinCombo) {
+    return notValid;
+  }
 }
 
 function getPrompt() {
@@ -84,20 +90,40 @@ function getPrompt() {
 
 if (typeof describe === "function") {
   describe("#rockPaperScissors()", () => {
-    it("should detect a tie", () => {
+    //write test code here
+    it("should tell you if hand one is the winner", () => {
+      assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
+      assert.equal(rockPaperScissors("paper", "rock"), "Hand one wins!");
+      assert.equal(rockPaperScissors("scissors", "paper"), "Hand one wins!");
+    });
+    it("should tell you if hand two is the winner", () => {
+      assert.equal(rockPaperScissors("scissors", "rock"), "Hand two wins!");
+      assert.equal(rockPaperScissors("rock", "paper"), "Hand two wins!");
+      assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
+    });
+    it("should tell you if there is a tie", () => {
       assert.equal(rockPaperScissors("rock", "rock"), "It's a tie!");
       assert.equal(rockPaperScissors("paper", "paper"), "It's a tie!");
       assert.equal(rockPaperScissors("scissors", "scissors"), "It's a tie!");
     });
-    it("should detect which hand won", () => {
-      assert.equal(rockPaperScissors("rock", "paper"), "Hand two wins!");
-      assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
-      assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
+    it("should convert entry to lower case", () => {
+      assert.equal(rockPaperScissors("RoCk", "sCisSors"), "Hand one wins!");
+      assert.equal(rockPaperScissors("PAPER", "ROCK"), "Hand one wins!");
+      assert.equal(rockPaperScissors("ScISsOrS", "paPer"), "Hand one wins!");
     });
-    it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors("rOcK", " paper "), "Hand two wins!");
-      assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Hand two wins!");
-      assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Hand one wins!");
+    it("should return an invalid input if not rock paper or scissors", () => {
+      assert.equal(
+        rockPaperScissors("r0ck", "sc1ss0rs"),
+        "Please enter a valid input"
+      );
+      assert.equal(
+        rockPaperScissors("squirrel", "panther"),
+        "Please enter a valid input"
+      );
+      assert.equal(
+        rockPaperScissors("stone", "clipper"),
+        "Please enter a valid input"
+      );
     });
   });
 } else {
