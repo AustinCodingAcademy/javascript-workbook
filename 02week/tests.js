@@ -72,6 +72,10 @@ function rockPaperScissors(hand1, hand2) {
     }
   }
 
+  // if (hand1 || hand2 === typeof 12345) {
+  //   return notNumber;
+  // } else
+
   if (hand1 + hand2 != hand1WinCombo || hand2WinCombo) {
     return notValid;
   }
@@ -111,9 +115,23 @@ if (typeof describe === "function") {
       assert.equal(rockPaperScissors("PAPER", "ROCK"), "Hand one wins!");
       assert.equal(rockPaperScissors("ScISsOrS", "paPer"), "Hand one wins!");
     });
+    // it("should return error message if user inputs numbers", () => {
+    //   assert.equal(
+    //     typeof rockPaperScissors(12345, 12345),
+    //     "This game doesn't use numbers!"
+    //   );
+    //   assert.equal(
+    //     typeof rockPaperScissors("PAPER", 123),
+    //     "This game doesn't use numbers!"
+    //   );
+    //   assert.equal(
+    //     typeof rockPaperScissors(5783, "scissors"),
+    //     "This game doesn't use numbers!"
+    //   );
+    // });
     it("should return an invalid input if not rock paper or scissors", () => {
       assert.equal(
-        rockPaperScissors("r0ck", "sc1ss0rs"),
+        rockPaperScissors("r0ck", "scAss0rs"),
         "Please enter a valid input"
       );
       assert.equal(
