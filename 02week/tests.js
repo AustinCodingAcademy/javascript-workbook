@@ -13,57 +13,19 @@ function rockPaperScissors(hand1, hand2) {
   const hand1Wins = "Hand one wins!";
   const hand2Wins = "Hand two wins!";
   const notValid = "Please enter a valid input";
-  const notNumber = "This game doesn't use numbers!";
 
   //trim turn all sting inputs to lower case
   hand1 = hand1.toLowerCase().trim();
   hand2 = hand2.toLowerCase().trim();
 
-  // detect win conditions ("if" statements) - ***this works and passes***
-  //   if (
-  //     (hand1 === "rock" && hand2 === "scissors") ||
-  //     (hand1 === "paper" && hand2 === "rock") ||
-  //     (hand1 === "scissors" && hand2 === "paper")
-  //   ) {
-  //     return hand1Wins;
-  //   } else if (
-  //     (hand2 === "rock" && hand1 === "scissors") ||
-  //     (hand2 === "paper" && hand1 === "rock") ||
-  //     (hand2 === "scissors" && hand1 === "paper")
-  //   ) {
-  //     return hand2Wins;
-  //   } else if (hand1 === hand2) {
-  //     return tie;
-  //   } else {
-  //     return "you can only enter rock, paper or scissors";
-  //   }
-  // }
-
-  // detect win conditions ("switch" statements) - ***this works and passes too***
-  //   switch (hand1 + hand2) {
-  //     case "rockscissors":
-  //     case "paperrock":
-  //     case "scissorspaper":
-  //       return hand1Wins;
-  //     case "rockpaper":
-  //     case "paperscissors":
-  //     case "scissorsrock":
-  //       return hand2Wins;
-  //     case "rockrock":
-  //     case "paperpaper":
-  //     case "scissorsscissors":
-  //       return tie;
-  //   }
-  // }
-
-  // detect win conditions ("for loop" statement) - ***this workds and passes too***
+  // detect win conditions ("for loop" statement)
   const hand1WinCombo = ["rockscissors", "paperrock", "scissorspaper"];
   const hand2WinCombo = ["rockpaper", "paperscissors", "scissorsrock"];
-
+  // detect tie
   if (hand1 === hand2) {
     return tie;
   }
-
+  // check for win
   for (let i = 0; i < hand1WinCombo.length; i++) {
     if (hand1 + hand2 === hand1WinCombo[i]) {
       return hand1Wins;
@@ -71,11 +33,7 @@ function rockPaperScissors(hand1, hand2) {
       return hand2Wins;
     }
   }
-
-  // if (hand1 || hand2 === typeof 12345) {
-  //   return notNumber;
-  // } else
-
+  // if anything other than rock, paper or scissors is entered - return error message
   if (hand1 + hand2 != hand1WinCombo || hand2WinCombo) {
     return notValid;
   }
@@ -115,20 +73,6 @@ if (typeof describe === "function") {
       assert.equal(rockPaperScissors("PAPER", "ROCK"), "Hand one wins!");
       assert.equal(rockPaperScissors("ScISsOrS", "paPer"), "Hand one wins!");
     });
-    // it("should return error message if user inputs numbers", () => {
-    //   assert.equal(
-    //     typeof rockPaperScissors(12345, 12345),
-    //     "This game doesn't use numbers!"
-    //   );
-    //   assert.equal(
-    //     typeof rockPaperScissors("PAPER", 123),
-    //     "This game doesn't use numbers!"
-    //   );
-    //   assert.equal(
-    //     typeof rockPaperScissors(5783, "scissors"),
-    //     "This game doesn't use numbers!"
-    //   );
-    // });
     it("should return an invalid input if not rock paper or scissors", () => {
       assert.equal(
         rockPaperScissors("r0ck", "scAss0rs"),
