@@ -1,5 +1,4 @@
 "use strict";
-"use strict";
 
 const assert = require("assert");
 const readline = require("readline");
