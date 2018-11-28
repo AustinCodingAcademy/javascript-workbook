@@ -10,6 +10,14 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 
 let playerTurn = "X";
 
+function isValidMove(row, col) {
+  if (board[row][col] === " ") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function changePlayer() {
   if (playerTurn === "X") {
     playerTurn = "O";
@@ -28,23 +36,56 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-}
-
-function verticalWin() {
-  // Your code here
-}
-
-function diagonalWin() {
-  // Your code here
-}
-
-function checkForWin() {
+  const winningRow = playerTurn + "," + playerTurn + "," + playerTurn;
+  for (let row = 0; row < 3; row++) {
+    if (board[row].toString() === winningRow) {
+      return true;
+    }
+  }
   return false;
 }
 
+function verticalWin() {
+  const winningColumn = playerTurn + "," + playerTurn + "," + playerTurn;
+  for (let col = 0; col < 3; col++) {
+    let currentColumn = [];
+    for (let row = 0; row < 3; row++) {
+      currentColumn.push(board[row][col]);
+    }
+    if (currentColumn.toString() === winningColumn) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function diagonalWin() {
+  if (board[1][1] != playerTurn) {
+    return false;
+  } else if (board[0][0] === playerTurn && board[2][2] === playerTurn) {
+    return true;
+  } else if (board[0][2] === playerTurn && board[2][0] === playerTurn) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkForWin() {
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
+  if (isValidMove(row, column)) {
+    board[row][column] = playerTurn;
+  } else {
+    console.log("Invalid move");
+    changePlayer();
+  }
   if (checkForWin()) {
     console.log("Player " + playerTurn + " wins!");
   } else {
