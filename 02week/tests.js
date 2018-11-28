@@ -10,7 +10,15 @@ if (typeof describe === 'function') {
     describe('#rockpaperScissors()', () => {
         it ('should return tie on "scissors" "scissors"',() => {
             assert.equal(rockPaperScissors("scissors", "scissors") ,'tie!')
+
+     describe('#rockpaperScissors()', () => {
+        it ('should return tie on "paper" "paper"',() => {
+            assert.equal(rockPaperScissors("paper", "paper") ,'tie!')       
         })
+     describe('#rockpaperScissors()', () => {
+         it ('should return tie on "rock" "rock"',() => {
+             assert.equal(rockPaperScissors("rock", "rock") ,'tie!')       
+        })   
     })
      })
     
