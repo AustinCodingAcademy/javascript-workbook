@@ -7,6 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+let rows, cols = board.length;
 
 let playerTurn = "X";
 
@@ -19,11 +20,11 @@ function printBoard() {
   console.log("2 " + board[2].join(" | "));
 }
 
-function horizontalWin() {
+function horizontalWin(currentRow) {
   // Your code here
 }
 
-function verticalWin() {
+function verticalWin(currentCol) {
   // Your code here
 }
 
@@ -33,6 +34,17 @@ function diagonalWin() {
 
 function checkForWin() {
   // Your code here
+
+  // check for diagonal win
+
+  for (let i = 0; i < rows; i++) {
+    // check for horizontal win
+    // horizontalWin(i);
+    for (let j = 0; j < cols; j++) {
+      // check for vertical win
+      // verticalWin(j);
+    }
+  }
 }
 
 function ticTacToe(row, column) {
