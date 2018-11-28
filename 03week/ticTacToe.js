@@ -41,6 +41,17 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   // Your code here
+  let currentBoardPos = board[row][column];
+
+  // assign current player symbol to designated row/column position if empty
+  if(currentBoardPos === " ")
+    board[row][column] = playerTurn;
+  else
+    console.log("Invalid move.");
+
+  // change playerTurn
+  if (playerTurn === "X") playerTurn = "O";
+  else playerTurn = "X";
 }
 
 function getPrompt() {
