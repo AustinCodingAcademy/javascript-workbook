@@ -16,6 +16,7 @@ function rockPaperScissors(hand1, hand2) {
   const tie = "It's a tie!";
   const hand1wins = "Hand one wins!";
   const hand2wins = "Hand two wins!";
+  const notValid = "Not a valid entry";
   if (hand1 === hand2) {
     return tie;
   }
@@ -30,6 +31,12 @@ function rockPaperScissors(hand1, hand2) {
   }
   if (hand1 === "paper" && hand2 === "rock") {
     return hand1wins;
+  }
+  if ((hand1 !== "rock", "paper", "scissors")) {
+    return notValid;
+  }
+  if ((hand2 !== "rock", "paper", "scissors")) {
+    return notValid;
   }
 }
 var str = " ";
@@ -46,8 +53,31 @@ function getPrompt() {
   });
 }
 // Tests
+
 if (typeof describe === "function") {
-  //write tests here
+  describe("#rockPaperScissors()", () => {
+    it("should detect a tie", () => {
+      assert.equal(rockPaperScissors("rock", "rock"), "It's a tie!");
+      assert.equal(rockPaperScissors("paper", "paper"), "It's a tie!");
+      assert.equal(rockPaperScissors("scissors", "scissors"), "It's a tie!");
+    });
+    it("should detect which hand won", () => {
+      assert.equal(rockPaperScissors("rock", "paper"), "Hand two wins!");
+      assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
+      assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
+    });
+    it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
+      assert.equal(rockPaperScissors("rOcK", " paper "), "Hand two wins!");
+      assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Hand two wins!");
+      assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Hand one wins!");
+    });
+    it("should detect if input is not rock paper or scissors", () => {
+      assert.equal(
+        rockPaperScissors("ork", "papper", "sissors"),
+        "Not a valid entry"
+      );
+    });
+  });
 } else {
   getPrompt();
 }
