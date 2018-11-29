@@ -7,8 +7,9 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
-
 let playerTurn = "X";
+const winForX = "X is the winner!";
+const winForO = "O is the winner!";
 
 function printBoard() {
   console.log("   0  1  2");
@@ -28,8 +29,21 @@ function playerChange() {
 }
 
 function horizontalWin() {
-  let newBoard = board.concat(board);
-  console.log("this is a new board", newBoard);
+  if (
+    (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") ||
+    (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") ||
+    (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X")
+  ) {
+    console.log(winForX);
+  } else if (
+    (board[0][0] === "O" && board[0][1] === "O" && board[0][2] === "O") ||
+    (board[1][0] === "O" && board[1][1] === "O" && board[1][2] === "O") ||
+    (board[2][0] === "O" && board[2][1] === "O" && board[2][2] === "O")
+  ) {
+    console.log(winForO);
+  } else {
+    return false;
+  }
 }
 
 function verticalWin() {
@@ -41,7 +55,7 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  if (horizontalWin || verticalWin || diagonalWin) {
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
     return true;
   } else {
     return false;
@@ -50,6 +64,7 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
+  console.log(typeof board[row][column]);
   playerChange();
 }
 
