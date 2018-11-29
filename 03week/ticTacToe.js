@@ -28,10 +28,8 @@ function playerChange() {
 }
 
 function horizontalWin() {
-  if{
-
-  }
-
+  let newBoard = board.concat(board);
+  console.log("this is a new board", newBoard);
 }
 
 function verticalWin() {
@@ -48,13 +46,11 @@ function checkForWin() {
   } else {
     return false;
   }
-  // Your code here
 }
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   playerChange();
-  // Your code here
 }
 
 function getPrompt() {
