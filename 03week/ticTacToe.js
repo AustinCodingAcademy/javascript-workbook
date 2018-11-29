@@ -13,8 +13,8 @@ let playerTurn = "X";
 function isValidMove(row, col) {
   const validMoves = ["0", "1", "2"];
   if (
-    validMoves.includes(row) &&
-    validMoves.includes(col) &&
+    validMoves.includes(row.toString()) &&
+    validMoves.includes(col.toString()) &&
     board[row][col] === " "
   ) {
     return true;
