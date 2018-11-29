@@ -10,6 +10,7 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 let playerTurn = "X";
 const winForX = "X is the winner!";
 const winForO = "O is the winner!";
+const tieGame = "Tie game";
 
 function printBoard() {
   console.log("   0  1  2");
@@ -30,41 +31,71 @@ function playerChange() {
 
 function horizontalWin() {
   if (
-    (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") ||
-    (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") ||
-    (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X")
+    (board = [["X", "X", "X"], [" ", " ", " "], [" ", " ", " "]]) ||
+    (board = [[" ", " ", " "], ["X", "X", "X"], [" ", " ", " "]]) ||
+    (board = [[" ", " ", " "], [" ", " ", " "], ["X", "X", "X"]])
   ) {
-    console.log(winForX);
-  } else if (
-    (board[0][0] === "O" && board[0][1] === "O" && board[0][2] === "O") ||
-    (board[1][0] === "O" && board[1][1] === "O" && board[1][2] === "O") ||
-    (board[2][0] === "O" && board[2][1] === "O" && board[2][2] === "O")
-  ) {
-    console.log(winForO);
+    console.log(board);
+    return true;
   } else {
-    return false;
+    (board = [["O", "O", "O"], [" ", " ", " "], [" ", " ", " "]]) ||
+      (board = [[" ", " ", " "], ["O", "O", "O"], [" ", " ", " "]]) ||
+      (board = [[" ", " ", " "], [" ", " ", " "], ["O", "O", "O"]]);
+    return true;
   }
 }
 
 function verticalWin() {
-  // Your code here
+  if (
+    (board = [["X", " ", " "], ["X", " ", " "], ["X", " ", " "]]) ||
+    (board = [[" ", "X", " "], [" ", "X", " "], [" ", "X", " "]]) ||
+    (board = [[" ", " ", "X"], [" ", " ", "X"], [" ", " ", "X"]])
+  ) {
+    return true;
+  } else {
+    (board = [["O", " ", " "], ["O", " ", " "], ["O", " ", " "]]) ||
+      (board = [[" ", "O", " "], [" ", "O", " "], [" ", "O", " "]]) ||
+      (board = [[" ", " ", "O"], [" ", " ", "O"], [" ", " ", "O"]]);
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if (
+    (ticTacToe(0, 0) === "X" &&
+      ticTacToe(1, 1) === "X" &&
+      ticTacToe(2, 2) === "X") ||
+    (ticTacToe(0, 2) === "X" &&
+      ticTacToe(1, 1) === "X" &&
+      ticTacToe(2, 0) === "X")
+  ) {
+    return true;
+  } else if (
+    (ticTacToe(0, 0) === "O" &&
+      ticTacToe(1, 1) === "O" &&
+      ticTacToe(2, 2) === "O") ||
+    (ticTacToe(0, 2) === "O" &&
+      ticTacToe(1, 1) === "O" &&
+      ticTacToe(2, 0) === "O")
+  ) {
+    return true;
+  }
 }
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log(verticalWin());
     return true;
-  } else {
+  } else if (horizontalWin() || verticalWin() || diagonalWin() != true) {
     return false;
+  } else {
+    return tieGame;
   }
 }
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  console.log(typeof board[row][column]);
+  // checkForWin();
   playerChange();
 }
 
