@@ -7,9 +7,11 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
-let rows, cols = board.length;
+let sideLength = board.length;
 
-let playerTurn = "X";
+let playerOne = "X";
+let playerTwo = "O";
+let playerTurn = playerOne;
 
 function printBoard() {
   console.log("   0  1  2");
@@ -20,31 +22,40 @@ function printBoard() {
   console.log("2 " + board[2].join(" | "));
 }
 
-function horizontalWin(currentRow) {
+function horizontalWin() {
   // Your code here
+  for (let i = 0; i < sideLength; i++) {
+    if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+      return true;
+    }
+  }
+  return false;
 }
 
-function verticalWin(currentCol) {
+function verticalWin() {
   // Your code here
+  for (let i = 0; i < sideLength; i++) {
+    if (board[0][i] === board[1][i] && board[1][i] === board[2][i]) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function diagonalWin() {
   // Your code here
+  if (
+    (board[0][0] === board[1][1] && board[1][1] === board[2][2]) ||
+    (board[0][2] === board[1][1] && board[1][1] === board[2][0])
+  )
+    return true;
+  else return false;
 }
 
 function checkForWin() {
   // Your code here
-
-  // check for diagonal win
-
-  for (let i = 0; i < rows; i++) {
-    // check for horizontal win
-    // horizontalWin(i);
-    for (let j = 0; j < cols; j++) {
-      // check for vertical win
-      // verticalWin(j);
-    }
-  }
+  if (horizontalWin() || verticalWin() || diagonalWin()) return true;
+  else return false;
 }
 
 function ticTacToe(row, column) {
@@ -52,12 +63,22 @@ function ticTacToe(row, column) {
   let currentBoardPos = board[row][column];
 
   // assign current player symbol to designated row/column position if empty
-  if (currentBoardPos === " ") board[row][column] = playerTurn;
-  else console.log("Invalid move.");
+  if (currentBoardPos === " ") {
+    board[row][column] = playerTurn;
+    if (checkForWin()) {
+      announceWinner();
+    }
+  } else console.log("Invalid move.");
 
   // change playerTurn
-  if (playerTurn === "X") playerTurn = "O";
-  else playerTurn = "X";
+  if (playerTurn === playerOne) playerTurn = playerTwo;
+  else playerTurn = playerOne;
+}
+
+function announceWinner() {
+  if (playerTurn === playerOne) {
+    console.log("Player One wins!");
+  } else console.log("Player Two wins!");
 }
 
 function getPrompt() {
