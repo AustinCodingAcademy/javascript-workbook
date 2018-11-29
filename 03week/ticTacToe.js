@@ -11,11 +11,15 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 let playerTurn = "X";
 
 function isValidMove(row, col) {
-  if (board[row][col] === " ") {
+  const validMoves = ["0", "1", "2"];
+  if (
+    validMoves.includes(row) &&
+    validMoves.includes(col) &&
+    board[row][col] === " "
+  ) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function changePlayer() {
@@ -66,9 +70,8 @@ function diagonalWin() {
     return true;
   } else if (board[0][2] === playerTurn && board[2][0] === playerTurn) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function checkForWin() {
@@ -83,7 +86,7 @@ function ticTacToe(row, column) {
   if (isValidMove(row, column)) {
     board[row][column] = playerTurn;
   } else {
-    console.log("Invalid move");
+    console.log("Invalid move, try again.");
     changePlayer();
   }
   if (checkForWin()) {
