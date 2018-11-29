@@ -21,12 +21,17 @@ function printBoard() {
 
 function playerChange() {
   if (playerTurn === "X") {
-  } else playerTurn = "O";
-  return (playerTurn = "O");
+    playerTurn = "O";
+  } else {
+    playerTurn = "X";
+  }
 }
 
 function horizontalWin() {
-  // Your code here
+  if{
+
+  }
+
 }
 
 function verticalWin() {
@@ -38,10 +43,17 @@ function diagonalWin() {
 }
 
 function checkForWin() {
+  if (horizontalWin || verticalWin || diagonalWin) {
+    return true;
+  } else {
+    return false;
+  }
   // Your code here
 }
 
 function ticTacToe(row, column) {
+  board[row][column] = playerTurn;
+  playerChange();
   // Your code here
 }
 
