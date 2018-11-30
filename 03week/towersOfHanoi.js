@@ -19,24 +19,32 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+  // placing popped index onto end of end stack
+  stacks[endStack].push(stacks[startStack].pop());
 }
 
 function isLegal() {
-  // Your code here
-
+  // checks to make sure move is legal
+  // defined by not placing a larger number over a smaller one 
+  // example you cannot place a 2 on top of a 1
+  if (startStack)
 }
 
 function checkForWin() {
-  // Your code here
+  // win is defined as moving the tower from a tower to b tower
+  // in the order of 4, 3, 2, 1
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
 
+  movePiece(startStack, endStack);
+
+  isLegal(startStack, endStack);
+
+  checkForWin(starStack, endStack);
 }
 
 function getPrompt() {
@@ -56,7 +64,11 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      });
     });
   });
 
@@ -80,9 +92,17 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = {
+        a: [],
+        b: [4, 3, 2, 1],
+        c: []
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = {
+        a: [1],
+        b: [4, 3, 2],
+        c: []
+      };
       assert.equal(checkForWin(), false);
     });
   });
