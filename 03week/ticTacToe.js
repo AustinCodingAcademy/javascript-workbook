@@ -170,46 +170,14 @@ function verticalWin() {
 //function to check for diagonal wins
 function diagonalWin() {
   console.log("Checking Diagonal Wins...");
-  let row0Index0 = "";
-  let row0Index2 = "";
-  let row1Index1 = "";
-  let row2Index0 = "";
-  let row2Index2 = "";
-  if (board[0][0] === playerTurn) {
-    console.log("Row 0 index 0 matches " + playerTurn);
-    row0Index0 = playerTurn;
-  }
-  if (board[0][2] === playerTurn) {
-    console.log("Row 0 index 2 matches " + playerTurn);
-    row0Index2 = playerTurn;
-  }
-  if (board[1][1] === playerTurn) {
-    console.log("Row 1 index 1 matches " + playerTurn);
-    row1Index1 = playerTurn;
-  }
-  if (board[2][0] === playerTurn) {
-    console.log("Row 2 index 0 matches " + playerTurn);
-    row2Index0 = playerTurn;
-  }
-  if (board[2][2] === playerTurn) {
-    console.log("Row 2 index 2 matches " + playerTurn);
-    row2Index2 = playerTurn;
-  }
   if (
-    (row0Index0 === playerTurn &&
-      row1Index1 === playerTurn &&
-      row2Index2 === playerTurn) ||
-    (row0Index2 === playerTurn &&
-      row1Index1 === playerTurn &&
-      row2Index0 === playerTurn)
+    (board[1][1] === playerTurn &&
+      (board[0][0] === board[1][1] && board[1][1] === board[2][2])) ||
+    (board[1][1] === playerTurn &&
+      (board[0][2] === board[1][1] && board[1][1] === board[2][0]))
   ) {
     return true;
   } else {
-    row0Index0 = "";
-    row0Index2 = "";
-    row1Index1 = "";
-    row2Index0 = "";
-    row2Index2 = "";
     return false;
   }
 }
