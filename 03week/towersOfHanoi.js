@@ -27,12 +27,18 @@ function isLegal(numToMove, currentStack) {
   // Your code here
   console.log("LOG: In isLegal, currentStack = " + currentStack);
   // if stack to check isnt empty
-  if (currentStack) {
+  if (currentStack.length > 0) {
     // ensure numToMove is less than last number of current stack
     let numToCompare = currentStack.pop();   
     console.log("LOG: Comparing " + numToMove + " < " + numToCompare);
-    if (numToMove < numToCompare) return true;
-    else return false;
+    if (numToMove < numToCompare) {
+      currentStack.push(numToCompare);
+      return true;
+    }
+    else {
+      currentStack.push(numToCompare);
+      return false;
+    }
   }
   // stack is empty, is legal
   else return true;
@@ -50,6 +56,9 @@ function towersOfHanoi(startStack, endStack) {
   if(isLegal(numToMove, stacks[endStack])) {
     console.log("LOG: isLegal passed");
     stacks[endStack].push(numToMove);
+  // else, illegal put the number back in startStack
+  } else {
+    stacks[startStack].push(numToMove);
   }
 
 
