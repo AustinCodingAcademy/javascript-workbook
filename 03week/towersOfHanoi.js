@@ -19,29 +19,44 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(stack1, stack2) {
   // Your code here
+
+  if (isLegal(stack1, stack2)) {
+    console.log("LOG: Legal!");
+    stack2.push(stack1.pop());
+  } else console.log("LOG: Illegal!");
 }
 
-function isLegal(numToMove, currentStack) {
+function isLegal(stack1, stack2) {
   // Your code here
-  console.log("LOG: In isLegal, currentStack = " + currentStack);
-  // if stack to check isnt empty
-  if (currentStack.length > 0) {
-    // ensure numToMove is less than last number of current stack
-    let numToCompare = currentStack.pop();   
-    console.log("LOG: Comparing " + numToMove + " < " + numToCompare);
-    if (numToMove < numToCompare) {
-      currentStack.push(numToCompare);
-      return true;
-    }
-    else {
-      currentStack.push(numToCompare);
-      return false;
-    }
+  // get last number in stack 1
+  let num1 = stack1[stack1.length - 1];
+
+  // if we didnt get a num1, stack 1 is empty, illegal move
+  if (!num1) {
+    console.log("LOG: isLegal returning FALSE (num1 does not exist)");
+    return false;
   }
-  // stack is empty, is legal
-  else return true;
+
+  // if stack2 is not empty
+  if (stack2.length > 0) {
+    // get last number in stack 2
+    let num2 = stack2[stack2.length - 1];
+
+    // if legal move
+    if (num2 > num1) {
+      console.log("LOG: isLegal returning TRUE ( " + num2 + " > " + num1 + " )");
+      return true;
+    } else {
+      console.log("LOG: isLegal returning FALSE ( " + num2 + " < " + num1 + " )");
+    return false;
+    }
+    // stack2 is empty, legal
+  } else {
+    console.log("LOG: isLegal returning TRUE (stack2 is empty)");
+    return true;
+  }
 }
 
 function checkForWin() {
@@ -50,18 +65,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  let numToMove = stacks[startStack].pop();
-  
-  // if isLegal to endStack, push to endStack
-  if(isLegal(numToMove, stacks[endStack])) {
-    console.log("LOG: isLegal passed");
-    stacks[endStack].push(numToMove);
-  // else, illegal put the number back in startStack
-  } else {
-    stacks[startStack].push(numToMove);
-  }
-
-
+  movePiece(stacks[startStack], stacks[endStack]);
 }
 
 function getPrompt() {
