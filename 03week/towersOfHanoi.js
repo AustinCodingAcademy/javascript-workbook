@@ -28,8 +28,11 @@ function isLegal() {
   // checks to make sure move is legal
   // defined by not placing a larger number over a smaller one 
   // example you cannot place a 2 on top of a 1
-  if (startStack)
+  if (startstack < endStack) {
+    return false;
+  }
 }
+console.log();
 
 function checkForWin() {
   // win is defined as moving the tower from a tower to b tower
