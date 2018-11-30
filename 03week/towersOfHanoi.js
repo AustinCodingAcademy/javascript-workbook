@@ -24,15 +24,17 @@ function movePiece(startStack, endStack) {
   stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // checks to make sure move is legal
   // defined by not placing a larger number over a smaller one 
   // example you cannot place a 2 on top of a 1
-  if (startstack < endStack) {
+  if (stacks[endStack].slice(-1)[0] < stacks[startStack].slice(-1)[0]) {
+    console.log("Not a valid move");
+
     return false;
   }
-}
-console.log();
+  return true;
+};
 
 function checkForWin() {
   // win is defined as moving the tower from a tower to b tower
@@ -42,12 +44,13 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  if (isLegal(startStack, endStack)) {;
 
-  movePiece(startStack, endStack);
+    movePiece(startStack, endStack);
 
-  isLegal(startStack, endStack);
+  }
 
-  checkForWin(starStack, endStack);
+  //checkForWin(starStack, endStack);
 }
 
 function getPrompt() {
