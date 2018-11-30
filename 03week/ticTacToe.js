@@ -6,7 +6,8 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+let board = [[" ", "X", " "], [" ", " ", "X"], [" ", " ", " "]];
+console.log(board[1].indexOf("X"));
 let playerTurn = "X";
 const winForX = "X is the winner!";
 const winForO = "O is the winner!";
@@ -61,25 +62,21 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-  if (
-    (ticTacToe(0, 0) === "X" &&
-      ticTacToe(1, 1) === "X" &&
-      ticTacToe(2, 2) === "X") ||
-    (ticTacToe(0, 2) === "X" &&
-      ticTacToe(1, 1) === "X" &&
-      ticTacToe(2, 0) === "X")
-  ) {
-    return true;
-  } else if (
-    (ticTacToe(0, 0) === "O" &&
-      ticTacToe(1, 1) === "O" &&
-      ticTacToe(2, 2) === "O") ||
-    (ticTacToe(0, 2) === "O" &&
-      ticTacToe(1, 1) === "O" &&
-      ticTacToe(2, 0) === "O")
-  ) {
-    return true;
-  }
+  // for (var i = 0; i <= board.length; i++) {
+  // for (var j = 0; j < 3; j++ {
+  //   if(board) {
+  //   }
+  // }return true;
+  // } else if (
+  //   (ticTacToe(0, 0) === "O" &&
+  //     ticTacToe(1, 1) === "O" &&
+  //     ticTacToe(2, 2) === "O") ||
+  //   (ticTacToe(0, 2) === "O" &&
+  //     ticTacToe(1, 1) === "O" &&
+  //     ticTacToe(2, 0) === "O")
+  // ) {
+  //   return true;
+  // }
 }
 
 function checkForWin() {
