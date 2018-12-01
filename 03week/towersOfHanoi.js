@@ -21,7 +21,7 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  // keep in mind that .pop can't take in any parameters and can only be used on an array. Wrap the stack.pop with stacks.push.
+  // keep in mind that .pop can't take in any parameters and can only be used on an array. Wrap the stack.pop in stacks.push as a parameter.
   stacks[endStack].push(stacks[startStack].pop());
 }
 
@@ -39,13 +39,11 @@ function isLegal(startStack, endStack) {
 
 function checkForWin() {
   //if all stacks.b is 4,3,2,1 print out "Congratulations! You Win!"
-  // convert stacks.b array into string array stacksBWins
+  // convert stacks.b array into string stacksBWins so it can be compared without writing a giant function
   let stacksBWins = stacks.b.join(",");
   if (stacksBWins === "4,3,2,1") {
-    //player wins
     printStacks();
     console.log("Congratulations! You Win!!");
-    // gameOver = true;
     return true;
   } else {
     return false;

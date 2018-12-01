@@ -6,11 +6,11 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-let board = [[" ", "X", " "], [" ", " ", "X"], [" ", " ", " "]];
+let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 console.log(board[1].indexOf("X"));
 let playerTurn = "X";
-const winForX = "X is the winner!";
-const winForO = "O is the winner!";
+// const winForX = "X is the winner!";
+// const winForO = "O is the winner!";
 const tieGame = "Tie game";
 
 function printBoard() {
@@ -31,57 +31,74 @@ function playerChange() {
 }
 
 function horizontalWin() {
+  let horizontalCheck = board.join(",");
+  console.log(horizontalCheck);
   if (
-    (board = [["X", "X", "X"], [" ", " ", " "], [" ", " ", " "]]) ||
-    (board = [[" ", " ", " "], ["X", "X", "X"], [" ", " ", " "]]) ||
-    (board = [[" ", " ", " "], [" ", " ", " "], ["X", "X", "X"]])
+    (horizontalCheck === "X", "X", "X", " ", " ", " ", " ", " ", " ") ||
+    (horizontalCheck === " ", " ", " ", "X", "X", "X", " ", " ", " ") ||
+    (horizontalCheck === " ", " ", " ", " ", " ", " ", "X", "X", "X")
   ) {
-    console.log(board);
+    getPrompt();
+    console.log("Congratulations! X Wins!!");
     return true;
-  } else {
-    (board = [["O", "O", "O"], [" ", " ", " "], [" ", " ", " "]]) ||
-      (board = [[" ", " ", " "], ["O", "O", "O"], [" ", " ", " "]]) ||
-      (board = [[" ", " ", " "], [" ", " ", " "], ["O", "O", "O"]]);
+  }
+  if (
+    (horizontalCheck === "O", "O", "O", " ", " ", " ", " ", " ", " ") ||
+    (horizontalCheck === " ", " ", " ", "O", "O", "O", " ", " ", " ") ||
+    (horizontalCheck === " ", " ", " ", " ", " ", " ", "O", "O", "O")
+  ) {
+    getPrompt();
+    console.log("Congratulations! O Wins!!");
     return true;
   }
 }
 
 function verticalWin() {
+  let verticalCheck = board.join(",");
+  console.log(verticalCheck);
   if (
-    (board = [["X", " ", " "], ["X", " ", " "], ["X", " ", " "]]) ||
-    (board = [[" ", "X", " "], [" ", "X", " "], [" ", "X", " "]]) ||
-    (board = [[" ", " ", "X"], [" ", " ", "X"], [" ", " ", "X"]])
+    (verticalCheck === "X", " ", " ", "X", " ", " ", "X", " ", " ") ||
+    (verticalCheck === " ", "X", " ", " ", "X", " ", " ", "X", " ") ||
+    (verticalCheck === " ", " ", "X", " ", " ", "X", " ", " ", "X")
   ) {
+    getPrompt();
+    console.log("Congratulations! X Wins!!");
     return true;
-  } else {
-    (board = [["O", " ", " "], ["O", " ", " "], ["O", " ", " "]]) ||
-      (board = [[" ", "O", " "], [" ", "O", " "], [" ", "O", " "]]) ||
-      (board = [[" ", " ", "O"], [" ", " ", "O"], [" ", " ", "O"]]);
+  }
+  if (
+    (verticalCheck === "O", " ", " ", "O", " ", " ", "O", " ", " ") ||
+    (verticalCheck === " ", "O", " ", " ", "O", " ", " ", "O", " ") ||
+    (verticalCheck === " ", " ", "O", " ", " ", "O", " ", " ", "O")
+  ) {
+    getPrompt();
+    console.log("Congratulations! O Wins!!");
     return true;
   }
 }
 
 function diagonalWin() {
-  // for (var i = 0; i <= board.length; i++) {
-  // for (var j = 0; j < 3; j++ {
-  //   if(board) {
-  //   }
-  // }return true;
-  // } else if (
-  //   (ticTacToe(0, 0) === "O" &&
-  //     ticTacToe(1, 1) === "O" &&
-  //     ticTacToe(2, 2) === "O") ||
-  //   (ticTacToe(0, 2) === "O" &&
-  //     ticTacToe(1, 1) === "O" &&
-  //     ticTacToe(2, 0) === "O")
-  // ) {
-  //   return true;
-  // }
+  let diagonalCheck = board.join(",");
+  console.log(diagonalCheck);
+  if (
+    (diagonalCheck === "X", " ", " ", " ", "X", " ", " ", " ", "X") ||
+    (diagonalCheck === " ", " ", "X", " ", "X", " ", "X", " ", " ")
+  ) {
+    getPrompt();
+    console.log("Congratulations! X Wins!!");
+    return true;
+  }
+  if (
+    (diagonalCheck === "O", " ", " ", " ", "O", " ", " ", " ", "O") ||
+    (diagonalCheck === " ", " ", "O", " ", "O", " ", "O", " ", " ")
+  ) {
+    getPrompt();
+    console.log("Congratulations! O Wins!!");
+    return true;
+  }
 }
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log(verticalWin());
     return true;
   } else if (horizontalWin() || verticalWin() || diagonalWin() != true) {
     return false;
@@ -92,8 +109,8 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  // checkForWin();
   playerChange();
+  checkForWin();
 }
 
 function getPrompt() {
