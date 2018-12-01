@@ -21,51 +21,59 @@ function printStacks() {
 
 function movePiece(stack1, stack2) {
   // Your code here
-
-  if (isLegal(stack1, stack2)) {
-    console.log("LOG: Legal!");
-    stack2.push(stack1.pop());
-  } else console.log("LOG: Illegal!");
+  stack2.push(stack1.pop());
 }
 
-function isLegal(stack1, stack2) {
+function isLegal(startStack, endStack) {
   // Your code here
-  // get last number in stack 1
-  let num1 = stack1[stack1.length - 1];
-
+  let stack1 = stacks[startStack];
+  let stack2 = stacks[endStack];  // get last number in stack 1
+  let num1 = stack1[stack1.length-1];
+  
   // if we didnt get a num1, stack 1 is empty, illegal move
   if (!num1) {
-    console.log("LOG: isLegal returning FALSE (num1 does not exist)");
     return false;
   }
-
+  
   // if stack2 is not empty
   if (stack2.length > 0) {
     // get last number in stack 2
-    let num2 = stack2[stack2.length - 1];
+    let num2 = stack2[stack2.length-1];
 
     // if legal move
     if (num2 > num1) {
-      console.log("LOG: isLegal returning TRUE ( " + num2 + " > " + num1 + " )");
       return true;
     } else {
-      console.log("LOG: isLegal returning FALSE ( " + num2 + " < " + num1 + " )");
     return false;
     }
     // stack2 is empty, legal
   } else {
-    console.log("LOG: isLegal returning TRUE (stack2 is empty)");
     return true;
   }
 }
 
 function checkForWin() {
   // Your code here
+  let stack = stacks.c;
+  if (stack === [4,3,2,1]) return true;
+  else return false;
+  
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  movePiece(stacks[startStack], stacks[endStack]);
+
+  let stack1 = stacks[startStack];
+  let stack2 = stacks[endStack];
+
+  if (isLegal(startStack, endStack)) {
+    movePiece(stack1, stack2);
+    // check for win
+    if (checkForWin()) {
+      console.log("You win!");
+      return;
+    }
+  } else console.log("Illegal move. Try again.");
 }
 
 function getPrompt() {
