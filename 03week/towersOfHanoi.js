@@ -7,11 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// let stacks = {
-//   a: [4, 3, 2, 1],
-//   b: [],
-//   c: []
-// };
 let currentLevel = 1;
 const levelMax = 5;
 let currentLevelComplete = false;
@@ -19,23 +14,28 @@ let stacks = newLevel(currentLevel);
 var stackCount = stacks.a.length;
 
 function printStacks() {
+  console.log("Level: " + currentLevel);
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
 function newLevel(currentLevel) {
-  currentLevelComplete = true;
+  // ensure first level starts with 3 discs
   let startStackCount = currentLevel + 2;
+  // reset currentLevelComplete tracker
   currentLevelComplete = false;
+  // reset stacks to empty
   let stacks = {
     a: [],
     b: [],
     c: []
   }
+  // populate stacks.a with amount of discs depending on currentLevel
   for (let i = startStackCount; i > 0; i--) {
     stacks.a.push(i);
   }
+  // update stackCount
   stackCount = stacks.a.length;
   return stacks;
 }
@@ -92,9 +92,12 @@ function towersOfHanoi(startStack, endStack) {
 
   if (isLegal(startStack, endStack)) {
     movePiece(stack1, stack2);
+
     // check for win
     if (checkForWin()) {
+      // display player has won and proceed to next level
       console.log("You win!");
+      currentLevelComplete = true;
       currentLevel++;
       stacks = newLevel(currentLevel);
     }
@@ -102,7 +105,8 @@ function towersOfHanoi(startStack, endStack) {
 }
 
 function getPrompt() {
-  if (!currentLevelComplete && currentLevel < levelMax) {
+  // only execute function if current level is not complete and we have not reached max level
+  if (!currentLevelComplete && currentLevel <= levelMax) {
     printStacks();
     rl.question("start stack: ", startStack => {
       rl.question("end stack: ", endStack => {
