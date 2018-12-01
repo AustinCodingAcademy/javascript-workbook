@@ -38,19 +38,24 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  if ((stacks.c = [4, 3, 2, 1])) {
+  //if all stacks.b is 4,3,2,1 print out "Congratulations! You Win!"
+  // convert stacks.b array into string array stacksBWins
+  let stacksBWins = stacks.b.join(",");
+  if (stacksBWins === "4,3,2,1") {
+    //player wins
+    printStacks();
+    console.log("Congratulations! You Win!!");
+    // gameOver = true;
+    return true;
+  } else {
+    return false;
   }
-  console.log("Congratulations! You Win!");
-  return true;
 }
 
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
-    if (checkForWin());
-    {
-      return false;
-    }
     movePiece(startStack, endStack);
+    checkForWin();
   }
 }
 
