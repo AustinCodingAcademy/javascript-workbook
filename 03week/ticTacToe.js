@@ -7,13 +7,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
-console.log(board[1].indexOf("X"));
 let playerTurn = "X";
-// const winForX = "X is the winner!";
-// const winForO = "O is the winner!";
-const tieGame = "Tie game";
+let gameOver = false;
+
+let winCondition = (
+  "" +
+  playerTurn +
+  "," +
+  playerTurn +
+  "," +
+  playerTurn +
+  ""
+).toString();
 
 function printBoard() {
+  if (gameOver) {
+    board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+    gameOver = false;
+    console.log("resetting game");
+  }
   console.log("   0  1  2");
   console.log("0 " + board[0].join(" | "));
   console.log("  ---------");
@@ -30,87 +42,104 @@ function playerChange() {
   }
 }
 
-function horizontalWin() {
-  let horizontalCheck = board.join(",");
-  console.log(horizontalCheck);
-  if (
-    (horizontalCheck === "X", "X", "X", " ", " ", " ", " ", " ", " ") ||
-    (horizontalCheck === " ", " ", " ", "X", "X", "X", " ", " ", " ") ||
-    (horizontalCheck === " ", " ", " ", " ", " ", " ", "X", "X", "X")
-  ) {
-    getPrompt();
-    console.log("Congratulations! X Wins!!");
+function invalidMove(row, column) {
+  if (board[row][column] === "X" || board[row][column] === "O") {
     return true;
   }
+  return false;
+}
+
+function horizontalWin() {
   if (
-    (horizontalCheck === "O", "O", "O", " ", " ", " ", " ", " ", " ") ||
-    (horizontalCheck === " ", " ", " ", "O", "O", "O", " ", " ", " ") ||
-    (horizontalCheck === " ", " ", " ", " ", " ", " ", "O", "O", "O")
+    board[0].toString() === winCondition ||
+    board[1].toString() === winCondition ||
+    board[2].toString() === winCondition
   ) {
-    getPrompt();
-    console.log("Congratulations! O Wins!!");
+    console.log(playerTurn + " wins");
     return true;
   }
 }
 
 function verticalWin() {
-  let verticalCheck = board.join(",");
-  console.log(verticalCheck);
+  let columnLeft = (
+    "" +
+    board[0][0] +
+    "," +
+    board[1][0] +
+    "," +
+    board[2][0] +
+    ""
+  ).toString();
+  let columnMiddle = (
+    "" +
+    board[0][1] +
+    "," +
+    board[1][1] +
+    "," +
+    board[2][1] +
+    ""
+  ).toString();
+  let columnRight = (
+    "" +
+    board[0][2] +
+    "," +
+    board[1][2] +
+    "," +
+    board[2][2] +
+    ""
+  ).toString();
+  console.log(columnMiddle, " middle wins");
+
   if (
-    (verticalCheck === "X", " ", " ", "X", " ", " ", "X", " ", " ") ||
-    (verticalCheck === " ", "X", " ", " ", "X", " ", " ", "X", " ") ||
-    (verticalCheck === " ", " ", "X", " ", " ", "X", " ", " ", "X")
+    columnLeft === winCondition ||
+    columnMiddle === winCondition ||
+    columnRight === winCondition
   ) {
-    getPrompt();
-    console.log("Congratulations! X Wins!!");
-    return true;
-  }
-  if (
-    (verticalCheck === "O", " ", " ", "O", " ", " ", "O", " ", " ") ||
-    (verticalCheck === " ", "O", " ", " ", "O", " ", " ", "O", " ") ||
-    (verticalCheck === " ", " ", "O", " ", " ", "O", " ", " ", "O")
-  ) {
-    getPrompt();
-    console.log("Congratulations! O Wins!!");
+    console.log(playerTurn + " wins");
     return true;
   }
 }
 
 function diagonalWin() {
-  let diagonalCheck = board.join(",");
-  console.log(diagonalCheck);
-  if (
-    (diagonalCheck === "X", " ", " ", " ", "X", " ", " ", " ", "X") ||
-    (diagonalCheck === " ", " ", "X", " ", "X", " ", "X", " ", " ")
-  ) {
-    getPrompt();
-    console.log("Congratulations! X Wins!!");
-    return true;
-  }
-  if (
-    (diagonalCheck === "O", " ", " ", " ", "O", " ", " ", " ", "O") ||
-    (diagonalCheck === " ", " ", "O", " ", "O", " ", "O", " ", " ")
-  ) {
-    getPrompt();
-    console.log("Congratulations! O Wins!!");
+  let diagonalTopLeft = (
+    board[0][0] +
+    "," +
+    board[1][1] +
+    "," +
+    board[2][2]
+  ).toString();
+  let diagonalTopRight = (
+    board[0][2] +
+    "," +
+    board[1][1] +
+    "," +
+    board[2][0]
+  ).toString();
+
+  if (diagonalTopLeft === winCondition || diagonalTopRight === winCondition) {
+    console.log(playerTurn + " wins");
     return true;
   }
 }
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
+    printBoard();
+    gameOver = true;
     return true;
-  } else if (horizontalWin() || verticalWin() || diagonalWin() != true) {
-    return false;
   } else {
-    return tieGame;
+    return false;
   }
 }
 
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
-  playerChange();
-  checkForWin();
+  if (invalidMove(row, column)) {
+    console.log("Invalid Move");
+  } else {
+    board[row][column] = playerTurn;
+    checkForWin();
+    playerChange();
+  }
 }
 
 function getPrompt() {
