@@ -7,17 +7,37 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
-};
-const stackCount = stacks.a.length;
+// let stacks = {
+//   a: [4, 3, 2, 1],
+//   b: [],
+//   c: []
+// };
+let currentLevel = 1;
+const levelMax = 5;
+let currentLevelComplete = false;
+let stacks = newLevel(currentLevel);
+var stackCount = stacks.a.length;
 
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
+}
+
+function newLevel(currentLevel) {
+  currentLevelComplete = true;
+  let startStackCount = currentLevel + 2;
+  currentLevelComplete = false;
+  let stacks = {
+    a: [],
+    b: [],
+    c: []
+  }
+  for (let i = startStackCount; i > 0; i--) {
+    stacks.a.push(i);
+  }
+  stackCount = stacks.a.length;
+  return stacks;
 }
 
 function movePiece(stack1, stack2) {
@@ -45,13 +65,13 @@ function isLegal(startStack, endStack) {
       // get last number in stack 2
       let num2 = stack2[stack2.length - 1];
 
-      // if legal move
+      // ensure num in stack2 is > num being moved from stack1
       if (num2 > num1) {
         return true;
       } else {
         return false;
       }
-      // stack2 is empty, legal
+      // stack2 is empty, no comparison needed
     } else return true;
     // stack1 and/or stack2 are undefined due to invalid input
   } else return false;
@@ -60,13 +80,13 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   // Your code here
   let stack = stacks.c;
+  // if c stack is of the same length as the starting stack length, win!
   if (stack.length === stackCount) return true;
   else return false;
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
   let stack1 = stacks[startStack];
   let stack2 = stacks[endStack];
 
@@ -75,35 +95,37 @@ function towersOfHanoi(startStack, endStack) {
     // check for win
     if (checkForWin()) {
       console.log("You win!");
-      return;
+      currentLevel++;
+      stacks = newLevel(currentLevel);
     }
   } else console.log("Illegal move. Try again.");
 }
 
 function getPrompt() {
-  printStacks();
-  rl.question("start stack: ", startStack => {
-    rl.question("end stack: ", endStack => {
-      towersOfHanoi(startStack, endStack);
-      getPrompt();
+  if (!currentLevelComplete && currentLevel < levelMax) {
+    printStacks();
+    rl.question("start stack: ", startStack => {
+      rl.question("end stack: ", endStack => {
+        towersOfHanoi(startStack, endStack);
+        getPrompt();
+      });
     });
-  });
+  }
 }
 
 // Tests
-
 if (typeof describe === "function") {
   describe("#towersOfHanoi()", () => {
     it("should be able to move a block", () => {
       towersOfHanoi("a", "b");
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, { a: [3, 2], b: [1], c: [] });
     });
   });
 
   describe("#isLegal()", () => {
     it("should not allow an illegal move", () => {
       stacks = {
-        a: [4, 3, 2],
+        a: [3, 2],
         b: [1],
         c: []
       };
@@ -111,7 +133,7 @@ if (typeof describe === "function") {
     });
     it("should allow a legal move", () => {
       stacks = {
-        a: [4, 3, 2, 1],
+        a: [3, 2, 1],
         b: [],
         c: []
       };
@@ -120,9 +142,9 @@ if (typeof describe === "function") {
   });
   describe("#checkForWin()", () => {
     it("should detect a win", () => {
-      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+      stacks = { a: [], b: [], c: [3, 2, 1] };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [], c: [4, 3, 2] };
+      stacks = { a: [1], b: [], c: [3, 2] };
       assert.equal(checkForWin(), false);
     });
   });
