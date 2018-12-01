@@ -37,20 +37,38 @@ function isLegal(startStack, endStack) {
 };
 
 function checkForWin() {
+  console.log(stacks.b.toString());
+
+  if (stacks.b.toString() === "4,3,2,1" || stacks.c.toString() === "4,3,2,1") {
+    console.log("You Win!!");
+    return true;
+  }
+  return false;
   // win is defined as moving the tower from a tower to b tower
   // in the order of 4, 3, 2, 1
 
 }
 
+function validStack(startStack, endStack) {
+  if (
+    (startStack != "a" && startStack != "b" && startStack != "c") ||
+    (endStack != "a" && endStack != "b" && endStack != "c")) {
+    console.log("not a valid stack");
+    return false;
+  }
+  console.log("true");
+  return true;
+}
+
+
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  if (isLegal(startStack, endStack)) {;
-
-    movePiece(startStack, endStack);
-
+  if (validStack(startStack, endStack)) {
+    if (isLegal(startStack, endStack)) {
+      movePiece(startStack, endStack);
+      checkForWin();
+    }
   }
-
-  //checkForWin(starStack, endStack);
 }
 
 function getPrompt() {
