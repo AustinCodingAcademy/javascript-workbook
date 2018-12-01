@@ -12,6 +12,7 @@ let stacks = {
   b: [],
   c: []
 };
+const stackCount = stacks.a.length;
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -27,24 +28,24 @@ function movePiece(stack1, stack2) {
 function isLegal(startStack, endStack) {
   // Your code here
   let stack1 = stacks[startStack];
-  let stack2 = stacks[endStack];  // get last number in stack 1
-  let num1 = stack1[stack1.length-1];
-  
+  let stack2 = stacks[endStack]; // get last number in stack 1
+  let num1 = stack1[stack1.length - 1];
+
   // if we didnt get a num1, stack 1 is empty, illegal move
   if (!num1) {
     return false;
   }
-  
+
   // if stack2 is not empty
   if (stack2.length > 0) {
     // get last number in stack 2
-    let num2 = stack2[stack2.length-1];
+    let num2 = stack2[stack2.length - 1];
 
     // if legal move
     if (num2 > num1) {
       return true;
     } else {
-    return false;
+      return false;
     }
     // stack2 is empty, legal
   } else {
@@ -55,9 +56,8 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   // Your code here
   let stack = stacks.c;
-  if (stack === [4,3,2,1]) return true;
+  if (stack.length === stackCount) return true;
   else return false;
-  
 }
 
 function towersOfHanoi(startStack, endStack) {
@@ -116,9 +116,9 @@ if (typeof describe === "function") {
   });
   describe("#checkForWin()", () => {
     it("should detect a win", () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = { a: [1], b: [], c: [4, 3 , 2] };
       assert.equal(checkForWin(), false);
     });
   });
