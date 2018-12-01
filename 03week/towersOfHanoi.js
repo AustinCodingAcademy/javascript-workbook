@@ -45,7 +45,10 @@ function isLegal(startStack, endStack) {
   let startStackLength = stacks[startStack].length;
   let endStackLength = stacks[endStack].length;
   //check if last number on stack moving to is larger than number moving from
-  if (stacks[endStack][endStackLength - 1] != undefined) {
+  if (stacks[startStack][startStackLength - 1] === undefined) {
+    console.log("Cannot move from empty column");
+    return false;
+  } else if (stacks[endStack][endStackLength - 1] != undefined) {
     //If number from startStack is smaller than number in endStack
     if (
       stacks[startStack][startStackLength - 1] <
