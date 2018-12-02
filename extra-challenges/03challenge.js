@@ -17,10 +17,14 @@ function printFullName() {
 
 // DO NOT MODIFY
 var firstName = 'susan';
+console.log(firstName);
+
 
 // Problem 1:
 // What is the value of firstName at this point in the file?
 var valueOfFirstName;
+console.log(valueOfFirstName);
+
 
 // Problem 2:
 // What is the value of lastName at this point in the file?

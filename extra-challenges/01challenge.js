@@ -11,11 +11,12 @@ var assert = require('assert');
 // Note that we are not assigning a value, so it is undefined.
 
 var myUndefined;
-
+var myNull = null;
 // Problem 1:
 // Let's create a new variable named myNull and give it the value null.
 //
 // What is the difference between null and undefined?
+// answer to problem 1= 
 
 var myNull;
 

@@ -88,20 +88,15 @@ function checkForWin() {
   return false;
 };
 
-
 function ticTacToe(row, column) {
   if ((row != "0" && row != "1" && row != "2") ||
     (column != "0" && column != "1" && column != "2")) {
     console.log("invalid move");
     return false;
   };
-
-
-
   board[row][column] = playerTurn;
   changePlayer();
   checkForWin();
-
 };
 
 function getPrompt() {
