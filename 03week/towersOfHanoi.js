@@ -14,17 +14,22 @@ let stacks = {
   c: []
 };
 
+function resetGame() {
+  //reset stacks
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+  //turn game over back to false;
+  gameOver = false;
+  console.log("Starting a new game...");
+}
+
 function printStacks() {
+  //If game over has been reached, reset game
   if (gameOver) {
-    //reset stacks
-    stacks = {
-      a: [4, 3, 2, 1],
-      b: [],
-      c: []
-    };
-    //turn game over back to false;
-    gameOver = false;
-    console.log("Starting a new game...");
+    resetGame();
   }
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -62,6 +67,7 @@ function isLegal(startStack, endStack) {
       );
       return true;
     } else {
+      //Otherwise, prevent move
       console.log("Number is too large, denying");
       return false;
     }
@@ -88,6 +94,7 @@ function checkForWin() {
 }
 
 function isStack(startStack, endStack) {
+  //IF either startstack or endstack does not equal a, b, or c
   if (
     (startStack != "a" && startStack != "b" && startStack != "c") ||
     (endStack != "a" && endStack != "b" && endStack != "c")
@@ -106,6 +113,7 @@ function towersOfHanoi(startStack, endStack) {
     //if isLegal passes, allow movePiece
     if (isLegal(startStack, endStack)) {
       movePiece(startStack, endStack);
+      //After peice has been moved, check for win condition
       checkForWin();
     }
   }
@@ -139,6 +147,30 @@ if (typeof describe === "function") {
         c: []
       };
       assert.equal(isLegal("a", "b"), false);
+    });
+    it("should not allow move from empty column", () => {
+      stacks = {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      };
+      assert.equal(isLegal("c", "b"), false);
+    });
+    it("should not allow move to same stack", () => {
+      stacks = {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      };
+      assert.equal(isLegal("a", "a"), false);
+    });
+    it("should prevent user from giving non valid input", () => {
+      stacks = {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      };
+      assert.equal(isStack("a", "f"), false);
     });
     it("should allow a legal move", () => {
       stacks = {
