@@ -95,7 +95,7 @@ function verticalWin() {
     ""
   ).toString();
   console.log(columnMiddle, " middle wins");
-
+  // comparing variables that have been converted from array to string
   if (
     columnLeft === winCondition ||
     columnMiddle === winCondition ||
@@ -105,7 +105,7 @@ function verticalWin() {
     return true;
   }
 }
-
+// similar concept as the verticalWin - grab board spaces via brackett notation and convert into string / variables
 function diagonalWin() {
   let diagonalTopLeft = (
     board[0][0] +
@@ -128,6 +128,7 @@ function diagonalWin() {
   }
 }
 
+// checkForWin looks for any type of win condition and if there is a win, prints a blank board (gameOver takes care of the reset)
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     printBoard();
@@ -138,6 +139,7 @@ function checkForWin() {
   }
 }
 
+// the parent ticTacToe function contains invalidMove() and always checks to make sure the user inputted a valid move - then moves down to checkForWin - if there isn't any of the two former conditions, it changes to the next player's move.
 function ticTacToe(row, column) {
   if (invalidMove(row, column)) {
     console.log("Invalid Move");
