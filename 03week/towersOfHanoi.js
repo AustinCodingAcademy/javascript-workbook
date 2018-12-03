@@ -19,27 +19,26 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(disk, peg1, peg2, peg3){
   // Your code here
-  var hanoi = function(disk, peg1, peg2, peg3){
     if(disk == 0) return;
-    hanoi(d-1,peg1,peg3,peg2);
-    if(peg1 == 'A'){
+    movePiece(disk-1,peg1,peg3,peg2);
+    if(peg1 == 'a'){
       stacks.a.pop();
     }
-    else if(peg1 == 'B'){
+    else if(peg1 == 'b'){
       stacks.b.pop();
     }
-    else if(peg1 == 'C'){
+    else if(peg1 == 'c'){
       stacks.c.pop();
     }
-    if(peg3 == 'A'){
+    if(peg3 == 'a'){
       stacks.a.push(disk);
     }
-    else if(peg3 == 'B'){
+    else if(peg3 == 'b'){
       stacks.b.push(disk);
     }
-    else if(peg3 == 'C'){
+    else if(peg3 == 'c'){
       stacks.c.push(disk);
     }
 function isLegal() {
