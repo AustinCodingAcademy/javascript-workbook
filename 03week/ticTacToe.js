@@ -7,10 +7,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+// playerTurn gives a starting point to alternate between players
 let playerTurn = "X";
+// gameOver is false until a win condition = true
 let gameOver = false;
-
-let winCondition = (
+// winCondition variable takes the current player (x3) and turns it into a string (.toString()) with comma deliminator. this is reused and passed into horizontal, vertical and diagonal
+const winCondition = (
   "" +
   playerTurn +
   "," +
@@ -21,6 +23,7 @@ let winCondition = (
 ).toString();
 
 function printBoard() {
+  // if gameOver is true (implied) then reset the board variable (array)
   if (gameOver) {
     board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
     gameOver = false;
@@ -34,6 +37,7 @@ function printBoard() {
   console.log("2 " + board[2].join(" | "));
 }
 
+// playerChange is passed into ticTacToe() to alternate between players
 function playerChange() {
   if (playerTurn === "X") {
     playerTurn = "O";
@@ -42,6 +46,7 @@ function playerChange() {
   }
 }
 
+// invalidMove looks at the board row and column and if it is already occupied with an "X" or "O" returns true - passed into ticTacToe() and if true returns "invalid move"
 function invalidMove(row, column) {
   if (board[row][column] === "X" || board[row][column] === "O") {
     return true;
@@ -49,6 +54,7 @@ function invalidMove(row, column) {
   return false;
 }
 
+// horizontalWin() turns the index of board variables into strings and then checks against winCondition()
 function horizontalWin() {
   if (
     board[0].toString() === winCondition ||
@@ -59,7 +65,7 @@ function horizontalWin() {
     return true;
   }
 }
-
+// verticalWin uses variables in bracket notation to grab the space on the board and turns it into strings and then compared to winCondition
 function verticalWin() {
   let columnLeft = (
     "" +
