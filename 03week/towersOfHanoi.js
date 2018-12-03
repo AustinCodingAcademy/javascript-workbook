@@ -49,7 +49,7 @@ function checkForWin() {
     return false;
   }
 }
-
+// towersOfHanoi() function checks to make sure a move isLegal() then moves onto movePiece - finally, it checkForWin()
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
