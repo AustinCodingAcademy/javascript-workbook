@@ -7,6 +7,10 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// A gameState of 0 means the game has just started, 1 means it is
+// being played, and 2 means it has been won.
+let gameState = 0;
+
 let turnsTaken = 0;
 
 let stacks = {
@@ -14,6 +18,27 @@ let stacks = {
   b: [],
   c: []
 };
+// winningStack is a stringified, completed tower of Hanoi
+let winningStack = stacks.a.toString();
+
+// changeDiscs(numDiscs) changes the initial number of discs to numDiscs
+// (if numDiscs can be resolved to a valid integer). It also resets
+// winningStack to the appropriate string and prints out the minimum number
+// of turns required to complete Towers of Hannoi.
+function changeDiscs(numDiscs) {
+  numDiscs = parseInt(numDiscs);
+  if (isNaN(numDiscs) || numDiscs < 1) {
+    console.log("Not valid input. Using default.");
+    console.log("Turns required: " + 15);
+  } else {
+    console.log("Turns required: " + (Math.pow(2, numDiscs) - 1));
+    stacks.a = [];
+    for (numDiscs; numDiscs > 0; numDiscs--) {
+      stacks.a.push(numDiscs);
+    }
+    winningStack = stacks.a.toString();
+  }
+}
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -61,7 +86,6 @@ function isLegal(startStack, endStack) {
 // checkForWin() checks if the tower of Hanoi has been reassembled correctly
 // in stack b or c (the win condition). It returns true if it has.
 function checkForWin() {
-  const winningStack = "4,3,2,1";
   if (
     stacks.b.toString() === winningStack ||
     stacks.c.toString() === winningStack
@@ -71,7 +95,7 @@ function checkForWin() {
   return false;
 }
 
-// towersOfHanoi takes in an origin stack and a destination stack. It uses the
+// towersOfHanoi() takes in an origin stack and a destination stack. It uses the
 // other functions to make sure the user has input valid stacks, verify the
 // move is legal, move a piece, increment the turn counter, and check for a win
 // condition.
@@ -83,18 +107,39 @@ function towersOfHanoi(startStack, endStack) {
     console.log("Invalid move! Try again.");
   }
   if (checkForWin()) {
-    console.log("You win!");
+    gameState = 2;
   }
 }
 
+// getPrompt() has been modified to take gameState into account. If the game has
+// just started, it will ask the user how many discs they want to play with, have
+// the changeDiscs function change the game appropriately, then change the gameState.
+// Under gameState 1, getPrompt functions as expected. Under gameState 2, the game has
+// been won, and the program terminates.
 function getPrompt() {
-  printStacks();
-  rl.question("start stack: ", startStack => {
-    rl.question("end stack: ", endStack => {
-      towersOfHanoi(startStack, endStack);
-      getPrompt();
-    });
-  });
+  switch (gameState) {
+    case 0:
+      rl.question("number of discs (optional): ", numDiscs => {
+        changeDiscs(numDiscs);
+        gameState = 1;
+        getPrompt();
+      });
+      break;
+    case 1:
+      printStacks();
+      rl.question("start stack: ", startStack => {
+        rl.question("end stack: ", endStack => {
+          towersOfHanoi(startStack, endStack);
+          getPrompt();
+        });
+      });
+      break;
+    case 2:
+      printStacks();
+      console.log("You win!");
+      rl.close();
+      break;
+  }
 }
 
 // Tests
