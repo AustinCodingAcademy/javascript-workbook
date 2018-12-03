@@ -21,6 +21,7 @@ function pigLatin(word) {
   return str + "yay";
 }
 
+
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );

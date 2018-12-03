@@ -22,6 +22,7 @@ console.log(totalCars.lastIndexOf('ford'));
 
 //join
 //Use the join method to covert the array totalCars into a string called stringOfCars.
+
 console.log(totalCars.join());
 
 //split

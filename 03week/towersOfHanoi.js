@@ -21,9 +21,27 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
-
-}
-
+  var hanoi = function(disk, peg1, peg2, peg3){
+    if(disk == 0) return;
+    hanoi(d-1,peg1,peg3,peg2);
+    if(peg1 == 'A'){
+      stacks.a.pop();
+    }
+    else if(peg1 == 'B'){
+      stacks.b.pop();
+    }
+    else if(peg1 == 'C'){
+      stacks.c.pop();
+    }
+    if(peg3 == 'A'){
+      stacks.a.push(disk);
+    }
+    else if(peg3 == 'B'){
+      stacks.b.push(disk);
+    }
+    else if(peg3 == 'C'){
+      stacks.c.push(disk);
+    }
 function isLegal() {
   // Your code here
 
