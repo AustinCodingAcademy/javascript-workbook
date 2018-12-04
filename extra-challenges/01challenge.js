@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-var assert = require('assert');
+var assert = require("assert");
 
 // ****
 // Basic Data Types
@@ -113,8 +113,8 @@ var notNotTrue;
 // Truthiness
 // ****
 
-var bob = 'bob';
-var emptyString = '';
+var bob = "bob";
+var emptyString = "";
 
 // Problem 17:
 // What is the value of !!bob
@@ -211,212 +211,208 @@ var stringFourStrictNotEqualsNumberFour;
 //
 // ****
 
-
 // ****
 // Tests
 // ****
 
-describe('Lesson 1 Homework', function () {
-
-  describe('Data Type Problems', function () {
-    describe('Problem 0: undefined variable myUndefined', function () {
-      it('should be undefined', function () {
-        assert.equal(typeof myUndefined, 'undefined');
+describe("Lesson 1 Homework", function() {
+  describe("Data Type Problems", function() {
+    describe("Problem 0: undefined variable myUndefined", function() {
+      it("should be undefined", function() {
+        assert.equal(typeof myUndefined, "undefined");
       });
     });
 
-    describe('Problem 1: null variable myNull', function () {
-      it('should be null', function () {
+    describe("Problem 1: null variable myNull", function() {
+      it("should be null", function() {
         assert(myNull === null);
       });
     });
 
-    describe('Problem 2: true variable myTrue', function () {
-      it('should be true', function () {
+    describe("Problem 2: true variable myTrue", function() {
+      it("should be true", function() {
         assert.equal(myTrue, true);
       });
     });
 
-    describe('Problem 3: false variable myFalse', function () {
-      it('should be false', function () {
+    describe("Problem 3: false variable myFalse", function() {
+      it("should be false", function() {
         assert.equal(myFalse, false);
       });
     });
 
-    describe('Problem 4: number variable myNumber', function () {
-      it('should be a number', function () {
-        assert.equal(typeof myNumber, 'number');
+    describe("Problem 4: number variable myNumber", function() {
+      it("should be a number", function() {
+        assert.equal(typeof myNumber, "number");
       });
     });
 
-    describe('Problem 5: string variable myString', function () {
-      it('should be a string', function () {
-        assert.equal(typeof myString, 'string');
+    describe("Problem 5: string variable myString", function() {
+      it("should be a string", function() {
+        assert.equal(typeof myString, "string");
       });
     });
   });
 
-  describe('Boolean Operators', function () {
-    describe('Problem 6: true && true', function () {
-      it('should be true', function () {
+  describe("Boolean Operators", function() {
+    describe("Problem 6: true && true", function() {
+      it("should be true", function() {
         assert.equal(trueAndTrue, true && true);
       });
     });
 
-    describe('Problem 7: false && true', function () {
-      it('should be false', function () {
+    describe("Problem 7: false && true", function() {
+      it("should be false", function() {
         assert.equal(falseAndTrue, false && true);
       });
     });
 
-    describe('Problem 8: true && false', function () {
-      it('should be false', function () {
+    describe("Problem 8: true && false", function() {
+      it("should be false", function() {
         assert.equal(trueAndFalse, true && false);
       });
     });
 
-    describe('Problem 9: false && false', function () {
-      it('should be false', function () {
+    describe("Problem 9: false && false", function() {
+      it("should be false", function() {
         assert.equal(falseAndFalse, false && false);
       });
     });
 
-    describe('Problem 10: true || true', function () {
-      it('should be true', function () {
+    describe("Problem 10: true || true", function() {
+      it("should be true", function() {
         assert.equal(trueOrTrue, true || true);
       });
     });
 
-    describe('Problem 11: false || true', function () {
-      it('should be true', function () {
+    describe("Problem 11: false || true", function() {
+      it("should be true", function() {
         assert.equal(falseOrTrue, false || true);
       });
     });
 
-    describe('Problem 12: true || false', function () {
-      it('should be true', function () {
+    describe("Problem 12: true || false", function() {
+      it("should be true", function() {
         assert.equal(trueOrFalse, true || false);
       });
     });
 
-    describe('Problem 13: false || false', function () {
-      it('should be false', function () {
+    describe("Problem 13: false || false", function() {
+      it("should be false", function() {
         assert.equal(falseOrFalse, false || false);
       });
     });
 
-    describe('Problem 14: !false', function () {
-      it('should be true', function () {
+    describe("Problem 14: !false", function() {
+      it("should be true", function() {
         assert.equal(notFalse, !false);
       });
     });
 
-    describe('Problem 15: !true', function () {
-      it('should be false', function () {
+    describe("Problem 15: !true", function() {
+      it("should be false", function() {
         assert.equal(notTrue, !true);
       });
     });
 
-    describe('Problem 16: !!true', function () {
-      it('should be true', function () {
+    describe("Problem 16: !!true", function() {
+      it("should be true", function() {
         assert.equal(notNotTrue, !!true);
       });
     });
   });
 
-  describe('Truthiness', function () {
-
-    describe('Problem 17: !!bob', function () {
-      it('should be true', function () {
+  describe("Truthiness", function() {
+    describe("Problem 17: !!bob", function() {
+      it("should be true", function() {
         assert.equal(notNotBob, !!bob);
       });
     });
 
-    describe('Problem 18: !!emptyString', function () {
-      it('should be false', function () {
+    describe("Problem 18: !!emptyString", function() {
+      it("should be false", function() {
         assert.equal(notNotEmptyString, !!emptyString);
       });
     });
 
-    describe('Problem 19: !null', function () {
-      it('should be true', function () {
+    describe("Problem 19: !null", function() {
+      it("should be true", function() {
         assert.equal(notNull, !null);
       });
     });
 
-    describe('Problem 20: !!undefined', function () {
-      it('should be false', function () {
+    describe("Problem 20: !!undefined", function() {
+      it("should be false", function() {
         assert.equal(notNotUndefined, !!undefined);
       });
     });
   });
 
-  describe('Comparison Operators', function () {
-    describe('Problem 21: 4 === 4', function () {
-      it('should be true', function () {
+  describe("Comparison Operators", function() {
+    describe("Problem 21: 4 === 4", function() {
+      it("should be true", function() {
         assert.equal(fourEqualTofour, 4 === 4);
       });
     });
 
-    describe('Problem 22: 4 !== 4', function () {
-      it('should be false', function () {
+    describe("Problem 22: 4 !== 4", function() {
+      it("should be false", function() {
         assert.equal(fourNotEqualTofour, 4 !== 4);
       });
     });
 
-    describe('Problem 23: -3 === 10', function () {
-      it('should be false', function () {
+    describe("Problem 23: -3 === 10", function() {
+      it("should be false", function() {
         assert.equal(negativeThreeEqualToTen, -3 === 10);
       });
     });
 
-    describe('Problem 24: -3 < 10', function () {
-      it('should be true', function () {
+    describe("Problem 24: -3 < 10", function() {
+      it("should be true", function() {
         assert.equal(negativeThreeLessThanTen, -3 < 10);
       });
     });
 
-    describe('Problem 25: -3 <= 10', function () {
-      it('should be true', function () {
+    describe("Problem 25: -3 <= 10", function() {
+      it("should be true", function() {
         assert.equal(negativeThreeLessThanOrEqualToTen, -3 <= 10);
       });
     });
 
-    describe('Problem 26: -3 > 10', function () {
-      it('should be false', function () {
+    describe("Problem 26: -3 > 10", function() {
+      it("should be false", function() {
         assert.equal(negativeThreeGreaterThanTen, -3 > 10);
       });
     });
 
-    describe('Problem 27: -3 >= 10', function () {
-      it('should be false', function () {
+    describe("Problem 27: -3 >= 10", function() {
+      it("should be false", function() {
         assert.equal(negativeThreeGreaterThanOrEqualToTen, -3 >= 10);
       });
     });
 
-    describe('Problem 28: \'4\' == 4', function () {
-      it('should be true', function () {
-        assert.equal(stringFourEqualsNumberFour, '4' == 4);
+    describe("Problem 28: '4' == 4", function() {
+      it("should be true", function() {
+        assert.equal(stringFourEqualsNumberFour, "4" == 4);
       });
     });
 
-    describe('Problem 29: \'4\' != 4', function () {
-      it('should be false', function () {
-        assert.equal(stringFourNotEqualsNumberFour, '4' != 4);
+    describe("Problem 29: '4' != 4", function() {
+      it("should be false", function() {
+        assert.equal(stringFourNotEqualsNumberFour, "4" != 4);
       });
     });
 
-    describe('Problem 30: \'4\' === 4', function () {
-      it('should be false', function () {
-        assert.equal(stringFourStrictEqualsNumberFour, '4' === 4);
+    describe("Problem 30: '4' === 4", function() {
+      it("should be false", function() {
+        assert.equal(stringFourStrictEqualsNumberFour, "4" === 4);
       });
     });
 
-    describe('Problem 31: \'4\' !== 4', function () {
-      it('should be true', function () {
-        assert.equal(stringFourStrictNotEqualsNumberFour, '4' !== 4);
+    describe("Problem 31: '4' !== 4", function() {
+      it("should be true", function() {
+        assert.equal(stringFourStrictNotEqualsNumberFour, "4" !== 4);
       });
     });
   });
-
 });

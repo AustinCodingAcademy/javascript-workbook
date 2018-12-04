@@ -94,7 +94,7 @@ function verticalWin() {
     board[2][2] +
     ""
   ).toString();
-  console.log(columnMiddle, " middle wins");
+
   // comparing variables that have been converted from array to string
   if (
     columnLeft === winCondition ||
