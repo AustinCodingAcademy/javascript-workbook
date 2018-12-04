@@ -51,7 +51,7 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  //if all stacks.b is 4,3,2,1 print out "Congratulations! You Win!"
+  //if all stacks.b is 4,3,2,1 print out "Congratulations! You Win!" and game resets
   // convert stacks.b array into string stacksBWins so it can be compared without writing a giant function
   let stacksBWins = stacks.b.join(",");
   if (stacksBWins === "4,3,2,1") {
