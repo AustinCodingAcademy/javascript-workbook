@@ -17,27 +17,27 @@ var myUndefined;
 //
 // What is the difference between null and undefined?
 
-var myNull;
+var myNull = null;
 
 // Problem 2:
 // Let's create a new variable named myTrue and give it the value true.
 
-var myTrue;
+var myTrue = true;
 
 // Problem 3:
 // Let's create a new variable named myFalse and give it the value false.
 
-var myFalse;
+var myFalse = false;
 
 // Problem 4:
 // Let's create a new variable named myNumber. Assign it a number.
 
-var myNumber;
+var myNumber = 100;
 
 // Problem 5:
 // Let's create a new variable named myString. Assign it a string.
 
-var myString;
+var myString = "hello world";
 
 // ****
 // Boolean Operators
@@ -45,8 +45,11 @@ var myString;
 
 // Problem 6:
 // What is the value of true && true
+const problemSixVar = true;
+const problemSixVar2 = true;
 
-var trueAndTrue;
+var trueAndTrue = problemSixVar && problemSixVar2;
+console.log(trueAndTrue);
 
 // Problem 7:
 // What is the value of false && true
