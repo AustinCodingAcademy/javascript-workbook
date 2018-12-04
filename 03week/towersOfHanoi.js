@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// reverence stacts with dot notation (example stacks.a will grab row a of stacks)
+// reference stacks with dot notation (example stacks.a will grab row "a:" of stacks)
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -15,27 +15,27 @@ let stacks = {
 };
 
 // reset function is called when win condition is met (all disks on stack b)
-function resetStacks() {
+const resetStacks = () => {
   stacks = {
     a: [4, 3, 2, 1],
     b: [],
     c: []
   };
-}
+};
 
-function printStacks() {
+const printStacks = () => {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
-}
+};
 
-function movePiece(startStack, endStack) {
-  // keep in mind that .pop can't take in any parameters and can only be used on an array. Wrap the stack.pop in stacks.push as a parameter.
+// keep in mind that .pop can't take in any parameters and can only be used on an array. Wrap the stack.pop in stacks.push as a parameter.
+const movePiece = (startStack, endStack) => {
   stacks[endStack].push(stacks[startStack].pop());
-}
+};
 
-function isLegal(startStack, endStack) {
-  // the challenge (for me) was to grab the specific piece of the startStack and endStack. using the parameter from the function in bracket notation. startStackLength helps to elinminate a bug when moving emptly stacks which creates commas (bug)
+// the challenge (for me) was to grab the specific piece of the startStack and endStack. using the parameter from the function in bracket notation. startStackLength helps to elinminate a bug when moving emptly stacks which creates commas (bug)
+const isLegal = (startStack, endStack) => {
   let startStackLength = stacks[startStack].length;
   if (
     startStackLength === 0 ||
@@ -48,9 +48,9 @@ function isLegal(startStack, endStack) {
   }
   return true;
   // if true move on to the next thing...
-}
+};
 
-function checkForWin() {
+const checkForWin = () => {
   //if all stacks.b is 4,3,2,1 print out "Congratulations! You Win!" and game resets
   // convert stacks.b array into string stacksBWins so it can be compared without writing a giant function
   let stacksBWins = stacks.b.join(",");
@@ -62,16 +62,16 @@ function checkForWin() {
   } else {
     return false;
   }
-}
-// towersOfHanoi() function checks to make sure a move isLegal() then moves onto movePiece - finally, it checkForWin()
-function towersOfHanoi(startStack, endStack) {
+};
+// towersOfHanoi() function checks to make sure a move isLegal() then moves onto movePiece() - finally, it checkForWin() - if checkForWin() is true, "congrats you win" message is displayed and game is reset
+const towersOfHanoi = (startStack, endStack) => {
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
     checkForWin();
   }
-}
+};
 
-function getPrompt() {
+const getPrompt = () => {
   printStacks();
   rl.question("start stack: ", startStack => {
     rl.question("end stack: ", endStack => {
@@ -79,7 +79,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-}
+};
 
 // Tests
 
