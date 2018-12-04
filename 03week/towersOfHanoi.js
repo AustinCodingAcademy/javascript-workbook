@@ -14,6 +14,15 @@ let stacks = {
   c: []
 };
 
+// reset function is called when win condition is met (all disks on stack b)
+function resetStacks() {
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+}
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -26,9 +35,13 @@ function movePiece(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  // the challenge (for me) was to grab the specific piece of the startStack and endStack. using the parameter from the function in bracket notation
-  if (stacks[endStack].slice(-1)[0] < stacks[startStack].slice(-1)[0]) {
-    console.log("that move is totally illegal");
+  // the challenge (for me) was to grab the specific piece of the startStack and endStack. using the parameter from the function in bracket notation. startStackLength helps to elinminate a bug when moving emptly stacks which creates commas (bug)
+  let startStackLength = stacks[startStack].length;
+  if (
+    startStackLength === 0 ||
+    stacks[endStack].slice(-1)[0] < stacks[startStack].slice(-1)[0]
+  ) {
+    console.log("that move is totally illegal!");
 
     return false;
     // if false stop and give console.log message ('illegal move')
@@ -43,6 +56,7 @@ function checkForWin() {
   let stacksBWins = stacks.b.join(",");
   if (stacksBWins === "4,3,2,1") {
     printStacks();
+    resetStacks();
     console.log("Congratulations! You Win!!");
     return true;
   } else {
