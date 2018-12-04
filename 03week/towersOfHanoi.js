@@ -27,16 +27,21 @@ let winningStack = stacks.a.toString();
 // of turns required to complete Towers of Hannoi.
 function changeDiscs(numDiscs) {
   numDiscs = parseInt(numDiscs);
+  // if the input isn't valid
   if (isNaN(numDiscs) || numDiscs < 1) {
     console.log("Not valid input. Using default.");
     console.log("Turns required: " + 15);
   } else {
-    console.log("Turns required: " + (Math.pow(2, numDiscs) - 1));
+    // Otherwise, empty stack a, count down to 1 from the intended number
+    // of discs, and push that number onto stack a every time
     stacks.a = [];
     for (numDiscs; numDiscs > 0; numDiscs--) {
       stacks.a.push(numDiscs);
     }
     winningStack = stacks.a.toString();
+    // the number of turns required to complete towers of hannoi is always:
+    // 2 ^ (number of discs) - 1
+    console.log("Turns required: " + (Math.pow(2, numDiscs) - 1));
   }
 }
 
@@ -44,6 +49,7 @@ function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
+  // prints how many valid turns the player has taken
   console.log("Turns taken: " + turnsTaken);
 }
 
@@ -51,7 +57,7 @@ function printStacks() {
 // stack. It pops a value off the origin stack and pushes it onto the
 // destination stack.
 function movePiece(startStack, endStack) {
-  let temp = stacks[startStack].pop();
+  const temp = stacks[startStack].pop();
   stacks[endStack].push(temp);
 }
 
@@ -75,6 +81,7 @@ function isLegal(startStack, endStack) {
   const endStackLength = stacks[endStack].length;
   if (
     startStackLength === 0 ||
+    startStack === endStack ||
     stacks[startStack][startStackLength - 1] >
       stacks[endStack][endStackLength - 1]
   ) {
@@ -93,6 +100,18 @@ function checkForWin() {
     return true;
   }
   return false;
+}
+// reset() should change stacks, winningStack, turnsTaken, and gameState
+// back to their initial values after a game has been completed.
+function reset() {
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+  winningStack = stacks.a.toString();
+  turnsTaken = 0;
+  gameState = 0;
 }
 
 // towersOfHanoi() takes in an origin stack and a destination stack. It uses the
@@ -115,7 +134,7 @@ function towersOfHanoi(startStack, endStack) {
 // just started, it will ask the user how many discs they want to play with, have
 // the changeDiscs function change the game appropriately, then change the gameState.
 // Under gameState 1, getPrompt functions as expected. Under gameState 2, the game has
-// been won, and the program terminates.
+// been won. It will ask if the player wishes to reset, then either reset or close.
 function getPrompt() {
   switch (gameState) {
     case 0:
@@ -137,7 +156,14 @@ function getPrompt() {
     case 2:
       printStacks();
       console.log("You win!");
-      rl.close();
+      rl.question("Reset game? (y/n): ", input => {
+        if (input.trim().toLowerCase()[0] === "y") {
+          reset();
+          getPrompt();
+        } else {
+          rl.close();
+        }
+      });
       break;
   }
 }
@@ -176,6 +202,22 @@ if (typeof describe === "function") {
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
+    });
+  });
+  describe("#isStack()", () => {
+    it("should not allow invalid stack selection", () => {
+      assert.equal(isStack("one", "two"), false);
+    });
+  });
+  describe("#changeDiscs(numDiscs)", () => {
+    it("should change the number of discs in the initial stack", () => {
+      stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      };
+      changeDiscs(5);
+      assert.deepEqual(stacks, { a: [5, 4, 3, 2, 1], b: [], c: [] });
     });
   });
 } else {
