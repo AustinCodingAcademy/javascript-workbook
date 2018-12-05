@@ -28,8 +28,22 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  // should take two args solution and guess
+  //split solution and guess into an array for comparison
+  let solutionArray = solution.split("");
+  let guessArray = guess.split("");
+  /*create a variable correctLetterLocations that will record how many corect " letter-locations"
+  were guessed. For instance, a guess of aabc against a solution would yield one correct "letter-locations" */
+  //(b). Set correctLetterLocations equal to 0.
+  let correctLetterLocations = 0;
+
+// in a for loop, iterate over the solutionArray
+for (let i = 0; i < solutionArray.length; i++) {
+  const letter = array[i];
+  
+}
+ 
 }
 
 function mastermind(guess) {
@@ -42,9 +56,41 @@ function mastermind(guess) {
   console.log(guess);
 
   // if guess === solution return win condition
+
   if (guess === solution) {
-  return win
-}
+    return win
+  } else {
+  //if guess !== solution run the generate hint funtion with guess and solution as parameters
+  //define a var called hint that collects the returned value of generateHint(solution, guess) and the hint (as a combined string) into the board
+    let hint = generateHint(solution, guess);
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
