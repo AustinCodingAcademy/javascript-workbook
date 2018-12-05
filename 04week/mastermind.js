@@ -34,7 +34,17 @@ function generateHint() {
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  // your code her
+  let win ="You guessed it!";
+  let outOfTurns = "You ran out of turns! The solution was" + solution;
+  let guessAgain = "Guess again";
+
+  console.log(guess);
+
+  // if guess === solution return win condition
+  if (guess === solution) {
+  return win
+}
 }
 
 
