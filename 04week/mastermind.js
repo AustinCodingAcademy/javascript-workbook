@@ -36,7 +36,6 @@ function generateHint(solution, guess) {
   let guessArray = guess.split("");
   console.log("******solution array and the my guess array ******".cyan);
   let correctLetterLocations = 0;
-  // solutionArray.forEach(letter, i => {
   for (let i = 0; i < solutionArray.length; i++) {
     const letter = solutionArray[i];
     const guess = guessArray[i];
@@ -146,9 +145,9 @@ if (typeof describe === "function") {
   describe("#generateHint()", () => {
     it("should generate hints", () => {
       assert.equal(generateHint("abdc", "abdc"), "2".red + " " + "2".white);
-    }); // do the same for the test below with the colors
+    });
     it("should generate hints if solution has duplicates", () => {
-      assert.equal(generateHint("aabb", "aabb"), "1-1");
+      assert.equal(generateHint("aabb", "aabb"), "1".red + " " + "-1".white);
     });
   });
 } else {
