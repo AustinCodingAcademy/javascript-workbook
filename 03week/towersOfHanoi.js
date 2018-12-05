@@ -43,9 +43,32 @@ function movePiece(disk, peg1, peg2, peg3){
     }
 function isLegal() {
   // Your code here
-
-}
-
+  for (i = 0; i < stacks.a.length-1; i++) { 
+    if (stacks[i] > stacks[i+1]) {
+      console.log("ascending"); 
+    }else{
+      console.log("descending");
+    }
+  }
+ 
+  console.log();
+     
+      for (i = 0; i < stacks.b.length-1; i++) { 
+    if (stacks[i] > stacks[i+1]) {
+      console.log("ascending"); 
+    }else{
+      console.log("descending");
+    }
+  }
+ 
+  console.log();
+     
+  }else{
+    console.log("ascending")
+      }
+    }
+  }
+ 
 function checkForWin() {
   // Your code here
 
