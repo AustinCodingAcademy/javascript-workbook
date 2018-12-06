@@ -34,22 +34,40 @@ function getRandomInt(min, max) {
 
 function generateHint(solution, guess) {
   // console.log(solution);
+  // should take two args solution and guess
+  // split solution and guess into an array for comparison
+  let solutionArray = solution.split("");
+  let guessArray = guess.split("");
+  // Create a variable correctLetterLocations that will record how many correct "letter-locations" were guessed. For instance, a guess of aabc against a solution of deba would yield one correct "letter-location"
+  // (b). Set correctLetterLocations equal to 0.
+  let correctLetterLocations = 0;
+  let correctLetters = 0;
+  // In a for loop, iterate over the solutionArray,
+  // comparing each index of solutionArray against the same index of guessArray. If the item matches, increment correctLetterLocations, and set that index in solutionArray to null.
+  for (let i = 0; i < solutionArray.length; i++) {
+    let letter = solutionArray[i];
+    let guess = guessArray[i];
+    if (letter === guess) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    } else {
+    }
+  }
+
+  // Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null.
+  for (let j = 0; j < solutionArray.length; j++) {
+    let letter = solutionArray[j];
+    let targetIndex = guessArray.indexOf(letter);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[j] = null;
+    }
+  }
+  return (
+    colors.red(correctLetterLocations) + " - " + colors.white(correctLetters)
+  );
+  // Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
 }
-// function generateHint(solution, guess) {
-//   // should take two args solution and guess
-//   // split solution and guess into an array for comparison
-//   // split solution and guess into an array for comparison
-
-//   // Create a variable correctLetterLocations that will record how many correct "letter-locations" were guessed. For instance, a guess of aabc against a solution of deba would yield one correct "letter-location"
-//   // (b). Set correctLetterLocations equal to 0.
-
-//   // In a for loop, iterate over the solutionArray,
-
-// //     // comparing each index of solutionArray against the same index of guessArray. If the item matches, increment correctLetterLocations, and set that index in solutionArray to null.
-
-// Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null.
-// Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
-// your code here
 
 function mastermind(guess) {
   // solution = "abcd";
