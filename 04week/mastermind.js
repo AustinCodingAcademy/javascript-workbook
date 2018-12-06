@@ -18,7 +18,45 @@ function printBoard() {
   }
 }
 
-function isValid(guess) {}
+function isValid(guess) {
+  // isValid() uses a for loop to loop through the variables and check to see if they're true or false. variables are initially set to false and will compare them to the guess and letters array.
+  let letterOneTrue = false;
+  let letterTwoTrue = false;
+  let letterThreeTrue = false;
+  let letterFourTrue = false;
+  if (guess.length === 4) {
+    for (let i = 0; i < guess.length; i++) {
+      // console.log(guess[i] + " guess loop");
+      for (let j = 0; j < letters.length; j++) {
+        // console.log(letters[j] + " letters loop");
+        if (guess[i] === letters[j]) {
+          if (i === 0) {
+            letterOneTrue = true;
+            // console.log("first letter is valid");
+          }
+          if (i === 1) {
+            letterTwoTrue = true;
+            // console.log("second letter is valid");
+          }
+          if (i === 2) {
+            letterThreeTrue = true;
+            // console.log("third letter is valid");
+          }
+          if (i === 3) {
+            letterFourTrue = true;
+            // console.log("fourth letter is valid");
+          }
+        }
+      }
+    }
+    if (letterOneTrue && letterTwoTrue && letterThreeTrue && letterFourTrue) {
+      return true;
+    }
+    console.log("Valid Letters are: " + letters);
+    return false;
+  }
+  return false;
+}
 
 function generateSolution() {
   for (let i = 0; i < 4; i++) {
@@ -71,7 +109,6 @@ function generateHint(solution, guess) {
 function mastermind(guess) {
   // solution = "abcd";
   // comment out the code above to generate a random solution generateSolution()
-  generateSolution();
   if (isValid(guess)) {
     const win = "You guessed it!";
     const outOfTurns = "You ran out of turns! The solution is " + solution;
@@ -100,7 +137,7 @@ function mastermind(guess) {
       return guessAgain;
     }
   } else {
-    console.log(colors.red("Not a valid entry. Guess Again."));
+    console.log(colors.red("Not a valid entry. Try Again."));
   }
 }
 
