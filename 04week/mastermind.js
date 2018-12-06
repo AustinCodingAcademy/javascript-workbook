@@ -53,7 +53,6 @@ function generateHint(solution, guess) {
     } else {
     }
   }
-
   // Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null.
   for (let j = 0; j < solutionArray.length; j++) {
     let letter = solutionArray[j];
@@ -63,18 +62,46 @@ function generateHint(solution, guess) {
       solutionArray[j] = null;
     }
   }
+  // Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
   return (
     colors.red(correctLetterLocations) + " - " + colors.white(correctLetters)
   );
-  // Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
 }
 
 function mastermind(guess) {
   // solution = "abcd";
-  // comment this out to generate a random solution generateSolution()
-  // if guess != solution run the generate hint function with guess and solution as parameters
-  // Define a var called hint that collects the returned value of generateHint(solution, guess). .push the guess and the hint (as a combined string) into the board.
-  // If the board length equals 10, return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
+  // comment out the code above to generate a random solution generateSolution()
+  generateSolution();
+  if (isValid(guess)) {
+    const win = "You guessed it!";
+    const outOfTurns = "You ran out of turns! The solution is " + solution;
+    const guessAgain = "Try again";
+
+    if (solution === guess) {
+      let hint = generateHint(solution, guess);
+      let guessAndHint = guess + " " + hint;
+      board.push(guessAndHint);
+      console.log(win);
+      return win;
+    } else {
+      // if guess != solution run the generate hint function with guess and solution as parameters
+      // Define a var called hint that collects the returned value of generateHint(solution, guess). .push the guess and the hint (as a combined string) into the board.
+      let hint = generateHint(solution, guess);
+      let guessAndHint = guess + " " + hint;
+      board.push(guessAndHint);
+      console.log(hint);
+    }
+    // If the board length equals 10, return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
+    if (board.length === 10) {
+      console.log(outOfTurns);
+      return outOfTurns;
+    } else {
+      console.log(guessAgain);
+      return guessAgain;
+    }
+  } else {
+    console.log(colors.red("Not a valid entry. Guess Again."));
+  }
 }
 
 function getPrompt() {
