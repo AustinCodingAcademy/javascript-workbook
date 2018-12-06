@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 });
 
 let board = [];
-let solution = 'abcd';
+let solution = " ";
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -19,8 +19,34 @@ function printBoard() {
 }
 
 function isValid(guess) {
+  let firstLetterTrue = false;
+  let secondLetterTrue = false;
+  let thirdLetterTrue = false;
+  let fourthLetterTrue = false;
   if (guess.length === 4) {
-    return true;
+    for (let i = 0; i < guess.length; i++) {
+      for (let j = 0; j < letters.length; j++) {
+        if (guess[i] === letters[j]) {
+          if (i === 0) {
+            firstLetterTrue = true;
+          }
+          if (i === 1) {
+            secondLetterTrue = true;
+          }
+          if (i === 2) {
+            thirdLetterTrue = true;
+          }
+          if (i === 3) {
+            fourthLetterTrue = true;
+          }
+        }
+      }
+    }
+    if (firstLetterTrue && secondLetterTrue && thirdLetterTrue && fourthLetterTrue) {
+      return true;
+    }
+    console.log("These are valid " + letters);
+    return false;
   }
   return false;
 }
@@ -44,7 +70,6 @@ function generateHint(solution, guess) {
   let solutionArray = solution.split("");
   let guessArray = guess.split("");
 
-
   for (let i = 0; i < solutionArray.length; i++) {
     const letter = solutionArray[i];
     const guess = guessArray[i];
@@ -61,57 +86,44 @@ function generateHint(solution, guess) {
       correctLetters++;
       solutionArray[j] = null;
     }
-
-  }
-
-  // //solutionArray.forEach(letter, i) => {
-  //   if (letter === guessArray[i) {
-  //     correctLetterLocations++;
-  //     solutionArray[i] = null;
-  //   } 
-  // })
-  // // your code here
-  // split solution 
-
-  // Create a variable correctLetterLocations that will record how many correct "letter-locations" were guessed. For instance, a guess of aabc against a solution of deba would yield one correct "letter-location" (b). Set correctLetterLocations equal to 0. In a for loop, iterate over the solutionArray, comparing each index of solutionArray against the same index of guessArray. If the item matches, increment correctLetterLocations, and set that index in solutionArray to null.
-  // Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null
-
-  // Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
-
-  // Define a var called hint that collects the returned value of generateHint(solution, guess). .push the guess and the hint (as a combined string) into the board.
-
-  // if guess !=== solution run the generate hint function with guess and solution as pararmeters and set to variable
-
-  // If the board length equals 10, return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'
-  if (board.length === 10) {
-    return outOfTurns;
-  } else {
-    return guessAgain;
-  }
-  // define a var called hint that collects the returned valued of generateHint(solution, guess) . .push the guess and the hint (as a combined string)
-  // into the board
-
+    colors.red(correctLetterLocations) + " - " + colors.white(correctLetters)
+  };
 }
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+  //solution = 'abcd'; // Comment this out to generate a random solution
   if (isValid(guess)) {
+    console.log(guess, " Guess");
+    console.log(solution, " Solution");
     let win = "You guessed it";
-    const outOfTurns = "You ran out of turns! The solution was " + solution;
-    const guessAgain = "Guess again";
-  };
-  if (guess === solution) {
-    return win;
+    let outOfTurns = "You ran out of turns! The solution was " + solution;
+    let guessAgain = "Guess again";
+    if (guess === solution) {
+      let hint = generateHint(solution, guess);
+      let guessAndHint = guess + " " + hint;
+      board.push(guessAndHint);
+      console.log(win);
+      return win;
+    } else {
+      let hint = generateHint(solution, guess);
+      let guessAndHint = guess + " " + hint;
+      board.push(guessAndHint);
+      console.log(hint);
+    }
+
+    if (board.length === 10) {
+      console.log(outOfTurns);
+      return outOfTurns;
+    } else {
+      console.log(guessAgain);
+      return guessAgain;
+    }
   } else {
-    let hint = generateHint(solution, guess);
-    let guessAndHint = guess + " " + hint;
-    board.push(guessAndHint);
-    console.log(win);
-    return win;
-  };
-  // your code here
-  // if guess is equal to solution return win condition
+    console.log(colors.red("please enter a valid guess"));
+  }
 }
+// if guess is equal to solution return win condition
+// your code here
 
 
 function getPrompt() {
@@ -151,3 +163,24 @@ if (typeof describe === 'function') {
   generateSolution();
   getPrompt();
 }
+// //solutionArray.forEach(letter, i) => {
+//   if (letter === guessArray[i) {
+//     correctLetterLocations++;
+//     solutionArray[i] = null;
+//   } 
+// })
+// // your code here
+// split solution 
+
+// Create a variable correctLetterLocations that will record how many correct "letter-locations" were guessed. For instance, a guess of aabc against a solution of deba would yield one correct "letter-location" (b). Set correctLetterLocations equal to 0. In a for loop, iterate over the solutionArray, comparing each index of solutionArray against the same index of guessArray. If the item matches, increment correctLetterLocations, and set that index in solutionArray to null.
+// Now that we have nulled the already counted correctLetterLocations, we can see if the guessArray contains any correctLetters that were not in the correct location. Set a variable correctLetters equal to 0, and in a for loop, again iterate over the solutionArray. Using .indexOf, determine if the item at the current index in guessArray appears inside of solutionArray. Save that index in a variable called targetIndex. Now, if targetIndex is greater that -1, increment correctLetters and set the item in solutionArray at that index equal to null
+
+// Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
+
+// Define a var called hint that collects the returned value of generateHint(solution, guess). .push the guess and the hint (as a combined string) into the board.
+
+// if guess !=== solution run the generate hint function with guess and solution as pararmeters and set to variable
+
+// If the board length equals 10, return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'
+// define a var called hint that collects the returned valued of generateHint(solution, guess) . .push the guess and the hint (as a combined string)
+// into the board
