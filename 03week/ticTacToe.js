@@ -77,6 +77,10 @@ function diagonalWin() {
   return false;
 }
 
+function theCatWins() {
+  if ()
+}
+
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
@@ -88,6 +92,8 @@ function checkForWin() {
   return false;
 };
 
+//write a CAT wins function
+
 function ticTacToe(row, column) {
   if ((row != "0" && row != "1" && row != "2") ||
     (column != "0" && column != "1" && column != "2")) {
@@ -95,8 +101,8 @@ function ticTacToe(row, column) {
     return false;
   };
   board[row][column] = playerTurn;
-  changePlayer();
-  checkForWin();
+  changePlayer()
+  checkForWin()
 };
 
 function getPrompt() {
