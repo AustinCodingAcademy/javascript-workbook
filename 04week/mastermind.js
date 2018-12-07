@@ -89,35 +89,34 @@ function mastermind(guess) {
   //if guess !== solution run the generate hint funtion with guess and solution as parameters
   //define a var called hint that collects the returned value of generateHint(solution, guess) and the hint (as a combined string) into the board
     let hint = generateHint(solution, guess);
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    let guessAndHint = guess + " " + hint;
+    board.push(guessAndHint);
   }
+// If the board length equals 10, return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
 
+console.log(board.length);
 
+if (board.length === 10) {
+  
+  console.log(outOfTurns);
+  
+} else {
 
-
-
-
-
-
-
-
-
-
-
-
-
+  console.log(guessAgain);
 
 }
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 function getPrompt() {
