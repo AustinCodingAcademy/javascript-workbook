@@ -40,8 +40,12 @@ while (a < 1000) {
     
 }
     
-
 //do...while loop
+let y = 0;
+do {
+  y += 1;
+  console.log(y);
+} while (y < 1000);
 
 //Use a do...while loop to console.log the numbers from 1 to 1000.
 
