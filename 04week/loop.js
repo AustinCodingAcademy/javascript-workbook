@@ -1,12 +1,13 @@
 const cars = ["porsche", "ferrari", "lamborghini", "lotus"];
 
 
-
-//Create a new file called loops.js in the /04week folder of your workbook.
-
 //Complete each of the following exercises.
 
 //for loop
+for (let i = 0; i < cars.length; i++) {
+    const text = cars.array[i];
+    
+}
 
 //Use a for loop to console.log each item in the array carsInReverse.
 
