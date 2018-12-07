@@ -46,7 +46,7 @@ function generateHint(guess, solution) {
     let guessLetter = guessArray[i];
     let solutionLetter = solutionArray[i];
     if (guessLetter === solutionLetter) {
-      console.log("1 correct letter in correct space");
+      // console.log("1 correct letter in correct space");
       correctLetterLocations++;
       solutionArray[i] = null;
     } else {
@@ -57,7 +57,7 @@ function generateHint(guess, solution) {
     let letter = solutionArray[j];
     let targetIndex = guessArray.indexOf(letter);
     if (targetIndex > -1) {
-      console.log("1 correct letter but, not in correct space");
+      // console.log("1 correct letter but, not in correct space");
       correctLetters++;
       solutionArray[j] = null;
     }
