@@ -6,8 +6,8 @@ const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
 
+});
 let board = [];
 let solution = " ";
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -61,34 +61,35 @@ function generateSolution() {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-let correctLetters = 0;
-let correctLetterLocations = 0;
 
-function generateHint(solution, guess) {
-  correctLetterLocations = 0;
-  correctLetters = 0;
+function generateHint(guess, solution) {
+  let correctLetterLocations = 0;
+  let correctLetters = 0;
   let solutionArray = solution.split("");
   let guessArray = guess.split("");
 
   for (let i = 0; i < solutionArray.length; i++) {
-    const letter = solutionArray[i];
-    const guess = guessArray[i];
+    let letter = solutionArray[i];
+    let guess = guessArray[i];
     if (letter === guess) {
       correctLetterLocations++;
       solutionArray[i] = null;
+      console.log("letters");
+
     }
 
   }
   for (let j = 0; j < solutionArray.length; j++) {
-    const letter = solutionArray[j];
+    let letter = solutionArray[j];
     let targetIndex = guessArray.indexOf(letter);
     if (targetIndex > -1) {
       correctLetters++;
       solutionArray[j] = null;
     }
-    colors.red(correctLetterLocations) + " - " + colors.white(correctLetters)
-  };
+  }
+  return (colors.red(correctLetterLocations) + "-" + colors.white(correctLetters));
 }
+
 
 function mastermind(guess) {
   //solution = 'abcd'; // Comment this out to generate a random solution
@@ -97,22 +98,20 @@ function mastermind(guess) {
     console.log(solution, " Solution");
     let win = "You guessed it";
     let outOfTurns = "You ran out of turns! The solution was " + solution;
-    let guessAgain = "Guess again";
+    let guessAgain = "guess again";
     if (guess === solution) {
       let hint = generateHint(solution, guess);
       let guessAndHint = guess + " " + hint;
       board.push(guessAndHint);
-      console.log(win);
-      return win;
+      console.log(win, " win");
     } else {
       let hint = generateHint(solution, guess);
-      let guessAndHint = guess + " " + hint;
+      let guessAndHint = guess + "-" + hint;
       board.push(guessAndHint);
-      console.log(hint);
+      console.log(hint, " Hint");
     }
-
     if (board.length === 10) {
-      console.log(outOfTurns);
+      console.log(outOfTurns, " Out of Turns");
       return outOfTurns;
     } else {
       console.log(guessAgain);
