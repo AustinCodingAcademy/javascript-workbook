@@ -55,9 +55,22 @@ let correctLetters = 0;
 for (let j = 0; j < solutionArray.length; j++) {
   const letter = solutionArray[j];
   let targetIndex = guessArray.indexOf(letter);
+  
+  if (targetIndex > -1) {
+    correctLetters++;
+    solutionArray[j] = null;
+
 }
   
 }
+
+ // Using the colors package, return a string that prints out the hints you generated, with correctLetterLocations being red, correctLetters being white, and separated by a hyphen.
+ return (
+  colors.red(correctLetterLocations) + "-" + colors.white(correctLetters)
+);
+// your code here
+}
+
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
