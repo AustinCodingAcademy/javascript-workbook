@@ -40,10 +40,23 @@ function generateHint(solution, guess) {
 
 // in a for loop, iterate over the solutionArray
 for (let i = 0; i < solutionArray.length; i++) {
-  const letter = array[i];
+  const letter = soutionArray[i];
   
+  const guess = guessArray[i];
+   if (letter === guess) {
+    
+    correctLetterLocations++;
+    solutionArray[i] = null
+
+   }
 }
- 
+
+let correctLetters = 0;
+for (let j = 0; j < solutionArray.length; j++) {
+  const letter = solutionArray[j];
+  let targetIndex = guessArray.indexOf(letter);
+}
+  
 }
 
 function mastermind(guess) {
