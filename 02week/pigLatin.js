@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(str) {
 
   // Your code here
   var str = str.toLowerCase()
