@@ -54,7 +54,9 @@ it ("should know when a string can't be turned into a number", () => {
 //String
 
 //Write a JavaScript program that adds 2 numbers together.
-
+function addNumber( x, y ) {
+    return (x + y);
+}
 //Write a JavaScript program that runs only when 2 things are true.
 
 //Write a JavaScript program that runs when 1 of 2 things are true.
