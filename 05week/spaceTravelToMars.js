@@ -18,28 +18,29 @@ class CrewMember {
     this.ship = ship;
   }
 
-enterShip(ship) {
-  this.ship = ship;
+enterShip(Ship) {
+  this.ship = Ship;
   Ship.crew.push(this);
 }
 }
 
 class Ship {
-  constructor(shipName, type, ability, crew, length) {
-    this.shipName = shipName;
+  constructor(name, type, ability,) {
+    this.name = name;
     this.type = type;
     this.ability = ability;
-    this.crew = crew;
-    this.length = length;
+    this.crew = [];
   }
-}
+
 missionStatement() {
   if (this.crew.length === 0) {
     return "Can't perform a mission yet.";
   } else {
     return this.ability;
   }
+ }
 }
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
@@ -51,7 +52,7 @@ if (typeof describe === 'function'){
       assert.equal(crewMember1.ship, null);
     });
 
-    xit('can enter a ship', function(){
+    it('can enter a ship', function(){
       let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
       let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       crewMember1.enterShip(mav);
@@ -70,7 +71,7 @@ if (typeof describe === 'function'){
       assert.equal(mav.crew.length, 0);
     });
 
-    xit('can return a mission statement correctly', function(){
+    it('can return a mission statement correctly', function(){
       let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
       let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
