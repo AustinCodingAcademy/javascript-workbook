@@ -17,30 +17,19 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = ship;
   }
-  enterShip(Ship) {
-    console.log(Ship, "This is the Ship");
-    this.ship = Ship;
-    Ship.crew.push(this);
-  }
 }
+
 class Ship {
   constructor(name, type, ability, crew) {
-    console.log(Ship, "This is the Ship");
     this.name = name;
     this.type = type;
     this.ability = ability;
     this.crew = [];
   }
-  missionStatement() {
-    if (this.crew.length != 0) {
-      return this.ability;
-    }
-    return "Can't perform a mission yet.";
-  }
 }
-console.log(Ship, "This is the Ship");
 
 //tests
+
 if (typeof describe === "function") {
   describe("CrewMember", function() {
     it("should have a name, a job, a specialSkill and ship upon instantiation", function() {
