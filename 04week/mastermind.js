@@ -99,27 +99,27 @@ function mastermind(guess) {
     let win = "You guessed it";
     let outOfTurns = "You ran out of turns! The solution was " + solution;
     let guessAgain = "guess again";
-    if (guess === solution) {
-      let hint = generateHint(solution, guess);
-      let guessAndHint = guess + " " + hint;
-      board.push(guessAndHint);
-      console.log(win, " win");
-    } else {
-      let hint = generateHint(solution, guess);
-      let guessAndHint = guess + "-" + hint;
-      board.push(guessAndHint);
-      console.log(hint, " Hint");
-    }
-    if (board.length === 10) {
-      console.log(outOfTurns, " Out of Turns");
-      return outOfTurns;
-    } else {
-      console.log(guessAgain);
-      return guessAgain;
-    }
+    //if (guess === solution) {
+    let hint = generateHint(solution, guess);
+    let guessAndHint = guess + " " + hint;
+    board.push(guessAndHint);
+    console.log(win, " win");
   } else {
-    console.log(colors.red("please enter a valid guess"));
+    let hint = generateHint(solution, guess);
+    let guessAndHint = guess + "-" + hint;
+    board.push(guessAndHint);
+    console.log(hint, " Hint");
   }
+  if (board.length === 10) {
+    console.log(outOfTurns, " Out of Turns");
+    return outOfTurns;
+  } else {
+    console.log(guessAgain);
+    return guessAgain;
+  }
+} else {
+  console.log(colors.red("please enter a valid guess"));
+}
 }
 // if guess is equal to solution return win condition
 // your code here
