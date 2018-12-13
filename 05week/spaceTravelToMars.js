@@ -16,30 +16,8 @@ class CrewMember {
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = ship;
-    console.log(CrewMember, name, job, specialSkill, ship);
-  }
-  enterShip(Ship) {
-    this.ship = Ship;
-    Ship.crew.push(this);
-    console.log(Ship);
   }
 }
-
-class Ship {
-  constructor(name, type, ability, crew) {
-    this.name = name;
-    this.type = type;
-    this.ability = ability;
-    this.crew = [];
-  }
-  missionStatement() {
-    if (this.crew.length != 0) {
-      return this.ability;
-    }
-    return "Can't perform a mission yet.";
-  }
-}
-console.log(typeof ability);
 
 //tests
 
