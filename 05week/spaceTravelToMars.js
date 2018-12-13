@@ -17,6 +17,25 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = ship;
   }
+  enterShip(Ship) {
+    this.ship = Ship;
+    Ship.crew.push(this);
+  }
+}
+
+class Ship {
+  constructor(name, type, ability, crew) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement() {
+    if (this.crew.length != 0) {
+      return this.ability;
+    }
+    return "Can't perform a mission yet.";
+  }
 }
 
 //tests
