@@ -19,6 +19,7 @@ const JUMP_DOWN_LEFT = 2;
 const JUMP_DOWN_RIGHT = 3;
 const JUMP_UP_LEFT = 4;
 const JUMP_UP_RIGHT = 5;
+const INVALID_MOVE = -2;
 
 class Board {
   constructor() {
@@ -116,10 +117,15 @@ class Game {
   }
   moveChecker(whichPiece, toWhere) {
     // ensure valid input
-    if (!parseInt(whichPiece, 10) || !parseInt(toWhere, 10))
-      return colors.red("Invalid input.");
-    if (whichPiece.length != 2 || toWhere.length != 2)
-      return colors.red("Invalid input.");
+    if (
+      !parseInt(whichPiece, 10) ||
+      !parseInt(toWhere, 10) ||
+      whichPiece.length != 2 ||
+      toWhere.length != 2
+    )
+      return colors.red(
+        "Invalid input. Not of format 'yx' , where y = row number and x = column nummber."
+      );
 
     // coordinates
     let originY = whichPiece[0];
@@ -141,11 +147,23 @@ class Game {
     let move = checkMove(originY, originX, target, targetY, targetX, symbol);
 
     switch (move) {
+      case INVALID_MOVE:
+        return colors.red(
+          "Cannot move from (" +
+            originY +
+            "," +
+            originX +
+            ") to (" +
+            targetY +
+            "," +
+            targetX +
+            ")."
+        );
       case STANDARD_MOVE:
         this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
         this.board.grid[originY][originX] = null;
         return colors.green(
-          "Moved (" +
+          "Moved from (" +
             originY +
             "," +
             originX +
@@ -168,20 +186,20 @@ class Game {
           // move the checker
           this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
           this.board.grid[originY][originX] = null;
-          return colors.green(
+          return (
             "Jumped from (" +
-              originY +
-              "," +
-              originX +
-              ") to (" +
-              targetY +
-              "," +
-              targetX +
-              "). Killing (" +
-              victimY +
-              "," +
-              victimX +
-              ")."
+            originY +
+            "," +
+            originX +
+            ") to (" +
+            targetY +
+            "," +
+            targetX +
+            "). Killing (" +
+            victimY +
+            "," +
+            victimX +
+            ")."
           );
         } else return colors.red("Invalid move.");
       // check this.board.grid[originY+1][originX+1]
@@ -277,7 +295,7 @@ class Game {
   }
 }
 
-function checkMove(originY, originX, target, targetY, targetX, symbol) {
+function checkMove(originY, originX, target, targetY, targetX, symbol, turn) {
   let distanceX = Math.abs(targetX - originX);
   let distanceY = Math.abs(targetY - originY);
 
@@ -289,15 +307,15 @@ function checkMove(originY, originX, target, targetY, targetX, symbol) {
   if (targetX < originX) directionX = "LEFT";
   if (targetX > originX) directionX = "RIGHT";
 
-  // top player move logic
   if (symbol === topSymbol) {
+    // top player move logic
     if (!target && directionY === "DOWN") {
       if (distanceX === 1 && distanceY === 1) return STANDARD_MOVE;
       else if (distanceX === 2 && distanceY === 2) {
         if (directionX === "LEFT") return JUMP_DOWN_LEFT;
         if (directionX === "RIGHT") return JUMP_DOWN_RIGHT;
-      } else return;
-    } else return;
+      } else return INVALID_MOVE;
+    } else return INVALID_MOVE;
   }
 
   // bottom player move logic
@@ -307,8 +325,8 @@ function checkMove(originY, originX, target, targetY, targetX, symbol) {
       else if (distanceX === 2 && distanceY === 2) {
         if (directionX === "LEFT") return JUMP_UP_LEFT;
         if (directionX === "RIGHT") return JUMP_UP_RIGHT;
-      } else return;
-    } else return;
+      } else return INVALID_MOVE;
+    } else return INVALID_MOVE;
   }
 }
 
@@ -317,7 +335,7 @@ function getPrompt() {
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       let result = game.moveChecker(whichPiece, toWhere);
-      console.log(result + "\n");
+      console.log("\n" + result + "\n");
       getPrompt();
     });
   });
