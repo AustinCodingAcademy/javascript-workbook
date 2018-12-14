@@ -1,20 +1,26 @@
-'use strict';
+"use strict";
 
-const assert = require('assert');
-const readline = require('readline');
+const assert = require("assert");
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-
-function Checker() {
+class Checker {
   // Your code here
+  constructor(symbol, row, col) {
+    this.symbol = symbol;
+    this.row = row;
+    this.col = col;
+    this.isKing = false;
+  }
 }
 
 class Board {
   constructor() {
-    this.grid = []
+    this.grid = [];
+    this.checkers = [];
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -27,6 +33,7 @@ class Board {
       }
     }
   }
+
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -41,11 +48,11 @@ class Board {
           rowOfCheckers.push(this.grid[row][column].symbol);
         } else {
           // just push in a blank space
-          rowOfCheckers.push(' ');
+          rowOfCheckers.push(" ");
         }
       }
       // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join(' ');
+      string += rowOfCheckers.join(" ");
       // add a 'new line'
       string += "\n";
     }
@@ -53,21 +60,38 @@ class Board {
   }
 
   // Your code here
+  createCheckers() {
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        if ((row + col) % 2 === 1 && row < 3) {
+          const newChecker = new Checker("X", row, col);
+          this.grid[row][col] = newChecker;
+          this.checkers.push(newChecker);
+        } else if ((row + col) % 2 === 1 && row > 4) {
+          const newChecker = new Checker("O", row, col);
+          this.grid[row][col] = newChecker;
+          this.checkers.push(newChecker);
+        }
+      }
+    }
+  }
 }
 
 class Game {
   constructor() {
-    this.board = new Board;
+    this.board = new Board();
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
   }
+  moveChecker(whchPiece, toWhere) {}
 }
 
 function getPrompt() {
   game.board.viewGrid();
-  rl.question('which piece?: ', (whichPiece) => {
-    rl.question('to where?: ', (toWhere) => {
+  rl.question("which piece?: ", whichPiece => {
+    rl.question("to where?: ", toWhere => {
       game.moveChecker(whichPiece, toWhere);
       getPrompt();
     });
@@ -77,30 +101,29 @@ function getPrompt() {
 const game = new Game();
 game.start();
 
-
 // Tests
-if (typeof describe === 'function') {
-  describe('Game', () => {
-    it('should have a board', () => {
-      assert.equal(game.board.constructor.name, 'Board');
+if (typeof describe === "function") {
+  describe("Game", () => {
+    it("should have a board", () => {
+      assert.equal(game.board.constructor.name, "Board");
     });
-    it('board should have 24 checkers', () => {
+    it("board should have 24 checkers", () => {
       assert.equal(game.board.checkers.length, 24);
     });
   });
 
-  describe('Game.moveChecker()', () => {
-    it('should move a checker', () => {
+  describe("Game.moveChecker()", () => {
+    it("should move a checker", () => {
       assert(!game.board.grid[4][1]);
-      game.moveChecker('50', '41');
+      game.moveChecker("50", "41");
       assert(game.board.grid[4][1]);
-      game.moveChecker('21', '30');
+      game.moveChecker("21", "30");
       assert(game.board.grid[3][0]);
-      game.moveChecker('52', '43');
+      game.moveChecker("52", "43");
       assert(game.board.grid[4][3]);
     });
-    it('should be able to jump over and kill another checker', () => {
-      game.moveChecker('30', '52');
+    it("should be able to jump over and kill another checker", () => {
+      game.moveChecker("30", "52");
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
       assert.equal(game.board.checkers.length, 23);
