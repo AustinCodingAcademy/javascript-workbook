@@ -94,13 +94,36 @@ class Game {
   }
   moveChecker(whichPiece, toWhere) {
     // ensure legal move
-    let x1 = whichPiece[0];
-    let y1 = whichPiece[1];
-    let x2 = toWhere[0];
-    let y2 = toWhere[1];
+    let y1 = whichPiece[0];
+    let x1 = whichPiece[1];
+    let y2 = toWhere[0];
+    let x2 = toWhere[1];
 
-    this.board.grid[x2][y2] = this.board.grid[x1][y1];
-    this.board.grid[x1][y1] = null;
+    this.board.grid[y2][x2] = this.board.grid[y1][x1];
+    this.board.grid[y1][x1] = null;
+
+    let distance = y2 - y1;
+    if (distance > 1) {
+      // we jumped down/right
+      if (x2 > x1) {
+        this.board.grid[y2 - 1][x2 - 1] = null;
+        this.board.checkers.pop();
+        // we jumped down/left
+      } else {
+        this.board.grid[y2 - 1][x2 + 1] = null;
+        this.board.checkers.pop();
+      }
+    } else if (distance < -1) {
+      // we jumped up/right
+      if (x2 > x1) {
+        this.board.grid[y2 + 1][x2 - 1] = null;
+        this.board.checkers.pop();
+        // we jumped up/left
+      } else {
+        this.board.grid[y2 + 1][x2 + 1] = null;
+        this.board.checkers.pop();
+      }
+    }
   }
 }
 
@@ -138,11 +161,12 @@ if (typeof describe === "function") {
       game.moveChecker("52", "43");
       assert(game.board.grid[4][3]);
     });
-    xit("should be able to jump over and kill another checker", () => {
+    it("should be able to jump over and kill another checker", () => {
       game.moveChecker("30", "52");
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
       assert.equal(game.board.checkers.length, 23);
+      game.board.viewGrid();
     });
   });
 } else {
