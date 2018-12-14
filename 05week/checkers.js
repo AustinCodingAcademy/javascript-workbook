@@ -15,6 +15,15 @@ class Checker {
     this.col = col;
     this.isKing = false;
   }
+
+  makeKing() {
+    this.isKing = true;
+    if (this.symbol === "x") {
+      this.symbol = "X";
+    } else {
+      this.symbol = "O";
+    }
+  }
 }
 
 class Board {
@@ -64,15 +73,70 @@ class Board {
     for (let row = 0; row < 8; row++) {
       for (let col = 0; col < 8; col++) {
         if ((row + col) % 2 === 1 && row < 3) {
-          const newChecker = new Checker("X", row, col);
+          const newChecker = new Checker("x", row, col);
           this.grid[row][col] = newChecker;
           this.checkers.push(newChecker);
         } else if ((row + col) % 2 === 1 && row > 4) {
-          const newChecker = new Checker("O", row, col);
+          const newChecker = new Checker("o", row, col);
           this.grid[row][col] = newChecker;
           this.checkers.push(newChecker);
         }
       }
+    }
+  }
+
+  findPiece(whichPiece) {
+    const coordinate = whichPiece.split("");
+    const row = parseInt(coordinate[0]);
+    const col = parseInt(coordinate[1]);
+    const currentPiece = this.checkers.find(checker => {
+      return checker.row === row && checker.col === col;
+    });
+    return currentPiece;
+  }
+
+  isLegalMove(currentPiece, toWhere) {
+    const coordinate = toWhere.split("");
+    const newRow = parseInt(coordinate[0]);
+    const newCol = parseInt(coordinate[1]);
+    const oldRow = currentPiece.row;
+    const oldCol = currentPiece.col;
+    const validInputs = [0, 1, 2, 3, 4, 5, 6, 7];
+    if (
+      !validInputs.includes(newRow) ||
+      !validInputs.includes(newCol) ||
+      this.grid[newRow][newCol]
+    ) {
+      return false;
+    } else if (
+      (currentPiece.isKing || currentPiece.symbol === "x") &&
+      newRow === oldRow + 1 &&
+      (newCol === oldCol + 1 || newCol === oldCol - 1)
+    ) {
+      return true;
+    } else if (
+      (currentPiece.isKing || currentPiece.symbol === "o") &&
+      newRow === oldRow - 1 &&
+      (newCol === oldCol + 1 || newCol === oldCol - 1)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  movePiece(currentPiece, toWhere) {
+    const coordinate = toWhere.split("");
+    const newRow = parseInt(coordinate[0]);
+    const newCol = parseInt(coordinate[1]);
+    const oldRow = currentPiece.row;
+    const oldCol = currentPiece.col;
+    this.grid[newRow][newCol] = currentPiece;
+    this.grid[oldRow][oldCol] = null;
+    currentPiece.row = newRow;
+    currentPiece.col = newCol;
+    if (newRow === 7 || newRow === 0) {
+      currentPiece.makeKing();
     }
   }
 }
@@ -85,7 +149,20 @@ class Game {
     this.board.createGrid();
     this.board.createCheckers();
   }
-  moveChecker(whchPiece, toWhere) {}
+  moveChecker(whichPiece, toWhere) {
+    const currentPiece = this.board.findPiece(whichPiece);
+    if (!currentPiece) {
+      console.log("Invalid piece!");
+      return null;
+    }
+    const isLegalMove = this.board.isLegalMove(currentPiece, toWhere);
+    if (!isLegalMove) {
+      console.log("Invalid destination!");
+      return null;
+    } else {
+      this.board.movePiece(currentPiece, toWhere);
+    }
+  }
 }
 
 function getPrompt() {
