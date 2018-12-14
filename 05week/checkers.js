@@ -2,10 +2,23 @@
 
 const assert = require("assert");
 const readline = require("readline");
+const colors = require("colors");
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+// checker symbols
+const topSymbol = colors.red("\u00A9");
+const bottomSymbol = colors.white("\u00A9");
+
+// return codes
+const STANDARD_MOVE = 1;
+const JUMP_DOWN_LEFT = 2;
+const JUMP_DOWN_RIGHT = 3;
+const JUMP_UP_LEFT = 4;
+const JUMP_UP_RIGHT = 5;
 
 class Board {
   constructor() {
@@ -56,7 +69,7 @@ class Board {
       let startCol = 1;
       if (row === 1) startCol = 0;
       for (let column = startCol; column < 8; column += 2) {
-        let newChecker = new Checker("B", row, column);
+        let newChecker = new Checker(column, row);
         this.grid[row][column] = newChecker;
         this.checkers.push(newChecker);
       }
@@ -67,7 +80,7 @@ class Board {
       let startCol = 0;
       if (row === 6) startCol = 1;
       for (let column = startCol; column < 8; column += 2) {
-        let newChecker = new Checker("R", row, column);
+        let newChecker = new Checker(column, row);
         this.grid[row][column] = newChecker;
         this.checkers.push(newChecker);
       }
@@ -77,10 +90,19 @@ class Board {
 
 // create a Checker class
 class Checker {
-  constructor(symbol, x, y) {
-    this.symbol = symbol;
-    this.x = x;
-    this.y = y;
+  constructor(col, row) {
+    this.col = col;
+    this.row = row;
+
+    // top checkers
+    if (row < 3) {
+      this.symbol = topSymbol;
+    }
+
+    // bottom checkers
+    if (row > 4) {
+      this.symbol = bottomSymbol;
+    }
   }
 }
 
@@ -93,37 +115,200 @@ class Game {
     this.board.placeCheckers();
   }
   moveChecker(whichPiece, toWhere) {
-    // ensure legal move
-    let y1 = whichPiece[0];
-    let x1 = whichPiece[1];
-    let y2 = toWhere[0];
-    let x2 = toWhere[1];
+    // ensure valid input
+    if (!parseInt(whichPiece, 10) || !parseInt(toWhere, 10))
+      return colors.red("Invalid input.");
+    if (whichPiece.length != 2 || toWhere.length != 2)
+      return colors.red("Invalid input.");
 
-    this.board.grid[y2][x2] = this.board.grid[y1][x1];
-    this.board.grid[y1][x1] = null;
+    // coordinates
+    let originY = whichPiece[0];
+    let originX = whichPiece[1];
+    let targetY = toWhere[0];
+    let targetX = toWhere[1];
+    let victimY = null;
+    let victimX = null;
 
-    let distance = y2 - y1;
-    if (distance > 1) {
-      // we jumped down/right
-      if (x2 > x1) {
-        this.board.grid[y2 - 1][x2 - 1] = null;
-        this.board.checkers.pop();
-        // we jumped down/left
-      } else {
-        this.board.grid[y2 - 1][x2 + 1] = null;
-        this.board.checkers.pop();
-      }
-    } else if (distance < -1) {
-      // we jumped up/right
-      if (x2 > x1) {
-        this.board.grid[y2 + 1][x2 - 1] = null;
-        this.board.checkers.pop();
-        // we jumped up/left
-      } else {
-        this.board.grid[y2 + 1][x2 + 1] = null;
-        this.board.checkers.pop();
-      }
+    // grid locations
+    let origin = this.board.grid[originY][originX];
+    let target = this.board.grid[targetY][targetX];
+    let victim = null;
+
+    // symbol of checker to move
+    let symbol = null;
+    if (origin) symbol = this.board.grid[originY][originX].symbol;
+
+    let move = checkMove(originY, originX, target, targetY, targetX, symbol);
+
+    switch (move) {
+      case STANDARD_MOVE:
+        this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
+        this.board.grid[originY][originX] = null;
+        return colors.green(
+          "Moved (" +
+            originY +
+            "," +
+            originX +
+            ") to (" +
+            targetY +
+            "," +
+            targetX +
+            ")."
+        );
+      // check this.board.grid[originY+1][originX-1]
+      case JUMP_DOWN_LEFT:
+        victimY = parseInt(originY) + 1;
+        victimX = parseInt(originX) - 1;
+        victim = this.board.grid[victimY][victimX];
+        // valid jump
+        if (victim.symbol === bottomSymbol) {
+          // kill the victim!
+          this.board.grid[victimY][victimX] = null;
+          this.board.checkers.pop();
+          // move the checker
+          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
+          this.board.grid[originY][originX] = null;
+          return colors.green(
+            "Jumped from (" +
+              originY +
+              "," +
+              originX +
+              ") to (" +
+              targetY +
+              "," +
+              targetX +
+              "). Killing (" +
+              victimY +
+              "," +
+              victimX +
+              ")."
+          );
+        } else return colors.red("Invalid move.");
+      // check this.board.grid[originY+1][originX+1]
+      case JUMP_DOWN_RIGHT:
+        victimY = parseInt(originY) + 1;
+        victimX = parseInt(originX) + 1;
+        victim = this.board.grid[victimY][victimX];
+        // valid jump
+        if (victim.symbol === bottomSymbol) {
+          // kill the victim!
+          this.board.grid[victimY][victimX] = null;
+          this.board.checkers.pop();
+          // move the checker
+          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
+          this.board.grid[originY][originX] = null;
+          return colors.green(
+            "Jumped from (" +
+              originY +
+              "," +
+              originX +
+              ") to (" +
+              targetY +
+              "," +
+              targetX +
+              "). Killing (" +
+              victimY +
+              "," +
+              victimX +
+              ")."
+          );
+        } else return colors.red("Invalid move.");
+      // check this.board.grid[originY-1][originX-1]
+      case JUMP_UP_LEFT:
+        victimY = parseInt(originY) - 1;
+        victimX = parseInt(originX) - 1;
+        victim = this.board.grid[victimY][victimX];
+        // valid jump
+        if (victim.symbol === topSymbol) {
+          // kill the victim!
+          this.board.grid[victimY][victimX] = null;
+          this.board.checkers.pop();
+          // move the checker
+          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
+          this.board.grid[originY][originX] = null;
+          return colors.green(
+            "Jumped from (" +
+              originY +
+              "," +
+              originX +
+              ") to (" +
+              targetY +
+              "," +
+              targetX +
+              "). Killing (" +
+              victimY +
+              "," +
+              victimX +
+              ")."
+          );
+        } else return colors.red("Invalid move.");
+      // check this.board.grid[originY-1][originX+1]
+      case JUMP_UP_RIGHT:
+        victimY = parseInt(originY) - 1;
+        victimX = parseInt(originX) + 1;
+        victim = this.board.grid[victimY][victimX];
+        // valid jump
+        if (victim.symbol === topSymbol) {
+          // kill the victim!
+          this.board.grid[victimY][victimX] = null;
+          this.board.checkers.pop();
+          // move the checker
+          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
+          this.board.grid[originY][originX] = null;
+          return colors.green(
+            "Jumped from (" +
+              originY +
+              "," +
+              originX +
+              ") to (" +
+              targetY +
+              "," +
+              targetX +
+              "). Killing (" +
+              victimY +
+              "," +
+              victimX +
+              ")."
+          );
+        } else return colors.red("Invalid move.");
+      default:
+        return colors.red("Invalid Move.");
     }
+  }
+}
+
+function checkMove(originY, originX, target, targetY, targetX, symbol) {
+  let distanceX = Math.abs(targetX - originX);
+  let distanceY = Math.abs(targetY - originY);
+
+  let directionY = null;
+  if (targetY - originY < 0) directionY = "UP";
+  if (targetY - originY > 0) directionY = "DOWN";
+
+  let directionX = null;
+  if (targetX < originX) directionX = "LEFT";
+  if (targetX > originX) directionX = "RIGHT";
+
+  // top player move logic
+  if (symbol === topSymbol) {
+    if (!target && directionY === "DOWN") {
+      if (distanceX === 1 && distanceY === 1) return STANDARD_MOVE;
+      else if (distanceX === 2 && distanceY === 2) {
+        if (directionX === "LEFT") return JUMP_DOWN_LEFT;
+        if (directionX === "RIGHT") return JUMP_DOWN_RIGHT;
+      } else return;
+    } else return;
+  }
+
+  // bottom player move logic
+  if (symbol === bottomSymbol) {
+    if (!target && directionY === "UP") {
+      if (distanceX === 1 && distanceY === 1) return STANDARD_MOVE;
+      else if (distanceX === 2 && distanceY === 2) {
+        if (directionX === "LEFT") return JUMP_UP_LEFT;
+        if (directionX === "RIGHT") return JUMP_UP_RIGHT;
+      } else return;
+    } else return;
   }
 }
 
@@ -131,7 +316,8 @@ function getPrompt() {
   game.board.viewGrid();
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
-      game.moveChecker(whichPiece, toWhere);
+      let result = game.moveChecker(whichPiece, toWhere);
+      console.log(result + "\n");
       getPrompt();
     });
   });
@@ -166,7 +352,6 @@ if (typeof describe === "function") {
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
       assert.equal(game.board.checkers.length, 23);
-      game.board.viewGrid();
     });
   });
 } else {
