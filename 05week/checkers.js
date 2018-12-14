@@ -7,10 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// function Checker() {
-//   // Your code here
-// }
-
 class Board {
   constructor() {
     this.grid = [];
@@ -55,21 +51,25 @@ class Board {
   // Your code here
   // method to insert new Checkers to starting places
   placeCheckers() {
-    // black checkers, rows 0-2
+    // top player checkers
     for (let row = 0; row < 3; row++) {
-      for (let column = 0; column < 8; column++) {
-        if (column % 2) {
-          this.grid[row][column] = new Checker("B");
-        }
+      let startCol = 1;
+      if (row === 1) startCol = 0;
+      for (let column = startCol; column < 8; column += 2) {
+        let newChecker = new Checker("B", row, column);
+        this.grid[row][column] = newChecker;
+        this.checkers.push(newChecker);
       }
     }
 
-    // red checkers, rows 5-7
+    // bottom player checkers
     for (let row = 5; row < 8; row++) {
-      for (let column = 0; column < 8; column++) {
-        if (column % 2) {
-          this.grid[row][column] = new Checker("R");
-        }
+      let startCol = 0;
+      if (row === 6) startCol = 1;
+      for (let column = startCol; column < 8; column += 2) {
+        let newChecker = new Checker("R", row, column);
+        this.grid[row][column] = newChecker;
+        this.checkers.push(newChecker);
       }
     }
   }
@@ -77,8 +77,10 @@ class Board {
 
 // create a Checker class
 class Checker {
-  constructor(symbol) {
+  constructor(symbol, x, y) {
     this.symbol = symbol;
+    this.x = x;
+    this.y = y;
   }
 }
 
@@ -92,6 +94,13 @@ class Game {
   }
   moveChecker(whichPiece, toWhere) {
     // ensure legal move
+    let x1 = whichPiece[0];
+    let y1 = whichPiece[1];
+    let x2 = toWhere[0];
+    let y2 = toWhere[1];
+
+    this.board.grid[x2][y2] = this.board.grid[x1][y1];
+    this.board.grid[x1][y1] = null;
   }
 }
 
@@ -120,7 +129,7 @@ if (typeof describe === "function") {
   });
 
   describe("Game.moveChecker()", () => {
-    xit("should move a checker", () => {
+    it("should move a checker", () => {
       assert(!game.board.grid[4][1]);
       game.moveChecker("50", "41");
       assert(game.board.grid[4][1]);
