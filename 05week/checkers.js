@@ -8,8 +8,18 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker {
+  constructor(startPos) {
+    if (parseInt(startPos, 10) < 40) {
+      this.symbol = "o";
+    } else {
+      this.symbol = "x";
+    }
+  }
+}
+
+function placePieces() {
+
 }
 
 class Board {
