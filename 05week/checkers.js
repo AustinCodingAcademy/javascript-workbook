@@ -143,16 +143,16 @@ class Game {
     let victimY = null;
     let victimX = null;
 
-    // grid locations
+    // checkers
     let origin = this.board.grid[originY][originX];
     let target = this.board.grid[targetY][targetX];
     let victim = null;
 
-    // symbol of checker to move
+    // checker symbols
     let symbol = null;
+    let turnSymbol = this.turnSymbol;
     if (origin) symbol = this.board.grid[originY][originX].symbol;
 
-    let turnSymbol = this.turnSymbol;
     let move = checkMove(
       originY,
       originX,
@@ -171,7 +171,9 @@ class Game {
         return "ERROR: It is not " + wrongSymbol + "'s turn.";
       case INVALID_MOVE:
         return colors.red(
-          "ERROR: Cannot move from (" +
+          "ERROR: " +
+            this.turnSymbol +
+            " cannot move from (" +
             originY +
             "," +
             originX +
@@ -184,6 +186,7 @@ class Game {
       case STANDARD_MOVE:
         this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
         this.board.grid[originY][originX] = null;
+        this.nextTurn();
         return colors.green(
           "Moved from (" +
             originY +
@@ -207,6 +210,7 @@ class Game {
           // move the checker
           this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
           this.board.grid[originY][originX] = null;
+          this.nextTurn();
           return (
             "Jumped from (" +
             originY +
@@ -224,7 +228,7 @@ class Game {
           );
         } else
           return colors.red(
-            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+            "ERROR: " + this.turnSymbol + " cannout jump over " + victim.symbol
           );
       case JUMP_DOWN_RIGHT:
         victimY = parseInt(originY) + 1;
@@ -238,6 +242,7 @@ class Game {
           // move the checker
           this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
           this.board.grid[originY][originX] = null;
+          this.nextTurn();
           return colors.green(
             "Jumped from (" +
               originY +
@@ -255,7 +260,7 @@ class Game {
           );
         } else
           return colors.red(
-            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+            "ERROR: " + this.turnSymbol + " cannout jump over " + victim.symbol
           );
       case JUMP_UP_LEFT:
         victimY = parseInt(originY) - 1;
@@ -269,6 +274,7 @@ class Game {
           // move the checker
           this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
           this.board.grid[originY][originX] = null;
+          this.nextTurn();
           return colors.green(
             "Jumped from (" +
               originY +
@@ -286,7 +292,7 @@ class Game {
           );
         } else
           return colors.red(
-            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+            "ERROR: " + this.turnSymbol + " cannot jump over " + victim.symbol
           );
       case JUMP_UP_RIGHT:
         victimY = parseInt(originY) - 1;
@@ -300,6 +306,7 @@ class Game {
           // move the checker
           this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
           this.board.grid[originY][originX] = null;
+          this.nextTurn();
           return colors.green(
             "Jumped from (" +
               originY +
@@ -317,7 +324,7 @@ class Game {
           );
         } else
           return colors.red(
-            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+            "ERROR: " + this.turnSymbol + " cannout jump over " + victim.symbol
           );
       default:
         return colors.red("ERROR: Invalid Move.");
@@ -377,10 +384,7 @@ function getPrompt() {
     rl.question("to where?: ", toWhere => {
       let result = game.moveChecker(whichPiece, toWhere);
       if (result.includes("ERROR")) console.log("\n" + result + "\n");
-      else {
-        console.log("\n" + game.turnSymbol + " " + result + "\n");
-        game.nextTurn();
-      }
+      else console.log("\n" + game.turnSymbol + " " + result + "\n");
       getPrompt();
     });
   });
