@@ -95,6 +95,14 @@ class Board {
     return currentPiece;
   }
 
+  removePiece(currentPiece) {
+    const row = currentPiece.row;
+    const col = currentPiece.col;
+    this.grid[row][col] = null;
+    const index = this.checkers.indexOf(currentPiece);
+    this.checkers.splice(index, 1);
+  }
+
   isLegalMove(currentPiece, toWhere) {
     const coordinate = toWhere.split("");
     const newRow = parseInt(coordinate[0]);
@@ -108,20 +116,52 @@ class Board {
       this.grid[newRow][newCol]
     ) {
       return false;
-    } else if (
-      (currentPiece.isKing || currentPiece.symbol === "x") &&
-      newRow === oldRow + 1 &&
-      (newCol === oldCol + 1 || newCol === oldCol - 1)
-    ) {
-      return true;
-    } else if (
-      (currentPiece.isKing || currentPiece.symbol === "o") &&
-      newRow === oldRow - 1 &&
-      (newCol === oldCol + 1 || newCol === oldCol - 1)
-    ) {
-      return true;
-    } else {
-      return false;
+    } else if (currentPiece.isKing || currentPiece.symbol === "x") {
+      if (
+        newRow === oldRow + 1 &&
+        (newCol === oldCol + 1 || newCol === oldCol - 1)
+      ) {
+        return true;
+      } else if (
+        this.grid[oldRow + 1][oldCol + 1] &&
+        newRow === oldRow + 2 &&
+        newCol === oldCol + 2
+      ) {
+        this.removePiece(this.grid[oldRow + 1][oldCol + 1]);
+        return true;
+      } else if (
+        this.grid[oldRow + 1][oldCol - 1] &&
+        newRow === oldRow + 2 &&
+        newCol === oldCol - 2
+      ) {
+        this.removePiece(this.grid[oldRow + 1][oldCol - 1]);
+        return true;
+      } else {
+        return false;
+      }
+    } else if (currentPiece.isKing || currentPiece.symbol === "o") {
+      if (
+        newRow === oldRow - 1 &&
+        (newCol === oldCol + 1 || newCol === oldCol - 1)
+      ) {
+        return true;
+      } else if (
+        this.grid[oldRow - 1][oldCol + 1] &&
+        newRow === oldRow - 2 &&
+        newCol === oldCol + 2
+      ) {
+        this.removePiece(this.grid[oldRow - 1][oldCol + 1]);
+        return true;
+      } else if (
+        this.grid[oldRow - 1][oldCol - 1] &&
+        newRow === oldRow - 2 &&
+        newCol === oldCol - 2
+      ) {
+        this.removePiece(this.grid[oldRow - 1][oldCol - 1]);
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
