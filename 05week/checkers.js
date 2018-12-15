@@ -19,6 +19,7 @@ const JUMP_DOWN_LEFT = 2;
 const JUMP_DOWN_RIGHT = 3;
 const JUMP_UP_LEFT = 4;
 const JUMP_UP_RIGHT = 5;
+const WRONG_TURN = -1;
 const INVALID_MOVE = -2;
 
 class Board {
@@ -114,6 +115,13 @@ class Game {
   start() {
     this.board.createGrid();
     this.board.placeCheckers();
+    this.turnSymbol = bottomSymbol;
+    this.turnNumber = 1;
+  }
+  nextTurn() {
+    this.turnNumber++;
+    if (this.turnSymbol === bottomSymbol) this.turnSymbol = topSymbol;
+    else this.turnSymbol = bottomSymbol;
   }
   moveChecker(whichPiece, toWhere) {
     // ensure valid input
@@ -124,7 +132,7 @@ class Game {
       toWhere.length != 2
     )
       return colors.red(
-        "Invalid input. Not of format 'yx' , where y = row number and x = column nummber."
+        "ERROR: Not of format 'yx' , where y = row number and x = column nummber."
       );
 
     // coordinates
@@ -144,12 +152,26 @@ class Game {
     let symbol = null;
     if (origin) symbol = this.board.grid[originY][originX].symbol;
 
-    let move = checkMove(originY, originX, target, targetY, targetX, symbol);
+    let turnSymbol = this.turnSymbol;
+    let move = checkMove(
+      originY,
+      originX,
+      target,
+      targetY,
+      targetX,
+      symbol,
+      turnSymbol
+    );
 
     switch (move) {
+      case WRONG_TURN:
+        let wrongSymbol = null;
+        if (this.turnSymbol === bottomSymbol) wrongSymbol = topSymbol;
+        else wrongSymbol = bottomSymbol;
+        return "ERROR: It is not " + wrongSymbol + "'s turn.";
       case INVALID_MOVE:
         return colors.red(
-          "Cannot move from (" +
+          "ERROR: Cannot move from (" +
             originY +
             "," +
             originX +
@@ -173,7 +195,6 @@ class Game {
             targetX +
             ")."
         );
-      // check this.board.grid[originY+1][originX-1]
       case JUMP_DOWN_LEFT:
         victimY = parseInt(originY) + 1;
         victimX = parseInt(originX) - 1;
@@ -201,8 +222,10 @@ class Game {
             victimX +
             ")."
           );
-        } else return colors.red("Invalid move.");
-      // check this.board.grid[originY+1][originX+1]
+        } else
+          return colors.red(
+            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+          );
       case JUMP_DOWN_RIGHT:
         victimY = parseInt(originY) + 1;
         victimX = parseInt(originX) + 1;
@@ -230,8 +253,10 @@ class Game {
               victimX +
               ")."
           );
-        } else return colors.red("Invalid move.");
-      // check this.board.grid[originY-1][originX-1]
+        } else
+          return colors.red(
+            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+          );
       case JUMP_UP_LEFT:
         victimY = parseInt(originY) - 1;
         victimX = parseInt(originX) - 1;
@@ -259,8 +284,10 @@ class Game {
               victimX +
               ")."
           );
-        } else return colors.red("Invalid move.");
-      // check this.board.grid[originY-1][originX+1]
+        } else
+          return colors.red(
+            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+          );
       case JUMP_UP_RIGHT:
         victimY = parseInt(originY) - 1;
         victimX = parseInt(originX) + 1;
@@ -288,14 +315,25 @@ class Game {
               victimX +
               ")."
           );
-        } else return colors.red("Invalid move.");
+        } else
+          return colors.red(
+            "ERROR: " + this.turn + " cannout jump over " + victim.symbol
+          );
       default:
-        return colors.red("Invalid Move.");
+        return colors.red("ERROR: Invalid Move.");
     }
   }
 }
 
-function checkMove(originY, originX, target, targetY, targetX, symbol, turn) {
+function checkMove(
+  originY,
+  originX,
+  target,
+  targetY,
+  targetX,
+  symbol,
+  turnSymbol
+) {
   let distanceX = Math.abs(targetX - originX);
   let distanceY = Math.abs(targetY - originY);
 
@@ -306,6 +344,8 @@ function checkMove(originY, originX, target, targetY, targetX, symbol, turn) {
   let directionX = null;
   if (targetX < originX) directionX = "LEFT";
   if (targetX > originX) directionX = "RIGHT";
+
+  if (symbol !== turnSymbol) return WRONG_TURN;
 
   if (symbol === topSymbol) {
     // top player move logic
@@ -331,11 +371,16 @@ function checkMove(originY, originX, target, targetY, targetX, symbol, turn) {
 }
 
 function getPrompt() {
+  console.log("Turn " + game.turnNumber + ": " + game.turnSymbol);
   game.board.viewGrid();
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       let result = game.moveChecker(whichPiece, toWhere);
-      console.log("\n" + result + "\n");
+      if (result.includes("ERROR")) console.log("\n" + result + "\n");
+      else {
+        console.log("\n" + game.turnSymbol + " " + result + "\n");
+        game.nextTurn();
+      }
       getPrompt();
     });
   });
