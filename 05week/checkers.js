@@ -10,14 +10,14 @@ const rl = readline.createInterface({
 class Checker {
   // Your code here
   constructor(checkerColor) {
-    // similar to what we did in class, but using if statement create "B" blacke or "R" red pieces
+    // similar to what we did in class, but using if statement create "B" black or "R" red pieces
     if (checkerColor != "red") {
-      // (taken from viewGrid) push the symbol of the check in that location into the array
+      // (taken from viewGrid) push the symbol of the checker in that location into the array
       this.symbol = "R";
     } else {
       this.symbol = "B";
     }
-    console.log(this.symbol, "============this is a piece===========");
+    console.log(this.symbol, "============this is a game piece===========");
   }
 }
 
@@ -51,9 +51,9 @@ class Board {
       for (let column = 0; column < 8; column++) {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
-          // push the symbol of the check in that location into the array
+          // push the symbol of the checker in that location into the array
+          // symbol = checker (specify red or black)
           rowOfCheckers.push(this.grid[row][column].symbol);
-          console.log(typeof this.grid[row][column].symbol);
         } else {
           // just push in a blank space
           rowOfCheckers.push(" ");
@@ -75,6 +75,8 @@ class Board {
       let redVertical = redPiece[i][1];
       let newRedPiece = new Checker("red");
       this.checkers.push(newRedPiece);
+      console.log(this.grid);
+      console.log(this.grid[redHorizontal]);
       this.grid[redHorizontal][redVertical] = newRedPiece;
     }
   }
