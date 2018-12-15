@@ -22,6 +22,7 @@ const MOVE_ERROR_1 = "cannot move more than 2 spaces at a time.";
 const MOVE_ERROR_2 = "cannot to a space that is already occupied.";
 const MOVE_ERROR_3 = "cannot move in a straight line.";
 const MOVE_ERROR_4 = "is not a king, therefore cannot move backwards.";
+const MOVE_ERROR_5 = "not your turn.";
 
 //jump/kill errors
 const KILL_ERROR_1 = "You can't jump you're own checkers idiot.";
@@ -85,7 +86,6 @@ class Board {
         this.grid[row][col] = checker;
         this.checkers.push(checker);
         checkerCount++;
-        console.log(checker);
         // this.checkers.push(newChecker);
       }
     }
@@ -100,10 +100,16 @@ class Board {
 class Game {
   constructor() {
     this.board = new Board();
+    this.turnCount = 1;
+    this.turnColor = "white";
   }
   start() {
     this.board.createGrid();
     this.board.placeCheckers();
+  }
+  nextTurn() {
+    this.turnCount++;
+    this.turnColor = this.turnCount % 2 ? "white" : "red";
   }
   checkInput(whichPiece, toWhere) {
     // catch all for user input errors
@@ -152,6 +158,18 @@ class Game {
       return false;
     }
 
+    // moved out of turn
+    if (this.turnColor !== checkerToMove.color) {
+      console.log(checkerToMove.symbol, MOVE_ERROR_5);
+      return false;
+    }
+
+    // didn't move diagonally
+    if (y1 === y2 || x1 === x2) {
+      console.log(checkerToMove.symbol, MOVE_ERROR_3);
+      return false;
+    }
+
     // moved too far
     if (distanceX > 2 || distanceY > 2 || distanceX < -2 || distanceY < -2) {
       console.log(checkerToMove.symbol, MOVE_ERROR_1);
@@ -164,12 +182,6 @@ class Game {
       return false;
     }
 
-    // didn't move diagonally
-    if (y1 === y2 || x1 === x2) {
-      console.log(checkerToMove.symbol, MOVE_ERROR_3);
-      return false;
-    }
-
     // red/white non-king tried to move up/down
     if (!checkerToMove.isKing) {
       if (checkerToMove.color === "white") {
@@ -177,39 +189,49 @@ class Game {
           console.log(checkerToMove.symbol, MOVE_ERROR_4);
           return false;
         }
-      } else if (distanceY < 0) {
-        console.log(checkerToMove.symbol, MOVE_ERROR_4);
-        return false;
+      } else {
+        if (distanceY < 0) {
+          console.log(checkerToMove.symbol, MOVE_ERROR_4);
+          return false;
+        }
       }
     }
 
     return true;
   }
   actuallyMoveChecker(y1, x1, y2, x2) {
-    let killerColor = this.board.grid[y1][x1].color;
+    let killer = this.board.grid[y1][x1];
+    let victimKilled = false;
     let distanceX = x2 - x1;
     let distanceY = y2 - y1;
 
-    this.board.grid[y2][x2] = this.board.grid[y1][x1];
-    this.board.grid[y1][x1] = null;
-
     if (distanceY > 1 && distanceX > 1)
-      this.killChecker(y2 - 1, x2 - 1, killerColor);
+      victimKilled = this.locateVictim(y2 - 1, x2 - 1, killer);
     if (distanceY < -1 && distanceX > 1)
-      this.killChecker(y2 + 1, x2 - 1, killerColor);
+      victimKilled = this.locateVictim(y2 + 1, x2 - 1, killer);
     if (distanceY > 1 && distanceX < -1)
-      this.killChecker(y2 - 1, x2 + 1, killerColor);
+      victimKilled = this.locateVictim(y2 - 1, x2 + 1, killer);
     if (distanceY < -1 && distanceX < -1)
-      this.killChecker(y2 + 1, x2 + 1, killerColor);
-  }
-  killChecker(y, x, killerColor) {
-    let victimColor = this.board.grid[y][x].color;
-    if (victimColor !== killerColor) {
-      this.board.grid[y][x] = null;
-      this.board.checkers.pop();
-    } else {
-      console.log(KILL_ERROR_1);
+      victimKilled = this.locateVictim(y2 + 1, x2 + 1, killer);
+
+    if (victimKilled || (!victimKilled && Math.abs(distanceX) === 1)) {
+      this.board.grid[y2][x2] = this.board.grid[y1][x1];
+      this.board.grid[y1][x1] = null;
+      this.nextTurn();
     }
+  }
+  locateVictim(y, x, killer) {
+    let victim = this.board.grid[y][x];
+    if (victim.color !== killer.color) {
+      this.killVictim(y, x);
+      return true;
+    } else console.log(KILL_ERROR_1);
+  }
+  killVictim(y, x) {
+    this.board.grid[y][x] = null;
+    this.board.checkers.splice(
+      this.board.checkers.indexOf(this.board.grid[y][x], 1)
+    );
   }
 }
 
