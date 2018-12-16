@@ -76,15 +76,21 @@ function diagonalWin() {
   }
   return false;
 }
-
+// write a function that if there is no winner it states the cat wins the game
 function theCatWins() {
-  if ()
+  if (!horizontalWin() && !verticalWin() && !horizontalWin()) {
+    console.log("The Cat takes this one!!");
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
 function checkForWin() {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     printBoard();
+    theCatWins();
     console.log("Winner!!");
     gameOver = true;
     return true;
