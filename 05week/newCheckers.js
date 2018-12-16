@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 });
 
 const topColor = "red";
-const bottomColor = "white";
+const botColor = "white";
 const topCheckerSymbol = colors.red("\u00A9");
 const bottomCheckerSymbol = colors.white("\u00A9");
 const topKingSymbol = colors.red("\u2655");
@@ -23,7 +23,7 @@ const USER_ERROR_2 = "Input must be between 00-77.";
 // move errors
 const MOVE_ERROR_0 = "has no checker.";
 const MOVE_ERROR_1 = "cannot move more than 2 spaces at a time.";
-const MOVE_ERROR_2 = "cannot to a space that is already occupied.";
+const MOVE_ERROR_2 = "cannot move to a space that is already occupied.";
 const MOVE_ERROR_3 = "cannot move in a straight line.";
 const MOVE_ERROR_4 = "is not a king, therefore cannot move backwards.";
 const MOVE_ERROR_5 = "not your turn.";
@@ -91,14 +91,13 @@ class Board {
         this.grid[row][col] = checker;
         this.checkers.push(checker);
         checkerCount++;
-        // this.checkers.push(newChecker);
       }
     }
   }
 
   placeCheckers() {
     this.insertCheckers(0, topColor, topCheckerSymbol);
-    this.insertCheckers(5, bottomColor, bottomCheckerSymbol);
+    this.insertCheckers(5, botColor, bottomCheckerSymbol);
   }
 }
 
@@ -106,7 +105,8 @@ class Game {
   constructor() {
     this.board = new Board();
     this.turnCount = 1;
-    this.turnColor = bottomColor;
+    this.turnColor = botColor;
+    this.winner = false;
   }
   start() {
     this.board.createGrid();
@@ -114,12 +114,27 @@ class Game {
   }
   nextTurn() {
     this.turnCount++;
-    this.turnColor = this.turnCount % 2 ? bottomColor : topColor;
+    this.turnColor = this.turnCount % 2 ? botColor : topColor;
   }
   displayTurn() {
     let turnSymbol =
       this.turnCount % 2 ? bottomCheckerSymbol : topCheckerSymbol;
     console.log("\nTurn", this.turnCount + ":", turnSymbol);
+  }
+  checkForWin() {
+    if (this.board.checkers.length <= 12) {
+      this.winner = this.board.checkers.every(function(checker, i, checkers) {
+        return checker.color === checkers[0].color;
+      });
+    }
+  }
+  endGame() {
+    let turnSymbol =
+      this.turnCount % 2 ? topCheckerSymbol : bottomCheckerSymbol;
+    if (this.winner) {
+      console.log(turnSymbol, "wins!!!");
+      return true;
+    }
   }
   checkInput(whichPiece, toWhere) {
     // catch all for user input errors
@@ -210,7 +225,10 @@ class Game {
     // didn't jump when one was available
     for (let row = 0; row < 8; row++) {
       for (let col = 0; col < 8; col++) {
-        if (this.board.grid[row][col]) {
+        if (
+          this.board.grid[row][col] &&
+          this.board.grid[row][col].color === this.turnColor
+        ) {
           if (this.checkForAvailableJump(row, col) && Math.abs(distanceX) < 2) {
             console.log(checkerToMove.symbol, MOVE_ERROR_6);
             return false;
@@ -239,68 +257,63 @@ class Game {
       this.board.grid[y2][x2] = this.board.grid[y1][x1];
       this.board.grid[y1][x1] = null;
       this.crownKing(this.board.grid[y2][x2], y2);
+      if (this.checkForAvailableJump(y2, x2) && victimKilled) return;
       this.nextTurn();
+    } else {
+      console.log(killer.symbol, MOVE_ERROR_1);
+      return;
     }
   }
   checkForAvailableJump(y, x) {
     let checker = this.board.grid[y][x];
-    let victimTR,
-      victimTL,
-      victimBR,
-      victimBL,
-      targetTR,
-      targetTL,
-      targetBR,
-      targetBL = null;
 
-    if (y - 1 >= 0 && y + 1 <= 7 && x - 1 >= 0 && x + 1 <= 7) {
-      victimTR = this.board.grid[y - 1][x + 1];
-      victimTL = this.board.grid[y - 1][x + 1];
-      victimBR = this.board.grid[y + 1][x + 1];
-      victimBL = this.board.grid[y + 1][x - 1];
+    let victimTR = null;
+    let victimTL = null;
+    let victimBR = null;
+    let victimBL = null;
+
+    let targetTR = true;
+    let targetTL = true;
+    let targetBR = true;
+    let targetBL = true;
+
+    if (y - 1 >= 0 && x - 1 >= 0) victimTL = this.board.grid[y - 1][x - 1];
+    if (y - 1 >= 0 && x + 1 <= 7) victimTR = this.board.grid[y - 1][x + 1];
+    if (y + 1 <= 7 && x + 1 <= 7) victimBR = this.board.grid[y + 1][x + 1];
+    if (y + 1 <= 7 && x - 1 >= 0) victimBL = this.board.grid[y + 1][x - 1];
+
+    if (y - 2 >= 0 && x - 2 >= 0) targetTL = this.board.grid[y - 2][x - 2];
+    if (y - 2 >= 0 && x + 2 <= 7) targetTR = this.board.grid[y - 2][x + 2];
+    if (y + 2 <= 7 && x + 2 <= 7) targetBR = this.board.grid[y + 2][x + 2];
+    if (y + 2 <= 7 && x - 2 >= 0) targetBL = this.board.grid[y + 2][x - 2];
+
+    // non kings
+    if (checker.color === botColor) {
+      // white non king
+      if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
+      if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
+    } else {
+      // red non king
+      if (victimBR && !targetBR) if (victimBR.color === botColor) return true;
+      if (victimBL && !targetBL) if (victimBL.color === botColor) return true;
     }
 
-    if (y - 2 >= 0 && y + 2 <= 7 && x - 2 >= 0 && x + 2 <= 7) {
-      targetTR = this.board.grid[y - 2][x + 2];
-      targetTL = this.board.grid[y - 2][x + 2];
-      targetBR = this.board.grid[y + 2][x + 2];
-      targetBL = this.board.grid[y + 2][x - 2];
-    }
-
+    // kings
     if (checker.isKing) {
-      if (checker.color === bottomColor) {
+      if (checker.color === botColor) {
         // white king
-        if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
-        if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
         if (victimBR && !targetBR) if (victimBR.color === topColor) return true;
         if (victimBL && !targetBL) if (victimBL.color === topColor) return true;
       } else {
         // red king
-        if (victimTR && !targetTR)
-          if (victimTR.color === bottomColor) return true;
-        if (victimTL && !targetTL)
-          if (victimTL.color === bottomColor) return true;
-        if (victimBR && !targetBR)
-          if (victimBR.color === bottomColor) return true;
-        if (victimBL && !targetBL)
-          if (victimBL.color === bottomColor) return true;
-      }
-    } else {
-      if (checker.color === bottomColor) {
-        // white non king
-        if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
-        if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
-      } else {
-        // red non victimBL
-        if (victimBR && !targetBR)
-          if (victimBR.color === bottomColor) return true;
-        if (victimBL && !targetBL)
-          if (victimBL.color === bottomColor) return true;
+        if (victimTR && !targetTR) if (victimTR.color === botColor) return true;
+        if (victimTL && !targetTL) if (victimTL.color === botColor) return true;
       }
     }
   }
   locateVictim(y, x, killer) {
     let victim = this.board.grid[y][x];
+    if (!victim) return false;
     if (victim.color !== killer.color) {
       this.killVictim(y, x);
       return true;
@@ -330,7 +343,9 @@ function getPrompt() {
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       game.moveChecker(whichPiece, toWhere);
-      getPrompt();
+      game.checkForWin();
+      if (game.endGame()) return;
+      else getPrompt();
     });
   });
 }
