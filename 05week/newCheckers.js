@@ -27,6 +27,7 @@ const MOVE_ERROR_2 = "cannot to a space that is already occupied.";
 const MOVE_ERROR_3 = "cannot move in a straight line.";
 const MOVE_ERROR_4 = "is not a king, therefore cannot move backwards.";
 const MOVE_ERROR_5 = "not your turn.";
+const MOVE_ERROR_6 = "has an available jump and must take it.";
 
 //jump/kill errors
 const KILL_ERROR_1 = "You can't jump you're own checkers idiot.";
@@ -206,6 +207,17 @@ class Game {
       }
     }
 
+    // didn't jump when one was available
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        if (this.board.grid[row][col]) {
+          if (this.checkForAvailableJump(row, col) && Math.abs(distanceX) < 2) {
+            console.log(checkerToMove.symbol, MOVE_ERROR_6);
+            return false;
+          }
+        }
+      }
+    }
     return true;
   }
   actuallyMoveChecker(y1, x1, y2, x2) {
@@ -228,6 +240,63 @@ class Game {
       this.board.grid[y1][x1] = null;
       this.crownKing(this.board.grid[y2][x2], y2);
       this.nextTurn();
+    }
+  }
+  checkForAvailableJump(y, x) {
+    let checker = this.board.grid[y][x];
+    let victimTR,
+      victimTL,
+      victimBR,
+      victimBL,
+      targetTR,
+      targetTL,
+      targetBR,
+      targetBL = null;
+
+    if (y - 1 >= 0 && y + 1 <= 7 && x - 1 >= 0 && x + 1 <= 7) {
+      victimTR = this.board.grid[y - 1][x + 1];
+      victimTL = this.board.grid[y - 1][x + 1];
+      victimBR = this.board.grid[y + 1][x + 1];
+      victimBL = this.board.grid[y + 1][x - 1];
+    }
+
+    if (y - 2 >= 0 && y + 2 <= 7 && x - 2 >= 0 && x + 2 <= 7) {
+      targetTR = this.board.grid[y - 2][x + 2];
+      targetTL = this.board.grid[y - 2][x + 2];
+      targetBR = this.board.grid[y + 2][x + 2];
+      targetBL = this.board.grid[y + 2][x - 2];
+    }
+
+    if (checker.isKing) {
+      if (checker.color === bottomColor) {
+        // white king
+        if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
+        if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
+        if (victimBR && !targetBR) if (victimBR.color === topColor) return true;
+        if (victimBL && !targetBL) if (victimBL.color === topColor) return true;
+      } else {
+        // red king
+        if (victimTR && !targetTR)
+          if (victimTR.color === bottomColor) return true;
+        if (victimTL && !targetTL)
+          if (victimTL.color === bottomColor) return true;
+        if (victimBR && !targetBR)
+          if (victimBR.color === bottomColor) return true;
+        if (victimBL && !targetBL)
+          if (victimBL.color === bottomColor) return true;
+      }
+    } else {
+      if (checker.color === bottomColor) {
+        // white non king
+        if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
+        if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
+      } else {
+        // red non victimBL
+        if (victimBR && !targetBR)
+          if (victimBR.color === bottomColor) return true;
+        if (victimBL && !targetBL)
+          if (victimBL.color === bottomColor) return true;
+      }
     }
   }
   locateVictim(y, x, killer) {
