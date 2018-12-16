@@ -77,7 +77,7 @@ class Board {
       }
     }
     console.log(redPiece);
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < redPiece.length; i++) {
       // make the next checker piece
       let redRow = redPiece[i][0];
       let redColumn = redPiece[i][1];
