@@ -11,13 +11,13 @@ class Checker {
   // Your code here
   constructor(checkerColor) {
     // similar to what we did in class, but using if statement create "B" black or "R" red pieces
-    if (checkerColor != "red") {
+    if (checkerColor === "red") {
       // (taken from viewGrid) push the symbol of the checker in that location into the array
-      this.symbol = "R";
+      this.symbol = "r";
     } else {
-      this.symbol = "B";
+      this.symbol = "b";
     }
-    console.log(this.symbol, "============this is a game piece===========");
+    // console.log(this.symbol, "============this is a game piece===========");
   }
 }
 
@@ -60,7 +60,7 @@ class Board {
         }
       }
       // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join("|");
+      string += rowOfCheckers.join(" ");
       // add a 'new line'
       string += "\n";
     }
@@ -68,16 +68,25 @@ class Board {
   }
 
   placePieces() {
-    const redPiece = [[0, 0], [0, 2], [0, 4], [0, 6]];
-    for (let i = 0; i < 4; i++) {
+    let redPiece = [];
+    for (let redHorizontal = 0; redHorizontal < 3; redHorizontal++) {
+      for (let redVertical = 0; redVertical < 8; redVertical++) {
+        if ((redHorizontal + redVertical) % 2 === 1) {
+          redPiece.push([redHorizontal, redVertical]);
+        }
+      }
+    }
+    console.log(redPiece);
+    for (let i = 0; i < 12; i++) {
       // make the next checker piece
-      let redHorizontal = redPiece[i][0];
-      let redVertical = redPiece[i][1];
+      let redRow = redPiece[i][0];
+      let redColumn = redPiece[i][1];
       let newRedPiece = new Checker("red");
       this.checkers.push(newRedPiece);
       console.log(this.grid);
-      console.log(this.grid[redHorizontal]);
-      this.grid[redHorizontal][redVertical] = newRedPiece;
+      console.log(this.grid[redRow]);
+
+      this.grid[redRow][redColumn] = newRedPiece;
     }
   }
 
