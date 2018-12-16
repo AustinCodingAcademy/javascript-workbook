@@ -88,6 +88,23 @@ class Board {
 
       this.grid[redRow][redColumn] = newRedPiece;
     }
+    let blackPiece = [];
+    for (let blackHorizontal = 5; blackHorizontal < 8; blackHorizontal++) {
+      for (let blackVertical = 0; blackVertical < 8; blackVertical++) {
+        if ((blackHorizontal + blackVertical) % 2 === 1) {
+          blackPiece.push([blackHorizontal, blackVertical]);
+        }
+      }
+    }
+    console.log(blackPiece);
+    for (let i = 0; i < blackPiece.length; i++) {
+      let blackRow = blackPiece[i][0];
+      let blackColumn = blackPiece[i][1];
+      let newBlackPiece = new Checker("black");
+      console.log(this.grid[blackRow]);
+      this.checkers.push(newBlackPiece);
+      this.grid[blackRow][blackColumn] = newBlackPiece;
+    }
   }
 
   // Your code here
