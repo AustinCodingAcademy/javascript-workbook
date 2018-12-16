@@ -9,8 +9,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const topSymbol = colors.red("\u00A9");
-const bottomSymbol = colors.white("\u00A9");
+const topColor = "red";
+const bottomColor = "white";
+const topCheckerSymbol = colors.red("\u00A9");
+const bottomCheckerSymbol = colors.white("\u00A9");
+const topKingSymbol = colors.red("\u2655");
+const bottomKingSymbol = colors.white("\u2655");
 
 //user input errors
 const USER_ERROR_1 = "Input too long and/or not a number.";
@@ -92,8 +96,8 @@ class Board {
   }
 
   placeCheckers() {
-    this.insertCheckers(0, "red", topSymbol);
-    this.insertCheckers(5, "white", bottomSymbol);
+    this.insertCheckers(0, topColor, topCheckerSymbol);
+    this.insertCheckers(5, bottomColor, bottomCheckerSymbol);
   }
 }
 
@@ -101,7 +105,7 @@ class Game {
   constructor() {
     this.board = new Board();
     this.turnCount = 1;
-    this.turnColor = "white";
+    this.turnColor = bottomColor;
   }
   start() {
     this.board.createGrid();
@@ -109,7 +113,12 @@ class Game {
   }
   nextTurn() {
     this.turnCount++;
-    this.turnColor = this.turnCount % 2 ? "white" : "red";
+    this.turnColor = this.turnCount % 2 ? bottomColor : topColor;
+  }
+  displayTurn() {
+    let turnSymbol =
+      this.turnCount % 2 ? bottomCheckerSymbol : topCheckerSymbol;
+    console.log("\nTurn", this.turnCount + ":", turnSymbol);
   }
   checkInput(whichPiece, toWhere) {
     // catch all for user input errors
@@ -217,6 +226,7 @@ class Game {
     if (victimKilled || (!victimKilled && Math.abs(distanceX) === 1)) {
       this.board.grid[y2][x2] = this.board.grid[y1][x1];
       this.board.grid[y1][x1] = null;
+      this.crownKing(this.board.grid[y2][x2], y2);
       this.nextTurn();
     }
   }
@@ -233,9 +243,20 @@ class Game {
       this.board.checkers.indexOf(this.board.grid[y][x], 1)
     );
   }
+  crownKing(checker, row) {
+    if (checker.color === "white" && row === 0) {
+      checker.isKing = true;
+      checker.symbol = bottomKingSymbol;
+    }
+    if (checker.color === topColor && row === 7) {
+      checker.isKing = true;
+      checker.symbol = topKingSymbol;
+    }
+  }
 }
 
 function getPrompt() {
+  game.displayTurn();
   game.board.viewGrid();
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
