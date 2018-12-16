@@ -9,18 +9,37 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// checker symbols
-const topSymbol = colors.red("\u00A9");
-const bottomSymbol = colors.white("\u00A9");
+const topColor = "red";
+const botColor = "white";
+const topCheckerSymbol = colors.red("\u00A9");
+const bottomCheckerSymbol = colors.white("\u00A9");
+const topKingSymbol = colors.red("\u2655");
+const bottomKingSymbol = colors.white("\u2655");
 
-// return codes
-const STANDARD_MOVE = 1;
-const JUMP_DOWN_LEFT = 2;
-const JUMP_DOWN_RIGHT = 3;
-const JUMP_UP_LEFT = 4;
-const JUMP_UP_RIGHT = 5;
-const WRONG_TURN = -1;
-const INVALID_MOVE = -2;
+//user input errors
+const USER_ERROR_1 = "Input too long and/or not a number.";
+const USER_ERROR_2 = "Input must be between 00-77.";
+
+// move errors
+const MOVE_ERROR_0 = "has no checker.";
+const MOVE_ERROR_1 = "cannot move more than 2 spaces at a time.";
+const MOVE_ERROR_2 = "cannot move to a space that is already occupied.";
+const MOVE_ERROR_3 = "cannot move in a straight line.";
+const MOVE_ERROR_4 = "is not a king, therefore cannot move backwards.";
+const MOVE_ERROR_5 = "not your turn.";
+const MOVE_ERROR_6 = "has an available jump and must take it.";
+
+//jump/kill errors
+const KILL_ERROR_1 = "You can't jump you're own checkers idiot.";
+
+class Checker {
+  constructor(color, symbol, number) {
+    this.color = color;
+    this.symbol = symbol;
+    this.number = number;
+    this.isKing = false;
+  }
+}
 
 class Board {
   constructor() {
@@ -33,23 +52,23 @@ class Board {
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
       // push in 8 columns of nulls
-      for (let column = 0; column < 8; column++) {
-        this.grid[row].push();
+      for (let col = 0; col < 8; col++) {
+        this.grid[row].push(null);
       }
     }
   }
   viewGrid() {
-    // add our column numbers
+    // add our col numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
       const rowOfCheckers = [row];
       // a loop within a loop
-      for (let column = 0; column < 8; column++) {
+      for (let col = 0; col < 8; col++) {
         // if the location is "truthy" (contains a checker piece, in this case)
-        if (this.grid[row][column]) {
+        if (this.grid[row][col]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfCheckers.push(this.grid[row][col].symbol);
         } else {
           // just push in a blank space
           rowOfCheckers.push(" ");
@@ -63,329 +82,270 @@ class Board {
     console.log(string);
   }
 
-  // Your code here
-  // method to insert new Checkers to starting places
-  placeCheckers() {
-    // top player checkers
-    for (let row = 0; row < 3; row++) {
-      let startCol = 1;
-      if (row === 1) startCol = 0;
-      for (let column = startCol; column < 8; column += 2) {
-        let newChecker = new Checker(column, row);
-        this.grid[row][column] = newChecker;
-        this.checkers.push(newChecker);
-      }
-    }
-
-    // bottom player checkers
-    for (let row = 5; row < 8; row++) {
-      let startCol = 0;
-      if (row === 6) startCol = 1;
-      for (let column = startCol; column < 8; column += 2) {
-        let newChecker = new Checker(column, row);
-        this.grid[row][column] = newChecker;
-        this.checkers.push(newChecker);
+  // your code here
+  insertCheckers(startRow, color, symbol) {
+    let checkerCount = 1;
+    for (let row = startRow; row < startRow + 3; row++) {
+      for (let col = row % 2 ? 0 : 1; col < 8; col += 2) {
+        let checker = new Checker(color, symbol, checkerCount);
+        this.grid[row][col] = checker;
+        this.checkers.push(checker);
+        checkerCount++;
       }
     }
   }
-}
 
-// create a Checker class
-class Checker {
-  constructor(col, row) {
-    this.col = col;
-    this.row = row;
-
-    // top checkers
-    if (row < 3) {
-      this.symbol = topSymbol;
-    }
-
-    // bottom checkers
-    if (row > 4) {
-      this.symbol = bottomSymbol;
-    }
+  placeCheckers() {
+    this.insertCheckers(0, topColor, topCheckerSymbol);
+    this.insertCheckers(5, botColor, bottomCheckerSymbol);
   }
 }
 
 class Game {
   constructor() {
     this.board = new Board();
+    this.turnCount = 1;
+    this.turnColor = botColor;
+    this.winner = false;
   }
   start() {
     this.board.createGrid();
     this.board.placeCheckers();
-    this.turnSymbol = bottomSymbol;
-    this.turnNumber = 1;
   }
   nextTurn() {
-    this.turnNumber++;
-    if (this.turnSymbol === bottomSymbol) this.turnSymbol = topSymbol;
-    else this.turnSymbol = bottomSymbol;
+    this.turnCount++;
+    this.turnColor = this.turnCount % 2 ? botColor : topColor;
   }
-  moveChecker(whichPiece, toWhere) {
-    // ensure valid input
+  displayTurn() {
+    let turnSymbol =
+      this.turnCount % 2 ? bottomCheckerSymbol : topCheckerSymbol;
+    console.log("\nTurn", this.turnCount + ":", turnSymbol);
+  }
+  checkForWin() {
+    if (this.board.checkers.length <= 12) {
+      this.winner = this.board.checkers.every(function(checker, i, checkers) {
+        return checker.color === checkers[0].color;
+      });
+    }
+  }
+  endGame() {
+    let turnSymbol =
+      this.turnCount % 2 ? topCheckerSymbol : bottomCheckerSymbol;
+    if (this.winner) {
+      console.log(turnSymbol, "wins!!!");
+      return true;
+    }
+  }
+  checkInput(whichPiece, toWhere) {
+    // catch all for user input errors
     if (
-      !parseInt(whichPiece, 10) ||
-      !parseInt(toWhere, 10) ||
+      isNaN(whichPiece) ||
+      isNaN(toWhere) ||
       whichPiece.length != 2 ||
       toWhere.length != 2
-    )
-      return colors.red(
-        "ERROR: Not of format 'yx' , where y = row number and x = column nummber."
-      );
+    ) {
+      console.log(USER_ERROR_1);
+      return false;
+    } else if (
+      parseInt(whichPiece) < 0 ||
+      parseInt(toWhere) < 0 ||
+      parseInt(whichPiece) > 77 ||
+      parseInt(toWhere) > 77
+    ) {
+      console.log(USER_ERROR_2);
+      return false;
+    } else return true;
+  }
+  parseInput(whichPiece, toWhere) {
+    if (!this.checkInput(whichPiece, toWhere)) return;
+    else {
+      // grid coordinates
+      let originY = parseInt(whichPiece[0]);
+      let originX = parseInt(whichPiece[1]);
+      let targetY = parseInt(toWhere[0]);
+      let targetX = parseInt(toWhere[1]);
 
-    // coordinates
-    let originY = whichPiece[0];
-    let originX = whichPiece[1];
-    let targetY = toWhere[0];
-    let targetX = toWhere[1];
-    let victimY = null;
-    let victimX = null;
+      if (!this.checkForValidMove(originY, originX, targetY, targetX)) return;
+      else {
+        this.moveChecker(originY, originX, targetY, targetX);
+      }
+    }
+  }
+  checkForValidMove(y1, x1, y2, x2) {
+    let distanceX = x2 - x1;
+    let distanceY = y2 - y1;
+    let checkerToMove = this.board.grid[y1][x1];
+    let targetToOccupy = this.board.grid[y2][x2];
 
-    // checkers
-    let origin = this.board.grid[originY][originX];
-    let target = this.board.grid[targetY][targetX];
-    let victim = null;
+    // no checker to move
+    if (!checkerToMove) {
+      console.log("(" + y1 + "," + x1 + ")", MOVE_ERROR_0);
+      return false;
+    }
 
-    // checker symbols
-    let symbol = null;
-    let turnSymbol = this.turnSymbol;
-    if (origin) symbol = this.board.grid[originY][originX].symbol;
+    // moved out of turn
+    if (this.turnColor !== checkerToMove.color) {
+      console.log(checkerToMove.symbol, MOVE_ERROR_5);
+      return false;
+    }
 
-    let move = checkMove(
-      originY,
-      originX,
-      target,
-      targetY,
-      targetX,
-      symbol,
-      turnSymbol
+    // didn't move diagonally
+    if (y1 === y2 || x1 === x2) {
+      console.log(checkerToMove.symbol, MOVE_ERROR_3);
+      return false;
+    }
+
+    // moved too far
+    if (distanceX > 2 || distanceY > 2 || distanceX < -2 || distanceY < -2) {
+      console.log(checkerToMove.symbol, MOVE_ERROR_1);
+      return false;
+    }
+
+    // moved onto occupied space
+    if (targetToOccupy) {
+      console.log(checkerToMove.symbol, MOVE_ERROR_2);
+      return false;
+    }
+
+    // red/white non-king tried to move up/down
+    if (!checkerToMove.isKing) {
+      if (checkerToMove.color === "white") {
+        if (distanceY > 0) {
+          console.log(checkerToMove.symbol, MOVE_ERROR_4);
+          return false;
+        }
+      } else {
+        if (distanceY < 0) {
+          console.log(checkerToMove.symbol, MOVE_ERROR_4);
+          return false;
+        }
+      }
+    }
+
+    // didn't jump when one was available
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        if (
+          this.board.grid[row][col] &&
+          this.board.grid[row][col].color === this.turnColor
+        ) {
+          if (this.checkForAvailableJump(row, col) && Math.abs(distanceX) < 2) {
+            console.log(checkerToMove.symbol, MOVE_ERROR_6);
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+  moveChecker(y1, x1, y2, x2) {
+    let killer = this.board.grid[y1][x1];
+    let victimKilled = false;
+    let distanceX = x2 - x1;
+    let distanceY = y2 - y1;
+
+    if (distanceY > 1 && distanceX > 1)
+      victimKilled = this.locateVictim(y2 - 1, x2 - 1, killer);
+    if (distanceY < -1 && distanceX > 1)
+      victimKilled = this.locateVictim(y2 + 1, x2 - 1, killer);
+    if (distanceY > 1 && distanceX < -1)
+      victimKilled = this.locateVictim(y2 - 1, x2 + 1, killer);
+    if (distanceY < -1 && distanceX < -1)
+      victimKilled = this.locateVictim(y2 + 1, x2 + 1, killer);
+
+    if (victimKilled || (!victimKilled && Math.abs(distanceX) === 1)) {
+      this.board.grid[y2][x2] = this.board.grid[y1][x1];
+      this.board.grid[y1][x1] = null;
+      this.crownKing(this.board.grid[y2][x2], y2);
+      if (this.checkForAvailableJump(y2, x2) && victimKilled) return;
+      this.nextTurn();
+    } else {
+      console.log(killer.symbol, MOVE_ERROR_1);
+      return;
+    }
+  }
+  checkForAvailableJump(y, x) {
+    let checker = this.board.grid[y][x];
+
+    let victimTR = null;
+    let victimTL = null;
+    let victimBR = null;
+    let victimBL = null;
+
+    let targetTR = true;
+    let targetTL = true;
+    let targetBR = true;
+    let targetBL = true;
+
+    if (y - 1 >= 0 && x - 1 >= 0) victimTL = this.board.grid[y - 1][x - 1];
+    if (y - 1 >= 0 && x + 1 <= 7) victimTR = this.board.grid[y - 1][x + 1];
+    if (y + 1 <= 7 && x + 1 <= 7) victimBR = this.board.grid[y + 1][x + 1];
+    if (y + 1 <= 7 && x - 1 >= 0) victimBL = this.board.grid[y + 1][x - 1];
+
+    if (y - 2 >= 0 && x - 2 >= 0) targetTL = this.board.grid[y - 2][x - 2];
+    if (y - 2 >= 0 && x + 2 <= 7) targetTR = this.board.grid[y - 2][x + 2];
+    if (y + 2 <= 7 && x + 2 <= 7) targetBR = this.board.grid[y + 2][x + 2];
+    if (y + 2 <= 7 && x - 2 >= 0) targetBL = this.board.grid[y + 2][x - 2];
+
+    // non kings
+    if (checker.color === botColor) {
+      // white non king
+      if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
+      if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
+    } else {
+      // red non king
+      if (victimBR && !targetBR) if (victimBR.color === botColor) return true;
+      if (victimBL && !targetBL) if (victimBL.color === botColor) return true;
+    }
+
+    // kings
+    if (checker.isKing) {
+      if (checker.color === botColor) {
+        // white king
+        if (victimBR && !targetBR) if (victimBR.color === topColor) return true;
+        if (victimBL && !targetBL) if (victimBL.color === topColor) return true;
+      } else {
+        // red king
+        if (victimTR && !targetTR) if (victimTR.color === botColor) return true;
+        if (victimTL && !targetTL) if (victimTL.color === botColor) return true;
+      }
+    }
+  }
+  locateVictim(y, x, killer) {
+    let victim = this.board.grid[y][x];
+    if (!victim) return false;
+    if (victim.color !== killer.color) {
+      this.killVictim(y, x);
+      return true;
+    } else console.log(KILL_ERROR_1);
+  }
+  killVictim(y, x) {
+    this.board.grid[y][x] = null;
+    this.board.checkers.splice(
+      this.board.checkers.indexOf(this.board.grid[y][x], 1)
     );
-
-    switch (move) {
-      case WRONG_TURN:
-        let wrongSymbol = null;
-        if (this.turnSymbol === bottomSymbol) wrongSymbol = topSymbol;
-        else wrongSymbol = bottomSymbol;
-        return "ERROR: It is not " + wrongSymbol + "'s turn.";
-      case INVALID_MOVE:
-        return colors.red(
-          "ERROR: " +
-            this.turnSymbol +
-            " cannot move from (" +
-            originY +
-            "," +
-            originX +
-            ") to (" +
-            targetY +
-            "," +
-            targetX +
-            ")."
-        );
-      case STANDARD_MOVE:
-        this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
-        this.board.grid[originY][originX] = null;
-        this.nextTurn();
-        return colors.green(
-          "Moved from (" +
-            originY +
-            "," +
-            originX +
-            ") to (" +
-            targetY +
-            "," +
-            targetX +
-            ")."
-        );
-      case JUMP_DOWN_LEFT:
-        victimY = parseInt(originY) + 1;
-        victimX = parseInt(originX) - 1;
-        victim = this.board.grid[victimY][victimX];
-        // valid jump
-        if (victim.symbol === bottomSymbol) {
-          // kill the victim!
-          this.board.grid[victimY][victimX] = null;
-          this.board.checkers.pop();
-          // move the checker
-          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
-          this.board.grid[originY][originX] = null;
-          this.nextTurn();
-          return (
-            "Jumped from (" +
-            originY +
-            "," +
-            originX +
-            ") to (" +
-            targetY +
-            "," +
-            targetX +
-            "). Killing (" +
-            victimY +
-            "," +
-            victimX +
-            ")."
-          );
-        } else
-          return colors.red(
-            "ERROR: " + this.turnSymbol + " cannout jump over " + victim.symbol
-          );
-      case JUMP_DOWN_RIGHT:
-        victimY = parseInt(originY) + 1;
-        victimX = parseInt(originX) + 1;
-        victim = this.board.grid[victimY][victimX];
-        // valid jump
-        if (victim.symbol === bottomSymbol) {
-          // kill the victim!
-          this.board.grid[victimY][victimX] = null;
-          this.board.checkers.pop();
-          // move the checker
-          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
-          this.board.grid[originY][originX] = null;
-          this.nextTurn();
-          return colors.green(
-            "Jumped from (" +
-              originY +
-              "," +
-              originX +
-              ") to (" +
-              targetY +
-              "," +
-              targetX +
-              "). Killing (" +
-              victimY +
-              "," +
-              victimX +
-              ")."
-          );
-        } else
-          return colors.red(
-            "ERROR: " + this.turnSymbol + " cannout jump over " + victim.symbol
-          );
-      case JUMP_UP_LEFT:
-        victimY = parseInt(originY) - 1;
-        victimX = parseInt(originX) - 1;
-        victim = this.board.grid[victimY][victimX];
-        // valid jump
-        if (victim.symbol === topSymbol) {
-          // kill the victim!
-          this.board.grid[victimY][victimX] = null;
-          this.board.checkers.pop();
-          // move the checker
-          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
-          this.board.grid[originY][originX] = null;
-          this.nextTurn();
-          return colors.green(
-            "Jumped from (" +
-              originY +
-              "," +
-              originX +
-              ") to (" +
-              targetY +
-              "," +
-              targetX +
-              "). Killing (" +
-              victimY +
-              "," +
-              victimX +
-              ")."
-          );
-        } else
-          return colors.red(
-            "ERROR: " + this.turnSymbol + " cannot jump over " + victim.symbol
-          );
-      case JUMP_UP_RIGHT:
-        victimY = parseInt(originY) - 1;
-        victimX = parseInt(originX) + 1;
-        victim = this.board.grid[victimY][victimX];
-        // valid jump
-        if (victim.symbol === topSymbol) {
-          // kill the victim!
-          this.board.grid[victimY][victimX] = null;
-          this.board.checkers.pop();
-          // move the checker
-          this.board.grid[targetY][targetX] = this.board.grid[originY][originX];
-          this.board.grid[originY][originX] = null;
-          this.nextTurn();
-          return colors.green(
-            "Jumped from (" +
-              originY +
-              "," +
-              originX +
-              ") to (" +
-              targetY +
-              "," +
-              targetX +
-              "). Killing (" +
-              victimY +
-              "," +
-              victimX +
-              ")."
-          );
-        } else
-          return colors.red(
-            "ERROR: " + this.turnSymbol + " cannout jump over " + victim.symbol
-          );
-      default:
-        return colors.red("ERROR: Invalid Move.");
+  }
+  crownKing(checker, row) {
+    if (checker.color === "white" && row === 0) {
+      checker.isKing = true;
+      checker.symbol = bottomKingSymbol;
+    }
+    if (checker.color === topColor && row === 7) {
+      checker.isKing = true;
+      checker.symbol = topKingSymbol;
     }
   }
 }
 
-function checkMove(
-  originY,
-  originX,
-  target,
-  targetY,
-  targetX,
-  symbol,
-  turnSymbol
-) {
-  let distanceX = Math.abs(targetX - originX);
-  let distanceY = Math.abs(targetY - originY);
-
-  let directionY = null;
-  if (targetY - originY < 0) directionY = "UP";
-  if (targetY - originY > 0) directionY = "DOWN";
-
-  let directionX = null;
-  if (targetX < originX) directionX = "LEFT";
-  if (targetX > originX) directionX = "RIGHT";
-
-  if (symbol !== turnSymbol) return WRONG_TURN;
-
-  if (symbol === topSymbol) {
-    // top player move logic
-    if (!target && directionY === "DOWN") {
-      if (distanceX === 1 && distanceY === 1) return STANDARD_MOVE;
-      else if (distanceX === 2 && distanceY === 2) {
-        if (directionX === "LEFT") return JUMP_DOWN_LEFT;
-        if (directionX === "RIGHT") return JUMP_DOWN_RIGHT;
-      } else return INVALID_MOVE;
-    } else return INVALID_MOVE;
-  }
-
-  // bottom player move logic
-  if (symbol === bottomSymbol) {
-    if (!target && directionY === "UP") {
-      if (distanceX === 1 && distanceY === 1) return STANDARD_MOVE;
-      else if (distanceX === 2 && distanceY === 2) {
-        if (directionX === "LEFT") return JUMP_UP_LEFT;
-        if (directionX === "RIGHT") return JUMP_UP_RIGHT;
-      } else return INVALID_MOVE;
-    } else return INVALID_MOVE;
-  }
-}
-
 function getPrompt() {
-  console.log("Turn " + game.turnNumber + ": " + game.turnSymbol);
+  game.displayTurn();
   game.board.viewGrid();
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
-      let result = game.moveChecker(whichPiece, toWhere);
-      if (result.includes("ERROR")) console.log("\n" + result + "\n");
-      else console.log("\n" + game.turnSymbol + " " + result + "\n");
-      getPrompt();
+      game.parseInput(whichPiece, toWhere);
+      game.checkForWin();
+      if (game.endGame()) return;
+      else getPrompt();
     });
   });
 }
@@ -404,18 +364,18 @@ if (typeof describe === "function") {
     });
   });
 
-  describe("Game.moveChecker()", () => {
+  describe("Game.parseInput()", () => {
     it("should move a checker", () => {
       assert(!game.board.grid[4][1]);
-      game.moveChecker("50", "41");
+      game.parseInput("50", "41");
       assert(game.board.grid[4][1]);
-      game.moveChecker("21", "30");
+      game.parseInput("21", "30");
       assert(game.board.grid[3][0]);
-      game.moveChecker("52", "43");
+      game.parseInput("52", "43");
       assert(game.board.grid[4][3]);
     });
     it("should be able to jump over and kill another checker", () => {
-      game.moveChecker("30", "52");
+      game.parseInput("30", "52");
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
       assert.equal(game.board.checkers.length, 23);
