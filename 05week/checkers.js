@@ -12,9 +12,9 @@ const rl = readline.createInterface({
 const topColor = "red";
 const botColor = "white";
 const topCheckerSymbol = colors.red("\u00A9");
-const bottomCheckerSymbol = colors.white("\u00A9");
+const botCheckerSymbol = colors.white("\u00A9");
 const topKingSymbol = colors.red("\u2655");
-const bottomKingSymbol = colors.white("\u2655");
+const botKingSymbol = colors.white("\u2655");
 
 //user input errors
 const USER_ERROR_1 = "Input too long and/or not a number.";
@@ -30,7 +30,7 @@ const MOVE_ERROR_5 = "not your turn.";
 const MOVE_ERROR_6 = "has an available jump and must take it.";
 
 //jump/kill errors
-const KILL_ERROR_1 = "You can't jump you're own checkers idiot.";
+const KILL_ERROR_1 = "You can't jump you're own checkers.";
 
 class Checker {
   constructor(color, symbol, number) {
@@ -97,7 +97,7 @@ class Board {
 
   placeCheckers() {
     this.insertCheckers(0, topColor, topCheckerSymbol);
-    this.insertCheckers(5, botColor, bottomCheckerSymbol);
+    this.insertCheckers(5, botColor, botCheckerSymbol);
   }
 }
 
@@ -117,8 +117,7 @@ class Game {
     this.turnColor = this.turnCount % 2 ? botColor : topColor;
   }
   displayTurn() {
-    let turnSymbol =
-      this.turnCount % 2 ? bottomCheckerSymbol : topCheckerSymbol;
+    let turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
     console.log("\nTurn", this.turnCount + ":", turnSymbol);
   }
   checkForWin() {
@@ -129,8 +128,7 @@ class Game {
     }
   }
   endGame() {
-    let turnSymbol =
-      this.turnCount % 2 ? topCheckerSymbol : bottomCheckerSymbol;
+    let turnSymbol = this.turnCount % 2 ? topCheckerSymbol : botCheckerSymbol;
     if (this.winner) {
       console.log(turnSymbol, "wins!!!");
       return true;
@@ -148,8 +146,8 @@ class Game {
       return false;
     } else if (
       parseInt(whichPiece) < 0 ||
-      parseInt(toWhere) < 0 ||
       parseInt(whichPiece) > 77 ||
+      parseInt(toWhere) < 0 ||
       parseInt(toWhere) > 77
     ) {
       console.log(USER_ERROR_2);
@@ -160,22 +158,20 @@ class Game {
     if (!this.checkInput(whichPiece, toWhere)) return;
     else {
       // grid coordinates
-      let originY = parseInt(whichPiece[0]);
-      let originX = parseInt(whichPiece[1]);
-      let targetY = parseInt(toWhere[0]);
-      let targetX = parseInt(toWhere[1]);
+      let y1 = parseInt(whichPiece[0]);
+      let x1 = parseInt(whichPiece[1]);
+      let y2 = parseInt(toWhere[0]);
+      let x2 = parseInt(toWhere[1]);
 
-      if (!this.checkForValidMove(originY, originX, targetY, targetX)) return;
-      else {
-        this.moveChecker(originY, originX, targetY, targetX);
-      }
+      if (!this.checkForValidMove(y1, x1, y2, x2)) return;
+      else this.moveChecker(y1, x1, y2, x2);
     }
   }
   checkForValidMove(y1, x1, y2, x2) {
     let distanceX = x2 - x1;
     let distanceY = y2 - y1;
     let checkerToMove = this.board.grid[y1][x1];
-    let targetToOccupy = this.board.grid[y2][x2];
+    let landingZone = this.board.grid[y2][x2];
 
     // no checker to move
     if (!checkerToMove) {
@@ -202,14 +198,14 @@ class Game {
     }
 
     // moved onto occupied space
-    if (targetToOccupy) {
+    if (landingZone) {
       console.log(checkerToMove.symbol, MOVE_ERROR_2);
       return false;
     }
 
     // red/white non-king tried to move up/down
     if (!checkerToMove.isKing) {
-      if (checkerToMove.color === "white") {
+      if (checkerToMove.color === botColor) {
         if (distanceY > 0) {
           console.log(checkerToMove.symbol, MOVE_ERROR_4);
           return false;
@@ -229,7 +225,10 @@ class Game {
           this.board.grid[row][col] &&
           this.board.grid[row][col].color === this.turnColor
         ) {
-          if (this.checkForAvailableJump(row, col) && Math.abs(distanceX) < 2) {
+          if (
+            this.locatedAdditionalTargets(row, col) &&
+            (Math.abs(distanceX) < 2 || Math.abs(distanceY) < 2)
+          ) {
             console.log(checkerToMove.symbol, MOVE_ERROR_6);
             return false;
           }
@@ -239,96 +238,104 @@ class Game {
     return true;
   }
   moveChecker(y1, x1, y2, x2) {
-    let killer = this.board.grid[y1][x1];
-    let victimKilled = false;
+    let checker = this.board.grid[y1][x1];
+    let currentTargetKilled = false;
     let distanceX = x2 - x1;
     let distanceY = y2 - y1;
 
     if (distanceY > 1 && distanceX > 1)
-      victimKilled = this.locateVictim(y2 - 1, x2 - 1, killer);
+      currentTargetKilled = this.acquireTarget(y2 - 1, x2 - 1, checker);
     if (distanceY < -1 && distanceX > 1)
-      victimKilled = this.locateVictim(y2 + 1, x2 - 1, killer);
+      currentTargetKilled = this.acquireTarget(y2 + 1, x2 - 1, checker);
     if (distanceY > 1 && distanceX < -1)
-      victimKilled = this.locateVictim(y2 - 1, x2 + 1, killer);
+      currentTargetKilled = this.acquireTarget(y2 - 1, x2 + 1, checker);
     if (distanceY < -1 && distanceX < -1)
-      victimKilled = this.locateVictim(y2 + 1, x2 + 1, killer);
+      currentTargetKilled = this.acquireTarget(y2 + 1, x2 + 1, checker);
 
-    if (victimKilled || (!victimKilled && Math.abs(distanceX) === 1)) {
+    if (
+      currentTargetKilled ||
+      (!currentTargetKilled &&
+        (Math.abs(distanceX) === 1 && Math.abs(distanceY) === 1))
+    ) {
       this.board.grid[y2][x2] = this.board.grid[y1][x1];
       this.board.grid[y1][x1] = null;
       this.crownKing(this.board.grid[y2][x2], y2);
-      if (this.checkForAvailableJump(y2, x2) && victimKilled) return;
+
+      if (this.locatedAdditionalTargets(y2, x2) && currentTargetKilled) return;
+
       this.nextTurn();
     } else {
-      console.log(killer.symbol, MOVE_ERROR_1);
+      console.log(checker.symbol, MOVE_ERROR_1);
       return;
     }
   }
-  checkForAvailableJump(y, x) {
-    let checker = this.board.grid[y][x];
-
-    let victimTR = null;
-    let victimTL = null;
-    let victimBR = null;
-    let victimBL = null;
-
-    let targetTR = true;
-    let targetTL = true;
-    let targetBR = true;
-    let targetBL = true;
-
-    if (y - 1 >= 0 && x - 1 >= 0) victimTL = this.board.grid[y - 1][x - 1];
-    if (y - 1 >= 0 && x + 1 <= 7) victimTR = this.board.grid[y - 1][x + 1];
-    if (y + 1 <= 7 && x + 1 <= 7) victimBR = this.board.grid[y + 1][x + 1];
-    if (y + 1 <= 7 && x - 1 >= 0) victimBL = this.board.grid[y + 1][x - 1];
-
-    if (y - 2 >= 0 && x - 2 >= 0) targetTL = this.board.grid[y - 2][x - 2];
-    if (y - 2 >= 0 && x + 2 <= 7) targetTR = this.board.grid[y - 2][x + 2];
-    if (y + 2 <= 7 && x + 2 <= 7) targetBR = this.board.grid[y + 2][x + 2];
-    if (y + 2 <= 7 && x - 2 >= 0) targetBL = this.board.grid[y + 2][x - 2];
-
-    // non kings
-    if (checker.color === botColor) {
-      // white non king
-      if (victimTR && !targetTR) if (victimTR.color === topColor) return true;
-      if (victimTL && !targetTL) if (victimTL.color === topColor) return true;
-    } else {
-      // red non king
-      if (victimBR && !targetBR) if (victimBR.color === botColor) return true;
-      if (victimBL && !targetBL) if (victimBL.color === botColor) return true;
-    }
+  locatedAdditionalTargets(y, x) {
+    let scout = this.board.grid[y][x];
+    let scoutResult = false;
 
     // kings
-    if (checker.isKing) {
-      if (checker.color === botColor) {
-        // white king
-        if (victimBR && !targetBR) if (victimBR.color === topColor) return true;
-        if (victimBL && !targetBL) if (victimBL.color === topColor) return true;
+    if (scout.isKing) {
+      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, -1, scout);
+      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, 1, scout);
+      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, 1, scout);
+      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, -1, scout);
+      // non kings
+    } else {
+      // white
+      if (scout.color === botColor) {
+        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, -1, scout);
+        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, 1, scout);
+        // red
       } else {
-        // red king
-        if (victimTR && !targetTR) if (victimTR.color === botColor) return true;
-        if (victimTL && !targetTL) if (victimTL.color === botColor) return true;
+        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, 1, scout);
+        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, -1, scout);
       }
     }
+    return scoutResult;
   }
-  locateVictim(y, x, killer) {
-    let victim = this.board.grid[y][x];
-    if (!victim) return false;
-    if (victim.color !== killer.color) {
-      this.killVictim(y, x);
+  scoutTargetAndLZ(y, x, directionY, directionX, scout) {
+    let targetY = y + directionY;
+    let targetX = x + directionX;
+    let lzY = y + directionY * 2;
+    let lzX = x + directionX * 2;
+    let target = null;
+    let lz = true;
+
+    // ensure target is inbounds
+    if (7 >= targetY && targetY >= 0 && (7 >= targetX && targetX >= 0))
+      target = this.board.grid[targetY][targetX];
+
+    // ensure landing zone is inbounds
+    if (7 >= lzY && lzY >= 0 && (7 >= lzX && lzX >= 0))
+      lz = this.board.grid[lzY][lzX];
+
+    if (scout.color === botColor) {
+      // white non king
+      if (target && !lz) if (target.color === topColor) return true;
+    } else {
+      // red non king
+      if (target && !lz) if (target.color === botColor) return true;
+    }
+    return false;
+  }
+  acquireTarget(y, x, jumper) {
+    let target = this.board.grid[y][x];
+    if (!target) return false;
+    if (target.color !== jumper.color) {
+      this.terminateTarget(y, x);
       return true;
     } else console.log(KILL_ERROR_1);
   }
-  killVictim(y, x) {
+  terminateTarget(y, x) {
     this.board.grid[y][x] = null;
     this.board.checkers.splice(
       this.board.checkers.indexOf(this.board.grid[y][x], 1)
     );
   }
   crownKing(checker, row) {
-    if (checker.color === "white" && row === 0) {
+    if (checker.color === botColor && row === 0) {
       checker.isKing = true;
-      checker.symbol = bottomKingSymbol;
+      checker.symbol = botKingSymbol;
     }
     if (checker.color === topColor && row === 7) {
       checker.isKing = true;
