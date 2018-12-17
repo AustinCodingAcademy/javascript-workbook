@@ -16,8 +16,7 @@ class Checker {
       this.color = color,
       this.row = row,
       this.column = column,
-      this.king = false,
-      this.isDead = false
+      this.king = false;
   }
 }
 // Your code HE
@@ -69,39 +68,35 @@ class Board {
   }
 
   checkForWin(currentPlayer) {
-    let win = false;
+    let win = true;
     let numRedDead = 0;
     let numBlueDead = 0;
     this.checkers.forEach(checkers => {
       if (currentPlayer === "r") {
         if (checkers.symbol === "b") {
-          if (checkers.isDead) {
-            numBlueDead++;
-          }
+          win = false;
         }
       } else if (currentPlayer === "b") {
         if (checkers.symbol === "r") {
-          if (checkers.isDead) {
-            numRedDead++;
-          }
+          win = false;
         }
       }
-
-    })
-    if (numRedDead === 12 || numBlueDead === 12) {
-      win = true
-    }
+    });
     return win;
-  }
+  };
+
 
   removePiece(pieceToRemove) {
     const removeRow = parseInt(pieceToRemove.row);
     const removeColumn = parseInt(pieceToRemove.column);
     this.grid[removeRow][removeColumn] = null;
+    //splice end of array to remove pieces from checkers array
+    // pieceToRemove.isDead = true;
+    // pieceToRemove.row = -1;
+    // pieceToRemove.column = -1;
 
-    pieceToRemove.isDead = true;
-    pieceToRemove.row = -1;
-    pieceToRemove.column = -1;
+    let removedIndex = this.checkers.indexOf(pieceToRemove)
+    this.checkers.splice(removedIndex, 1)
   }
   //set piece after jumped to is dead
 
