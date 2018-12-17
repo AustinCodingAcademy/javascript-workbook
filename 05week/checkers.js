@@ -9,6 +9,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// global constants
 const topColor = "red";
 const botColor = "white";
 const topCheckerSymbol = colors.red.underline("\u04E9");
@@ -16,7 +17,8 @@ const botCheckerSymbol = colors.white.underline("\u04E9");
 const topKingSymbol = colors.red.underline("\u04EB");
 const botKingSymbol = colors.white.underline("\u04EB");
 
-//user input errors
+// error constants
+// user input errors
 const USER_ERROR_1 = "Input too long and/or not a number.";
 const USER_ERROR_2 = "Input must be between 00-77.";
 
@@ -90,9 +92,14 @@ class Board {
   }
 
   // your code here
+  placeCheckers() {
+    this.insertCheckers(0, topColor, topCheckerSymbol);
+    this.insertCheckers(5, botColor, botCheckerSymbol);
+  }
   insertCheckers(startRow, color, symbol) {
     let checkerCount = 1;
     for (let row = startRow; row < startRow + 3; row++) {
+      // start in column 0 for even rows, column 1 for odd rows, increment by 2
       for (let col = row % 2 ? 0 : 1; col < 8; col += 2) {
         let checker = new Checker(color, symbol, checkerCount);
         this.grid[row][col] = checker;
@@ -100,11 +107,6 @@ class Board {
         checkerCount++;
       }
     }
-  }
-
-  placeCheckers() {
-    this.insertCheckers(0, topColor, topCheckerSymbol);
-    this.insertCheckers(5, botColor, botCheckerSymbol);
   }
 }
 
@@ -127,35 +129,51 @@ class Game {
     this.turnColor = this.turnCount % 2 ? botColor : topColor;
     this.turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
   }
-
   displayTurn() {
     console.log("\n" + "Turn", this.turnCount + ":", this.turnSymbol);
   }
 
   checkForWin() {
+    // if remaining checkers <= 12, assign a winner if all are the same color
     if (this.board.checkers.length <= 12) {
       this.winner = this.board.checkers.every(function(checker, i, checkers) {
         return checker.color === checkers[0].color;
       });
     }
   }
-
   endGame() {
-    let turnSymbol = this.turnCount % 2 ? topCheckerSymbol : botCheckerSymbol;
     if (this.winner) {
       this.board.viewGrid();
-      console.log("\n", turnSymbol, "wins!!!");
+      console.log("\n", this.turnSymbol, "wins!!!");
       return true;
     }
   }
 
+  parseInput(whichPiece, toWhere) {
+    // exit upon user input error
+    if (!this.checkInput(whichPiece, toWhere)) return;
+    else {
+      // grid coordinates
+      let y1 = parseInt(whichPiece[0]);
+      let x1 = parseInt(whichPiece[1]);
+      let y2 = parseInt(toWhere[0]);
+      let x2 = parseInt(toWhere[1]);
+
+      // exit upon invalid move
+      if (!this.checkForValidMove(y1, x1, y2, x2)) return;
+      else this.moveChecker(y1, x1, y2, x2);
+    }
+  }
   checkInput(whichPiece, toWhere) {
     // catch all for user input errors
     let error = {
+      // too long or not a number
       a: isNaN(whichPiece),
       b: isNaN(toWhere),
       c: whichPiece.length != 2,
       d: toWhere.length != 2,
+
+      // not in range 00-77
       e: parseInt(whichPiece) < 0,
       f: parseInt(whichPiece) > 77,
       g: parseInt(toWhere) < 0,
@@ -169,20 +187,6 @@ class Game {
       console.log("\n", USER_ERROR_2);
       return false;
     } else return true;
-  }
-
-  parseInput(whichPiece, toWhere) {
-    if (!this.checkInput(whichPiece, toWhere)) return;
-    else {
-      // grid coordinates
-      let y1 = parseInt(whichPiece[0]);
-      let x1 = parseInt(whichPiece[1]);
-      let y2 = parseInt(toWhere[0]);
-      let x2 = parseInt(toWhere[1]);
-
-      if (!this.checkForValidMove(y1, x1, y2, x2)) return;
-      else this.moveChecker(y1, x1, y2, x2);
-    }
   }
 
   checkForValidMove(y1, x1, y2, x2) {
@@ -298,27 +302,31 @@ class Game {
     }
   }
 
-  acquireTarget(y, x, checker) {
+  acquireTarget(y, x, killer) {
+    // assing target using coordinates
     let target = this.board.grid[y][x];
+
+    // exit if target is empty
     if (!target) return false;
-    if (target.color !== checker.color) {
+
+    // terminate target if killer and target colors are not the same
+    if (target.color !== killer.color) {
       this.terminateTarget(y, x);
       return true;
     } else console.log("\n", KILL_ERROR_1);
   }
-
   terminateTarget(y, x) {
     let targetLocation = this.board.checkers.indexOf(this.board.grid[y][x]);
     this.board.checkers.splice(targetLocation, 1);
     this.board.grid[y][x] = null;
   }
-
   locatedAdditionalTargets(y, x) {
     let scout = this.board.grid[y][x];
     let scoutResult = false;
 
     // kings, check above and below
     if (scout.isKing) {
+      // scout result will equal false or true every time we scout for targets
       scoutResult = scoutResult || this.scoutForTargets(scout, y, x, -1, -1);
       scoutResult = scoutResult || this.scoutForTargets(scout, y, x, -1, 1);
       scoutResult = scoutResult || this.scoutForTargets(scout, y, x, 1, 1);
@@ -337,7 +345,6 @@ class Game {
     }
     return scoutResult;
   }
-
   scoutForTargets(scout, scoutY, scoutX, directionY, directionX) {
     let targetY = scoutY + directionY;
     let targetX = scoutX + directionX;
@@ -364,6 +371,7 @@ class Game {
     }
     return false;
   }
+
   crownKing(checker, row) {
     // no need to make a king a king again
     if (checker.isKing) return;
