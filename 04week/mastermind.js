@@ -74,8 +74,6 @@ function generateHint(guess, solution) {
     if (letter === guess) {
       correctLetterLocations++;
       solutionArray[i] = null;
-      console.log("letters");
-
     }
 
   }
@@ -91,7 +89,7 @@ function generateHint(guess, solution) {
 }
 
 
-function mastermind(guess) {
+function mastermind(guess, solution) {
   //solution = 'abcd'; // Comment this out to generate a random solution
   if (isValid(guess)) {
     console.log(guess, " Guess");
@@ -99,10 +97,11 @@ function mastermind(guess) {
     let win = "You guessed it";
     let outOfTurns = "You ran out of turns! The solution was " + solution;
     let guessAgain = "guess again";
+    let hint = generateHint(solution, guess);
+    let guessAndHint = guess + " " + hint;
+    board.push(guessAndHint);
     if (guess === solution) {
-      let hint = generateHint(solution, guess);
-      let guessAndHint = guess + " " + hint;
-      board.push(guessAndHint);
+      //something wrong in here with win logic, it does not return a win when the correct letters are entered, probably need to burn down and start fresh.
       console.log(win, " win");
     } else {
       let hint = generateHint(solution, guess);
