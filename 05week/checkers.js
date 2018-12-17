@@ -11,10 +11,10 @@ const rl = readline.createInterface({
 
 const topColor = "red";
 const botColor = "white";
-const topCheckerSymbol = colors.red("\u00A9");
-const botCheckerSymbol = colors.white("\u00A9");
-const topKingSymbol = colors.red("\u2655");
-const botKingSymbol = colors.white("\u2655");
+const topCheckerSymbol = colors.red.underline("\u04E9");
+const botCheckerSymbol = colors.white.underline("\u04E9");
+const topKingSymbol = colors.red.underline("\u04EB");
+const botKingSymbol = colors.white.underline("\u04EB");
 
 //user input errors
 const USER_ERROR_1 = "Input too long and/or not a number.";
@@ -59,7 +59,11 @@ class Board {
   }
   viewGrid() {
     // add our col numbers
-    let string = "  0 1 2 3 4 5 6 7\n";
+    let string = "  ";
+    for (let i = 0; i < 8; i++) {
+      string += colors.underline(i.toString()) + " ";
+    }
+    string += "\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
       const rowOfCheckers = [row];
@@ -71,11 +75,11 @@ class Board {
           rowOfCheckers.push(this.grid[row][col].symbol);
         } else {
           // just push in a blank space
-          rowOfCheckers.push(" ");
+          rowOfCheckers.push("_");
         }
       }
       // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join(" ");
+      string += rowOfCheckers.join("|") + "|";
       // add a 'new line'
       string += "\n";
     }
@@ -106,6 +110,7 @@ class Game {
     this.board = new Board();
     this.turnCount = 1;
     this.turnColor = botColor;
+    this.turnSymbol = botCheckerSymbol;
     this.winner = false;
   }
   start() {
@@ -115,10 +120,11 @@ class Game {
   nextTurn() {
     this.turnCount++;
     this.turnColor = this.turnCount % 2 ? botColor : topColor;
+    this.turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
   }
   displayTurn() {
-    let turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
-    console.log("\nTurn", this.turnCount + ":", turnSymbol);
+    // let turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
+    console.log("\n" + "Turn", this.turnCount + ":", this.turnSymbol);
   }
   checkForWin() {
     if (this.board.checkers.length <= 12) {
@@ -130,27 +136,28 @@ class Game {
   endGame() {
     let turnSymbol = this.turnCount % 2 ? topCheckerSymbol : botCheckerSymbol;
     if (this.winner) {
-      console.log(turnSymbol, "wins!!!");
+      console.log("\n", turnSymbol, "wins!!!");
       return true;
     }
   }
   checkInput(whichPiece, toWhere) {
     // catch all for user input errors
-    if (
-      isNaN(whichPiece) ||
-      isNaN(toWhere) ||
-      whichPiece.length != 2 ||
-      toWhere.length != 2
-    ) {
-      console.log(USER_ERROR_1);
+    let error = {
+      a: isNaN(whichPiece),
+      b: isNaN(toWhere),
+      c: whichPiece.length != 2,
+      d: toWhere.length != 2,
+      e: parseInt(whichPiece) < 0,
+      f: parseInt(whichPiece) > 77,
+      g: parseInt(toWhere) < 0,
+      h: parseInt(toWhere) > 77
+    };
+
+    if (error.a || error.b || error.c || error.d) {
+      console.log("\n", USER_ERROR_1);
       return false;
-    } else if (
-      parseInt(whichPiece) < 0 ||
-      parseInt(whichPiece) > 77 ||
-      parseInt(toWhere) < 0 ||
-      parseInt(toWhere) > 77
-    ) {
-      console.log(USER_ERROR_2);
+    } else if (error.e || error.f || error.g || error.h) {
+      console.log("\n", USER_ERROR_2);
       return false;
     } else return true;
   }
@@ -175,31 +182,31 @@ class Game {
 
     // no checker to move
     if (!checkerToMove) {
-      console.log("(" + y1 + "," + x1 + ")", MOVE_ERROR_0);
+      console.log("\n", "(" + y1 + "," + x1 + ")", MOVE_ERROR_0);
       return false;
     }
 
     // moved out of turn
     if (this.turnColor !== checkerToMove.color) {
-      console.log(checkerToMove.symbol, MOVE_ERROR_5);
+      console.log("\n", checkerToMove.symbol, MOVE_ERROR_5);
       return false;
     }
 
     // didn't move diagonally
     if (y1 === y2 || x1 === x2) {
-      console.log(checkerToMove.symbol, MOVE_ERROR_3);
+      console.log("\n", checkerToMove.symbol, MOVE_ERROR_3);
       return false;
     }
 
     // moved too far
     if (distanceX > 2 || distanceY > 2 || distanceX < -2 || distanceY < -2) {
-      console.log(checkerToMove.symbol, MOVE_ERROR_1);
+      console.log("\n", checkerToMove.symbol, MOVE_ERROR_1);
       return false;
     }
 
     // moved onto occupied space
     if (landingZone) {
-      console.log(checkerToMove.symbol, MOVE_ERROR_2);
+      console.log("\n", checkerToMove.symbol, MOVE_ERROR_2);
       return false;
     }
 
@@ -207,12 +214,12 @@ class Game {
     if (!checkerToMove.isKing) {
       if (checkerToMove.color === botColor) {
         if (distanceY > 0) {
-          console.log(checkerToMove.symbol, MOVE_ERROR_4);
+          console.log("\n", checkerToMove.symbol, MOVE_ERROR_4);
           return false;
         }
       } else {
         if (distanceY < 0) {
-          console.log(checkerToMove.symbol, MOVE_ERROR_4);
+          console.log("\n", checkerToMove.symbol, MOVE_ERROR_4);
           return false;
         }
       }
@@ -229,7 +236,7 @@ class Game {
             this.locatedAdditionalTargets(row, col) &&
             (Math.abs(distanceX) < 2 || Math.abs(distanceY) < 2)
           ) {
-            console.log(checkerToMove.symbol, MOVE_ERROR_6);
+            console.log("\n", this.turnSymbol, MOVE_ERROR_6);
             return false;
           }
         }
@@ -265,7 +272,7 @@ class Game {
 
       this.nextTurn();
     } else {
-      console.log(checker.symbol, MOVE_ERROR_1);
+      console.log("\n", checker.symbol, MOVE_ERROR_1);
       return;
     }
   }
@@ -318,13 +325,13 @@ class Game {
     }
     return false;
   }
-  acquireTarget(y, x, jumper) {
+  acquireTarget(y, x, checker) {
     let target = this.board.grid[y][x];
     if (!target) return false;
-    if (target.color !== jumper.color) {
+    if (target.color !== checker.color) {
       this.terminateTarget(y, x);
       return true;
-    } else console.log(KILL_ERROR_1);
+    } else console.log("\n", KILL_ERROR_1);
   }
   terminateTarget(y, x) {
     this.board.grid[y][x] = null;
