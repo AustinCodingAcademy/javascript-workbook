@@ -20,14 +20,13 @@ class Checker {
     this.row = row;
     this.column = column;
     this.isKing = false;
-    this.isDead = false;
   }
 }
 
 class Board {
   constructor() {
     this.grid = [];
-    this.Checkers = [];
+    this.checkers = [];
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -45,20 +44,20 @@ class Board {
     let string = "    0 | 1 | 2 | 3 | 4 | 5 | 6 | 7\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
-      const rowOfCheckers = [row];
+      const rowOfcheckers = [row];
       // a loop within a loop
       for (let column = 0; column < 8; column++) {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfcheckers.push(this.grid[row][column].symbol);
         } else {
           // just push in a blank space
-          rowOfCheckers.push(" ");
+          rowOfcheckers.push(" ");
         }
       }
-      // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join(" | ");
+      // join the rowOfcheckers array to a string, separated by a space
+      string += rowOfcheckers.join(" | ");
       // add a 'new line'
       string += "\n";
     }
@@ -66,28 +65,20 @@ class Board {
   }
 
   checkForWin(currentPlayer) {
-    let win = false;
+    let win = true;
     let numRedDead = 0;
     let numBlueDead = 0;
-    this.Checkers.forEach(checker => {
+    this.checkers.forEach(checker => {
       if (currentPlayer === "r") {
         if (checker.symbol === "b") {
-          if (checker.isDead) {
-            numBlueDead++;
-          }
+          win = false;
         }
       } else if (currentPlayer === "b") {
         if (checker.symbol === "r") {
-          if (checker.isDead) {
-            numRedDead++;
-          }
+          win = false;
         }
       }
     });
-    if (numRedDead === 12 || numBlueDead === 12) {
-      win = true;
-    }
-
     return win;
   }
 
@@ -96,10 +87,10 @@ class Board {
     let removeColumn = parseInt(pieceToRemove.column);
     this.grid[removeRow][removeColumn] = null;
 
-    //make piece dead
-    pieceToRemove.isDead = true;
-    pieceToRemove.row = -1;
-    pieceToRemove.column = -1;
+    let removedIndex = this.checkers.indexOf(pieceToRemove);
+
+    //splice piece from checkers array
+    this.checkers.splice(removedIndex, 1);
   }
 
   isLegal(currentPiece, toWhere) {
@@ -235,7 +226,7 @@ class Board {
       let row = square.charAt(0);
       let column = square.charAt(2);
       let c1 = new Checker("r", "red", row, column);
-      this.Checkers.push(c1);
+      this.checkers.push(c1);
     }
 
     //use blueSquares
@@ -244,11 +235,11 @@ class Board {
       let row = square.charAt(0);
       let column = square.charAt(2);
       let c1 = new Checker("b", "blue", row, column);
-      this.Checkers.push(c1);
+      this.checkers.push(c1);
     }
 
-    //go through Checkers, replace spot on board with checker
-    this.Checkers.forEach(square => {
+    //go through checkers, replace spot on board with checker
+    this.checkers.forEach(square => {
       let row = square.row;
       let column = square.column;
       this.grid[row][column] = square;
@@ -270,7 +261,7 @@ class Game {
     let currentRow = currentIndexes[0];
     let currentColumn = currentIndexes[1];
 
-    let currentPiece = this.board.Checkers.find(checker => {
+    let currentPiece = this.board.checkers.find(checker => {
       return checker.row === currentRow && checker.column === currentColumn;
     });
 
@@ -326,7 +317,7 @@ if (typeof describe === "function") {
   });
 
   describe("Game.moveChecker()", () => {
-    xit("should move a checker", () => {
+    it("should move a checker", () => {
       assert(!game.board.grid[4][1]);
       game.moveChecker("50", "41");
       assert(game.board.grid[4][1]);
@@ -335,7 +326,7 @@ if (typeof describe === "function") {
       game.moveChecker("52", "43");
       assert(game.board.grid[4][3]);
     });
-    xit("should be able to jump over and kill another checker", () => {
+    it("should be able to jump over and kill another checker", () => {
       game.moveChecker("30", "52");
       assert(game.board.grid[5][2]);
       assert(!game.board.grid[4][1]);
