@@ -22,12 +22,13 @@ const USER_ERROR_2 = "Input must be between 00-77.";
 
 // move errors
 const MOVE_ERROR_0 = "has no checker.";
-const MOVE_ERROR_1 = "cannot move more than 2 spaces at a time.";
+const MOVE_ERROR_1 = "can only move 1 space (2 if jumping) at a time.";
 const MOVE_ERROR_2 = "cannot move to a space that is already occupied.";
 const MOVE_ERROR_3 = "cannot move in a straight line.";
 const MOVE_ERROR_4 = "is not a king, therefore cannot move backwards.";
 const MOVE_ERROR_5 = "not your turn.";
 const MOVE_ERROR_6 = "has an available jump and must take it.";
+const MOVE_ERROR_7 = "cannot jump there.";
 
 //jump/kill errors
 const KILL_ERROR_1 = "You can't jump you're own checkers.";
@@ -46,6 +47,7 @@ class Board {
     this.grid = [];
     this.checkers = [];
   }
+
   // method that creates an 8x8 array, filled with null values
   createGrid() {
     // loop to create the 8 rows
@@ -57,6 +59,7 @@ class Board {
       }
     }
   }
+
   viewGrid() {
     // add our col numbers
     let string = "  ";
@@ -113,19 +116,22 @@ class Game {
     this.turnSymbol = botCheckerSymbol;
     this.winner = false;
   }
+
   start() {
     this.board.createGrid();
     this.board.placeCheckers();
   }
+
   nextTurn() {
     this.turnCount++;
     this.turnColor = this.turnCount % 2 ? botColor : topColor;
     this.turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
   }
+
   displayTurn() {
-    // let turnSymbol = this.turnCount % 2 ? botCheckerSymbol : topCheckerSymbol;
     console.log("\n" + "Turn", this.turnCount + ":", this.turnSymbol);
   }
+
   checkForWin() {
     if (this.board.checkers.length <= 12) {
       this.winner = this.board.checkers.every(function(checker, i, checkers) {
@@ -133,13 +139,16 @@ class Game {
       });
     }
   }
+
   endGame() {
     let turnSymbol = this.turnCount % 2 ? topCheckerSymbol : botCheckerSymbol;
     if (this.winner) {
+      this.board.viewGrid();
       console.log("\n", turnSymbol, "wins!!!");
       return true;
     }
   }
+
   checkInput(whichPiece, toWhere) {
     // catch all for user input errors
     let error = {
@@ -161,6 +170,7 @@ class Game {
       return false;
     } else return true;
   }
+
   parseInput(whichPiece, toWhere) {
     if (!this.checkInput(whichPiece, toWhere)) return;
     else {
@@ -174,6 +184,7 @@ class Game {
       else this.moveChecker(y1, x1, y2, x2);
     }
   }
+
   checkForValidMove(y1, x1, y2, x2) {
     let distanceX = x2 - x1;
     let distanceY = y2 - y1;
@@ -244,87 +255,49 @@ class Game {
     }
     return true;
   }
+
   moveChecker(y1, x1, y2, x2) {
     let checker = this.board.grid[y1][x1];
-    let currentTargetKilled = false;
     let distanceX = x2 - x1;
     let distanceY = y2 - y1;
+    let validJump = false;
+    let standardMove = Math.abs(distanceX) === 1 && Math.abs(distanceY) === 1;
 
+    // ensure valid jump
     if (distanceY > 1 && distanceX > 1)
-      currentTargetKilled = this.acquireTarget(y2 - 1, x2 - 1, checker);
+      validJump = this.acquireTarget(y2 - 1, x2 - 1, checker);
     if (distanceY < -1 && distanceX > 1)
-      currentTargetKilled = this.acquireTarget(y2 + 1, x2 - 1, checker);
+      validJump = this.acquireTarget(y2 + 1, x2 - 1, checker);
     if (distanceY > 1 && distanceX < -1)
-      currentTargetKilled = this.acquireTarget(y2 - 1, x2 + 1, checker);
+      validJump = this.acquireTarget(y2 - 1, x2 + 1, checker);
     if (distanceY < -1 && distanceX < -1)
-      currentTargetKilled = this.acquireTarget(y2 + 1, x2 + 1, checker);
+      validJump = this.acquireTarget(y2 + 1, x2 + 1, checker);
 
-    if (
-      currentTargetKilled ||
-      (!currentTargetKilled &&
-        (Math.abs(distanceX) === 1 && Math.abs(distanceY) === 1))
-    ) {
+    // make the move if checker jumped successfully or just did a standard move
+    if (validJump || standardMove) {
       this.board.grid[y2][x2] = this.board.grid[y1][x1];
       this.board.grid[y1][x1] = null;
+
+      // crown this checker a king if it lands on the correct row
       this.crownKing(this.board.grid[y2][x2], y2);
 
-      if (this.locatedAdditionalTargets(y2, x2) && currentTargetKilled) return;
+      // check the board state for a win
+      this.checkForWin();
 
+      // if there is another valid jump after previous valid jump, exit before nextTurn()
+      if (this.locatedAdditionalTargets(y2, x2) && validJump) return;
+
+      // if the game is over, dont go to nextTurn()
+      if (this.endGame()) return;
+
+      // if we get this far, call nextTurn()
       this.nextTurn();
     } else {
-      console.log("\n", checker.symbol, MOVE_ERROR_1);
+      console.log("\n", checker.symbol, MOVE_ERROR_7);
       return;
     }
   }
-  locatedAdditionalTargets(y, x) {
-    let scout = this.board.grid[y][x];
-    let scoutResult = false;
 
-    // kings
-    if (scout.isKing) {
-      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, -1, scout);
-      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, 1, scout);
-      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, 1, scout);
-      scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, -1, scout);
-      // non kings
-    } else {
-      // white
-      if (scout.color === botColor) {
-        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, -1, scout);
-        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, -1, 1, scout);
-        // red
-      } else {
-        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, 1, scout);
-        scoutResult = scoutResult || this.scoutTargetAndLZ(y, x, 1, -1, scout);
-      }
-    }
-    return scoutResult;
-  }
-  scoutTargetAndLZ(y, x, directionY, directionX, scout) {
-    let targetY = y + directionY;
-    let targetX = x + directionX;
-    let lzY = y + directionY * 2;
-    let lzX = x + directionX * 2;
-    let target = null;
-    let lz = true;
-
-    // ensure target is inbounds
-    if (7 >= targetY && targetY >= 0 && (7 >= targetX && targetX >= 0))
-      target = this.board.grid[targetY][targetX];
-
-    // ensure landing zone is inbounds
-    if (7 >= lzY && lzY >= 0 && (7 >= lzX && lzX >= 0))
-      lz = this.board.grid[lzY][lzX];
-
-    if (scout.color === botColor) {
-      // white non king
-      if (target && !lz) if (target.color === topColor) return true;
-    } else {
-      // red non king
-      if (target && !lz) if (target.color === botColor) return true;
-    }
-    return false;
-  }
   acquireTarget(y, x, checker) {
     let target = this.board.grid[y][x];
     if (!target) return false;
@@ -333,17 +306,75 @@ class Game {
       return true;
     } else console.log("\n", KILL_ERROR_1);
   }
+
   terminateTarget(y, x) {
+    let targetLocation = this.board.checkers.indexOf(this.board.grid[y][x]);
+    this.board.checkers.splice(targetLocation, 1);
     this.board.grid[y][x] = null;
-    this.board.checkers.splice(
-      this.board.checkers.indexOf(this.board.grid[y][x], 1)
-    );
+  }
+
+  locatedAdditionalTargets(y, x) {
+    let scout = this.board.grid[y][x];
+    let scoutResult = false;
+
+    // kings, check above and below
+    if (scout.isKing) {
+      scoutResult = scoutResult || this.scoutForTargets(scout, y, x, -1, -1);
+      scoutResult = scoutResult || this.scoutForTargets(scout, y, x, -1, 1);
+      scoutResult = scoutResult || this.scoutForTargets(scout, y, x, 1, 1);
+      scoutResult = scoutResult || this.scoutForTargets(scout, y, x, 1, -1);
+      // non kings, check only above or below
+    } else {
+      // white
+      if (scout.color === botColor) {
+        scoutResult = scoutResult || this.scoutForTargets(scout, y, x, -1, -1);
+        scoutResult = scoutResult || this.scoutForTargets(scout, y, x, -1, 1);
+        // red
+      } else {
+        scoutResult = scoutResult || this.scoutForTargets(scout, y, x, 1, 1);
+        scoutResult = scoutResult || this.scoutForTargets(scout, y, x, 1, -1);
+      }
+    }
+    return scoutResult;
+  }
+
+  scoutForTargets(scout, scoutY, scoutX, directionY, directionX) {
+    let targetY = scoutY + directionY;
+    let targetX = scoutX + directionX;
+    let target = null; // assume target is an empty spot
+    let landZoneY = targetY + directionY;
+    let landZoneX = targetX + directionX;
+    let landZone = true; // assume landZone is not null (not empty or off the board)
+
+    // ensure target is inbounds
+    if (7 >= targetY && targetY >= 0 && (7 >= targetX && targetX >= 0))
+      target = this.board.grid[targetY][targetX]; // assign target using calculated coordinates
+
+    // ensure landing zone is inbounds
+    if (7 >= landZoneY && landZoneY >= 0 && (7 >= landZoneX && landZoneX >= 0))
+      landZone = this.board.grid[landZoneY][landZoneX]; // assign landZone using calculated coordinates
+
+    // white non king
+    if (scout.color === botColor) {
+      // if we have a target and landing zone is empty, found a valid jump
+      if (target && !landZone) if (target.color === topColor) return true;
+      // red non king
+    } else {
+      if (target && !landZone) if (target.color === botColor) return true;
+    }
+    return false;
   }
   crownKing(checker, row) {
+    // no need to make a king a king again
+    if (checker.isKing) return;
+
+    // if bottom checker reaches the top, crown it
     if (checker.color === botColor && row === 0) {
       checker.isKing = true;
       checker.symbol = botKingSymbol;
     }
+
+    // if top checker reaches the bottom, crown it
     if (checker.color === topColor && row === 7) {
       checker.isKing = true;
       checker.symbol = topKingSymbol;
@@ -354,12 +385,11 @@ class Game {
 function getPrompt() {
   game.displayTurn();
   game.board.viewGrid();
+  // console.log(game.board.checkers);
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       game.parseInput(whichPiece, toWhere);
-      game.checkForWin();
-      if (game.endGame()) return;
-      else getPrompt();
+      getPrompt();
     });
   });
 }
