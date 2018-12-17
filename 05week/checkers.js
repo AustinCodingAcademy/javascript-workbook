@@ -274,8 +274,6 @@ class Game {
 // Extra Credit: King Logic
 // Extra Credit: has to jump logic
 //}
-
-
 function getPrompt() {
   game.board.viewGrid();
   rl.question("which piece?: ", whichPiece => {
@@ -285,7 +283,6 @@ function getPrompt() {
     });
   });
 }
-
 const game = new Game();
 game.start();
 
