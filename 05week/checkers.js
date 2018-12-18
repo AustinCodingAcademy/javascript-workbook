@@ -17,11 +17,13 @@ class Checker {
   }
 
   makeKing() {
-    this.isKing = true;
-    if (this.symbol === "x") {
-      this.symbol = "X";
-    } else {
-      this.symbol = "O";
+    if (!this.isKing) {
+      this.isKing = true;
+      if (this.symbol === "x") {
+        this.symbol = "X";
+      } else {
+        this.symbol = "O";
+      }
     }
   }
 }
@@ -85,10 +87,9 @@ class Board {
     }
   }
 
-  findPiece(whichPiece) {
-    const coordinate = whichPiece.split("");
-    const row = parseInt(coordinate[0]);
-    const col = parseInt(coordinate[1]);
+  findPiece(coordinate) {
+    const row = coordinate[0];
+    const col = coordinate[1];
     const currentPiece = this.checkers.find(checker => {
       return checker.row === row && checker.col === col;
     });
@@ -103,72 +104,64 @@ class Board {
     this.checkers.splice(index, 1);
   }
 
-  isLegalMove(currentPiece, toWhere) {
-    const coordinate = toWhere.split("");
-    const newRow = parseInt(coordinate[0]);
-    const newCol = parseInt(coordinate[1]);
+  isLegalMove(currentPiece, destination) {
+    const newRow = destination[0];
+    const newCol = destination[1];
     const oldRow = currentPiece.row;
     const oldCol = currentPiece.col;
-    const validInputs = [0, 1, 2, 3, 4, 5, 6, 7];
-    if (
-      !validInputs.includes(newRow) ||
-      !validInputs.includes(newCol) ||
-      this.grid[newRow][newCol]
-    ) {
+    if (this.grid[newRow][newCol]) {
       return false;
-    } else if (currentPiece.isKing || currentPiece.symbol === "x") {
+    }
+    if (currentPiece.symbol === "x" || currentPiece.isKing) {
       if (
         newRow === oldRow + 1 &&
         (newCol === oldCol + 1 || newCol === oldCol - 1)
       ) {
         return true;
       } else if (
-        this.grid[oldRow + 1][oldCol + 1] &&
         newRow === oldRow + 2 &&
-        newCol === oldCol + 2
+        newCol === oldCol + 2 &&
+        this.grid[oldRow + 1][oldCol + 1]
       ) {
         this.removePiece(this.grid[oldRow + 1][oldCol + 1]);
         return true;
       } else if (
-        this.grid[oldRow + 1][oldCol - 1] &&
         newRow === oldRow + 2 &&
-        newCol === oldCol - 2
+        newCol === oldCol - 2 &&
+        this.grid[oldRow + 1][oldCol - 1]
       ) {
         this.removePiece(this.grid[oldRow + 1][oldCol - 1]);
         return true;
-      } else {
-        return false;
       }
-    } else if (currentPiece.isKing || currentPiece.symbol === "o") {
+    }
+    if (currentPiece.symbol === "o" || currentPiece.isKing) {
       if (
         newRow === oldRow - 1 &&
         (newCol === oldCol + 1 || newCol === oldCol - 1)
       ) {
         return true;
       } else if (
-        this.grid[oldRow - 1][oldCol + 1] &&
         newRow === oldRow - 2 &&
-        newCol === oldCol + 2
+        newCol === oldCol + 2 &&
+        this.grid[oldRow - 1][oldCol + 1]
       ) {
         this.removePiece(this.grid[oldRow - 1][oldCol + 1]);
         return true;
       } else if (
-        this.grid[oldRow - 1][oldCol - 1] &&
         newRow === oldRow - 2 &&
-        newCol === oldCol - 2
+        newCol === oldCol - 2 &&
+        this.grid[oldRow - 1][oldCol - 1]
       ) {
         this.removePiece(this.grid[oldRow - 1][oldCol - 1]);
         return true;
-      } else {
-        return false;
       }
     }
+    return false;
   }
 
-  movePiece(currentPiece, toWhere) {
-    const coordinate = toWhere.split("");
-    const newRow = parseInt(coordinate[0]);
-    const newCol = parseInt(coordinate[1]);
+  movePiece(currentPiece, destination) {
+    const newRow = destination[0];
+    const newCol = destination[1];
     const oldRow = currentPiece.row;
     const oldCol = currentPiece.col;
     this.grid[newRow][newCol] = currentPiece;
@@ -178,6 +171,24 @@ class Board {
     if (newRow === 7 || newRow === 0) {
       currentPiece.makeKing();
     }
+  }
+
+  checkForWin() {
+    const containAnX = this.checkers.some(checker => {
+      return checker.symbol === "x" || checker.symbol === "X";
+    });
+    if (!containAnX) {
+      console.log("O Wins!");
+      return true;
+    }
+    const containAnO = this.checkers.some(checker => {
+      return checker.symbol === "o" || checker.symbol === "O";
+    });
+    if (!containAnO) {
+      console.log("X Wins!");
+      return true;
+    }
+    return false;
   }
 }
 
@@ -190,18 +201,34 @@ class Game {
     this.board.createCheckers();
   }
   moveChecker(whichPiece, toWhere) {
-    const currentPiece = this.board.findPiece(whichPiece);
-    if (!currentPiece) {
-      console.log("Invalid piece!");
+    const origin = this.parseInput(whichPiece);
+    const destination = this.parseInput(toWhere);
+    if (!origin || !destination) {
+      console.log("Invalid board location!");
       return null;
     }
-    const isLegalMove = this.board.isLegalMove(currentPiece, toWhere);
+    const currentPiece = this.board.findPiece(origin);
+    if (!currentPiece) {
+      console.log("No checker selected!");
+      return null;
+    }
+    const isLegalMove = this.board.isLegalMove(currentPiece, destination);
     if (!isLegalMove) {
-      console.log("Invalid destination!");
+      console.log("Not a legal move!");
       return null;
     } else {
-      this.board.movePiece(currentPiece, toWhere);
+      this.board.movePiece(currentPiece, destination);
     }
+  }
+
+  parseInput(string) {
+    const row = parseInt(string[0]);
+    const col = parseInt(string[1]);
+    const validInputs = [0, 1, 2, 3, 4, 5, 6, 7];
+    if (!validInputs.includes(row) || !validInputs.includes(col)) {
+      return null;
+    }
+    return [row, col];
   }
 }
 
@@ -210,7 +237,12 @@ function getPrompt() {
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       game.moveChecker(whichPiece, toWhere);
-      getPrompt();
+      if (game.board.checkForWin()) {
+        game.board.viewGrid();
+        rl.close();
+      } else {
+        getPrompt();
+      }
     });
   });
 }
