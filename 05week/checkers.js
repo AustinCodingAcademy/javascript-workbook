@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 class Checker {
   // Your code here
-  constructor(checkerColor) {
+  constructor(checkerColor, row, column) {
     // similar to what we did in class, but using if statement create "B" black or "R" red pieces
     if (checkerColor === "red") {
       // (taken from viewGrid) push the symbol of the checker in that location into the array
@@ -17,12 +17,10 @@ class Checker {
     } else {
       this.symbol = "b";
     }
+    this.row = row;
+    this.column = column;
     // console.log(this.symbol, "============this is a game piece===========");
   }
-}
-
-function placePieces() {
-  console.log("place pieces");
 }
 
 class Board {
@@ -118,16 +116,60 @@ class Game {
     this.board.createGrid();
     this.board.placePieces();
   }
-  moverChecker(whichPiece, toWhere) {
+  moveChecker(whichPiece, toWhere) {
     console.log(whichPiece, toWhere);
-    // we wanna make sure the move is legal
-    // we wanna make sure that no piece is a leaga adjecent
-    // we want to check the next adjacent spot
+    console.log(typeof (whichPiece, toWhere));
+    // convert data input into a number so that math can be performed
+    // using parseInt on whichPiece along with charAt to target the string position then convert to array
+    let startPos = [
+      parseInt(whichPiece.charAt(0)),
+      parseInt(whichPiece.charAt(1))
+    ];
+    console.log(startPos);
+    let endPos = [parseInt(toWhere.charAt(0)), parseInt(toWhere.charAt(1))];
+    console.log(endPos);
 
-    //EXTRA CREDIT king logic
-    // EXTRA CREDIT - required moves logic (jumps)
+    let currentPiece = this.board.checkers.find(checker => {
+      return (
+        checker.row === whichPiece.charAt(0) &&
+        checker.column === whichPiece.charAt(1)
+      );
+    });
+
+    // put the startPos and endPos into an array to target the numbers
+    this.board.grid[endPos[0]][endPos[1]] = this.board.grid[startPos[0]][
+      startPos[1]
+    ];
+    // set the start position back to null
+    this.board.grid[startPos[0]][startPos[1]] = null;
+    // we wanna make sure that no piece is a leagal adjecent
+    // we want to check the next adjacent spot
+    // ** ternary operators ---> basically if statements with shorthand ? and :
+
+    if (endPos[0] - startPos[0] === 2) {
+      let jumpedRow =
+        endPos[0] - startPos[0] > 0 ? startPos[0] + 1 : endPos[0] + 1;
+      let jumpedColumn =
+        endPos[1] - startPos[1] > 0 ? startPos[1] + 1 : endPos[1];
+      // removing targeted piece and making it null
+      //EXTRA CREDIT king logic
+      // EXTRA CREDIT - required moves logic legal moves (jumps)
+      console.log(jumpedRow);
+      console.log(jumpedColumn);
+
+      this.board.grid[jumpedRow][jumpedColumn] = null;
+      this.board.checkers.pop();
+      console.log(this.board.checkers.slice(-1)[0]);
+    }
+    // function isLegal() {
+    //   if (endPos[])
+    // }
   }
 }
+
+// we wanna make sure the move is legal
+// be within the parameters of the 8x8 grid - startpoints and end points need to be within
+// check for an empty
 
 function getPrompt() {
   game.board.viewGrid();
