@@ -9,13 +9,18 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+colors.setTheme({
+  topColor: ["red", "underline"],
+  botColor: ["cyan", "underline"]
+});
+
 // checker appearances
 const topColor = "red";
-const botColor = "white";
-const topCheckerSymbol = colors.red.underline("\u04E9");
-const botCheckerSymbol = colors.white.underline("\u04E9");
-const topKingSymbol = colors.red.underline("\u04EB");
-const botKingSymbol = colors.white.underline("\u04EB");
+const botColor = "cyan";
+const topCheckerSymbol = colors.topColor("\u04E9");
+const topKingSymbol = colors.topColor("\u04EB");
+const botCheckerSymbol = colors.botColor("\u04E9");
+const botKingSymbol = colors.botColor("\u04EB");
 
 // error constants
 // user input errors
