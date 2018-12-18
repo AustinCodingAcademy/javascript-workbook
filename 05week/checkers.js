@@ -9,7 +9,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// global constants
+// checker appearances
 const topColor = "red";
 const botColor = "white";
 const topCheckerSymbol = colors.red.underline("\u04E9");
@@ -131,6 +131,24 @@ class Game {
   }
   displayTurn() {
     console.log("\n" + "Turn", this.turnCount + ":", this.turnSymbol);
+  }
+  displayScore() {
+    let botCheckers = this.board.checkers.filter(function(checker) {
+      return checker.color === botColor;
+    });
+    let topCheckers = this.board.checkers.filter(function(checker) {
+      return checker.color === topColor;
+    });
+    let botScore = botCheckers.length;
+    let topScore = topCheckers.length;
+
+    console.log(
+      "\n   " + botCheckerSymbol + ":",
+      botScore,
+      "|",
+      topCheckerSymbol + ":",
+      topScore
+    );
   }
 
   checkForWin() {
@@ -303,7 +321,7 @@ class Game {
   }
 
   acquireTarget(y, x, killer) {
-    // assing target using coordinates
+    // assign target using coordinates
     let target = this.board.grid[y][x];
 
     // exit if target is empty
@@ -392,8 +410,8 @@ class Game {
 
 function getPrompt() {
   game.displayTurn();
+  game.displayScore();
   game.board.viewGrid();
-  // console.log(game.board.checkers);
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       game.parseInput(whichPiece, toWhere);
