@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 
 class Checker {
   //put a piece in here
-  constructor(symbol, color, row, column) {
+  constructor(symbol, color, row, column, king) {
     this.symbol = symbol,
       this.color = color,
       this.row = row,
@@ -66,18 +66,18 @@ class Board {
     }
     console.log(string);
   }
-
+  // checking through either checkers symbol to see if there are any of each symbol left on the board
   checkForWin(currentPlayer) {
     let win = true;
-    let numRedDead = 0;
-    let numBlueDead = 0;
     this.checkers.forEach(checkers => {
-      if (currentPlayer === "r") {
-        if (checkers.symbol === "b") {
+      // if player r it checks for and "b" checkers on the board to determine win condition for "r" checkers player
+      if (currentPlayer === "r" || currentPlayer === "R") {
+        if (checkers.symbol === "b" || checkers.symbol === "B") {
           win = false;
         }
-      } else if (currentPlayer === "b") {
-        if (checkers.symbol === "r") {
+        // same as above checking for "r" checkers on the board to determine win conditions for the "b" checkers player
+      } else if (currentPlayer === "b" || currentPlayer === "B") {
+        if (checkers.symbol === "r" || checkers.symbol === "R") {
           win = false;
         }
       }
@@ -101,30 +101,30 @@ class Board {
   //set piece after jumped to is dead
 
   isLegal(currentPiece, toWhere) {
-    const toWhereIndex = toWhere.split("");
-    const newRow = parseInt(toWhereIndex[0]);
-    const newColumn = parseInt(toWhereIndex[1]);
-    const oldRow = parseInt(currentPiece.row);
-    const oldColumn = parseInt(currentPiece.column);
+    const toWhereIndex = toWhere.split(""); //splitting index into string
+    const newRow = parseInt(toWhereIndex[0]); //  new variable for acquiring new row index position and converting that into a number, parseInt takes a string and turns into a number
+    const newColumn = parseInt(toWhereIndex[1]); // new variable for acquiring new column index position and converting into a number using parseInt
+    const oldRow = parseInt(currentPiece.row); //variable for current pieces row index before it is moved, logging location
+    const oldColumn = parseInt(currentPiece.column); // variable for current pieces column index before it is moved, logging location
 
     const valid = [0, 1, 2, 3, 4, 5, 6, 7];
-    if (!valid.includes(newRow) || !valid.includes(newColumn) || this.grid[newRow][newColumn]) {
+    if (!valid.includes(newRow) || !valid.includes(newColumn) || this.grid[newRow][newColumn]) { // limiting movement to the array valid 
       console.log("Not a valid move");
       return false;
     } else if (currentPiece.symbol === "r") {
-      if ((newRow === oldRow + 1 && newColumn === oldColumn - 1) ||
+      if ((newRow === oldRow + 1 && newColumn === oldColumn - 1) || //limiting movement to within 1 space of starting position or oldRow
         (newRow === oldRow + 1 && newColumn === oldColumn + 1)) {
         return true;
-      } else if (this.grid[oldRow + 1][oldColumn + 1] && this.grid[oldRow + 1][oldColumn + 1].symbol != "r" &&
-        newRow === oldRow + 2 && newColumn === oldColumn + 2) {
-        this.removePiece(this.grid[oldRow + 1][oldColumn + 1]);
-        if (this.checkForWin("r")) {
+      } else if (this.grid[oldRow + 1][oldColumn + 1] && this.grid[oldRow + 1][oldColumn + 1].symbol != "r" && //jumping piece logic in the + or ascending column direction, if piece does not match current symbol and is adjacent, 
+        newRow === oldRow + 2 && newColumn === oldColumn + 2) { //logic for jumping piece 2 spaces instead of one
+        this.removePiece(this.grid[oldRow + 1][oldColumn + 1]); // removing the jumped piece logic
+        if (this.checkForWin("r")) { // checking for win conditions
           console.log("redWins");
         }
 
         return true;
-      } else if (this.grid[oldRow + 1][oldColumn - 1] && this.grid[oldRow + 1][oldColumn - 1].symbol != "r" &&
-        newRow === oldRow + 2 && newColumn === oldColumn - 2) {
+      } else if (this.grid[oldRow + 1][oldColumn - 1] && this.grid[oldRow + 1][oldColumn - 1].symbol != "r" && 
+        newRow === oldRow + 2 && newColumn === oldColumn - 2) {// jumping piece logic for jumping in the - column direction or descending direction
         this.removePiece(this.grid[oldRow + 1][oldColumn - 1]);
         if (this.checkForWin("r")) {
           console.log("redWins");
@@ -138,8 +138,8 @@ class Board {
         (newRow === oldRow - 1 && newColumn === oldColumn + 1)) {
         return true;
       } else if (this.grid[oldRow - 1][oldColumn - 1] && this.grid[oldRow - 1][oldColumn - 1].symbol != "b" &&
-        newRow === oldRow - 2 && newColumn === oldColumn - 2) {
-        this.removePiece(this.grid[oldRow - 1][oldColumn - 1]);
+        newRow === oldRow - 2 && newColumn === oldColumn - 2) { // same move logic as above just applied to the b symbol and moving the rows in the negative or up direction on the board, all row moves are negative 
+        this.removePiece(this.grid[oldRow - 1][oldColumn - 1]);// left coloumn moves are negative and right column moves are positive.
         if (this.checkForWin("b")) {
           console.log("blueWins");
         }
@@ -154,14 +154,14 @@ class Board {
       } else {
         return false;
       }
-
+      //king movement
     }
-
-
-
-
-
-
+    else if (currentPiece.king) {
+      if (newRow === oldRow - 1 && newColumn === oldColumn - 1) ||
+        (newRow === oldRow - 1 && newcolumn === oldColumn + 1) ||
+        (newRow === oldRow + 1 && newColumn === oldColumn - 1) ||
+        (newRow === oldRow + 1 && newColumn === oldColumn + 1)
+    } return true;
   }
 
   placePieces() {
@@ -213,12 +213,9 @@ class Board {
       let column = square.column;
       this.grid[row][column] = square;
     })
-
     // make checker pieces appear on board
     // push this into board.checkers
     // Your code here
-
-
   }
   //refactor to move to game class as a method
   // checking the grid first
@@ -264,6 +261,18 @@ class Game {
     currentPiece.row = whereRow;
     currentPiece.column = whereColumn;
     this.board.grid[currentRow][currentColumn] = null;
+    if (!currentPiece.king) {
+      if (currentPiece.color === "red" && whereRow === "7") {
+        console.log("red piece hit bottom of board");
+        currentPiece.king = true;
+        currentPiece.symbol = "R";
+      }
+      if (currentPiece.color === "blue" && whereRow === "0") {
+        console.log("blue piece on top row");
+        currentPiece.king = true;
+        currentPiece.symbol = "B";
+      }
+    }
   }
 };
 //moveChecker(whichPiece, toWhere) {
@@ -272,7 +281,7 @@ class Game {
 // if there is we need to check the next adjacent spot
 // if that legal move allowed
 // Extra Credit: King Logic
-// Extra Credit: has to jump logic
+// Extra Credit: jump logic
 //}
 function getPrompt() {
   game.board.viewGrid();
