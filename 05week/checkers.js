@@ -66,15 +66,13 @@ class Board {
 
   checkForWin(currentPlayer) {
     let win = true;
-    let numRedDead = 0;
-    let numBlueDead = 0;
     this.checkers.forEach(checker => {
-      if (currentPlayer === "r") {
-        if (checker.symbol === "b") {
+      if (currentPlayer === "red") {
+        if (checker.color === "blue") {
           win = false;
         }
-      } else if (currentPlayer === "b") {
-        if (checker.symbol === "r") {
+      } else if (currentPlayer === "blue") {
+        if (checker.color === "red") {
           win = false;
         }
       }
@@ -83,6 +81,7 @@ class Board {
   }
 
   removePiece(pieceToRemove) {
+    console.log("removing piece");
     let removeRow = parseInt(pieceToRemove.row);
     let removeColumn = parseInt(pieceToRemove.column);
     this.grid[removeRow][removeColumn] = null;
@@ -100,13 +99,6 @@ class Board {
     const oldRow = parseInt(currentPiece.row);
     const oldColumn = parseInt(currentPiece.column);
 
-    console.log(
-      "old Row: " + oldRow,
-      "old Col: " + oldColumn,
-      "new Row " + newRow,
-      "new Col: " + newColumn
-    );
-
     const valid = [0, 1, 2, 3, 4, 5, 6, 7];
     if (
       !valid.includes(newRow) ||
@@ -115,9 +107,7 @@ class Board {
     ) {
       console.log("Not valid");
       return false;
-    } else if (currentPiece.symbol === "r") {
-      console.log("piece is r");
-
+    } else if (currentPiece.color === "red" && !currentPiece.isKing) {
       if (
         (newRow === oldRow + 1 && newColumn === oldColumn - 1) ||
         (newRow === oldRow + 1 && newColumn === oldColumn + 1)
@@ -126,36 +116,35 @@ class Board {
       } else if (
         //if a opposite piece exists diagonal right from it
         this.grid[oldRow + 1][oldColumn + 1] &&
-        this.grid[oldRow + 1][oldColumn + 1].symbol != "r" &&
+        this.grid[oldRow + 1][oldColumn + 1].color != "red" &&
         newRow === oldRow + 2 &&
         newColumn === oldColumn + 2
       ) {
         console.log("jumped piece, remove");
 
         this.removePiece(this.grid[oldRow + 1][oldColumn + 1]);
-        if (this.checkForWin("r")) {
+        if (this.checkForWin(currentPiece.color)) {
           console.log("Red Wins!");
         }
         return true;
       } else if (
         //if a opposite piece exists diagonal left from it
         this.grid[oldRow + 1][oldColumn - 1] &&
-        this.grid[oldRow + 1][oldColumn - 1].symbol != "r" &&
+        this.grid[oldRow + 1][oldColumn - 1].color != "red" &&
         newRow === oldRow + 2 &&
         newColumn === oldColumn - 2
       ) {
         console.log("jumped piece, remove");
 
         this.removePiece(this.grid[oldRow + 1][oldColumn - 1]);
-        if (this.checkForWin("r")) {
+        if (this.checkForWin(currentPiece.color)) {
           console.log("Red Wins!");
         }
         return true;
       } else {
         return false;
       }
-    } else if (currentPiece.symbol === "b") {
-      console.log("piece is b");
+    } else if (currentPiece.color === "blue" && !currentPiece.isKing) {
       if (
         (newRow === oldRow - 1 && newColumn === oldColumn - 1) ||
         (newRow === oldRow - 1 && newColumn === oldColumn + 1)
@@ -163,24 +152,104 @@ class Board {
         return true;
       } else if (
         this.grid[oldRow - 1][oldColumn - 1] &&
-        this.grid[oldRow - 1][oldColumn - 1].symbol != "b" &&
+        this.grid[oldRow - 1][oldColumn - 1].color != "blue" &&
         newRow === oldRow - 2 &&
         newColumn === oldColumn - 2
       ) {
         this.removePiece(this.grid[oldRow - 1][oldColumn - 1]);
-        if (this.checkForWin("b")) {
+        if (this.checkForWin(currentPiece.color)) {
           console.log("Blue Wins!");
         }
         return true;
       } else if (
         this.grid[oldRow - 1][oldColumn + 1] &&
-        this.grid[oldRow - 1][oldColumn + 1].symbol != "b" &&
+        this.grid[oldRow - 1][oldColumn + 1].color != "blue" &&
         newRow === oldRow - 2 &&
         newColumn === oldColumn + 2
       ) {
         this.removePiece(this.grid[oldRow - 1][oldColumn + 1]);
-        if (this.checkForWin("b")) {
+        if (this.checkForWin(currentPiece.color)) {
           console.log("Blue Wins!");
+        }
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    //KING MOVEMENT
+    else if (currentPiece.isKing) {
+      console.log("KING IS MOVING");
+
+      if (
+        (newRow === oldRow - 1 && newColumn === oldColumn - 1) ||
+        (newRow === oldRow - 1 && newColumn === oldColumn + 1) ||
+        (newRow === oldRow + 1 && newColumn === oldColumn - 1) ||
+        (newRow === oldRow + 1 && newColumn === oldColumn + 1)
+      ) {
+        return true;
+      } else if (
+        //diagonal up left
+        newRow === oldRow - 2 &&
+        newColumn === oldColumn - 2 &&
+        this.grid[oldRow - 1][oldColumn - 1]
+      ) {
+        console.log("moving up left");
+        this.removePiece(this.grid[oldRow - 1][oldColumn - 1]);
+        if (this.checkForWin(currentPiece.color)) {
+          if (currentPiece.color === "red") {
+            console.log("Red Wins!");
+          } else if (currentPiece.color === "blue") {
+            console.log("Blue Wins!");
+          }
+        }
+        return true;
+      } else if (
+        //diagonal up right
+        newRow === oldRow - 2 &&
+        newColumn === oldColumn + 2 &&
+        this.grid[oldRow - 1][oldColumn + 1]
+      ) {
+        console.log("moving up right");
+        this.removePiece(this.grid[oldRow - 1][oldColumn + 1]);
+        if (this.checkForWin(currentPiece.color)) {
+          if (currentPiece.color === "red") {
+            console.log("Red Wins!");
+          } else if (currentPiece.color === "blue") {
+            console.log("Blue Wins!");
+          }
+        }
+        return true;
+      } else if (
+        //diagonal down left
+        newRow === oldRow + 2 &&
+        newColumn === oldColumn - 2 &&
+        this.grid[oldRow + 1][oldColumn - 1]
+      ) {
+        console.log("moving down left");
+        this.removePiece(this.grid[oldRow + 1][oldColumn - 1]);
+        if (this.checkForWin(currentPiece.color)) {
+          if (currentPiece.color === "red") {
+            console.log("Red Wins!");
+          } else if (currentPiece.color === "blue") {
+            console.log("Blue Wins!");
+          }
+        }
+        return true;
+      } else if (
+        //diagonal down right
+        newRow === oldRow + 2 &&
+        newColumn === oldColumn + 2 &&
+        this.grid[oldRow + 1][oldColumn + 1]
+      ) {
+        console.log("moving down right");
+        this.removePiece(this.grid[oldRow + 1][oldColumn + 1]);
+        if (this.checkForWin(currentPiece.color)) {
+          if (currentPiece.color === "red") {
+            console.log("Red Wins!");
+          } else if (currentPiece.color === "blue") {
+            console.log("Blue Wins!");
+          }
         }
         return true;
       } else {
@@ -225,7 +294,7 @@ class Board {
       let square = redSquares[j].toString();
       let row = square.charAt(0);
       let column = square.charAt(2);
-      let c1 = new Checker("r", "red", row, column);
+      let c1 = new Checker(colors.red("r"), "red", row, column);
       this.checkers.push(c1);
     }
 
@@ -234,7 +303,7 @@ class Board {
       let square = blueSquares[k].toString();
       let row = square.charAt(0);
       let column = square.charAt(2);
-      let c1 = new Checker("b", "blue", row, column);
+      let c1 = new Checker(colors.blue("b"), "blue", row, column);
       this.checkers.push(c1);
     }
 
@@ -289,6 +358,18 @@ class Game {
     this.board.grid[currentRow][currentColumn] = null;
 
     //EXTRA CREDIT - KING LOGIC, make piece king if reaches end of board, allows forward or backward jumping
+    if (!currentPiece.isKing) {
+      if (currentPiece.color === "red" && whereRow === "7") {
+        console.log("red piece hit end of board");
+        currentPiece.isKing = true;
+        currentPiece.symbol = colors.red("R");
+      }
+      if (currentPiece.color === "blue" && whereRow === "0") {
+        console.log("blue piece hit end of board");
+        currentPiece.isKing = true;
+        currentPiece.symbol = colors.blue("B");
+      }
+    }
   }
 }
 
