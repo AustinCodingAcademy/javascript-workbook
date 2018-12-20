@@ -63,11 +63,11 @@ function isLegal() {
  
   console.log();
      
-  }else{
+  else {
     console.log("ascending")
       }
     }
-  }
+  
  
 function checkForWin() {
   // Your code here

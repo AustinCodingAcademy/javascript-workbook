@@ -11,20 +11,17 @@ const rl = readline.createInterface({
 class Checker {
   constructor(startPos) {
     if (parseInt(startPos, 10) < 40) {
-      this.symbol = "o";
+      this.symbol = "O";
     } else {
-      this.symbol = "x";
+      this.symbol = "X";
     }
   }
-}
-
-function placePieces() {
-
 }
 
 class Board {
   constructor() {
     this.grid = []
+    this.checkers = [];
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -34,10 +31,10 @@ class Board {
       // push in 8 columns of nulls
       for (let column = 0; column < 8; column++) {
         this.grid[row].push(null);
-      }
+      
     }
   }
-  viewGrid() {
+  function viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -61,9 +58,20 @@ class Board {
     }
     console.log(string);
   }
+    checkers = [];
+
+    function createCheckers() {
+      const xChecker = new Checker('X');
+      const oChecker = new Checker('O');
+      this.grid[0][1] = xChecker;
+      this.grid[5][0] = oChecker;
+    }
+  
+
 
   // Your code here
 }
+
 
 class Game {
   constructor() {
@@ -71,6 +79,11 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
+  }
+  moveCheckers(whichPiece, toWhere) {
+
+   
   }
 }
 
