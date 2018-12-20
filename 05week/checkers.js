@@ -65,9 +65,12 @@ class Board {
       const oChecker = new Checker('O');
       this.grid[0][1] = xChecker;
       this.grid[5][0] = oChecker;
+      this.checkers.push(xChecker, oChecker);
     }
   
-
+    function selectCheckers(row, column) {
+      return this.grid[row] [column];
+    }
 
   // Your code here
 }
@@ -80,10 +83,13 @@ class Game {
   start() {
     this.board.createGrid();
     this.board.createCheckers();
+    
   }
-  moveCheckers(whichPiece, toWhere) {
 
-   
+  moveCheckers(whichPiece, toWhere) {
+    const checker = this.board.selectCheckers(whichPiece[0], whichPiece[1]);
+    this.board.grid[ toWhere[0] ][ toWhere[1] ] = checker;
+    this.board.grid[ whichPiece[0] ][ whichPiece[1] ] = null;
   }
 }
 
