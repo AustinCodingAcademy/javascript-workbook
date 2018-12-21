@@ -55,7 +55,6 @@
 
 function reduce(arr, fn, initial) {
   // SOLUTION GOES HERE
-  //console.log(initial);
   if (arr.length > 0) {
     const result = fn(initial, arr[0]);
     arr.shift();
