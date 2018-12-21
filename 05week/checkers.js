@@ -7,19 +7,21 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-function Checker(color) {
-  this.color = color;
-  // Pass a generic parameter, then define.
-  // this.symbol = something
+class Checker {
+  constructor(color) {
+    this.color = color;
+    // Pass a generic parameter, then define.
+    // this.symbol = something
 
-  if (this.color === "white") {
-    this.symbol = String.fromCharCode(0x125cb);
-  } else {
-    this.symbol = String.fromCharCode(0x125cf);
+    if (this.color === "white") {
+      this.symbol = String.fromCharCode(0x125cb);
+    } else {
+      this.symbol = String.fromCharCode(0x125cf);
+    }
   }
 }
 
-console.log("whiteChecker", whiteChecker.symbol);
+console.log("whiteChecker", new Checker(white));
 
 function Board() {
   // this.selectChecker = function(position) {}
