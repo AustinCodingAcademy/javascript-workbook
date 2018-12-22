@@ -6,71 +6,107 @@ function forEach(arr, callback) {
   // Your code here
   // loop through the array
   // call the callback function and give the callback function specific arguments based on the current element i'm on
+  // for (let i = 0; i < arr.length; i++) {
+  //   console.log(arr, callback);
+  //   // the code below works
+  //   // const element = arr[i];
+  //   // callback(element, i, arr);
+  //   callback(); // <-- this works too
+  // }
+  // does this funtion return something?
   for (let i = 0; i < arr.length; i++) {
-    // the code below works
-    // const element = arr[i];
-    // callback(element, i, arr);
-    callback(); // <-- this works too
+    const element = arr[i];
+    callback(element, i, arr);
   }
-  // does this funtion return something
 }
 
 function map(arr, callback) {
   // Your code here
+  // let result = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   // the code below works
+  //   const element = arr[i];
+  //   result.push(callback(element, i, arr));
+
+  //   // return callback();
+  // }
+  // return result;
   let result = [];
   for (let i = 0; i < arr.length; i++) {
-    // the code below works
     const element = arr[i];
     result.push(callback(element, i, arr));
-
-    // return callback();
   }
   return result;
 }
 
 function filter(arr, callback) {
   // Your code here
+  // let result = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   // the code below works
+  //   const element = arr[i];
+  //   if (callback(element, i, arr)) {
+  //     result.push(element);
+  //   }
+
+  //   // return callback();
+  // }
+  // return result;
   let result = [];
   for (let i = 0; i < arr.length; i++) {
-    // the code below works
     const element = arr[i];
     if (callback(element, i, arr)) {
       result.push(element);
     }
-
-    // return callback();
   }
   return result;
 }
 
 function some(arr, callback) {
   // Your code here
+  // let result = false;
+  // for (let i = 0; i < arr.length; i++) {
+  //   // the code below works
+  //   const element = arr[i];
+  //   if (callback(element, i, arr)) {
+  //     result = true;
+  //     break;
+  //   }
+  //   // return callback();
+  // }
+  // return result;
   let result = false;
   for (let i = 0; i < arr.length; i++) {
-    // the code below works
     const element = arr[i];
     if (callback(element, i, arr)) {
       result = true;
       break;
     }
-
-    // return callback();
   }
   return result;
 }
 
 function every(arr, callback) {
   // Your code here
+  // let result = true;
+  // for (let i = 0; i < arr.length; i++) {
+  //   // the code below works
+  //   const element = arr[i];
+  //   if (!callback(element, i, arr)) {
+  //     result = false;
+  //     break;
+  //   }
+
+  //   // return callback();
+  // }
+  // return result;
   let result = true;
   for (let i = 0; i < arr.length; i++) {
-    // the code below works
     const element = arr[i];
     if (!callback(element, i, arr)) {
       result = false;
       break;
     }
-
-    // return callback();
   }
   return result;
 }
