@@ -67,8 +67,31 @@ module.exports = getShortMessages;
 
 function checkUsersValid(goodUsers) {
   return function allUsersValid(submittedUsers) {
-    // SOLUTION GOES HERE
+    let result = submittedUsers.every(submittedUser => {
+      return goodUsers.some(goodUser => {
+        return goodUser.id === submittedUser.id;
+      });
+    });
+    return result;
   };
 }
 
 module.exports = checkUsersValid;
+
+// Basic: Reduce
+function countWords(inputWords) {
+  // SOLUTION GOES HERE
+  return inputWords.reduce((allWords, word) => {
+    word in allWords ? allWords[word]++ : (allWords[word] = 1);
+    return allWords;
+  }, {});
+}
+
+module.exports = countWords;
+
+// Basic: Recursion
+function reduce(arr, fn, initial) {
+  // SOLUTION GOES HERE
+}
+
+module.exports = reduce;
