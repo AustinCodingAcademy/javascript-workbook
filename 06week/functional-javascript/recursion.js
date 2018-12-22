@@ -36,9 +36,15 @@
 //     // regular Array#reduce, but it will take the array
 //     // to operate on as the first argument:
 
-//     reduce([1,2,3], function(prev, curr, index, arr) {
-//       return prev + curr
-//     }, 0)
+// console.log(
+//   reduce(
+//     [1, 2, 3],
+//     function(prev, curr, index, arr) {
+//       return prev + curr;
+//     },
+//     0
+//   )
+// );
 //     // => 6
 
 // ## Conditions
@@ -54,7 +60,6 @@
 // ## Boilerplate
 
 function reduce(arr, fn, initial) {
-  // SOLUTION GOES HERE
   if (arr.length > 0) {
     const result = fn(initial, arr[0]);
     arr.shift();
