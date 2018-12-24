@@ -83,7 +83,7 @@ function checkUsersValid(goodUsers) {
     // SOLUTION GOES HERE
     // SOME: arr.some(callback(element[, index[, array]])[, thisArg]) The some() method tests whether at least one element in the array passes the test implemented by the provided function.
     // EVERY: arr.every(callback(element[, index[, array]])[, thisArg]) The every() method tests whether all elements in the array pass the test implemented by the provided function.
-
+    // My answer:
     submittedUsers.every(item => {
       return submittedUsers.some(item => item.validUsers === item.goodUsers);
     });
@@ -92,11 +92,67 @@ function checkUsersValid(goodUsers) {
 
 module.exports = checkUsersValid;
 
-function checkUsersValid(goodUsers) {
-  return function allUsersValid(submittedUsers) {
-    // SOLUTION GOES HERE
-    return submittedUsers.every(suser => {
-      return goodUsers.some(guser => guser.id === suser.id);
-    });
-  };
+// Tosin's answer
+// function checkUsersValid(goodUsers) {
+//   return function allUsersValid(submittedUsers) {
+//     // SOLUTION GOES HERE
+//     return submittedUsers.every(suser => {
+//       return goodUsers.some(guser => guser.id === suser.id);
+//     });
+//   };
+// }
+
+// Here's the official solution in case you want to compare notes:
+
+// ────────────────────────────────────────────────────────────────────────────────
+//     module.exports = function checkUsersValid(goodUsers) {
+//       return function allUsersValid(submittedUsers) {
+//         return submittedUsers.every(function(submittedUser) {
+//           return goodUsers.some(function(goodUser) {
+//             return goodUser.id === submittedUser.id
+//           })
+//         })
+//       }
+//     }
+
+// REDUCE:
+// Task:
+// Given an Array of strings, use Array#reduce to create an object that contains the number of times each string occured in the array. Return the object directly (no need to console.log).
+// ## Example
+//     var inputWords = ['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian']
+//     console.log(countWords(inputWords))
+//     // =>
+//     // {
+//     //   Apple: 2,
+//     //   Banana: 1,
+//     //   Durian: 3
+//     // }
+// ## Arguments
+//   * inputWords: An array of random Strings.
+
+function countWords(inputWords) {
+  // SOLUTION GOES HERE
+  // return inputWords.reduce(function(prev, next) {
+  //   prev[next] = prev[next] + 1 || 1;
+  //   // console.log(prev);
+  //   return prev;
+  // }, {});
+  return inputWords.reduce((prev, next) => {
+    prev[next] = ++prev[next] || 1;
+    return prev;
+  }, {});
 }
+
+module.exports = countWords;
+
+// Here's the official solution in case you want to compare notes:
+
+// ────────────────────────────────────────────────────────────────────────────────
+//     function countWords(arr) {
+//       return arr.reduce(function(countMap, word) {
+//         countMap[word] = ++countMap[word] || 1 // increment or initialize to 1
+//         return countMap
+//       }, {}) // second argument to reduce initialises countMap to {}
+//     }
+
+//     module.exports = countWords
