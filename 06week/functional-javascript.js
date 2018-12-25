@@ -156,3 +156,10 @@ module.exports = countWords;
 //     }
 
 //     module.exports = countWords
+
+// Recursion - when a function calls itself until it doesn't
+function reduce(arr, fn, initial) {
+  // SOLUTION GOES HERE
+}
+
+module.exports = reduce;
