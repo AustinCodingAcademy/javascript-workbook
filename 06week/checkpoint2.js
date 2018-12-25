@@ -5,17 +5,16 @@ const nums = strNums.map(string => parseInt(string));
 
 // Find the sum of the even values
 let sumEvens = 0;
-nums.forEach(num => num % 2 === 0 ? sumEvens += num : sumEvens += 0);
+nums.forEach(num => (num % 2 === 0 ? (sumEvens += num) : (sumEvens += 0)));
 console.log(sumEvens);
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
-const atxIdx = nums.findIndex((num, index) => {
-  return num + index === 512;
-});
+const atxIdx = nums.findIndex((num, index) => num + index === 512);
 console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
 const weather = [
-  { id: 5743823523151872,
+  {
+    id: 5743823523151872,
     weather_state_name: "Light Cloud",
     weather_state_abbr: "lc",
     wind_direction_compass: "NNE",
@@ -31,7 +30,8 @@ const weather = [
     visibility: 8.683041040324504,
     predictability: 70
   },
-  { id: 6188149969518592,
+  {
+    id: 6188149969518592,
     weather_state_name: "Heavy Cloud",
     weather_state_abbr: "hc",
     wind_direction_compass: "NE",
@@ -47,7 +47,8 @@ const weather = [
     visibility: 10.633835898353615,
     predictability: 71
   },
-  { id: 5742049676492800,
+  {
+    id: 5742049676492800,
     weather_state_name: "Showers",
     weather_state_abbr: "s",
     wind_direction_compass: "E",
@@ -61,9 +62,10 @@ const weather = [
     air_pressure: 1025.385,
     humidity: 57,
     visibility: 10.181166984808717,
-    predictability: 73  
+    predictability: 73
   },
-  { id: 6696130918219776,
+  {
+    id: 6696130918219776,
     weather_state_name: "Heavy Cloud",
     weather_state_abbr: "hc",
     wind_direction_compass: "SSW",
@@ -78,16 +80,16 @@ const weather = [
     humidity: 52,
     visibility: 11.14056410562316,
     predictability: 71
-  },
+  }
 ];
 
-//using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. 
+//using a higher order function, create an array of the unique 'weather_state_name' values of the weather array.
 // Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-const weatherStates = [...new Set(weather.map(item => item.weather_state_name))];
+const weatherStates = [
+  ...new Set(weather.map(item => item.weather_state_name))
+];
 console.log(weatherStates);
 
 //find the id of the object in weather that has a min_temp of 15.915
-const idealTemp = weather.find(item => {
-  return item.min_temp === 15.915;
-}).id;
+const idealTemp = weather.find(item => item.min_temp === 15.915).id;
 console.log(idealTemp);
