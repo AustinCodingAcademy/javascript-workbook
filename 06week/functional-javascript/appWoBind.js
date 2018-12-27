@@ -66,7 +66,14 @@
 var slice = Array.prototype.slice;
 
 function logger(namespace) {
-  console.log.apply(this, slice.call(namespace));
+  const prefix = namespace;
+  console.log(prefix);
+  return () => {
+    let argArray = slice.call(arguments).slice(1);
+    console.log(argArray);
+    argArray.unshift(prefix);
+    console.log(argArray);
+  };
 }
 
 module.exports = logger;
