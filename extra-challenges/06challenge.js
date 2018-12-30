@@ -1,17 +1,18 @@
-'use strict';
+"use strict";
 
-var assert = require('assert');
+var assert = require("assert");
 
 // ****
 // Are you down with OOP?
 // ****
-
 
 // Problem 1:
 // Associative Array Refresh
 // Add properties x: 1, y: 2 to point to make it a point
 // in two dimensional space.
 var point = {
+  x: 1,
+  y: 2
 };
 
 // Problem 2:
@@ -20,8 +21,7 @@ var point = {
 // In order to do this, you should add parameters x and y
 // as properties to "this".
 // example: this.propName = propValue;
-function Point(x, y) {
-}
+function Point(x, y) {}
 
 // Problem 3:
 // Create a new point using the class constructor Point.
@@ -65,7 +65,7 @@ function ConferenceRoom() {
   };
 
   this.sayHi = function() {
-    for(var index = 0; index < this.people.length; index++) {
+    for (var index = 0; index < this.people.length; index++) {
       console.log(this.people[index].sayHi());
     }
   };
@@ -89,7 +89,6 @@ var conferenceRoom = new ConferenceRoom();
 // conferenceRoom.enter(somePerson);
 // add your code for Problem 6 here
 
-
 // ****
 // Concept Checkpoint
 //
@@ -104,58 +103,51 @@ var conferenceRoom = new ConferenceRoom();
 // DO NOT MODIFY CODE BELOW!!!!!
 // ****
 
-describe('Lesson 6 Homework', function () {
-
-  describe('Are you down with OOP?', function () {
-
-    describe('Problem 1: Associative Array Refresh', function () {
-      it('should be { x: 1, y: 2 }', function () {
+describe("Lesson 6 Homework", function() {
+  describe("Are you down with OOP?", function() {
+    describe("Problem 1: Associative Array Refresh", function() {
+      it("should be { x: 1, y: 2 }", function() {
         assert.deepStrictEqual(point, { x: 1, y: 2 });
       });
     });
 
-    describe('Problem 2: Finish Point class', function () {
-      it('should generate points with properties x and y', function () {
+    describe("Problem 2: Finish Point class", function() {
+      it("should generate points with properties x and y", function() {
         var myPoint = new Point(4, 4);
         assert.equal(myPoint.x, 4);
         assert.equal(myPoint.y, 4);
       });
     });
 
-    describe('Problem 3: another good point', function () {
-      it('should be anotherPoint.x === 5, anotherPoint.y === -3', function () {
+    describe("Problem 3: another good point", function() {
+      it("should be anotherPoint.x === 5, anotherPoint.y === -3", function() {
         assert.equal(anotherPoint.x, 5);
         assert.equal(anotherPoint.y, -3);
       });
     });
-
   });
 
-  describe('Methods', function () {
-
-    describe('Problem 4: Finish Person class', function () {
-      it('should have method sayHi()', function () {
-        var instructor = new Person('Teach');
-        assert(typeof instructor.sayHi === 'function');
-        assert(typeof instructor.sayHi() === 'string');
+  describe("Methods", function() {
+    describe("Problem 4: Finish Person class", function() {
+      it("should have method sayHi()", function() {
+        var instructor = new Person("Teach");
+        assert(typeof instructor.sayHi === "function");
+        assert(typeof instructor.sayHi() === "string");
       });
     });
 
-    describe('Problem 5: new Person Jen', function () {
-      it('should be a new Person Jen', function () {
-        assert.equal(jen.name.toLowerCase(), 'jen');
+    describe("Problem 5: new Person Jen", function() {
+      it("should be a new Person Jen", function() {
+        assert.equal(jen.name.toLowerCase(), "jen");
       });
     });
 
-    describe('Problem 6: Conference of One', function () {
-      it('should be the case that conferenceRoom contains jen', function () {
+    describe("Problem 6: Conference of One", function() {
+      it("should be the case that conferenceRoom contains jen", function() {
         assert.equal(conferenceRoom.people.length, 1);
         assert.deepStrictEqual(jen, conferenceRoom.people[0]);
         conferenceRoom.sayHi();
       });
     });
-
   });
-
-
 });

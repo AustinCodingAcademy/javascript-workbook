@@ -15,10 +15,16 @@ var numberArray = [1, 2, 3, 4, 5];
 // Problem 1:
 // Show what numberArray would look like if we called numberArray.pop()
 var numberArrayAfterPop = [];
+numberArray.pop();
+console.log(numberArrayAfterPop);
+
 
 // Problem 2:
 // Show what numberArray would look like if we called numberArray.shift()
 var numberArrayAfterShift = [];
+numberArray.shift();
+console.log(numberArrayAfterShift);
+
 
 // Problem 3:
 // Show what numberArray would look like if we called numberArray.push(6)
@@ -58,7 +64,7 @@ var problemEightObject;
 // DON'T EDIT problemNineObject!!!!
 var problemNineObject = {
   'fav food': 'pizza',
-  city:       'houston'
+  city: 'houston'
 };
 // update 'fav food' so that its value is tacos
 // update city so that its value is austin
@@ -101,7 +107,9 @@ describe('Lesson 4 Homework', function () {
 
     var newNumberArray;
     beforeEach(function () {
-      newNumberArray = numberArray.map(function (number) { return number; });
+      newNumberArray = numberArray.map(function (number) {
+        return number;
+      });
     });
 
     describe('Problem 1: numberArray after pop()', function () {
@@ -159,8 +167,8 @@ describe('Lesson 4 Homework', function () {
         assert.deepStrictEqual(problemEightObject, {
           emptyObject: {},
           emptyArray: [],
-          name:       'bob',
-          number:     42
+          name: 'bob',
+          number: 42
         });
       });
     });

@@ -123,7 +123,9 @@ class Board {
       console.log("Not a valid move");
       return false;
     }
-    if (currentPiece.symbol === "r") {
+    if (currentPiece.symbol === "b") {
+      console.log(newRow, newColumn, oldRow, oldColumn);
+
       if (
         (newRow === oldRow + 1 && newColumn === oldColumn - 1) || //limiting movement to within 1 space of starting position or oldRow
         (newRow === oldRow + 1 && newColumn === oldColumn + 1)
@@ -133,13 +135,13 @@ class Board {
         newRow === oldRow + 2 &&
         newColumn === oldColumn + 2 &&
         this.grid[oldRow + 1][oldColumn + 1] &&
-        this.grid[oldRow + 1][oldColumn + 1].symbol != "r" //jumping piece logic in the + or ascending column direction, if piece does not match current symbol and is adjacent,
+        this.grid[oldRow + 1][oldColumn + 1].symbol != "b" //jumping piece logic in the + or ascending column direction, if piece does not match current symbol and is adjacent,
       ) {
         //logic for jumping piece 2 spaces instead of one
         this.removePiece(this.grid[oldRow + 1][oldColumn + 1]); // removing the jumped piece logic
-        if (this.checkForWin("r")) {
+        if (this.checkForWin("b")) {
           // checking for win conditions
-          console.log("redWins");
+          console.log("blueWins");
         }
 
         return true;
@@ -147,18 +149,18 @@ class Board {
         newRow === oldRow + 2 &&
         newColumn === oldColumn - 2 &&
         this.grid[oldRow + 1][oldColumn - 1] &&
-        this.grid[oldRow + 1][oldColumn - 1].symbol != "r"
+        this.grid[oldRow + 1][oldColumn - 1].symbol != "b"
       ) {
         // jumping piece logic for jumping in the - column direction or descending direction
         this.removePiece(this.grid[oldRow + 1][oldColumn - 1]);
-        if (this.checkForWin("r")) {
-          console.log("redWins");
+        if (this.checkForWin("b")) {
+          console.log("blueWins");
         }
         return true;
       } else {
         return false;
       }
-    } else if (currentPiece.symbol === "b") {
+    } else if (currentPiece.symbol === "r") {
       if (
         (newRow === oldRow - 1 && newColumn === oldColumn - 1) ||
         (newRow === oldRow - 1 && newColumn === oldColumn + 1)
@@ -168,63 +170,131 @@ class Board {
         newRow === oldRow - 2 &&
         newColumn === oldColumn - 2 &&
         this.grid[oldRow - 1][oldColumn - 1] &&
-        this.grid[oldRow - 1][oldColumn - 1].symbol != "b"
+        this.grid[oldRow - 1][oldColumn - 1].symbol != "r"
       ) {
         // same move logic as above just applied to the b symbol and moving the rows in the negative or up direction on the board, all row moves are negative
         this.removePiece(this.grid[oldRow - 1][oldColumn - 1]); // left coloumn moves are negative and right column moves are positive.
-        if (this.checkForWin("b")) {
-          console.log("blueWins");
+        if (this.checkForWin("r")) {
+          console.log("redWins");
         }
         return true;
       } else if (
         newRow === oldRow - 2 &&
         newColumn === oldColumn + 2 &&
         this.grid[oldRow - 1][oldColumn + 1] &&
-        this.grid[oldRow - 1][oldColumn + 1].symbol != "b"
+        this.grid[oldRow - 1][oldColumn + 1].symbol != "r"
       ) {
         this.removePiece(this.grid[oldRow - 1][oldColumn + 1]);
-        if (this.checkForWin("b")) {
-          console.log("blueWins");
+        if (this.checkForWin("r")) {
+          console.log("redWins");
         }
         return true;
       } else {
         return false;
       }
       //king movement
-      // } else if (currentPiece.king) {
-      //   if (newRow === oldRow - 1 && newColumn === oldColumn - 1) ||
-      //     (newRow === oldRow - 1 && newcolumn === oldColumn + 1) ||
-      //     (newRow === oldRow + 1 && newColumn === oldColumn - 1) ||
-      //     (newRow === oldRow + 1 && newColumn === oldColumn + 1)
-      // }
-      // return true;
-      //else if (this.grid[oldRow])
+    } else if (currentPiece.king) {
+      console.log("king move");
+      console.log(newRow, newColumn, oldRow, oldColumn);
+
+      if (
+        (newRow === oldRow - 1 && newColumn === oldColumn - 1) ||
+        (newRow === oldRow - 1 && newColumn === oldColumn + 1) ||
+        (newRow === oldRow + 1 && newColumn === oldColumn - 1) ||
+        (newRow === oldRow + 1 && newColumn === oldColumn + 1)
+      ) {
+        return true;
+      }
+      //diagonal up right king jumping logic
+      else if (
+        newRow === oldRow - 2 &&
+        newColumn === oldColumn + 2 &&
+        this.grid[oldRow - 1][oldColumn + 1]
+      ) {
+        console.log("moving king up right");
+        this.removePiece(this.grid[oldRow - 1][oldColumn + 1]);
+        if (this.checkForWin(currentPiece.symbol)) {
+          if (currentPiece.color === "red") {
+            console.log("redWins!!");
+          } else {
+            console.log("blueWins!!");
+          }
+        }
+        return true;
+        //diagonal up left king jumping logic
+      } else if (
+        newRow === oldRow - 2 &&
+        newColumn === oldColumn - 2 &&
+        this.grid[oldRow - 1][oldColumn - 1]
+      ) {
+        console.log("moving king up left");
+        this.removePiece(this.grid[oldRow - 1][oldColumn - 1]);
+        if (this.checkForWin(currentPiece.symbol)) {
+          if (currentPiece.color === "red") {
+            console.log("redWins!!");
+          } else {
+            console.log("blueWins!!");
+          }
+        }
+        return true;
+        //diagonal down right king jumping logic
+      } else if (
+        newRow === oldRow + 2 &&
+        newColumn === oldColumn + 2 &&
+        this.grid[oldRow + 1][oldColumn + 1]
+      ) {
+        console.log("moving king down right");
+        this.removePiece(this.grid[oldRow + 1][oldColumn + 1]);
+        if (this.checkForWin(currentPiece.symbol)) {
+          if (currentPiece.color === "red") {
+            console.log("redWins!!");
+          } else {
+            console.log("blueWins!!");
+          }
+        }
+        return true;
+        //diagonal down left king jumping logic
+      } else if (
+        newRow === oldRow + 2 &&
+        newColumn === oldColumn - 2 &&
+        this.grid[oldRow + 1][oldColumn - 1]
+      ) {
+        console.log("moving king down left");
+        this.removePiece(this.grid[oldRow + 1][oldColumn - 1]);
+        if (this.checkForWin(currentPiece.symbol)) {
+          if (currentPiece.color === "red") {
+            console.log("redWins!!");
+          } else {
+            console.log("blueWins!!");
+          }
+        }
+        return true;
+      }
       // jumping logic for king piece
     }
   }
   placePieces() {
-    const redPosition = [
+    const bluePosition = [
       // [0, 1],
       // [0, 3],
       // [0, 5],
       // [0, 7],
       // [1, 0],
       // [1, 2],
-      // [1, 4],
+      [1, 4]
       // [1, 6],
       // [2, 1],
       // [2, 3],
       // [2, 5],
       // [2, 7]
-      [6, 5]
     ];
-    const bluePosition = [
+    const redPosition = [
       // [7, 0],
       // [7, 2],
       // [7, 4],
       // [7, 6],
       // [6, 1],
-      // [6, 3],
+      //[6, 3]
       // [6, 5],
       // [6, 7],
       // [5, 0],

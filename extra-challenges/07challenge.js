@@ -5,6 +5,8 @@ var assert = require('assert');
 // You goal is to return a string that says "Hello!"
 
 function sayHello() {
+  console.log("says hello");
+  return "Hello!"
   // Your code here
 
 }
