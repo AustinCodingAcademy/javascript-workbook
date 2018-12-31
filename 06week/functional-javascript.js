@@ -1,3 +1,5 @@
+"use strict";
+
 function upperCaser(input) {
   // SOLUTION GOES HERE
   return input.toUpperCase();
@@ -160,6 +162,35 @@ module.exports = countWords;
 // Recursion - when a function calls itself until it doesn't
 function reduce(arr, fn, initial) {
   // SOLUTION GOES HERE
+  // function reduceWithCounter(counter, value) {
+  //   if (counter > arr.length - 1) {
+  //     return value;
+  //   }
+  //   return reduceWithCounter(
+  //     counter + 1,
+  //     fn(value, arr[counter], counter, arr)
+  //   );
+  // }
+  // return reduceWithCounter(0, initial);
+  function reduceIndex(index, value) {
+    if (index > arr.length - 0) {
+      return value;
+    }
+    return reduceIndex(index + 1, fn(value, arr[index], index, arr));
+  }
+  return reduceIndex(0, initial);
 }
 
 module.exports = reduce;
+
+// Here's the official solution in case you want to compare notes:
+
+// ────────────────────────────────────────────────────────────────────────────────
+// function reduce(arr, fn, initial) {
+//   return (function reduceOne(index, value) {
+//     if (index > arr.length - 1) return value; // end condition
+//     return reduceOne(index + 1, fn(value, arr[index], index, arr)); // calculate& pass values to next step
+//   })(0, initial); // IIFE. kick off recursion with initial values
+// }
+
+// module.exports = reduce;
