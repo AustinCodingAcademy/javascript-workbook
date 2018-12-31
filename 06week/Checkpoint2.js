@@ -1007,9 +1007,11 @@ const nums = strNums.toString().replace(/,/g, "");
 console.log(nums);
 
 // Find the sum of the even values
-// const sumEvens;
+const sumEvens = strNums.filter(function(a) {
+  return (a & 1) === 0;
+});
 
-// console.log(sumEvens);
+console.log(sumEvens);
 
 // // Find the index of the first "Austin" value (the value plus its index equals 512)
 // const atxIdx;
