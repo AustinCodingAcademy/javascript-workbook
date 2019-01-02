@@ -1003,15 +1003,32 @@ const strNums = [
 
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
 // *** converted strNums array toString and using replace and Regex - removed commas - logged to console
-const nums = strNums.toString().replace(/,/g, "");
-console.log(nums);
+// const nums = strNums.toString().replace(/,/g, "");
+// console.log(nums);
+
+const nums = strNums.map(Number);
+
+// console.log(nums);
 
 // Find the sum of the even values
-const sumEvens = strNums.filter(function(a) {
-  return (a & 1) === 0;
-});
+// const sumEvens = (nums.filter = isEven => {
+//   evenValues = [];
+//   if (2 % isEven === 0) {
+//     isEven += evenValues;
+//   }
+// });
+// console.log(sumEvens);
 
-console.log(sumEvens);
+// first create a variable that takes in "nums" from previous exercise and use filter to get just the even numbers in the array
+const even = function(nums) {
+  return nums % 2 === 0;
+};
+// declaring sumEvens to do the actual filtering
+const sumEvens = nums.filter(even);
+// declaring reducedSumEven to use reduce() and get the sum of the array
+const reducedSumEven = (acc, currVal) => acc + currVal;
+// log the result
+console.log(sumEvens.reduce(reducedSumEven));
 
 // // Find the index of the first "Austin" value (the value plus its index equals 512)
 // const atxIdx;
