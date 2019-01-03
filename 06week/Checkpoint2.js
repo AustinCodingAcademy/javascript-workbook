@@ -1036,9 +1036,9 @@ function austinValue(i, value) {
 }
 const atxIdx = nums.findIndex(austinValue);
 
-console.log(atxIdx + nums[atxIdx]);
+// console.log(atxIdx + nums[atxIdx]);
 
-// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
 // const weather = [
 //   { id: 5743823523151872,
