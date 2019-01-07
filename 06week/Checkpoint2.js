@@ -18,6 +18,9 @@ console.log(sumEvens);
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
 const atxIdx;
+const atxIdx = nums.findIndex((num, idx) => {
+    return (num + idx === 512);
+  });
 
 console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
@@ -89,10 +92,26 @@ const weather = [
 ],
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-const weatherStates = 
+const weatherStates = []; 
 console.log(weatherStates)
+
+weather.forEach((item) => {
+    const x = item["weather_state_name"];
+    // console.log(x);
+    weatherStates.push(x);
+});
+
+weatherStates = weatherStates.filter((item,index,arr)=>arr.indexOf(item)==index);
+console.log(weatherStates);
 
 //find the id of the object in weather that has a min_temp of 15.915
 
-const idealTemp = 
+const idealTemp = weather.find((object)=> {
+    return object.min_temp === 15.915;
+  });
 console.log(idealTemp)
+
+const idealTempId = idealTemp.id;
+
+console.log(idealTempId)
+
