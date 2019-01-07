@@ -52,13 +52,25 @@ it ("should know when a string can't be turned into a number", () => {
 //NaN
 
 //String
+ function typeOfData (arg1){
+    return typeof arg1;
+    }
+    typeOfData ("Taylor");
+    
 
 //Write a JavaScript program that adds 2 numbers together.
 function addNumber( x, y ) {
     return (x + y);
 }
-//Write a JavaScript program that runs only when 2 things are true.
 
+addNumber(46, 21);
+//Write a JavaScript program that runs only when 2 things are true.
+function twoTruthy(arg1, arg2) {
+if (arg1 && arg2) {
+    return "both true";
+}
+}
+twoTruthy(0,"Taylor");
 //Write a JavaScript program that runs when 1 of 2 things are true.
 
 //Write a JavaScript program that runs when both things are not true.e strict";
