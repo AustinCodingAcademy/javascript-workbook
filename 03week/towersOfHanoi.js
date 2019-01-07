@@ -19,64 +19,47 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(disk, peg1, peg2, peg3){
+function movePiece(startStack, endStack){
   // Your code here
-    if(disk == 0) return;
-    movePiece(disk-1,peg1,peg3,peg2);
-    if(peg1 == 'a'){
-      stacks.a.pop();
-    }
-    else if(peg1 == 'b'){
-      stacks.b.pop();
-    }
-    else if(peg1 == 'c'){
-      stacks.c.pop();
-    }
-    if(peg3 == 'a'){
-      stacks.a.push(disk);
-    }
-    else if(peg3 == 'b'){
-      stacks.b.push(disk);
-    }
-    else if(peg3 == 'c'){
-      stacks.c.push(disk);
-    }
-function isLegal() {
+  return stacks[endStack].push(stacks[startStack].pop());
+
+}
+function isLegal(startStack, endStack) {
   // Your code here
-  for (i = 0; i < stacks.a.length-1; i++) { 
-    if (stacks[i] > stacks[i+1]) {
-      console.log("ascending"); 
-    }else{
-      console.log("descending");
-    }
+  if ((startStack === 'a') && (endStack === 'b' || endStack === 'c')) {
+    console.log('isLegal True')
+    return true;
+  } else if ((startStack === 'b') && (endStack === 'a' || endStack === 'c')) {
+    console.log('isLegal True')
+    return true;
+  } else if ((startStack === 'c') && (endStack === 'a' || endStack === 'b')) {
+    console.log('isLegal True')
+    return true;
   }
- 
-  console.log();
-     
-      for (i = 0; i < stacks.b.length-1; i++) { 
-    if (stacks[i] > stacks[i+1]) {
-      console.log("ascending"); 
-    }else{
-      console.log("descending");
-    }
-  }
- 
-  console.log();
-     
-  else {
-    console.log("ascending")
-      }
-    }
+}
   
  
 function checkForWin() {
   // Your code here
+  if (stacks.c.length === 4){
+    return true;
+  }else{
+    return false;
 
+}
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  if (isLegal(startStack, endStack)) { 
+    
+    movePiece(startStack, endStack)
+  } else {
+    return 'Illegal Move'
+  }if (checkForWin()){
+    console.log('winner winner chicken dinner')
+  }
+  
 }
 
 function getPrompt() {
