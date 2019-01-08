@@ -18,3 +18,11 @@ let range = oranges <= apples;
 console.log(`I love ${typeof range} operators.`);
 
 //test git hub
+
+console.log(typeof Infinity);
+
+const infinate = Infinity;
+
+for (let i = 0; i < infinate; i++) {
+  console.log(`to infinity ${i} and beyond!`);
+}

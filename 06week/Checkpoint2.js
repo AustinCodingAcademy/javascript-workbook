@@ -1033,9 +1033,8 @@ const reducedSumEven = (acc, currVal) => acc + currVal;
 console.log(`sumEvens returns: ${sumEvens.reduce(reducedSumEven)}`);
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
-function austinValue(i, value) {
-  return i + value === 512;
-}
+const austinValue = (i, value) => i + value === 512;
+
 const atxIdx = nums.findIndex(austinValue);
 
 console.log(
