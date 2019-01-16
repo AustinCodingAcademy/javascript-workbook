@@ -10,7 +10,84 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+
+  //User1 input of rock, paper, or scissors.
+let userOne = "paper"
+function userOneChoice(userOne) {
+  userOne.toLocaleLowerCase();
+  if (userOne === 'rock' || userOne === 'paper' || userOne === 'scissors'){
+    console.log('User 1 threw ' + userOne)
+  } else {
+    console.log('This is not an acceptable value!')
+  }
+};
+userOneChoice(userOne);
+
+
+//User2 input of rock, paper, or scissors.
+let userTwo = "rock"
+function userTwoChoice(userTwo) {
+  userOne.toLocaleLowerCase();
+  if (userTwo === 'rock' || userTwo === 'paper' || userTwo === 'scissors'){
+    console.log('User 2 threw ' + userTwo)
+  } else {
+    console.log('This is not an acceptable value!')
+  }
+};
+userTwoChoice(userTwo);
+
+
+//Compare User1 input to User2 input.
+function determineWinner (userOne,userTwo){
+
+  
+  //If User1 input is 'rock' and User2 input is 'scissor', User1 wins.
+  if(userOne === 'rock' && userTwo === 'scissors'){
+    console.log('User1 wins.')
+  };
+  
+  //If User1 input is 'rock' and User2 input is 'paper', User2 wins.
+   if (userOne === 'rock' && userTwo === 'paper'){
+     console.log('User2 wins.')
+   };
+   
+   //If User1 input is 'rock' and User2 input is 'rock', it's a tie.
+   if (userOne === 'rock' && userTwo === 'rock'){
+     console.log("it's a tie")
+   }; 
+   
+   //If User1 input is 'paper' and User2 input is 'rock', User1 wins.
+   if (userOne === 'paper' && userTwo === 'rock'){
+     console.log('User1 wins.')
+   }; 
+   
+   //If User1 input is 'paper' and User2 input is 'scissors', User2 wins.
+   if (userOne === 'paper' && userTwo === 'scissors'){
+     console.log('User2 wins.')
+   }; 
+   
+   //If User1 input is 'paper' and User2 input is 'paper', it's a tie.
+   if (userOne === 'paper' && userTwo === 'paper'){
+     console.log("It's a tie.")
+   }; 
+   
+   //If User1 input is 'scissors' and User2 input is 'paper', User1 wins.
+   if (userOne === 'scissors' && userTwo === 'paper'){
+     console.log('User1 wins.')
+   }; 
+   
+   //If User1 input is 'scissors' and User2 input is 'rock', User2 wins.
+   if (userOne === 'scissors' && userTwo === 'rock'){
+     console.log('User 2 wins')
+   };
+   
+   //If User1 input is 'scissors' and User2 input is 'scissors', it's a tie.
+   if (userOne === 'scissors' && userTwo === 'scissors'){
+     console.log("It's a tie.")
+   };
+};
+
+determineWinner(userOne,userTwo);
 
 }
 
