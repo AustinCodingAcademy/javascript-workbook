@@ -30,6 +30,7 @@ console.log(typeof 'Hello World!');
 let sum = (2+2);
 console.log(sum);
 
+
 //6.Write a JavaScript program that runs only when 2 things are true
 
 let firstStatement = true;
