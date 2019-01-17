@@ -9,11 +9,17 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  for (i =0; i < word.length; i++) {
+    let y = "";
+    if ( word.charAt(0)=="a" ||  word.charAt(0)=="e" || word.charAt(0)=="i" || word.charAt(0)=="o" || word.charAt(0)=="u"){
+    y = word + "ay";
+    return y;
+    } else if (word.charAt(i)=="a" || word.charAt(i)=="e" || word.charAt(i)=="i" || word.charAt(i)=="o" || word.charAt(i)=="u"){
+      y=word.slice(i)+word.slice(0,i) + "ay";
+      return y;
+    }
+  }
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
