@@ -20,7 +20,7 @@ function userOneChoice(userOne) {
   } else {
     console.log('This is not an acceptable value!')
   }
-};
+}; 
 userOneChoice(userOne);
 
 
