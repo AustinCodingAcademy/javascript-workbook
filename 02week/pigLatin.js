@@ -7,12 +7,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//added pigLatin code
 
 function pigLatin(word) {
-
   // Your code here
 
-}
+  word= word.toLowerCase();
+  let vowels = word.search(/[aeiuo]/);
+  console.log(word.substring(vowels) + word.substring(0,vowels) + "ay")
+  }
+  pigLatin("car");
 
 
 function getPrompt() {
