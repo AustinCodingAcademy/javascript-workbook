@@ -16,9 +16,11 @@ function pigLatin(word) {
   var regex = /[aeiou]/gi;
   if(word[0].match(regex)) {
     newWord = word + "yay";
+    console.log(newWord);
   } else {
     var vowelIndice = word.indexOf(word.match(regex)[0]);
     newWord = word.substr(vowelIndice) + word.substr(0, vowelIndice) + 'ay';
+    console.log(newWord);
   }
   return newWord;
 }
