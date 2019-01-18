@@ -11,7 +11,16 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
-
+  var array = word.split("");
+  var newWord = '';
+  var regex = /[aeiou]/gi;
+  if(word[0].match(regex)) {
+    newWord = word + "yay";
+  } else {
+    var vowelIndice = word.indexOf(word.match(regex)[0]);
+    newWord = word.substr(vowelIndice) + word.substr(0, vowelIndice) + 'ay';
+  }
+  return newWord;
 }
 
 
@@ -22,30 +31,5 @@ function getPrompt() {
   });
 }
 
-// Tests
 
-if (typeof describe === 'function') {
-
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
-    });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
-    });
-  });
-} else {
-
-  getPrompt();
-
-}
+module.exports = pigLatin;
