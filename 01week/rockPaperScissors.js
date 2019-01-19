@@ -9,15 +9,34 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+  if (hand1 === hand2) {
+    return "It's a tie!"
+  }
+  if (hand1 === 'rock' && hand2 === 'paper') {
+    return "Hand2 wins!"
+  }
+  if (hand1 === 'rock' && hand2 === 'scissors') {
+    return "Hand1 wins!"
+  }
+  if (hand1 === 'paper' && hand2 === 'scissors') {
+    return "Hand2 wins!"
+  }
+  if (hand1 === 'paper' && hand2 === 'rock') {
+    return "Hand1 wins!"
+  }
+  if (hand1 === 'scissors' && hand2 === 'paper') { 
+    return "Hand1 wins!"
+  }
+  if (hand1 === 'scissors' && hand2 === 'rock') {
+    return "Hand2 wins!"
+  }
 }
+// rockPaperScissors(hand1, hand2);
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
