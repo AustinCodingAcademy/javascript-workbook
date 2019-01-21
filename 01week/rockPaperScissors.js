@@ -10,9 +10,32 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
-
+  // Rock paper Scissors function, below:
+  
+    if (hand1 === hand2){
+      console.log("It's a tie.")
+    };
+    if (hand1 === 'rock' && hand2 === 'scissor') {
+      console.log("User1 wins.")
+    };
+    if (hand1 ==='rock'&& hand2 === 'paper'){
+      console.log("User2 wins.")
+    };
+    if (hand1 === 'paper'&& hand2 === 'rock') {
+      console.log("User1 wins.")
+    }; 
+    if (hand1 === 'paper' && hand2 === 'scissors'){
+      console.log("User2 wins.")
+    }; 
+    if (hand1 === 'scissors' && hand2 === 'paper'){
+      console.log("User1 wins.")
+    }; 
+    if (hand1 === 'scissors'&& hand2 === 'rock'){
+      console.log("User2 wins.")
+    }; 
 }
+rockPaperScissors("rock","paper");
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
@@ -48,4 +71,6 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
+
+  
 }
