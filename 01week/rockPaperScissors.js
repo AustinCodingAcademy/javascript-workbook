@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors(userOne, userTwo) {
 
 
   //User1 input of rock, paper, or scissors.
@@ -43,27 +43,27 @@ function determineWinner (userOne,userTwo){
   
   //If User1 input is 'rock' and User2 input is 'scissor', User1 wins.
   if(userOne === 'rock' && userTwo === 'scissors'){
-    console.log('User1 wins.')
+    console.log('User1 wins!')
   };
   
   //If User1 input is 'rock' and User2 input is 'paper', User2 wins.
    if (userOne === 'rock' && userTwo === 'paper'){
-     console.log('User2 wins.')
+     console.log('User2 wins!')
    };
    
    //If User1 input is 'rock' and User2 input is 'rock', it's a tie.
    if (userOne === 'rock' && userTwo === 'rock'){
-     console.log("it's a tie")
+     console.log("It's a tie.")
    }; 
    
    //If User1 input is 'paper' and User2 input is 'rock', User1 wins.
    if (userOne === 'paper' && userTwo === 'rock'){
-     console.log('User1 wins.')
+     console.log('User1 wins!')
    }; 
    
    //If User1 input is 'paper' and User2 input is 'scissors', User2 wins.
    if (userOne === 'paper' && userTwo === 'scissors'){
-     console.log('User2 wins.')
+     console.log('User2 wins!')
    }; 
    
    //If User1 input is 'paper' and User2 input is 'paper', it's a tie.
@@ -73,12 +73,12 @@ function determineWinner (userOne,userTwo){
    
    //If User1 input is 'scissors' and User2 input is 'paper', User1 wins.
    if (userOne === 'scissors' && userTwo === 'paper'){
-     console.log('User1 wins.')
+     console.log('User1 wins!')
    }; 
    
    //If User1 input is 'scissors' and User2 input is 'rock', User2 wins.
    if (userOne === 'scissors' && userTwo === 'rock'){
-     console.log('User 2 wins')
+     console.log('User 2 wins!')
    };
    
    //If User1 input is 'scissors' and User2 input is 'scissors', it's a tie.
