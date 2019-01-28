@@ -27,13 +27,13 @@ function printBoard() {
 function horizontalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
-    console.log(true)
+    console.log(true);
     return true
   } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
-    console.log(true)
+    console.log(true);
     return true
   } else if (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn) {
-    console.log(true)
+    console.log(true);
     return true
   } else {
     return false
@@ -43,12 +43,12 @@ function horizontalWin() {
 function verticalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
-    console.log(true)
+    console.log(true);
   } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
-    console.log(true)
+    console.log(true);
     return true
   } else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn) {
-    console.log(true)
+    console.log(true);
     return true
   } else {
     return false
@@ -57,18 +57,26 @@ function verticalWin() {
 
 function diagonalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) {
+    console.log(true);
+  } else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    console.log(true);
+    return true
+  } else {
+    return false
+  }
 }
 
 function checkForWin() {
   // Your code here
-  if (horizontalWin()) {
-    console.log('HORIZONTAL WIN!!')
+  if (horizontalWin(row, column)) {
+    console.log('HORIZONTAL WIN!!');
     return true
-  } else if (verticalWin()) {
-    console.log('VERTICAL WIN!!')
+  } else if (verticalWin(row, column)) {
+    console.log('VERTICAL WIN!!');
     return true
-  } else if (diagonalWin()) {
-    console.log('DIAGONAL WIN!!')
+  } else if (diagonalWin(row, column)) {
+    console.log('DIAGONAL WIN!!');
     return true
   } else {
     return false
@@ -92,16 +100,13 @@ const switchPlayer = (row, column) => {
 }
 
 function ticTacToe(row, column) {
+  // Your code here
   if (checkValidEntry(row, column)) {
     board[row][column] = playerTurn;
     switchPlayer(row, column)
   } else {
     console.log("Invalid entry!");
   }
-  // Your code here
-  // console.log(row,column);
-
-
 }
 
 function getPrompt() {
@@ -113,7 +118,6 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
 
 
@@ -131,6 +135,7 @@ if (typeof describe === 'function') {
         [' ', ' ', ' ']
       ]);
     });
+
     it('should alternate between players', () => {
       ticTacToe(0, 0);
       assert.deepEqual(board, [
@@ -139,6 +144,7 @@ if (typeof describe === 'function') {
         [' ', ' ', ' ']
       ]);
     });
+
     it('should check for vertical wins', () => {
       board = [
         [' ', 'X', ' '],
@@ -147,6 +153,7 @@ if (typeof describe === 'function') {
       ];
       assert.equal(verticalWin(), true);
     });
+
     it('should check for horizontal wins', () => {
       board = [
         ['X', 'X', 'X'],
@@ -155,6 +162,7 @@ if (typeof describe === 'function') {
       ];
       assert.equal(horizontalWin(), true);
     });
+
     it('should check for diagonal wins', () => {
       board = [
         ['X', ' ', ' '],
@@ -163,6 +171,7 @@ if (typeof describe === 'function') {
       ];
       assert.equal(diagonalWin(), true);
     });
+
     it('should detect a win', () => {
       assert.equal(checkForWin(), true);
     });
