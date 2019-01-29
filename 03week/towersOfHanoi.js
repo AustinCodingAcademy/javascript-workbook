@@ -7,6 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -16,27 +17,48 @@ let stacks = {
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+  console.log("c: " + stacks.c);;
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack,endStack) {
+  // takes last number in startStack and end adds it to the end of endStack
+  stacks[endStack].push(stacks[startStack].pop())
+};
 
-}
-
-function isLegal() {
-  // Your code here
-
-}
+function isLegal(startStack,endStack) {
+  //var. for last number is Stark Stack
+  let lastStartPiece = stacks[startStack].length-1;
+  // var. for last number is End Stack
+  let lastEndPiece = stacks[endStack].length-1;
+  // checks is last peice of start stack is greater than last of end stack or if end stack is empty 
+  if (stacks[startStack][lastStartPiece] < stacks[endStack][lastEndPiece] || stacks[endStack][lastEndPiece] == undefined) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 function checkForWin() {
-  // Your code here
-
-}
-
+  // checks to see if stack b or c has a length of 4;
+  if (stacks.c.length == 4){
+    return true;
+  } else if (stacks.b.length == 4){
+    return true;
+  } else {
+    return false;
+  }
+};
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  // checks to see if isLegal is true if it is, it runs movePiece; if not logs 'invalid move'
+  if (isLegal(startStack,endStack)){
+    movePiece(startStack,endStack);
+  } else {
+    console.log('This is not a valid move!')
+  }
+  // checks to see if there are 4 discs on any row besides a, if console log 'you won'
+  if (checkForWin()) {
+    console.log('You have won!');
+  }
 }
 
 function getPrompt() {
@@ -88,7 +110,5 @@ if (typeof describe === 'function') {
   });
 
 } else {
-
   getPrompt();
-
 }
