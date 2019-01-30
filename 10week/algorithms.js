@@ -8,31 +8,54 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+const swap = (arr, i, j) => {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+};
+
 let arr = [];
 
 for (let i = 0; i < 1000; i++) {
   arr.push(getRandomInt(0, 1000));
 }
 
+// function bubbleSort(arr) {
+//   let comparisons = 0;
+//   let swaps = 0;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       comparisons++;
+//       if (arr[j] > arr[j + 1]) {
+//         swap(arr, j, j + 1);
+//         swaps++;
+//       }
+//     }
+//   }
+
+//   console.log("LOG: bubbleSort -> comparisons", comparisons);
+//   console.log("LOG: bubbleSort -> swaps", swaps);
+//   return arr;
+// }
+
 function bubbleSort(arr) {
-  // Your code here
-  let comparisonCount = 0;
-  for (let i = 0; i < arr.length; i++) {
-    let swapped = false;
-    for (let j = 1; j < arr.length; j++) {
-      if (arr[j] > arr[j + 1]) {
-        comparisonCount++;
-        let temp = arr[j + 1];
-        arr[j] = arr[j + 1];
-        temp = arr[j];
-        swapped = true;
+  let comparisons = 0;
+  let swaps = 0;
+  let sorted = true;
+  do {
+    sorted = true;
+    for (let i = 0; i < arr.length; i++) {
+      comparisons++;
+      if (arr[i] > arr[i + 1]) {
+        swap(arr, i, i + 1);
+        swaps++;
+        sorted = false;
       }
     }
-    if (!swapped) break;
-  }
-  console.log("TCL: ---------------------------------------------------");
-  console.log("TCL: bubbleSort -> comparisonCount", comparisonCount);
-  console.log("TCL: ---------------------------------------------------");
+  } while (!sorted);
+  console.log("LOG: bubbleSort -> comparisons", comparisons);
+  console.log("LOG: bubbleSort -> swaps", swaps);
   return arr;
 }
 
