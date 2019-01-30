@@ -10,19 +10,20 @@ function getRandomInt(min, max) {
 
 let arr = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 1000; i++) {
   arr.push(getRandomInt(0, 1000));
 }
 
 function bubbleSort(arr) {
   // Your code here
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > arr[i + 1]) {
+  arr.forEach((item, i, arr) => {
+    if (item > arr[i + 1]) {
       let temp = arr[i + 1];
-      arr[i] = arr[i + 1];
-      temp = arr[i];
+      item = arr[i + 1];
+      temp = item;
     }
-  }
+  });
+
   return arr;
 }
 
