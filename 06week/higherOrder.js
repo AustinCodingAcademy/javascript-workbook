@@ -10,7 +10,6 @@ function forEach(arr, callback) {
 }
 
 function map(arr, callback) {
-  // Your code here
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
     newArr[i] = callback(arr[i]);
