@@ -40,22 +40,16 @@ for (let i = 0; i < 1000; i++) {
 // }
 
 function bubbleSort(arr) {
-  let comparisons = 0;
-  let swaps = 0;
   let sorted = true;
   do {
     sorted = true;
     for (let i = 0; i < arr.length; i++) {
-      comparisons++;
       if (arr[i] > arr[i + 1]) {
         swap(arr, i, i + 1);
-        swaps++;
         sorted = false;
       }
     }
   } while (!sorted);
-  console.log("LOG: bubbleSort -> comparisons", comparisons);
-  console.log("LOG: bubbleSort -> swaps", swaps);
   return arr;
 }
 
@@ -79,6 +73,7 @@ if (typeof describe === "function") {
   describe("#bubbleSort()", () => {
     it("should sort array", () => {
       const sorted = bubbleSort(arr);
+      console.log("LOG: sorted", sorted);
       assert.deepEqual(sorted, arr.sort(comparator));
     });
   });
