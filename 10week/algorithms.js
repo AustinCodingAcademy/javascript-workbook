@@ -19,16 +19,14 @@ function bubbleSort(arr) {
   let sorted;
   do {
     sorted = true;
-    arr.reduce((prev, curr, i, arr) => {
-      // console.log(prev, curr, i, arr);
-      if (prev > curr) {
-        let temp = curr;
-        arr[i] = prev;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i - 1] > arr[i]) {
+        let temp = arr[i];
+        arr[i] = arr[i - 1];
         arr[i - 1] = temp;
         sorted = false;
       }
-      return arr[i];
-    });
+    }
   } while (!sorted);
   return arr;
 }
