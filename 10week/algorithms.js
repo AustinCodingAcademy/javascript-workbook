@@ -28,7 +28,7 @@ function bubbleSort(arr) {
         swapped = true;
       }
     }
-    if (swapped) break;
+    if (!swapped) break;
   }
   console.log("TCL: ---------------------------------------------------");
   console.log("TCL: bubbleSort -> comparisonCount", comparisonCount);
