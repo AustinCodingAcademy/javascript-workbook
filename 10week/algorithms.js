@@ -18,14 +18,17 @@ function bubbleSort(arr) {
   // Your code here
   let comparisonCount = 0;
   for (let i = 0; i < arr.length; i++) {
+    let swapped = false;
     for (let j = 1; j < arr.length; j++) {
       if (arr[j] > arr[j + 1]) {
         comparisonCount++;
         let temp = arr[j + 1];
         arr[j] = arr[j + 1];
         temp = arr[j];
+        swapped = true;
       }
     }
+    if (swapped) break;
   }
   console.log("TCL: ---------------------------------------------------");
   console.log("TCL: bubbleSort -> comparisonCount", comparisonCount);
