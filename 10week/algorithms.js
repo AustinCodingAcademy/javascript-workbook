@@ -10,19 +10,26 @@ function getRandomInt(min, max) {
 
 let arr = [];
 
-for (let i = 0; i < 1000; i++) {
-  arr.push(getRandomInt(0, 1000));
+for (let i = 0; i < 10000; i++) {
+  arr.push(getRandomInt(0, 10000));
 }
 
 function bubbleSort(arr) {
   // Your code here
+  let comparisons = 0;
+
   arr.forEach((item, i, arr) => {
     if (item > arr[i + 1]) {
+      comparisons++;
       let temp = arr[i + 1];
       item = arr[i + 1];
       temp = item;
     }
   });
+
+  console.log("TCL: -------------------------------");
+  console.log("TCL: bubbleSort -> comparisons", comparisons);
+  console.log("TCL: -------------------------------");
 
   return arr;
 }
