@@ -32,7 +32,23 @@ for (let i = 0; i < 10; i++) {
 
 // bubbleSort(arr);
 
+function mergeSort(arr) {
+  // Your code here
+  let leftArr;
+  let rightArr;
+  leftArr = mergetSort(arr.slice);
+  rightArr = mergeSort(arr.slice);
+  temp = mergeHelper(leftArr, rightArr);
+  if (arr.length !== 1) {
+    newLeftArr = mergeSort(leftArr);
+    newRightArr = mergeSort(rightArr);
+  }
+  return mergeHelper(leftArr, rightArr);
+}
+console.log("TCL: mergeSort -> mergeHelper", mergeHelper);
+
 function mergeHelper(newLeftArr, newRightArr) {
+  let temp = [];
   if (newLeftArr[0] < newRightArr[0]) {
     newRightArr.unshift(newLeftArr.shift());
   } else {
@@ -40,28 +56,12 @@ function mergeHelper(newLeftArr, newRightArr) {
   }
   return newLeftArr.concat(newRightArr);
 }
-
-function mergeSort(arr) {
-  // Your code here
-  let temp = [];
-  let leftArr;
-  let rightArr;
-  leftArr = arr.slice(0, arr.length / 2);
-  rightArr = arr.slice(arr.length / 2);
-  mergeHelper(leftArr, rightArr);
-  if (arr.length !== 1) {
-    newLeftArr = mergeSort(leftArr);
-    newRightArr = mergeSort(rightArr);
-  }
-  return arr;
-}
-
-function factorial(x) {
-  if (x < 0) return;
-  if (x === 0) return 1;
-  console.log(x, "*", x - 1);
-  return x * factorial(x - 1);
-}
+// function factorial(x) {
+//   if (x < 0) return;
+//   if (x === 0) return 1;
+//   console.log(x, "*", x - 1);
+//   return x * factorial(x - 1);
+// }
 // console.log(factorial(7));
 
 function binarySearch(arr, item) {
@@ -91,7 +91,7 @@ if (typeof describe === "function") {
       const sorted = mergeSort(arr);
       console.log("TCL: sorted", sorted);
       // console.log("TCL: arr.sort(comparator)", arr.sort(comparator));
-      assert.strictEqual(sorted, arr.sort(comparator));
+      assert.deepEqual(sorted, arr.sort(comparator));
     });
   });
 
