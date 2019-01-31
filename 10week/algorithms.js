@@ -10,8 +10,8 @@ function getRandomInt(min, max) {
 
 let arr = [];
 
-for (let i = 0; i < 10; i++) {
-  arr.push(getRandomInt(0, 10));
+for (let i = 0; i < 100; i++) {
+  arr.push(getRandomInt(0, 100));
 }
 
 // function bubbleSort(arr) {
@@ -36,19 +36,19 @@ function mergeSort(arr) {
   // Your code here
   let leftArr;
   let rightArr;
-  leftArr = mergetSort(arr.slice);
-  rightArr = mergeSort(arr.slice);
-  temp = mergeHelper(leftArr, rightArr);
+  leftArr = arr.slice(0, arr.length / 2);
+  rightArr = arr.slice(arr.length / 2);
+  // mergeHelper(leftArr, rightArr);
   if (arr.length !== 1) {
+    mergeHelper(newLeftArr, newRightArr);
     newLeftArr = mergeSort(leftArr);
     newRightArr = mergeSort(rightArr);
   }
-  return mergeHelper(leftArr, rightArr);
+  return arr;
 }
 console.log("TCL: mergeSort -> mergeHelper", mergeHelper);
 
 function mergeHelper(newLeftArr, newRightArr) {
-  let temp = [];
   if (newLeftArr[0] < newRightArr[0]) {
     newRightArr.unshift(newLeftArr.shift());
   } else {
@@ -56,6 +56,21 @@ function mergeHelper(newLeftArr, newRightArr) {
   }
   return newLeftArr.concat(newRightArr);
 }
+
+// const mergeSort = arr => {
+//   let middle = Math.floor(arr.length / 2);
+//   let leftArr = mergeSort(arr.slice(0, middle));
+//   let rightArr = mergeSort(arr.slice);
+//   return combineMergeSort(leftArr, rightArr);
+// };
+
+// const combineMergeSort = (splitArrOne, splitArrTwo){
+//   let combined = [];
+//   while (splitArrOne.length > 0 && splitArrTwo.length > 0)
+//   combined.push(splitArrOne[0] < splitArrTwo[0] ? splitArrOne.shift() : splitArrTwo.shift());
+//   return combined.concat(splitArrOne.length? splitArrOne : splitArrTwo);
+// }
+
 // function factorial(x) {
 //   if (x < 0) return;
 //   if (x === 0) return 1;
