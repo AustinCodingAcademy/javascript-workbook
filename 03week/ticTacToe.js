@@ -6,6 +6,8 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+'use strict';
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -22,25 +24,73 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-
-function horizontalWin() {
-  // Your code here
+// stipulates winning combinations to return 'true'
+let horizontalWin= ()=> {
+  if(
+(board[0][0] == playerTurn && board[0][1] == playerTurn && board[0][2] == playerTurn) ||
+(board[1][0] == playerTurn && board[1][0] == playerTurn && board[1][2] == playerTurn) ||
+(board[2][0] == playerTurn && board[2][1] == playerTurn && board[2][2] == playerTurn)
+) {
+    return true;
+  }
+  else{ 
+    return false;
+  }
+}
+// stipulates winning combinations to return 'true'
+let verticalWin = ()=> {
+  if(
+(board[0][0] == playerTurn && board[1][0] == playerTurn && board[2][0] == playerTurn) ||
+(board[0][1] == playerTurn && board[1][1] == playerTurn && board[2][1] == playerTurn) ||
+(board[0][2] == playerTurn && board[1][2] == playerTurn && board[2][2] == playerTurn)
+) {
+    return true;
+  }
+  else 
+    return false;
 }
 
-function verticalWin() {
-  // Your code here
-}
+// stipulates winning combinations to return 'true'
+let diagonalWin=()=> {
+    if(
+  (board[0][0] == playerTurn && board[1][1] == playerTurn && board[2][2] == playerTurn) ||
+  (board[0][2] == playerTurn && board[1][1] == playerTurn && board[2][0] == playerTurn)
+     ) {
+      return true;
+    }
+    else return false;
+  }
 
-function diagonalWin() {
-  // Your code here
-}
-
+//checks for winning conditions, above;
 function checkForWin() {
-  // Your code here
-}
+    if (diagonalWin() || verticalWin() || horizontalWin())  {
+      console.log("WINNER!!");
+      return true;
+    }
+    else {
+      return false
+    }
+  }
 
-function ticTacToe(row, column) {
-  // Your code here
+ //if there is an empty space, places "X" or "O" on board in alternating turns; executes CheckForWin 
+ function ticTacToe(row, column) {
+  if (board[row][column] === ' ') {
+    board[row][column] = playerTurn;
+    if (checkForWin())
+    {
+      console.log("START NEW GAME")
+    }
+    else {
+      if (playerTurn === 'X') {
+        playerTurn = 'O';
+      } else {
+        playerTurn = 'X';
+      }
+    }
+  } else {
+    console.log('SPOT TAKEN')
+  }
+  return playerTurn;
 }
 
 function getPrompt() {
@@ -56,8 +106,7 @@ function getPrompt() {
 }
 
 
-
-// Tests
+// Tests for game
 
 if (typeof describe === 'function') {
 
