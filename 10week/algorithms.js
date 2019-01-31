@@ -2,42 +2,17 @@
 
 const assert = require("assert");
 
+const LIST_AMOUNT = 30;
+const INT_LIMIT = 10;
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const swap = (arr, i, j) => {
-  let temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
-};
-
 let arr = [];
-
-for (let i = 0; i < 1000; i++) {
-  arr.push(getRandomInt(0, 1000));
-}
-
-// function bubbleSort(arr) {
-//   let comparisons = 0;
-//   let swaps = 0;
-
-//   for (let i = 0; i < arr.length; i++) {
-//     for (let j = 0; j < arr.length; j++) {
-//       comparisons++;
-//       if (arr[j] > arr[j + 1]) {
-//         swap(arr, j, j + 1);
-//         swaps++;
-//       }
-//     }
-//   }
-
-//   console.log("LOG: bubbleSort -> comparisons", comparisons);
-//   console.log("LOG: bubbleSort -> swaps", swaps);
-//   return arr;
-// }
+for (let i = 0; i < LIST_AMOUNT; i++) arr.push(getRandomInt(0, INT_LIMIT));
 
 function bubbleSort(arr) {
   let sorted = true;
@@ -52,6 +27,11 @@ function bubbleSort(arr) {
   } while (!sorted);
   return arr;
 }
+const swap = (arr, a, b) => {
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
+};
 
 function mergeSort(arr) {
   // Your code here
@@ -70,10 +50,11 @@ if (typeof describe === "function") {
     return 0;
   }
 
-  describe("#bubbleSort()", () => {
+  describe("bubbleSort()", () => {
     it("should sort array", () => {
+      console.log("LOG: before sorting", arr);
       const sorted = bubbleSort(arr);
-      console.log("LOG: sorted", sorted);
+      console.log("LOG: after sorting ", sorted);
       assert.deepEqual(sorted, arr.sort(comparator));
     });
   });
