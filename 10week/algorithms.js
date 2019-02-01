@@ -33,10 +33,28 @@ function bubbleSort(arr) {
 
 function mergeSort(arr) {
   // Your code here
+  if (arr.length === 1) {
+    return arr;
+  } else {
+    const midpoint = Math.floor(arr.length / 2);
+    let arr1 = mergeSort(arr.slice(0, midpoint));
+    let arr2 = mergeSort(arr.slice(midpoint));
+    let sortedArr = [];
+    while (sortedArr.length != arr.length) {
+      if (!arr2[0] || arr1[0] <= arr2[0]) {
+        sortedArr.push(arr1.shift());
+      } else {
+        sortedArr.push(arr2.shift());
+      }
+    }
+    return sortedArr;
+  }
 }
 
 function binarySearch(arr, item) {
   // Your code here
+  // if (arr.length === 1)
+  // const midpoint = Math.floor(arr.length / 2);
 }
 
 // Tests
@@ -55,7 +73,7 @@ if (typeof describe === "function") {
     });
   });
 
-  xdescribe("#mergeSort()", () => {
+  describe("#mergeSort()", () => {
     it("should sort array", () => {
       const sorted = mergeSort(arr);
       assert.deepEqual(sorted, arr.sort(comparator));
@@ -73,8 +91,7 @@ if (typeof describe === "function") {
     });
   });
 } else {
-  let arr = [4, 3, 1, 2];
+  let arr = [4, 7, 3, 1, 1, 2];
   console.log(arr);
-  bubbleSort(arr);
-  console.log(arr);
+  console.log(mergeSort(arr));
 }
