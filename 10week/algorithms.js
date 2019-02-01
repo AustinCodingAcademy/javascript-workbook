@@ -60,13 +60,13 @@ function bubbleSort(arr) {
 // mergeSort function divides array --> combineMergeSort combines the divided arrays after comparing them
 function mergeSort(arr) {
   // use mergeSort to cut up the array into smaller and smaller pieces (divided by 2)
-  // if (arr.length < 2) return arr;
+  if (arr.length < 2) return arr;
   let mid = Math.floor(arr.length / 2);
   // console.log("TCL: mergeSort -> mid", mid);
   // dividing the array into two using recursion
   let left = arr.slice(0, mid);
   let right = arr.slice(mid);
-  console.log("TCL: mergeSort -> right", right);
+  // console.log("TCL: mergeSort -> right", right);
   // return the result (calling combineMergeSort)
   return combineMergeSort(mergeSort(left), mergeSort(right));
 }
@@ -106,7 +106,23 @@ function combineMergeSort(left, right) {
 // console.log(factorial(7));
 
 function binarySearch(arr, item) {
-  let middle = Math.floor(arr.length / 2);
+  let start = 0;
+  let stop = arr.length - 1;
+  let middle = Math.floor(start + stop / 2);
+
+  while (arr[middle] !== item && start < stop) {
+    if (item < arr[middle]) {
+      stop = middle - 1;
+    } else {
+      start = middle + 1;
+    }
+
+    middle = Math.floor((start + stop) / 2);
+    if (item !== arr[middle]) {
+      return false;
+    }
+  }
+  return arr[middle] !== item ? -1 : middle;
 }
 
 // Tests
@@ -120,7 +136,7 @@ if (typeof describe === "function") {
     return 0;
   }
 
-  xdescribe("#bubbleSort()", () => {
+  describe("#bubbleSort()", () => {
     it("should sort array", () => {
       const sorted = bubbleSort(arr);
       assert.deepEqual(sorted, arr.sort(comparator));
@@ -130,7 +146,7 @@ if (typeof describe === "function") {
   describe("#mergeSort()", () => {
     it("should sort array", () => {
       const sorted = mergeSort(arr);
-      console.log("TCL: sorted", sorted);
+      // console.log("TCL: sorted", sorted);
       // console.log("TCL: arr.sort(comparator)", arr.sort(comparator));
       assert.deepEqual(sorted, arr.sort(comparator));
     });
