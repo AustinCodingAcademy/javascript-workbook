@@ -14,61 +14,87 @@ for (let i = 0; i < 100; i++) {
   arr.push(getRandomInt(0, 100));
 }
 
-// function bubbleSort(arr) {
-//   for (let i = 0; i < arr.length; i++) {
-//     //Notice that j < (length - i)
-//     for (let j = 0; j < arr.length - i - 1; j++) {
-//       //compare positions
-//       if (arr[j] > arr[j + 1]) {
-//         //swich the numbers
-//         let temp = arr[j]; //variable to hold the current number
-//         arr[j] = arr[j + 1]; //swap current number with adjacent number
-//         arr[j + 1] = temp; //swap adjacent number with current number
-//       }
-//     }
-//   }
-//   return arr;
-// }
-
-// bubbleSort(arr);
-
-function mergeSort(arr) {
-  // Your code here
-  let leftArr;
-  let rightArr;
-  leftArr = arr.slice(0, arr.length / 2);
-  rightArr = arr.slice(arr.length / 2);
-  // mergeHelper(leftArr, rightArr);
-  if (arr.length !== 1) {
-    mergeHelper(newLeftArr, newRightArr);
-    newLeftArr = mergeSort(leftArr);
-    newRightArr = mergeSort(rightArr);
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    //Notice that j < (length - i)
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      //compare positions
+      if (arr[j] > arr[j + 1]) {
+        //swich the numbers
+        let temp = arr[j]; //variable to hold the current number
+        arr[j] = arr[j + 1]; //swap current number with adjacent number
+        arr[j + 1] = temp; //swap adjacent number with current number
+      }
+    }
   }
   return arr;
 }
-console.log("TCL: mergeSort -> mergeHelper", mergeHelper);
 
-function mergeHelper(newLeftArr, newRightArr) {
-  if (newLeftArr[0] < newRightArr[0]) {
-    newRightArr.unshift(newLeftArr.shift());
-  } else {
-    newLeftArr.unshift(newRightArr.shift());
-  }
-  return newLeftArr.concat(newRightArr);
+// bubbleSort(arr);
+
+// function mergeSort(arr) {
+//   // Your code here
+//   let leftArr;
+//   let rightArr;
+//   leftArr = arr.slice(0, arr.length / 2);
+//   rightArr = arr.slice(arr.length / 2);
+//   // mergeHelper(leftArr, rightArr);
+//   if (arr.length !== 1) {
+//     mergeHelper(newLeftArr, newRightArr);
+//     newLeftArr = mergeSort(leftArr);
+//     newRightArr = mergeSort(rightArr);
+//   }
+//   return arr;
+// }
+// console.log("TCL: mergeSort -> mergeHelper", mergeHelper);
+
+// function mergeHelper(newLeftArr, newRightArr) {
+//   if (newLeftArr[0] < newRightArr[0]) {
+//     newRightArr.unshift(newLeftArr.shift());
+//   } else {
+//     newLeftArr.unshift(newRightArr.shift());
+//   }
+//   return newLeftArr.concat(newRightArr);
+// }
+
+// mergeSort function divides array --> combineMergeSort combines the divided arrays after comparing them
+function mergeSort(arr) {
+  // use mergeSort to cut up the array into smaller and smaller pieces (divided by 2)
+  // if (arr.length < 2) return arr;
+  let mid = Math.floor(arr.length / 2);
+  // console.log("TCL: mergeSort -> mid", mid);
+  // dividing the array into two using recursion
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid);
+  console.log("TCL: mergeSort -> right", right);
+  // return the result (calling combineMergeSort)
+  return combineMergeSort(mergeSort(left), mergeSort(right));
 }
 
-// const mergeSort = arr => {
-//   let middle = Math.floor(arr.length / 2);
-//   let leftArr = mergeSort(arr.slice(0, middle));
-//   let rightArr = mergeSort(arr.slice);
-//   return combineMergeSort(leftArr, rightArr);
-// };
+function combineMergeSort(left, right) {
+  let result = [];
+  // console.log("TCL: combineMergeSort -> result", result);
+  let leftTemp = 0;
+  let rightTemp = 0;
+  // when both indexes are smaller than the array length push the smaller value and move over to the next index
+  while (leftTemp < left.length && rightTemp < right.length) {
+    if (left[leftTemp] < right[rightTemp]) {
+      result.push(left[leftTemp++]);
+    } else {
+      result.push(right[rightTemp++]);
+    }
+  }
+  return result.concat(left.slice(leftTemp).concat(right.slice(rightTemp)));
+}
 
-// const combineMergeSort = (splitArrOne, splitArrTwo){
-//   let combined = [];
-//   while (splitArrOne.length > 0 && splitArrTwo.length > 0)
-//   combined.push(splitArrOne[0] < splitArrTwo[0] ? splitArrOne.shift() : splitArrTwo.shift());
-//   return combined.concat(splitArrOne.length? splitArrOne : splitArrTwo);
+// *******BASIC RECURSION EXPLINATION
+// increment(num){
+//   num++
+//   if(num===10){
+//     return num
+//   } else {
+//     return increment(num)
+//   }
 // }
 
 // function factorial(x) {
@@ -80,7 +106,7 @@ function mergeHelper(newLeftArr, newRightArr) {
 // console.log(factorial(7));
 
 function binarySearch(arr, item) {
-  // Your code here
+  let middle = Math.floor(arr.length / 2);
 }
 
 // Tests
@@ -110,7 +136,7 @@ if (typeof describe === "function") {
     });
   });
 
-  xdescribe("#binarySearch()", () => {
+  describe("#binarySearch()", () => {
     it("should return the index of given item if sorted array contains it", () => {
       const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
