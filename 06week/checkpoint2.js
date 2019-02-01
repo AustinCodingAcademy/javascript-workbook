@@ -1097,7 +1097,7 @@ const weather = [
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
 // let uniqueWeathers = [];
 const weatherStates = weather.reduce((acc, weatherObject, i, arr) => {
-  if (!acc.includes(weatherObject.weather_state_name)) {
+  if (acc.indexOf(weatherObject.weather_state_name) < 0) {
     acc.push(weatherObject.weather_state_name);
   }
   return acc;
