@@ -53,8 +53,16 @@ function mergeSort(arr) {
 
 function binarySearch(arr, item) {
   // Your code here
-  // if (arr.length === 1)
-  // const midpoint = Math.floor(arr.length / 2);
+  const midpoint = Math.floor(arr.length / 2);
+  if (item === arr[midpoint]) {
+    return midpoint;
+  } else if (arr.length === 1) {
+    return false;
+  } else if (item < arr[midpoint]) {
+    return binarySearch(arr.slice(0, midpoint));
+  } else {
+    return binarySearch(arr.slice(midpoint));
+  }
 }
 
 // Tests
@@ -80,7 +88,7 @@ if (typeof describe === "function") {
     });
   });
 
-  xdescribe("#binarySearch()", () => {
+  describe("#binarySearch()", () => {
     it("should return the index of given item if sorted array contains it", () => {
       const idx = binarySearch([1, 2, 3, 4], 3);
       assert.equal(idx, 2);
