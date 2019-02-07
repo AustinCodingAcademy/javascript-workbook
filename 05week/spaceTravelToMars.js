@@ -8,6 +8,41 @@ let jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
+//crew member constructor
+class CrewMember {
+  constructor(name, job, specialSkill){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  this.ship = ship;
+  }
+//function that allows you to add ship to crew member depedning on job
+  enterShip(ship){
+    for (let key in jobTypes){
+      if(key === this.job && jobTypes[key] === ship.type){
+        ship.crew.push(this);
+        this.ship = ship;
+      }
+    }
+  }
+}
+//ship constructor
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability
+    this.crew = [];
+  }
+  //function thats give ship a mission statement if there is at least one crew member
+  missionStatement(){
+    if(crewMember.length > 0){
+      return this.ability
+    } else {
+      return "Can't perform a mission yet."
+    }
+  }
+};
 
 // Your code here
 
