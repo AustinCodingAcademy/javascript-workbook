@@ -28,6 +28,8 @@ var b = 6
 if (b === 6) {
   console.log("number" + 6)
 }
+
+
 // NaN
 // var c = '7'
 // if (c !== 7) {
