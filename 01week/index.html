@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datatypes</title>
+<script>
+
+// Write a JavaScript program to display the current day and time.
+console.log(new Date().toLocaleString("en-US", {timeZone: "America/Chicago"}))
+
+
+// Write a JavaScript program to convert a number to a string.
+var num = 15;
+
+console.log(
+num.toString()
+) 
+
+// Write a JavaScript program to convert a string to the number.
+let text = '21px';
+let integer = parseInt(text, 10);
+
+console.log(integer);
+
+
+// Write a JavaScript program that takes in different datatypes and prints out whether they are a:
+
+// // Boolean
+console.log(typeof true);
+
+// // Null
+console.log(typeof null);
+
+// // Undefined
+console.log(typeof declaredButUndefinedVariable);
+
+// // Number
+console.log(typeof 42);
+
+// // NaN
+console.log(parseInt(null));
+
+// // String
+console.log(typeof '42');
+
+// Write a JavaScript program that adds 2 numbers together.
+add(2, 4)
+function add (x, y) {
+return x + y}
+
+// Write a JavaScript program that runs only when 2 things are true.
+add(2, 4)
+function add (x, y) {
+return x + y}
+
+// Write a JavaScript program that runs when 1 of 2 things are true.
+
+const age1 = 16;
+const min1 = 15;
+const max1 = 18
+
+if (age1 < max1 && age1 > min1) {
+    console.log("You qualify.");
+} else {
+    console.log("You do not qualify.");
+}
+
+// Write a JavaScript program that runs when both things are not true.
+
+const age2 = 15;
+const min2 = 15;
+const max2 = 17;
+
+if (age2 != max2 && age2 != min2) {
+    console.log("You qualify.");
+} else {
+    console.log("You do not qualify.");
+}
+</script>
+<body>
+</body>
+</head>
+</html>
