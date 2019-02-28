@@ -12,6 +12,26 @@ function pigLatin(word) {
 
   // Your code here
 
+    const word = "savage"
+
+    const toPigLatin = text => {
+      const vowelRegex =/[aeiou]/i;
+      const firstVowelIndex = text.IndexOf(word.match(vowelRegex)[0]);
+      const startsWithVowel = firstVowelIndex === 0;
+
+      console.log(word);
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
