@@ -12,29 +12,29 @@ function pigLatin(word) {
 
   // Your code here
 
-    const word = "savage"
-
-    const toPigLatin = text => {
-      const vowelRegex =/[aeiou]/i;
-      const firstVowelIndex = text.IndexOf(word.match(vowelRegex)[0]);
-      const startsWithVowel = firstVowelIndex === 0;
-
-      console.log(word);
-
-
+    const toPigLatin = (word) => {
+      word.trim("")
+      const wordArray = word.split("");
+      const vowelArray = ['a,e,i,o,u']
+      for(let i = 0; i < wordArray.length; i++){
+        for(let x =0; x< vowelArray.length; x++) {
+          if(wordArray[i] === vowelArray[x]){
+           return(
 
 
 
-
-
+           );
+            
 
 
 
 
+
+          }
+        }
+      } 
 
 }
-
-
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
