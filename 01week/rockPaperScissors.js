@@ -9,6 +9,10 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
+hand1 = hand1.trim().toLowerCase()
+hand2 = hand2.trim().toLowerCase()
+
+
 if(hand1 === hand2) {
   return "It's a tie!"}
 
@@ -39,12 +43,12 @@ if(hand1 === 'scissors') {
   }
 }
 
-if(hand1 !== 'rock' || 'paper' || 'scissors') {
-  return 'Invalid entry'
+if(hand1 !== 'rock' && hand1 !== 'paper' && hand1 !== 'scissors') {
+  return 'Invalid entry!'
 }
 
-if(hand2 !== 'rock' || 'paper' || 'scissors') {
-  return 'Invalid entry'
+if(hand2 !== 'rock' && hand2 !== 'paper' && hand2 !== 'scissors') {
+  return 'Invalid entry!'
 }
 
 }
@@ -83,7 +87,8 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
     it('should make sure user must input a valid entry ', () => {
-      assert.equal(rockPaperScissors(!'rock' || !'paper' || !'scissors'), "Invalid entry");
+      assert.equal(rockPaperScissors('Invalid', 'Valid'), "Invalid entry!");
+      assert.equal(rockPaperScissors('Valid ', 'Invalid'), "Invalid entry!");
   });
 });
 } else {
