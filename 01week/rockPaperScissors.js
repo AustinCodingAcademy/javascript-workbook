@@ -7,7 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
 
 if(hand1 === hand2) {
@@ -16,30 +15,40 @@ if(hand1 === hand2) {
  // if user is rock
  if(hand1 === 'rock') {
   if(hand2 === 'scissors') {
-    return 'Player One Wins!'
+    return 'Hand one wins!'
   } else {
-    return 'Player Two Wins!'
+    return 'Hand two wins!'
   }
 }
 
 // if user is paper
 if(hand1 === 'paper') {
   if(hand2 === 'rock') {
-    return 'Player One Wins!'
+    return 'Hand one wins!'
   } else {
-    return 'Player Two Wins!'
+    return 'Hand two wins!'
   }
 }
 
 // if user is scissors
 if(hand1 === 'scissors') {
   if(hand2 === 'paper') {
-    return 'Player One Wins!'
+    return 'Hand one wins!'
   } else {
-    return 'Player Two Wins!'
+    return 'Hand two wins!'
   }
 }
+
+if(hand1 !== 'rock' || 'paper' || 'scissors') {
+  return 'Invalid entry'
 }
+
+if(hand2 !== 'rock' || 'paper' || 'scissors') {
+  return 'Invalid entry'
+}
+
+}
+
   
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
@@ -74,7 +83,7 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
     it('should make sure user must input a valid entry ', () => {
-      assert.equal(rockPaperScissors(!'rock' || !'paper' || !'scissors'), "Hand two wins!");
+      assert.equal(rockPaperScissors(!'rock' || !'paper' || !'scissors'), "Invalid entry");
   });
 });
 } else {
