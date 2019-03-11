@@ -24,24 +24,57 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if ((playerTurn == board[0][0] && playerTurn == board[0][1] && playerTurn == board[0][2]) 
+  || (playerTurn == board[1][0] && playerTurn == board[1][1] && playerTurn == board[1][2]) 
+    || (playerTurn == board[2][0] && playerTurn == board[2][1] && playerTurn == board[2][2])) {
+    console.log(playerTurn + " wins!");
+    return true;
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if ((playerTurn == board[0][0] && playerTurn == board[1][0] && playerTurn == board[2][0]) 
+  || (playerTurn == board[0][1] && playerTurn == board[1][1] && playerTurn == board[2][1]) 
+    || (playerTurn == board[0][2] && playerTurn == board[1][2] && playerTurn == board[2][2])) {
+    console.log(playerTurn + " wins!");
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((playerTurn == board[0][0] && playerTurn == board[1][1] && playerTurn == board[2][2]) 
+  || (playerTurn == board[2][0] && playerTurn == board[1][1] && playerTurn == board[0][2])) {
+  console.log(playerTurn + " wins!");
+  return true; 
+  }
 }
 
 function checkForWin() {
-  // Your code here
+ horizontalWin()
+  verticalWin()
+  diagonalWin()
+
+  if (horizontalWin || verticalWin || diagonalWin){
+  return true;
+}
 }
 
+
 function ticTacToe(row, column) {
-  // Your code here
-}
+//Accessing variable board with row and column inputs
+  board[row][column] = playerTurn
+  console.log('playerTurn after mark placed', playerTurn);
+// Checks for wins
+  checkForWin();
+//This alternates the X and O assignments.
+  if(playerTurn == 'X'){
+    playerTurn = 'O'
+  } else {
+    playerTurn = 'X'
+  }
+  
+  }
+
 
 function getPrompt() {
   printBoard();
@@ -54,8 +87,6 @@ function getPrompt() {
   });
 
 }
-
-
 
 // Tests
 
