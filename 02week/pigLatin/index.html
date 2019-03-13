@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Pig Latin</title>
+        <link rel="stylesheet" type="text/css" href='pigLatin.css'>
+    </head>
+
+    <form onsubmit="pigLatin(event)">
+        Enter word:<br>
+        <input id="original" type="text">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form> 
+
+            <script>
+            function pigLatin(event) {
+                event.preventDefault();
+                //x represents the original word.
+                str = document.getElementById("original").value;
+                //Vowel represents the vowels in the original word.
+                var vowel = ['a','e','i','o','u'];
+                //Array represents a substrings of the original word.
+                var array = str.split('');
+                //We declared result.
+
+
+                let result;
+                //If the first character is a vowel, then add yay.
+                if (vowel.includes(str[0])) {
+                    result = str += 'yay'
+                    window.alert(result);
+                //If the first character is not a vowel, then we itterate through the code.
+                } else {
+                  for (var i = 0; i < str.length; i++) {
+                //We remove the characters that precede the vowel with shift and push them to the end of the word.
+                    if (!vowel.includes(str[i])) {
+                    array.push(array.shift());
+                  } else {
+                //Then, we add ay.
+                    array.push('ay');
+                    result = array.join('');
+                    y = result
+                    window.alert(result); 
+                  }
+                 }
+                }
+               }
+              </script>
+    </body>
+</html>
