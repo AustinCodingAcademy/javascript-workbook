@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 function pigLatin(str) {
   var vowels = ['a','e','i','o','u'],
-  result = str.split('');
+  var result = str.split('');
   
   if (vowels.includes(str[0])) {
     return str += 'way';
