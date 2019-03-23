@@ -109,3 +109,10 @@ if (typeof describe === 'function') {
 } else {
   getPrompt();
 }
+
+/* 
+-create the board dimensions
+-lay all pieces on the board
+-be able to move pieces
+-be able to kill another piece
+*/
