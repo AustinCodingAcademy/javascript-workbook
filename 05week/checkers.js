@@ -10,11 +10,21 @@ const rl = readline.createInterface({
 
 class Checker {
   // Your code here
-  constructor(symbol, row, col){
+  constructor(symbol, row, col) {
     this.symbol = symbol;
-    this.row= row;
+    this.row = row;
     this.col = col;
-
+    this.isKing = false;
+  }
+  makeKing() {
+    if (!this.isKing) {
+      this.isKing = true;
+      if (this.symbol === "x") {
+        this.symbol = "X";
+      } else {
+        this.symbol = "O";
+      }
+    }
   }
 }
 
@@ -34,8 +44,9 @@ class Board {
       }
     }
   }
+
   viewGrid() {
-    // adding our column numbers
+    // adding column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
       // we start with our row number in our array
@@ -61,45 +72,112 @@ class Board {
 
 
   // Your code here
-createCheckers() {
-  for (let row = 0; row < 8; row++) {
-    for (let col = 0; col < 8; col++) {
-      // add the row and col coordinates and divide the sum by 2. if there is a remainder
-      // of 1 && the row value is less than 3, push an 'x' into that coordinate of the array. 
-      if ((row + col) % 2 === 1 && row < 3) {
-        const newChecker = new Checker("x", row, col);
-        this.grid[row][col] = newChecker;
-        this.checkers.push(newChecker);
+  createCheckers() {
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
         // add the row and col coordinates and divide the sum by 2. if there is a remainder
-        // of 1 and the row value is greater than 4, push an 'o' into that coordinate of the array.
-      } else if ((row + col) % 2 === 1 && row > 4) {
-        const newChecker = new Checker("o", row, col);
-        this.grid[row][col] = newChecker;
-        this.checkers.push(newChecker);
+        // of 1 && the row value is less than 3, push an 'x' into that coordinate of the array. 
+        if ((row + col) % 2 === 1 && row < 3) {
+          const newChecker = new Checker("x", row, col);
+          this.grid[row][col] = newChecker;
+          this.checkers.push(newChecker);
+          // add the row and col coordinates and divide the sum by 2. if there is a remainder
+          // of 1 and the row value is greater than 4, push an 'o' into that coordinate of the array.
+        } else if ((row + col) % 2 === 1 && row > 4) {
+          const newChecker = new Checker("o", row, col);
+          this.grid[row][col] = newChecker;
+          this.checkers.push(newChecker);
+        }
       }
     }
   }
-}
 
-findPiece(coordinate) {
-  const row = coordinate[0];
-  const col = coordinate[1];
-  const currentPiece = this.checkers.find(checker => {
-    return checker.row === row && checker.col === col;
-  });
-  return currentPiece;
-}
+  findPiece(coordinate) {
+    const row = coordinate[0];
+    const col = coordinate[1];
+    const currentPiece = this.checkers.find(checker => {
+      return checker.row === row && checker.col === col;
+    });
+    return currentPiece;
+  }
 
-removePiece(currentPiece) {
-  const row = currentPiece.row;
-  const col = currentPiece.col;
-  this.grid[row][col] = null;
-  const index = this.checkers.indexOf(currentPiece);
-  this.checkers.splice(index, 1);
-}
-}
+  removePiece(currentPiece) {
+    const row = currentPiece.row;
+    const col = currentPiece.col;
+    this.grid[row][col] = null;
+    const index = this.checkers.indexOf(currentPiece);
+    this.checkers.splice(index, 1);
+  }
 
+  isLegalMove(currentPiece, destination) {
+    const newRow = destination[0];
+    const newCol = destination[1];
+    const oldRow = currentPiece.row;
+    const oldCol = currentPiece.col;
+    if (this.grid[newRow][newCol]) {
+      return false;
+    }
+    if (currentPiece.symbol === "x" || currentPiece.isKing) {
+      if (newRow === oldRow + 1 && (newCol === oldCol + 1 || newCol === oldCol - 1)) {
+        return true;
+      } else if (newRow === oldRow + 2 && newCol === oldCol + 2 &&
+        this.grid[oldRow + 1][oldCol + 1]) {
+        this.removePiece(this.grid[oldRow + 1][oldCol + 1]);
+        return true;
+      } else if (newRow === oldRow + 2 && newCol === oldCol - 2 &&
+        this.grid[oldRow + 1][oldCol - 1]) {
+        this.removePiece(this.grid[oldRow + 1][oldCol - 1]);
+        return true;
+      }
+    }
+    if (currentPiece.symbol === "o" || currentPiece.isKing) {
+      if (newRow === oldRow - 1 && (newCol === oldCol + 1 || newCol === oldCol - 1)) {
+        return true;
+      } else if (newRow === oldRow - 2 && newCol === oldCol + 2 &&
+        this.grid[oldRow - 1][oldCol + 1]) {
+        this.removePiece(this.grid[oldRow - 1][oldCol + 1]);
+        return true;
+      } else if (newRow === oldRow - 2 && newCol === oldCol - 2 &&
+        this.grid[oldRow - 1][oldCol - 1]) {
+        this.removePiece(this.grid[oldRow - 1][oldCol - 1]);
+        return true;
+      }
+    }
+    return false;
+  }
 
+  movePiece(currentPiece, destination) {
+    const newRow = destination[0];
+    const newCol = destination[1];
+    const oldRow = currentPiece.row;
+    const oldCol = currentPiece.col;
+    this.grid[newRow][newCol] = currentPiece;
+    this.grid[oldRow][oldCol] = null;
+    currentPiece.row = newRow;
+    currentPiece.col = newCol;
+    if (newRow === 7 || newRow === 0) {
+      currentPiece.makeKing();
+    }
+  }
+
+  checkForWin() {
+    const containAnX = this.checkers.some(checker => {
+      return checker.symbol === "x" || checker.symbol === "X";
+    });
+    if (!containAnX) {
+      console.log("O Wins!");
+      return true;
+    }
+    const containAnO = this.checkers.some(checker => {
+      return checker.symbol === "o" || checker.symbol === "O";
+    });
+    if (!containAnO) {
+      console.log("X Wins!");
+      return true;
+    }
+    return false;
+  }
+}
 
 class Game {
   constructor() {
@@ -107,6 +185,37 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
+  }
+  moveChecker(whichPiece, toWhere) {
+    const origin = this.parseInput(whichPiece);
+    const destination = this.parseInput(toWhere);
+    if (!origin || !destination) {
+      console.log("Invalid board location!");
+      return null;
+    }
+    const currentPiece = this.board.findPiece(origin);
+    if (!currentPiece) {
+      console.log("No checker selected!");
+      return null;
+    }
+    const isLegalMove = this.board.isLegalMove(currentPiece, destination);
+    if (!isLegalMove) {
+      console.log("Not a legal move!");
+      return null;
+    } else {
+      this.board.movePiece(currentPiece, destination);
+    }
+  }
+
+  parseInput(string) {
+    const row = parseInt(string[0]);
+    const col = parseInt(string[1]);
+    const validInputs = [0, 1, 2, 3, 4, 5, 6, 7];
+    if (!validInputs.includes(row) || !validInputs.includes(col)) {
+      return null;
+    }
+    return [row, col];
   }
 }
 
@@ -123,7 +232,7 @@ function getPrompt() {
 const game = new Game();
 game.start();
 
-
+// ---------------------------------------------------------------------
 // Tests
 if (typeof describe === 'function') {
   describe('Game', () => {
