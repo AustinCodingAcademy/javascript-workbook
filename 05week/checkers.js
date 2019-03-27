@@ -28,6 +28,7 @@ class Checker {
   }
 }
 
+
 class Board {
   constructor() {
     this.grid = []
@@ -109,9 +110,10 @@ class Board {
     this.checkers.splice(index, 1);
   }
 
+// function that takes in two coordinates..the current and the destination.
   isLegalMove(currentPiece, destination) {
-    const newRow = destination[0];
-    const newCol = destination[1];
+    const newRow = destination[0]; /*index 0 of destination entry*/
+    const newCol = destination[1]; /*index 1 of destination entry*/
     const oldRow = currentPiece.row;
     const oldCol = currentPiece.col;
     if (this.grid[newRow][newCol]) {
@@ -178,6 +180,7 @@ class Board {
     return false;
   }
 }
+
 
 class Game {
   constructor() {
