@@ -1,3 +1,5 @@
+
+
 'use strict';
 
 const assert = require('assert');
@@ -76,14 +78,14 @@ class Board {
   createCheckers() {
     for (let row = 0; row < 8; row++) {
       for (let col = 0; col < 8; col++) {
-        // add the row and col coordinates and divide the sum by 2. if there is a remainder
-        // of 1 && the row value is less than 3, push an 'x' into that coordinate of the array. 
+        // add the value of row and col coordinates and divide the sum by 2. if there is a remainder
+        // of 1 AND the row value is less than 3, push an 'x' into that coordinate([row][col]) of the array. 
         if ((row + col) % 2 === 1 && row < 3) {
           const newChecker = new Checker("x", row, col);
           this.grid[row][col] = newChecker;
           this.checkers.push(newChecker);
           // add the row and col coordinates and divide the sum by 2. if there is a remainder
-          // of 1 and the row value is greater than 4, push an 'o' into that coordinate of the array.
+          // of 1 AND the row value is greater than 4, push an 'o' into that coordinate ([row][col]) of the array.
         } else if ((row + col) % 2 === 1 && row > 4) {
           const newChecker = new Checker("o", row, col);
           this.grid[row][col] = newChecker;
@@ -94,6 +96,8 @@ class Board {
   }
 
   findPiece(coordinate) {
+    // this function locates the piece on the board. stores the piece in variable currentPiece.
+    // returning currentP
     const row = coordinate[0];
     const col = coordinate[1];
     const currentPiece = this.checkers.find(checker => {
@@ -103,15 +107,18 @@ class Board {
   }
 
   removePiece(currentPiece) {
+    // puts null value in place of currentPiece
     const row = currentPiece.row;
     const col = currentPiece.col;
     this.grid[row][col] = null;
     const index = this.checkers.indexOf(currentPiece);
+    //  splice(start, delete count)
     this.checkers.splice(index, 1);
   }
 
-// function that takes in two coordinates..the current and the destination.
+
   isLegalMove(currentPiece, destination) {
+    // function that takes in two arguments. the current piece{} and the destination and checks for validity
     const newRow = destination[0]; /*index 0 of destination entry*/
     const newCol = destination[1]; /*index 1 of destination entry*/
     const oldRow = currentPiece.row;
@@ -120,6 +127,8 @@ class Board {
       return false;
     }
     if (currentPiece.symbol === "x" || currentPiece.isKing) {
+      // if the new row is one greater than the old row and the new column is one greater or
+      //  one less than the old column, return true
       if (newRow === oldRow + 1 && (newCol === oldCol + 1 || newCol === oldCol - 1)) {
         return true;
       } else if (newRow === oldRow + 2 && newCol === oldCol + 2 &&
