@@ -9,9 +9,41 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  // Options: (1)Rock, (2)paper or (3)scissors
+  // Hand1 chooses 1-3, this answer gets saved without whitespace to lower case
+  // Hand2 chooses 1-3, this answer gets saved without whitespace to lower case
+  // Compare the two answers
+    // (1)Rock beats (3)scissors
+    // (3)Scissors beats (2)paper
+    // (2)paper beats (1)rock
+  // Tie returns 'It\'s a tie!'
+  
+  // console.log("It's a tie! ", hand1 == 'rock' && hand2 == 'rock')
+  // console.log("It's a tie! ", hand1 == 'paper' && hand2 == 'paper')
+  // console.log("It's a tie! ", hand1 == 'scissor' && hand2 == 'scissor')
+  // console.log("Hand1 wins with Rock beating Scissors: ", hand1 == 'rock' && hand2 == 'scissor')
+  // console.log("Hand2 wins with Rock beating Scissors: ", hand2 == 'rock' && hand1 == 'scissor')
+  // console.log("Hand1 wins with Scissors beating Paper: ", hand1 == 'scissor' && hand2 == 'paper')
+  // console.log("Hand2 wins with Scissors beating Paper: ", hand2 == 'scissor' && hand1 == 'paper')
+  // console.log("Hand1 wins with Paper beating Rock: ", hand1 == 'paper' && hand2 == 'rock')
+  // console.log("Hand2 wins with Paper beating Rock: ", hand2 == 'paper' && hand1 == 'rock')
 
-  // Write code here
-
+  hand1 = hand1.trim();
+  hand2 = hand2.trim();
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
+  const valid = ['rock', 'paper', 'scissors'];
+  if (hand1 == hand2) return 'It\'s a tie!';
+  const wins = {
+    'paper': 'rock',
+    'scissors': 'paper',
+    'rock': 'scissors'
+  }
+  if (valid.includes(hand1) && valid.includes(hand2)) {
+    return wins[hand1] == hand2 ? 'Hand one wins!' : 'Hand two wins!';
+  } else {
+    getPrompt();
+  }
 }
 
 function getPrompt() {
