@@ -2,6 +2,9 @@
 console.log("start here!"); 
 //dissplay datea and time
 var d = new Date();
+function displayDate(d) {
+    document.getElementById("showDate").innerHTML = Date();
+}
 console.log(d);
 //convert a number, 7 to a string, "7" in javascripot
 var num = 7;
@@ -56,5 +59,4 @@ else{
     console.log("no")
 }
 //program runs when 1 of 2 things are true
-var 
 //runs when both things are not true
