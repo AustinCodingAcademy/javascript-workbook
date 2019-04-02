@@ -6,5 +6,41 @@
   </head>
   <body>
     <h1>Hello Mitchell!</h1>
+    <div id="info">
+      <ul>
+        <li id="displayDate">Date: </li>
+        <li id="toString">Number To String: </li>
+        <li id="toNumber">String To Number: </li>
+        <li id="whatDatatype">What datatype: </li>
+        <li id="addTowNumbers">Add two numbers: </li>
+        <li id="ifTrue">if two are true: </li>
+        <li id="ifOneTrue">if one is true: </li>
+        <li id="ifBothFalse">if both are false</li>
+      </ul>
+    </div>
+    <script src="01week/datatypes.js" charset="utf-8"></script>
+    <script>
+      var results = document.getElementById("info").children;
+
+      var myDate = document.getElementById("displayDate");
+      myDate.innerHTML+="<br>"+getCurrentDate();
+
+
+
+      // const listItems = document.getElementsByTagName('ul');
+
+      // var listItems = ul.children;
+      // document.getElementById("info").innerHTML="";
+
+      // console.log();
+      // console.log(typeof convertNumToString(34));
+      // console.log(typeof convertStringToNum('911'));
+      // console.log(whatDataType({name:'mitchell'}));
+      // console.log(add(4,5));
+      // console.log(ifTwoTrue(true, true));
+      // console.log(ifOneTrue(false, 1));
+      // console.log(ifFalse(false,false));
+
+    </script>
   </body>
 </html>
