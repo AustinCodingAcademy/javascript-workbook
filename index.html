@@ -9,7 +9,14 @@
     <div id="info">
       <ul>
         <li id="displayDate">Date: </li>
-        <li id="toString">Number To String: </li>
+        <li id="toString">
+          Number To String: <input type="number" id="inputNumber" placeholder="3 is a number">
+
+          <input type="button" id="convertButton"></input>
+
+          <input type="text" id="outputString" disabled>
+
+        </li>
         <li id="toNumber">String To Number: </li>
         <li id="whatDatatype">What datatype: </li>
         <li id="addTowNumbers">Add two numbers: </li>
@@ -19,28 +26,5 @@
       </ul>
     </div>
     <script src="01week/datatypes.js" charset="utf-8"></script>
-    <script>
-      var results = document.getElementById("info").children;
-
-      var myDate = document.getElementById("displayDate");
-      myDate.innerHTML+="<br>"+getCurrentDate();
-
-
-
-      // const listItems = document.getElementsByTagName('ul');
-
-      // var listItems = ul.children;
-      // document.getElementById("info").innerHTML="";
-
-      // console.log();
-      // console.log(typeof convertNumToString(34));
-      // console.log(typeof convertStringToNum('911'));
-      // console.log(whatDataType({name:'mitchell'}));
-      // console.log(add(4,5));
-      // console.log(ifTwoTrue(true, true));
-      // console.log(ifOneTrue(false, 1));
-      // console.log(ifFalse(false,false));
-
-    </script>
   </body>
 </html>
