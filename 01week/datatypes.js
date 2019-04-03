@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * [getCurrentDate description]
  * @return {time} current time
@@ -7,24 +8,30 @@ function getCurrentDate() {
   let currentDate = new Date();
   return currentDate;
 }
+
 /**
  * [convertNumToString description]
  * @param  {[type]} myNumber [description]
  * @return {[type]}          [description]
  */
 function convertNumToString(myNumber) {
+  alert("convertNumToString");
+  console.log(typeof myNumber);
   var myString = myNumber.toString();
+
   return myString;
 }
+
 /**
- * [convertNumToString description]
- * @param  {[type]} myNumber [description]
- * @return {[type]}          [description]
- */
+* [convertNumToString description]
+* @param  {[type]} myNumber [description]
+* @return {[type]}          [description]
+*/
 function convertStringToNum(myString) {
   var myNumber = parseInt(myString);
   return myNumber;
 }
+
 /**
  * [whatDataType description]
  * @param  {[type]} data [description]
@@ -33,6 +40,7 @@ function convertStringToNum(myString) {
 function whatDataType(data) {
   return typeof(data);
 }
+
 /**
  * [add description]
  * @param {[type]} num1 [description]
@@ -41,6 +49,7 @@ function whatDataType(data) {
 function add(num1,num2){
   return num1+num2;
 }
+
 /**
  * [ifTwoTrue description]
  * @param  {[type]} oneThing    [description]
@@ -54,6 +63,7 @@ function ifTwoTrue(oneThing,secondThing) {
     return false;
   }
 }
+
 /**
  * [ifOneTrue description]
  * @param  {[type]} oneThing    [description]
@@ -67,6 +77,7 @@ function ifOneTrue(oneThing, secondThing) {
     return false;
   }
 }
+
 /**
  * [ifFalse description]
  * @param  {[type]} oneThing    [description]
@@ -80,12 +91,6 @@ function ifFalse(oneThing, secondThing) {
     return false;
   }
 }
-//Client Coding
-// console.log(getCurrentDate());
-// console.log(typeof convertNumToString('77'));
-// console.log(typeof convertStringToNum('911'));
-// console.log(whatDataType({name:'mitchell'}));
-// console.log(add(4,5));
-// console.log(ifTwoTrue(true, true));
-// console.log(ifOneTrue(false, 1));
-// console.log(ifFalse(false,false));
+
+var myButton = document.getElementById("convertButton");
+myButton.addEventListener("click", myScript);
