@@ -3,7 +3,7 @@ var date = new Date();
 console.log(date.toLocaleString('en-us'));
 
 function displayDate(){
-  document.getElementById("showDate").innerHTML = Date();
+  document.getElementById("showDate").innerHTML = date.toLocaleString('en-us');
 }
 
 //Convert a number, 7 to a string, "7" in javascript.
