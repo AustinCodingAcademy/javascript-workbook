@@ -1,19 +1,36 @@
 'use strict';
 
-var d = new Date();
-console.log(d);
+//date and time
+function dateAndTime() {
+    var d = new Date();
+    document.getElementById("dateAndTime").innerHTML = d;
+}
 
 
-var num = 15;
-var n = num.toString();
-console.log(n);
-console.log(typeof n);
+//number to string
+function numToString() {
+    var num = document.getElementById("myText").value;
+    document.getElementById("numToString").innerHTML = num;
+}
 
 
-var x = "12";
-var y = Number(x);
-console.log(y);
-console.log(typeof y);
+// string to number
+function stringToNum() {
+    var str = document.getElementById("myNum").value;
+    document.getElementById("stringToNum").innerHTML = Number(str);
+}
+
+
+// data type of input
+
+function whatType() {
+    var data = document.getElementById("inputType").value;
+    document.getElementById("whatType").innerHTML = typeof data;
+}
+
+//how to do this if every input is a string
+// where would js take in the datatypes from to print out what they are - not user submitted?
+
 
 
 
@@ -44,19 +61,47 @@ console.log(typeof f);
 
 
 
-var g = 5;
-var h = 6;
-console.log(g + h);
+// var g = 5;
+// var h = 6;
+// console.log(g + h);
 
 
-var j = 10 > 9;
-var k = 4 < 5;
-if (j && k == true) {
-    console.log("2 true");
+// addition
+
+function addNums(first, second) {
+    var first = Number(document.getElementById("first").value);
+    var second = Number(document.getElementById("second").value);
+    document.getElementById("addNums").innerHTML = first + second;
+}
+
+
+var j = 10;
+var k = 4;
+if (j > 9 && k < 5) {
+    console.log("both are true");
 }
 else {
-    console.log("no");
+    console.log("");
 }
 
 
 
+var l = 10 > 9;
+var m = 10 < 9;
+if (l || m == true) {
+    console.log("only one is true");
+}
+else {
+    console.log("")
+}
+
+
+
+var n = 10;
+var o = 4;
+if (n < 9 && o > 5) {
+    console.log("");
+}
+else {
+    console.log("both are not true");
+}
