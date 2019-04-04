@@ -23,6 +23,8 @@ function stringToNum() {
 
 // data type of input
 
+
+
 function whatType() {
     var data = document.getElementById("inputType").value;
     document.getElementById("whatType").innerHTML = typeof data;
@@ -61,18 +63,15 @@ console.log(typeof f);
 
 
 
-// var g = 5;
-// var h = 6;
-// console.log(g + h);
-
 
 // addition
-
 function addNums(first, second) {
     var first = Number(document.getElementById("first").value);
     var second = Number(document.getElementById("second").value);
     document.getElementById("addNums").innerHTML = first + second;
 }
+
+
 
 
 var j = 10;
@@ -105,3 +104,17 @@ if (n < 9 && o > 5) {
 else {
     console.log("both are not true");
 }
+
+
+function bothNotTrue(a, b) {
+    if (!a && !b) {
+      console.log('success')
+    } else {
+      console.log('fail')
+    }
+  }
+  
+  const a = 23;
+  const b = null;
+  
+  bothNotTrue(a, b)

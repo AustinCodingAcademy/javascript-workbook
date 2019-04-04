@@ -8,9 +8,53 @@ const rl = readline.createInterface({
 });
 
 
+
+
+
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  if (hand1 == "rock" && hand2 == "scissors") {
+    return "User1 wins"
+  } else if (hand1 == "rock" && hand2 == "paper") {
+    return "User2 wins"
+  } else if (hand1 == "rock" && hand2 == "rock") {
+    return "It's a tie"
+  } else if (hand1 == "paper" && hand2 == "rock") {
+    return "User1 wins"
+  } else if (hand1 == "paper" && hand2 == "scissors") {
+    return "User2 wins"
+  } else if (hand1 == "paper" && hand2 == "paper") {
+    return "It's a tie"
+  } else if (hand1 == "scissors" && hand2 == "paper") {
+    return "User1 wins"
+  } else if (hand1 == "scissors" && hand2 == "rock") {
+    return "User2 wins"
+  } else {
+    return "It's a tie"
+  }
+  
+// var result;
+
+//  switch(hand1 , hand2) {
+//    case (hand1 === "rock" && hand2 == "scissors"):
+//    case (hand1 == "scissors" && hand2 == "paper"):
+//    case (hand1 == "paper" && hand2 == "rock"):
+//    result = "User 1 Wins";
+//    break;
+//    case (hand2 == "rock" && hand1 == "scissors"):
+//    case (hand2 == "scissors" && hand1 == "paper"):
+//    case (hand2 == "paper" && hand1 == "rock"):
+//    result = "User 2 Wins"; 
+//    break;
+//    case (hand2 == "rock" && hand1 == "rock"):
+//    case (hand2 == "scissors" && hand1 == "scissors"):
+//    case (hand2 == "paper" && hand1 == "paper"):
+//    result = "It's a Tie"; 
+//    break;
+//  }
+
+//  return result;
 
 }
 
