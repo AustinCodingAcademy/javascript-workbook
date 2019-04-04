@@ -1,0 +1,25 @@
+body {
+    margin: 0 auto;
+    width: 75%;
+    padding: 2%;
+    background-image: url(../07week/united-squares-negative.png);
+}
+
+#main-container {
+    display: flex;
+    /* height: 400px; */
+    background-color: grey;
+    align-items: center;
+    justify-content: center;
+    font-family: raleway;
+}
+
+#apiButton {
+    color: white;
+background-color: #4D4D4D;
+padding: 10px;
+width: 75px;
+font-size: 20px;
+font-family: kanit;
+margin-top: 5px;
+}

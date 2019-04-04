@@ -6,7 +6,7 @@ function getApi(){
     .then((res)=>res.json())
     .then((data)=> {
         console.log(data.results);
-        let output = `<h2>Address Book</h2>`;
+        let output = `<h1>Address Book</h1>`;
         data.results.forEach(function(results){
             output += `
             <ul>
