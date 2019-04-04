@@ -7,15 +7,13 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function rockPaperScissors(hand1, hand2) {
-  // Options: (1)Rock, (2)paper or (3)scissors
+  // Options: rock, paper or scissors
   // Hand1 chooses 1-3, this answer gets saved without whitespace to lower case
   // Hand2 chooses 1-3, this answer gets saved without whitespace to lower case
   // Compare the two answers
-    // (1)Rock beats (3)scissors
-    // (3)Scissors beats (2)paper
-    // (2)paper beats (1)rock
+    // rock beats scissors
+    // scissors beats paper
+    // paper beats rock
   // Tie returns 'It\'s a tie!'
   
   // console.log("It's a tie! ", hand1 == 'rock' && hand2 == 'rock')
@@ -28,6 +26,7 @@ function rockPaperScissors(hand1, hand2) {
   // console.log("Hand1 wins with Paper beating Rock: ", hand1 == 'paper' && hand2 == 'rock')
   // console.log("Hand2 wins with Paper beating Rock: ", hand2 == 'paper' && hand1 == 'rock')
 
+function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.trim();
   hand2 = hand2.trim();
   hand1 = hand1.toLowerCase();
