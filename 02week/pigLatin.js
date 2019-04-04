@@ -7,17 +7,25 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function pigLatin(word) {
-
-  // Your code here
-
+const pigLatin = (word) => {
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  for (let l = 0; l < word.length; l++) {
+    if (vowels.includes(word[l])) {
+      if ( l === 0) {
+        console.log(word + 'yay');
+        return word + 'yay';
+      }
+      console.log(word.slice(l, word.length) + word.slice(0, l) + 'ay');
+      return word.slice(l, word.length) + word.slice(0, l) + 'ay';
+    }
+  }
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    const callTheFunction = pigLatin(answer);
+    console.log("Function call: ", callTheFunction);
     getPrompt();
   });
 }
