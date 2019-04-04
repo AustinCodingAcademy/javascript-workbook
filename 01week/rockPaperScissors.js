@@ -9,15 +9,25 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
+  //User1 wins 
+  if ((hand1 == "rock" && hand2 == "scissor") || (hand1 == "paper" && hand2 == "rock") || (hand1 == "scissor" && hand2 == "paper")) {
+    return "Hand one wins!"
+  }
+  //User1, User2 ties scenario
+  else if (hand1 == hand2) {
+    return "It's a tie!";
+  }
+  //User2 wins
+  else if ((hand1 == "rock" && hand2 == "paper") || (hand1 == "paper" && hand2 == "scissor") || (hand1 == "scissor" && hand2 == "rock")) {
+    return "Hand two wins!"
+  }
 
 }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
