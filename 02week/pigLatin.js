@@ -13,32 +13,36 @@ const pigLatin = (word) => {
   word = word.toLowerCase();
   // Set your vowels array to compare to word
   let vowels = ['a', 'e', 'i', 'o', 'u']
-  // Loop around the length of word
-  for (let l = 0; l < word.length; l++) {
-    // Check to see if the index of word is included in the vowels array
-    if (vowels.includes(word[l])) {
-      // Check to see if the index of the vowel is 0 (the word begins with a vowel)
-      if ( l === 0) {
-        console.log(word + 'yay');
-        // Return the word as-is with "yay" at the end
-        return word + 'yay';
+  let words = word.split(' ');
+  let response = [];
+  // Loop around the length of each word
+  for(let l = 0; l < words.length; l++) {
+    const eachWord = words[l];
+    for(let j = 0; j < eachWord.length; j++) {
+      const letter = eachWord[j];
+      // Check to see if the index of eachWord is included in the vowels array
+      if(vowels.includes(letter)) {
+        // Check to see if the index of the vowel is 0 (the word begins with a vowel)
+        if(j === 0) {
+          let vowelWord = eachWord + 'yay';
+          response.push(vowelWord);
+        } else {
+          let otherWords = eachWord.slice(j, eachWord.length) + eachWord.slice(0, j) + 'ay';
+          response.push(otherWords);
+        }
+        break;
       }
-      // If the first index is not a vowel, slice word at the vowel index
-      // "Chop" it from that point thru the whole length of the word
-      // Then take the beginning of the word (a consinent) untl the first vowel index (l)
-      // Add 'ay' at the end
-      console.log("Slice the last part of the word include the vowel:", word.slice(l, word.length));
-      console.log("Grab the first part of the word excluding the vowel: ", word.slice(0, l));
-      return word.slice(l, word.length) + word.slice(0, l) + 'ay';
     }
   }
+  const answer = response.join(' ');
+  return answer;
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
     const translation = pigLatin(answer);
-    console.log("Answer: ", translation);
+    console.log('Answer: ', translation);
     getPrompt();
   });
 }
@@ -63,6 +67,10 @@ if (typeof describe === 'function') {
     it('should lowercase and trim word before translation', () => {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+    });
+    // 'Should separate two words and return them together' 'Hop Fest' => 'Ophay Estfay'
+    it('should separate two words and return them together', () => {
+      assert.equal(pigLatin('Egg Rocket'), 'eggyay ocketray');
     });
   });
 } else {
