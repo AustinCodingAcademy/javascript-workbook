@@ -4,7 +4,8 @@
 var today = new Date();
 
 function showDay() {
-console.log(today.toLocaleString('en-us'));
+return today.toLocaleString('en-us');
+
 }
 showDay();
 
