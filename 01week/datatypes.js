@@ -2,12 +2,9 @@
 //Write a JS program to display the current date and time
 
 var today = new Date();
+var todaysDate = today.toLocaleString('en-us');
+document.getElementById("date").innerHTML = "SUP";
 
-function showDay() {
-return today.toLocaleString('en-us');
-
-}
-showDay();
 
 //convert number to string
 
