@@ -2,27 +2,79 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>DateTime</title>
+    <style>
+      .form-padding {
+        padding:10px;
+      }
+      ul li {
+        border:1px solid black;
+        padding:10px;
+        list-style: none;
+      }
+      li#toString {
+        display:flex;
+      }
+      #ifTrue, #ifFalse, #ifBothFalse, #ifTrueOrFalse {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      /* input#inputNumber {color:green;font-size:1.5rem;width:10%;}
+      input [type="textbox"]{width:100%;}
+      input[type="button"] {} */
+    </style>
   </head>
   <body>
     <h1>Hello Mitchell!</h1>
     <div id="info">
       <ul>
-        <li id="displayDate"><input type="button" value="Display Date">Date: </li>
+        <li id="displayDate"><input type="button" value="Display Date"><br></li>
+
         <li id="toString">
-          Number To String: <input type="number" id="inputNumber" placeholder="3 is a number">
+          Number To String:
+          <input type="number" id="inputNumber" class="form-padding" value=1>
 
-          <input type="button" value="Convert Numbers">
+          <input type="button" value="Convert Numbers" id="convertNumToString8Button">
 
-          <input type="text" id="outputString" disabled />
+          <input type="text" id="outputString">
+        </li>
+
+        <li id="toNumber">
+          String To Number:
+          <input type="text" id="inputString" class="form-padding" value=1>
+
+          <input type="button" value="Convert String" id="convertNumToStringButton">
+
+          <input type="text" id="outputNumber">
+        </li>
+
+        <li id="whatDataType">
+          What datatype: <input type="text" id="dataType">
+          <input type="button" id="checkDataTypeButton" value="Check Data Type">
+          <input type="text" id="dataTypeName" disabled>
+        </li>
+
+        <li id="addTowNumbers">
+          Add two numbers:
+          <input type="number" id="num1"> +
+          <input type="number" id="num2">
+          <input type="button" id="addButton" value="=">
+          <input type="number" id="sum" disabled>
+        </li>
+
+        <li id="ifTrueOrFalse">
+          <div class="item1">
+            <input type="checkbox" id="item1" name="item1" checked>Set Item1 True (else false)
+          </div>
+          <div class="item2">
+            <input type="checkbox" id="item2" name="item2" value=true>Set Item2 True (else false)
+          </div>
+          <div class="result">
+            <input type="button" value="Get Result" id="getResultButton"> False
+          </div>
 
         </li>
-        <li id="toNumber">String To Number: </li>
-        <li id="whatDatatype">What datatype: </li>
-        <li id="addTowNumbers">Add two numbers: </li>
-        <li id="ifTrue">if two are true: </li>
-        <li id="ifOneTrue">if one is true: </li>
-        <li id="ifBothFalse">if both are false</li>
       </ul>
     </div>
     <script src="01week/datatypes.js" charset="utf-8"></script>
