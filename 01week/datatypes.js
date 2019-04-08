@@ -8,19 +8,26 @@ document.getElementById("date").innerHTML = "The date and time are "+ todaysDate
 
 // convert number to string
 
-var newNum = "";
-function makeString(){
-var num = document.getElementById("toStr").value;
-let newNum = num.toString();
-document.getElementById("result").innerHTML = "The number " + newNum + " is now a string";
-}
+// var newNum = "";
+// function makeString(){
+// var num = document.getElementById("toStr").value;
+// let newNum = num.toString();
+// document.getElementById("result").innerHTML = "The number " + newNum + " is now a string";
+// }
 
-makeString();
+// makeString();
 
 // Write a JavaScript program to convert a string to the number.
 
-var newNum = parseInt(8);
-console.log(newNum);
+function stringToNum(){
+    let num = document.getElementById("toNum").value;
+    var stringNum = parseInt(num);
+    console.log(stringNum);
+    document.getElementById("resultNum").innerHTML = "The string " + stringNum + " is now a number";
+
+}
+
+stringToNum();
 
 // //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // // Boolean
