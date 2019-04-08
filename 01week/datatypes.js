@@ -8,6 +8,7 @@ function getCurrentDate() {
   let currentDate = new Date();
   return currentDate;
 }
+
 /**
  * [convertNumToString description]
  * @param  {[type]} myNumber [description]
