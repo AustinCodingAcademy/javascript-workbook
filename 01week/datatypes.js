@@ -30,35 +30,31 @@ function whatType() {
     document.getElementById("whatType").innerHTML = typeof data;
 }
 
-//how to do this if every input is a string
-// where would js take in the datatypes from to print out what they are - not user submitted?
-
-
 
 
 
 var a = 10 > 9;
-console.log(typeof a);
+document.write(typeof a);
 
 var b = null;
-console.log(b);
+document.write(b);
 
 var c;
-console.log(typeof c);
+document.write(typeof c);
 
 var d = 7;
-console.log(typeof d);
+document.write(typeof d);
 
 var e;
 if (isNaN(e) == true) {
-    console.log("NaN");
+    document.write("NaN");
 }
 else {
-    console.log("no");
+    document.write("no");
 }
 
 var f = "sixteen";
-console.log(typeof f);
+document.write(typeof f);
 
 
 
@@ -77,10 +73,10 @@ function addNums(first, second) {
 var j = 10;
 var k = 4;
 if (j > 9 && k < 5) {
-    console.log("both are true");
+    document.write("both are true");
 }
 else {
-    console.log("");
+    document.write("");
 }
 
 
@@ -88,10 +84,10 @@ else {
 var l = 10 > 9;
 var m = 10 < 9;
 if (l || m == true) {
-    console.log("only one is true");
+    document.write("only one is true");
 }
 else {
-    console.log("")
+    document.write("")
 }
 
 
@@ -99,22 +95,22 @@ else {
 var n = 10;
 var o = 4;
 if (n < 9 && o > 5) {
-    console.log("");
+    document.write("");
 }
 else {
-    console.log("both are not true");
+    document.write("both are not true");
 }
 
 
-function bothNotTrue(a, b) {
-    if (!a && !b) {
-      console.log('success')
-    } else {
-      console.log('fail')
-    }
-  }
+// function bothNotTrue(a, b) {
+//     if (!a && !b) {
+//       console.log('success')
+//     } else {
+//       console.log('fail')
+//     }
+//   }
   
-  const a = 23;
-  const b = null;
+//   const a = 23;
+//   const b = null;
   
-  bothNotTrue(a, b)
+//   bothNotTrue(a, b)
