@@ -2,49 +2,57 @@
 //Write a JS program to display the current date and time
 
 var today = new Date();
+var todaysDate = today.toLocaleString('en-us');
+document.getElementById("date").innerHTML = "The date and time are "+ todaysDate;
 
-function showDay() {
-return today.toLocaleString('en-us');
 
-}
-showDay();
+// convert number to string
 
-//convert number to string
-
-// let num = 5;
-
-// function makeString(){
-// let num = num.toString();
-// console.log(num);
-// }
-
-// makeString();
-
-//Write a JavaScript program to convert a string to the number.
-
-var newNum = parseInt(8);
-console.log(newNum);
-
-//Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-// Boolean
-// Null
-// Undefined
-// Number
-// NaN
-// String
-
-function evalData (someData) {
-let n = typeof someData;
-console.log(n);
+var newNum = "";
+function makeString(){
+var num = document.getElementById("toStr").value;
+let newNum = num.toString();
+document.getElementById("result").innerHTML = "The number " + newNum + " is now a string";
 }
 
-evalData("hi mom");
 
-// Write a JavaScript program that adds 2 numbers together.
+// Write a JavaScript program to convert a string to the number.
 
-function addTwo(a,b) {
-let result = a + b;
-console.log(result);
+function stringToNum(){
+    let num = document.getElementById("toNum").value;
+    var stringNum = parseInt(num);
+    console.log(stringNum);
+    document.getElementById("resultNum").innerHTML = "The string " + stringNum + " is now a number";
+
+}
+
+
+// //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
+// // Boolean
+// // Null
+// // Undefined
+// // Number
+// // NaN
+// // String
+
+function evalData () {
+    let leData = typeof false;
+    document.getElementById("resultData").innerHTML = "The value is " + leData;
+}
+
+evalData();
+
+// // Write a JavaScript program that adds 2 numbers together.
+
+function addTwo() {
+let a = document.getElementById("inputA").value;
+let b = document.getElementById("inputB").value;
+
+console.log(a);
+console.log(b);
+
+let addResult = Number(a) + Number(b)
+document.getElementById("resultAdd").innerHTML = "The result is " + addResult; 
 
  }
 
@@ -55,7 +63,7 @@ function evalStuff (thing1,thing2) {
     }
 }
 
-// Write a JavaScript program that runs when 1 of 2 things are true.
+// // Write a JavaScript program that runs when 1 of 2 things are true.
 
 
 function evalMore (thing1,thing2) {
@@ -64,7 +72,7 @@ function evalMore (thing1,thing2) {
     }
 }
 
-// Write a JavaScript program that runs when both things are not true.
+// // Write a JavaScript program that runs when both things are not true.
 
 function evalFalse (thing1,thing2) {
     if (thing1 != true && thing2 != true) {
