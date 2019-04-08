@@ -9,10 +9,11 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  if(hand1 === 'rock' && hand2 === 'scissors')
+return hand1 wins
 
-  // Write code here
 
-}
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
