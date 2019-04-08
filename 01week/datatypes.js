@@ -56,41 +56,46 @@ function add(num1,num2){
  * @param  {[type]} secondThing [description]
  * @return {[type]}             [description]
  */
-function ifTwoTrue(oneThing,secondThing) {
-  if (oneThing && secondThing) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-/**
- * [ifOneTrue description]
- * @param  {[type]} oneThing    [description]
- * @param  {[type]} secondThing [description]
- * @return {[type]}             [description]
- */
-function ifOneTrue(oneThing, secondThing) {
-  if (oneThing || secondThing) {
-    return true;
-  } else  {
-    return false;
-  }
-}
-
-/**
- * [ifFalse description]
- * @param  {[type]} oneThing    [description]
- * @param  {[type]} secondThing [description]
- * @return {[type]}             [description]
- */
-function ifFalse(oneThing, secondThing) {
-  if (oneThing===false &&  secondThing===false) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function ifTwoTrue(oneThing,secondThing) {
+//   if (oneThing && secondThing) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+//
+// /**
+//  * [ifOneTrue description]
+//  * @param  {[type]} oneThing    [description]
+//  * @param  {[type]} secondThing [description]
+//  * @return {[type]}             [description]
+//  */
+// function ifOneTrue(oneThing, secondThing) {
+//   if (oneThing || secondThing) {
+//     return true;
+//   } else  {
+//     return false;
+//   }
+// }
+//
+// /**
+//  * [ifFalse description]
+//  * @param  {[type]} oneThing    [description]
+//  * @param  {[type]} secondThing [description]
+//  * @return {[type]}             [description]
+//  */
+// function ifFalse(oneThing, secondThing) {
+//   if (oneThing===false &&  secondThing===false) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+// function checkBoolean(item1, item2) {
+//   if (item1&&item2) {return true}
+//   else if (item1||item2){return true}
+//   else if (!(item1&&item2)) {return true}
+// }
 
 var displayDate = document.getElementById("displayDate");
 var convertNumToStringButton = document.getElementById('convertNumToStringButton');
@@ -130,7 +135,8 @@ addButton.addEventListener("click",function(){
 getResultButton.addEventListener("click",function(){
   var item1 = document.getElementById("item1");
   var item2 = document.getElementById("item2");
-  if (item1.checked==true) {
-    console.log(item1+' true');
-  }
+  var result = document.getElementById("result");
+
+
+
 });
