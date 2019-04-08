@@ -8,14 +8,13 @@ document.getElementById("date").innerHTML = "The date and time are "+ todaysDate
 
 // convert number to string
 
-// var newNum = "";
-// function makeString(){
-// var num = document.getElementById("toStr").value;
-// let newNum = num.toString();
-// document.getElementById("result").innerHTML = "The number " + newNum + " is now a string";
-// }
+var newNum = "";
+function makeString(){
+var num = document.getElementById("toStr").value;
+let newNum = num.toString();
+document.getElementById("result").innerHTML = "The number " + newNum + " is now a string";
+}
 
-// makeString();
 
 // Write a JavaScript program to convert a string to the number.
 
@@ -27,7 +26,6 @@ function stringToNum(){
 
 }
 
-stringToNum();
 
 // //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // // Boolean
@@ -37,41 +35,47 @@ stringToNum();
 // // NaN
 // // String
 
-// function evalData (someData) {
-// let n = typeof someData;
-// console.log(n);
-// }
+function evalData () {
+    let leData = typeof false;
+    document.getElementById("resultData").innerHTML = "The value is " + leData;
+}
 
-// evalData("hi mom");
+evalData();
 
 // // Write a JavaScript program that adds 2 numbers together.
 
-// function addTwo(a,b) {
-// let result = a + b;
-// console.log(result);
+function addTwo() {
+let a = document.getElementById("inputA").value;
+let b = document.getElementById("inputB").value;
 
-//  }
+console.log(a);
+console.log(b);
 
-// // Write a JavaScript program that runs only when 2 things are true.
-// function evalStuff (thing1,thing2) {
-//     if (thing1 == true && thing2 == true) {
-//         console.log("run!");
-//     }
-// }
+let addResult = Number(a) + Number(b)
+document.getElementById("resultAdd").innerHTML = "The result is " + addResult; 
+
+ }
+
+// Write a JavaScript program that runs only when 2 things are true.
+function evalStuff (thing1,thing2) {
+    if (thing1 == true && thing2 == true) {
+        console.log("run!");
+    }
+}
 
 // // Write a JavaScript program that runs when 1 of 2 things are true.
 
 
-// function evalMore (thing1,thing2) {
-//     if (thing1 == true || thing2 == true) {
-//         console.log("run!");
-//     }
-// }
+function evalMore (thing1,thing2) {
+    if (thing1 == true || thing2 == true) {
+        console.log("run!");
+    }
+}
 
 // // Write a JavaScript program that runs when both things are not true.
 
-// function evalFalse (thing1,thing2) {
-//     if (thing1 != true && thing2 != true) {
-//         console.log("run!");
-//     }
-// }
+function evalFalse (thing1,thing2) {
+    if (thing1 != true && thing2 != true) {
+        console.log("run!");
+    }
+}
