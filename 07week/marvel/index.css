@@ -1,0 +1,18 @@
+body {
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./marvelimg.jpg');
+    /* opacity: .9; */
+}
+
+#jsonButton {
+    margin-top: 30px;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 30px;
+    color: red;
+    background-image: url('./marvelimg.jpg');
+/* opacity: .9; */
+}
