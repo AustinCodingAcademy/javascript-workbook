@@ -14,7 +14,6 @@
 // const returnAnswer = powerUp([2, 4, 6, 8]);
 // console.log(returnAnswer);
 
-
 // const loopThruArray = [2, 4, 6, 8].map(function(num) {
 //     let pow = num * num;
 //     return pow;
