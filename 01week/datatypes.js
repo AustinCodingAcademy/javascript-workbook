@@ -46,10 +46,10 @@ function isTypeOf(data) {
 };
 
 // function invocation
-isTypeOf(bool);
-document.getElementById(bool).innerHTML = nyope;
-isTypeOf(nope);
-document.getElementById('bothTrue').innerHTML = nyope;
+let typeBool = isTypeOf(bool);
+let typeNull = isTypeOf(nope);
+document.getElementById('dataType').innerHTML = typeNull;
+
 isTypeOf(ambiguous);
 isTypeOf(nanny);
 isTypeOf(stringy);
@@ -58,17 +58,28 @@ isTypeOf(stringy);
 function addNumbers(a,b){
   return a+b;
 };
-console.log(addNumbers(6,4));
+let addButt = addNumbers(6,4);
+console.log(addButt);
+document.getElementById('addNum').innerHTML = addButt;
+
 
 //6, 7, 8. Prints out "Both are TRUE" only when 2 things are true.
-
 let a = 7;
 let b = 5;
 
-  if (a === 7 && b === 5){
-    console.log('Both are TRUE');
-  } else if (a === 6 || b ===5){
-    console.log('One is TRUE');
-  } else {
-      console.log('Neither is TRUE');
-    }
+
+
+if (a === 7 && b === 5){
+    document.getElementById('bothTrue').innerHTML = "Both are TRUE!";
+  }
+// document.getElementById('bothTrue').innerHTML = "Both are TRUE!";
+
+if (a === 6 || b ===5){
+  document.getElementById('oneTrue').innerHTML = "One is TRUE!";
+}; 
+  
+if (a != 4 && b!= 6) {
+  document.getElementById('neitherTrue').innerHTML = "Neither is TRUE!";
+};
+
+

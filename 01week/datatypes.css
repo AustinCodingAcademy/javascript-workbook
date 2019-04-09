@@ -1,6 +1,6 @@
 #dateButt, #numToStr, #strToNum, 
 #dataType, #addNum, #bothTrue, 
-#neitherTrue {
+#oneTrue, #neitherTrue {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
     background-color: #3527b9;
 }
 
-#datatype {
+#dataType {
     background-color: #8178d6;
 }
 
@@ -40,6 +40,10 @@
 
 #bothTrue {
     background-color: #244639;
+}
+
+#oneTrue {
+    background-color: #067449;
 }
 
 #neitherTrue {
