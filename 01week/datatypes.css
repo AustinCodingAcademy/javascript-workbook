@@ -1,0 +1,56 @@
+#dateButt, #numToStr, #strToNum, 
+#dataType, #addNum, #bothTrue, 
+#oneTrue, #neitherTrue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 50px;
+    width: 300px;
+    color: white;
+    font-size: 2em;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#dateButt {
+    background-color: #70579e;
+}
+
+#numToStr {
+    background-color: #41217a;
+}
+
+#strToNum {
+    background-color: #3527b9;
+}
+
+#dataType {
+    background-color: #8178d6;
+}
+
+#addNum {
+    background-color: #47c2b1;
+}
+
+#addNum {
+    background-color: #0d7466;
+}
+
+#bothTrue {
+    background-color: #244639;
+}
+
+#oneTrue {
+    background-color: #067449;
+}
+
+#neitherTrue {
+    background-color: #244639;
+}
+
+
+
+
+
