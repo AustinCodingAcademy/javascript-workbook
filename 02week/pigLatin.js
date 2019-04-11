@@ -7,6 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// Save pig latin function in fat arrow function
 const pigLatin = (word) => {
   // Make sure word is trimmed and put to lowercase first
   word = word.trim();
