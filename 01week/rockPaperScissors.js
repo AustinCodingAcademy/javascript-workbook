@@ -42,6 +42,7 @@ function rockPaperScissors(hand1, hand2) {
     return wins[hand1] == hand2 ? 'Hand one wins!' : 'Hand two wins!';
   } else {
     getPrompt();
+    return "Guess again!";
   }
 }
 
@@ -73,6 +74,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('make sure guesses are only rock, paper or scissors', () => {
+      assert.notEqual(rockPaperScissors('rock', 'rock'), "Guess again!");
+      assert.notEqual(rockPaperScissors('paper', 'paper'), "Guess again!");
+      assert.notEqual(rockPaperScissors('scissors', 'scissors'), "Guess again!");
     });
   });
 } else {
