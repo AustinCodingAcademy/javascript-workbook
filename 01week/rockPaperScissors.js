@@ -12,6 +12,10 @@ function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
+  return "It's a tie!";
+  return "Hand one wins";
+  return "Hand two wins";
+
 }
 
 function getPrompt() {
@@ -49,3 +53,4 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
