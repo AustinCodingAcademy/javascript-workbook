@@ -1,15 +1,20 @@
 1. What is a function?
     Performs a specific task, sometimes has a name. Returns a value.
 2. Explain the syntax for functions.
-    Syntax: 
-    function name(){}
-    const name = function(){}
-    const name = () => {}
+    Syntax:
+    
+    `function funcName(){}`
+    
+    `const funcName = function(){}`
+    
+    `const funcName = () => {}`
+    
 3. What are closures?
     It's a feature in JS where an inner function has access to the outer (enclosing) functions variables and global variables - called scope chain.
 
     This allows a functino to carry its scope from another context or lexical scope. 
 
+```javascript
 function outer() {
     var b = 10;
     var c = 100;
@@ -29,6 +34,7 @@ X(); // X() invoked the first time
 X(); // X() invoked the second time
 X(); // X() invoked the third time
 Y(); // Y() invoked the first time
+```
 
 4. How do you use scope when constructing functions?
     Variables declared within a function are local scope, outside a function are global. 
