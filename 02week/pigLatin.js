@@ -8,18 +8,20 @@ const rl = readline.createInterface({
 });
 
 
+
+
 function pigLatin(word) {
 
-  // Your code here
-  //move first letter to the end of the word and add "ay"
-word = word.toLowerCase();
+//const words = wordword.toLowerCase().trim().split(' ');  
+//for(var i=0;i<word.length;i++){
+word = word.toLowerCase().trim();
 
 const vowels = ["a", "e", "i", "o", "u"];
 //find if the first letter is a vowel
 let vowelIndex = 0;
 //if a vowel add "yay" to the end
 if (vowels.includes(word[0])){
-  return word + "yay";
+  return word.split() + "yay";
 }
 //if cons add "ay"
 else{ 
@@ -29,11 +31,8 @@ else{
       break;
     }
   }
-  return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  return word.slice(vowelIndex).split() + word.slice(0, vowelIndex).split() + "ay";
 }
-
-
-
 }
 
 
