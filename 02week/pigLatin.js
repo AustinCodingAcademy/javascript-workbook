@@ -9,15 +9,29 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  console.log("Start reading");
+  let strWord = "" + word;
+  let lowWord = strWord.toLowerCase();
+  var newWord = lowWord.trim();
 
-  // Your code here
+  let arr = newWord.split("");
 
+
+  // for (i=0; i<arr.length; i++){
+  //   console.log("Printing " + arr[i]);
+  // }
+
+
+
+
+  console.log("Printing input " + arr );
+  console.log("type: " + typeof arr );
 }
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
