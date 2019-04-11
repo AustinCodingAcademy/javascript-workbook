@@ -9,9 +9,8 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  let cut = word.substr(1).trim().toLowerCase() + word.charAt(0) + 'ay';
+  console.log(cut);
 }
 
 
