@@ -27,10 +27,8 @@ const rl = readline.createInterface({
   // console.log("Hand2 wins with Paper beating Rock: ", hand2 == 'paper' && hand1 == 'rock')
 
 function rockPaperScissors(hand1, hand2) {
-  hand1 = hand1.trim();
-  hand2 = hand2.trim();
-  hand1 = hand1.toLowerCase();
-  hand2 = hand2.toLowerCase();
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
   const valid = ['rock', 'paper', 'scissors'];
   if (hand1 == hand2) return 'It\'s a tie!';
   const wins = {
@@ -42,7 +40,6 @@ function rockPaperScissors(hand1, hand2) {
     return wins[hand1] == hand2 ? 'Hand one wins!' : 'Hand two wins!';
   } else {
     getPrompt();
-    return "Guess again!";
   }
 }
 
