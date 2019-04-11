@@ -8,28 +8,26 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors(cleanHand1, cleanHand2){
+  let hand1 = cleanHand1.trim().toLowerCase();
+  let hand2 = cleanHand2.trim().toLowerCase();
 
   if (hand1 == 'rock' && hand2 == 'scissors'){
-    console.log(hand1 + ' Wins!');
+    return "Hand one wins!";
   } else if (hand1 == 'rock' && hand2 == 'paper'){
-    console.log(hand2 + ' Wins!');
-  } else if (hand1 == 'rock' && hand2 == 'rock'){
-    console.log("It's a tie!");
+    return "Hand two wins!";
   } else if (hand1 == 'paper' && hand2 == 'rock'){
-    console.log(hand1 + ' Wins!');
+    return "Hand one wins!";
   } else if (hand1 == 'paper' && hand2 == 'scissors'){
-    console.log(hand2 + ' Wins!');
-  } else if (hand1 == 'paper' && hand2 == 'paper'){
-    console.log("It's a tie!");
+    return "Hand two wins!";
   } else if (hand1 == 'scissors' && hand2 == 'paper'){
-    console.log(hand1 + ' Wins!');
+    return "Hand one wins!";
   } else if (hand1 == 'scissors' && hand2 == 'rock'){
-    console.log(hand2 + ' Wins!');
-  } else (hand1 == 'scissors' && hand2 == 'scissors'){
-    console.log("It's a tie!");
+    return "Hand two wins!";
+  } else if (hand1 == hand2){
+    return "It's a tie!";
   }
-};
+}
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
