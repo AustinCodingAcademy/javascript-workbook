@@ -33,32 +33,35 @@ var hand1 = hand1.toLowerCase().replace(/\s/g,'');
 var hand2 = hand2.toLowerCase().replace(/\s/g,'');
 
   if (hand1 == hand2){
-  return "It's a tie";
+  return "It's a tie!";
 }
   else if (hand1 == rock && hand2 == scissors){
-    return "Hand one wins";
+    return "Hand one wins!";
   }
 
  else if (hand1 == rock && hand2 == paper){
-    return "Hand two wins";
+    return "Hand two wins!";
   }
 
 else if (hand1 == paper && hand2 == rock){
-  return "Hand one wins";
+  return "Hand one wins!";
 }
 
 else if (hand1 == paper && hand2 == scissors){
-  return "Hand two wins";
+  return "Hand two wins!";
 }
 
 else if (hand1 == scissors && hand2 == paper) {
-  return "Hand one wins";
+  return "Hand one wins!";
 }
 
 else if (hand1 == scissors && hand2 == rock) {
-  return "Hand two wins";
+  return "Hand two wins!";
 }
 
+else if (hand1 != rock || paper || scissors && hand2 != rock || paper || scissors){
+  return "Please enter rock, paper or scissors.";
+}
 
 }
 
