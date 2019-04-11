@@ -27,6 +27,6 @@
     "jsdom": "^11.6.2",
     "mocha": "^5.0.0",
     "postcss-html": "^0.34.0",
-    "stylelint": "^7.13.0"
+    "stylelint": "^9.10.1"
   }
 }
