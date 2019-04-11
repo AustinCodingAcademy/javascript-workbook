@@ -72,6 +72,8 @@ function getPrompt() {
 }
 
 // Tests
+//make sure input is valid ie rock, paper or scissors
+//add tests for all 
 
 if (typeof describe === 'function') {
 
@@ -90,6 +92,9 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('validate correct words', () => {
+      assert.equal(rockPaperScissors('banana', ' kitty '), "Please enter rock, paper or scissors.");
     });
   });
 } else {
