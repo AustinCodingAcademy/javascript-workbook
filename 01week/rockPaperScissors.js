@@ -9,26 +9,31 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
+
   if (hand1 === hand2) {
-    return "It's a Tie";
+    return "It's a tie!";
   } else if (hand1 === 'rock') {
     if (hand2 === 'scissors') {
-      return "Hand 1 Wins!"
+      return "Hand one wins!"
     } else if (hand2 === 'paper') {
-      return "Hand 2 Wins!"
+      return "Hand two wins!"
     }  
     } else if (hand1 === 'paper') {
       if (hand2 === 'rock') {
-       return "Hand 1 Wins!"
+       return "Hand one wins!"
       } else if (hand2 === 'scissors') {
-       return "Hand 2 Wins!"
+       return "Hand two wins!"
       }
       } else if (hand1 === 'scissors') {
         if (hand2 === 'rock') {
-          return "Hand 2 Wins!"
+          return "Hand two wins!"
         } else if (hand2 === 'paper') {
-          return "Hand 1 Wins"
+          return "Hand one wins!"
         }
+      } else {
+        return "Not a valid entry"
       }
   }
 
@@ -63,6 +68,21 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
+    it('should detect Hand one wins', () => {
+      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
+      assert.equal(rockPaperScissors('scissors', 'paper'), "Hand one wins!");
+      assert.equal(rockPaperScissors('paper', 'rock'), "Hand one wins!");
+    })
+    it('should detect Hand two wins', () => {
+      assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
+      assert.equal(rockPaperScissors('scissors', 'rock'), "Hand two wins!");
+      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
+    })
+    it('should detect a valid entry', () => {
+      assert.equal(rockPaperScissors('big', 'small'), "Not a valid entry");
+      assert.equal(rockPaperScissors('right', 'wrong'), "Not a valid entry");
+      assert.equal(rockPaperScissors('left', 'right'), "Not a valid entry");
+    })
   });
 } else {
 
