@@ -24,23 +24,72 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X') {
+    console.log("X WINS TOP ROW");
+  } else if (board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O') {
+    console.log("O WINS TOP ROW")
+  } else if (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X') {
+    console.log("X WINS MIDDLE ROW")
+  } else if (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O') {
+    console.log("O WINS MIDDLE ROW")
+  } else if (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X') {
+    console.log("X WINS BOTTOM ROW")
+  } else if (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O') {
+    console.log("O WINS BOTTOM ROW")
+  }
+  return true;
 }
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X') {
+    console.log("X WINS TOP ROW");
+  } else if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'O') {
+    console.log("O WINS TOP ROW")
+  } else if (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X') {
+    console.log("X WINS MIDDLE ROW")
+  } else if (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'O') {
+    console.log("O WINS MIDDLE ROW")
+  } else if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X') {
+    console.log("X WINS BOTTOM ROW")
+  } else if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'O') {
+    console.log("O WINS BOTTOM ROW")
+  }
+  return true;
 }
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') {
+    console.log("X WINS DIAGONAL")
+  } else if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') {
+    console.log("O WINS DIAGONAL")
+  } else if (board[0][2] == 'X' && board[1][1] == 'X' && board[0][2] == 'X') {
+    console.log("X WINS DIAGONAL")
+  } else if (board[0][2] == 'O' && board[1][1] == 'O' && board[0][2] == 'O') {
+    console.log("O WINS DIAGONAL")
+  }
+  return true;
 }
 
 function checkForWin() {
-  // Your code here
+  horizontalWin();
+  verticalWin();
+  diagonalWin();
+  return true;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  switch (playerTurn) {
+    case 'X':
+      board[row][column] = playerTurn;
+      checkForWin();
+      playerTurn = 'O';
+      break;
+    case 'O':
+      board[row][column] = playerTurn;
+      checkForWin();
+      playerTurn = 'X';
+      break;
+  }
 }
 
 function getPrompt() {
@@ -52,7 +101,6 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
 
 // Tests
