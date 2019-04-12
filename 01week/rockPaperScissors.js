@@ -26,6 +26,10 @@ const rl = readline.createInterface({
   // console.log("Hand1 wins with Paper beating Rock: ", hand1 == 'paper' && hand2 == 'rock')
   // console.log("Hand2 wins with Paper beating Rock: ", hand2 == 'paper' && hand1 == 'rock')
 
+function testFunc(word) {
+  return "This is a test!" + word;
+}
+
 function rockPaperScissors(hand1, hand2) {
   hand1 = hand1.trim().toLowerCase();
   hand2 = hand2.trim().toLowerCase();
@@ -48,6 +52,7 @@ function getPrompt() {
     rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
       getPrompt();
+      testFunc("hello");
     });
   });
 }
@@ -76,6 +81,11 @@ if (typeof describe === 'function') {
       assert.notEqual(rockPaperScissors('rock', 'rock'), "Guess again!");
       assert.notEqual(rockPaperScissors('paper', 'paper'), "Guess again!");
       assert.notEqual(rockPaperScissors('scissors', 'scissors'), "Guess again!");
+    });
+  });
+  describe('#testFunc()', () => {
+    it('should test the test function', () => {
+      assert.equal(testFunc("goodbye"), "This is a test!goodbye");
     });
   });
 } else {
