@@ -9,10 +9,17 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  let erase = word.trim().toLowerCase();
+  console.log(erase);
 }
+
+let string = " ";
+
+let vowels = ['a', 'e', 'i', 'o', 'u'];
+
+
+
+
 
 
 function getPrompt() {
