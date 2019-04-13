@@ -2,6 +2,7 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
     font-family: Avenir;
+    color: black;
 }
 
 .container {
@@ -23,5 +24,4 @@ body {
     width: 200px;
     font-size: 50px;
     cursor: pointer;
-    color: rgba(0,0,0,0);
 }
