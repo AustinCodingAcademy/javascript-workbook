@@ -8,10 +8,31 @@ const rl = readline.createInterface({
 });
 
 
+
+
 function pigLatin(word) {
 
-  // Your code here
+//const words = wordword.toLowerCase().trim().split(' ');  
+//for(var i=0;i<word.length;i++){
+word = word.toLowerCase().trim();
 
+const vowels = ["a", "e", "i", "o", "u"];
+//find if the first letter is a vowel
+let vowelIndex = 0;
+//if a vowel add "yay" to the end
+if (vowels.includes(word[0])){
+  return word.split() + "yay";
+}
+//if cons add "ay"
+else{ 
+  for (let i of word){
+    if (vowels.includes(i)){
+      vowelIndex = word.indexOf(i);
+      break;
+    }
+  }
+  return word.slice(vowelIndex).split() + word.slice(0, vowelIndex).split() + "ay";
+}
 }
 
 
@@ -42,6 +63,10 @@ if (typeof describe === 'function') {
     it('should lowercase and trim word before translation', () => {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+    });
+    it('Should separate two words and return them together', () => {
+      assert.equal(pigLatin('Hello there'), 'ellohay heretay');
+      assert.equal(pigLatin('What now'), 'atwhay ownyay');
     });
   });
 } else {
