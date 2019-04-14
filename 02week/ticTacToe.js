@@ -40,7 +40,15 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  // This is the function that places an X or O on the board
+  if (playerTurn === 'X'){
+    board[row][column] = playerTurn;
+    playerTurn = 'O';
+  }
+  else if (playerTurn === 'O'){
+    board[row][column] = playerTurn;
+    playerTurn = 'X';
+  }
 }
 
 function getPrompt() {
