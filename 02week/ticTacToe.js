@@ -25,28 +25,80 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[0][1] == playerTurn && board[0][2] === playerTurn){
+    return true;
+  }
+  else if(board[1][0] === playerTurn && board[1][1] == playerTurn && board[1][2] === playerTurn){
+    return true;;
+  }
+  else if(board[2][0] === playerTurn && board[2][1] == playerTurn && board[2][2] === playerTurn){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 function verticalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[1][0] == playerTurn && board[2][0] === playerTurn){
+    return true;
+    //console.log("Player wins!");
+  }else if(board[0][1] === playerTurn && board[1][1] == playerTurn && board[2][1] === playerTurn){
+    return true;
+    //console.log("Player wins!");
+  }
+  else if(board[0][2] === playerTurn && board[1][2] == playerTurn && board[2][2] === playerTurn){
+    return true;
+    //console.log("Player wins!");
+  }
+    return false;
 }
 
 function diagonalWin() {
   // Your code here
+  if(board[0][0] === playerTurn && board[1][1] == playerTurn && board[2][2] === playerTurn){
+    return true;
+    //console.log("Player wins!");
+  }
+  else if(board[0][2] === playerTurn && board[1][1] == playerTurn && board[2][0] === playerTurn){
+    return true;
+    //console.log("Player wins!");
 }
-
+else {
+  return false;
+}
+}
 function checkForWin() {
   // Your code here
+  if(horizontalWin()){
+    console.log('Horizontal Win!');
+    return true;
+  }
+  else if(verticalWin()){
+    console.log('Vertical Win!')
+    return true;
+  }
+  else if (diagonalWin()){
+    console.log('diagonalWin');
+    return true;
+  }
+  else {
+    return false;
+  }
+
 }
 
 function ticTacToe(row, column) {
   // This is the function that places an X or O on the board
   if (playerTurn === 'X'){
     board[row][column] = playerTurn;
+    checkForWin;
     playerTurn = 'O';
   }
   else if (playerTurn === 'O'){
     board[row][column] = playerTurn;
+    checkForWin;
     playerTurn = 'X';
   }
 }
