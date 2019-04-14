@@ -26,41 +26,65 @@ function printBoard() {
 function horizontalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[0][1] == playerTurn && board[0][2] === playerTurn){
-    console.log("Player wins!");
+    return true;
   }
   else if(board[1][0] === playerTurn && board[1][1] == playerTurn && board[1][2] === playerTurn){
-    console.log("Player wins!");
+    return true;;
   }
   else if(board[2][0] === playerTurn && board[2][1] == playerTurn && board[2][2] === playerTurn){
-    console.log("Player wins!");
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
 function verticalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[1][0] == playerTurn && board[2][0] === playerTurn){
-    console.log("Player wins!");
+    return true;
+    //console.log("Player wins!");
   }else if(board[0][1] === playerTurn && board[1][1] == playerTurn && board[2][1] === playerTurn){
-    console.log("Player wins!");
+    return true;
+    //console.log("Player wins!");
   }
   else if(board[0][2] === playerTurn && board[1][2] == playerTurn && board[2][2] === playerTurn){
-    console.log("Player wins!");
+    return true;
+    //console.log("Player wins!");
   }
+    return false;
 }
 
 function diagonalWin() {
   // Your code here
   if(board[0][0] === playerTurn && board[1][1] == playerTurn && board[2][2] === playerTurn){
-    console.log("Player wins!");
+    return true;
+    //console.log("Player wins!");
   }
   else if(board[0][2] === playerTurn && board[1][1] == playerTurn && board[2][0] === playerTurn){
-    console.log("Player wins!");
+    return true;
+    //console.log("Player wins!");
+}
+else {
+  return false;
 }
 }
 function checkForWin() {
   // Your code here
-  if(horizontalWin || verticalWin || diagonalWin === true){
-    return "Player wins!"
+  if(horizontalWin()){
+    console.log('Horizontal Win!');
+    return true;
+  }
+  else if(verticalWin()){
+    console.log('Vertical Win!')
+    return true;
+  }
+  else if (diagonalWin()){
+    console.log('diagonalWin');
+    return true;
+  }
+  else {
+    return false;
   }
 
 }
