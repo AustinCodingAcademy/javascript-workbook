@@ -13,7 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
-
+let player2Turn = 'O';
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -22,6 +22,7 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
+
 
 function horizontalWin() {
   // Your code here
