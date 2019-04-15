@@ -11,6 +11,33 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+let trimWord = word.trim().toLowerCase();
+  console.log(trimWord);
+
+const vowels = ["a","e","i","o","u"];
+
+let i;
+let vowelIndex;
+for (i = 0; i < vowels.length; i++) {
+if (trimWord.indexOf(vowels[i]) > -1) {
+  vowelIndex = trimWord.indexOf(vowels[i]);
+  break;
+}
+}
+
+console.log(vowelIndex);
+
+//let vowelIndex = trimWord.indexOf(vowels);
+ // 
+// let i;
+// for (i = 0; i < trimWord.length; i++) {
+  
+  
+//   // vowels.includes(trimWord[i]);
+//   // if (vowelIndex) {
+//   //   console.log(indexOf([i]));
+//   // }
+// }
 
 }
 
