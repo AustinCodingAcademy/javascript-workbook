@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
@@ -7,20 +7,53 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// let arrayLength = (wordArray.length - 1)
+// let firstToBack = wordArray.splice(arrayLength,0,wordArray[0])
+//   function pigLatin(word) {
+//   let str = word.trim().toLowerCase();
+//   result = str.split('');
+//   const vowel = ['a', 'e', 'i', 'o', 'u'];
+//   if (vowel.includes(str.charAt(0))) {
+//     return result += 'way';
+//   } else {
+//     for (let i=0; i<result.length; i++) {
+//       if (!vowel.includes(result[1])) {
+//         result.push(result.shift());
+//       } else {
+//         result.push ('ay');
+//         return result.join('');
+//       }
+//     }
+//   }
+// }
 
-function pigLatin(word) {
-
-  // Your code here
-
+function pigLatin(original) {
+  //remove whitespace and change to lower case
+  let str = original.trim().toLowerCase();
+  let word = str.split("");
+  const vowel = ['a','e','i','o','u'];
+  // for (let i=0; i<word.length; i++){
+    if (vowel.includes(str.charAt(0))) {
+      return str += 'yay';
+    } else {
+    for (let i=0; i < word.length; i++){
+      if (!vowel.includes(str[i])) {
+        word.push(word.shift());
+        }
+      else {
+        word.push('ay');
+        return word.join('');
+        }
+    }
+  };
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
-}
+};
 
 // Tests
 
