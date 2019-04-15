@@ -9,23 +9,22 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-  console.log("Start reading");
-  let strWord = "" + word;
-  let lowWord = strWord.toLowerCase();
-  var newWord = lowWord.trim();
+  
+  word = String(word).trim().toLowerCase(); // trim and lower input
+  const vowels = ["a", "e", "i", "o", "u"]; //hard coded constants
+  let vowelIndex = 0; // initialized vowel
 
-  let arr = newWord.split("");
-
-
-  // for (i=0; i<arr.length; i++){
-  //   console.log("Printing " + arr[i]);
-  // }
-
-
-
-
-  console.log("Printing input " + arr );
-  console.log("type: " + typeof arr );
+  if (vowels.includes(word[0])) {
+    return word + "way"; // Case one: first letter vowel
+  } else {
+    for (let char of word) { // loop till first vowel appears
+      if (vowels.includes(char)) {
+        vowelIndex = word.indexOf(char); //get index of vowel
+        break;
+      }
+    }
+    return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  }
 }
 
 
