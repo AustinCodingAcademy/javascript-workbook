@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
@@ -7,20 +7,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function pigLatin(word) {
-
-  // Your code here
-
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
-}
+};
 
 // Tests
 
