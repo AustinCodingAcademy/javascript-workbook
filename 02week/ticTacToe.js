@@ -53,15 +53,19 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  if (horizontalWin() == true || verticalWin() == true || diagonalWin() == true) { 
+  if (horizontalWin() == true) {
     return true;
+  } else if (verticalWin() == true ) {
+    return true;
+  } else if (diagonalWin() == true) { 
+      console.log("true");
+      return true;
   } 
+
 }
 
 function ticTacToe(row, column) {
-  if (checkForWin()) {
-    console.log("Congrats, Player " + playerTurn + "!");
-  } else if (board[row][column] == " ") {
+  if (board[row][column] == " ") {
       if (playerTurn == 'X') {
         board[row][column] = playerTurn;
         playerTurn = 'O';
