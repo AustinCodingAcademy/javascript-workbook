@@ -11,7 +11,23 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+  // console.log(word);
+  const splitWord = word.split("");
+  const firstLetter = splitWord[0];
 
+  function getFirstVowel(splitWord) {
+
+
+
+  }
+  if (vowels.includes(firstLetter)) {
+      splitWord.push('y','a','y');
+  } else {
+    splitWord.shift();
+    splitWord.push(firstLetter, 'a','y');
+  }
+    let tranlastion = splitWord.join('');
+    return tranlastion;
 }
 
 
