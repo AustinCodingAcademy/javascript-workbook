@@ -12,8 +12,25 @@ function pigLatin(word) {
 
   // Your code here
 
-}
+  // 1. If vowels, add way
+  // 2. If consonant, 
 
+  word = word.toLowerCase();
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  let vowelIndex = 0;
+  if (vowels.includes(word[0])) {
+    return word + "way";
+  } else {
+    for (let char of word) {
+      if (vowels.includes(char)) {
+        vowelIndex = word.indexOf(char);
+        break;
+      }
+    }
+    return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  }
+}
 
 function getPrompt() {
   rl.question('word ', (answer) => {
