@@ -28,8 +28,8 @@ console.log("CARS SORTED ALPHABETICALLY: ", carsInReverse);
 // alert(carsInReverse.indexOf('benz'));
 // Use the slice method to remove Ford and Honda from the carsInReverse array 
 // and move them into a new array called removedCars.
-const removedCars = carsInReverse.slice(3, 5)
-console.log("REMOVED CARS: ", removedCars)
+const removedCars = carsInReverse.slice(3, 5);
+console.log("REMOVED CARS: ", removedCars);
 // Use the splice method to remove the 2nd and 3rd items in the array carsInReverse 
 // and add Ford and Honda in their place.
 carsInReverse.splice(1, 2, 'Ford', 'Honda');
