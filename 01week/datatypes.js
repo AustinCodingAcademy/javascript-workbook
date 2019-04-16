@@ -1,37 +1,59 @@
-function renderTime(){
-    var mydate = new Date();
-    var year = mydate.getYear();
-      if(year < 1000){
-          year +=1900;
-       } 
-    var day = mydate.getDay();
-    var month = mydate.getMonth();
-    var daym = mydate.getDate ();
-    var dayarray = new Array ("Sunday",   "Monday", "Tuesday", "Wednesday",     "Thursday", "Friday", "Saturday");
-    var montharray= new Array("January",    "February", "March", "April",         "May", "June", "July", "August", "September", "October", "November",       "December");
-    
-    // date end
-    //Time
-    var currentTime = new Date();
-    var h = currentTime.getHours();
-    var m = currentTime.getMinutes();
-    var s = currentTime.getSeconds();
-    if(h == 24){
-      h = 0;
-  } else if(h > 12){
-      h = h - 0;
-  }
+ // 1.Write a JavaScript program to display the current day and time.
+ 'use strict'
+  function displayDate() {
+    document.getElementById("showDate").innerHTML = Date();
+  };
+
+  //2. Write a JavaScript program to convert a number to a string.
+var number = 10;
+console.log(number.toString());          
   
-  if(m < 10){
-    m = "0" + m;
-  }
   
-  if(s < 10){
-    s = "0" + s;
+//3. Write a JavaScript program to convert a string to the number.
+
+var count = Number('1234')
+console.log(count);
+
+//4. Write a JavaScript program that takes in different datatypes and prints out whether they are a:Boolean Null Undefined Number NaN String
+function DataType(arg){
+  console.log(typeof(arg));
+}
+
+
+
+
+//5. Write a JavaScript program that adds 2 numbers together.
+function numTogether(a, b) {
+var c = a + b;
+console.log(c);
+};
+numTogether(4, 5);
+
+function addTwoNumbers(num1, num2) {
+  console.log (num1 + num2);
   }
-      var myClock = document.getElementById("clockDisplay");
-      myClock.textContext = "" + dayarray[day]+ "  " +montharray[month]+ " "  +daym+ " "+year+ " | " +h+ ":" +m+ ":" +s;
-      myClock.innerText =  "" + dayarray[day]+ "  " +montharray[month]+ " "  +daym+ ", " +year+ "  " +h+ ":" +m+ ":" +s;
-    
-        setTimeout('renderTime()', 1000)
-  }
+
+  addTwoNumbers(45, 6)
+
+// 6.Write a JavaScript program that runs only when 2 things are true.
+
+var i = 6;
+if(i > 5 && i < 10);
+console.log(true);
+
+//7.Write a JavaScript program that runs when 1 of 2 things are true.
+
+var a = "jake";
+  if(a ==="Jake"){
+  console.log("hello");
+ } else {
+   console.log("that is not the same name");
+ }
+ 
+//8. Write a JavaScript program that runs when both things are not true.
+
+function truthy(){
+if(i< 5 || i > 20);
+ console.log("not true");
+};
+truthy(10);

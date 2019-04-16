@@ -27,6 +27,10 @@ function input(){
 }
 
 
+
+ 
+
+
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
