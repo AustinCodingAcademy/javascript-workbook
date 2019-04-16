@@ -8,12 +8,27 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
-  if(hand1 === 'rock' && hand2 === 'scissors')
-return hand1;
+
+
+  
+  function rockPaperScissors (hand1, hand2) {
+  if((hand1 === 'rock' && hand2 === 'rock')|| (hand1 === 'paper' && hand2 ==='paper') || (hand1 === 'scissors' && hand2 === 'scissors'));
+  return "It's a tie!";
+  }
+// 
+// function rockPaperScissors(hand, hand2) {
+//   if(hand1 === 'rock' && hand2 === 'paper')
+// }
+
+function input(){
+  if((hand1 !== 'rock') || (hand2 !== 'rock') || (hand1 !== 'paper') || (hand2 !== 'paper') || (hand1 !== 'scissors') || (hand2 !== 'scissors'));
+  return "incorrect input";
+  
 }
 
 
+
+ 
 
 
 function getPrompt() {
@@ -41,10 +56,13 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
+      assert.equal(rockPaperScissors('rOcK', ' paper'), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
+    it('check valid for input', () => {
+      assert.equal(rockPaperScissors('scisors', 'scicsors'), "incorrect input");
+    })
   });
 } else {
 
