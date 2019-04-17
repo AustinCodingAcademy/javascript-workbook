@@ -50,16 +50,13 @@ function getPrompt() {
 }
 
 // Tests
-
 if (typeof describe === 'function') {
-
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
-
   describe('#isLegal()', () => {
     it('should not allow an illegal move', () => {
       stacks = {
@@ -86,9 +83,6 @@ if (typeof describe === 'function') {
       assert.equal(checkForWin(), false);
     });
   });
-
 } else {
-
   getPrompt();
-
 }
