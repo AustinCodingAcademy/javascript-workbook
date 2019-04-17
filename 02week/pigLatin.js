@@ -27,7 +27,11 @@ if (vowels.includes(word[0])){
    return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
 }
 }
-
+// function checkNum(num){
+//   const num=[1, 2, 3] 
+//   return num==false;
+// }
+// function checkNum(num);
 
 function getPrompt() {
   rl.question('word ', (answer) => {
@@ -48,6 +52,8 @@ if (typeof describe === 'function') {
     it('should translate a complex word', () => {
       assert.equal(pigLatin('create'), 'eatecray');
       assert.equal(pigLatin('valley'), 'alleyvay');
+      // my test
+      assert.equal(pigLatin('chair'),'airchay');
     });
     it('should attach "yay" if word begins with vowel', () => {
       assert.equal(pigLatin('egg'), 'eggyay');
@@ -57,7 +63,11 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
-  });
+    // my other test
+    it('should return false for number'), ()=>{
+      assert.equal(pigLatin(1), false);
+    };
+  })
 } else {
 
   getPrompt();
