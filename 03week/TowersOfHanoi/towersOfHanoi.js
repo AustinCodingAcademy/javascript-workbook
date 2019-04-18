@@ -19,7 +19,7 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(//make parameters) {
   // Your code here
 
 }
@@ -35,7 +35,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  if (startStack)
 
 }
 
