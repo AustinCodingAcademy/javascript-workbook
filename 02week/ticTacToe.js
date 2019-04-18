@@ -24,6 +24,9 @@ function printBoard() {
 }
 
 function horizontalWin() {
+  if (board[0] = ['x', 'x', 'x'] || ['o', 'o', 'o']){
+    return playerTurn + "Won";
+  }
 }
 
 function verticalWin() {
@@ -39,7 +42,22 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+
+  if (board[row][column] == ' '){
+    if (playerTurn == 'X'){
+      board[row][column] = playerTurn;
+      checkForWin();
+      playerTurn = 'O';
+    } else {
+      board[row][column] = playerTurn;
+      checkForWin();
+      playerTurn = 'X';
+    }
+  } else {
+    getPrompt();
+  }
+
+
 }
 
 function getPrompt() {
