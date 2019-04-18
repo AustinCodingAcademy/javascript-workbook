@@ -13,23 +13,36 @@ body {
 .container {
   display: grid;
   grid-template: repeat( 3, 1fr) / repeat( 3, 1fr);
+  margin: 25px auto;
+  height: 80vh;
+}
+
+.towerContainer {
+  width: 300px;
+  height: 500px;
   margin: auto;
-  height: 90vh;
+  z-index: 1;
+}
+
+.filler {
+  height: 300px;
+  z-index: 999;
 }
 
 .tower {
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
+  position: absolute;
   border: 1px solid black;
-  margin: 25px auto;
+  margin-left: 125px;
   height: 500px;
   width: 50px;
+  cursor: pointer;
   color: rgba(0,0,0,0);
+  z-index: 0;
 }
 
 .blocks {
+  position: relative;
+  z-index: 999;
   cursor: pointer;
+  margin: auto;
 }
