@@ -41,7 +41,7 @@ class BuildBlocks {
         block.classList.add('blocks');
         block.style.width = this.width+'%';
         block.style.height = '50px';
-        block.style.backgroundColor = this.color;
+        block.style.backgroundColor = this.backgroundColor;
         const parent = document.getElementById(this.parentId)
         parent.appendChild(block);
     }
@@ -49,22 +49,22 @@ class BuildBlocks {
 const block1 = new BuildBlocks({
       backgroundColor: '#00f9ff',
       width: 25, 
-      id: 'bc11'
+      parentId: 'bc11'
 });
 const block2 = new BuildBlocks({
       backgroundColor: '#FFFF00',
       width: 50, 
-      id: 'bc12'
+      parentId: 'bc12'
 });
 const block3 = new BuildBlocks({
       backgroundColor: '#00FF00', 
       width: 75, 
-      id: 'bc13'
+      parentId: 'bc13'
 });
 const block4 = new BuildBlocks({
       backgroundColor: '#FF0066', 
       width: 100, 
-      id: 'bc14'
+      parentId: 'bc14'
 });
 
 // Same code as the class above
