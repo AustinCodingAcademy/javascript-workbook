@@ -12,3 +12,7 @@ Should only be able to to remove a number from the end an array and place on the
 Numbers can always move to an empty array
 
 If you choose from an empty stack you need an error message
+
+## Move
+
+To move a number, we need to update the stacks object with user input
