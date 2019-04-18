@@ -61,12 +61,20 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
+  // The Switch statement checks to see whether playerTurn is X or O
     switch (playerTurn) {
+      // If it's X it does the following:
         case 'X':
+          // First, it sets that box on the board to X
             board[row][column] = playerTurn;
+          // Then, it declares a variable setX to the ID of the box in the HTML
             let setX = document.getElementById('b'+row+column);
-            setX.innerHTML = 'X';            
+          // Then it sets the inner HTML of that box as X
+          // This will ensure the user sees an X show up in the browser
+            setX.innerHTML = 'X';
+          // Then it checks to see if the placement of that X created a win for X       
             checkForWin();
+          // If there's no win, playerTurn is then set to O so it's O's turn
             playerTurn = 'O';
             break;
         case 'O':
