@@ -1,3 +1,11 @@
+let stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+}
+let startStack = 'a';
+let gameStatus = true;
+
 function checkForWin() {
     let stackA = stacks.a
     let stackB = stacks.b
@@ -6,12 +14,11 @@ function checkForWin() {
         && (stackB.length == 4 || stackC.length == 4)) {
         console.log("YOU WON!");
         gameStatus = false;
-        return true;
     } else {
-        return false;
+        console.log("You haven't won yet")
     }
 }
-  
+
 function towersOfHanoi(startStack, endStack) {
     let movedFrom = stacks[startStack];
     let movedTo = stacks[endStack];
@@ -21,10 +28,9 @@ function towersOfHanoi(startStack, endStack) {
                 movedTo.push(movedPiece);
                 movedFrom.pop(movedPiece);
                 checkForWin();
-                return true;
+                console.log("Piece moved")
         } else {
             console.log("You cant move a bigger piece on a smaller piece");
-            return false;
         }
     } else {
         console.log("There's nothing to move on that stack!");
@@ -65,6 +71,11 @@ const block4 = new BuildBlocks({
       backgroundColor: '#FF0066', 
       width: 100, 
       parentId: 'bc14'
+});
+
+const button = document.querySelector('button');
+button.addEventListener('click', function(){
+    location.reload();
 });
 
 // Same code as the class above

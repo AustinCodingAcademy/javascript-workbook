@@ -10,6 +10,16 @@ body {
   text-align: center;
 }
 
+button {
+  margin: auto;
+  height: 40px;
+  font-family: Avenir;
+  font-size: 20px;
+  background-color: #202020;
+  color: darkgray;
+  cursor: pointer;
+}
+
 .container {
   display: grid;
   grid-template: repeat( 3, 1fr) / repeat( 3, 1fr);
