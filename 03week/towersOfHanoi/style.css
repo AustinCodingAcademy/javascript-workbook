@@ -31,7 +31,7 @@ body {
 
 .tower {
   position: absolute;
-  border: 1px solid black;
+  background-color: #202020;
   margin-left: 125px;
   height: 500px;
   width: 50px;

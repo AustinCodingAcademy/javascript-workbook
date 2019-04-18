@@ -31,43 +31,55 @@ function towersOfHanoi(startStack, endStack) {
     }
 }
 
-function buildBlocks() {
-    const startTowerBottomBlock = document.getElementById('bc14');
-    const startTowerBottomMidBlock = document.getElementById('bc13');
-    const startTowerTopMidBlock = document.getElementById('bc12');
-    const startTowerTopBlock = document.getElementById('bc11');
-
-    // Block 1 creation, position and styling
-    const block1 = document.createElement('p');
-    block1.classList.add('blocks');
-    block1.style.width = '25%';
-    block1.style.height = '50px';
-    block1.style.backgroundColor = '#00f9ff';
-    startTowerTopBlock.appendChild(block1);
-
-    // Block 2 creation, position and styling
-    const block2 = document.createElement('p');
-    block2.classList.add('blocks');
-    block2.style.width = '50%';
-    block2.style.height = '50px';
-    block2.style.backgroundColor = '#FFFF00';
-    startTowerTopMidBlock.appendChild(block2);
-
-    // Block 3 creation, position and styling
-    const block3 = document.createElement('p');
-    block3.classList.add('blocks');
-    block3.style.width = '75%';
-    block3.style.height = '50px';
-    block3.style.backgroundColor = '#00FF00';
-    startTowerBottomMidBlock.appendChild(block3);
-
-    // Block 4 creation, position and styling
-    let block4 = document.createElement('p');
-    block4.classList.add('blocks');
-    block4.style.width = '100%';
-    block4.style.height = '50px';
-    block4.style.backgroundColor = '#FF0066';
-    startTowerBottomBlock.appendChild(block4);
+class BuildBlocks {
+    constructor(params) {
+        Object.assign(this, params)
+        this.addToDom();
+    }
+    addToDom() {
+        const block = document.createElement('p');
+        block.classList.add('blocks');
+        block.style.width = this.width+'%';
+        block.style.height = '50px';
+        block.style.backgroundColor = this.color;
+        const parent = document.getElementById(this.parentId)
+        parent.appendChild(block);
+    }
 }
+const block1 = new BuildBlocks({
+      backgroundColor: '#00f9ff',
+      width: 25, 
+      id: 'bc11'
+});
+const block2 = new BuildBlocks({
+      backgroundColor: '#FFFF00',
+      width: 50, 
+      id: 'bc12'
+});
+const block3 = new BuildBlocks({
+      backgroundColor: '#00FF00', 
+      width: 75, 
+      id: 'bc13'
+});
+const block4 = new BuildBlocks({
+      backgroundColor: '#FF0066', 
+      width: 100, 
+      id: 'bc14'
+});
 
-buildBlocks();
+// Same code as the class above
+// function BuildBlocks(backgroundColor, width, id) {
+//     this.color = backgroundColor;
+//     this.width = width;
+//     this.parentId = id;
+//     this.addToDom = function(){
+//         const block = document.createElement('p');
+//         block.classList.add('blocks');
+//         block.style.width = this.width+'%';
+//         block.style.height = '50px';
+//         block.style.backgroundColor = this.color;
+//         const parent = document.getElementById(this.parentId)
+//         parent.appendChild(block);
+//     }
+//     this.addToDom();
+// }
