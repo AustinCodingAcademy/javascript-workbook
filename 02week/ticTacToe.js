@@ -25,15 +25,17 @@ function printBoard() {
 
 function markBoard(row, column) {
   board [row][column]= playerTurn;
+  let tic=document.getElementById("doc");
+ tic.innerHTML = playerTurn
   console.log("row",board[row]);
   console.log("column",board[column]);
 }
 
 function switchPlayer() {
 if  ( playerTurn=="x"){
-  playerTurn=="o";
+  playerTurn="o";
 }else if(playerTurn=="o"){
-  playerTurn=="x";
+  playerTurn="x";
 }
 }
 
@@ -53,7 +55,7 @@ function horizontalWin() {
   }
 }
 function verticalWin() {
-  if ((board[0][0]===playerTUrn) &&
+  if ((board[0][0]===playerTurn) &&
   (board[1][0]===playerTurn) &&
   (board[2][0]===playerTurn)){
 return true;
@@ -69,10 +71,10 @@ return true;
 }
 
 function diagonalWin() {
-  if ((board[0][0]===playerTUrn) &&
-  (board[1][1]===playerTurn) &&
-  (board[2][2]===playerTurn)){
-  return true;
+  if ((board[0][0]===playerTurn) &&
+    (board[1][1]===playerTurn) &&
+    (board[2][2]===playerTurn)){
+      return true;
   } else if ((board[0][2]===playerTurn) &&
     (board[1][1]===playerTurn) && 
     (board[2][0]===playerTurn)) {
