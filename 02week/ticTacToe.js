@@ -12,6 +12,7 @@ let board = [
   [' ', ' ', ' ']
 ];
 
+//make this code able to swap from 'X' to 'O'
 let playerTurn = 'X';
 
 function printBoard() {
@@ -24,7 +25,9 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  it('should detect a horizontal win', () => {
+    assert.equal(())
+  });
 }
 
 function verticalWin() {
@@ -40,7 +43,13 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  if (playerTurn === 'X') {
+    board[row][column] = playerTurn;
+    playerTurn = 'O';
+  } else if (playerTurn === 'O') {
+    board[row][column] = playerTurn;
+    playerTurn = 'X';
+  }
 }
 
 function getPrompt() {
