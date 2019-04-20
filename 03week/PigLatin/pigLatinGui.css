@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', cursive;
+}
+
+h2 {
+    color: blue;
+}
+
+.size {
+    width: 250px;
+    height: 25px;
+}
+
+input {
+    text-align: center;
+    font-size: 20px;
+    background: rgb(162, 250, 162);
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    color: red;
+    text-decoration: underline;
+}

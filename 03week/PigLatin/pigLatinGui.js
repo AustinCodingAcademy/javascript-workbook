@@ -1,36 +1,29 @@
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// in order for the code to work properly I had to remove
+// several already coded functions like the getPrompt
 
-function pigLatin(word) {
-  let newWord = word.trim().toLowerCase();  // trim removes spaces before or after the word
+function pigLatin() {
+  let newWord = document.getElementById("input").value;
+
+  newWord = newWord.trim().toLowerCase();  // trim removes spaces before or after the word
   let vowels = ['a','e','i','o','u'];
+  let finish;
 
   if (vowels.includes(newWord[0])) {  // if the first letter is a vowel
-    return(newWord + "yay");  // remove nothing and add 'yay' to the end of the word
+    finish = newWord + "yay";  // remove nothing and add 'yay' to the end of the word
   } else if (vowels.includes(newWord[1])) {  // if the second letter is a vowel
       let letter1 = newWord.charAt(0);  // obtain the first letter of the word
       let letter2 = newWord.substring(1, newWord.length)  // beginning after the first letter obtain the remainder of the word
-      return(letter2 + letter1 + "ay");  // remainder of the word after the first letter + the first letter + 'ay'
+      finish = letter2 + letter1 + "ay";  // remainder of the word after the first letter + the first letter + 'ay'
   } else if (vowels.includes(newWord[2])) {  // if the third letter is a vowel
       let letter3 = newWord.substring(0, 2);  // from the beginning of the word obtain the first 2 letters
       let letter4 = newWord.substring(2, newWord.length)  // after the second letter obtain the remainder of the word
-      return(letter4 + letter3 + "ay");  // remainder of the word after the second letter + the first 2 letters + 'ay'
+      finish = letter4 + letter3 + "ay";  // remainder of the word after the second letter + the first 2 letters + 'ay'
   } else {
     return "isthay igpay atinlay eneratorgay onlyyay anslatestray ordsway omfray ethay englishyay anguagelay"
   }
-}
-
-function getPrompt() {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
-  });
+  document.getElementById('finish').innerHTML = finish;
 }
 
 // Tests
@@ -55,8 +48,4 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
   });
-} else {
-
-  getPrompt();
-
 }
