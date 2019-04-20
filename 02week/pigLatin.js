@@ -7,11 +7,42 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function pigLatin(word) {
+  // Convert string to lowercase
+  word = word.trim().toLowerCase()
+  // Initialize array of vowels
+  const vowels = ["a", "e", "i", "o", "u"];
+  // Initialize vowel index to 0
+  let vowelIndex = 0;
 
-  // Your code here
-
+  if (vowels.includes(word[0])) {
+    // If first letter is a vowel
+    return word + "yay";
+  } else {
+    // If the first letter isn't a vowel i.e is a consonant
+    for (let char of word) {
+      // Loop through until the first vowel is found
+      if (vowels.includes(char)) {
+        // Store the index at which the first vowel exists
+        vowelIndex = word.indexOf(char);
+        break;
+      }
+    }
+    // Compose final string
+    return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  }
+  
+  
+  
+  
+  // const vowels = ['a','e','i','o','u'];
+  // let result = word.substr(1).trim().toLowerCase();
+  
+  // if (word.startsWith(vowels)){
+  //   return result + word.charAt(0) + 'yay';
+  // } else {
+  //   return result + word.charAt(0) + 'ay';
+  // }
 }
 
 
@@ -49,3 +80,5 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+  
