@@ -1,0 +1,47 @@
+ body {
+   background: #212126;
+   font-family: monospace;
+   text-align: center;
+   color: #e8e3d7;
+ }
+
+ #title {
+   margin: 50px;
+ }
+
+ h1 {
+   padding: 10px;
+   border-bottom: 1px solid #e8e3d7;
+ }
+
+ .container {
+   background: #2E2F34;
+   border: 2px solid #5e5d5a;
+   border-radius: 5px;
+   height: 300px;
+   width: 300px;
+   margin: 0 auto;
+   display: inline-block;
+   padding: 30px;
+ }
+
+ #pigLatin-translate {
+   height: 25px;
+   margin: 20px;
+   border: 2px solid #3D3C3A;
+   border-radius: 4px;
+   background: #212126;
+   color: #e8e3d7;
+ }
+
+ textarea {
+   padding: 10px;
+   line-height: 1.5;
+   border-radius: 5px;
+   border: 1px solid #3D3C3A;
+   margin: 0 auto;
+   margin-top: 20px;
+   resize: none;
+   background: #242428;
+   color: #e8e3d7;
+ }
