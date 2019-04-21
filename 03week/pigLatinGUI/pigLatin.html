@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PigLatin</title>
+</head>
+<body>
+  <h1>PigLatin</h1>
+  <p>Input a Word</p>
+  <div id="pigy">
+    <input type="text" id="pig" width="80px" height="20px">
+    <button type="submit" id="Latin" onclick="pigLatin()"  width="25px" height="20px">
+      Click me
+    </button>
+  <div id="doc"></div>
+  </div>
+  <script src="./pigLatin.js">
+  document.getElementById("Latin").addEventListener("click", function(){
+  document.getElementById("pigy").innerHTML = "word";
+});
+  </script>
+</body>
+</html>

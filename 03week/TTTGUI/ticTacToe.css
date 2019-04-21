@@ -1,0 +1,9 @@
+table,th ,td {
+  border: 1px solid black;
+  width:500px;
+  height:130px;
+  text-align: center;
+  color: rgb(0, 153, 153);
+  
+  float:center;
+}

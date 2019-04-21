@@ -8,14 +8,18 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
 
-  // Your code here
+
+function pigLatin(word) {
+  let input=document.getElementById("pig").value;
+  word=input
   word=word.toLowerCase();
   const vowels=['a','e','i','o','u'];
   let vowelIndex=0;
 if (vowels.includes(word[0])){
-  return word + 'yay';
+ const keyWord= word + 'yay';
+ document.getElementById("doc").innerHTML=keyWord;
+  return keyWord;
 }else{
   for(let char of word){
     if(vowels.includes(char)){
@@ -23,8 +27,9 @@ if (vowels.includes(word[0])){
       break;
     }
   }
-   // Compose final string
-   return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  const result = word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  document.getElementById("doc").innerHTML = result;
+  return result;
 }
 }
 // function checkNum(num){
