@@ -5,19 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tic Tac Toe</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Kanit|Questrial|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="tttgui.css">
 </head>
-<body>
-    <div class="box" onclick="ticTacToe(0,0)"></div>
-    <div class="box" onclick="ticTacToe(0,1)"></div>
-    <div class="box" onclick="ticTacToe(0,2)"></div>
-    <div class="box" onclick="ticTacToe(1,0)"></div>
-    <div class="box" onclick="ticTacToe(1,1)"></div>
-    <div class="box" onclick="ticTacToe(1,2)"></div>
-    <div class="box" onclick="ticTacToe(2,0)"></div>
-    <div class="box" onclick="ticTacToe(2,1)"></div>
-    <div class="box" onclick="ticTacToe(2,2)"></div>
-    
+<body onload="startGame();">
+    <h1>Tic Tac Toe</h1>
+    <div id="message"></div>
+</section>
+    <table class="ttt" id="ttt">
+        <tr>
+            <td class="square" id="s00" onClick="ticTacToe(0,0)"></td>
+            <td class="square" id="s01" onClick="ticTacToe(0,1)"></td>
+            <td class="square" id="s02" onClick="ticTacToe(0,2)"></td>
+        </tr>
+        <tr>
+            <td class="square" id="s10" onClick="ticTacToe(1,0)"></td>
+            <td class="square" id="s11" onClick="ticTacToe(1,1)"></td>
+            <td class="square" id="s12" onClick="ticTacToe(1,2)"></td>
+        </tr>
+        <tr>
+            <td class="square" id="s20" onClick="ticTacToe(2,0)"></td>
+            <td class="square" id="s21" onClick="ticTacToe(2,1)"></td>
+            <td class="square" id="s22" onClick="ticTacToe(2,2)"></td>
+        </tr>
+    </table>
+    <br><br>
+    <a href="javascript: startGame()" id="restart" onClick="reset">Reset</a>
+
 <script src="ticTacToe-GUI.js"></script>
+
 </body>
 </html>
