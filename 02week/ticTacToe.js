@@ -12,6 +12,7 @@ let board = [
   [' ', ' ', ' ']
 ];
 
+//make this code able to swap from 'X' to 'O'
 let playerTurn = 'X';
 
 function printBoard() {
@@ -24,11 +25,17 @@ function printBoard() {
 }
 
 function horizontalWin() {
+<<<<<<< HEAD:03week/ticTacToe.js
   // horizontal w
   let winArrH = board[0][0];
   if ((board[0][0] == playerTurn && board[0][1] == playerTurn && board[0][2] == playerTurn) || (board[1][0] == playerTurn && board[1][1] == playerTurn && board[1][2] == playerTurn) || (board[2][0] == playerTurn && board[2][1] == playerTurn && board[2][2] == playerTurn)) {
     return true;
   }
+=======
+  it('should detect a horizontal win', () => {
+    assert.equal(())
+  });
+>>>>>>> aa57abbcf21c175c1a502a5189ea4ec03ac4e16b:02week/ticTacToe.js
 }
 
 function verticalWin() {
@@ -59,6 +66,7 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
+<<<<<<< HEAD:03week/ticTacToe.js
   // Your code here
   if (playerTurn === "X") {
     board[row][column] = playerTurn;
@@ -67,6 +75,14 @@ function ticTacToe(row, column) {
   } else if (playerTurn === "O") {
     board[row][column] = playerTurn;
     playerTurn = "X";
+=======
+  if (playerTurn === 'X') {
+    board[row][column] = playerTurn;
+    playerTurn = 'O';
+  } else if (playerTurn === 'O') {
+    board[row][column] = playerTurn;
+    playerTurn = 'X';
+>>>>>>> aa57abbcf21c175c1a502a5189ea4ec03ac4e16b:02week/ticTacToe.js
   }
 }
 
