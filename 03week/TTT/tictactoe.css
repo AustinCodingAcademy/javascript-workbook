@@ -1,0 +1,44 @@
+* {margin: 0; padding: 0; font-family: 'Cute Font', cursive;}
+
+div.board {
+    width: 603px;
+    margin:0 auto;
+}
+
+div.board h2 {
+    height: 150px;
+    font-size: 55px;
+}
+
+div[id^="row"] div {
+    width: 200px;
+    height: 200px;
+    border: 2px solid;
+    float: left;
+    box-sizing: border-box;
+}
+
+div[id^="row"] {
+    overflow: hidden;
+    clear: both;
+}
+
+div[id^="row"] div:first-child {border-left: none;}
+div[id^="row"] div:last-child {border-right: none;}
+div[id="row-1"] div {border-top: none;}
+div[id="row-3"] div {border-bottom: none;}
+
+span {
+    font-size: 55px;
+    padding-top: 30px;
+    display: inline-block;
+}
+
+
+body {
+    background-color: lightgrey;
+    padding: 20px;
+    width: 1000px;
+    margin: 10px auto;
+    text-align: center;
+}
