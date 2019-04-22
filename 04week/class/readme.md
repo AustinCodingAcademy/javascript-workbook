@@ -19,7 +19,11 @@
 
 * What Is an Object?
 
-    - Bob Main: "An object is an object, it's the variable variable."
+    - An Object in JavaScript contains key:value pairs
+
+    - An object in JavaScript is surrouded by curly braces {}
+
+    - Arrays and Functions are also considered objects
 
 * What Is Scope Variable in JavaScript?
 
