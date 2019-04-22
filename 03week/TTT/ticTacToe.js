@@ -12,14 +12,8 @@
 //   [' ', ' ', ' ']
 // ];
 
-// let board = [];
-// let playerTurn = 'X';
-
-let players=[];
-let markers=["X", "O"];
-let players[0]= "";
-let players[1]= "";
-let
+let board = [];
+let playerTurn = 'X';
 
 function printBoard() {
   console.log('   0  1  2');
@@ -66,7 +60,7 @@ function checkForWin() {
 }
 
 function play(clickedDiv) {
-  clickedDiv.innerHTML = "<span>O</span>";
+  clickedDiv.innerText = "X";
   // Your code here
   // if (playerTurn === "X") {
   //   board[row][column] = playerTurn;
@@ -76,10 +70,6 @@ function play(clickedDiv) {
   //   board[row][column] = playerTurn;
   //   playerTurn = "X";
   // }
-}
-
-function togglePlayer() {
-
 }
 
 // function getPrompt() {
