@@ -13,6 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let winner = false;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,67 +25,67 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-  if (board === [['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' ']]
-    || board === [[' ', ' ', ' '], ['X', 'X', 'X'], [' ', ' ', ' ']]
-    || board === [[' ', ' ', ' '], [' ', ' ', ' '], ['X', 'X', 'X']]
-    || board === [['0', '0', '0'], [' ', ' ', ' '], [' ', ' ', ' ']]
-    || board === [[' ', ' ', ' '], ['0', '0', '0'], [' ', ' ', ' ']]
-    || board === [[' ', ' ', ' '], [' ', ' ', ' '], ['0', '0', '0']]
-  ) {
-    return true;
-  }
+  board.forEach((row) => {
+    if (row[0] === playerTurn && row[1] === playerTurn && row[2] === playerTurn) {
+      winner = true;
+    }
+  })
+  return winner;
 }
 
 function verticalWin() {
-  // Your code here
-  if (board == [['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' ']]
-    || board == [[' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' ']]
-    || board == [[' ', ' ', 'X'], [' ', ' ', 'X'], [' ', ' ', 'X']]
-    || board == [['0', ' ', ' '], ['0', ' ', ' '], ['0', ' ', ' ']]
-    || board == [[' ', '0', ' '], [' ', '0', ' '], [' ', '0', ' ']]
-    || board == [[' ', ' ', '0'], [' ', ' ', '0'], [' ', ' ', '0']]
-  ) {
-    return true;
+
+  for (let i = 0; i < 3; i++) {
+    if (board[0][i] === playerTurn && board[1][i] === playerTurn && board[2][i] === playerTurn) {
+      winner = true;
+    }
   }
+  return winner;
 }
 
 function diagonalWin() {
-  // Your code here
-  if (board == [['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X']]
-    || board == [[' ', ' ', 'X'], [' ', 'X', ' '], ['X', ' ', ' ']]
-    || board == [['0', ' ', ' '], [' ', '0', ' '], [' ', ' ', '0']]
-    || board[[' ', ' ', '0'], [' ', '0', ' '], ['0', ' ', ' ']]
+  if (
+    (board[0][0] == playerTurn && board[1][1] == playerTurn && board[2][2] == playerTurn) ||
+    (board[0][2] == playerTurn && board[1][1] == playerTurn && board[2][0] == playerTurn)
   ) {
-    return true;
+    winner = true;
+    return winner;
   }
+  else return winner;
 }
 
+
 function checkForWin() {
-  // Your code here
-  if (horizontalWin() || verticalWin() || diagonalWin()) {
+  if (horizontalWin()) {
+    console.log('Player ' + playerTurn + ' wins!');
+    return true;
+  } else if (verticalWin()) {
+    console.log('Player ' + playerTurn + ' wins!');
+    return true;
+  } else if (diagonalWin()) {
+    console.log('Player ' + playerTurn + ' wins!');
     return true;
   }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
-  if (playerTurn === 'X') {
+  if (board[row][column] === ' ') {
     board[row][column] = playerTurn;
-    if (checkForWin()) {
-      return "winner is: " + playerTurn;
-    } else {
-      playerTurn = '0';
+    if (checkForWin())
+    {
+      console.log("START NEW GAME")
     }
-  }
-  else {
-    board[row][column] = playerTurn;
-    if (checkForWin()) {
-      return "winner is: " + playerTurn;
-    } else {
-      playerTurn = 'X';
+    else {
+      if (playerTurn === 'X') {
+        playerTurn = '0';
+      } else {
+        playerTurn = 'X';
+      }
     }
+  } else {
+    console.log('SPOT TAKEN')
   }
+  return playerTurn;
 }
 
 function getPrompt() {
@@ -95,10 +96,10 @@ function getPrompt() {
       try {
         ticTacToe(row, column);
       }
-      catch(err) {
+      catch (err) {
         console.log("WHAT DID YOU DO!!!!!! PLEASE ENTER CORRECT VALUE")
       }
-      
+
       getPrompt();
     });
   });
@@ -118,7 +119,7 @@ if (typeof describe === 'function') {
     });
     it('should alternate between players', () => {
       ticTacToe(0, 0);
-      assert.deepEqual(board, [['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' ']]);
+      assert.deepEqual(board, [['0', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' ']]);
     });
     it('should check for vertical wins', () => {
       board = [[' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' ']];
