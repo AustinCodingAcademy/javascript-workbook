@@ -1,18 +1,25 @@
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+// let board = [
+//   [' ', ' ', ' '],
+//   [' ', ' ', ' '],
+//   [' ', ' ', ' ']
+// ];
 
-let playerTurn = 'X';
+// let board = [];
+// let playerTurn = 'X';
+
+let players=[];
+let markers=["X", "O"];
+let players[0]= "";
+let players[1]= "";
+let
 
 function printBoard() {
   console.log('   0  1  2');
@@ -58,63 +65,68 @@ function checkForWin() {
   }
 }
 
-function ticTacToe(row, column) {
+function play(clickedDiv) {
+  clickedDiv.innerHTML = "<span>O</span>";
   // Your code here
-  if (playerTurn === "X") {
-    board[row][column] = playerTurn;
-    playerTurn = "O";
+  // if (playerTurn === "X") {
+  //   board[row][column] = playerTurn;
+  //   playerTurn = "O";
 
-  } else if (playerTurn === "O") {
-    board[row][column] = playerTurn;
-    playerTurn = "X";
-  }
+  // } else if (playerTurn === "O") {
+  //   board[row][column] = playerTurn;
+  //   playerTurn = "X";
+  // }
 }
 
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
+function togglePlayer() {
 
 }
+
+// function getPrompt() {
+//   printBoard();
+//   console.log("It's Player " + playerTurn + "'s turn.");
+//   rl.question('row: ', (row) => {
+//     rl.question('column: ', (column) => {
+//       ticTacToe(row, column);
+//       getPrompt();
+//     });
+//   });
+
+// }
 
 
 
 // Tests
 
-if (typeof describe === 'function') {
+// if (typeof describe === 'function') {
 
-  describe('#ticTacToe()', () => {
-    it('should place mark on the board', () => {
-      ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-    });
-    it('should alternate between players', () => {
-      ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-    });
-    it('should check for vertical wins', () => {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-      assert.equal(verticalWin(), true);
-    });
-    it('should check for horizontal wins', () => {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-      assert.equal(horizontalWin(), true);
-    });
-    it('should check for diagonal wins', () => {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-      assert.equal(diagonalWin(), true);
-    });
-    it('should detect a win', () => {
-      assert.equal(checkForWin(), true);
-    });
-  });
-} else {
+//   describe('#ticTacToe()', () => {
+//     it('should place mark on the board', () => {
+//       ticTacToe(1, 1);
+//       assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+//     });
+//     it('should alternate between players', () => {
+//       ticTacToe(0, 0);
+//       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
+//     });
+//     it('should check for vertical wins', () => {
+//       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
+//       assert.equal(verticalWin(), true);
+//     });
+//     it('should check for horizontal wins', () => {
+//       board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+//       assert.equal(horizontalWin(), true);
+//     });
+//     it('should check for diagonal wins', () => {
+//       board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
+//       assert.equal(diagonalWin(), true);
+//     });
+//     it('should detect a win', () => {
+//       assert.equal(checkForWin(), true);
+//     });
+//   });
+// } else {
 
-  getPrompt();
+//   getPrompt();
 
-}
+// }
