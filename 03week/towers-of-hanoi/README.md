@@ -4,3 +4,5 @@
 
 ## Checklist:
 ## Code Plan
+1. Get user input (startStack, endstack) and then check the rules of the game based on the current stack object
+2. Whenever we want to move a number, we need to check that number and make sure that it is less than the number you are trying to place it on
