@@ -4,5 +4,9 @@
 
 ## Checklist:
 ## Code Plan
-1. Get user input (startStack, endstack) and then check the rules of the game based on the current stack object
-2. Whenever we want to move a number, we need to check that number and make sure that it is less than the number you are trying to place it on
+1. Three stacks are given to user. These stacks are also known as Towers.
+2. Each stack is represented as an array.
+3. First stack array has four blocks/items.
+4. Other two stacks are empty arrays.
+5. Get user input (startStack, endstack) and then check the rules of the game based on the current stack object
+6. Whenever we want to move a number, we need to check that number and make sure that it is less than the number you are trying to place it on
