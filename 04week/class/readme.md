@@ -4,6 +4,10 @@
 
     - A Higher Order Function: Takes one or more functions as arguments, returns a function as its result.
 
+    - Cleaner more easy to read code
+
+    - Less code to write
+
 * What is functional programming?
 
     - Functional programming: A program that deals in functions as the main component instead of classes. Functions ARE the object.
