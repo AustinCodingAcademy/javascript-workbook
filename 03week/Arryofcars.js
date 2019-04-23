@@ -1,3 +1,5 @@
+'use strict'
+
 const car = ['ford', 'kia', 'mazda', 'volvo'];
 console.log(car.length);
 
