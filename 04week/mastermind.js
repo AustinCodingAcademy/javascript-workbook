@@ -57,8 +57,8 @@ function mastermind(guess) {
   let hint = generateHint(guess);
   board.push(hint);
 
-  if (guess === solution) {
-    return 'You guessed it!';
+  if (hint === '4-0') {
+    console.log('You guessed it!');
   }
 }
 
