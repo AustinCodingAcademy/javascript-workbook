@@ -1,13 +1,7 @@
 // Return unsorted scores in a descending sorted array.
 
 /*Example*/
-const unsortedScores = [37, 89, 41, 65, 91, 53];
-
-// function sortedScores(n){
-//     let y = n.sort();
-//     let x = y.reverse();
-//     console.log(x);
-// }
+const unsortedScores = [37, 89, 41, 65, 91, 53, 100];
 
 function sortedScores(n) {
     let change = false;

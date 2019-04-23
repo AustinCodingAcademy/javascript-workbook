@@ -29,7 +29,10 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(solution, guess) {
-  // your code here
+  // solutionArray and guessArray
+  let solutionArray = [];
+  let guessArray = [];
+  
 }
 
 function mastermind(guess) {
