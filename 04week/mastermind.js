@@ -28,13 +28,38 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
+  let redCount = 0;
+  let whiteCount = 0; 
+  let checked = [];
+
+  for (let i= 0; i < solution.length; i++) {
+    let solutionIndex = solution.indexOf(guess[i]);
+    if (solution[i] === guess[i]) {
+      redCount++;
+      checked.push(guess[i]);
+    } else if (solutionIndex !== -1 && !isDuplicated(guess[i], checked)) {
+      whiteCount++;
+      checked.push(guess[i]);
+    }
+  }
+  return `${redCount}-${whiteCount}`;
+}
+
+function isDuplicated (letter, checked) {
+  return checked.includes(letter);
 }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+  let hint = generateHint(guess);
+  board.push(hint);
+
+  if (guess === solution) {
+    return 'You guessed it!';
+  }
 }
 
 
