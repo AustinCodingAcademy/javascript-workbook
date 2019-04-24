@@ -10,18 +10,28 @@
 </head>
 
 <body>
-    <div class="container" id="container">
-        <div class="box" id="box1" onclick="ticTacToe(0,0)">.</div>
-        <div class="box" id="box2" onclick="ticTacToe(0,1)">.</div>
-        <div class="box" id="box3" onclick="ticTacToe(0,2)">.</div>
-        <div class="box" id="box4" onclick="ticTacToe(1,0)">.</div>
-        <div class="box" id="box5" onclick="ticTacToe(1,1)">.</div>
-        <div class="box" id="box6" onclick="ticTacToe(1,2)">.</div>
-        <div class="box" id="box7" onclick="ticTacToe(2,0)">.</div>
-        <div class="box" id="box8" onclick="ticTacToe(2,1)">.</div>
-        <div class="box" id="box9" onclick="ticTacToe(2,2)">.</div>
+    <h1 class="game-title container">Tic Tac Toe</h1>
+    <h3 class="message container" id="message">message here: </h3>
+    <div class="container">
+        <table>
+            <tr>
+                <td class="box" id="box1" onclick="ticTacToe(0,0,this)"></td>
+                <td class="box" id="box2" onclick="ticTacToe(0,1,this)"></td>
+                <td class="box" id="box3" onclick="ticTacToe(0,2,this)"></td>
+            </tr>
+            <tr>
+                <td class="box" id="box4" onclick="ticTacToe(1,0,this)"></td>
+                <td class="box" id="box5" onclick="ticTacToe(1,1,this)"></td>
+                <td class="box" id="box6" onclick="ticTacToe(1,2,this)"></td>
+            </tr>
+            <tr>
+                <td class="box" id="box7" onclick="ticTacToe(2,0,this)"></td>
+                <td class="box" id="box8" onclick="ticTacToe(2,1,this)"></td>
+                <td class="box" id="box9" onclick="ticTacToe(2,2,this)"></td>
+            </tr>
+        </table>
     </div>
-    <script src="./ticTacToe.js"></script>
+    <script src="./ttt.js"></script>
 </body>
 
 </html>
