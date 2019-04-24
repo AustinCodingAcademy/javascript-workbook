@@ -59,6 +59,7 @@ function mastermind(guess) {
 
   if (hint === '4-0') {
     console.log('You guessed it!');
+    return 'You guessed it!';
   }
 }
 
