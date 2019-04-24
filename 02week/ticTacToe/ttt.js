@@ -41,27 +41,21 @@ function diagonalWin() {
 
 function checkForWin() {
   if (horizontalWin()) {
-    console.log('Player ' + playerTurn + ' wins!');
-    document.getElementById("message").innerText = 'Player ' + playerTurn + ' wins!';
     return true;
   } else if (verticalWin()) {
-    console.log('Player ' + playerTurn + ' wins!');    
-    document.getElementById("message").innerText = 'Player ' + playerTurn + ' wins!';
     return true;
   } else if (diagonalWin()) {
-    console.log('Player ' + playerTurn + ' wins!');
-    document.getElementById("message").innerText = 'Player ' + playerTurn + ' wins!';
     return true;
   }
 }
 
 function ticTacToe(row, column, box) {
+  document.getElementById("message").innerText = 'PLAYER ' + playerTurn + ' TURNS';
   if (board[row][column] === ' ') {
     board[row][column] = playerTurn;
-    box.innerText =playerTurn;
-    if (checkForWin())
-    {
-      console.log("START NEW GAME")
+    box.innerText = playerTurn;
+    if (checkForWin()) {
+      document.getElementById("message").innerText = 'PLAYER ' + playerTurn + ' WINS! START NEW GAME?';
     }
     else {
       if (playerTurn === 'X') {
@@ -71,7 +65,7 @@ function ticTacToe(row, column, box) {
       }
     }
   } else {
-    console.log('THIS SPOT HAS BEEN TAKEN!!!')
+    document.getElementById("message").innerText = 'PICK ANOTHER BOX, THIS SPOT HAS BEEN TAKEN!!!';
   }
   return playerTurn;
 }
