@@ -14,36 +14,34 @@ function pigLatin(word) {
   // console.log3(word);
   const vowels = ['a','e','i','o','u','y'];
   const splitWord = word.split('');//['c','a','r']
-  let ending = new Array();
-  let firstVowelPosition = new Array();
+  console.log(splitWord);
 
-  const somethingSomething = splitWord.find(function(element){
+  let ending = new String();
+  let firstVowelPosition = new Number();
+  let vowelPositions = new Array();
 
-  });
-  console.log(somethingSomething);
-
-
-  for (let i=0;i<splitWord.length;i++) {//foreach (letters as letter):
-    if (vowels.includes(splitWord[i])) {// if the letter is a vowel, then stop
-      //the trim the array to the beginning
-        //Get the position of the first vowel
-
-        // console.log(splitWord.indexOf(splitWord[i]));
-
-        // let firstVowelPosition = splitWord.indexOf(splitWord[i])///Get the position
-        // console.log(firstVowelPosition);
-    }
+  // firstVowelPosition = (vowels.includes(splitWord[0])?0:false);
+  let isFirstCharVowel =  (vowels.includes(splitWord[0])?true:false);
+  
+  // console.log(isFirstCharVowel)
+  
+  if (isFirstCharVowel) {
+    splitWord.push('y','a','y');
+    console.log(splitWord);
+  } else {
+    let ending = new Array();
+    splitWord.forEach(element => {
+      while (!vowels.includes(element)) {
+        console.log(element);
+      }
+    });
   }
-  // console.log(ending);
   // console.log(splitWord);
-  // console.log(ending);
-  // return ret;
-
-  //   if(vowels.includes(e)) {//if the element is a vowel
-  //     let firstVowelPosition = a.indexOf(e)///Get the position
-  //   }
-  //   }
-  }
-  pigLatin('create')//, 'eatecray');
+  //string is like ['c','a','r']
+  // console.log(vowelPositions.length);
+  // console.log(word.length);
+}
+// console.log(car);
+pigLatin('cali')//, 'lleyyay');
 // assert.equal(pigLatin('car'), 'arcay');
 // assert.equal(pigLatin('valley'), 'alleyvay');
