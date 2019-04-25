@@ -1,5 +1,6 @@
 // let re = /p+l/;
 // const re = new RegEx('p+l')
+
 let firstPart = /^austin/;
 let lastPart = /t!$/;
 let fullWord = /^austin coding academy$/;

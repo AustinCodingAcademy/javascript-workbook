@@ -40,6 +40,7 @@ do {
     i++;
     // console.log(i);
 } while (i < 1001);
+
 // Create an object (an array with keys and values) called person with the following data:
 // firstName: "Jane"
 // lastName: "Doe"
@@ -55,6 +56,7 @@ const person = {
 for (const allKeys in person) {
     if (allKeys == 'birthDate') {
         const splitDate = person.birthDate.split('');
+        console.log(splitDate)
         const lastElement = splitDate[splitDate.length - 1];
         if (lastElement % 2 !== 0) {
             // console.log(person[allKeys]);
