@@ -86,8 +86,12 @@ function useFilter2(inputArr) {
 }
 
 //Calling function
-//console.log(useDoWhile(10));
-//consoleuseprintForIn(person));
-//console.log(useMap(arrayOfPersons));
-//console.log((useFilter1(arrayOfPersons)));
+console.log(useDoWhile(10));
+console.log("******************************************");
+console.log(useForIn(person));
+console.log("******************************************");
+console.log(useMap(arrayOfPersons));
+console.log("******************************************");
+console.log((useFilter1(arrayOfPersons)));
+console.log("******************************************");
 console.log(useFilter2(arrayOfPersons));
