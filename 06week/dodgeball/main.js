@@ -99,7 +99,6 @@ const listOfPeople = () => {
   })
 }
 
-
 const signUpList = () => {
   const listElement = document.getElementById('signUp')
   arrOfPeople.map(person => {
@@ -117,9 +116,9 @@ const signUpList = () => {
 
 const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
-  console.log(id) 
+  console.log(id)
   listOfPlayers.push(arrOfPeople[id - 2])
-  arrOfPeople.slice(arrOfPeople[id - 2], 1) 
+  arrOfPeople.slice(arrOfPeople[id - 2], 1)
   console.log(arrOfPeople)
   console.log(listOfPlayers)
 }
