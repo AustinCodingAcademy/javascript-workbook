@@ -1,10 +1,10 @@
 "use strict"
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+  // input: process.stdin,
+  // output: process.stdout
+// });
 
 const arrOfPeople = [{
     id: 2,
@@ -84,14 +84,33 @@ class Team {
 
 const blueBallz = new Team("Blue Ballz", "Ball", "Blue")
 const redRocketz = new Team("Red Rocketz", "Rocket", "Red")
-const listOfPeople = () => {
-  const listElement = document.getElementById('people')
+// const listOfPeople = () => {
+//   const listElement = document.getElementById('people')
+//   arrOfPeople.map(person => {
+//     const li = document.createElement("li")
+//     const button = document.createElement("button")
+//     button.innerHTML = "Make Player"
+//     button.addEventListener('click', function () {
+//       makePlayer(person.id)
+//     })
+//     li.appendChild(button)
+//     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+//     listElement.append(li)
+//   })
+// }
+
+const signUpList = (element) => {
+  const listElement = document.getElementById(element)
+  // const oldList = document.getElementById(element)
+  listElement.innerHTML = ""
   arrOfPeople.map(person => {
     const li = document.createElement("li")
+    // li.classList.add("unclicked")
     const button = document.createElement("button")
     button.innerHTML = "Make Player"
     button.addEventListener('click', function () {
-      makePlayer(person.id)
+      console.log(person.id)
+      makePlayer(person.id, element)
     })
     li.appendChild(button)
     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
@@ -99,26 +118,15 @@ const listOfPeople = () => {
   })
 }
 
-const signUpList = () => {
-  const listElement = document.getElementById('signUp')
-  arrOfPeople.map(person => {
-    const li = document.createElement("li")
-    const button = document.createElement("button")
-    button.innerHTML = "Make Player"
-    button.addEventListener('click', function () {
-      makePlayer(person.id)
-    })
-    li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-    listElement.append(li)
-  })
-}
-
-const makePlayer = (id) => {
-  console.log(`li ${id} was clicked!`)
-  console.log(id)
-  listOfPlayers.push(arrOfPeople[id - 2])
-  arrOfPeople.slice(arrOfPeople[id - 2], 1)
+const makePlayer = (id, element) => {
+  // console.log(`li ${id} was clicked!`)
+  // console.log(id)
+  let removed = arrOfPeople.splice(id - 2, 1)
+  console.log(removed)
+  listOfPlayers.push(removed[0])
+  // arrOfPeople.slice(arrOfPeople[id - 2], 1)
   console.log(arrOfPeople)
   console.log(listOfPlayers)
+  signUpList(element);
 }
+
