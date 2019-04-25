@@ -1,7 +1,8 @@
 function duplicate(array) {
     const duplicatedArray = array;
-    const concatenate = array+','+duplicatedArray;
-    const createArray = concatenate.split(',');
+    const createArray = array.concat(duplicatedArray);
+    // const concatenate = array+','+duplicatedArray;
+    // const createArray = concatenate.split(',');
     return createArray;
 }
 
