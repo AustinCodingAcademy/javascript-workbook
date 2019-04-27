@@ -120,15 +120,15 @@ my_Clock.prototype.update = function(){
 my_Clock.prototype.updateTime = function(secs) {
     this.seconds+= secs;
     if(this.seconds >= 60){
-    this.minutes++;
-    this.seconds= 0;
+      this.minutes++;
+      this.seconds= 0;
     }
     if(this.minutes >= 60){
-    this.hours++;
-    this.minutes=0;
+      this.hours++;
+      this.minutes=0;
     }
     if(this.hours >= 24){
-    this.hours = 0;
+      this.hours = 0;
     }
 };
 var clock = new my_Clock();
