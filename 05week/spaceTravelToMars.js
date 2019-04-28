@@ -2,7 +2,7 @@
 
 let assert = require('assert');
 
-let jobTypes = {
+const jobTypes = {
   pilot: 'MAV',
   mechanic: 'Repair Ship',
   commander: 'Main Ship',
@@ -10,6 +10,41 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  };
+  enterShip(ship){
+      this.ship = ship;
+      ship.crew.push(this);
+  };
+};
+class Ship {
+  constructor(name, type, ability, crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+    missionStatement(){
+      if (this.crew.length > 0){
+        return this.ability;
+      } else {
+        return "Can't perform a mission yet."
+      };
+    } 
+};
+const mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+const hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry')
+const crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+console.log("MAV: ",mav);
+console.log("HERMES: ",hermes);
+console.log("CREW MEMBER 1: ",crewMember1);
+console.log("CREW MEMBER 2: ",crewMember2);
 
 //tests
 if (typeof describe === 'function'){
