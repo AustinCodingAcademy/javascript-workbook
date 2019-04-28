@@ -13,12 +13,14 @@ let stacks = {
   c: []
 };
 
+//shows the player the game
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
+//moving pieces from one stack to another
 function movePiece(startInput, endInput) {
   console.log("start " + startInput);
   console.log("end " + endInput);
@@ -28,6 +30,7 @@ function movePiece(startInput, endInput) {
   return newStack;
 }
 
+//check if the number I am moving is larger than the last number in the destination array
 function isLegal(startInput, endInput) {
   const myNum = startInput[startInput.length - 1];
   const dest = endInput[endInput.length - 1];
@@ -38,6 +41,8 @@ function isLegal(startInput, endInput) {
     return true;
   }
 }
+
+//check if player has successfully moved the pieces in the correct order to another stack that isn't a
 
 function checkForWin() {
   if (stacks.b.length == 4 || stacks.c.length == 4) {
@@ -56,8 +61,7 @@ function towersOfHanoi(startStack, endStack) {
   } else {
     console.log("Illegal move");
   }
-checkForWin();
-
+  checkForWin();
 }
 
 function getPrompt() {
@@ -89,6 +93,14 @@ if (typeof describe === "function") {
       };
       assert.equal(isLegal("c", "b"), false);
     });
+    it("should not allow empty array", () => {
+      stacks = {
+        a: [],
+        b: [],
+        c: []
+      };
+      assert.equal(isLegal("", ""), true);
+    });
     it("should allow a legal move", () => {
       stacks = {
         a: [4, 3, 2, 1],
@@ -104,6 +116,14 @@ if (typeof describe === "function") {
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
+    });
+    it("should detect a win in c", () => {
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+      assert.equal(checkForWin(), true);
+    });
+    it("should detect a win in b", () => {
+      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      assert.equal(checkForWin(), true);
     });
   });
 } else {
