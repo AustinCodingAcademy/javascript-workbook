@@ -25,7 +25,7 @@ birthDate: "Jan 5, 1925",
 gender: "female"
 };
 
-//Use a for...in loop and if statement to console.log the value associated with the key birthDate if the birth year is an odd number.
+//Use a for..in loop and if statement to console.log the value associated with the key birthDate if the birth year is an odd number.
 
 let text = "";
 let x;
