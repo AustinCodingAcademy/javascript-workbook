@@ -34,7 +34,6 @@ console.log("popLastItem: " + carsInReverse.shift());
 console.log("popLastItem: " + carsInReverse.unshift("Mazda"));
 console.log("Final: " + carsInReverse);
 
-//let numbers = [23, 45, 0, 2];
 const numbers = [23, 45, 0, 2, 8, 44, 100, 1, 3, 91, 34]
 
 numbers.forEach(function (number) {
