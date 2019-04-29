@@ -12,22 +12,24 @@
   
     <table id="doc" >
         <tr>
-          <th onclick="ticTacToe(0,0,this)"></th>
-          <th onclick="ticTacToe(0,1,this)"></th> 
-          <th onclick="ticTacToe(0,2,this)"></th>
+          <th id="box-1" onclick="ticTacToe(0,0,this)"></th>
+          <th id="box-2" onclick="ticTacToe(0,1,this)"></th> 
+          <th id="box-3" onclick="ticTacToe(0,2,this)"></th>
+        
+          
         </tr>
         <tr>
-          <td onclick="ticTacToe(1,0,this)"></td>
-          <td onclick="ticTacToe(1,1,this)"></td> 
-          <td onclick="ticTacToe(1,2,this)"></td>
+          <td id="box-4"onclick="ticTacToe(1,0,this)"></td>
+          <td id="box-5"onclick="ticTacToe(1,1,this)"></td> 
+          <td id="box-6"onclick="ticTacToe(1,2,this)"></td>
         </tr>
         <tr>
-          <td onclick="ticTacToe(2,0,this)"></td>
-          <td onclick="ticTacToe(2,1,this)"></td> 
-          <td onclick="ticTacToe(2,2,this)"></td>
+          <td id="box-7"onclick="ticTacToe(2,0,this)"></td>
+          <td id="box-8"onclick="ticTacToe(2,1,this)"></td> 
+          <td id="box-9"onclick="ticTacToe(2,2,this)"></td>
         </tr>
       </table>
-    
- <script scr="ticTacToe.js"></script> 
+    <div id="win"></div>
+ <script src="./ticTacToe.js"></script> 
 </body>
 </html>

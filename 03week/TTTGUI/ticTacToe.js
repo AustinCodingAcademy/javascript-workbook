@@ -1,11 +1,11 @@
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -26,17 +26,18 @@ function printBoard() {
 function markBoard(row, column,event) {
   board[row][column]= playerTurn;
   console.log('event', event)
-  document.getElementById(event.id).innerHtml=playerTurn;
+  document.getElementById(event.id).innerHTML=playerTurn;
   console.log("row",board[row]);
   console.log("column",board[column]);
 }
 
 function switchPlayer() {
-if  ( playerTurn=="x"){
-  playerTurn="o";
-}else if(playerTurn=="o"){
-  playerTurn="x";
-}
+  if  ( playerTurn=="X"){
+    playerTurn="O";
+  }else if(playerTurn=="O"){
+    playerTurn="X";
+  }
+
 }
 
 function horizontalWin() {
@@ -118,32 +119,36 @@ function checkForWin() {
  
   // return false;
     if(horizontalWin()){
-      return true; 
+      document.getElementById("win").innerHTML=playerTurn+"Woo!You won"
     }else if(verticalWin()){
+      document.getElementById("win").innerHTML=playerTurn+"Woo!You won"
       return true;
     } else if (diagonalWin()){
+      document.getElementById("win").innerHTML=playerTurn+"Woo!You won"
       return true;
     }
+  
   }
 
 function ticTacToe(row, column, event) {
-  markBoard(row,column,event)
+  markBoard(row,column,event);
   checkForWin();
+  console.log('here')
   switchPlayer();
   // document.getElementById(doc).innerHTML=player
 }
 
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
+// function getPrompt() {
+//   printBoard();
+//   console.log("It's Player " + playerTurn + "'s turn.");
+//   rl.question('row: ', (row) => {
+//     rl.question('column: ', (column) => {
+//       ticTacToe(row, column);
+//       getPrompt();
+//     });
+//   });
 
-}
+// }
 
 
 
