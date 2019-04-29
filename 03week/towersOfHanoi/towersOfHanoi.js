@@ -12,31 +12,38 @@ let stacks = {
   b: [],
   c: []
 };
-
+// print the stacks 
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
-function movePiece() {
-  // Your code here
-
+//move pieces 
+//returns what it removes 
+function movePiece(moveFrom, moveTo) {
+  let grabBlock =  moveFrom.pop(); moveTo.push(grabBlock);
 }
 
-function isLegal() {
-  // Your code here
+//make sure larger blocks arent placed on smaller blocks 
+  //(4, 3, 2, 1)
+  
+const isLegal = (startStack, endStack) => stacks[endStack][stacks[endStack].length - 1] >
+stacks[startStack][stacks[startStack].length - 1]|| stacks[endStack].length === 0;
+ 
 
-}
-
-function checkForWin() {
-  // Your code here
-
-}
+  function checkForWin() {
+    if(stacks.b.length === 4){
+      return true;
+    }
+    else if(stacks.b.length === 3){
+      return false;
+    }
+  }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  let moveFrom = stacks[startStack];
+  let moveTo = stacks[endStack];
+  movePiece(moveFrom, moveTo)
 }
 
 function getPrompt() {

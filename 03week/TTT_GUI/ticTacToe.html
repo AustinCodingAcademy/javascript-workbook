@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="ticTacToe.css">
+    <title>Tic Tac Toe</title>
+</head>
+    <body>
+        <h1> TIC TAC TOE</h1>
+        <div class="board">
+            
+            <div class="square" id="upperleft" onclick="placeMark('upperleft')"></div>
+            <div class="square" id="uppermiddle" onclick="placeMark('uppermiddle')"></div>
+            <div class="square" id="upperright" onclick="placeMark('upperright')"></div>
+            <div class="square" id="middleleft" onclick="placeMark('middleleft')"></div>
+            <div class="square" id="middlemiddle" onclick="placeMark('middlemiddle')"></div>
+            <div class="square" id="middleright" onclick="placeMark('middleright')"></div>
+            <div class="square" id="lowerleft" onclick="placeMark('lowerleft')"></div>
+            <div class="square" id="lowermiddle" onclick="placeMark('lowermiddle')"></div>
+            <div class="square" id="lowerright" onclick="placeMark('lowerright')"></div>
+            
+                <div class="buttons">
+                    <button class="btn" onclick="changeMarkerToO()">O</button>
+                    <button class="btn" onclick ="changeMarkerToX()">X</button> 
+                </div>
+
+                <div id="youWin"></div>
+            <script type="text/javascript" src="ticTacToe.js"></script>                                                     
+        </div> 
+    </body>
+</html> 

@@ -1,4 +1,5 @@
 'use strict';
+alert("Hello pick X or O");
 
 const assert = require('assert');
 const readline = require('readline');
@@ -30,12 +31,11 @@ function horizontalWin() {
 } else if(board[1][0]=== playerTurn && board[1][1]===playerTurn && board[1][2]===playerTurn){
   return true;
 } else if (board[2][0]=== playerTurn && board[2][1]===playerTurn && board[2][2]===playerTurn){
-  return true;
 }
-
-
+printWinner();
+  return true;
   
-  // Your code here
+
 }
 
 function verticalWin() {
@@ -44,11 +44,12 @@ function verticalWin() {
   } else if(board[0][1]=== playerTurn && board[1][1]===playerTurn && board[2][1]===playerTurn){
     return true;
   } else if (board[2][0]=== playerTurn && board[1][2]===playerTurn && board[2][2]===playerTurn){
-    return true;
-  }
-  // Your code here
+    {
+  printWinner();
 }
 
+}return true;
+}
 function diagonalWin() {
   if(board[0][0]=== playerTurn && board[1][1]===playerTurn && board[2][2]===playerTurn){
     return true;
@@ -66,20 +67,38 @@ function checkForWin() {
   // Your code here
 }
 
-function ticTacToe(row, column) {
-  // Your code here
-  //update your board based on row and column
-  if(playerTurn ==='X') {
-  board[row][column] = playerTurn;
-  playerTurn = 'O';
-} else if(playerTurn === 'O') {
-  board[row][column] = playerTurn;
-  playerTurn = 'X';
+// function ticTacToe(row, column) {
+//   if(playerTurn ==='X') {
+//   board[row][column] = playerTurn;
+//   playerTurn = 'O';
+// } else if(playerTurn === 'O') {
+//   board[row][column] = playerTurn;
+//   playerTurn = 'X';
  
+// }
+function ticTacToe(row, column) {
+    if (board[row][column] === ' ') {
+      board[row][column] = playerTurn;
+    } else {
+      console.log('Try again! That place is already taken.');
+      return playerTurn;
+    }
+checkForWin();
+if (playerTurn == 'X') {
+  playerTurn = 'O';
+  let setX = document.getElementById('square'+row+column);
+  setX.innerHTML = 'X';
+  checkForWin();
+  
 }
- checkForWin();
+else if (playerTurn == 'O') {
+  playerTurn = 'X';
+  let setO = document.getElementById('b'+row+column);
+  setO.innerHTML = 'O';
+  checkForWin();
+} 
+}
 
-}
 
 function getPrompt() {
   printBoard();
@@ -92,6 +111,31 @@ function getPrompt() {
   });
 
 }
+var gameMarker = "O"
+function changeMarkerToX(){
+    gameMarker = "X";
+   console.log("The x button was clicked!") 
+}
+
+
+function changeMarkerToO(){
+     gameMarker = "O"
+    console.log("The o button was clicked!") 
+}
+
+function placeMark(theId){
+    console.log(theId)
+    var square= document.getElementById(theId);
+    console.log("square", square)
+    square.innerHTML = gameMarker;
+
+}
+function printWinner() {
+    let declareWinner = document.getElementById('board');
+    let winText = document.getElementById('youWin');
+    winText.innerHTML = playerTurn + ' WINS';
+    declareWinner.style.pointerEvents = 'none';
+  }
 
 
 
@@ -127,5 +171,4 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
-
 }
