@@ -35,7 +35,7 @@ for (let x in person) {
     }
 }
 
-//Create an arrayOfPersons that contains mulitiple objects. You can simply copy/paste the person object you made above multiple times. Feel free to change the values to reflect multiple people you might have in your database.
+//Create an arrayOfPersons that contains mulitiple objects.
 
 const arrayOfPersons = [{firstName: "Jane",
 lastName: "Doe",
