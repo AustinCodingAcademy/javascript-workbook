@@ -17,6 +17,13 @@ function foEach(array, callback) {
     }
 }
 
+//for each example
+const pets = ['dog', 'cat', 'fish'];
+
+pets.forEach(function(element) {
+  console.log(element);
+});
+
 // Example 1
 var alphabet ="";
 var letters =['a','b','c','d'];
