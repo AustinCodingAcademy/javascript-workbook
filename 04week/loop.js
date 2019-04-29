@@ -16,11 +16,11 @@
 // /////////////////////////////
 
 // // Challenge 4
-// function forEach(array, callback) {
-// 	for(let i = 0; i < array.length; i++) {
-// 		callback(array[i]);
-// 	}
-// }
+function forEach(array, callback) {
+	for(let i = 0; i < array.length; i++) {
+		callback(array[i]);
+	}
+}
 // // //Extension 1
 // // function mapWith(array, callback) {
 // // 	return forEach(array, callback)
