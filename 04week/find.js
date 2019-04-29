@@ -5,5 +5,16 @@ var found = array1.find(function(element) {
   return element > 10;
 });
 
-console.log(found);
+console.log("Element: ", found); 
 // expected output: 12
+
+
+var array1 = [5, 12, 8, 130, 44];
+
+function isLargeNumber(element) {
+  return element > 13;
+}
+
+console.log(array1.findIndex(isLargeNumber));
+// expected output: 3
+
