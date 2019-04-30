@@ -25,5 +25,5 @@ const add1 = function(z) {
 }
 console.log(add1(2)(5)); // 7
 
-// const add2 = (e) => (f) => (e + f);
-// console.log(add2(2)(5));
+const add2 = (e) => (f) => (e + f);
+console.log(add2(2)(5));
