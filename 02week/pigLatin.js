@@ -9,10 +9,29 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  let vowels = ['a', 'e', 'i', 'o', 'u'],
+    result = word.split('');
 
-  // Your code here
-
+  if (vowels.includes(word.charAt(0))) {
+    return word += 'yay';
+  } else {
+    for (let i = 0; i < word.length; i++) {
+      if (!vowels.includes(word[i])) {
+        result.push(result.shift());
+      } else {
+        result.push('ay');
+        return result.join('');
+      }
+    }
+  }
 }
+
+function pigLatin(word){
+  return word.split(' ')
+    .map(function(w){return w.slice(1) + w.slice(0, 1) + 'ay'})
+    .join(' ');
+}
+
 
 
 function getPrompt() {

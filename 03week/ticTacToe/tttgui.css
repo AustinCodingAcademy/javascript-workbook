@@ -1,0 +1,44 @@
+table {
+    margin-left: 27%;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+body {
+    width: 550px;
+    margin: auto;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+}
+
+.square {
+    height: 80px;
+    width: 80px;
+    font-size: 45pt;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+}
+
+#message {
+    font-size: 18pt;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 5px;
+}
+
+#restart {
+    font-size: 18pt;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    padding: 8px;
+    margin-left: 43%;
+}
