@@ -1,17 +1,26 @@
-console.log(Date());
-var firstNumber = 9
-var secondNumber = 3
+function getNewDate() {
+    document.getElementById("newDate").innerHTML = Date();
+}
 
-console.log(firstNumber - secondNumber);
+function addition() {
+    var firstNumber = document.getElementById("leftNum").value;
+    var secondNumber = document.getElementById("rightNum").value;
+    document.getElementById("sum").innerHTML = parseInt(firstNumber) + parseInt(secondNumber);
+}
 
-var num = 7;
-var seven = num.toString();
+function numToString() {
+    var numInput = document.getElementById("numString").value;
+    var heresYourString = numInput.toString();
+    document.getElementById("newString").innerHTML = heresYourString;
+}
 
-seven;
 
 function toNumber() {
-  var a = parseInt("7");
-  return a;
+  var parseNumber = document.getElementById("stringInput").value;
+  var parse = parseInt(parseNumber);
+  console.log(parseNumber);
+  console.log(parse);
+  document.getElementById("newString").innerHTML = parse;
 }
 
 console.log(toNumber());
