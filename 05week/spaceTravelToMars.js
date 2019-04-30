@@ -8,8 +8,46 @@ let jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
+//(oop class and constuctor method )
+class Ship{
+  constructor(name, type, ability, crew){
+    this.name=name;
+    this.type=type;
+    this.ability=ability
+    this.crew=[];
+  }
+  //passing test ,crew.length
+ missionStatement(){
+  if(this.crew.length < 1) {
+    return"Can't perform a mission yet."
+  } else {
+      return this.ability;
+    }
+ }
+}
 
-// Your code here
+const ship=new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+console.log(ship);
+console.log(ship.missionStatement());
+
+class CrewMember{
+  constructor(name, job, specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    
+  }
+  //crewMember can enter a ship
+  enterShip(spaceShip){
+    this.ship=spaceShip;
+    this.ship.crew.push(this);
+
+  }
+
+}
+const crewMember = new CrewMember('Rick Martinez', 'pilot', 'chemistry')
+console.log(crewMember);
+
 
 //tests
 if (typeof describe === 'function'){

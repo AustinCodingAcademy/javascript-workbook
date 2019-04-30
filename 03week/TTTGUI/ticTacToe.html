@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./ticTacToe.css" />
+  <title>TicTacToe</title>
+</head>
+<body>
+  <h1>TicTacToe</h1>
+  
+    <table id="doc" >
+        <tr>
+          <th id="box-1" onclick="ticTacToe(0,0,this)"></th>
+          <th id="box-2" onclick="ticTacToe(0,1,this)"></th> 
+          <th id="box-3" onclick="ticTacToe(0,2,this)"></th>
+        
+          
+        </tr>
+        <tr>
+          <td id="box-4"onclick="ticTacToe(1,0,this)"></td>
+          <td id="box-5"onclick="ticTacToe(1,1,this)"></td> 
+          <td id="box-6"onclick="ticTacToe(1,2,this)"></td>
+        </tr>
+        <tr>
+          <td id="box-7"onclick="ticTacToe(2,0,this)"></td>
+          <td id="box-8"onclick="ticTacToe(2,1,this)"></td> 
+          <td id="box-9"onclick="ticTacToe(2,2,this)"></td>
+        </tr>
+      </table>
+    <div id="win"></div>
+ <script src="./ticTacToe.js"></script> 
+</body>
+</html>
