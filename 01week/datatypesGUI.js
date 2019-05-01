@@ -1,20 +1,16 @@
+//1.
 function getNewDate() {
     document.getElementById("newDate").innerHTML = Date();
 }
 
-function addition() {
-    var firstNumber = document.getElementById("leftNum").value;
-    var secondNumber = document.getElementById("rightNum").value;
-    document.getElementById("sum").innerHTML = parseInt(firstNumber) + parseInt(secondNumber);
-}
-
+//2.
 function numToString() {
     var numInput = document.getElementById("numString").value;
     var heresYourString = numInput.toString();
     document.getElementById("newString").innerHTML = heresYourString;
 }
 
-
+//3.
 function toNumber() {
   var parseNumber = document.getElementById("stringInput").value;
   var parse = parseInt(parseNumber);
@@ -23,17 +19,25 @@ function toNumber() {
   document.getElementById("newString").innerHTML = parse;
 }
 
-console.log(toNumber());
+//4.
+function findType() {
+  var typeInput = document.getElementById("whatAmI").value;
+  var typeOutput = isTypeOf(typeInput);
+  document.getElementById("heresYourType").innerHTML = typeOutput;
+}
 
-var b = 166;
-var c = 218;
+//5.
+function addition() {
+  var firstNumber = document.getElementById("leftNum").value;
+  var secondNumber = document.getElementById("rightNum").value;
+  document.getElementById("sum").innerHTML = parseInt(firstNumber) + parseInt(secondNumber);
+}
 
-b + c;
-
+//6.
 function bothAreTrue(f) {
   var d = 18;
   var e = 28;
-
+  var f = document.getElementById()
   if (d < f && e < f) {
     console.log("Both are true.");
   } else {
@@ -80,9 +84,9 @@ function isTypeOf(data) {
   return console.log(typeof data);
 }
 
-isTypeOf(bool);
-isTypeOf(nothing);
-isTypeOf(dunno);
-isTypeOf(eighteen);
-isTypeOf(notNum);
-isTypeOf(helloWorld);
+// isTypeOf(bool);
+// isTypeOf(nothing);
+// isTypeOf(dunno);
+// isTypeOf(eighteen);
+// isTypeOf(notNum);
+// isTypeOf(helloWorld);
