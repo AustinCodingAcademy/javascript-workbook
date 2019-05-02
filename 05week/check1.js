@@ -11,9 +11,9 @@ class Checker {
     constructor(color) {
         // Your code here
         if (color === 'white') {
-            this.symbol = 'X';
+            this.symbol = '○';
         } else {
-            this.symbol = 'O';
+            this.symbol = '●';
         }
     }
 }
