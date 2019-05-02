@@ -10,6 +10,48 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
+  if ( hand1===hand2) 
+  return "it's a tie"
+   else if (hand1==="rock"&& hand2==="rock")
+   return "it's a tie"
+    else if (hand1==="paper"&& hand2==="paper")
+   return "it's a tie"
+    else if (hand1==="scissors"&& hand2==="scissors")
+   return "it's a tie"
+   else if (hand1==="rock" && hand2==="scissor")
+   return "Hand one wins!"
+   else if (hand1==="rock" && hand2==="paper")
+   return "Hand two Wins!"
+   else if (hand1==="paper" && hand2==="rock")
+   return "Hand one Wins!"
+   else if (hand1==="scissors" && hand2==="rock")
+   return "Hand two Wins! "
+   else if (hand1==="paper" && hand2==="scissors")
+   return "Hand two Wins!"
+   else if (hand1==="rock" && hand2==="scissors")
+   return "Hand one Wins" 
+ else if ( hand1==="paper"&& hand2==="rock")
+  return " Hand one Wins"
+ else if (hand1==="scissors"&& hand2==="paper")
+ return "Hand one Wins"
+ 
+   else
+   return "type : rock, paper or Scissors"
+ 
+   }
+   
+ console.log(rockPaperScissors("scissors", "scissors"));
+ console.log(rockPaperScissors("rock", "paper"));
+ console.log(rockPaperScissors("scissors", "rock"));
+ console.log(rockPaperScissors("paper", "scissors"));
+ console.log(rockPaperScissors("rock", "scissors"));
+ console.log(rockPaperScissors("rock", "rock"));
+ console.log(rockPaperScissors("paper", "rock"));
+ console.log(rockPaperScissors("scissors", "paper"));
+ 
+
+function rockPaperScissors(hand1, hand2) {
+
   // Write code here
 
 }
