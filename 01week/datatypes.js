@@ -1,22 +1,24 @@
 //Display current Date and Time
-var usaTime = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
+var usaTime = new Date().toLocaleString("en-US", {
+  timeZone: "America/Chicago"
+});
 usaTime = new Date(usaTime);
-console.log('Local Date & Time: '+ usaTime.toLocaleString())
+console.log("Local Date & Time: " + usaTime.toLocaleString());
 
-console.log(Date())
+console.log(Date());
 
 //Convert a Number to String
-let a = 20
-a.toString(); 
-console.log(a)
-console.log(typeof a)
-console.log(typeof a.toString())
+let a = 20;
+a.toString();
+console.log(a);
+console.log(typeof a);
+console.log(typeof a.toString());
 
-//Convert a String to a Number 
-const stringToNumber = (str) => {
- return parseInt(str)
-}
-console.log(stringToNumber("9"))
+//Convert a String to a Number
+const stringToNumber = str => {
+  return parseInt(str);
+};
+console.log(stringToNumber("9"));
 
 //String data type
 var name = "Alex";
@@ -52,12 +54,20 @@ console.log(b * c);
 //JS that adds 2 Numbers together
 var num1 = 2;
 var num2 = 8;
-console.log(num1 + num2)
+console.log(num1 + num2);
+
+//JS program that only runs when 2 things are true
+var c = 5;
+var d = 10;
 
 //JS program that only runs when 2 things are true
 var c = 5;
 var d = 10;
 
 function add(c, d) {
-  
+  if (c + d && true) {
+    return c + d;
+    console.log("run program");
+  }
 }
+add(5, 10);
