@@ -8,6 +8,11 @@ const rl = readline.createInterface({
 });
 
 
+
+   
+
+ 
+
 function rockPaperScissors(hand1, hand2) {
 
   if ( hand1===hand2) 
@@ -37,22 +42,6 @@ function rockPaperScissors(hand1, hand2) {
  
    else
    return "type : rock, paper or Scissors"
- 
-   }
-   
- console.log(rockPaperScissors("scissors", "scissors"));
- console.log(rockPaperScissors("rock", "paper"));
- console.log(rockPaperScissors("scissors", "rock"));
- console.log(rockPaperScissors("paper", "scissors"));
- console.log(rockPaperScissors("rock", "scissors"));
- console.log(rockPaperScissors("rock", "rock"));
- console.log(rockPaperScissors("paper", "rock"));
- console.log(rockPaperScissors("scissors", "paper"));
- 
-
-function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
 
 }
 
