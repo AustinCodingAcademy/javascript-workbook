@@ -1,6 +1,6 @@
 "use strict";
 //Accidently merged this PR. Write a line to re-create a PR
-let person = {
+const person = {
     firstName: "Jane",
     lastName: "Doe",
     birthDate: "Jan 5, 1925",
