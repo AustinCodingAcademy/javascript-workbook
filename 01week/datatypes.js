@@ -1,49 +1,24 @@
 //1. Write a JavaScript program to display the current day and time.
 var today = new Date();
 var day = today.getDay();
+var dd = today.getDate();
+var mm = today.getMonth();
+var yyyy = today.getFullYear();
 var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
-console.log("Today is : " + daylist[day] + ".");
-document.getElementById('div1').innerHTML = "Today is : " + daylist[day] + ".";
+console.log("Today is : " + daylist[day] + ', ' + mm + '/' + dd + '/' + yyyy + ".");
+document.getElementById('div1').innerHTML = "Today is : " + daylist[day] + ', ' + mm + '/' + dd + '/' + yyyy + ".";
 
 
 var hour = today.getHours();
 var minute = today.getMinutes();
 var second = today.getSeconds();
-var prepand = (hour >= 12)? " PM ":" AM ";
 
-hour = (hour >= 12)? hour - 12: hour;
-if (hour===0 && prepand===' PM ') 
-{ 
-if (minute===0 && second===0)
-{ 
-hour=12;
-prepand=' Noon';
-} 
-else
-{ 
-hour=12;
-prepand=' PM';
-} 
-} 
-if (hour===0 && prepand===' AM ') 
-{ 
-if (minute===0 && second===0)
-{ 
-hour=12;
-prepand=' Midnight';
-} 
-else
-{ 
-hour=12;
-prepand=' AM';
-} 
-} 
-console.log("Current Time : "+hour + prepand + " : " + minute + " : " + second);
-document.getElementById('div1a').innerHTML = "Current Time : "+hour + prepand + " : " + minute + " : " + second;
+console.log("Current Time : "+hour  + " : " + minute + " : " + second);
+document.getElementById('div1a').innerHTML = "Current Time : "+hour  + " : " + minute + " : " + second;
+
 //2. Write a JavaScript program to convert a number to a string.
 var num = 15;
-var str = '' + num;
-console.log(str);
+var str = num.toString()
 document.getElementById('div2').innerHTML = str;
 
 //3. Write a JavaScript program to convert a string to the number.
@@ -51,6 +26,7 @@ var text = '42';
 var integer = parseInt(text, 10);
 console.log(integer);
 document.getElementById('div3').innerHTML = integer;
+
 /*4. Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 Boolean
 Null
