@@ -9,9 +9,71 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+
+
+// Build a class for CrewMember
+class CrewMember {
+  constructor(name, job, specialSkill, ship) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+  }
+}
+//Build a class for Ship
+class Ship {
+ constructor(name, type, ability, crew) {
+   this.name = name;
+   this.type = type;
+   this.ability = ability;
+   this.crew = crew [0];
+   
+   console.log(Ship);
+ }
+}
+
+
+// Ship
+let MAV = {
+  name: 'Enterprise',
+  type: 'MAV',
+  ability: 'Warp Drive',
+  crew: [],
+};
+
+// CrewMember
+let Kirk = {
+  name: 'James T. Kirk',
+  job: 'pilot',
+  specialSkill: 'being obnoxious',
+  ship: null,
+  };
+
+MAV.crew.push(Kirk);
+
+Kirk.ship = MAV;
+
+console.log(MAV);
+
+const isPilot = MAV.crew.filter(function(person) {
+  return person.job === 'pilot' 
+});
+
+console.log(isPilot);
+
+  
+
+// enterShip(ship){
+// this.ship;
+// ship.crew.push(this);
+// console.log()
+//  }
+// missionStatement(){
+
+// }
 
 //tests
+
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){

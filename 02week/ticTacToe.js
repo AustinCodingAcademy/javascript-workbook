@@ -23,6 +23,7 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+//check for horizonal win
 
 function horizontalWin() {
   if(board[0][0]=== playerTurn && board[0][1]===playerTurn && board[0][2]===playerTurn){
@@ -31,12 +32,10 @@ function horizontalWin() {
   return true;
 } else if (board[2][0]=== playerTurn && board[2][1]===playerTurn && board[2][2]===playerTurn){
   return true;
+  }
 }
 
-
-  
-  // Your code here
-}
+// check for verticle win
 
 function verticalWin() {
   if(board[0][0]=== playerTurn && board[1][0]===playerTurn && board[2][0]===playerTurn){
@@ -46,29 +45,30 @@ function verticalWin() {
   } else if (board[2][0]=== playerTurn && board[1][2]===playerTurn && board[2][2]===playerTurn){
     return true;
   }
-  // Your code here
 }
+
+  // check for diagonal win
 
 function diagonalWin() {
   if(board[0][0]=== playerTurn && board[1][1]===playerTurn && board[2][2]===playerTurn){
     return true;
   } else if(board[0][2]=== playerTurn && board[1][1]===playerTurn && board[2][0]===playerTurn){
     return true;
- 
-  // Your code here
+ }
 }
-}
+
+//check for win
+
 function checkForWin() {
   if(horizontalWin() || verticalWin() || diagonalWin()){
     console.log("you won");
     return true;
   }
-  // Your code here
 }
 
+ //update your board based on row and column
+ 
 function ticTacToe(row, column) {
-  // Your code here
-  //update your board based on row and column
   if(playerTurn ==='X') {
   board[row][column] = playerTurn;
   playerTurn = 'O';
