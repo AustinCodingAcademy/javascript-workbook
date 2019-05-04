@@ -23,7 +23,6 @@ function stringToNum(){
     var stringNum = parseInt(num);
     console.log(stringNum);
     document.getElementById("resultNum").innerHTML = "The string " + stringNum + " is now a number";
-
 }
 
 
@@ -45,19 +44,19 @@ evalData();
 // // Write a JavaScript program that adds 2 numbers together.
 
 function addTwo() {
-let a = document.getElementById("inputA").value;
-let b = document.getElementById("inputB").value;
+    let a = document.getElementById("inputA").value;
+    let b = document.getElementById("inputB").value;
 
-console.log(a);
-console.log(b);
+    console.log(a);
+    console.log(b);
 
-let addResult = Number(a) + Number(b)
-document.getElementById("resultAdd").innerHTML = "The result is " + addResult; 
+    let addResult = Number(a) + Number(b)
+    document.getElementById("resultAdd").innerHTML = "The result is " + addResult;
 
- }
+}
 
 // Write a JavaScript program that runs only when 2 things are true.
-function evalStuff (thing1,thing2) {
+function evalStuff(thing1, thing2) {
     if (thing1 == true && thing2 == true) {
         console.log("run!");
     }
@@ -66,7 +65,7 @@ function evalStuff (thing1,thing2) {
 // // Write a JavaScript program that runs when 1 of 2 things are true.
 
 
-function evalMore (thing1,thing2) {
+function evalMore(thing1, thing2) {
     if (thing1 == true || thing2 == true) {
         console.log("run!");
     }
@@ -74,7 +73,7 @@ function evalMore (thing1,thing2) {
 
 // // Write a JavaScript program that runs when both things are not true.
 
-function evalFalse (thing1,thing2) {
+function evalFalse(thing1, thing2) {
     if (thing1 != true && thing2 != true) {
         console.log("run!");
     }
