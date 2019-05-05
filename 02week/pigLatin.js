@@ -11,8 +11,16 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
-  // console.log3(word);
-  const vowels = ['a','e','i','o','u','y'];
+  isConsonant = function(letter) {
+    const vowels = ['a','e','i','o','u','y'];
+    if (vowels.includes(input)) {
+      return false;
+    }
+  }
+  console.log(isConsonant('a'));
+  
+  //if the first letter is consonant
+  //check if (isConsonant)
 
   const splitWord = word.split('');
   console.log(splitWord);
@@ -21,7 +29,6 @@ function pigLatin(word) {
       let firstVowelPosition = a.indexOf(e)///Get the position
       array.splice
     }
-  });
   // return tranlastion;
 }
 
