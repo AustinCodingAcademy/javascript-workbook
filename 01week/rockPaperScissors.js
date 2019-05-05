@@ -54,7 +54,34 @@ function getPrompt() {
   });
 }
 
-// Tests
+Tests
+function showTime(){
+    var date = new Date();
+    var h = date.getHours();// 0 - 23
+    var h = date.getMinutes();// 0 - 59
+    var h = date.getSeconds();// 0 - 59
+
+    if(h == 0){
+        h = 12;
+    }
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+
+    h = (h < 10) ? "0" + h : h;
+    h = (m < 10) ? "0" + m : m;
+    h = (s < 10) ? "0" + s : s;
+
+    var time = h + ":" + m + ":" + 5;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").innerContent = time;
+
+    startTimeOut("showTime, 1000");
+
+    showTime();
+}
+
 
 if (typeof describe === 'function') {
 
