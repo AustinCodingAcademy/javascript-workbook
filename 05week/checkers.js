@@ -136,6 +136,15 @@ class Game {
     const yCol = end[1];
     this.board.grid[yRow][yCol] = this.board.selectChecker(xRow, xCol);
     this.board.grid[xRow][xCol] = null;
+    if(Math.abs(xRow - yRow) === 2) {
+      
+    }
+  }
+  killChecker(position) {
+    const row = position[0];
+    const col = position[1];
+    this.checkers.splice(this.selectChecker(row, col), 1);
+    this.grid[row][col] = null;
   }
 }
 
