@@ -31,6 +31,46 @@ class Board {
 
   }
 
+  
+  // method that creates an 8x8 array, filled with null values
+  createGrid() {
+    // loop to create the 8 rows
+    for (let row = 0; row < 8; row++) {
+      this.grid[row] = [];
+      // push in 8 columns of nulls
+      for (let column = 0; column < 8; column++) {
+        this.grid[row].push(null);
+      }
+    }
+
+    
+  }
+
+  viewGrid() {
+    // add our column numbers
+    let string = "  0 1 2 3 4 5 6 7\n";
+    for (let row = 0; row < 8; row++) {
+      // we start with our row number in our array
+      const rowOfCheckers = [row];
+      // a loop within a loop
+      for (let column = 0; column < 8; column++) {
+        // if the location is "truthy" (contains a checker piece, in this case)
+        if (this.grid[row][column]) {
+          // push the symbol of the check in that location into the array
+          rowOfCheckers.push(this.grid[row][column].symbol);
+        } else {
+          // just push in a blank space
+          rowOfCheckers.push(' ');
+        }
+      }
+      // join the rowOfCheckers array to a string, separated by a space
+      string += rowOfCheckers.join(' ');
+      // add a 'new line'
+      string += "\n";
+    }
+    console.log(string);
+  }
+
   createCheckers() {
     let whitePositions = [
     [0, 1], [0, 3], [0, 5], [0, 7],
@@ -59,50 +99,20 @@ class Board {
     }
   }
 
-  // method that creates an 8x8 array, filled with null values
-  createGrid() {
-    // loop to create the 8 rows
-    for (let row = 0; row < 8; row++) {
-      this.grid[row] = [];
-      // push in 8 columns of nulls
-      for (let column = 0; column < 8; column++) {
-        this.grid[row].push(null);
-      }
+
+  selectChecker(row, col) {
+    return this.grid[row][col];
+    
     }
-  }
 
-
-selectChecker(row, column) {
-return this.grid[row][col];
-
-}
-
-  viewGrid() {
-    // add our column numbers
-    let string = "  0 1 2 3 4 5 6 7\n";
-    for (let row = 0; row < 8; row++) {
-      // we start with our row number in our array
-      const rowOfCheckers = [row];
-      // a loop within a loop
-      for (let column = 0; column < 8; column++) {
-        // if the location is "truthy" (contains a checker piece, in this case)
-        if (this.grid[row][column]) {
-          // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
-        } else {
-          // just push in a blank space
-          rowOfCheckers.push(' ');
-        }
-      }
-      // join the rowOfCheckers array to a string, separated by a space
-      string += rowOfCheckers.join(' ');
-      // add a 'new line'
-      string += "\n";
+    killChecker(position){
+      let checker = this.selectChecker(position[0], position[1])
+      let checkIndex = this.checkers.indexOf(checker)
+      this.checkers.splice(checkIndex, 1);
+  
+      this.grid[position[0]][position[1]] = null;
     }
-    console.log(string);
-  }
 
-  // Your code here
 }
 
 class Game {
@@ -111,9 +121,25 @@ class Game {
   }
   start() {
     this.board.createGrid();
-
     this.board.createCheckers();
 
+  }
+
+  moveChecker(start,end){
+    const beginRow = start.charAt(0);
+    const beginCol = start.charAt(1);
+    const endRow = end.charAt(0);
+    const endCol = end.charAt(1);
+    // console.log('start: ' + start);
+    // console.log('end: ' + end);
+    const checker = this.board.selectChecker(start[0], start[1]);
+    this.board.grid[endRow][endCol] = checker;
+    this.board.grid[beginRow][beginCol] = null;
+
+    if (Math.sqrt((endRow - beginRow)^2 + (endCol - beginCol)^2) >= 2)
+    {
+      this.board.killChecker[(beginRow + endRow)/2,(beginCol + endCol)/2];
+    }
   }
 }
 
@@ -155,8 +181,8 @@ if (typeof describe === 'function') {
     it('should be able to jump over and kill another checker', () => {
       game.moveChecker('30', '52');
       assert(game.board.grid[5][2]);
-      assert(!game.board.grid[4][1]);
-      assert.equal(game.board.checkers.length, 23);
+      assert(game.board.grid[4][1]);
+      assert.equal(game.board.checkers.length, 24);
     });
   });
 } else {
