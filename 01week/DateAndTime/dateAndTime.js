@@ -1,29 +1,30 @@
-// function showTime(){
-//     var date = new Date();
-//     var h = date.getHours();// 0 - 23
-//     var h = date.getMinutes();// 0 - 59
-//     var h = date.getSeconds();// 0 - 59
+function showTime(){
+    var date = new Date();
+    var h = date.getHours();// 0 - 23
+    var m = date.getMinutes();// 0 - 59
+    var s = date.getSeconds();// 0 - 59
+    var session = "AM"
 
-//     if(h == 0){
-//         h = 12;
-//     }
-//     if(h > 12){
-//         h = h - 12;
-//         session = "PM";
-//     }
+    if(h == 0){
+        h = 12;
+    }
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
 
-//     h = (h < 10) ? "0" + h : h;
-//     h = (m < 10) ? "0" + m : m;
-//     h = (s < 10) ? "0" + s : s;
+    h = (h < 10) ? "0" + h : h;
+    h = (m < 10) ? "0" + m : m;
+    h = (s < 10) ? "0" + s : s;
 
-//     var time = h + ":" + m + ":" + 5;
-//     document.getElementById("MyClockDisplay").innerText = time;
-//     document.getElementById("MyClockDisplay").innerContent = time;
+    var time = h + ":" + m + ":" + 5;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").TEXTContent = time;
 
-//     startTimeOut("showTime, 1000");
+    setTimeOut("showTime, 1000");
 
-//     showTime();
-// }
+    showTime();
+}
 
 
 
