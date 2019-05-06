@@ -41,7 +41,20 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   // Your code here
+  if (playerTurn == 'X') {
+  board[row][column] = playerTurn;
+  // check whether or not the spot is filled
+//check for win
+  playerTurn = 'O';
+  } else {
+    board[row][column] = playerTurn;
+    // check whether or not the spot is filled
+//check for win
+    playerTurn = 'X';
+  }
 }
+
+
 
 function getPrompt() {
   printBoard();
