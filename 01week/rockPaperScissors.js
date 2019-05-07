@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
+//my code
   if (hand1===hand2)
   return "it's a tie."
   else if (hand1==="rock" && hand2==="scissors")
