@@ -12,7 +12,7 @@ const mapIt = map(arr, function(i) {
     let b = i * 2;
     return b;
 });
-// console.log(mapIt);
+console.log("Mapped Value: ",mapIt);
 
 // .reduce() function that takes an array of food orders with their amounts and returns the total amount of all the food orders.
 // var initialValue = 0;
@@ -22,48 +22,58 @@ const mapIt = map(arr, function(i) {
 // console.log(sum)
 const checkObject = [{price: 10},{price: 20},{price: 30}];
 const checkArray = [10, 20, 30];
-function reduce(array, callback, accumulator) {
+function reduce(array, accumulator) {
     accumulator = accumulator || 0;
-    console.log("This is the beginning acc: ",accumulator)
     for (let index = 0; index < array.length; index++) {
-        console.log("Beginning array element",array[index])
         if(typeof array[index] == 'number') {
-            console.log("Type number: ",typeof array[index])
             accumulator = accumulator + array[index];
-            console.log("Number accumulator: ",accumulator)
         } else if(typeof array[index] == 'object') {
-            console.log("Type object: ", typeof array[index])
             for(let i in array[index]){
                 accumulator = accumulator + array[index][i];
-                console.log("Object acc: ", accumulator)
             }
         }   
-        // callback(accumulator, array[index], index, array);
     }
     return accumulator;
 }
-const sum = reduce(checkArray, function (a) {
-    return a;
-})
-console.log("ANSWER: ",sum)
+const sum = reduce(checkArray, 10); // Set accumulator to 10
+console.log("Reduced Value: ",sum);
 
 // .filter() function that takes an array of items and a function that returns an array with only the items that return true in the function.
 // Answer: https://medium.com/@fredrikstrandoseberg/learning-javascript-deeply-understanding-filter-e462a2149c50
 const anArray = [30, 40, 60, 90];
+const arrObj = [
+    { id: 15 },
+    { id: 1 },
+    { id: 0 },
+    { id: 3 },
+    { id: 12 },
+    { },
+    { id: 3 },
+    { id: 17 },
+    { id: 'undefined' }
+  ];
 function filter(array, callback, thisObject) {
-    let returnArr = [];
-    let returnCallback = callback;
-    if(thisObject) {
-        returnCallback = callback.bind(thisObject);
+    var filteredArray = [];
+    var filterCallback = callback;
+    if (thisObject) {
+        filterCallback = callback.bind(thisObject);
     }
-    for (var index = 0; index < array.length; index++) {
-        if (returnCallback(array[index], index, array)) {
-            returnArr.push(array[index]);
-        }
+    for (let index = 0; index < array.length; index++) {
+        if(typeof array[index] == 'number') {
+            if (filterCallback(array[index], index, array)) {
+                filteredArray.push(array[index]);
+            }
+        } else if(typeof array[index] == 'object') {
+            for(let i in array[index]){
+                if (filterCallback(array[index][i], index, array)) {
+                    filteredArray.push(array[index][i]);
+                }
+            }
+        }   
     }
-    return returnArr;
+    return filteredArray;
 }
 const filterIt = filter(anArray, function(i) {
     return i <= 60;
 });
-console.log(filterIt);
+console.log("Filtered Value: ",filterIt);
