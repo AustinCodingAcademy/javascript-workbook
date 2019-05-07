@@ -10,6 +10,8 @@ const rl = readline.createInterface({
   // Your code here
 
 const pigLatin = (word) => {
+  newWord = newWord.toLowerCase().trim();
+  wordArray = wordArray.toLowerCase().trim();
       const newWord = word.trim("")
       const wordArray = newWord.split("");
       const vowelArray = ['a,e,i,o,u']
