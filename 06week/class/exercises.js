@@ -5,3 +5,4 @@
 // What is the value of window.foo? ( window.foo || ( window.foo = "bar" ) );
 
 // Summing the Array: Given an array of numbers return the sum of all the numbers
+// Using reduce

@@ -21,25 +21,31 @@ const mapIt = map(arr, function(i) {
 // },initialValue)
 // console.log(sum)
 const checkObject = [{price: 10},{price: 20},{price: 30}];
-const checkArray = [10,20,30];
+const checkArray = [10, 20, 30];
 function reduce(array, callback, accumulator) {
     accumulator = accumulator || 0;
+    console.log("This is the beginning acc: ",accumulator)
     for (let index = 0; index < array.length; index++) {
+        console.log("Beginning array element",array[index])
         if(typeof array[index] == 'number') {
+            console.log("Type number: ",typeof array[index])
             accumulator = accumulator + array[index];
+            console.log("Number accumulator: ",accumulator)
         } else if(typeof array[index] == 'object') {
+            console.log("Type object: ", typeof array[index])
             for(let i in array[index]){
                 accumulator = accumulator + array[index][i];
+                console.log("Object acc: ", accumulator)
             }
-        }
-        callback(accumulator, array[index], index, array);
+        }   
+        // callback(accumulator, array[index], index, array);
     }
     return accumulator;
 }
-const sum = reduce(checkArray, function (a, b) {
-    return a + b;
+const sum = reduce(checkArray, function (a) {
+    return a;
 })
-// console.log(sum)
+console.log("ANSWER: ",sum)
 
 // .filter() function that takes an array of items and a function that returns an array with only the items that return true in the function.
 // Answer: https://medium.com/@fredrikstrandoseberg/learning-javascript-deeply-understanding-filter-e462a2149c50

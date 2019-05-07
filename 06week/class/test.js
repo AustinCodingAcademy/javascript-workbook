@@ -14,3 +14,11 @@ function map(array, callback) {
     // returns a new array
     return newArray;
 }
+const mapIt = map(arr, (n) => {n = n; return n});
+console.log(mapIt);
+
+
+// var numbers = [1, 4, 9];
+// var roots = numbers.map(function(num) {
+//     return Math.sqrt(num)
+// });
