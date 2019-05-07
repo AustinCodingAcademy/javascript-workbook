@@ -92,7 +92,16 @@ class Board {
     }
   }
 
+  killChecker(position) {
+    let position = this.board.selectChecker(whichPiece.charAt(0), whichPiece.charAt(1))
+    const deadChecker = this.checkers.indexOf(position)
+    this.checkers.splice(deadChecker)
+    this.board.grid[whichPiece.charAt(0)][whichPiece.charAt(1)] = null
+
+  }
+
   selectChecker(row, column) {
+    console.log(row, column);
     return this.grid[row][column];
   }
 }
@@ -109,6 +118,10 @@ class Game {
     let checker = this.board.selectChecker(whichPiece.charAt(0), whichPiece.charAt(1))
     this.board.grid[whichPiece.charAt(0)][whichPiece.charAt(1)] = null
     this.board.grid[toWhere.charAt(0)][toWhere.charAt(1)] = checker
+    if (Math.abs(whichPiece.charAt(0) - toWhere.charAt(0)) === 2) {
+      const killPosition = this.board.selectChecker((Math.abs((whichPiece.charAt(0) + toWhere.charAt(0)) / 2)) , (Math.abs(((whichPiece.charAt(1) + toWhere.charAt(1)) / 2))))
+      killChecker(killPosition);
+    }
   }
 }
 
