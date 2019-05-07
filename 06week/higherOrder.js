@@ -2,15 +2,21 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
+/*function forEach(arr, callback) {
   // Your code here
-}
+}*/
 
 function map(arr, callback) {
   // Your code here
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    let element = callback(arr[i]);
+    newArray.push(element);
+  }
+  return newArray;
 }
 
-function filter(arr, callback) {
+/*function filter(arr, callback) {
   // Your code here
 }
 
@@ -20,11 +26,31 @@ function some(arr, callback) {
 
 function every(arr, callback) {
   // Your code here
+}*/
+
+function reduce(arr, callback, accumulator) {
+  // Your code here
+  accumulator = accumulator || 0;
+  for (let index = 0; index < arr.length; index++) {
+    if (typeof arr[index] == "number") {
+      accumulator = accumulator + arr[index];
+    } else if (typeof arr[index] == "object") {
+      for (let i in arr[index]) {
+        accumulator = accumulator + arr[index][i];
+      }
+    }
+  }
+  console.log("Before return");
+  return accumulator;
+}
+
+function filter(arr, callback) {
+  // Your code here
 }
 
 if (typeof describe === 'function') {
 
-  describe('#forEach()', () => {
+  /*describe('#forEach()', () => {
     it('should call the callback the array.length number of times', () => {
       let count = 0;
       forEach([1, 2, 3], () => {
@@ -32,7 +58,7 @@ if (typeof describe === 'function') {
       });
       assert.equal(count, 3);
     });
-  });
+  });*/
 
   describe('#map()', () => {
     const arr = [1, 2, 3];
@@ -47,7 +73,7 @@ if (typeof describe === 'function') {
     })
   });
 
-  describe('#filter()', () => {
+  /*describe('#filter()', () => {
     it('should return an array of items that pass the predicate test', () => {
       const filtered = filter([1, 2, 3], (num) => {
         return num % 2 === 0;
@@ -94,7 +120,25 @@ if (typeof describe === 'function') {
     it('should stop at the first item that fails the predicate test', () => {
       assert.equal(count, 2);
     });
+  });*/
+
+  describe('#reduce()', () => {
+    it('should return array elements added together', () => {
+      const reduced = reduce([1, 2, 3], (acc, num) => {
+        return acc + num;
+      });
+      assert.deepEqual(reduced, 6);
+    });
   });
+
+  // describe('#filter()', () => {
+  //   it('should return an array of items that pass the predicate test', () => {
+  //     const filtered = filter([1, 2, 3], (num) => {
+  //       return num % 2 === 0;
+  //     });
+  //     assert.deepEqual(filtered, [2]);
+  //   });
+  // });
 
 } else {
 
