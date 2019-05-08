@@ -12,7 +12,7 @@ var x = Math.floor(( Math.random() * 100) + 1)
 var d = Math.random()
 var t = x + d;
 console.log(t)
-
+ 
 var e = (3 === 3) 
 isTypeOf(e)
 
