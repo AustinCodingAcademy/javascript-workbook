@@ -118,10 +118,7 @@ console.log("////////////////////////////////////////////////////////")
 const idealTemp = (whack) => {
   let ahh = 0
   whack.forEach((item) =>{
-    // console.log("floop")
     if(item.min_temp === 15.915){
-      // console.log(item.id)
-      // console.log("floop")
       ahh = item.id;
     }
     
