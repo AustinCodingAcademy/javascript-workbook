@@ -30,7 +30,7 @@ const atxIdx = (numbers) => {
     }
   }
 }
-console.log("Index of the first value: ",stringsToNumbs(strNums)[atxIdx(stringsToNumbs(strNums))], atxIdx(stringsToNumbs(strNums)))
+console.log("Index of the value: ",stringsToNumbs(strNums)[atxIdx(stringsToNumbs(strNums))],"The Value: ", atxIdx(stringsToNumbs(strNums)))
 console.log("////////////////////////////////////////////////////////")
 // console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 const weather = [
