@@ -24,7 +24,8 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+ board[0][0]=='X' && board[0][1]=='X' && board[0][2]=='X'
+ return  true;
 }
 
 function verticalWin() {
@@ -40,7 +41,15 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+ 
+  if (playerTurn=="X"){
+  board[row][column]="X"
+  playerTurn="O"
+ }
+ else{ 
+  board[row][column]="O"
+  playerTurn="X"
+ }
 }
 
 function getPrompt() {
