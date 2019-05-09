@@ -13,7 +13,19 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let counter = '0';
+function incrementCounter() {
+  counter++
+}
+const catsScratch = () => counter === 9;
 
+const resetBoard = () => {
+  return [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+  ];
+}
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -24,35 +36,59 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  const isValidInput = (row, column) => {
+    const validInputs = [0, 1, 2];
+    const isValid = validInputs.indexOf(row) > -1 && validInputs.indexOf(column) > -1
+    return isValid
 }
 
 function verticalWin() {
-  // Your code here
-}
+  if (board[0][1] == 'X' && board[1][1] === 'X' && board[2][1] === 'X' ){
+  return true;
+  }
+ else if (board[0][0] == 'X' && board[1][0] === 'X' && board[2][0] === 'X' ){
+  return true;
+ }
+ else if (board[0][2] == 'X' && board[1][2] === 'X' && board[2][2] === 'X' ){
+  return true;
+ }
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X' ){
+  return true;
 }
-
+else if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][0] === 'X' ){
+return true;
+}
 function checkForWin() {
-  // Your code here
+  if (diagonalWin() === true || verticalWin() === true || horizontalWin() === true) {
+ return true;}
+return false;
+  
 }
 
 function ticTacToe(row, column) {
-  // Your code here
-}
+  if(!isValidInput(row, column)){
+    return console.log('invalid entry, try again!')
+  }
 
+  if( playerTurn === 'X'){
+   playerTurn = 'O';
+  } else {
+    playerTurn = 'X'
+  }
+}
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
+      ticTacToe(parseInt(row), parseInt(column));
       getPrompt();
     });
   });
-
+  function getPrompt() {
 }
 
 
@@ -88,6 +124,5 @@ if (typeof describe === 'function') {
   });
 } else {
 
-  getPrompt();
-
-}
+    getPrompt();
+} 
