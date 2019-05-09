@@ -8,11 +8,36 @@ const rl = readline.createInterface({
 });
 
 
+
 function pigLatin(word) {
 
-  // Your code here
-
-}
+  word = word.toLowerCase().trim();
+  if (isVowel(word.charAt(0))) 
+  return word + "yay";
+  else if (isVowel(word.charAt(1))) 
+  return word.slice(1) + word.charAt(0) + 'ay';
+  else if (isVowel(word.charAt(2))) 
+  return word.slice(2) + word.slice(0, 2) + 'ay';
+  else if (isVowel(word.charAt(3))) 
+  return word.slice(3) + word.slice(0, 3) + 'ay';
+  else return "go home you are drunk"
+  
+  }
+  
+  
+  // return word.substring(2) + word.charAt(0) + word.charAt(1) + 'ay'
+  //checks for vowels
+  function isVowel(word) {
+  if (
+  word === "a" ||
+  word === "e" ||
+  word === "i" ||
+  word === "o" ||
+  word === "u"
+  )
+  return true;
+  else return false;
+  }
 
 
 function getPrompt() {
