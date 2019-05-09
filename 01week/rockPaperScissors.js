@@ -6,42 +6,35 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
- 
+
 
 function rockPaperScissors(hand1, hand2) {
 
   hand1 = hand1.toLowerCase().trim();
   hand2 = hand2.toLowerCase().trim();
-    // if (hand1===hand2)
-    // return "Tie!"
-    if (hand1==="rock" && hand2==="scissors")
+  //If hand one equals hand two it's a tie.
+    if (hand1===hand2)
+    return "It's a tie!"
+    // If User1 input is 'rock' and User2 input is 'scissors', User1 wins.
+    else if (hand1==="rock" && hand2==="scissors")
     return "Hand one wins!"
     // If User1 input is 'rock' and User2 input is 'paper', User2 wins.
     else if (hand1==="rock" && hand2==="paper")
     return "Hand two wins!"
-    // If User1 input is 'rock' and User2 input is 'rock', it's a tie.
-    else if (hand1==="rock" && hand2==="rock")
-    return "It's a tie!"
     // If User1 input is 'paper' and User2 input is 'rock', User1 wins.
     else if (hand1==="paper" && hand2==="rock")
     return "Hand one wins!"
     // If User1 input is 'paper' and User2 input is 'scissors', User2 wins.
     else if (hand1==="paper" && hand2==="scissors")
     return "Hand two wins!"
-    // If User1 input is 'paper' and User2 input is 'paper', it's a tie.
-    else if (hand1==="paper" && hand2==="paper")
-    return "It's a tie!"
     // If User1 input is 'scissors' and User2 input is 'paper', User1 wins.
     else if (hand1==="scissors" && hand2==="paper")
     return "Hand one wins!"
     // If User1 input is 'scissors' and User2 input is 'rock', User2 wins.
     else if (hand1==="scissors" && hand2==="rock")
     return "Hand two wins!"
-    // If User1 input is 'scissors' and User2 input is 'scissors', it's a tie.
-    else if (hand1==="scissors" && hand2==="scissors")
-    return "It's a tie!"
   
-
+ 
 }
 
 function getPrompt() {
