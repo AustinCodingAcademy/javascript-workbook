@@ -23,24 +23,47 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
-}
+
+
+
+  function horizontalWin() {
+    if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
+    return true;
+    } else if (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") {
+    return true;
+    } else if (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X") {
+    return true;
+    }
+    }
+
 
 function verticalWin() {
-  // Your code here
-}
+  if (board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") {
+    return true;
+    } else if (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") {
+    return true;
+    } else if (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X") {
+    return true;
+    }}
 
 function diagonalWin() {
-  // Your code here
-}
+  if (board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") {
+    return true;
+    } else if (board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X") {
+    return true;
+    }}
 
 function checkForWin() {
-  // Your code here
+  if (verticalWin() || horizontalWin() || diagonalWin()) return true;
+  return false;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+board[row][column] = playerTurn;
+if(playerTurn === 'X')
+playerTurn === 'O';
+else(
+  playerTurn = 'X');
 }
 
 function getPrompt() {
@@ -88,6 +111,4 @@ if (typeof describe === 'function') {
   });
 } else {
 
-  getPrompt();
-
-}
+  getPrompt()}
