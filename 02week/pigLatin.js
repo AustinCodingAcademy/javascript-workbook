@@ -9,11 +9,28 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
+  word=word.toLowerCase().trim()
+  var wordArray = str.split("")
   // Your code here
+  // console.log("hi", word)
+  
+  //check the first character
 
+  if (isVowel(word[0])) {
+    return word + "yay";
+  } else {
+    return word + word[0] +  "ay";
+  }
+}    
+
+
+function isVowel(word){
+  if ((word ==='a') || (word ==='e') || (word ==='u') || (word ==='i') || (word ==='o'))
+  return true;
+  else
+  return false;
 }
-
+// pigLatin('Orange')
 
 function getPrompt() {
   rl.question('word ', (answer) => {
