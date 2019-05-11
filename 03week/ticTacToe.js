@@ -82,24 +82,36 @@ function checkForWin() {
 function ticTacToe(row, column) {
   // Your code here
   if (playerTurn ==='X'){
-  board[row][column]='X';
-  playerTurn = 'O';
+    if (board[row][column]!==' '){ 
+      console.log('already taking, please choose different spot')
+    } else {
+        board[row][column]='X';
+        playerTurn = 'O';
+    }
   } else{
-  board[row][column]='O';
-  playerTurn= 'X';
-}
+    if (board[row][column]!==' '){
+      console.log('already taking, please choose different spot');
+    } else {
+        board[row][column]='O';
+        playerTurn= 'X';
+      }
+  }
 }
 
 function getPrompt() {
+  if (checkForWin()){
+    console.log('you win')
+  } else{
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
+    
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
       getPrompt();
     });
   });
-
+  }
 }
 
 
