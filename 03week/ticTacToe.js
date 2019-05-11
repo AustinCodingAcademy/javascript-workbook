@@ -50,22 +50,33 @@ function printBoard() {
 function horizontalWin() {
   // Your code here
   
-if( board[0][0]=='X'&& board[0][1]=='X' && board [0][2]=='X') 
+if( board[0][0]==='X'&& board[0][1]==='X' && board [0][2]==='X') 
 return true; 
 else return false;
 }
 
 function verticalWin() {
   // Your code here
-  if( board[0][])
+  if( board[0][1]==='X' && board[1][1]==='X' && board [2][1]==='X') 
+return true;  
+return false;
 }
+
+
 
 function diagonalWin() {
   // Your code here
-}
+  if( board[0][0]==='X' && board[1][1]==='X' && board [2][2]==='X') 
+  return true; 
+  return false;
+  }
+
 
 function checkForWin() {
   // Your code here
+ if (diagonalWin() || horizontalWin() || verticalWin()) return true;
+ return false;
+
 }
 
 function ticTacToe(row, column) {
