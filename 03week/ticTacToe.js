@@ -13,6 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
+checkForWin();
 
 function printBoard() {
   console.log('   0  1  2');
@@ -25,22 +26,78 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  
+  if (board[0].every(cell => cell === playerTurn) || board[1].every(cell => cell === playerTurn) || board[2].every(cell => cell === playerTurn)){
+    return true;
+    console.log("you won horizontal");
+  }
+  else if (board[0].every(cell => cell === playerTurn) || board[1].every(cell => cell === playerTurn) || board[2].every(cell => cell === playerTurn)){
+    return true;
+    console.log("you won horizontal");
+  }
+  else{
+    return false;
+  }
 }
+
 
 function verticalWin() {
   // Your code here
+ 
+  if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn ){
+    return true;
+    console.log("you won vertical");
+  }
+  else if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn ){
+    return true;
+    console.log("you won vertical");
+  }
+  else if (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn ){
+    return true;
+    console.log("you won vertical");
+  }
+  else{
+    return false;
+  }
+
+
 }
 
 function diagonalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn ){
+    return true;
+    console.log("you win diagonal");
+  }
+  else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn ){
+    return true;
+    console.log("you win diagonal");
+  }
+  else{
+  return false;
+  }
+
 }
 
 function checkForWin() {
   // Your code here
+  if (diagonalWin() === true || verticalWin() === true || horizontalWin() === true){
+    return true;
+  }
+  return false;
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  checkForWin(); 
+  
+  if( playerTurn === 'X'){
+    playerTurn = 'O';
+  }
+  else{
+    playerTurn = 'X';
+  }
+        
 }
 
 function getPrompt() {

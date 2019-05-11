@@ -34,7 +34,7 @@ console.log(addNums(5,2))
 //Write a JavaScript program that runs only when 2 things are true.
 
 function twoTrue(x,y){
-if(x==1 && y==2){
+  if(x==1 && y==2){
   return addNums(4,5);
 }}
 
