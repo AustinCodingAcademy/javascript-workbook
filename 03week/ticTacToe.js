@@ -79,25 +79,47 @@ function checkForWin() {
 
 }
 
-function ticTacToe(row, column) {
-  // Your code here
-  if (playerTurn ==='X'){
-    if (board[row][column]!==' '){ 
-      console.log('already taking, please choose different spot')
-    } else {
-        board[row][column]='X';
-        playerTurn = 'O';
-    }
-  } else{
-    if (board[row][column]!==' '){
-      console.log('already taking, please choose different spot');
-    } else {
-        board[row][column]='O';
-        playerTurn= 'X';
-      }
+//this function is checking to see if the space is empty
+function empty(row,column){
+  if (board[row][column]==' '){ 
+    return true;
+  } else { 
+    return false;
   }
 }
 
+function ticTacToe(row, column) {
+  // Your code here
+  if (empty(row, column)){
+    if (playerTurn ==='X'){
+      board[row][column]='X';
+      playerTurn = 'O';
+    } else {
+      board[row][column]='O';
+      playerTurn= 'X';
+    }    
+  } else {
+    console.log('already taking, please choose different space')
+  }
+}
+
+
+//   if (playerTurn ==='X'){
+//     if (empty(row, column)){ 
+//       console.log('already taking, please choose different spot')
+//     } else {
+//         board[row][column]='X';
+//         playerTurn = 'O';
+//     }
+//   } else{
+//     if (board[row][column]!==' '){
+//       console.log('already taking, please choose different spot');
+//     } else {
+        
+//       }
+//   }
+// }
+// checking for win!
 function getPrompt() {
   if (checkForWin()){
     console.log('you win')
@@ -105,7 +127,7 @@ function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
-    
+
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
       getPrompt();
@@ -129,6 +151,13 @@ if (typeof describe === 'function') {
       ticTacToe(0, 0);
       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
     });
+    //our test
+    it('should check for an empty spot', () => {
+      board = [ [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      ticTacToe(0, 0);
+      assert.equal(empty(0, 0), false);
+    });
+    //
     it('should check for vertical wins', () => {
       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
       assert.equal(verticalWin(), true);
