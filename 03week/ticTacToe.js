@@ -25,22 +25,53 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
+    return true;
+    } else if (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") {
+    return true;
+    } else if (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X") {
+    return true;
+    }
+      //^^all horizontal wins^^//
 }
 
 function verticalWin() {
   // Your code here
+  if (board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") {
+    return true;
+    } else if (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") {
+    return true;
+    } else if (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X") {
+    return true;
+    }
+    //^^all vertical wins^^//
 }
 
 function diagonalWin() {
   // Your code here
+  if (board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") {
+    return true;
+  }
+   else if (board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X") {
+      return true;
+   }
+   //^^all diagonal wins^^//
 }
 
 function checkForWin() {
   // Your code here
+  if (board[0] === "X" && board[1] === "X" && board[2] === "X") {
+    return true;
+  }
+  else if (board[0] === "Y" && board[1] === "Y" && board[2] === "Y") {
+    return true;
+  }
+  //checks for a win whether it is X or Y player.//
 }
 
 function ticTacToe(row, column) {
   // Your code here
+    ;
 }
 
 function getPrompt() {
