@@ -48,6 +48,10 @@ if (typeof describe === "function") {
       assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Hand two wins!");
       assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Hand one wins!");
     });
+    //added test for assignment week 2 day 2.
+    it("should check input for rock paper or scissors", () => {
+      assert.equal(rockPaperScissors())
+    });
   });
 } else {
   getPrompt();
