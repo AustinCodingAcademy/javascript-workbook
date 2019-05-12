@@ -101,7 +101,6 @@ class Board {
   }
 
   selectChecker(row, column) {
-    console.log(row, column);
     return this.grid[row][column];
   }
 }
@@ -115,12 +114,15 @@ class Game {
     this.board.createCheckers(); // adding pieces before the game starts
   }
   moveChecker(whichPiece, toWhere) {
-    let checker = this.board.selectChecker(whichPiece.charAt(0), whichPiece.charAt(1))
+    const checker = this.board.selectChecker(whichPiece.charAt(0), whichPiece.charAt(1))
     this.board.grid[whichPiece.charAt(0)][whichPiece.charAt(1)] = null
     this.board.grid[toWhere.charAt(0)][toWhere.charAt(1)] = checker
     if (Math.abs(whichPiece.charAt(0) - toWhere.charAt(0)) === 2) {
-      const killPosition = this.board.selectChecker((Math.abs((whichPiece.charAt(0) + toWhere.charAt(0)) / 2)) , (Math.abs(((whichPiece.charAt(1) + toWhere.charAt(1)) / 2))))
-      killChecker(killPosition);
+      let midpointRow = this.board.selectChecker((whichPiece.charAt(0) + toWhere.charAt(0)) / 2)
+      let midpointColumn = this.board.selectChecker((whichPiece.charAt(1) + toWhere.charAt(1)) / 2)
+      const killPosition = this.board.selectChecker(midpointRow, midpointColumn) 
+      this.board.killChecker(killPosition);
+      this.board.grid[midpointRow][midpointColumn] = null;
     }
   }
 }
