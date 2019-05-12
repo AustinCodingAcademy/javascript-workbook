@@ -12,11 +12,15 @@ function pigLatin(word) {
 
   // Your code here
   const vowels = ['a','e','i','o','u','y'];
+  
   isConsonant = function(vowels, input) {
     if (vowels.includes(input)) {
       return true;
     } else {return false;}
-
+  }
+  
+  for (let i=0;i<word.length;i++) {
+    console.log(word[i]);
   }
   console.log(isConsonant(vowels,'a'));
   
@@ -26,11 +30,11 @@ function pigLatin(word) {
   const splitWord = word.split('');
   console.log(splitWord);
 
-    if(vowels.includes(e)) {//if the element is a vowel
-      let firstVowelPosition = a.indexOf(e)///Get the position
-      array.splice
-    }
-  });
+  if(vowels.includes(e)) {//if the element is a vowel
+    let firstVowelPosition = a.indexOf(e)///Get the position
+    array.splice
+  }
+
   // return tranlastion;
 }
 
