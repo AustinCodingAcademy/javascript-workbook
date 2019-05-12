@@ -61,7 +61,7 @@ function checkForWin() {
 function ticTacToe(row, column) {
 board[row][column] = playerTurn;
 if(playerTurn === 'X')
-playerTurn === 'O';
+playerTurn = 'O';
 else(
   playerTurn = 'X');
 }
@@ -77,7 +77,13 @@ function getPrompt() {
   });
 
 }
-
+function empty(row, column){
+  if (board [row][column] == '  '){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 // Tests
@@ -93,6 +99,12 @@ if (typeof describe === 'function') {
       ticTacToe(0, 0);
       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
     });
+    it('should check for empty', () => {
+      board = [ [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      ticTacToe(0, 0);
+      assert.equal(empty(0,0), false);
+    });
+
     it('should check for vertical wins', () => {
       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
       assert.equal(verticalWin(), true);
