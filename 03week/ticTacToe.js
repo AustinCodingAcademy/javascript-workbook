@@ -24,20 +24,98 @@ function printBoard() {
 }
 
 function horizontalWin() {
- board[0][0]=='X' && board[0][1]=='X' && board[0][2]=='X'
- return  true;
+ if (board[0][0]=='X' && board[0][1]=='X' && board[0][2]=='X')
+{
+alert("true")
+reset()
+}
+else if (board[1][0]=='X' && board[1][1]=='X' && board[1][2]=='X')
+{
+  alert("true")
+  reset()
+}
+else if (board[2][0]=='X' && board[2][1]=='X' && board[2][2]=='X')
+{
+  alert("true")
+  reset()
+}
+else if (board[0][0]=='O' && board[0][1]=='O' && board[0][2]=='O')
+{
+alert("true")
+reset()
+}
+else if (board[1][0]=='O' && board[1][1]=='O' && board[1][2]=='O')
+{
+  alert("true")
+  reset()
+}
+else if (board[2][0]=='O' && board[2][1]=='O' && board[2][2]=='O')
+{
+  alert("true")
+  reset()
+}
+function verticalWin() {
+  if (board[0][0]=='X' && board[1][0]=='X' && board[2][0]=='X')
+{
+alert("true")
+reset()
+}
+else if (board[0][1]=='X' && board[1][1]=='X' && board[2][1]=='X')
+{
+  alert("true")
+  reset()
+}
+else if (board[0][2]=='X' && board[1][2]=='X' && board[2][2]=='X')
+{
+  alert("true")
+  reset()
+}
+else if (board[0][0]=='O' && board[1][0]=='O' && board[2][0]=='O')
+{
+alert("true")
+reset()
+}
+else if (board[0][1]=='O' && board[1][1]=='O' && board[2][1]=='O')
+{
+  alert("true")
+  reset()
+}
+else if (board[0][2]=='O' && board[1][2]=='O' && board[2][2]=='O')
+{
+  alert("true")
+  reset()
 }
 
-function verticalWin() {
-  // Your code here
-}
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0]=='X' && board[1][1]=='X' && board[2][2]=='X')
+{
+alert("true")
+reset()
+}
+else if (board[0][2]=='X' && board[1][1]=='X' && board[2][0]=='X')
+{
+  alert("true")
+  reset()
+}
+else if (board[0][0]=='O' && board[1][1]=='O' && board[2][2]=='O')
+{
+alert("true")
+reset()
+}
+else if (board[0][2]=='O' && board[1][1]=='O' && board[2][0]=='O')
+{
+  alert("true")
+  reset()
 }
 
 function checkForWin() {
-  // Your code here
+ if (horizontalWin()== true ||  verticalWin()== true ||  diagonalWin()== true){
+   return true;
+ }
+   else 
+   return false;
+
 }
 
 function ticTacToe(row, column) {
@@ -54,6 +132,7 @@ function ticTacToe(row, column) {
 
 function getPrompt() {
   printBoard();
+  checkForWin();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
@@ -83,20 +162,70 @@ if (typeof describe === 'function') {
       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
       assert.equal(verticalWin(), true);
     });
+    it('should check for vertical wins', () => {
+      board = [ ['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' '] ];
+      assert.equal(verticalWin(), true);
+    });
+    it('should check for vertical wins', () => {
+      board = [ [' ', ' ', 'X'], [' ', ' ', 'X'], [' ', ' ', 'X'] ];
+      assert.equal(verticalWin(), true);
+    });
     it('should check for horizontal wins', () => {
       board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for horizontal wins', () => {
+      board = [ [' ', ' ', ' '], ['X', 'X', 'X'], [' ', ' ', ' '] ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for horizontal wins', () => {
+      board = [ [' ', ' ', ' '], [' ', ' ', ' '], ['X', 'X', 'X'] ];
       assert.equal(horizontalWin(), true);
     });
     it('should check for diagonal wins', () => {
       board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
       assert.equal(diagonalWin(), true);
     });
+    it('should check for diagonal wins', () => {
+      board = [ [' ', ' ', 'X'], [' ', 'X', ' '], ['X', ' ', ' '] ];
+      assert.equal(diagonalWin(), true);
+    });
     it('should detect a win', () => {
       assert.equal(checkForWin(), true);
     });
+    it('should check for vertical wins', () => {
+      board = [ [' ', 'O', ' '], [' ', 'O', ' '], [' ', 'O', ' '] ];
+      assert.equal(verticalWin(), true);
+      it('should check for vertical wins', () => {
+        board = [ ['O', ' ', ' '], ['O', ' ', ' '], ['O', ' ', ' '] ];
+        assert.equal(verticalWin(), true);
+      });
+      it('should check for vertical wins', () => {
+        board = [ [' ', ' ', 'O'], [' ', ' ', 'O'], [' ', ' ', 'O'] ];
+        assert.equal(verticalWin(), true);
+    });
+    it('should check for horizontal wins', () => {
+      board = [ ['O', 'O', 'O'], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for horizontal wins', () => {
+      board = [ [' ', ' ', ' '], ['O', 'O', 'O'], [' ', ' ', ' '] ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for horizontal wins', () => {
+      board = [ [' ', ' ', ' '], [' ', ' ', ' '], ['O', 'O', 'O'] ];
+      assert.equal(horizontalWin(), true);
+    });
+    it('should check for diagonal wins', () => {
+      board = [ ['O', ' ', ' '], [' ', 'O', ' '], [' ', ' ', 'O'] ];
+      assert.equal(diagonalWin(), true);
+    });
+    it('should check for diagonal wins', () => {
+      board = [ [' ', ' ', 'O'], [' ', 'O', ' '], ['O', ' ', ' '] ];
+      assert.equal(diagonalWin(), true);
+    });
   });
 } else {
-
   getPrompt();
 
 }
