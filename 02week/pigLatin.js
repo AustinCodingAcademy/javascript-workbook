@@ -7,36 +7,37 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//return word.substring(2) + word.charAt(0) + word.charAt(1) + "ay"
 function pigLatin(word) {
   word = word.toLowerCase().trim();
-  var wordArray = str.split("");
-  // Your code here
-  // console.log("hi", word)
-
   //check the first character
-
-  if (isVowel(word[0])) {
+  if (isVowel(word.charAt(0)))
     return word + "yay";
-  } else {
-    return word + word[0] + "ay";
-  }
+    else if (isVowel(word.charAt(1)))
+    return word.slice(1) + word.charAt(0) + "ay";
+    else if (isVowel(word.charAt(2)))
+    return word.slice(2) + word.slice(0,2) + "ay";
+    else if (isVowel(word.slice(3)))
+    return word.slice(3) + word.slice(0,3) + "ay";
+    //If entry is not a word get prompted to try again
+    else return "Please try again!"
 }
 
-function isVowel(word) {
-  if (
-    word === "a" ||
-    word === "e" ||
-    word === "u" ||
-    word === "i" ||
-    word === "o"
-  )
-    return true;
-  else return false;
-}
-// pigLatin('Orange')
-
-function getPrompt() {
-  rl.question("word ", answer => {
+  //Checks for Vowels
+  function isVowel(word) {
+    if (
+      word === "a" ||
+      word === "e" ||
+      word === "u" ||
+      word === "i" ||
+      word === "o"
+      )
+      return true;
+      else return false;
+    }
+    
+    function getPrompt() {
+      rl.question("word ", answer => {
     console.log(pigLatin(answer));
     getPrompt();
   });
