@@ -25,9 +25,6 @@ function pigLatin(word) {
     else
       return word;
   
-    while(!isVowel(word.charAt(i))) {
-      i++;
-    }
   }
 }
 
