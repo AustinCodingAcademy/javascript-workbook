@@ -29,12 +29,9 @@ function pigLatin(word) {
       i++;
     }
   }
-  
-  
-  pigLatin('bath');
-  
-
 }
+
+pigLatin('bath');
 
 
 function getPrompt() {
