@@ -93,7 +93,7 @@ function getPrompt() {
 
 
 
-// Tests
+// Tests //    git push --set-upstream origin Tictactoe
 
 if (typeof describe === 'function') {
 
