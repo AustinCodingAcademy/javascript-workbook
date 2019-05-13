@@ -8,23 +8,23 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+  function pigLatin(word) {
 
   const pigLatin = (word) =>{
-    if(typeof word !== "string"){
-      return "Please enter valid word";
-    }
-      const firstLetterType = detectVowel(word);
-      if(firstLetterType > 0){
-       return word.slice(firstLetterType) + word.slice(0, firstLetterType) + 'ay';
-    }
-      return word + ("way") ;
+  if(typeof word !== "string"){
+  return "Please enter valid word";
+  }
+  const firstLetterType = detectVowel(word);
+  if(firstLetterType > 0){
+  return word.slice(firstLetterType) + word.slice(0, firstLetterType) + 'ay';
+  }
+  return word + ("way") ;
   }
   
   const detectVowel = (word) =>{
-    for(let i=0; i < word.length; i++){
-      if("aeiou".indexOf(word[i]) !== -1){
-        return (i);
+  for(let i=0; i < word.length; i++){
+  if("aeiou".indexOf(word[i]) !== -1){
+  return (i);
       }
     }
   }
@@ -56,5 +56,4 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
-
 }
