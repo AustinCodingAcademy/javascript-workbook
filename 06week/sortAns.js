@@ -6,7 +6,7 @@ const stringsToNumbs = (numbers) => {
         return Number(num);
     });
 }
-console.log("Return array of nums: ",stringsToNumbs(strNums));
+// console.log("Return array of nums: ",stringsToNumbs(strNums));
 console.log("////////////////////////////////////////////////////////")
 // With the same numbers, find the sum of the even values
 const sumEvens = (numbers) => {
