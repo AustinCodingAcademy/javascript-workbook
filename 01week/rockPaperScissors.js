@@ -8,16 +8,39 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors(a, b){
+  var hand1 = a.trim().toLowerCase();
+  var hand2 = b.trim().toLowerCase();
 
   // Write code here
+  if(hand1 === hand2){
+    return "It's a tie!";
+  }
+  else if(hand1 === "rock" && hand2 === "scissors"){
+      return "Hand one wins!";
+  }
+  else if(hand1 === "paper" && hand2 === "rock"){
+      return "Hand one wins!";
+  }
+  else if(hand1 === "scissors" && hand2 === "paper"){
+      return "Hand one wins!";
+  }
+  else if(hand1 === "rock" && hand2 === "paper"){
+      return "Hand two wins!";
+  }
+  else if(hand1 === "scissors" && hand2 === "rock"){
+      return "Hand two wins!";
+  }
+  else if(hand1 === "paper" && hand2 === "scissors"){
+      return "Hand two wins!";
+  }
 
 }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log( rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
