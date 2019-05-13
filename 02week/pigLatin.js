@@ -10,11 +10,24 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+if (typeof word !=="string") {
+return "Please enter valid word"}
 
+function detectVowel (word) {
+for(let i = O;  i < word.length; i ++)
+if ("aeio" .indexOf(word [letter]!== -1) {
+return (letter)
 }
 
-
+function pigLatin (word) {
+  if (typeof word !== "string"){
+  return "Please enter valid word"
+  }
+  const firstLetterType = detectVowel(word); if(firstLetterType > O){
+    return word.slice(firstLetterType) + word.slice(0, firstLetterType) + 'ay'
+  }
+  return word + ('way')
+}
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
