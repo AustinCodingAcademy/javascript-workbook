@@ -116,6 +116,9 @@ if (typeof describe === 'function') {
     it('should detect a win', () => {
       assert.equal(checkForWin(), true);
     });
+    it("should detect a tie" () => {
+      assert.equal(checkForTie(), true);
+    });
   });
 } else {
 
