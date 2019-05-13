@@ -65,9 +65,14 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
+    it('Should separate two words and return them together', () => {
+      assert.equal(pigLatin('Hop Fest'), 'Ophay Estfay');
+    )
   });
-} else {
+} else { 
 
   getPrompt();
 
 }
+
+
