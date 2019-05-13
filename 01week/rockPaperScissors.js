@@ -12,7 +12,7 @@ const rl = readline.createInterface({
    
 
  
-
+// this my code
 function rockPaperScissors(hand1, hand2) {
 console.log( hand1)
 hand1 = hand1.toLowerCase().trim();
