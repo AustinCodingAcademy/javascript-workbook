@@ -10,12 +10,28 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-
-
-
-
+  const isVowel = (word) => {
+    if ((word === "a")||(word === "e")||(word === "i")||(word === "o")||(word === "u"))
+      return true;
+    else
+      return false;
+  }
+  
+  function pigLatin(word) {
+    word = word.toLowerCase().trim();
+  
+    if (isVowel(word.charAt(0)))
+      return word + "yay";
+    else
+      return word;
+  
+    while(!isVowel(word.charAt(i))) {
+      i++;
+    }
+  }
 }
 
+pigLatin('bath');
 
 function getPrompt() {
   rl.question('word ', (answer) => {
