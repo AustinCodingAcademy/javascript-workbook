@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-const vowels = ["a", "e", "i","o","u",];
+
 
 
 
