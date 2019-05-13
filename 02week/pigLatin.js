@@ -10,30 +10,26 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-if (typeof word !=="string") {
-return "Please enter valid word"}
-
-function detectVowel (word) {
-for(let i = O;  i < word.length; i ++)
-if ("aeio" .indexOf(word [letter]!== -1) {
-return (letter)
-}
-
-function pigLatin (word) {
-  if (typeof word !== "string"){
-  return "Please enter valid word"
+  const pigLatin = (word) =>{
+    if(typeof word !== "string"){
+      return "Please enter valid word";
+    }
+      const firstLetterType = detectVowel(word);
+      if(firstLetterType > 0){
+       return word.slice(firstLetterType) + word.slice(0, firstLetterType) + 'ay';
+    }
+      return word + ("way") ;
   }
-  const firstLetterType = detectVowel(word); if(firstLetterType > O){
-    return word.slice(firstLetterType) + word.slice(0, firstLetterType) + 'ay'
+  
+  const detectVowel = (word) =>{
+    for(let i=0; i < word.length; i++){
+      if("aeiou".indexOf(word[i]) !== -1){
+        return (i);
+      }
+    }
   }
-  return word + ('way')
-}
-function getPrompt() {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
-  });
-}
+  pigLatin('apple');
+  
 
 // Tests
 
