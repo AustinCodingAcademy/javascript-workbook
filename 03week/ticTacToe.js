@@ -151,7 +151,7 @@ if (typeof describe === 'function') {
       ticTacToe(0, 0);
       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
     });
-    //our test
+    //my TTT unit test
     it('should check for an empty spot', () => {
       board = [ [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' '] ];
       ticTacToe(0, 0);
