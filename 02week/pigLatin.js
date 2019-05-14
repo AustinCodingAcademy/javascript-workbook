@@ -36,9 +36,15 @@ function pigLatin(word) {
       else return false;
     }
     
+
     function getPrompt() {
-      rl.question("word ", answer => {
-    console.log(pigLatin(answer));
+      rl.question("Enter a word ", answer => {
+        var words = answer.split(' ');
+        var newWords = [];
+        for(let i = 0; i < words.length; i++){
+          newWords.push(pigLatin(words[i]));
+        }
+        console.log(newWords.toString())
     getPrompt();
   });
 }
@@ -63,6 +69,9 @@ if (typeof describe === "function") {
       assert.equal(pigLatin("HeLlO "), "ellohay");
       assert.equal(pigLatin(" RoCkEt"), "ocketray");
     });
+    // it("should translate 2 or more words at a time", () => {
+    //   assert.equal(pigLatin("apple pie"), "appleyay,iepay");
+    // });
   });
 } else {
   getPrompt();
