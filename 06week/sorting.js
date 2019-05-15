@@ -13,6 +13,7 @@ const stringsToNumbs = (numbers) => {
 console.log(stringsToNumbs(strNums));
 
 // With the same numbers, find the sum of the even values
+
 const sumEvens = stringsToNumbs(strNums).filter(j => j % 2 === 0).reduce((total, amount) => total + amount)
 console.log(sumEvens);
 
@@ -101,6 +102,7 @@ const weather = [
 ];
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
+
 let weatherStates = [];
 let result = [];
 for(i = 0; i < weather.length; i++){
@@ -114,6 +116,7 @@ for(let x = 0; x < weatherStates.length; x++){
 console.log(result);
 
 //find the id of the object in weather that has a min_temp of 15.915
+
 function getTemp(weatherArr){
 for(i = 0; i < weatherArr.length; i++){
 if(weatherArr[i].min_temp == 15.915){
