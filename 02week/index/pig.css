@@ -6,13 +6,20 @@ body{
     display: flex;
     /* align-items: center; */
     justify-content: center;
- 
+    }
+    .top{
+        display: flex;
+        justify-content: center;
+        font-family: 'Montez', cursive;
+        font-size: 36px
+    }
+#btn{
+    font-family: 'Montez', cursive;
 }
 .pigy{
     margin: 2em;
 }
 .latin{
     margin: 2em;
-    border: 2px red solid;
- 
+    /* border: 2px red solid; */
 }

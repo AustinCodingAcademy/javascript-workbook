@@ -15,7 +15,9 @@
 
   var inputText = document.getElementById("input");
   var outputText = document.getElementById("output");
-  
+ 
+
+
   document.getElementById("btn").onclick = function(){
     outputText.value = pigLatin(inputText.value);
   }
@@ -23,19 +25,20 @@
 
 //transforms word
 function pigLatin(word) {
-
-
   word = word.toLowerCase().trim();
+
+
+
   if (isVowel(word.charAt(0))) 
-    return word + "yay";
+    return  word + "yay";
   else if (isVowel(word.charAt(1))) 
-    return word.slice(1) + word.charAt(0) + 'ay';
+    return word.slice(1) + word.charAt(0) + 'ay' ;
   else if (isVowel(word.charAt(2))) 
     return word.slice(2) + word.slice(0, 2) +  'ay';
   else if (isVowel(word.charAt(3))) 
-    return word.slice(3) + word.slice(0, 3) +  'ay';
-  else return "go home you are drunk"
-
+    return word.slice(3) + word.slice(0, 3) +  'ay' ;
+  else 
+    return "go home you are drunk"
 }
  
 
