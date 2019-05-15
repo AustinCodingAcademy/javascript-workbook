@@ -104,4 +104,4 @@ const idealTemp = weather.map(function(idealtemp) {
     if(idealtemp.min_temp === 15.915) {
       return idealtemp.id; 
     }
-  });
+  })
