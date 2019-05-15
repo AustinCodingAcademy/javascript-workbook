@@ -1,6 +1,6 @@
 
 
-//Current Day and Time
+//Current Day & Time
 
 
 
