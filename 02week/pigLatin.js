@@ -1,16 +1,24 @@
 "use strict";
 
-const assert = require("assert");
-const readline = require("readline");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// const assert = require("assert");
+// const readline = require("readline");
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 // let newWord = word
 // var pigLatin = 'ay'
 // newWord = word.substring(1) + word.charAt(0) + pigLatin
 // console.log(newWord)
+
+
+  var inputText = document.getElementById("input");
+  var outputText = document.getElementById("output");
+  
+  document.getElementById("btn").onclick = function(){
+    outputText.value = pigLatin(inputText.value);
+  }
 
 
 //transforms word
@@ -46,40 +54,40 @@ function isVowel(word) {
 }
 
 //   console.log(pigLatin('dog'))
-//   // Your code here
+
 // word1 = 'the'
 // pigLatin = 'ay'
 // newword1 = word1.substring(1) + word1.charAt(0) + pigLatin
 // console.log(word)
 
-function getPrompt() {
-  rl.question("word ", answer => {
-    console.log(pigLatin(answer));
-    getPrompt();
-  });
-}
+// function getPrompt() {
+//   rl.question("word ", answer => {
+//     console.log(pigLatin(answer));
+//     getPrompt();
+//   });
+// }
 
 // Tests
 
-if (typeof describe === "function") {
-  describe("#pigLatin()", () => {
-    it("should translate a simple word", () => {
-      assert.equal(pigLatin("car"), "arcay");
-      assert.equal(pigLatin("dog"), "ogday");
-    });
-    it("should translate a complex word", () => {
-      assert.equal(pigLatin("create"), "eatecray");
-      assert.equal(pigLatin("valley"), "alleyvay");
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin("egg"), "eggyay");
-      assert.equal(pigLatin("emission"), "emissionyay");
-    });
-    it("should lowercase and trim word before translation", () => {
-      assert.equal(pigLatin("HeLlO "), "ellohay");
-      assert.equal(pigLatin(" RoCkEt"), "ocketray");
-    });
-  });
-} else {
-  getPrompt();
-}
+// if (typeof describe === "function") {
+//   describe("#pigLatin()", () => {
+//     it("should translate a simple word", () => {
+//       assert.equal(pigLatin("car"), "arcay");
+//       assert.equal(pigLatin("dog"), "ogday");
+//     });
+//     it("should translate a complex word", () => {
+//       assert.equal(pigLatin("create"), "eatecray");
+//       assert.equal(pigLatin("valley"), "alleyvay");
+//     });
+//     it('should attach "yay" if word begins with vowel', () => {
+//       assert.equal(pigLatin("egg"), "eggyay");
+//       assert.equal(pigLatin("emission"), "emissionyay");
+//     });
+//     it("should lowercase and trim word before translation", () => {
+//       assert.equal(pigLatin("HeLlO "), "ellohay");
+//       assert.equal(pigLatin(" RoCkEt"), "ocketray");
+//     });
+//   });
+// } else {
+//   getPrompt();
+// }

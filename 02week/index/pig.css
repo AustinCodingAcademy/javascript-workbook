@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    background: url(https://images.unsplash.com/photo-1537033206914-9d3551ff8103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80);
+}
+    .box{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+ 
+}
+.pigy{
+    margin: 2em;
+}
+.latin{
+    margin: 2em;
+    border: 2px red solid;
+ 
+}
