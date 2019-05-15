@@ -6,6 +6,8 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+//this variable creates a board
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -25,7 +27,7 @@ function printBoard() {
 
 
 
-
+//these functions check for wins
   function horizontalWin() {
     if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
     return true;
@@ -57,7 +59,7 @@ function checkForWin() {
   if (verticalWin() || horizontalWin() || diagonalWin()) return true;
   return false;
 }
-
+//place marks on board switchs turns
 function ticTacToe(row, column) {
 board[row][column] = playerTurn;
 if(playerTurn === 'X')
@@ -99,6 +101,8 @@ if (typeof describe === 'function') {
       ticTacToe(0, 0);
       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
     });
+
+    //my test
     it('should check for empty', () => {
       board = [ [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' '] ];
       ticTacToe(0, 0);
