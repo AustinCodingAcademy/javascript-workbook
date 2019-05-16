@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
     width: 320px;
     height: 320px;
@@ -33,3 +34,92 @@
 .winner {
     color: red;
 }
+=======
+body {
+    background-color: lightgreen;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    margin-left: 400px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+#upperleft {
+    border-bottom: 2px black solid; 
+    border-right: 2px black solid;
+}
+
+#uppermiddle {
+    border-bottom: 2px black solid; 
+    border-right: 2px black solid;
+}
+
+#upperright {
+    border-bottom: 2px black solid;
+}
+
+
+#middleleft {
+    border-bottom: 2px black solid;
+    border-right: 2px black solid;
+}
+
+#middlemiddle {
+    border-right: 2px black solid;
+    border-bottom: 2px black solid; 
+}
+
+
+#middleright {
+    border-bottom: 2px black solid;
+}
+
+
+#lowerleft {
+    border-right: 2px black solid;
+}
+
+#lowermiddle {
+    border-right: 2px black solid;
+}
+
+.buttons {
+    grid-column: 2/3;
+    grid-row: 4/5;
+    margin-top: 20px;
+    margin-left: 50px;
+   
+}
+
+button {
+    background-color: lightgray;
+    padding: 15px;
+    border: 1px solid black;
+
+}
+
+button:hover {
+    background-color: white;
+   
+}
+.btn {
+    font-size: 20px; 
+}
+
+#youWin {
+    color: red;
+    text-align: center;
+    font-size: 50px;
+}
+
+>>>>>>> gh-pages

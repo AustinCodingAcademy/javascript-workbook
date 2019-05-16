@@ -31,11 +31,17 @@ function horizontalWin() {
 } else if(board[1][0]=== playerTurn && board[1][1]===playerTurn && board[1][2]===playerTurn){
   return true;
 } else if (board[2][0]=== playerTurn && board[2][1]===playerTurn && board[2][2]===playerTurn){
+printWinner();
+  }
   return true;
   }
 }
 
+<<<<<<< HEAD:02week/ticTacToe.js
 // check for verticle win
+=======
+
+>>>>>>> gh-pages:03week/ticTacToe.js
 
 function verticalWin() {
   if(board[0][0]=== playerTurn && board[1][0]===playerTurn && board[2][0]===playerTurn){
@@ -43,8 +49,16 @@ function verticalWin() {
   } else if(board[0][1]=== playerTurn && board[1][1]===playerTurn && board[2][1]===playerTurn){
     return true;
   } else if (board[2][0]=== playerTurn && board[1][2]===playerTurn && board[2][2]===playerTurn){
+<<<<<<< HEAD:02week/ticTacToe.js
     return true;
   }
+=======
+    {
+      printWinner();
+    }
+  } return true;
+
+>>>>>>> gh-pages:03week/ticTacToe.js
 }
 
   // check for diagonal win
@@ -53,6 +67,7 @@ function diagonalWin() {
   if(board[0][0]=== playerTurn && board[1][1]===playerTurn && board[2][2]===playerTurn){
     return true;
   } else if(board[0][2]=== playerTurn && board[1][1]===playerTurn && board[2][0]===playerTurn){
+    printWinner();
     return true;
  }
 }

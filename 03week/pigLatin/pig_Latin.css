@@ -1,0 +1,36 @@
+body {
+	font-family: 'Arial';
+	background: #121212;
+	margin: 0;
+	color: #efefef;
+}
+div {
+	width: 500px;
+	margin: 0 auto;
+}
+input {
+	border: none;
+	outline: none;
+	padding: 5px 5px 5px 8px;
+	margin-left: 15px;
+	border-radius: 3px;
+	background: #efefef;
+	font-size: 16px;
+}
+
+button {
+	border: none;
+	outline: none;
+	color: #000;
+	background: #fff;
+	font-size: 16px;
+	transition: .4s;
+	padding: 5px 12px;
+	border-radius: 3px;
+	margin-left: 15px;
+}
+
+button:hover {
+	background: #0000;
+	color: #efefef;
+}
