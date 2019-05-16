@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    * See Console Logs <hr>
+    Running local server required: <br>
+    <button onClick="get()">get</button> <br>
+    <button onClick="post()">post</button>
+  </body>
+  <script type="text/javascript">
+    function get(){
+      fetch("https://dog.ceo/api/breeds/list")
+        .then( thisIsTheResponseFromTheAPI => thisIsTheResponseFromTheAPI.json())
+        .then( data => console.log("Array of data: ",data.message[0]))
+        .catch( oopsThisIsAnError => console.log("oops, looks like we got an error: ", oopsThisIsAnErrorx))
+        .finally( ()=> console.log("finally, This function always runs...")) // Whether or not there's an error or success, this will happen such as stopping a loading wheel on the front end
+    }
+  </script>
+</html>
