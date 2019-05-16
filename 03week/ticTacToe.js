@@ -12,7 +12,9 @@ let board = [
   [' ', ' ', ' ']
 ];
 
-let playerTurn = 'X';
+var playTime = 0;
+
+let playerTurn = 'X'  ;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,27 +26,56 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
+    return true;
+  } else if (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") {
+    return true;
+  } else if (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X") {
+    return true;
+  }
+  return false;
 }
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") {
+    return true;
+  } else if (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") {
+    return true;
+  } else if (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X") {
+    return true;
+  }
+    return false;
 }
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") {
+    return true;
+  } else if (board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X") {
+    return true;
+  }
+    return false;
 }
 
 function checkForWin() {
-  // Your code here
+  if (verticalWin() || horizontalWin() || diagonalWin()) return true;
+    return false;
+}
+
+function winTimer() {
+  playTime++;
+  if (checkForWin() == true) console.log(playerTurn + " Wins!");
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  if (playerTurn === 'X') {
+    playerTurn = 'O';
+  } else (playerTurn = 'X');
 }
 
 function getPrompt() {
   printBoard();
+  winTimer();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
@@ -84,6 +115,9 @@ if (typeof describe === 'function') {
     });
     it('should detect a win', () => {
       assert.equal(checkForWin(), true);
+    });
+    it("should detect a tie" () => {
+      assert.equal(checkForTie(), true);
     });
   });
 } else {
