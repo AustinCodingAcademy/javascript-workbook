@@ -16,6 +16,7 @@ const stringOfCars = totalCars.join(', ');
 console.log("STRING OF CARS: ", stringOfCars);
 // Use the split method to convert stringOfCars back intro an array called totalCars.
 totalCars = stringOfCars.split(', ');
+console.log("TOTAL CARS AGAIN: ", totalCars)
 // Use the reverse method to create an array carsInReverse which is the array totalCars in reverse.
 const carsInReverse = totalCars.reverse();
 console.log("CARS IN REVERSE ORDER: ", carsInReverse);
