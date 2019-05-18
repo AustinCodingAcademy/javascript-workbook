@@ -26,6 +26,7 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
 "1","5","9","5","6","2","8","6","3","8","8","2","3","5","3","7","8","7","5","9","3","7","5","1","9","5","7","7","8","1","8","5","7","7","8","0","5",
 "3","2","1","7","1","2","2","6","8","0","6","6","1","3","0","0","1","9","2","7","8","7","6","6","1","1","1","9","5","9","0","9","2","1","6","4","2","0","1","9","8","9"];
 
+
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
 const stringsToNumbs = (numbers) => {
     let convertedIntoNumbers = numbers.map(Number);
@@ -42,6 +43,39 @@ console.log(sumEvens);
 const atxIdx;
 
 console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+=======
+let convertedIntoNumbers = [];
+
+
+// Given 1000 digits of PI as strings, return an array of the digits as numbers
+const stringsToNumbs = (numbers) => {
+    convertedIntoNumbers = numbers.map(Number);   
+}
+stringsToNumbs(strNums);
+//console.log(convertedIntoNumbers);
+
+// With the same numbers, find the sum of the even values
+function sum(array) {
+    let sumEvens = 0;
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] % 2 === 0) {
+            sumEvens += array[i];
+        }
+        
+    }
+    console.log(sumEvens);
+}
+sum(convertedIntoNumbers);
+// const sumEvens;
+
+
+// console.log(sumEvens);
+
+// Find the index of the first value when added to it's index = 512 (#ATX!!)
+// const atxIdx;
+
+// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+
 
 const weather = [
   { id: 5743823523151872,
@@ -108,6 +142,7 @@ const weather = [
     visibility: 11.14056410562316,
     predictability: 71
   },
+
 ],
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
@@ -118,3 +153,15 @@ console.log(weatherStates)
 
 const idealTemp =
 console.log(idealTemp)
+=======
+];
+
+// //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
+const weatherStates = [...new Set(weather.map(item => item.weather_state_name))];
+console.log(weatherStates);
+
+// //find the id of the object in weather that has a min_temp of 15.915
+
+const idealTemp = weather.find(item => item.min_temp === 15.915).id;
+console.log(idealTemp);
+
