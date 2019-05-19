@@ -20,25 +20,17 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  // Your code here
+  // My code here
   let elmt = stacks[startStack].pop();
   stacks[endStack].push(elmt);
 }
 
 function isLegal(startStack, endStack) {
-  // Your code here //
-  // if elm 1 < elmt2 || endStack.length === 0, legal move, else return false
+  // My code here
   if (stacks[startStack].length == 0 && stacks[endStack].length == 0) {
     return false;
   }
   let elmt1 = stacks[startStack][stacks[startStack].length - 1];
-  // let elmt2 = stacks[endStack][stacks[endStack].length -1];
-  //   if ((elmt1 < elmt2) || (stacks[endStack].length===0)) {
-  //     return true;
-  //   } else {
-  //     return false
-  //   }
-
   if (elmt1 > 0 && stacks[endStack].length == 0) {
     return true;
   }
@@ -51,8 +43,9 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  // Your code here
+  // My code here
   if (stacks.c.length === 4) {
+  // Displays that a player has won  
     console.log("You Win!");
     return true;
   } else {
@@ -61,10 +54,11 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // My code here
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
   }
+  // Verifies that all pieces are in order on stack c
   if (checkForWin()) {
     stacks = {
       a: [],
