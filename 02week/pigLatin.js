@@ -13,18 +13,18 @@ function pigLatin(word) {
   // Your code here
   word = word.toLowerCase().trim();
 //check first letter
-if (isVowel(word.charAt(0))) 
-return word + "yay";
+  if (isVowel(word.charAt(0))) 
+    return word + "yay";
 //if second letter is consen
-else if (isVowel(word.charAt(1))) 
-return word.slice(1) + word.charAt(0) + 'ay';
+  else if (isVowel(word.charAt(1))) 
+    return word.slice(1) + word.charAt(0) + 'ay';
 //if third letter is consen
-else if (isVowel(word.charAt(2))) 
-return word.slice(2) + word.slice(0, 2) + 'ay';
+  else if (isVowel(word.charAt(2))) 
+    return word.slice(2) + word.slice(0, 2) + 'ay';
 //if fourth letter is consen
-else if (isVowel(word.charAt(3))) 
-return word.slice(3) + word.slice(0, 3) + 'ay';
-else return "game done"
+  else if (isVowel(word.charAt(3))) 
+    return word.slice(3) + word.slice(0, 3) + 'ay';
+  else return "game done"
 
 }
 
@@ -43,7 +43,7 @@ return true;
 else return false;
 }
 
-}
+
 
 
 function getPrompt() {
@@ -74,6 +74,9 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
+    //test for multiple words
+    //valid input, no numbers
+    //is legal 
   });
 } else {
 
