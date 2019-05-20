@@ -19,9 +19,6 @@ const isInputValid = (hand1, hand2) =>{
   
   const isHandTwoValid = hand2.match('rock') || hand2.match('paper') || hand2.match('scissors');
 
-  // console.log(isHandOneValid)
-  // console.log(isHandTwoValid)
-
   if (isHandOneValid !== null && isHandTwoValid !== null) {
     return true
   }
@@ -31,9 +28,7 @@ const isInputValid = (hand1, hand2) =>{
 const checkForWin = (hand1, hand2) =>{
   if(hand1 === hand2){
     return 'It\'s a tie!'
-  }
-
-  if(hand1 === rpsArray[0] && hand2 === rpsArray[2] || hand1 === rpsArray[1] && hand2 === rpsArray[0] || hand1 === rpsArray[2] && hand2 === rpsArray[1]){
+  } else if(hand1 === rpsArray[0] && hand2 === rpsArray[2] || hand1 === rpsArray[1] && hand2 === rpsArray[0] || hand1 === rpsArray[2] && hand2 === rpsArray[1]){
     return 'Hand one wins!'
   } else {
     return 'Hand two wins!'
