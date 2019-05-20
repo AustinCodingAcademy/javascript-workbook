@@ -10,9 +10,25 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
-
+  const isVowel = (word) => {
+    if ((word === "a")||(word === "e")||(word === "i")||(word === "o")||(word === "u"))
+      return true;
+    else
+      return false;
+  }
+  
+  function pigLatin(word) {
+    word = word.toLowerCase().trim();
+  
+    if (isVowel(word.charAt(0)))
+      return word + "yay";
+    else
+      return word;
+  
+  }
 }
+
+pigLatin('bath');
 
 
 function getPrompt() {
@@ -43,9 +59,14 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
+    it('Should separate two words and return them together', () => {
+      assert.equal(pigLatin('Hop Fest'), 'Ophay Estfay');
+    )
   });
-} else {
+} else { 
 
   getPrompt();
 
 }
+
+
