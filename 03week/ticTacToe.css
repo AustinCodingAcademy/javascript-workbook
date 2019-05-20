@@ -2,6 +2,10 @@ body {
   margin: 10px;
 }
 
+h1 {
+  color: purple
+}
+
 .main-container {
   border: 1px solid black;
   height: 500px;
@@ -10,9 +14,10 @@ body {
   flex-direction: column;
 }
 
-.player-selection {
-  border: 2px solid black;
-  height: 10%;
+.tictactoe {
+  border: 2px solid red;
+  background-color: antiquewhite;
+  height: 20%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -44,7 +49,26 @@ body {
 
 button {
   color: black;
-  background-color: aqua;
+  background-color: antiquewhite;
   height: 30px;
   margin-top: 10px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.winner-container {
+    color: red;
+    width: 500px;
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+}
+
+#announce-winner {
+  color: red;
+  font-size: 2rem;
+  width: 500px;
+  display: flex;
+  justify-content: center;
 }
