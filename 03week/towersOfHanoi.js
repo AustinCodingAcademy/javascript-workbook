@@ -19,24 +19,51 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack,endStack) {
+  // my code here
+  let elmt=stacks[startStack].pop();
+  stacks[endStack].push(elmt);
 
 }
 
 function isLegal() {
-  // Your code here
-
+  // my code here
+if (elmt1 > 0 && stacks[endStack].length == 0) {
+  return true;
+}
+let elmt2 = stacks[endStack][stacks[endStack].length - 1];
+if (elmt2 > elmt1) {
+  return true;
+} else {
+  return false;
+}
 }
 
 function checkForWin() {
   // Your code here
+  if (stacks.c.length === 4) {
+  //Displays player won
+  console.log("Winner winner chicken diner!")
+  return true;
+  } else{
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+  }
+// verifies that all pieces are in order on stack
+if (checkForWin()) {
+  stacks = {
+    a: [],
+    b: [],
+    c: [4, 3, 2, 1]
+  };
+}
 }
 
 function getPrompt() {
