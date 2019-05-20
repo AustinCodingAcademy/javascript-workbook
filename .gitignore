@@ -10,4 +10,7 @@ npm-debug.log*
 *.DS_Store
 04week/project2.js
 04week/raiseNumbers.js
+<<<<<<< HEAD
 myMap.js
+=======
+>>>>>>> 72fa2c03a85f89184209bf1f15e6427b85553d3a

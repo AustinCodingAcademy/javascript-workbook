@@ -12,18 +12,18 @@ function pigLatin(word) {
 
   // Your code here
   const vowels = ['a','e','i','o','u','y'];
-  
+
   isConsonant = function(vowels, input) {
     if (vowels.includes(input)) {
       return true;
     } else {return false;}
   }
-  
+
   for (let i=0;i<word.length;i++) {
     console.log(word[i]);
   }
   console.log(isConsonant(vowels,'a'));
-  
+
   //if the first letter is consonant
   //check if (isConsonant)
 

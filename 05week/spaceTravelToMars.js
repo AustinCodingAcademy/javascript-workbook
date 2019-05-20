@@ -9,9 +9,9 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Your code her
 class CrewMember {
-  
+
   CrewMember(name, job, specialSkill,ship) {
     this.name=name;
     this.job=job;

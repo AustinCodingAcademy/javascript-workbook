@@ -16,7 +16,7 @@ function pigLatin(word) {
       return myTranslation;
 
     } else {
-
+ 
       splitWord.push((splitWord.shift()));//send the first consonant to end
       // let myTranslation = splitWord.concat(ending);
       
