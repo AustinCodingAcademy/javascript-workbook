@@ -11,17 +11,14 @@ function pigLatin(word) {
   let firstLetter = splitWord[0];
 
 
-    if (vowels.includes(firstLetter)) {
-      const myTranslation = word.concat('yay'); 
+    if (vowels.includes(firstLetter)) {//is the firest letter a vowel?
+      const myTranslation = word.concat('yay'); //then add 'yay' and we are done!
       return myTranslation;
-
     } else {
  
       splitWord.push((splitWord.shift()));//send the first consonant to end
       // let myTranslation = splitWord.concat(ending);
-      
       for (let i=1;i<splitWord.length;i++) {
-        
         //check the next letters (is or isNotVowel)
         if (vowels.includes(splitWord[i])===false) {//if not vowel
           splitWord.push((splitWord.shift()));
@@ -29,9 +26,9 @@ function pigLatin(word) {
           splitWord.push(ending);
           return splitWord.join('');
         }
+      }
 
-      } 
     } 
   }
 //Get Started
-pigLatin('ate');
+let myTranslation = pigLatin('create');
