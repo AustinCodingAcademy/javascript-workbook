@@ -10,11 +10,12 @@
 <body>
   <div class="main-container">
       <div class="instructions">Enter any word below to translate to Pig Latin</div>
-      <input class="enter-word"></input>
+      <input onchange="pigLatin()" id="enter-word"></input>
       <button id=translate>Translate!</button>
+      <div id="result"></div>
   </div>
 
 
-    <script src="./pigLatin.js"></script>
+    <script src="./pigLatinWeb.js"></script>
 </body>
 </html>
