@@ -1,6 +1,6 @@
 'use strict';
 
-function pigLatin(word) {
+function pigLatin(word) {//Return function to original page
   // Your code here
 
   const vowels = ['a','e','i','o','u','y'];
