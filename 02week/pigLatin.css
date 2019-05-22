@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Finger+Paint|Source+Sans+Pro');
+
+body {
+  background-color: aquamarine
+}
+
+h1 {
+  font-family: "Finger Paint", cursive;
+  color: darkblue;
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.text {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.formfield {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.reset {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 600px;
+  margin-right: 600px;
+}
+
+button {
+  margin-top: 100px;
+  width:100px;
+  height: 40px;
+  color: darkblue;
+  background-color: antiquewhite;
+  font-size: 1rem;
+}
