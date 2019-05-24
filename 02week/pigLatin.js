@@ -48,31 +48,33 @@ const rl = readline.createInterface({
 //     return word.join("");
 //   }
 // };
+
 const pigLatin = word => {
-  // makes array that split the passed in word into an array
-  
-  const wordArray = word.split("");
-  const newWord = word.trim("").toLowerCase(' ');
-  // make
+  // makes array that split the passed in word 
+  // into an array uses trim and lowercase the numbers
+
+  let wordArray = word.toLowerCase().trim().split("");
+  // creates an array of vowels
   const vowels = ["a", "e", "i", "o", "u"];
   
   // Your code here
   
   if (vowels.includes(word[0])) {
-  // adds way to the end of words that start with a vowel
-  return (word += "way");
+    // adds way to the end of words that start with a vowel
+    return (word += "way");
   } else {
-  //loop starts at the 0 in the array until it get to a vowel
-  for (let i = 0; i < word.length; i++) {
-  if (!vowels.includes(word[i])) {
-  //pushes the last element to the end and shift removes the first item
-  wordArray.push(wordArray.shift());
-  } else {
-  // push "ay" to the end of the array
-  wordArray.push("ay");
-  return wordArray.join("");
-  }
-  }
+    //loop starts at the 0 in the array until it get to a vowel
+    for (let i = 0; i < wordArray.length; i++) {
+      if (!vowels.includes(wordArray[i])) {
+        //pushes the last element to the end and shift removes the first item
+        wordArray.push(wordArray.shift());
+        i--;
+      } else {
+        // push "ay" to the end of the array
+        wordArray.push("ay");
+        return wordArray.join("");
+      }
+    }
   }
   };
   
