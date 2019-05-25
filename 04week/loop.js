@@ -4,14 +4,14 @@ while (x > 1000){
     console.log(x)
 }
 
-var person = {
+var person = [{
     firstName: "Jane",
     lastName: "Doe",
     birthDate: "Jan 5, 1925",
     gender: "female"
-}
+}]
 var text = "";
 var x;
-for (x in person.) {
-    text += person[x];
+for (x in person) {
+   person[2];
 }

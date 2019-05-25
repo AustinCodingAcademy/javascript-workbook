@@ -55,7 +55,7 @@ function generateHint(guess) {
       }
     }
   });
-  console.log(`${correctLetterLocations}-${correctLetters}`);
+    console.log(`${correctLetterLocations}-${correctLetters}`);
   return `${correctLetterLocations}-${correctLetters}`;
 }
 
