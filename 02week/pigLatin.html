@@ -8,20 +8,12 @@
     <title>Pig Latin</title>
 </head>
 <body>
-    
-
-<section id="translateInput">
-<form id="textForm">
-<label for="textInputBox">Enter text to translate:</label>
-    <textarea id="textInputBox" /></textarea>
-    <input type="button" id="toPigLatin" value="Translate to Pig Latin" />
-    <input type="button" id="toEnglish" value="Translate to English" />
-    </form>
-  </section>
-  
-  <section id="translateOutput">
-    
-  </section>
-  <script src="./pigLatin.js"></script>
+    <div class="main-container">
+    <div class="instructions">Enter any word below to translate to Pig Latin</div>
+    <input onchange="pigLatin()" id="enter-word"></input>
+    <button id=translate>Translate!</button>
+    <div id="result"></div>
+</div>
+<script src="./pigLatin.js"></script>
 </body>
 </html>

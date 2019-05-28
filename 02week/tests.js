@@ -19,5 +19,4 @@ if (typeof describe === 'function') {
       });
     });
   } else {
-  
-    getPrompt();
+  getPrompt();
