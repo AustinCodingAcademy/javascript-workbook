@@ -1,0 +1,33 @@
+<!-- comment -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./pigLatin.css">
+    <title>Pig Latin</title>
+</head>
+<body>
+    <div class='title'>
+        <h1>Pig Latin Word Translator</h1>
+    </div> 
+    <section class='project-cont'>
+        <div class='inner'>
+            <div class='input-controls in-sec'></div>
+            <input class='input-word inp-control' id="input" contenteditable='true'/>
+            <button class='button-submit inp-control' id="submit" onclick="inputTest()">Submit</button>
+        </div>
+        <div class='rules'>please enter a word and press the submit button.</div>
+        <div class='rules'>words should contain only alphabetic letters.</div>
+        <div class="tpsect in-sec">
+            <h2>Pig Latin Translation:</h2>
+            <div class='results-pane in-sec'>
+                    <div class='result-text' id="wordOutput"></div>  
+            </div>
+            <button onclick="reset()">CLEAR</button>
+        </div>
+    </section> 
+    <script src="./pigLatin.js"></script>    
+</body>
+</html>
