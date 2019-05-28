@@ -9,33 +9,30 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
   // Your code here
+
   const vowels = ['a','e','i','o','u','y'];
+  const splitWord = word.toLowerCase().trim().split('');//['c','a','r']
+  
+  const ending = new Array('a','y');
+  const firstLetter = splitWord[0];
 
-  isConsonant = function(vowels, input) {
-    if (vowels.includes(input)) {
-      return true;
-    } else {return false;}
-  }
+  if (vowels.includes(firstLetter)) {//is the first letter a vowel?
+    const myTranslation = word.concat('yay'); //then add 'yay' and we are done!
+    return myTranslation;
+  } else {
+    splitWord.push((splitWord.shift()));//remove the first consonant, send to end
 
-  for (let i=0;i<word.length;i++) {
-    console.log(word[i]);
-  }
-  console.log(isConsonant(vowels,'a'));
-
-  //if the first letter is consonant
-  //check if (isConsonant)
-
-  const splitWord = word.split('');
-  console.log(splitWord);
-
-  if(vowels.includes(e)) {//if the element is a vowel
-    let firstVowelPosition = a.indexOf(e)///Get the position
-    array.splice
-  }
-
-  // return tranlastion;
+    for (let i=0;i<splitWord.length;i++) {
+      //check the next letters (is or isNotVowel)
+      if (!vowels.includes(splitWord[i])) {//if not vowel
+        splitWord.push(splitWord.shift());//remove the first vowel, sent to end.
+      } else {
+        const myTranslation = splitWord.join('');
+        return myTranslation.concat('ay');
+      }
+    }
+  } 
 }
 
 
@@ -47,7 +44,6 @@ function getPrompt() {
 }
 
 // Tests
-
 if (typeof describe === 'function') {
 
   describe('#pigLatin()', () => {
