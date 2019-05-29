@@ -37,3 +37,11 @@ for (let x in person){
 // console.log(person.filter(x => x.gender !== 'Male'));
 // Use .filter() to filter the persons array and console.log only people that were born before Jan 1, 1990.
 console.log(person.filter(x => new Date(x.birthDate ) > new Date('Jan 1, 1990')));
+
+//findIndex for Females
+function isFemale(person){
+    return person.gender === 'Female'
+}
+//[ ] returns itemized breakdown 
+// just, (person.findIndex(isFemale)) returns the position of Females
+console.log(person[person.findIndex(isFemale)]);
