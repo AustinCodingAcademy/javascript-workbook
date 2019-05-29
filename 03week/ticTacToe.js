@@ -6,6 +6,8 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+//this variable creates a board
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -23,24 +25,47 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
-  // Your code here
-}
+
+
+//these functions check for wins
+  function horizontalWin() {
+    if (board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X") {
+    return true;
+    } else if (board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X") {
+    return true;
+    } else if (board[2][0] === "X" && board[2][1] === "X" && board[2][2] === "X") {
+    return true;
+    }
+    }
+
 
 function verticalWin() {
-  // Your code here
-}
+  if (board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") {
+    return true;
+    } else if (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") {
+    return true;
+    } else if (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X") {
+    return true;
+    }}
 
 function diagonalWin() {
-  // Your code here
-}
+  if (board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") {
+    return true;
+    } else if (board[0][2] === "X" && board[1][1] === "X" && board[2][0] === "X") {
+    return true;
+    }}
 
 function checkForWin() {
-  // Your code here
+  if (verticalWin() || horizontalWin() || diagonalWin()) return true;
+  return false;
 }
-
+//place marks on board switchs turns
 function ticTacToe(row, column) {
-  // Your code here
+board[row][column] = playerTurn;
+if(playerTurn === 'X')
+playerTurn = 'O';
+else(
+  playerTurn = 'X');
 }
 
 function getPrompt() {
@@ -54,7 +79,13 @@ function getPrompt() {
   });
 
 }
-
+function empty(row, column){
+  if (board [row][column] == '  '){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 // Tests
@@ -70,6 +101,14 @@ if (typeof describe === 'function') {
       ticTacToe(0, 0);
       assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
     });
+
+    //my test
+    it('should check for empty', () => {
+      board = [ [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' '] ];
+      ticTacToe(0, 0);
+      assert.equal(empty(0,0), false);
+    });
+
     it('should check for vertical wins', () => {
       board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
       assert.equal(verticalWin(), true);
@@ -88,6 +127,4 @@ if (typeof describe === 'function') {
   });
 } else {
 
-  getPrompt();
-
-}
+  getPrompt()}

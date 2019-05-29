@@ -1,0 +1,59 @@
+.box{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+#t1{
+    border: 2px black solid;
+color:black;
+height: 100px;
+width: 10px;
+margin: 2em;
+display: flex;
+flex-direction: column-reverse;
+align-items: center;
+}
+#t2{
+    border: 2px black solid;
+color:black;
+height: 100px;
+width: 10px;
+margin: 2em;
+
+}
+#t3{
+    border: 2px black solid;
+color:black;
+height: 100px;
+width: 10px;
+margin: 2em;
+}
+#disk{
+    height: 5px;
+    width: 70px;
+    color: red;
+    background: green;
+    border: 2px solid green
+}
+#disk1{
+    height: 5px;
+    width: 60px;
+    color: red;
+    background: blue;
+    border: 2px solid blue
+}
+#disk2{
+    height: 5px;
+    width: 50px;
+    color: red;
+    background: purple;
+    border: 2px solid purple
+}
+#disk3{
+height: 5px;
+width: 40px;
+color: red;
+background: red;
+border: 2px solid red
+}
