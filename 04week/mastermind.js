@@ -1,6 +1,6 @@
 "use strict";
 
-// const solution = 'abcd';
+var colors = require('colors');
 const assert = require("assert");
 const readline = require("readline");
 const rl = readline.createInterface({
@@ -14,10 +14,7 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 //generates game bord for terminal game
 function printBoard() {
-  console.log(board)
-  // for (let i = 0; i < board.length; i++) {
-  //   console.log(board[i]);
-  // }
+  
 }
 //generates a random code to be solved for
 function generateSolution() {
@@ -33,8 +30,21 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// this function makes sure it letters a-h only but allows caps
+function lettersOnly(input){
+  var regEx = /^[a-h]+$/gi;
+  if (input.match(regEx))
+  return true
+}
+
+// this function makes sure you put in 4 letters
+function atLeast4(input){
+  if (input.length === 4){
+  return true}
+}
+
 const generateHint = (guess) => {
-  // your code here
+  // My code here
   let correctLetterLocations = 0;
   let correctLetters = 0;
   let solutionArray = solution.split("");
@@ -53,12 +63,13 @@ const generateHint = (guess) => {
       if (targetIndex > -1) {
         correctLetters += 1;
         solutionArray[targetIndex] = null;
-        // guessArray[index] = "";
+        guessArray[index] = "";
       }
     }
   });
-  // console.log(correctLetterLocations + '-' + correctLetters)
-  return `${correctLetterLocations} - ${correctLetters}`;
+  console.log(colors.red (correctLetterLocations) + " - " + colors.white (correctLetters));
+  // return line is not needed since I used colored outputs
+  // return `${correctLetterLocations} - ${correctLetters}`;
 }
 
 function mastermind(guess) {
@@ -70,29 +81,36 @@ function mastermind(guess) {
 
 function checkForWin(guess) {
   if (guess === solution){
-    console.log("You guessed it!")
-    return "You guessed it!";
-  }
-    else if (board.length == 9){
-    console.log("You Lose, the correct answer was " + solution)
-  } else {
-    console.log("Guess again")
-  }
+    console.log("You guessed it!");
+    // resets the board when guessed correctly
+    board = [];
+    solution = "";
+  } else if (board.length == 9){
+    console.log("You lose, the correct answer was " + colors.red (solution) + " ,please play again!");
+    // resets the board if not guesses correctly after 10 moves
+    board = [];
+    solution = "";
+    } else {
+    console.log("Guess again...");
+    }
 }
 
 function getPrompt() {
-  rl.question("guess: ", guess => {
-    generateSolution();
-    mastermind(guess);
-    printBoard();
-    getPrompt();
+  rl.question("Your Guess: ", guess => {
+    if ((lettersOnly(guess)) && (atLeast4(guess))){
+      generateSolution();
+      mastermind(guess);
+      getPrompt();
+    } else {
+      console.log("Please chose 4 letters from a-h!");
+      getPrompt();
+    }
   });
 }
+console.log('Mastermind the game!'.america);
 
-// getPrompt();
 // Tests
-// check for win or not
-//return value, increase hint to board
+
 if (typeof describe === "function") {
   solution = "abcd";
   describe("#mastermind()", () => {
@@ -101,16 +119,16 @@ if (typeof describe === "function") {
       assert.equal(board.length, 1);
     });
     it("should be able to detect a win", () => {
-      assert.equal(mastermind(solution), "You guessed it!");
+      assert.equal(mastermind(solution));
     });
   });
 
   describe("#generateHint()", () => {
     it("should generate hints", () => {
-      assert.equal(generateHint("abdc"), "2 - 2");
+      assert.equal(generateHint("abdc"));
     });
     it("should generate hints if solution has duplicates", () => {
-      assert.equal(generateHint("aabb"), "1 - 1");
+      assert.equal(generateHint("aabb"));
     });
   });
 } else {

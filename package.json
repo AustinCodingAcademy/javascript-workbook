@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AustinCodingAcademy/javascript-workbook#readme",
   "dependencies": {
+    "colors": "^1.3.3",
     "eslint": "^3.19.0",
     "functional-javascript-workshop": "^1.0.6",
     "htmllint-cli": "github:kevincolten/htmllint-cli",
