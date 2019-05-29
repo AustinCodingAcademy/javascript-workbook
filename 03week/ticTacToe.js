@@ -13,7 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
-
+let number =1;
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
