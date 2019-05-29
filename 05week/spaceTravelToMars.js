@@ -8,6 +8,36 @@ let jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
+// let crewMember1 = new CrewMember( 'Rick Martinez', 'pilot', 'chemistry', null)
+// let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+class Ship{
+  constructor(name, type, ability,){
+this.name = name
+this.type = type
+this.ability = ability
+
+}}
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+this.name = name
+this.job = job
+this.specialSkill = specialSkill
+this.ship = ship
+}
+}
+class crewedShip extends Ship{
+  constructor(name, type, ability, crew)
+  {
+    super(name, type, ability,)
+    this.crew = crew
+  }
+ 
+
+}
+enterShip(){
+  crewedShip
+}
+
 
 // Your code here
 
@@ -23,7 +53,7 @@ if (typeof describe === 'function'){
     });
 
     it('can enter a ship', function(){
-      let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+      let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit',);
       let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
       crewMember1.enterShip(mav);
       assert.equal(crewMember1.ship, mav);
@@ -34,7 +64,7 @@ if (typeof describe === 'function'){
 
   describe('Ship', function(){
     it('should have a name, a type, an ability and an empty crew upon instantiation', function(){
-      let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+      let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit',);
       assert.equal(mav.name, 'Mars Ascent Vehicle');
       assert.equal(mav.type, 'MAV');
       assert.equal(mav.ability, 'Ascend into low orbit');
