@@ -8,8 +8,7 @@ let jobTypes = {
   commander: "Main Ship",
   programmer: "Any Ship!"
 };
-// let crewMember1 = new CrewMember( 'Rick Martinez', 'pilot', 'chemistry', null)
-// let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// Makes   crew members
 class CrewMember {
   constructor(name, job, specialSkill) {
     this.name = name;
@@ -17,10 +16,13 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = null;
   }
-  enterShip(ship) {
-    ship.crew.push(this);
+  // puts crew in ship
+  enterShip(x) {
+    this.ship = x
+    x.crew.push(this);
   }
 }
+// makes ships
 class Ship {
   constructor(name, type, ability) {
     this.name = name;
@@ -29,18 +31,13 @@ class Ship {
     this.crew = [];
   }
 
-  enterShip(crew) {
-    this.crew.push(crew);
-  }
-  missionStatement(ship,){
-    if (ship.crew = []) {
+
+  // returns a mission statement
+  missionStatement(){
+  
+    if (this.crew.length == 0 ) {
       return "Can't perform a mission yet."
-    }
-      else if  (ship.crew = [0] && ship.ability === "Ascend into low orbit"){
-      return "Ascend into low orbit"
-    }
-    else(ship.crew = [0] &&  ship.ability === "Interplanetary Space Travel")
-      return "Interplanetary Space Travel"
+    } else { return this.ability }
     
   
   }
@@ -66,10 +63,12 @@ if (typeof describe === "function") {
     it("can enter a ship", function() {
       let mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
       let crewMember1 = new CrewMember("Rick Martinez", "pilot", "chemistry");
-      
-      mav.enterShip(crewMember1);
+      crewMember1.enterShip(mav);
+      assert.equal(crewMember1.ship, mav);
       assert.equal(mav.crew.length, 1);
       assert.equal(mav.crew[0], crewMember1);
+ 
+
     });
   });
 
@@ -80,6 +79,7 @@ if (typeof describe === "function") {
       assert.equal(mav.type, "MAV");
       assert.equal(mav.ability, "Ascend into low orbit");
       assert.equal(mav.crew.length, 0);
+      
     });
 
     it("can return a mission statement correctly", function() {
@@ -94,13 +94,15 @@ if (typeof describe === "function") {
         "Commander Lewis",
         "commander",
         "geology"
-      );
-      assert.equal(mav.missionStatement(), "Can't perform a mission yet.");
-      assert.equal(hermes.missionStatement(), "Can't perform a mission yet.");
-
-      crewMember1.enterShip(mav);
-      assert.equal(mav.missionStatement(), "Ascend into low orbit");
-
+        ); 
+        assert.equal(mav.missionStatement(), "Can't perform a mission yet.");
+        assert.equal(hermes.missionStatement(), "Can't perform a mission yet.");
+        
+        crewMember1.enterShip(mav);
+        console.log(mav.missionStatement())
+        assert.equal(mav.missionStatement(), "Ascend into low orbit");
+        console.log(mav)
+     
       crewMember2.enterShip(hermes);
       assert.equal(hermes.missionStatement(), "Interplanetary Space Travel");
     });
