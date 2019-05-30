@@ -87,7 +87,7 @@ function checkForWin(guess) {
     solution = "";
   } else if (board.length == 9){
     console.log("You lose, the correct answer was " + colors.red (solution) + " ,please play again!");
-    // resets the board if not guesses correctly after 10 moves
+    // resets the board if not guessed correctly after 10 moves
     board = [];
     solution = "";
     } else {
