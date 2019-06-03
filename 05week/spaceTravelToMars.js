@@ -1,5 +1,4 @@
 'use strict';
-
 let assert = require('assert');
 
 let jobTypes = {
@@ -9,8 +8,45 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Your code heresd
+class CrewMember{
+  constructor(name,job,specialSkill)
+  { this.name = name;
+    this.specialSkill = specialSkill;
+    this.ship = null;
 
+  }
+  enterShip(mav){
+    this.ship = mav ;
+    mav.crew.push(this);
+
+  }
+
+
+}
+class Ship{
+  constructor(name,type,ability)
+  {
+    this.name=name;
+    this.type=type;
+    this.ability=ability;
+    this.crew=[];
+
+  }
+ 
+  missionStatement()
+  {
+     if (this.crew.length == 0)
+         return `Can't perform a mission yet.`;
+    return this.ability;
+
+    // if (this.crew.length != 0) 
+    //   return this.ability;
+    // else 
+    //   return "Can't perform a mission yet.";
+
+  }
+}
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
@@ -57,3 +93,5 @@ if (typeof describe === 'function'){
     });
   });
 }
+
+
