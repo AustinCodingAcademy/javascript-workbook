@@ -94,4 +94,3 @@ if (typeof describe === 'function'){
   });
 }
 
-
