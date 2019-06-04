@@ -31,8 +31,9 @@ function checkInput(hand1, hand2) {
   else if (hand1 === "scissors" && hand2 === "scissors") return true;
   else if (hand1 === "scissors" && hand2 === "rock") return true;
   else if (hand1 === "scissors" && hand2 === "paper") return true;
-  else return false;
+  else return false; 
 }
+// Write code here
 
 function getPrompt() {
   rl.question("hand1: ", answer1 => {
@@ -62,12 +63,12 @@ if (typeof describe === "function") {
       assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Hand two wins!");
       assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Hand one wins!");
     });
-    //added test for assignment week 2 day 2.
-    it("should check input for rock paper or scissors", () => {
-      rockPaperScissors("rock", "bowl");
-      assert.equal(checkInput("rock", "bowl"), false);
-    });
   });
 } else {
   getPrompt();
-}
+};
+    //added test for assignment week 2 day 2.
+    it("should check input for rock paper or scissors"), () => {
+      rockPaperScissors("rock", "bowl");
+      assert.equal(checkInput("rock", "bowl"), false);
+    }
