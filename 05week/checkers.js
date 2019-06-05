@@ -8,15 +8,20 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white')
+  this.symbol = String.fromCharCode(0x125CB)
+  else 
+  this.symbol = String.fromCharCode(0x125CF)
 }
 
 class Board {
   constructor() {
-    this.grid = []
+    this.grid = [];
+    this.checkers =[];
   }
   // method that creates an 8x8 array, filled with null values
+
   createGrid() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
@@ -53,6 +58,41 @@ class Board {
   }
 
   // Your code here
+  createCheckers() {
+
+   const white = new Checker('white');
+   const black = new Checker('black');
+
+    for(let row=0;row<8;row++)
+    {
+    for(let col=0;col<8;col++)
+    {
+      //display white checkers
+    if (row<3 && (row%2===0) && (col%2!==0) )
+     { 
+      this.checkers.push(white);
+      this.grid[row][col] = white;
+     }
+    if (row<3 && (row%2!==0) && (col%2===0) )
+    { 
+     this.checkers.push(white);
+     this.grid[row][col] = white;
+    }
+    // display black checkers
+    if (row>4 && (row%2===0) && (col%2!==0) )
+    { 
+     this.checkers.push(black);
+     this.grid[row][col] = black;
+    }
+    //if row is odd col is even
+    if (row>4 && (row%2!==0) && (col%2===0) )
+    {  
+     this.checkers.push(black);
+     this.grid[row][col] = black;
+    }
+    }
+    }
+  }
 }
 
 class Game {
@@ -61,6 +101,7 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
   }
 }
 
