@@ -19,6 +19,7 @@ class Board {
   constructor() {
     this.grid = [];
     this.checkers =[];
+    this.selectChecker =(row,col)=>this.grid[row][col].symbol;
   }
   // method that creates an 8x8 array, filled with null values
 
@@ -63,34 +64,28 @@ class Board {
    const white = new Checker('white');
    const black = new Checker('black');
 
-    for(let row=0;row<8;row++)
-    {
-    for(let col=0;col<8;col++)
-    {
-      //display white checkers
-    if (row<3 && (row%2===0) && (col%2!==0) )
-     { 
-      this.checkers.push(white);
-      this.grid[row][col] = white;
-     }
-    if (row<3 && (row%2!==0) && (col%2===0) )
-    { 
-     this.checkers.push(white);
-     this.grid[row][col] = white;
-    }
-    // display black checkers
-    if (row>4 && (row%2===0) && (col%2!==0) )
-    { 
-     this.checkers.push(black);
-     this.grid[row][col] = black;
-    }
-    //if row is odd col is even
-    if (row>4 && (row%2!==0) && (col%2===0) )
-    {  
-     this.checkers.push(black);
-     this.grid[row][col] = black;
-    }
-    }
+    for(let row=0;row<8;row++) {
+      for(let col=0;col<8;col++) {
+        //display white checkers
+        if (row<3 && (row%2===0) && (col%2!==0) ) { 
+          this.checkers.push(white);
+          this.grid[row][col] = white;
+        }
+        if (row<3 && (row%2!==0) && (col%2===0) ) { 
+          this.checkers.push(white);
+          this.grid[row][col] = white;
+        }
+        // display black checkers
+        if (row>4 && (row%2===0) && (col%2!==0) ) { 
+          this.checkers.push(black);
+          this.grid[row][col] = black;
+        }
+        //if row is odd col is even
+        if (row>4 && (row%2!==0) && (col%2===0) ) {  
+          this.checkers.push(black);
+          this.grid[row][col] = black;
+        }
+      }
     }
   }
 }
@@ -98,11 +93,27 @@ class Board {
 class Game {
   constructor() {
     this.board = new Board;
+    this.moveChecker = (start, end) => {
+      const startRow = start.split('')[0];
+      const startCol = start.split('')[1];
+      const endRow = end.split('')[0];
+      const endCol = end.split('')[1];
+      if (this.grid [startRow][startCol])
+    };
+
   }
   start() {
     this.board.createGrid();
     this.board.createCheckers();
   }
+  // moveChecker(whichPiece, toWhere){
+  //  var coordinatesWhich = whichPiece.split('').map(Number);
+  //  var coordinatesTo = toWhere.split('').map(Number);
+  //  this.grid[row][col]
+  //   console.log('coordinatesWhich ' , coordinatesWhich);
+  //   console.log('coordinatesTo ', coordinatesTo);
+    
+  // } 
 }
 
 function getPrompt() {
