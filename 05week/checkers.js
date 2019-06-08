@@ -14,6 +14,7 @@ function Checker() {
 
 class Board {
   constructor() {
+    this.checkers = []
     this.grid = []
   }
   // method that creates an 8x8 array, filled with null values
