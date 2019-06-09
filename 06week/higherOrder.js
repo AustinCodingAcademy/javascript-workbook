@@ -2,12 +2,13 @@
 
 const assert = require('assert');
 
+//calls a provided function once for each element in the array and in order
 function forEach(arr, callback) {
   for(let i=0; i<arr.length; i++){
     callback(arr[i]);
   }
 }
-//returns new array
+//creates a new array with the result of calling a function for every array element
 function map(arr, callback) {
   let arr2 = [];
   for(let i=0; i<arr.length; i++){
@@ -16,6 +17,7 @@ function map(arr, callback) {
   return arr2;
 }
 
+//creates an array filled with all array elements that pass a test(provided as a function)
 function filter(arr, callback) {
   let x = [];
   for(let i=0; i<arr.length; i++){
@@ -25,6 +27,8 @@ function filter(arr, callback) {
   return x;
 }
 
+
+//checks if any of the elements in an array pass a test (provided as a function)
 function some(arr, callback) {
   for(let i=0; i<arr.length; i++){
     if(callback(arr[i]))
@@ -33,6 +37,7 @@ function some(arr, callback) {
   return false;
 }
 
+//checks if all elements in an array pass a test (provided as a function)
 function every(arr, callback) {
   for(let i=0; i<arr.length; i++){
     if(!callback(arr[i]))
