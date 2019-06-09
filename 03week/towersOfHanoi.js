@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
+
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -19,24 +21,44 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+//move pieces
+function movePiece(startStack, endStack) {
+let el = stacks[startStack].pop();
+stacks[endStack].push(el);
 
 }
-
-function isLegal() {
-  // Your code here
-
+//determines if move is legal
+function isLegal(startStack, endStack) {
+if (stacks[startStack].length == 0 && stack[endStack].length == 0){
+  return false;
+}
+    let el1 = stacks[startStack] [stacks[startStack].length-1] ;
+    let el2 = stacks[endStack];
+  
+  if(el1 > 0 && stacks[endStack].length == 0 ){
+    return true;
 }
 
+if (el2 > el1){
+  return true
+
+}
+else {
+  return false
+}
+}
+
+
+//check for wins
 function checkForWin() {
-  // Your code here
-
+  if(stacks.b.length === 4){
+    return true 
+  } else 
+  return false
 }
-
+//sets game
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  movePiece(startStack, endStack)
 }
 
 function getPrompt() {
