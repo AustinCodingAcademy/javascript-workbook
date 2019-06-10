@@ -33,15 +33,15 @@ class Ship{
   }
 
 missionStatement(){
-if (Ship.CrewMember)
-  return "Can't perform a mission yet.";
-
-  return this.ability;
+if (this.crew.length==0){
+  return "Can't perform a mission yet."
+}else{return this.ability}
+  
 //cant preform //no
 
 //interplanetary //yes
 }
-}
+
 
 //tests
 if (typeof describe === 'function'){
