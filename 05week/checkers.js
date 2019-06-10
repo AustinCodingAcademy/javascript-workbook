@@ -99,7 +99,7 @@ class Game {
       const endRow = end.split('')[0];
       const endCol = end.split('')[1];
       if (this.grid [startRow][startCol])
-    };
+    }
 
   }
   start() {
