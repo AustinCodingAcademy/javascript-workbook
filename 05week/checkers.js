@@ -29,6 +29,7 @@ class Board {
       }
     }
   }
+  
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -58,7 +59,7 @@ class Board {
   }
   killCheckers(position) {
     this.checkers.splice(position, 1);
-    console.log("postion:", position);
+    // console.log("postion:", position);
   }
 
   createCheckers() {
@@ -95,6 +96,7 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    //sets up the default board with black and white checkers
     this.board.createCheckers();
   }
   moveChecker(start, end) {
@@ -111,6 +113,7 @@ class Game {
         midPointRow,
         midPointColumn
       );
+      //determines midpoint and kills checker by setting it to null
       this.board.killCheckers(killPosition);
       this.board.grid[midPointRow][midPointColumn] = null;
     }
