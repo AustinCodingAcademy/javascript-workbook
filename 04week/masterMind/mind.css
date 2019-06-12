@@ -1,0 +1,42 @@
+.topbox{
+    display: flex;
+    flex-direction: row
+}
+
+.guessbox{
+    width:100px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 5px
+}
+.g{
+    height: 50px;
+    /* border: 2px solid red; */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    widows: 100%
+}
+.opt{
+    height: 15px;
+    background: grey;
+    border: 1px solid gray;
+    border-radius: 100%;
+    width: 15px;
+    margin: 5px
+}
+.hint{
+border:2px solid green;
+width: 100px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 5px
+}
+.h{
+    display: flex;
+}
