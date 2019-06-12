@@ -1,0 +1,44 @@
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: url(https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80);
+    height: 100%;
+    background-size: cover
+    
+    
+    }
+    #msg{
+    /* border: 2px black solid; */
+    background-color: rgba(74, 17, 344, .9);
+    color: rgb(108, 233, 108);
+    font-size: 30px
+    }
+    
+    #in{
+    height: 45px;
+    font-size: 35px
+    }
+    .bbox{
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+    .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    height: 80px;
+    width: 80px;
+    font-size: 20px;
+    border-radius: 20%;
+    /* padding: 30px; */
+    background-color: brown;
+    color: cornsilk;
+    
+    
+    
+    
+    }
