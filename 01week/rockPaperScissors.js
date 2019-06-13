@@ -8,6 +8,11 @@ const rl = readline.createInterface({
 });
 
 
+
+   
+
+ 
+
 function rockPaperScissors(hand1, hand2) {
 
   if ( hand1===hand2) 
@@ -37,22 +42,6 @@ function rockPaperScissors(hand1, hand2) {
  
    else
    return "type : rock, paper or Scissors"
- 
-   }
-   
- console.log(rockPaperScissors("scissors", "scissors"));
- console.log(rockPaperScissors("rock", "paper"));
- console.log(rockPaperScissors("scissors", "rock"));
- console.log(rockPaperScissors("paper", "scissors"));
- console.log(rockPaperScissors("rock", "scissors"));
- console.log(rockPaperScissors("rock", "rock"));
- console.log(rockPaperScissors("paper", "rock"));
- console.log(rockPaperScissors("scissors", "paper"));
- 
-
-function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
 
 }
 
@@ -65,7 +54,34 @@ function getPrompt() {
   });
 }
 
-// Tests
+Tests
+function showTime(){
+    var date = new Date();
+    var h = date.getHours();// 0 - 23
+    var h = date.getMinutes();// 0 - 59
+    var h = date.getSeconds();// 0 - 59
+
+    if(h == 0){
+        h = 12;
+    }
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+
+    h = (h < 10) ? "0" + h : h;
+    h = (m < 10) ? "0" + m : m;
+    h = (s < 10) ? "0" + s : s;
+
+    var time = h + ":" + m + ":" + 5;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").innerContent = time;
+
+    startTimeOut("showTime, 1000");
+
+    showTime();
+}
+
 
 if (typeof describe === 'function') {
 
