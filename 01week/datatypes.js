@@ -1,95 +1,61 @@
-'use strict';
 
-/**
- * [getCurrentDate description]
- * @return {time} current time
- */
-function getCurrentDate() {
-  let currentDate = new Date();
-  return currentDate;
-}
 
-/**
- * [convertNumToString description]
- * @param  {[type]} myNumber [description]
- * @return {[type]}          [description]
- */
+//Write a JavaScript program to display the current day and time.
+function displayDate() {
+  // console.log("DISPLAY DATE:");
+  const myDate = new Date();
+  console.log(myDate)
+} displayDate();
+
+//Write a JavaScript program to convert a number to a string.
 function convertNumToString(myNumber) {
-  alert("convertNumToString");
-  console.log(typeof myNumber);
-  let myString = myNumber.toString();
+  console.log("ConvertNumToString:");
+  const myString = myNumber.toString();
+    console.log (myString+" Is now a "+typeof myString);
+} convertNumToString(2);
 
-  return myString;
-}
+//Write a JavaScript program to convert a string to the number.
+function convertStringToNumber(myString) {
+  console.log("Convert String to Number:");
+  const myNumber = parseInt(myString);
+  console.log(myNumber);
+} convertStringToNumber("seven");
 
-/**
-* [convertNumToString description]
-* @param  {[type]} myNumber [description]
-* @return {[type]}          [description]
-*/
-function convertStringToNum(myString) {
-  let myNumber = parseInt(myString);
-  return myNumber;
-}
+//Write a JavaScript program that takes in different datatypes and prints out
+function printDataType(data) {
+  console.log("Print Data Type");
+  console.log(data+" is a "+typeof data)
+} printDataType(NaN);
 
-/**
- * [whatDataType description]
- * @param  {[type]} data [description]
- * @return {[type]}      [description]
- */
-function whatDataType(data) {
-  return typeof(data);
-}
+//Write a JavaScript program that adds 2 numbers together.
+function add(a,b) {
+  console.log(a+b);
+} add(5,2);
 
-/**
- * [add description]
- * @param {[type]} num1 [description]
- * @param {[type]} num2 [description]
- */
-function add(num1,num2){
-  return num1+num2;
-}
+//Write a JavaScript program that runs only when 2 things are true.
+function ifBothAreTrue(a,b) {
+  if (a&&b) {
+    console.log("Both are true");
+  } else {
+    console.log("I only run if both are true!");
+  }
+} ifBothAreTrue(true,true);
 
+//Write a JavaScript program that runs when 1 of 2 things are true.
+function ifOneAreTrue(a,b) {
+  if (a||b) {
+    console.log("One is true!");
+  } else {
+    console.log("I only run if one is true");
+  }
+} ifOneAreTrue(false,true);
 
-let displayDate = document.getElementById("displayDate");
-let convertNumToStringButton = document.getElementById('convertNumToStringButton');
-let convertStringToNumButton = document.getElementById("convertNumToStringButton");
-let checkDataTypeButton = document.getElementById("checkDataTypeButton");
-let addButton = document.getElementById('addButton');
-//When the displayDate button is clicked
-displayDate.addEventListener("click", function(){
-  displayDate.innerHTML=getCurrentDate();
-});
+// Write a JavaScript program that runs when both things are not true.
+function ifBothAreFalse(a,b) {
+  if (a==false&&b==false) {
+    console.log("Both are false");
+  } else {
+    console.log("I only run if both are false");
+  }
 
-//When the "Convert Numbers" button is clicked
-convertNumToStringButton.addEventListener("click",function(){
-  const oldField = document.getElementById("inputNumber");
-  const newField = document.getElementById("outputString");
-  newField.value = oldField.value.toString()+" is now a "+typeof newField.value;
-});
-//When the "Convert String" button is clicked
-convertStringToNumButton.addEventListener("click",function(){
-  const oldField = document.getElementById("inputString");
-  const newField = document.getElementById("outputNumber");
-  newField.value = oldField.value+" is now a "+typeof parseInt(newField.value);
-});
-//Check what Datatype
-checkDataTypeButton.addEventListener('click',function(){
-  const myValue = document.getElementById("dataTypeName").valueOf();
-  console.log(typeof myValue.value);
-});
-
-// Add Two Numbers
-addButton.addEventListener("click",function(){
-  let num1 = document.getElementById("num1").value;
-  let num2 = document.getElementById("num2").value;
-  let sum = num1+num2;
-  document.getElementById("sum").value=parseInt(sum);
-});
-getResultButton.addEventListener("click",function(){
-  const item1 = document.getElementById("item1");
-  const item2 = document.getElementById("item2");
-  const result = document.getElementById("result");
-
-  console.log(result.innerHTML+=result);
-});
+} ifBothAreFalse(false,false);
