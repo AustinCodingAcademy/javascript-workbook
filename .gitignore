@@ -8,3 +8,8 @@ npm-debug.log*
 
 # OS artifacts
 *.DS_Store
+
+# Do I really need workspace files in my repo?
+javascript-workbook.code-workspace
+# a sep folder to do quick scripts in
+practice/
