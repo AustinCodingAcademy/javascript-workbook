@@ -51,10 +51,12 @@ console.log("grant: ");
 typeof grant;
 
 //add 2 numbers together
-
-//only runs when both are true
 let a = 5;
 let b = 4;
+
+console.log(a + b "= 5+ 4")
+
+//only runs when both are true
 
 if(a > 1 && b > 1){
   console.log('Hooray for numbers!')
