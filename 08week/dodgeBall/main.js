@@ -78,12 +78,6 @@ const arrOfPeople = [
       this.team = null;
     }
   }
-  class blueTeammate {
-    constructor(){}
-  }
-  class redTeammate {
-    constructor(){}
-  }
   
   const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
@@ -178,7 +172,7 @@ const arrOfPeople = [
 
  // Tests
 
- // when running test comment out line 109, 110, 111, 158 and 169 !!!
+ // when running test, comment out line 103, 104, 105, 133, 134, 135, 136, 145, 146, 147, 148, 152 and 163 !!!
  // uncomment line 3!
 
   if (typeof describe === 'function') {
@@ -189,12 +183,12 @@ const arrOfPeople = [
         assert.equal(listOfPlayers[0].name, "Alex Borsbach");
       });
       it('should move clicked player to a listBluePlayers list', () => {
-        listBluePlayers(1);
-        assert.equal(listBluePlayers[0]);
+        makeBlue(1);
+        assert.equal(blueTeam[0].name, "Alex Borsbach");
       });
       it('should move clicked player to a listRedPlayers list', () => {
-        listRedPlayers(1);
-        assert.equal(listRedPlayers[0]);
+        makeRed(2);
+        assert.equal(redTeam[0].name, "Charles Young");
       });
     });
   }
