@@ -137,6 +137,7 @@ const arrOfPeople = [
     const playerIndex = listOfPlayers.indexOf(redPlayer)
     listOfPlayers.splice(playerIndex,1);
     document.getElementById('red').innerHTML = ""
+    document.getElementById("red").style.color = 'red';
     listPlayers()
     listRedPlayers()
   }
@@ -148,6 +149,7 @@ const arrOfPeople = [
     const playerIndex = listOfPlayers.indexOf(bluePlayer)
     listOfPlayers.splice(playerIndex,1);
     document.getElementById('blue').innerHTML = ""
+    document.getElementById("blue").style.color = 'blue';
     listPlayers()
     listBluePlayers()
   }
@@ -176,7 +178,7 @@ const arrOfPeople = [
 
  // Tests
 
- // when running test comment out line 109, 110, 111, 156 and 167 !!!
+ // when running test comment out line 109, 110, 111, 158 and 169 !!!
  // uncomment line 3!
 
   if (typeof describe === 'function') {
