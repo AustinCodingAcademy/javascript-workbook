@@ -1,4 +1,15 @@
+"use strict";
+
+// const assert = require('assert');
+
 const arrOfPeople = [
+    {
+      id: 1,
+      name: "Alex Borsbach",
+      age: 42,
+      skillSet: "technician",
+      placeBorn: "Berlin, Germany"
+    },
     {
       id: 2,
       name: "Charles Young",
@@ -107,10 +118,10 @@ const arrOfPeople = [
     listOfPlayers.map(player => {
       const li = document.createElement("li")
       const buttonRed = document.createElement("button")
-      buttonRed.innerHTML = "Make Red"
+      buttonRed.innerHTML = "Red Team"
       buttonRed.addEventListener('click', () => {makeRed(player.id)})
       const buttonBlue = document.createElement("button")
-      buttonBlue.innerHTML = "Make Blue"
+      buttonBlue.innerHTML = "Blue Team"
       buttonBlue.addEventListener('click', () => {makeBlue(player.id)})
       li.appendChild(buttonRed)
       li.appendChild(buttonBlue)
@@ -121,22 +132,67 @@ const arrOfPeople = [
 
   const makeRed = (id) => {
     listOfPlayers.find(player => player.id === id).team = "red";
-    listRedPlayers(id)
+    const redPlayer = listOfPlayers.find(player => player.id === id)
+    redTeam.push(redPlayer)
+    const playerIndex = listOfPlayers.indexOf(redPlayer)
+    listOfPlayers.splice(playerIndex,1);
+    document.getElementById('red').innerHTML = ""
+    listPlayers()
+    listRedPlayers()
   }
 
   const makeBlue = (id) => {
     listOfPlayers.find(player => player.id === id).team = "blue";
+    const bluePlayer = listOfPlayers.find(player => player.id === id)
+    blueTeam.push(bluePlayer)
+    const playerIndex = listOfPlayers.indexOf(bluePlayer)
+    listOfPlayers.splice(playerIndex,1);
+    document.getElementById('blue').innerHTML = ""
+    listPlayers()
+    listBluePlayers()
   }
 
-  const listRedPlayers = (id) => {
+  const listRedPlayers = () => {
     const redList = document.getElementById('red');
-    const li = document.createElement('li');
-    const redPlayer = listOfPlayers.filter(player => player.id === id)
-    redTeam.push(redPlayer)
-    redTeam.map((player, id) => {
-      const name = player[id].name;
+    redTeam.map((player) => {
+      const li = document.createElement('li');
+      const name = player.name;
       console.log(name)
       li.appendChild(document.createTextNode(name))
       redList.appendChild(li)
     })
+  }
+
+  const listBluePlayers = () => {
+    const blueList = document.getElementById('blue');
+    blueTeam.map((player) => {
+      const li = document.createElement('li');
+      const name = player.name;
+      console.log(name)
+      li.appendChild(document.createTextNode(name))
+      blueList.appendChild(li)
+    })
+  }
+
+ // Tests
+
+ // when running test comment out line 109, 110, 111, 156 and 167 !!!
+ // uncomment line 3!
+
+  if (typeof describe === 'function') {
+
+    describe('#makePlayer()', () => {
+      it('should move clicked person to player class', () => {
+        makePlayer(1);
+        assert.equal(listOfPlayers[0].name, "Alex Borsbach");
+      });
+      it('should move clicked player to a listBluePlayers list', () => {
+        listBluePlayers(1);
+        assert.equal(listBluePlayers[0]);
+      });
+      it('should move clicked player to a listRedPlayers list', () => {
+        listRedPlayers(1);
+        assert.equal(listRedPlayers[0]);
+      });
+    });
   }
