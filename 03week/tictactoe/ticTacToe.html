@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="./tictactoe.css">
+   
+</head>
+  <body>
+		<div id="wrapper">
+			<div id="header" role="header">
+				<h2>Let's play some TicTacToe</h2>
+				<p>Just wait for your turn!</p>
+				<p id="message"></p>
+			</div>
+			<div id="row_left">
+				<div class="feld">
+					<div class="tic" id="0_0" onClick="nextMove(id)"></div>
+					<div class="tic" id="0_1" onClick="nextMove(id)"></div>
+					<div class="tic" id="0_2" onClick="nextMove(id)"></div>
+					
+					<div class="tic" id="1_0" onClick="nextMove(id)"></div>
+					<div class="tic" id="1_1" onClick="nextMove(id)"></div>
+					<div class="tic" id="1_2" onClick="nextMove(id)"></div>
+					
+					<div class="tic" id="2_0" onClick="nextMove(id)"></div>
+					<div class="tic" id="2_1" onClick="nextMove(id)"></div>
+					<div class="tic" id="2_2" onClick="nextMove(id)"></div>
+				</div>
+				<p>Player: <span id="player"></span></p>
+				<h3>Best of 5:</h3>
+				<p>X:<span id="spieler1"></span></p> 
+				<p>O: <span id="spieler2"></span></p>
+			  <button onclick="gameOver()">Let's do it again!</button>
+
+
+<script src="./tictactoe.js"></script>
+</body>
+</html>

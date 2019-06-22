@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Parisienne|Prata);
+body {
+    background: url(https://images.pexels.com/photos/459301/pexels-photo-459301.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+    font-family: "Parisienne', sans-serif";
+  }
+  
+  .title {text-align:center;}
+  .title h1 {
+    font-family: "Parisienne', sans-serif";
+    color:rgb(54, 39, 53);
+    text-shadow:2px 2px 0px rgba(255,255,255,0.5),4px 4px 0px rgba(255,255,255,0.5);
+    padding-bottom:5px;
+    border-bottom:5px solid rgba(255,255,255,0.5);
+    width:900px;
+    margin:20px auto;
+    margin-top:0px;
+  }
+  
+  .project-cont {
+    width:900px;
+    margin:0px auto;
+    background-color:rgba(255, 255, 255, 0.27);
+    padding:20px 0px;
+    color:rgb(76, 9, 78);
+  }
+  
+  .project-cont .inner {padding:0px 20px;}
+  
+  /* Input Area */
+  .input-controls {
+    text-align:center;
+  }
+  .input-controls .inp-control {
+    display:inline-block;
+    padding:5px 10px;
+    font-size:50px;
+    vertical-align:middle;
+    background-color:rgb(175, 42, 153);
+    border-radius:10px;
+  } 
+  
+  .input-controls .input-word {
+    max-width:600px;
+    min-width:400px;
+  }
+  .input-controls .input-word:focus {
+    outline:none;
+  }
+  
+  
+  .input-controls .button-submit {
+    cursor:pointer;
+    background-color:#881688;
+  }
+  
+  .input-controls .button-submit:active {
+    background-color:rgb(76, 9, 78);
+  }
+  
+  
+  .rules {text-align:center;}
+  
+  .results-pane {
+    font-size:90px;
+    text-align:center;
+    font-family: "Parisienne', sans-serif";
+    /* font-family:Bevan; */
+    text-shadow:1px 1px 0px #eee;
+    margin:30px auto;
+    width:800px;
+    border-radius:20px;
+    color:rgb(228, 224, 224);
+    border:5px dashed rgb(126, 94, 121);
+  }
+  
+  
+  .wordlists li {
+    display:inline-block;
+    padding:4px 8px;
+    margin:10px 10px;
+    background-color:rgb(235, 140, 228);
+    border-radius:15px;
+    cursor:pointer;
+    border:1px solid rgb(49, 7, 46);
+  }
+  
+  .wordlists li:hover {
+    background-color:rgb(97, 59, 94);
+  }
+  
+  /* .wordlists li:active {
+    -webkit-transform:scale(0.95);
+  } */
+   
