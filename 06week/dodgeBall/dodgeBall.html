@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./dodgeBall.css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+  <title>DodgeBall</title>
+</head>
+<body>
+  <div>
+    <form id="new-entries">
+      <label for="new-entries" id="form-title">Create New Person: </label>
+      <div class="form-item">
+        <label for="name">Name:</label>
+        <input id="name" class="input-value" type="text">
+      </div>
+      <div class="form-item">
+        <label for="age">Age:</label>
+        <input id="age" class="input-value" type="text">
+      </div>
+      <div class="form-item">
+        <label for="skillSet">Skill Set:</label>
+        <input id="skillSet" class="input-value" type="text">
+      </div>
+      <div class="form-item">
+        <label for="placeBorn">Place Born:</label>
+        <input id="placeBorn" class="input-value" type="text">
+      </div>
+      <!-- * submit message -->
+      <div id="submit-message" class="hidden"></div>
+      <input type="submit" id="submit">
+    </form>
+  </div>
+  <div class="list">
+    <div>
+        <h4>List Of People</h4>
+        <ul id="people"></ul>
+      </div>
+      <button id="button" onclick="listPeopleChoices()">List People</button>
+  </div>
+
+  <div class="play">
+    <h4>Dodge Ball Players</h4>
+    <ul id="players"></ul>
+  </div>
+  <div class="teams">
+    <div class="blue">
+        <h4>Blue Team</h4>
+        <ul id="blue"></ul>
+      </div>
+      <div class="red">
+        <h4>Red Team</h4>
+        <ul id="red"></ul>
+      </div>
+  </div>
+  
+  <script src='./dodgeBall.js'>
+  </script>
+</body>
+</html>
