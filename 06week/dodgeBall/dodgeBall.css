@@ -1,0 +1,33 @@
+body{
+   background-color: rgb(247, 253, 160); 
+   font-family: 'Archivo Black', sans-serif;
+}
+#new-entries{
+    display: flex;
+   align-items: center; 
+   justify-content: center;
+   flex-direction: column;
+}
+.list{
+    display: flex;
+    align-items: center; 
+   justify-content: center;
+   flex-direction: column;
+}
+.play{
+    display: flex;
+    align-items: center; 
+   justify-content: center;
+   flex-direction: column;
+}
+.teams{
+    display: flex;
+    align-items: center; 
+   justify-content: space-around;
+}
+.red{
+    color: red;
+}
+.blue{
+    color:blue;
+}
