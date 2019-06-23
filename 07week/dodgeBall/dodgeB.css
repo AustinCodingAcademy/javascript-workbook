@@ -1,0 +1,19 @@
+
+#red{
+    color: crimson;
+    line-height: 2em
+}
+#blue{
+    color: navy;
+    line-height: 2em;
+
+}
+
+
+#blueButton{
+    color: blue;
+    margin: 5px;
+}
+#redButton{
+    color: red;
+}
