@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="apitest.css"
+  <title>Pokemon</title>
+</head>
+<body>
+    <h2>Pokemon Stadium</h2>
+  <div class="container"> 
+    <div class="goBtns">
+      <button id="get1" onclick="getPokemon1()">GO!</button>
+      <button id="get2" onclick="getPokemon2()">GO!</button>
+    </div>
+    <div class="cards">
+      <div class="card" id="first">
+        <div class="stats" id="pokeName1"> </div>
+      </div>
+      <div class="card" id="second">
+        <div class="stats" id="pokeName2"> </div>
+      </div>
+    </div>
+    <hr>
+    <h3 id="Announcement"></h3>
+    <hr>
+    <div class="active">
+      <button class="battle" onclick="checkForWin()"> Battle</button>
+      <button class="restart" onclick="restart()"> Restart</button>
+    </div>
+   
+  </div>
+  
+  <script src="./apitest.js"></script>
+</body>
+</html>

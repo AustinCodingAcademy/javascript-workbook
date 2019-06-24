@@ -1,0 +1,73 @@
+body {
+    background-image: url(./Pokemon\ backdrop.jpeg);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    background-color: rgba(6, 30, 213, 0.892);
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 12px;
+    /* border: 1px solid grey; */
+    padding: 10px;
+    box-shadow: 0 0 10px #BFBFBF;
+}
+
+.cards {
+    display: flex; 
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+ }
+
+ .card {
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+ }
+
+.active {
+   display: flex; 
+   justify-content: space-evenly;
+   align-items: center;
+   margin: 0 auto;
+   
+}
+
+h2 {
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #F1EFE8;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: inset 0 0 5px rgb(174, 174, 174);
+    font-family: 'Open Sans', sans-serif;
+}
+
+button:hover {
+    background-color: rgb(255, 244, 230);
+}
+
+.stats {
+    height: 200px;
+}
+
+.restart {
+    float: right;
+}
+
+.goBtns {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#announcement {
+    text-align: center;
+    height: 30px;
+}
