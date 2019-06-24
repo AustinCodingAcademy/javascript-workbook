@@ -26,6 +26,7 @@ if (typeof describe === 'function' ) {
     assert.equal(getPost(Fakefetch,31), 'out of range');
 });
 
+
     })
 } else {
     console.log('only run the test on this one')
