@@ -60,3 +60,4 @@ const displayUser = () => {
     allUsers.append(li);
   });
 };
+
