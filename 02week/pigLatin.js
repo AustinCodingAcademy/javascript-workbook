@@ -20,10 +20,9 @@ function pigLatin(word) {
   word = word.trim();
   word = word.toLowerCase();
 
-  // ###
-
-  // if word begins with vowel, puts "yay" at end
+  // if word begins with vowel...
   if (vowels.includes(word[0])) {
+  // ... puts "yay" at end
     return word + "yay"
   // if word begins with one consonant and then a vowel, moves one letter to end and adds "ay"
   } else if (consonant.includes(word[0])) {
@@ -31,9 +30,9 @@ function pigLatin(word) {
       let movedLetter = word.slice(0,1);
       return word.substr(1) + movedLetter + "ay";
     }
-  // if word begins with two consonants, moves oen letter to end and adds "ay"
+  // if word begins with two consonants, moves two letters to end and adds "ay"
   } else if (consonant.includes(word[0]) && consonant.includes(word[1])) {
-    if (consonant.includes(word[2])) {
+    if (vowels.includes(word[2])) {
       let movedLetter = word.slice(0,2);
       return word.substr(2) + movedLetter + "ay";
     }
