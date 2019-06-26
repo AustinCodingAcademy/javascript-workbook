@@ -9,7 +9,20 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-  word
+  //first I'm going to take the input and make an array of letters called 'newWord' that doesn't contain any spaces or capital letters
+  let newWord = word.trim().toLowerCase().split('');
+
+  //Now I need to create an array to hold the letters because split will not create the array for me
+  let pigLatin = [];
+
+  //Next I need to declare an array of vowels that I want to compare to the first letter of each word
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  //if the word starts with a vowel, then all I need to do is add "ay" to the end
+  if (newWord.indexOf(vowels) === 0) {
+    return newWord + 'ay';
+  } else if (newWord.indexOf(vowels) === 1)
+      newWord.split([1])
 }
 
 
