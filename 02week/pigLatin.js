@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-  let userWord = prompt('Enter a word to translate it to pig latin');
+  word
 }
 
 
