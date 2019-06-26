@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    background: lightgray;
+}
+header {
+    margin-top: 20px;
+    text-align: center;
+}
+.container {
+    margin-top: 100px;
+    justify-content: center;
+    background: black;
+    color: white;
+    text-align: center;
+}
