@@ -11,8 +11,31 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+  // define what vowels are
+  
+  formattedWord = word.trim();
+  formattedWord = word.toLowerCase();
+  const vowelArray = ["a","e","i","o","u"]
+
+  while ()
 
 }
+
+
+// class notes:
+// 1. lowercase everything
+// 2. is first letter vowel? (split letters into an array --> then do arr[0] to see if it's a vowel --> includes is function to check??)
+// 3. move first letter to end (use shift or push to get to end)
+// split(0)
+// push(split(0))
+// 4. add "ay" to string using concat/push/
+// 5. shift until we find vowel
+
+// while loop...
+// while(arr[0]!=)
+
+
+// if first letter a consonant, add "ay"... if first letter a vowel, add "hay"
 
 
 function getPrompt() {
