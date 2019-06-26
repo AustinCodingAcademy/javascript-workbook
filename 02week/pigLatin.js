@@ -11,19 +11,27 @@ const rl = readline.createInterface({
 function pigLatin(word) {
   
   const vowels = ['a', 'e', 'i', 'o', 'u'];
+  // Turns the string to lower case and trims
   word = word.toLowerCase();
   word = word.trim();
+
+  // First 'if' checks to if the first character in the string is NOT in the array vowels
+  // Then checks if the seconds charachter in a string IS in the array of vowels.
   if (!vowels.includes(word[0])) {
     if (vowels.includes(word[1])) {
-      removedLetter = word.slice(0,1);
-      console.log(word.substr(1)+`${removedLetter}`+'ay');
+      let removedLetter = word.slice(0,1); // Removes the first letter of the string
+
+      return(word.substr(1)+`${removedLetter}`+'ay'); // Returns the string minues the first letter, then adds the removed letter to the end followed by 'ay'.
+
+      // Checks if the first and second characters ARE NOT in the array vowels.
     } else if (!vowels.includes(word[0]) && !vowels.includes(word[1])) {
-      removedLetters = word.slice(0,2);
-      console.log(word.substr(2)+`${removedLetters}`+'ay');
+      let removedLetters = word.slice(0,2); // Removes the first two letters of the word
+      return(word.substr(2)+`${removedLetters}`+'ay'); // Returns the word minus the first 2 letters, then adds the removed letters to the end followed by 'ay'.
       } 
+      // Checks if the first letter IS in the array of vowels
     } else if (vowels.includes(word[0])) {
-      console.log(`${word}`+'yay');
-  }  
+      return(`${word}`+'yay'); // Returns the whole string and adds 'yay' to the end.
+  } 
 }
 
 
