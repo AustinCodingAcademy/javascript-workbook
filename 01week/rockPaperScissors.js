@@ -60,3 +60,4 @@ if (typeof describe === "function") {
 } else {
 	getPrompt();
 }
+yea;
