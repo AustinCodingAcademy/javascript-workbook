@@ -31,6 +31,7 @@ function pigLatin(word) {
       // Checks if the first letter IS in the array of vowels
     } else if (vowels.includes(word[0])) {
       return(`${word}`+'yay'); // Returns the whole string and adds 'yay' to the end.
+      //test
   }
 }
 
