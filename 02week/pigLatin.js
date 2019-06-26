@@ -15,9 +15,15 @@ function pigLatin(word) {
   
   formattedWord = word.trim();
   formattedWord = word.toLowerCase();
-  const vowelArray = ["a","e","i","o","u"]
+  // const vowelArray = ["a","e","i","o","u"]
 
-  while ()
+  const findVowel = word => {
+    
+
+
+
+
+  }
 
 }
 
