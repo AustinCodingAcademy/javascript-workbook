@@ -15,11 +15,6 @@ function pigLatin(word) {
   word = word.toLowerCase();
   word = word.trim();
 
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
-  // Turns the string to lower case and trims
-  word = word.toLowerCase();
-  word = word.trim();
-
   // First 'if' checks to if the first character in the string is NOT in the array vowels
   // Then checks if the seconds charachter in a string IS in the array of vowels.
   if (!vowels.includes(word[0])) {
@@ -36,7 +31,6 @@ function pigLatin(word) {
       // Checks if the first letter IS in the array of vowels
     } else if (vowels.includes(word[0])) {
       return(`${word}`+'yay'); // Returns the whole string and adds 'yay' to the end.
-      //test
   }
 }
 
