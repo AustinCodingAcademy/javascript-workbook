@@ -9,6 +9,11 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  // Turns the string to lower case and trims
+  word = word.toLowerCase();
+  word = word.trim();
 
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   // Turns the string to lower case and trims
