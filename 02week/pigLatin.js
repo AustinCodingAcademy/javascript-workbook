@@ -13,18 +13,31 @@ function pigLatin(word) {
   // Your code here
   // define what vowels are
   
-  formattedWord = word.trim();
-  formattedWord = word.toLowerCase();
-  // const vowelArray = ["a","e","i","o","u"]
+  // defines vowels, trims strings, makes all characters lowercase
+  const vowels = ['a','e','i','o','u'];
+  // i couldn't remember how to declare something as NOT something (aka a vowel) so i made this string before i remembered
+  const consonant = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+  word = word.trim();
+  word = word.toLowerCase();
 
-  const findVowel = word => {
-    
+  // ###
 
-
-
-
+  // if word begins with vowel, puts "yay" at end
+  if (vowels.includes(word[0])) {
+    return word + "yay"
+  // if word begins with one consonant and then a vowel, moves one letter to end and adds "ay"
+  } else if (consonant.includes(word[0])) {
+    if (vowels.includes(word[1])) {
+      let movedLetter = word.slice(0,1);
+      return word.substr(1) + movedLetter + "ay";
+    }
+  // if word begins with two consonants, moves oen letter to end and adds "ay"
+  } else if (consonant.includes(word[0]) && consonant.includes(word[1])) {
+    if (consonant.includes(word[2])) {
+      let movedLetter = word.slice(0,2);
+      return word.substr(2) + movedLetter + "ay";
+    }
   }
-
 }
 
 
