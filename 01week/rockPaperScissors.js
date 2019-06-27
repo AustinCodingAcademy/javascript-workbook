@@ -9,9 +9,20 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  //first I want to remove any spaces and convert all inputs to lowercase
+  hand1 = hand1.trim();
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.trim();
+  hand2 = hand2.toLowerCase();
 
-  // Write code here
-
+  if (hand1 === hand2) {
+    //if both hands equal the same thing, the game should tell the users it's a tie
+    return (`You both played ${hand1}`);
+  } else if (hand1 === 'rock' && hand2 === 'scissors' || hand1 === 'paper' && hand2 === 'rock' || hand1 === 'scissors' && hand2 === 'paper') {
+    return ('Player 1 wins!');
+  } else {
+    return ('Player 2 wins!');
+  }
 }
 
 function getPrompt() {
