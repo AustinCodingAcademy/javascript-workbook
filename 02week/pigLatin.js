@@ -7,12 +7,56 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+'use strict'
 
-function pigLatin(word) {
+function pigLatin(word){
+  word = word.trim().toLowerCase();
+  var letters = word.split('');
+  var vowels = ['a','e','i','o','u'];
+  var newWord = '';
+    for(var i = 0; i < vowels.length-1; n++) {
+      for (var y=0; y< word.length-1; y++) {
+        if (word[y] === vowels[i]){
+          for (var x=y; x< word.length; x++){
+            newWord = newWord + word[x];
+          }
+        for(var n = 0; n < y; n++) {
+            newWord = newWord + word[n];
+          }
+        return newWord + 'yay";'
+          }
+        }
+      }
+    }
 
-  // Your code here
+  // Your code 
+  //var word= "trish"
+  // function pigLatin(word) {
+ // 
+//var word = word.split("");
+ // console.log (word);
 
-}
+ // var word ="abcd";
+   // for(i=0; i<s. length;i++){
+    //        char c=s. charAt(i);
+      //  console.log(c);
+
+
+  //var vowelRegex = word.match(/[aeiou]/ig);
+  //  if (vowelRegex.test(letter[0])) {
+  //  return letters.join("")+"yay";
+ // }
+ // }
+  //while(true) {
+   // if(!vowelRegex.test (letters[0])){
+   //   letters.push(letter.splice(0,1));
+  //  }
+  //  else break;
+ // }
+  //word=letters.join("")+"ay";
+  //  return word;
+  
+
 
 
 function getPrompt() {
