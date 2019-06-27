@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+    margin: 5px;
+    width: 150px;
+}
+p {
+    font-family: sans-serif;
+    color: black;
+    width: 300px;
+    height: auto;
+    padding-left: 74px;
+}
+
+a:hover {
+    cursor: pointer;
+}
