@@ -24,8 +24,10 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
-}
+  if (board[[0] [0]] && board[[0] [1]] && board[[0] [2]] === 'X'){
+    return 'X Wins'; //could be parenthases
+  };
+};
 
 function verticalWin() {
   // Your code here
@@ -40,8 +42,26 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  //your code here
 }
+
+//to check for validity: DISCUSSION IN CLASS
+if (!board[1][1]){
+  return 'not available';
+} else(board[1][1] = player1);
+
+
+//changing player turns
+if (current == playerX) {
+  current = playerO;
+} else player = X;
+
+//check for win
+if (some win = won)
+
+//if play is valid, place x or o on the board. Then check for win. then switch player.
+
+//end of code from Dinh
 
 function getPrompt() {
   printBoard();
