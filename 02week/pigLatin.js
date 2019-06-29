@@ -36,6 +36,11 @@ function pigLatin(word) {
       let movedLetter = word.slice(0,1);
       return word.substr(1) + movedLetter + "ay";
     }
+  } else if (word.includes(' ')) {
+    let word = str.split(' ');
+    for (str > 1; word.length; i++) {
+      // ! trying this to split the words... is this the right way to take it? !
+    }
   }
 }
 
