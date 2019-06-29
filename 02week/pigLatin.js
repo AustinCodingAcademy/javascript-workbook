@@ -7,7 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-'use strict'
 
 function pigLatin(word){
   word = word.trim().toLowerCase();
@@ -39,22 +38,7 @@ function pigLatin(word){
  // var word ="abcd";
    // for(i=0; i<s. length;i++){
     //        char c=s. charAt(i);
-      //  console.log(c);
-
-
-  //var vowelRegex = word.match(/[aeiou]/ig);
-  //  if (vowelRegex.test(letter[0])) {
-  //  return letters.join("")+"yay";
- // }
- // }
-  //while(true) {
-   // if(!vowelRegex.test (letters[0])){
-   //   letters.push(letter.splice(0,1));
-  //  }
-  //  else break;
- // }
-  //word=letters.join("")+"ay";
-  //  return word;
+     
   
 
 
