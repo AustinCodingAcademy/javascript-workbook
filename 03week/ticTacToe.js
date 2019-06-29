@@ -45,10 +45,18 @@ function ticTacToe(row, column) {
   //your code here
 }
 
+function checkValidity(){
+  if (horizontalWin || verticalWin || diagonalWin === true){
+    return 'Game Over';
+  };
+};
+
 //to check for validity: DISCUSSION IN CLASS
 if (!board[1][1]){
   return 'not available';
-} else(board[1][1] = player1);
+} else(board[1][1] = player1){
+  
+};
 
 
 //changing player turns
