@@ -7,8 +7,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// const wordVowel = (aword) => {
+//   return aword + 'yay'
+// }
 
-function pigLatin(word) {
+
+function pigLatinInner(word) {
 
   // Your code here
   // define what vowels are
@@ -17,8 +21,7 @@ function pigLatin(word) {
   const vowels = ['a','e','i','o','u'];
   // i couldn't remember how to declare something as NOT something (aka a vowel) so i made this string before i remembered
   const consonant = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
-  word = word.trim();
-  word = word.toLowerCase();
+  console.log(word)
 
   // if word begins with vowel...
   if (vowels.includes(word[0])) {
@@ -36,16 +39,24 @@ function pigLatin(word) {
       let movedLetter = word.slice(0,1);
       return word.substr(1) + movedLetter + "ay";
     }
-  // perform pigLatin conversion on multiple words...
-  } else if (word.includes(' ')) {
-    let word = str.split(' ');
-    for (word > 0; word.length; i++) {
-      // ! trying this to split the words... is this the right way to take it? !
-      
-    }
   }
 }
 
+
+  // perform pigLatin conversion on multiple words...
+  // if (word.includes(' ')) {
+  //   let separatedWords = word.split(' ');
+  //   if(vowels.includes(separatedWords[0][0])) {
+  //     if (vowels.includes(separatedWords[1][0])) {
+  //       return wordVowel(separatedWords[0]) + ' ' + wordVowel(separatedWords[1])
+  //     }
+  //   }
+  //   if(consonant.includes(separatedWords[0])) {
+
+  //   }
+  // }
+      // console.log(separatedWords[0])
+      // console.log(separatedWords[1]);
 
 // class notes:
 // 1. lowercase everything
@@ -63,10 +74,21 @@ function pigLatin(word) {
 // if first letter a consonant, add "ay"... if first letter a vowel, add "hay"
 
 
-function getPrompt() {
+function pigLatin() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
+    if (answer.includes(' ')) {
+      let separatedWords = answer.trim().toLowerCase().split(' ');
+      if (separatedWords.length < 2){
+        console.log(pigLatinInner(separatedWords.toString()))
+      } else console.log((pigLatinInner(separatedWords[0])) + ' ' + (pigLatinInner(separatedWords[1])))
+      pigLatin();
+      
+    } else { 
+      let newWord = answer.trim().toLowerCase();
+      console.log(newWord)
+      console.log( pigLatinInner(newWord) );
+    pigLatin();
+  }
   });
 }
 
@@ -76,16 +98,16 @@ if (typeof describe === 'function') {
 
   describe('#pigLatin()', () => {
     it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
+      assert.equal(pigLatinInner('car'), 'arcay');
+      assert.equal(pigLatinInner('dog'), 'ogday');
     });
     it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
+      assert.equal(pigLatinInner('create'), 'eatecray');
+      assert.equal(pigLatinInner('valley'), 'alleyvay');
     });
     it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
+      assert.equal(pigLatinInner('egg'), 'eggyay');
+      assert.equal(pigLatinInner('emission'), 'emissionyay');
     });
     it('should lowercase and trim word before translation', () => {
       assert.equal(pigLatin('HeLlO '), 'ellohay');
@@ -97,6 +119,6 @@ if (typeof describe === 'function') {
   });
 } else {
 
-  getPrompt();
+  pigLatin();
 
 }
