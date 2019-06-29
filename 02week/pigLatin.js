@@ -39,7 +39,7 @@ function pigLatin(word) {
   // perform pigLatin conversion on multiple words...
   } else if (word.includes(' ')) {
     let word = str.split(' ');
-    for (' ' > 0; word.length; i++) {
+    for (word > 0; word.length; i++) {
       // ! trying this to split the words... is this the right way to take it? !
       
     }
