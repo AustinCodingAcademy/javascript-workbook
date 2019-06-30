@@ -25,6 +25,11 @@ function pigLatin(word) {
       newWord.split([1])
 }
 
+//for loop to check each letter in the word
+for (i=[0]; i<newWord.length; i++){
+  
+}
+
 
 function getPrompt() {
   rl.question('word ', (answer) => {
