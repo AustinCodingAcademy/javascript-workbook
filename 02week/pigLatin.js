@@ -82,7 +82,8 @@ if (typeof describe === 'function') {
       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
     });
     it('Should separate two words and return them together',() => {
-      assert.equal(pigLatin('Hop Fest'), 'Ophay Estfay');
+      // assert.equal(pigLatin('Hop Fest'), 'Ophay Estfay');//Shouldn't first letters be lowercase?
+      assert.equal(pigLatin('Hop Fest'), 'ophay estfay');
     });
   });
 } else {
