@@ -99,7 +99,6 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 };
 
 // Tests
