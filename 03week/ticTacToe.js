@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -21,55 +22,126 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-}
+};
+
+
+//for playerWins refer to 26:37 on hackOverflow if this doesn't work
 
 function horizontalWin() {
-  if (board[[0] [0]] && board[[0] [1]] && board[[0] [2]] === 'X'){
-    return 'X Wins'; //could be parenthases
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)){
+    return true;
+  } else {
+    return false;
   };
 };
 
 function verticalWin() {
-  // Your code here
-}
-
-function diagonalWin() {
-  // Your code here
-}
-
-function checkForWin() {
-  // Your code here
-}
-
-function ticTacToe(row, column) {
-  //your code here
-}
-
-function checkValidity(){
-  if (horizontalWin || verticalWin || diagonalWin === true){
-    return 'Game Over';
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)){
+    return true;
+  } else {
+    return false;
   };
 };
 
-//to check for validity: DISCUSSION IN CLASS
-if (!board[1][1]){
-  return 'not available';
-} else(board[1][1] = player1){
-  
+function diagonalWin() {
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0]) === playerTurn){
+    return true;
+  } else {
+    return false;
+  };
+};
+
+function checkForWin() {
+  if (horizontalWin() == true || verticalWin() == true || diagonalWin() == true){
+    return 'Player ' + playerTurn + ' Won!'
+  };
+};
+
+function playerInput (row, column){
+  // if (row === 0 && column === 0){
+  //   board[0][0] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 1 && column === 0){
+  //   board[1][0] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 2 && column === 0){
+  //   board[2][0] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 0 && column === 1){
+  //   board[0][1] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 1 && column === 1){
+  //   board[1][1] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 2 && column === 1){
+  //   board[2][1] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 0 && column === 2){
+  //   board[0][2] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 1 && column === 2){
+  //   board[1][2] = playerTurn;
+  //   return;
+  // };
+
+  //   if (row === 2 && column === 2){
+  //   board[2][2] = playerTurn;
+  //   return;
+  // };
+
+//this way is much simpler than what I originally coded. le sigh
+  //this if statement needs to check if the player's selection is valid. If the spot on the board does not equal playerTurn already, then it's good. Otherwise, the player shouldn't be allowed to placa a marker there
+
+  if (! board[row][column] === playerTurn) {
+    board[row][column] === playerTurn;
+  };
+
+};
+
+function ticTacToe(row, column) {
+//for each turn, I want the player to input their selection
+  playerInput(row,column);
+//then I'm going to check for win
+  checkForWin();
+//next we change player turns
+if (playerTurn === 'X') {
+  playerTurn = 'O';
+} else {
+  playerTurn = 'X';
+};
+  //your code here
 };
 
 
-//changing player turns
-if (current == playerX) {
-  current = playerO;
-} else player = X;
+//to check for validity: DISCUSSION IN CLASS
+// first try - if (!board[1][1]){
+//   return 'not available';
+// } else(board[1][1] = player1){
+  
+// };
 
-//check for win
-if (some win = won)
+// if (board[row][column] === playerTurn) {
+  
+// }
+
 
 //if play is valid, place x or o on the board. Then check for win. then switch player.
 
-//end of code from Dinh
+//end of notes from discussion with Dinh
 
 function getPrompt() {
   printBoard();
@@ -81,41 +153,6 @@ function getPrompt() {
     });
   });
 
-}
+};
 
-
-
-// Tests
-
-if (typeof describe === 'function') {
-
-  describe('#ticTacToe()', () => {
-    it('should place mark on the board', () => {
-      ticTacToe(1, 1);
-      assert.deepEqual(board, [ [' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-    });
-    it('should alternate between players', () => {
-      ticTacToe(0, 0);
-      assert.deepEqual(board, [ ['O', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' '] ]);
-    });
-    it('should check for vertical wins', () => {
-      board = [ [' ', 'X', ' '], [' ', 'X', ' '], [' ', 'X', ' '] ];
-      assert.equal(verticalWin(), true);
-    });
-    it('should check for horizontal wins', () => {
-      board = [ ['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' '] ];
-      assert.equal(horizontalWin(), true);
-    });
-    it('should check for diagonal wins', () => {
-      board = [ ['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X'] ];
-      assert.equal(diagonalWin(), true);
-    });
-    it('should detect a win', () => {
-      assert.equal(checkForWin(), true);
-    });
-  });
-} else {
-
-  getPrompt();
-
-}
+console.log(getPrompt());
