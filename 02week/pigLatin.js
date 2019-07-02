@@ -1,34 +1,48 @@
 'use strict';
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-
 function pigLatin(word) {
-  //first I'm going to take the input and make an array of letters called 'newWord' that doesn't contain any spaces or capital letters
-  let newWord = word.trim().toLowerCase().split('');
+  //the first thing I need to do is to create an array of just words. If the user puts in multiple words, this condition should separate these words and add them to an array I called twoWords
+  let twoWords = word.split(' ');
+  console.log(twoWords);
 
-  //Now I need to create an array to hold the letters because split will not create the array for me
-  let pigLatin = [];
+//once I have each word as an array, I'm going to create another array of just letters (for each word). Using a for loop, I'm going to cy 
+  for (let x=0; x < twoWords.length; x++){
+    let pigString = twoWords[x];
+    pigString = pigString.trim().toLowerCase().split('');
+    console.log('1: ' + pigString);
+//breaks two words into two arrays
 
-  //Next I need to declare an array of vowels that I want to compare to the first letter of each word
+  let newWord = [];
+  let finalPhrase = [];
   const vowels = ['a', 'e', 'i', 'o', 'u'];
 
-  //if the word starts with a vowel, then all I need to do is add "ay" to the end
-  if (newWord.indexOf(vowels) === 0) {
-    return newWord + 'ay';
-  } else if (newWord.indexOf(vowels) === 1)
-      newWord.split([1])
-}
+  if (vowels.includes(pigString[0])) {
+    newWord = pigString.join('') + 'ay';
+    finalPhrase.push(newWord);
+    console.log('here: ' + finalPhrase);
+  } else {
 
-//for loop to check each letter in the word
-for (i=[0]; i<newWord.length; i++){
-  
-}
+  for (let i = 0; i < pigString.length; i++) {
+
+    if (! (vowels.includes(pigString[i]))){
+      console.log(i, newWord);
+      newWord.push(pigString[i]);
+    } else {
+      newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'ay';
+      console.log('3 ' + newWord);
+      break;    
+    }
+  } 
+  }
+  finalPhrase.push(newWord);
+  console.log('last ' + finalPhrase);
+  };
+};
+
+//I'm not sure how to add/concat the new push() values together so the entire phrase is displayed all together. Instead, I keep getting one word, then the next word. It doesn't push them in order, it seems to overwrite them.
+
+pigLatin('please stop okay');
+
 
 
 function getPrompt() {
@@ -36,7 +50,7 @@ function getPrompt() {
     console.log( pigLatin(answer) );
     getPrompt();
   });
-}
+};
 
 // Tests
 
