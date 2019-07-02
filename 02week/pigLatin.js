@@ -7,40 +7,41 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+var vowels = ['a','e','i','o','u'];
+var wordArray = [];
+var pigLatinWord = '';
 
-function pigLatin(word){
-  word = word.trim().toLowerCase();
-  var letters = word.split('');
-  var vowels = ['a','e','i','o','u'];
-  var newWord = '';
-    for(var i = 0; i < vowels.length-1; n++) {
-      for (var y=0; y< word.length-1; y++) {
-        if (word[y] === vowels[i]){
-          for (var x=y; x< word.length; x++){
-            newWord = newWord + word[x];
-          }
-        for(var n = 0; n < y; n++) {
-            newWord = newWord + word[n];
-          }
-        return newWord + 'yay";'
-          }
+//check if word is valid
+function checkWord(word) {
+  if (typeof word==='string') {
+    return word.trim().toLowerCase();
+  }
+}
+
+//check 1st letter for vowels
+function check1stLetter (word) {
+  return vowels.includes(word[0])
+}
+
+//convert word to pig latin
+function pigLatin(word) {
+  let newWord = checkWord(word);
+    if (check1stLetter(newWord)) {
+      return newWord + 'yay'
+    } else {
+      for ( let i = 0; i < newWord.length; i++ ) {
+        if (vowels.includes(newWord[i])) {
+      return pigLatinWord + wordArray.join('') + 'ay' ;  
+        } else {
+          wordArray.push(newWord[i]);
+          pigLatinWord= newWord.slice(i+1);
         }
       }
     }
+}
 
-  // Your code 
-  //var word= "trish"
-  // function pigLatin(word) {
- // 
-//var word = word.split("");
- // console.log (word);
 
- // var word ="abcd";
-   // for(i=0; i<s. length;i++){
-    //        char c=s. charAt(i);
-     
   
-
 
 
 function getPrompt() {
