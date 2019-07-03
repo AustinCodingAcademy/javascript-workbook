@@ -1,48 +1,39 @@
 'use strict';
 
+let finalPhrase = [];
+
 function pigLatin(word) {
   //the first thing I need to do is to create an array of just words. If the user puts in multiple words, this condition should separate these words and add them to an array I called twoWords
   let twoWords = word.split(' ');
-  console.log(twoWords);
 
 //once I have each word as an array, I'm going to create another array of just letters (for each word). Using a for loop, I'm going to cy 
   for (let x=0; x < twoWords.length; x++){
     let pigString = twoWords[x];
     pigString = pigString.trim().toLowerCase().split('');
-    console.log('1: ' + pigString);
 //breaks two words into two arrays
 
   let newWord = [];
-  let finalPhrase = [];
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
   if (vowels.includes(pigString[0])) {
-    newWord = pigString.join('') + 'ay';
+    newWord = pigString.join('') + 'yay';
     finalPhrase.push(newWord);
-    console.log('here: ' + finalPhrase);
   } else {
 
-  for (let i = 0; i < pigString.length; i++) {
+    for (let i = 0; i < pigString.length; i++) {
 
-    if (! (vowels.includes(pigString[i]))){
-      console.log(i, newWord);
-      newWord.push(pigString[i]);
-    } else {
-      newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'ay';
-      console.log('3 ' + newWord);
-      break;    
-    }
-  } 
-  }
+      if (! (vowels.includes(pigString[i]))){
+        newWord.push(pigString[i]);
+      } else {
+        newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'yay';
+        break;    
+      };
+    };
   finalPhrase.push(newWord);
-  console.log('last ' + finalPhrase);
   };
+  finalPhrase.join(' ');
 };
-
-//I'm not sure how to add/concat the new push() values together so the entire phrase is displayed all together. Instead, I keep getting one word, then the next word. It doesn't push them in order, it seems to overwrite them.
-
-pigLatin('please stop okay');
-
+};
 
 
 function getPrompt() {
@@ -78,4 +69,4 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
-}
+};
