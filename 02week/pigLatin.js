@@ -23,24 +23,22 @@ function pigLatin(word) {
 //breaks two words into two arrays
 
   let newWord = [];
-  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
 
   if (vowels.includes(pigString[0])) {
     newWord = pigString.join('') + 'ay';
     finalPhrase.push(newWord);
   }  
-  else {
+   else {
 
     for (let i = 0; i < pigString.length; i++) {
       let yArray = ['y'];
       let ohArray = ['o', 'u']
 
       if (! (vowels.includes(pigString[i]))){
-        newWord.push(pigString[i]);
-      } else if (ohArray.includes(pigString[1])) {
-        newWord.push(pigString[0]);
-      } else if (yArray.includes(pigString[i])) {
-        newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'ay';
+         newWord.push(pigString[i]);
+       } else if ( (yArray.includes(pigString[0])) && (ohArray.includes(pigString[1])) ) {
+         newWord = pigString.slice(1, pigString.length).concat(newWord).join('') + 'ay';
       } else {
         newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'ay';
         break;    
