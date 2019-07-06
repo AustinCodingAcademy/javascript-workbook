@@ -1,0 +1,34 @@
+a {
+    display: flex;
+    flex-direction: row;
+    margin-left: 90%;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+}
+
+h3 {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+#inputDiv {
+    margin: auto;
+}
+
+#outputDiv {
+    margin: auto;
+}
+
+textarea {
+    font-family: sans-serif;
+}
