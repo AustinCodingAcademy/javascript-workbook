@@ -1,0 +1,20 @@
+body {
+    background: #3f3f3f;
+}
+
+textarea {
+    height: 300px;
+    width: 500px;
+}
+
+#title {
+    text-align: center;
+    padding: 25px;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
