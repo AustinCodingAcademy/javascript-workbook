@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -21,27 +22,73 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-}
+};
+
 
 function horizontalWin() {
-  // Your code here
-}
+  if ((board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) || (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) || (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)){
+    return true;
+  } else {
+    return false;
+  };
+};
 
 function verticalWin() {
-  // Your code here
-}
+  if ((board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) || (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) || (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)){
+    return true;
+  } else {
+    return false;
+  };
+};
 
 function diagonalWin() {
-  // Your code here
-}
+  if ((board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0]) === playerTurn){
+    return true;
+  } else {
+    return false;
+  };
+};
 
 function checkForWin() {
-  // Your code here
-}
+  if (horizontalWin() == true || verticalWin() == true || diagonalWin() == true){
+    console.log('Player ' + playerTurn + ' Won!');
+  };
+};
+
+function validMove (row, column){
+
+  if (board[row][column] === ' ') {
+    return true;
+  };
+};
+
+const validInput = (row, column) => {
+  if ((row >=0 && row <= 2) && (column >=0 && column <=2)) {
+    return true;
+  };
+};
+
+function changePlayer () {
+  if (playerTurn === 'X') {
+    playerTurn = 'O';
+  } else {
+    playerTurn = 'X';
+  };
+};
 
 function ticTacToe(row, column) {
-  // Your code here
-}
+if(validInput(row, column)) {
+  if(validMove(row, column)){
+    board[row][column] = playerTurn;
+    checkForWin();
+    changePlayer();
+  } else {
+    alert('That move is not allowed');
+  };
+};
+};
+
+
 
 function getPrompt() {
   printBoard();
@@ -52,13 +99,9 @@ function getPrompt() {
       getPrompt();
     });
   });
-
-}
-
-
+};
 
 // Tests
-
 if (typeof describe === 'function') {
 
   describe('#ticTacToe()', () => {
