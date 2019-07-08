@@ -1,0 +1,34 @@
+[data-stack] {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    -webkit-align-items: center;
+    height: 100px;
+    background-color: aliceblue;
+    margin: 25px;
+}
+
+[data-block] {
+    width: 25px;
+    float: left;
+}
+
+[data-block="1"] {
+    height: 25px;
+    background-color: yellow;
+}
+
+[data-block="2"] {
+    height: 50px;
+    background-color: blue;
+}
+
+[data-block="3"] {
+    height: 75px;
+    background-color: green;
+}
+
+[data-block="4"] {
+    height: 100px;
+    background-color: purple;
+}

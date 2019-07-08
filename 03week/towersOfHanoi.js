@@ -7,11 +7,26 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//i'm taking this out of my verion of the code because I'm defining stacks in my HTML
+
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
+
+function game(){
+
+let gameover = false;
+let htmlStacks = document.getElementById('[data-stack]');
+let blocks = document.getElementById('[data-block]');
+let moveableBlocks = document.getElementsByTagName('[data-block]');
+
+console.log(blocks);
+
+
+};
+
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -39,6 +54,7 @@ function towersOfHanoi(startStack, endStack) {
 
 }
 
+
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
@@ -47,7 +63,8 @@ function getPrompt() {
       getPrompt();
     });
   });
-}
+};
+
 
 // Tests
 
@@ -78,6 +95,7 @@ if (typeof describe === 'function') {
       assert.equal(isLegal('a', 'c'), true);
     });
   });
+
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
@@ -89,6 +107,6 @@ if (typeof describe === 'function') {
 
 } else {
 
-  getPrompt();
+ getPrompt();
 
 }
