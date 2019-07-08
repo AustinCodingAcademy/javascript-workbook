@@ -28,16 +28,13 @@ translate.addEventListener('click', function() {
   }
 });
 
+clear.addEventListener('click', function() {
+  document.getElementById('to-translate').value = '';
+  document.getElementById('to-latin').value = '';
+});
 
-//     } else if (!vowels.includes(word[0]) && !vowels.includes(word[1])) {
-//       let removedLetters = word.slice(0,2); // Removes the first two letters of the word
-//       return(word.substr(2)+`${removedLetters}`+'ay'); // Returns the word minus the first 2 letters, then adds the removed letters to the end followed by 'ay'.
-//       } 
-//       // Checks if the first letter IS in the array of vowels
-//     } else if (vowels.includes(word[0])) {
-//       return(`${word}`+'yay'); // Returns the whole string and adds 'yay' to the end.
-//   }
-// }
+
+
 
 
 

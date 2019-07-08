@@ -7,6 +7,15 @@ textarea {
     width: 500px;
 }
 
+button {
+    margin: 5px;
+}
+#button-center {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
 #title {
     text-align: center;
     padding: 25px;
@@ -17,4 +26,6 @@ textarea {
     flex-direction: row;
     justify-content: center;
 }
+
+
 
