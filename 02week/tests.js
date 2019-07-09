@@ -9,7 +9,7 @@ if (typeof describe === "function") {
       assert.equal(pigLatin("valley"), "alleyvay");
     });
     it('Should separate two words and return them together',() => {
-      assert.equal(pigLatin('Hop Fest'), 'Ophay Estfay');
+      assert.equal(pigLatin('Hop Fest'), 'ophay estfay');
     });
   });
 }
