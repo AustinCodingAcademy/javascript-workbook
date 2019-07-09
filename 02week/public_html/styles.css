@@ -1,0 +1,21 @@
+* {padding:0;margin:0;}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2,50%;);
+    grid-row-gap:0.5rem;
+    padding:1rem;
+}
+header {font-size:80%;text-align: center;border-bottom: 2px solid black;}
+div {
+    /*border:1px solid black;*/
+    display: flex;
+    justify-content: space-between;
+}
+div.button-container {
+    display: flex;
+    justify-content: center;
+}
+button {
+    font-size:2rem;
+}
