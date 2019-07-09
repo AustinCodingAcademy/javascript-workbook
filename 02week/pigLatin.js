@@ -28,6 +28,7 @@ translate.addEventListener('click', function() {
   }
 });
 
+
 clear.addEventListener('click', function() {
   document.getElementById('to-translate').value = '';
   document.getElementById('to-latin').value = '';
