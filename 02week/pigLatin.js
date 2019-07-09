@@ -1,15 +1,5 @@
 'use strict';
 
-//I dont need this block of code because I'm taking user input from a textarea instead of a readline
-
-// const assert = require('assert');
-// const readline = require('readline');
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
-
-
 let finalPhrase = [];
 
 function pigLatin(word) {
@@ -50,19 +40,18 @@ function pigLatin(word) {
          break;
       } else {
         console.log(3)
-        newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'ay';
-        break;    
+        newWord = pigString.slice(i, pigString.length).concat(newWord).join('') + 'ay'; 
+        break;
       };
     };
     finalPhrase.push(newWord);
+    console.log('3 return: ' + newWord);
+    console.log('4 return: ' + finalPhrase);
     return newWord;
   };
 };
 };
 
-
-
-//this area is where I will work on an online version of my pig latin translator. I will need to manipulate the DOM
 
 //i've created a variable called userPhrase that takes in the value of whatever the user types into my textarea box on the webpage. Now, I want to make a function that runs my pig latin translator whenever the user clicks the translate button
 
@@ -80,34 +69,3 @@ function returnTranslation() {
   };
   empty();  
 };
-
-
-//since this isn't returning anything, maybe I need to try String(object);
-
-// Tests - I'm not using these for the website I'm building
-
-// if (typeof describe === 'function') {
-
-//   describe('#pigLatin()', () => {
-//     it('should translate a simple word', () => {
-//       assert.equal(pigLatin('car'), 'arcay');
-//       assert.equal(pigLatin('dog'), 'ogday');
-//     });
-//     it('should translate a complex word', () => {
-//       assert.equal(pigLatin('create'), 'eatecray');
-//       assert.equal(pigLatin('valley'), 'alleyvay');
-//     });
-//     it('should attach "yay" if word begins with vowel', () => {
-//       assert.equal(pigLatin('egg'), 'eggay');
-//       assert.equal(pigLatin('emission'), 'emissionay');
-//     });
-//     it('should lowercase and trim word before translation', () => {
-//       assert.equal(pigLatin('HeLlO '), 'ellohay');
-//       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
-//     });
-//   });
-// } else {
-
-//   getPrompt();
-
-// }
