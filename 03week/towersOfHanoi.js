@@ -7,6 +7,12 @@ const rl = readline.createInterface({
 	output: process.stdout
 });
 
+//check if inputs are valid, must equal 'a', 'b', or 'c' - isValidInput()
+//check if move is legal, ie empty/undefined stack or last piece value is greater than moving piece value - isMoveLegal()
+//if both of those ^^ are true, pop() from startStack, push() to endstack - movePiece()
+//check to see if values in stacks.c match [4,3,2,1] - checkForWin()
+//if win, congratulate, demand player play another game, then return stacks to original starting position - resetStack()
+
 let stacks = {
 	a: [4, 3, 2, 1],
 	b: [],
@@ -19,7 +25,7 @@ function printStacks() {
 	console.log("c: " + stacks.c);
 }
 
-// function movePiece()
+//isValidInput takes formatStartStack and formatEndStack to test for a, b, or c
 const isValidInput = x => {
 	const acceptableInputs = ["a", "b", "c"];
 	return acceptableInputs.includes(x);
@@ -111,10 +117,31 @@ if (typeof describe === "function") {
 	});
 	describe("#checkForWin()", () => {
 		it("should detect a win", () => {
-			stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+			stacks = { a: [], b: [], c: [4, 3, 2, 1] }; //changed win array to 'c
 			assert.equal(checkForWin(), true);
 			stacks = { a: [1], b: [4, 3, 2], c: [] };
 			assert.equal(checkForWin(), false);
+		});
+	});
+
+	describe("#isValidInput()", () => {
+		it("should not allow an invalid input", () => {
+			stacks = {
+				a: [4, 3, 2, 1],
+				b: [],
+				c: []
+			};
+			assert.equal(isValidInput("f", "x"), false);
+		});
+	});
+	describe("#resetStack()", () => {
+		it("should reset after a win", () => {
+			stacks = {
+				a: [],
+				b: [],
+				c: [4, 3, 2, 1]
+			};
+			assert.equal(resetStack(), undefined); //not sure why this comes out undefined
 		});
 	});
 } else {
