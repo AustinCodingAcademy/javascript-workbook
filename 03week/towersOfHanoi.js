@@ -27,14 +27,14 @@ function printStacks() {
 
 function movePiece(startStack, endStack) {
   let endPiece = stacks[startStack].pop();
-  stacks[endStack].push(startStack);
+  stacks[endStack].push(endPiece);
 }
 
 function isLegal(startStack, endStack) {
   let startBlock = stacks[startStack].length -1;
   let endBlock = stacks[endStack].length -1;
 
-  if ((stacks[endBlock].length === 0) || (stacks[startStack][startBlock] < stacks[endStack][endBlock])) {
+  if ((stacks[endStack].length == 0) || (stacks[startStack][startBlock] < stacks[endStack][endBlock])) {
     movePiece(startStack, endStack);
     return true;
   } else {
@@ -44,8 +44,10 @@ function isLegal(startStack, endStack) {
 };
 
 function checkForWin() {
-  if (stacks.a.length === 0 && stacks.c.length === 0) {
+  if (stacks.c.length === 4) {
     console.log('Nice Job!');
+    setTimeout(process.exit(), 5000);
+    console.log('here')
     return true;
   } else {
     return false;
@@ -59,8 +61,23 @@ function clearBoard() {
 };
 
 function towersOfHanoi(startStack, endStack) {
-  isLegal(startStack, endStack);
-  clearBoard();
+
+  if(validInput(startStack, endStack)) {
+    isLegal(startStack, endStack);
+    clearBoard();
+  }
+
+};
+
+function validInput(startStack, endStack){
+  let userInput = ['a' , 'b', 'c']
+
+  if(!userInput.includes(startStack) || !userInput.includes(endStack)){
+    console.log('Invalid entry. Type a, b, or c')
+    return false;
+  } else {
+    return true;
+  }
 };
 
 function getPrompt() {
@@ -72,6 +89,7 @@ function getPrompt() {
     });
   });
 };
+
 
 // Tests
 
@@ -102,14 +120,24 @@ if (typeof describe === 'function') {
       assert.equal(isLegal('a', 'c'), true);
     });
   });
+
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
   });
+
+  // describe('#exitNode()', () => {
+  //   it('after detecting win, close node', () => {
+  //     stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+  //     assert.equal(process.exit(), true);
+  //     stacks = { a: [1], b: [4, 3, 2], c: [] };
+  //     assert.equal(checkForWin(), false);
+  //   });
+  // });
 
 } else {
 
