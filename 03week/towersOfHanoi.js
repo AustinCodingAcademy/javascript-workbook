@@ -13,31 +13,55 @@ let stacks = {
   c: []
 };
 
+let freshStacks = {
+  a: [4, 3, 2, 1],
+  b: [],
+  c: []
+};
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+function movePiece(startStack, endStack) {
+  let endPiece = stacks[startStack].pop();
+  stacks[endStack].push(startStack);
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startStack, endStack) {
+  let startBlock = stacks[startStack].length -1;
+  let endBlock = stacks[endStack].length -1;
 
-}
+  if ((stacks[endBlock].length === 0) || (stacks[startStack][startBlock] < stacks[endStack][endBlock])) {
+    movePiece(startStack, endStack);
+    return true;
+  } else {
+    console.log('Warning: Illegal move attempted. A log of this instance has been created.')
+    return false;
+  };
+};
 
 function checkForWin() {
-  // Your code here
+  if (stacks.a.length === 0 && stacks.c.length === 0) {
+    console.log('Nice Job!');
+    return true;
+  } else {
+    return false;
+  }
+};
 
-}
+function clearBoard() {
+  if (checkForWin() == true) {
+    stacks = freshStacks;
+  }
+};
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
-}
+  isLegal(startStack, endStack);
+  clearBoard();
+};
 
 function getPrompt() {
   printStacks();
@@ -47,7 +71,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-}
+};
 
 // Tests
 
