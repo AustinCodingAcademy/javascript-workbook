@@ -1,4 +1,3 @@
-
 'use strict';
 // the requires
 const assert = require('assert');
