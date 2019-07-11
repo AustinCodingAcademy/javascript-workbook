@@ -9,9 +9,26 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  word = word.toLowerCase().trim()
+  const e = ["e"]
+  const voul = ["a","e","i","o","u"]
+  var x = 0
+  if (e.includes(word[0])){
+    return (word + "yay")
+  }
+  if (voul.includes(word[0])){
+    return(word + "ay")
+  }else{
+    for (let char of word){
+      if (voul.includes(char)){
+        x = word.indexOf(char)
+        
+        break;
+    }
+  
+  }
+    return word.slice(x) + word.slice(0,x) + "ay"
+}
 }
 
 
@@ -49,3 +66,4 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+//hehe
