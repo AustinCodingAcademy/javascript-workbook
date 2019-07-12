@@ -45,13 +45,14 @@ function generateHint(guess) {
 
  
  for (j = 0; j < splitString.length; j++) {
-  let targetIndex = splitString[j].includes(splitDif[j]);
-  if (targetIndex > -1) {
+  let targetIndex = splitString.includes(splitDif[j]);
+  if (targetIndex !== -1) {
     correctLetters += 1;
     correctLetterLocations[j] = null;
     }
   }
 }
+
 
 
 
