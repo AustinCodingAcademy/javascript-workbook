@@ -1,5 +1,5 @@
 'use strict';
-
+var colors = require('colors');
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -43,7 +43,6 @@ function generateHint(guess) {
    }
  }
 
- 
  for (j = 0; j < splitString.length; j++) {
   let targetIndex = splitString.includes(splitDif[j]);
   if (targetIndex !== -1) {
@@ -51,7 +50,12 @@ function generateHint(guess) {
     correctLetterLocations[j] = null;
     }
   }
+  
+  console.log(`${correctLetterLocations}`.red);
+  console.log(`${correctLetters}`.white);
 }
+
+
 
 
 
@@ -61,10 +65,8 @@ function mastermind(guess) {
   if (guess == solution) {
     return 'You guessed it!';
   } else {
-    return false;
+    generateHint(guess);
   }
-  
-  
 }
 
 
