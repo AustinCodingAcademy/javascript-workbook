@@ -33,9 +33,14 @@ function getRandomInt(min, max) {
 function isValid (guess) {
   let guessArr = guess.split('');
 
-  if(!letters.includes(guessArr)){
-    console.log('Remember: the solution can only contain letters a-h');
-    return false;
+  // if(!letters.includes(guessArr)){
+  //   console.log('Remember: the solution can only contain letters a-h');
+  //   return false;
+  if(guessArr.every(function (val){
+    letters.indexOf(val) >= 0;
+  })){
+      console.log('Remember: the solution can only contain letters a-h');
+      return false;
   } else if (guessArr.length > 4) {
     return false;
   }
