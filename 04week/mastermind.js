@@ -11,6 +11,8 @@ let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+
+
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -28,19 +30,32 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function isValid (guess) {
+  let guessArr = guess.split('');
+
+  if(!letters.includes(guessArr[0]){
+    console.log('Remember: the solution can only contain letters a-h');
+    return false;
+  };
+};
+
 function generateHint() {
   // your code here
 }
 
-function mastermind(guess) {
+function mastermind(guessArr) {
   solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  if(isValid(guessArr)){
+
+  };
+
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    mastermind(guess);
+    console.log(guess);
+    isValid(guess);
     printBoard();
     getPrompt();
   });
