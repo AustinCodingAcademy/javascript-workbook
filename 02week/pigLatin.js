@@ -1,5 +1,4 @@
 'use strict';
-
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -10,9 +9,30 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+  word = word.toLowerCase().replace(/\s/g,'');
+
+  const vowels = ["a", "e", "i", "o" , "u", "y"];
+
+  let vowelPos =  word[0];
+
+  
+if (vowels.includes(vowelPos)){
+    return word + "ay";
+  }
+  else {
+    
+      for (let char of word) {
+        if (vowels.includes(char)) {
+          vowelPos = word.indexOf(char);
+          break;
+        }
+  }
+  return word.slice(vowelPos) + word.slice(0, vowelPos) + "ay";
+
+  }
 
 }
+
 
 
 function getPrompt() {

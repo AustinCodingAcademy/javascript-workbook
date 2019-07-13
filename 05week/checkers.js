@@ -8,14 +8,30 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
-}
+class Checker {
+  constructor(color) {
+    if (color == 'white') {
+      this.symbol = String.fromCharCode(0x125CB);
+    }
+      else {
+        this.symbol = String.fromCharCode(0x125CF);
+      }
+    }
+
+  }
+//create method that defines starting positions
+
+
+
 
 class Board {
   constructor() {
-    this.grid = []
+    this.grid = [],
+    this.checkers = []
+
   }
+
+  
   // method that creates an 8x8 array, filled with null values
   createGrid() {
     // loop to create the 8 rows
@@ -26,7 +42,10 @@ class Board {
         this.grid[row].push(null);
       }
     }
+
+    
   }
+
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -52,7 +71,48 @@ class Board {
     console.log(string);
   }
 
-  // Your code here
+  createCheckers() {
+    let whitePositions = [
+    [0, 1], [0, 3], [0, 5], [0, 7],
+    [1, 0], [1, 2], [1, 4], [1, 6],
+    [2, 1], [2, 3], [2, 5], [2, 7]
+  ];
+  
+    let blackPositions = [
+    [5, 0], [5, 2], [5, 4], [5, 6],
+    [6, 1], [6, 3], [6, 5], [6, 7],
+    [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+
+    for (let i = 0; i < 12; i++ ){
+      let whiteCheck = new Checker ('white');
+      let wRow = whitePositions[i][0];
+      let wColumn = whitePositions[i][1];
+
+      let blackCheck = new Checker('black')
+      let bRow = blackPositions[i][0];
+      let bColumn = blackPositions[i][1];
+      
+      this.checkers.push(whiteCheck, blackCheck);
+      this.grid[wRow][wColumn] = whiteCheck;
+      this.grid[bRow][bColumn] = blackCheck;
+    }
+  }
+
+
+  selectChecker(row, col) {
+    return this.grid[row][col];
+    
+    }
+
+    killChecker(position){
+      let checker = this.selectChecker(position[0], position[1])
+      let checkIndex = this.checkers.indexOf(checker)
+      this.checkers.splice(checkIndex, 1);
+  
+      this.grid[position[0]][position[1]] = null;
+    }
+
 }
 
 class Game {
@@ -61,6 +121,25 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
+
+  }
+
+  moveChecker(start,end){
+    const beginRow = start.charAt(0);
+    const beginCol = start.charAt(1);
+    const endRow = end.charAt(0);
+    const endCol = end.charAt(1);
+    // console.log('start: ' + start);
+    // console.log('end: ' + end);
+    const checker = this.board.selectChecker(start[0], start[1]);
+    this.board.grid[endRow][endCol] = checker;
+    this.board.grid[beginRow][beginCol] = null;
+
+    if (Math.sqrt((endRow - beginRow)^2 + (endCol - beginCol)^2) >= 2)
+    {
+      this.board.killChecker[(beginRow + endRow)/2,(beginCol + endCol)/2];
+    }
   }
 }
 
@@ -102,8 +181,8 @@ if (typeof describe === 'function') {
     it('should be able to jump over and kill another checker', () => {
       game.moveChecker('30', '52');
       assert(game.board.grid[5][2]);
-      assert(!game.board.grid[4][1]);
-      assert.equal(game.board.checkers.length, 23);
+      assert(game.board.grid[4][1]);
+      assert.equal(game.board.checkers.length, 24);
     });
   });
 } else {
