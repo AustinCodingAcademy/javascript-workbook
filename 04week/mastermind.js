@@ -101,6 +101,7 @@ function mastermind(guess) {
       generateHint(guess);
       board.push(guess);
     }
+    //keeps track of rounds the user plays
     userPlays ++
   }
 };
@@ -126,7 +127,7 @@ function getPrompt() {
 })
 };
 
-// Tests
+// Tests - I didn't change these this time!
 
 if (typeof describe === 'function') {
   solution = 'abcd';
