@@ -57,10 +57,4 @@ function ifBothAreFalse(a,b) {
   } else {
     console.log("I only run if both are false");
   }
-<<<<<<< HEAD
-
 } ifBothAreFalse(false,false);
-=======
-}
-ifBothAreFalse(false,false);
->>>>>>> b8ab6633a719234515a80389737f55821da5a2fa

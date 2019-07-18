@@ -1,12 +1,6 @@
-'use strict';
-// the requires
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-// functions
+// function pigLatin(word) {
+//   return (word);
+// }
 function pigLatin(word) {
   // Your code here
   word = word.trim().toLowerCase();
@@ -54,39 +48,15 @@ function pigLatin(word) {
     return convert(word);//only one word, so translate once!
   }
 }
-function getPrompt() {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
-  });
-}
-// Tests
-if (typeof describe === 'function') {
 
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
-    });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
-    });
-    it('Should separate two words and return them together',() => {
-      // assert.equal(pigLatin('Hop Fest'), 'Ophay Estfay');//Shouldn't first letters be lowercase?
-      assert.equal(pigLatin('Hop Fest'), 'ophay estfay');
-    });
-  });
-} else {
+//Client Coding (Vanilla JS)
+// let translateButton = document.getElementById('myTranslator');
+// translateButton.addEventListener('click',pigLatin("myWords"));
 
-  getPrompt();
 
-}
+//client coding (jQuery)
+$('#myTranslator').on('click',function(){
+  let myWords= $('#word').val();
+  let myTranslation = pigLatin(myWords);
+  $('#results').val(myTranslation)
+});
