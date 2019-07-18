@@ -44,8 +44,6 @@ function generateHint(guess) {
         solutionArray[i] = null;
     }
   }
- 
-
 let correctLetters = 0;
 for (var i =0; i < solutionArray.length; i++) {
   let targetIndex = solutionArray.indexOf(guessArray[i]);
@@ -63,14 +61,17 @@ function mastermind(guess) {
   if (guess === solution) {
     console.log ('You guessed it!');
       return 'You guessed it!'
-    } else {
+    } else if {
       const hint = generateHint(guess);
       board.push(`${guess}-${hint}`);
       console.log ('Try Again');
       return 'Try Again';
     }
+    //  else {
+    //   board.length() === 10;
+    //   return 'You ran out of turns!  The solution was ${solution}'
+    // }
 }
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
