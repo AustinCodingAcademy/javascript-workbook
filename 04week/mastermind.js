@@ -7,15 +7,11 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let guess= ' ';
-let solution= 'abcd';
-let correctLetterLocations = 0;
-let correctLetters = 0;
+
 let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-var guessArray = guess.split('');
-var solutionArray = solution.split('');
+
 
 
 function printBoard() {
@@ -35,69 +31,44 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function validInput(guessArray){
-  if(!guessArray.includes(letters)){
-    console.log('choose another letter a-h')
-  } else { 
-    return true
-}
-}
-
-//dinh code starting here
-
-function correctLetter(guessArray, solutionArray) {
-for (let i = 0; i < solutionArray.length; i++) {
-  if (solutionArray[i].includes(guessArray[i])) {
-    correctLetterLocations += 1;
-    correctLetterLocations[i] = null;
-  }
-}
-}
-
-function exactLetterLocation(guessArray, solutionArray) {
-for (j = 0; j < solutionArray.length; j++) {
-  let targetIndex = solutionArray[j].includes(guessArray
-    [j]);
-  console.log(targetIndex);
-  if (targetIndex > -1) {
-    console.log("test")
-    correctLetters += 1;
-    correctLetterLocations[j] = null;
-  }
-}
-}
-
-console.log(`Amount of correct letter locations is ${correctLetterLocations}`);
-console.log(`Amount of correct letters is ${correctLetters}`);
-
-
-
 
 function generateHint(guess) {
   // your code here
-  const guessArr = guess.split('');
-  let correctLetter = 0;
-  let correctPosition = 0;
-  guessArr.forEach((letter, index)=>{
-    if(solution.indexOf(letter) !== -1){
-      correctLetter++;
-      if(solution[index] === letter){
-        correctPosition++;
-      }
+  const solutionArray= solution.split('');
+  const guessArray= guess.split('');
+  console.log(solutionArray, guessArray);
+  let correctLetterLocations = 0;
+    for (let i=0;i<solutionArray.length; i++) {
+      if (solutionArray[i] === guessArray[i]) {
+        correctLetterLocations++;
+        solutionArray[i] = null;
     }
-  })
-  return `${correctLetter} are correct, ${correctPosition} are in the right place`
+  }
+ 
+
+let correctLetters = 0;
+for (var i =0; i < solutionArray.length; i++) {
+  let targetIndex = solutionArray.indexOf(guessArray[i]);
+  if (targetIndex>-1) {
+    correctLetters++;
+    solutionArray[targetIndex] = null;
+    }
+  }
+  return `${correctLetterLocations}-${correctLetters}`
 }
 
-// function checkForWin()  {
-//   let (guessArray === solutionArray) {
-//     console.log ("You guessed it!");
-//   }
-//}
+
 function mastermind(guess) {
-  // Comment this out to generate a random solution
-  // your code here
-  validInput(guess)
+  solution = 'abcd';
+  if (guess === solution) {
+    console.log ('You guessed it!');
+      return 'You guessed it!'
+    } else {
+      const hint = generateHint(guess);
+      board.push(`${guess}-${hint}`);
+      console.log ('Try Again');
+      return 'Try Again';
+    }
 }
 
 
