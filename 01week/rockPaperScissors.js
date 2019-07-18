@@ -9,9 +9,32 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
   // Write code here
+  //var resultofexpression = conditionasboolean ? truepart: falsepart;
+  hand1 = hand1.toLowerCase().trim();
+  hand2 = hand2.toLowerCase().trim();
 
+  // var whichOne = ['rock':1,'paper':2, 'scissors':3]
+  let winner = "Hand ";
+  
+  if (hand1==='rock'&&hand2==='scissors') {
+    winner += "one" +" wins!";
+  } else if (hand1==='rock'&&hand2==='paper') {
+    winner += "two" +" wins!";
+  } else if (hand1==='paper'&&hand2==='rock') {
+    winner += "one" +" wins!";
+  } else if (hand1==='paper'&&hand2==='scissors') {
+    winner += "two" +" wins!";
+  } else if (hand1==='scissors'&&hand2==='paper') {
+    winner += "one" +" wins!";
+  } else if (hand1===3&&hand2==='rock') {
+    winner += "two" +" wins!";
+  } else {
+    winner = "It's a tie!"; 
+  }
+
+
+  return winner;
 }
 
 function getPrompt() {
@@ -24,7 +47,6 @@ function getPrompt() {
 }
 
 // Tests
-
 if (typeof describe === 'function') {
 
   describe('#rockPaperScissors()', () => {

@@ -8,3 +8,8 @@ npm-debug.log*
 
 # OS artifacts
 *.DS_Store
+#my practice directory
+practice/
+#code workspacefile
+javascript-workbook.code-workspace
+

@@ -8,6 +8,13 @@ function forEach(arr, callback) {
 
 function map(arr, callback) {
   // Your code here
+  const newArray = [];
+  
+  for (let i=0;i<arr.length;i++) {
+    newArray.push(arr);
+  }
+  console.log(newArray);
+  
 }
 
 function filter(arr, callback) {

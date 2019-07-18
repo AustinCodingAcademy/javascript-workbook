@@ -9,8 +9,19 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// Your code her
+class CrewMember {
 
+  CrewMember(name, job, specialSkill,ship) {
+    this.name=name;
+    this.job=job;
+    this.specialSkill=specialSkill;
+    this.ship=ship;
+  }
+  enterShip() {
+    return this.name+" has entered the ship "+ship;
+  }
+}
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
