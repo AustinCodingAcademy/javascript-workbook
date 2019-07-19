@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pig Latin</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Pig Latin Translator</title>
 </head>
+<header><a href="https://www.grantkee.com">Grant Kee</a></header>
 <body>
-
-    <script> = ./pi <script>
+    <h1>Pig Latin Translator</h1>
+    <h3>Translate English to Pig Latin</h3>
+    <div id = "container">
+        <div id = "inputDiv">
+            <textarea name="input" id="input" cols="30" rows="10" placeholder="Type your English phrase here to translate"></textarea>
+        </div>
+        <div id = "outputDiv">
+            <textarea name="output" id="output" cols="30" rows="10" placeholder="The translated pig latin will appear here"></textarea>
+        </div>
+        <div id = "translateDiv">
+            <button id = "translateButton">Translate</button>
+        </div>
+    </div>
+    <script src = "./pigLatin.js"></script>
 </body>
 </html>
