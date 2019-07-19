@@ -6,6 +6,7 @@ function pigLatin(word) {
   //the first thing I need to do is to create an array of just words. If the user puts in multiple words, this condition should separate these words and add them to an array I called twoWords
   let twoWords = word.split(' ');
 
+
 //once I have each word as an array, I'm going to create another array of just letters (for each word).
   for (let x=0; x < twoWords.length; x++){
     let pigString = twoWords[x];
