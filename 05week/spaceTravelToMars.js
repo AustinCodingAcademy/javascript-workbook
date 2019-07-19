@@ -30,7 +30,8 @@ class Ship {
     this.crew = [];
   }
   missionStatement() {
-    return this.mav;
+    this.ability = ability;
+    return this;
   }
 }
 
