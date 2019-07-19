@@ -29,9 +29,9 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
-  missionStatement() {
-    this.ability = ability;
-    return this;
+  missionStatement(statement) {
+    this.ability = statement;
+    return statement;
   }
 }
 
