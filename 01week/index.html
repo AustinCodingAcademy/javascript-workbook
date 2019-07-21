@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div>Click here to see the date.
+            <button id = "DayTime" onclick = getNewDate()>Date</button>
+            <span id = "newDate"></span>
+        </div>
+        <div>
+            <input style = "width:40px" id = "leftNum">
+            <button onclick = addition()> + </button>
+            <input style = "width:40px" id = "rightNum">
+            <span> = </span>
+            <span id = "sum"></span>
+        </div>
+        <div>
+            <input style = "width:60px" id = "numString">
+            <button onclick = numToString()>Convert To String</button>
+            <span id = "newString"></span>
+        </div>
+        <div>
+            <input style = "width:40px" id = "stringInput">
+            <button onclick = toNumber()>Convert To Number</button>
+            <span id = "hersYourNumber"></span>
+        </div>
+        <div>
+            <input id = "whatAmI"></input>
+            <button onclick = findType()>Find Type</button>
+            <span id = "heresYourType"></span>
+        </div>
+        <div>
+            <input id = "ifTrue1">
+            <button id = "addMe"></button>
+            <input id = "ifTrue2">
+        </div>
+            <button id = "bothTrue"></button>
+            <button id = "oneTrue"></button>
+            <button id = "notTrue"></button>
+    <script src="datatypesGUI.js"></script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+#container {
+    width: 40%;
+    height: 40%;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+    margin: auto;
+}
+
+#container > div {
+    background-color: black;
+    border: solid white 2px;
+    color: white;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 175px;
+}
+
+header {
+    width: 100%;
+    background-color: black;
+    height: 175px;
+}
+
+header > p {
+    color: white;
+    margin: auto;
+    text-align: center;
+    padding-top: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+}
+
+body {
+    background-color: black
+}
+
+footer {
+    color: white;
+}
+
+footer > div {
+    float: left;
+    margin-top: 4%;
+    margin-right: 5%;
+    position: relative;
+    left: 745px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+#one {
+    border-top: solid black 1px !important;
+    border-left: solid black 1px !important;
+}
+
+#two {
+    border-top: solid black 1px !important;
+}
+
+#three {
+    border-top: solid black 1px !important;
+    border-right: solid black 1px !important;
+}
+
+#four {
+    border-left: solid black 1px !important;
+}
+
+#five {
+
+}
+
+#six {
+    border-right: solid black 1px !important;
+}
+
+#seven {
+    border-left: solid black 1px !important;
+    border-bottom: solid black 1px !important;
+}
+
+#eight {
+    border-bottom: solid black 1px !important;
+}
+
+#nine {
+    border-right: solid black 1px !important;
+    border-bottom: solid black 1px !important;
+}
