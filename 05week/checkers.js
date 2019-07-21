@@ -8,8 +8,15 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker {
+  constructor(color) {
+      // Your code here
+      if (color === 'white') {
+          this.symbol = '○';
+      } else {
+          this.symbol = '●';
+      }
+  }
 }
 
 class Board {
@@ -51,8 +58,30 @@ class Board {
     }
     console.log(string);
   }
+  createCheckers() {
+    const whiteCheckers = [
+    [0, 1], [0, 3], [0, 5], [0, 7],
+    [1, 0], [1, 2], [1, 4], [1, 6],
+    [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
 
-  // Your code here
+    for (let i = 0; i < 12; i++) {
+      let whiteRow = whiteCheckers[i][0];
+      console.log("White Row: ",whiteRow);
+      let whiteCol = whiteCheckers[i][1];
+      console.log(whiteCol);
+      
+      // let whiteChecker = new Checker('white');
+      // this.checkers.push(whiteChecker);
+      // this.grid[whiteRow][whiteCol] = whiteChecker;
+    }
+
+    const blackCheckers = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+  }
 }
 
 class Game {
@@ -61,6 +90,8 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
+    this.board.viewGrid();
   }
 }
 

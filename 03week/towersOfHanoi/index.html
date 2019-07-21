@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Tower of Hanoi</title>
+</head>
+<body>
+    <div class="title">
+        Towers of Hanoi
+        <br>
+        <button>Reset Game</button>
+    </div>
+    <div class="container">
+        <div class="towerContainer" onclick="towersOfHanoi('a')">
+            <div class="tower"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="blockContainer" id="bc1"></div>
+            <div class="blockContainer" id="bc2"></div>
+            <div class="blockContainer" id="bc3"></div>
+            <div class="blockContainer" id="bc4"></div>
+        </div>
+        <div class="towerContainer" onclick="towersOfHanoi('b')">
+            <div class="tower"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="blockContainer" id="bc1"></div>
+            <div class="blockContainer" id="bc2"></div>
+            <div class="blockContainer" id="bc3"></div>
+            <div class="blockContainer" id="bc4"></div>
+        </div>
+        <div class="towerContainer" onclick="towersOfHanoi('c')">
+            <div class="tower"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="filler"></div>
+            <div class="blockContainer" id="bc1"></div>
+            <div class="blockContainer" id="bc2"></div>
+            <div class="blockContainer" id="bc3"></div>
+            <div class="blockContainer" id="bc4"></div>
+        </div>
+    </div>
+    <script src="toh.js"></script>
+</body>
+</html>

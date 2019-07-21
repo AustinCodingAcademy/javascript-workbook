@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    font-family: Avenir;
+    font-size: 30px;
+    color: #202020;
+}
+
+.container {
+    width: 50%;
+    height: 50%;
+    margin: 50px auto;
+}
+
+.label {
+    text-align: center;
+    padding: 10px;
+}
+
+input {
+    height: 100px;
+    width: 100%;
+    font-size: 40px;
+    font-family: Avenir;
+    font-weight: 300;
+}
+
+.text {
+    height: auto;
+    width: auto;
+    margin: 50px;
+}
