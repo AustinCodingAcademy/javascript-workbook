@@ -24,23 +24,64 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if (board[0][0]==board[1][0]==board[2][0]){
+    return true
+  }
+  if (board[0][1]==board[1][1]==board[2][1]){
+    return true
+  }
+  if (board[0][2]==board[1][2]==board[2][2]){
+    return true
+  }else{
+    return false
+  }
 }
 
 function verticalWin() {
-  // Your code here
+  if (board[0][0]==board[0][1]==board[0][2]){
+    return true
+  }
+  if (board[1][0]==board[1][1]==board[1][2]){
+    return true
+  }
+  if (board[2][0]==board[2][1]==board[2][1]){
+    return true
+  }else{
+    return false
+  }
+ 
 }
 
 function diagonalWin() {
-  // Your code here
+  if (board[0][0]==board[1][1]==board[2][2]){
+    return true
+  }
+  if (board[2][0]==board[1][1]==board[0][2]){
+    return true
+  }else{
+    return false
+  }
+ 
 }
 
 function checkForWin() {
   // Your code here
+  
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  if(board[row][column]==' '){
+    board[row][column]=playerTurn
+  }else{
+    return "Not Valid Spot on board :D"
+  }
+  if (playerTurn == "X"){
+    playerTurn = "O"
+  }else{
+    playerTurn = "X"
+  }
+  
+ 
 }
 
 function getPrompt() {
