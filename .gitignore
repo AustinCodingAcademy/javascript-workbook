@@ -1,2 +1,10 @@
+# Dependencies
 node_modules
-bundle.js*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS artifacts
+*.DS_Store
