@@ -130,10 +130,10 @@ class Board
     playerMove( start, end )
     {
 		// coordinates variables
-        let startRow = start[0];
-        let startCol = start[1];
-        let endRow   = end[0];
-		let endCol   = end[1];
+        let startRow = Number(start[0]);
+        let startCol = Number(start[1]);
+        let endRow   = Number(end[0]);
+		let endCol   = Number(end[1]);
 
 		// tasks
 		const move = 'move';
@@ -147,6 +147,7 @@ class Board
 		let invalidPlayer = 'Don\'t know how you got this error.';
 		let wrongWay      = 'Going the wrong way.';
 		let invalidMove   = 'Not a valid move.';
+		let invalidError  = ( end - start ) + ' does not equal 9, 11, 18, 22 and or hop(' + this.checkForHop( start ) + ')';
 
 		// check if two numbers
 		if ( typeof start !== 'number' && start.length !== 2 )
@@ -189,20 +190,20 @@ class Board
 				if ( start > end )
 				{
 					// check if the player is moving or hopping
-					if ( start - end == ( 9 || 11 ) )
+					if ( start - end === 9 || start - end === 11 )
 					{
 						// move piece
 						return move;
 					}
-					else if ( start - end == ( 18 || 22 ) )
+					else if ( ( start - end === 18 || start - end === 22 ) && this.checkForHop( start ) )
 					{
 						// hop piece
 						return hop;
-					} 
+					}
 					else
 					{
 						// not a valid move
-						return invalidMove;
+						return invalidMove + ' ' + invalidError;
 					}
 				}
 				else
@@ -216,20 +217,20 @@ class Board
 				if ( end > start )
 				{
 					// check if the player is moving or hopping
-					if ( end - start == ( 9 || 11 ) )
+					if ( end - start === 9 || end - start === 11 )
 					{
 						// move piece
 						return move;
 					}
-					else if ( end - start == ( 18 || 22 ) )
+					else if ( ( end - start === 18 || end - start === 22 ) && this.checkForHop( start ) )
 					{
 						// hop piece
 						return hop;
-					} 
+					}
 					else
 					{
 						// not a valid move
-						return invalidMove;
+						return invalidMove + ' ' + invalidError;
 					}
 				}
 				else
@@ -258,25 +259,69 @@ class Board
 		this.grid[startRow][startCol] = null;
 		// place piece on picked spot
 		this.grid[endRow][endCol] = player;
+	}
 
-		// log last move
-		console.log( player.color + ' - from: ' + start + ' to: ' + end );
+	checkForHop( coor )
+	{
+		// coordinates variables
+        let row = Number(coor[0]);
+		let col = Number(coor[1]);
+		let northEast_1 = this.grid[row - 1][col + 1];
+		let northWest_1 = this.grid[row - 1][col - 1];
+		let southEast_1 = this.grid[row + 1][col + 1];
+		let southWest_1 = this.grid[row + 1][col - 1];
+		let northEast_2 = this.grid[row - 2][col + 2];
+		let northWest_2 = this.grid[row - 2][col - 2];
+		let southEast_2 = this.grid[row + 2][col + 2];
+		let southWest_2 = this.grid[row + 2][col - 2];
+
+		switch ( player )
+		{
+			case blkChecker:
+				if ( ( ( northEast_1 === redChecker ) || ( northWest_1 === redChecker )  ) && ( ( northEast_2 === null ) || ( northWest_2 === null ) ) )
+				{
+					return true;
+				}
+				else
+					return false;
+					
+			case redChecker:
+				if ( ( ( southEast_1 === blkChecker ) || ( southWest_1 === blkChecker ) ) && ( ( southEast_2 === null ) || ( southWest_2 === null ) ) )
+				{
+					return true;
+				}
+				else
+					return false;
+		}
 	}
 
 	// hop piece function
 	hopPiece( start, end )
 	{
 		// coordinates variables
-        let startRow = start[0];
-        let startCol = start[1];
-        let endRow   = end[0];
-		let endCol   = end[1];
+        let startRow = Number(start[0]);
+        let startCol = Number(start[1]);
+        let endRow   = Number(end[0]);
+		let endCol   = Number(end[1]);
 
-		// remove the picked piece from board
-		this.grid[startRow][startCol] = null;
-		// place piece on picked spot
-		this.grid[endRow][endCol] = player;
+		// North east kill
+		if ( ( startRow > endRow ) && ( startCol < endCol ) ) {
+			this.grid[startRow - 1][startCol + 1] = null;
+		}
+		// South east kill
+		if ( ( startRow < endRow ) && ( startCol < endCol ) ) {
+			this.grid[startRow + 1][startCol + 1] = null;
+		}
+		// South west kill
+		if ( ( startRow < endRow ) && ( startCol > endCol ) ) {
+			this.grid[startRow + 1][startCol - 1] = null;
+		}
+		// North west kill
+		if ( ( startRow > endRow ) && ( startCol > endCol ) ) {
+			this.grid[startRow - 1][startCol - 1] = null;
+		}
 
+		// remove the count
 		if ( opponent === redChecker )
 		{
 			this.redPieces--;
@@ -285,9 +330,6 @@ class Board
 		{
 			this.blkPieces--;
 		}
-
-		// log last move
-		console.log( player.color + ' - from: ' + start + '  over: ' + opponent.color + '  to: ' + end );
 	}
 }
 
@@ -312,28 +354,23 @@ class Game {
 		{
 			case 'move':
 				this.board.movePiece( start, end );
+				// log last move
+				console.log( player.color + ' - from: ' + start + ' to: ' + end );
 				this.changePlayer();
 				break;
 			case 'hop':
+				this.board.movePiece( start, end );
 				this.board.hopPiece( start, end );
+				// log last move
+				console.log( player.color + ' - from: ' + start + ' to: ' + end );
+				// if there is no avalable hop from the last move, change player
+				if ( !this.board.checkForHop( end ) ) {
+					this.changePlayer();
+				}
 				break;
 			default:
+				// this will log an error
 				console.log( playerMove )
-		}
-	}
-	
-	checkForWin()
-	{
-		if ( this.board.redPieces === 0 )
-		{
-			// black wins!
-		}
-		else if ( this.board.blkPieces === 0 )
-		{
-			// red wins!
-		} else
-		{
-			// keep going
 		}
 	}
 
@@ -348,6 +385,21 @@ class Game {
 		{
 			player = blkChecker;
 			opponent = redChecker;
+		}
+	}
+	
+	checkForWin()
+	{
+		if ( this.board.redPieces === 0 )
+		{
+			// black wins! :partying_face:
+		}
+		else if ( this.board.blkPieces === 0 )
+		{
+			// red wins! :partying_face:
+		} else
+		{
+			// keep going
 		}
 	}
 }
@@ -411,7 +463,7 @@ if (typeof describe === 'function')
 			game.moveChecker('30', '52');
 			assert(game.board.grid[5][2]);
 			assert(!game.board.grid[4][1]);
-			assert.equal(game.board.checkers.length, 23);
+			assert.equal(game.board.blkPieces, 11);
 		});
 	});
 }
