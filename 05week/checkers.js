@@ -17,19 +17,32 @@ class Checker
             this.symbol = '\u25CF'; // ●
 			this.color = color;	
 		}
+		else if ( color === 'red king' )
+		{ 
+            this.symbol = '\u2605'; // ★
+            this.color = color;
+		}
 		else if ( color === 'black' )
 		{ 
             this.symbol = '\u25CB'; // ○
+            this.color = color;
+        }
+		else if ( color === 'black king' )
+		{ 
+            this.symbol = '\u2606'; // ☆
             this.color = color;
         }
 	}
 }
 
 const redChecker = new Checker('red');
+const redKing = new Checker('red king');
+
 const blkChecker = new Checker('black');
+const blkKing = new Checker('black king');
 
 
-// The board and it's in play pieces
+// The board and its in play pieces
 class Board
 {
 	constructor()
@@ -137,7 +150,7 @@ class Board
 
 		// tasks
 		const move = 'move';
-		const hop  = 'hop';
+		const jump = 'jump';
 
 		// error logs
 		let wrongInput    = 'Wrong input ';
@@ -147,7 +160,7 @@ class Board
 		let invalidPlayer = 'Don\'t know how you got this error.';
 		let wrongWay      = 'Going the wrong way.';
 		let invalidMove   = 'Not a valid move.';
-		let invalidError  = ( end - start ) + ' does not equal 9, 11, 18, 22 and or hop(' + this.checkForHop( start ) + ')';
+		let invalidError  = ' does not equal 9, 11, 18, 22 and or jump(' + this.checkForJump( start ) + ')';
 
 		// check if two numbers
 		if ( typeof start !== 'number' && start.length !== 2 )
@@ -189,21 +202,21 @@ class Board
 				// check if the player is going up
 				if ( start > end )
 				{
-					// check if the player is moving or hopping
+					// check if the player is moving or jumping
 					if ( start - end === 9 || start - end === 11 )
 					{
 						// move piece
 						return move;
 					}
-					else if ( ( start - end === 18 || start - end === 22 ) && this.checkForHop( start ) )
+					else if ( ( start - end === 18 || start - end === 22 ) && this.checkForJump( start ) )
 					{
-						// hop piece
-						return hop;
+						// jump piece
+						return jump;
 					}
 					else
 					{
 						// not a valid move
-						return invalidMove + ' ' + invalidError;
+						return invalidMove + ' ' + ( start - end ) + invalidError;
 					}
 				}
 				else
@@ -216,21 +229,21 @@ class Board
 				// check if the player is going down
 				if ( end > start )
 				{
-					// check if the player is moving or hopping
+					// check if the player is moving or jumping
 					if ( end - start === 9 || end - start === 11 )
 					{
 						// move piece
 						return move;
 					}
-					else if ( ( end - start === 18 || end - start === 22 ) && this.checkForHop( start ) )
+					else if ( ( end - start === 18 || end - start === 22 ) && this.checkForJump( start ) )
 					{
-						// hop piece
-						return hop;
+						// jump piece
+						return jump;
 					}
 					else
 					{
 						// not a valid move
-						return invalidMove + ' ' + invalidError;
+						return invalidMove + ' ' + ( end - start ) + invalidError;
 					}
 				}
 				else
@@ -261,24 +274,43 @@ class Board
 		this.grid[endRow][endCol] = player;
 	}
 
-	checkForHop( coor )
+	getValidGridSquare( current, toward )
+	{
+		// variables for the square we want to look at
+		let row = Number(current[0]) + Number(toward[0]);
+		let col = Number(current[1]) + Number(toward[1]);
+
+		// if the square we are looking at is inside the grid
+		if ( ( ( 0 <= row ) && ( row <= 7 ) ) && ( ( 0 <= col ) && ( col <= 7 ) ) )
+		{
+			return this.grid[row][col];
+		}
+		// otherwise return an error
+		return row + col + ' is outside the board';
+	}
+
+	checkForJump( coor )
 	{
 		// coordinates variables
-        let row = Number(coor[0]);
-		let col = Number(coor[1]);
-		let northEast_1 = this.grid[row - 1][col + 1];
-		let northWest_1 = this.grid[row - 1][col - 1];
-		let southEast_1 = this.grid[row + 1][col + 1];
-		let southWest_1 = this.grid[row + 1][col - 1];
-		let northEast_2 = this.grid[row - 2][col + 2];
-		let northWest_2 = this.grid[row - 2][col - 2];
-		let southEast_2 = this.grid[row + 2][col + 2];
-		let southWest_2 = this.grid[row + 2][col - 2];
+		let northEast_1 = this.getValidGridSquare( coor, [-1,1] );
+		let northWest_1 = this.getValidGridSquare( coor, [-1,-1] );
+		let southEast_1 = this.getValidGridSquare( coor, [1,1] );
+		let southWest_1 = this.getValidGridSquare( coor, [1,-1] );
+		let northEast_2 = this.getValidGridSquare( coor, [-2,2] );
+		let northWest_2 = this.getValidGridSquare( coor, [-2,-2] );
+		let southEast_2 = this.getValidGridSquare( coor, [2,2] );
+		let southWest_2 = this.getValidGridSquare( coor, [2,-2] );
 
 		switch ( player )
 		{
 			case blkChecker:
-				if ( ( ( northEast_1 === redChecker ) || ( northWest_1 === redChecker )  ) && ( ( northEast_2 === null ) || ( northWest_2 === null ) ) )
+				// check up right
+				if ( ( northEast_1 === redChecker ) && ( northEast_2 === null ) )
+				{
+					return true;
+				}
+				// check up left
+				if ( ( northWest_1 === redChecker ) && ( northWest_2 === null ) )
 				{
 					return true;
 				}
@@ -286,7 +318,13 @@ class Board
 					return false;
 					
 			case redChecker:
-				if ( ( ( southEast_1 === blkChecker ) || ( southWest_1 === blkChecker ) ) && ( ( southEast_2 === null ) || ( southWest_2 === null ) ) )
+				// check down right
+				if ( ( southEast_1 === blkChecker ) && ( southEast_2 === null ) )
+				{
+					return true;
+				}
+				// check down left
+				if ( ( southWest_1 === blkChecker ) && ( southWest_2 === null ) )
 				{
 					return true;
 				}
@@ -295,8 +333,8 @@ class Board
 		}
 	}
 
-	// hop piece function
-	hopPiece( start, end )
+	// jump piece function
+	jumpPiece( start, end )
 	{
 		// coordinates variables
         let startRow = Number(start[0]);
@@ -358,13 +396,13 @@ class Game {
 				console.log( player.color + ' - from: ' + start + ' to: ' + end );
 				this.changePlayer();
 				break;
-			case 'hop':
+			case 'jump':
 				this.board.movePiece( start, end );
-				this.board.hopPiece( start, end );
+				this.board.jumpPiece( start, end );
 				// log last move
 				console.log( player.color + ' - from: ' + start + ' to: ' + end );
-				// if there is no avalable hop from the last move, change player
-				if ( !this.board.checkForHop( end ) ) {
+				// if there is no avalable jump from the last move, change player
+				if ( !this.board.checkForJump( end ) ) {
 					this.changePlayer();
 				}
 				break;
