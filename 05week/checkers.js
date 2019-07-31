@@ -90,7 +90,7 @@ class Board {
       [7, 4],
       [7, 6]
     ];
-
+//loop for column and rows red piece and black piece
     for (let i = 0; i < 12; i++) {
       let whiteCheck = new Checker("white");
       let wRow = whitePositions[i][0];
@@ -109,7 +109,7 @@ class Board {
   selectChecker(row, col) {
     return this.grid[row][col];
   }
-
+//method killcheker
   killChecker(position) {
     let checker = this.selectChecker(position[0], position[1]);
     let checkIndex = this.checkers.indexOf(checker);
@@ -118,7 +118,7 @@ class Board {
     this.grid[position[0]][position[1]] = null;
   }
 }
-
+//start the game 
 class Game {
   constructor() {
     this.board = new Board();
@@ -127,7 +127,7 @@ class Game {
     this.board.createGrid();
     this.board.createCheckers();
   }
-
+//make a move and also a jump
   moveChecker(start, end) {
     const beginRow = start.charAt(0);
     const beginCol = start.charAt(1);
