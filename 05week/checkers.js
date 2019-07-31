@@ -159,7 +159,7 @@ function getPrompt() {
 
 const game = new Game();
 game.start();
-
+//
 // Tests
 if (typeof describe === "function") {
   describe("Game", () => {
