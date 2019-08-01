@@ -64,15 +64,7 @@ class Game {
   }
 }
 
-function getPrompt() {
-  game.board.viewGrid();
-  rl.question('which piece?: ', (whichPiece) => {
-    rl.question('to where?: ', (toWhere) => {
-      game.moveChecker(whichPiece, toWhere);
-      getPrompt();
-    });
-  });
-}
+
 
 const game = new Game();
 game.start();
