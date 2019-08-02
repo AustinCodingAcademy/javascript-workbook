@@ -1,3 +1,65 @@
+function getUsers() {
+    console.log('working');
+    fetch('https://randomuser.me/api/')
+        .then((resolution) => resolution.text())
+        .then((data) => {
+            const randomUser = document.getElementById('random-user');
+            const li = document.createElement('li');
+            const text = document.createTextNode(`${data.name}`)
+            
+            li.append(text);
+            randomUser.append(li);
+
+
+        });
+}
+
+
+
+// const fetchUsers = () => {
+//     const randomUser = document.getElementById('random-user');
+//         arrayOfUsers.map((post) => {
+//         const li = document.createElement('li');
+//         const text = document.createTextNode(`#${post.results}`);
+//         li.appendChild(text);
+//         randomUser.append(li);
+//     })
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // // let arrayOfPosts;
 // let arrayOfUsers;
 
@@ -27,26 +89,26 @@
 //     })
 // }
 
-let getUsers = () => {
+// let getUsers = () => {
 
     
 
-    let insertUsers = (post) => {
-        const randomUser = document.getElementById('random-user');
-        const li = document.createElement('li');
-        const text = document.createTextNode(`${post.results.}`)
-        fetch('https://randomuser.me/api/')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(myJson) {
-                // console.log(JSON.stringify(myJson))
-                // li.innerText = JSON.stringify(myJson);
-                li.appendChild(text);
-                randomUser.append(li)
-            })
-    }
-}
+//     let insertUsers = (post) => {
+//         const randomUser = document.getElementById('random-user');
+//         const li = document.createElement('li');
+//         const text = document.createTextNode(`${post.results.}`)
+//         fetch('https://randomuser.me/api/')
+//             .then(function(response) {
+//                 return response.json();
+//             })
+//             .then(function(myJson) {
+//                 // console.log(JSON.stringify(myJson))
+//                 // li.innerText = JSON.stringify(myJson);
+//                 li.appendChild(text);
+//                 randomUser.append(li)
+//             })
+//     }
+// }
 
 
 
