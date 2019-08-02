@@ -7,39 +7,39 @@ const rl = readline.createInterface({
 	output: process.stdout
 });
 
+// pretty simple little function
+function capitalise( string )
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // The checker pieces
 class Checker
 {
-	constructor( color )
+	constructor( position, type )
 	{
-		if ( color === 'red' )
+		if ( position === 'north' )
 		{
-            this.symbol = '\u25CF'; // ●
-			this.color = color;	
+			this.position = position;
+			this.color = 'red';
+			this.type = type;
+            this.symbol = type === 'king' ? '\u2605' : '\u25CF'; // if king, ★ otherwise, ●
 		}
-		else if ( color === 'red king' )
-		{ 
-            this.symbol = '\u2605'; // ★
-            this.color = color;
-		}
-		else if ( color === 'black' )
-		{ 
-            this.symbol = '\u25CB'; // ○
-            this.color = color;
-        }
-		else if ( color === 'black king' )
-		{ 
-            this.symbol = '\u2606'; // ☆
-            this.color = color;
+		else if ( position === 'south' )
+		{
+			this.position = position;
+			this.color = 'black';
+			this.type = type;
+			this.symbol = type === 'king' ? '\u2606' : '\u25CB'; // if king, ☆ otherwise, ○
         }
 	}
 }
 
-const redChecker = new Checker('red');
-const redKing = new Checker('red king');
+const northPawn = new Checker('north', 'pawn');
+const northKing = new Checker('north', 'king');
 
-const blkChecker = new Checker('black');
-const blkKing = new Checker('black king');
+const southPawn = new Checker('south', 'pawn');
+const southKing = new Checker('south', 'king');
 
 
 // The board and its in play pieces
@@ -48,14 +48,14 @@ class Board
 	constructor()
 	{
 		this.grid = [];
-        this.redPieces = 0;
-		this.blkPieces = 0;
+        this.northPieces = 0;
+		this.southPieces = 0;
 	}
 
 	log()
 	{
-		console.log('Red pieces: ' + this.redPieces +  ( player === redChecker ? ' <= ' + redChecker.color + '\'s turn: ' + redChecker.symbol : '' ) )
-        console.log('Black pieces: ' + this.blkPieces + ( player === blkChecker ? ' <= ' + blkChecker.color + '\'s turn: ' + blkChecker.symbol : '' ) )
+		console.log( capitalise(northPawn.color) + ' pieces: ' + this.northPieces + ( player === northPawn ? ' <= ' + northPawn.color + '\'s turn: ' + northPawn.symbol : '' ) )
+        console.log( capitalise(southPawn.color) + ' pieces: ' + this.southPieces + ( player === southPawn ? ' <= ' + southPawn.color + '\'s turn: ' + southPawn.symbol : '' ) )
         console.log('')
     }
 
@@ -126,18 +126,22 @@ class Board
 				}
 			}
 		}
+		////////////////////////////
+		// this.grid[0][7] = northKing;
+		// this.grid[5][2] = southKing;
+		////////////////////////////
     }
 
 	addRedPiece( row, col )
     {
-		this.grid[row][col] = redChecker;
-		this.redPieces++;
+		this.grid[row][col] = northPawn;
+		this.northPieces++;
 	}
 
 	addBlackPiece( row, col )
     {
-		this.grid[row][col] = blkChecker;
-		this.blkPieces++;
+		this.grid[row][col] = southPawn;
+		this.southPieces++;
 	}
 
     playerMove( start, end )
@@ -195,10 +199,10 @@ class Board
 		}
 		
 		// what to do for the player types
-		switch ( player )
+		switch ( this.grid[startRow][startCol] )
 		{
 
-			case blkChecker:
+			case southPawn:
 				// check if the player is going up
 				if ( start > end )
 				{
@@ -225,7 +229,7 @@ class Board
 					return wrongWay;
 				}
 
-			case redChecker:
+			case northPawn:
 				// check if the player is going down
 				if ( end > start )
 				{
@@ -251,6 +255,9 @@ class Board
 					// going the wrong way
 					return wrongWay;
 				}
+
+			case Checker.type === 'king':
+				return 'I am the king'
 
 			default:
 				// not a valid player
@@ -286,50 +293,48 @@ class Board
 			return this.grid[row][col];
 		}
 		// otherwise return an error
-		return row + col + ' is outside the board';
+		return row + ',' + col + ' is outside the board';
 	}
 
 	checkForJump( coor )
 	{
 		// coordinates variables
-		let northEast_1 = this.getValidGridSquare( coor, [-1,1] );
+		let northEast_1 = this.getValidGridSquare( coor, [-1, 1] );
 		let northWest_1 = this.getValidGridSquare( coor, [-1,-1] );
-		let southEast_1 = this.getValidGridSquare( coor, [1,1] );
-		let southWest_1 = this.getValidGridSquare( coor, [1,-1] );
-		let northEast_2 = this.getValidGridSquare( coor, [-2,2] );
+		let southEast_1 = this.getValidGridSquare( coor, [ 1, 1] );
+		let southWest_1 = this.getValidGridSquare( coor, [ 1,-1] );
+		let northEast_2 = this.getValidGridSquare( coor, [-2, 2] );
 		let northWest_2 = this.getValidGridSquare( coor, [-2,-2] );
-		let southEast_2 = this.getValidGridSquare( coor, [2,2] );
-		let southWest_2 = this.getValidGridSquare( coor, [2,-2] );
+		let southEast_2 = this.getValidGridSquare( coor, [ 2, 2] );
+		let southWest_2 = this.getValidGridSquare( coor, [ 2,-2] );
 
 		switch ( player )
 		{
-			case blkChecker:
+			case southPawn:
 				// check up right
-				if ( ( northEast_1 === redChecker ) && ( northEast_2 === null ) )
+				if ( ( northEast_1 === northPawn ) && ( northEast_2 === null ) )
 				{
 					return true;
 				}
 				// check up left
-				if ( ( northWest_1 === redChecker ) && ( northWest_2 === null ) )
+				if ( ( northWest_1 === northPawn ) && ( northWest_2 === null ) )
 				{
 					return true;
 				}
-				else
-					return false;
+				return false;
 					
-			case redChecker:
+			case northPawn:
 				// check down right
-				if ( ( southEast_1 === blkChecker ) && ( southEast_2 === null ) )
+				if ( ( southEast_1 === southPawn ) && ( southEast_2 === null ) )
 				{
 					return true;
 				}
 				// check down left
-				if ( ( southWest_1 === blkChecker ) && ( southWest_2 === null ) )
+				if ( ( southWest_1 === southPawn ) && ( southWest_2 === null ) )
 				{
 					return true;
 				}
-				else
-					return false;
+				return false;
 		}
 	}
 
@@ -343,30 +348,34 @@ class Board
 		let endCol   = Number(end[1]);
 
 		// North east kill
-		if ( ( startRow > endRow ) && ( startCol < endCol ) ) {
+		if ( ( startRow > endRow ) && ( startCol < endCol ) )
+		{
 			this.grid[startRow - 1][startCol + 1] = null;
 		}
 		// South east kill
-		if ( ( startRow < endRow ) && ( startCol < endCol ) ) {
+		if ( ( startRow < endRow ) && ( startCol < endCol ) )
+		{
 			this.grid[startRow + 1][startCol + 1] = null;
 		}
 		// South west kill
-		if ( ( startRow < endRow ) && ( startCol > endCol ) ) {
+		if ( ( startRow < endRow ) && ( startCol > endCol ) )
+		{
 			this.grid[startRow + 1][startCol - 1] = null;
 		}
 		// North west kill
-		if ( ( startRow > endRow ) && ( startCol > endCol ) ) {
+		if ( ( startRow > endRow ) && ( startCol > endCol ) )
+		{
 			this.grid[startRow - 1][startCol - 1] = null;
 		}
 
 		// remove the count
-		if ( opponent === redChecker )
+		if ( opponent === northPawn )
 		{
-			this.redPieces--;
+			this.northPieces--;
 		}
 		else
 		{
-			this.blkPieces--;
+			this.southPieces--;
 		}
 	}
 }
@@ -414,25 +423,25 @@ class Game {
 
 	changePlayer()
 	{
-		if ( player === blkChecker )
+		if ( player === southPawn )
 		{
-			player = redChecker;
-			opponent = blkChecker;
+			player = northPawn;
+			opponent = southPawn;
 		}
 		else
 		{
-			player = blkChecker;
-			opponent = redChecker;
+			player = southPawn;
+			opponent = northPawn;
 		}
 	}
 	
 	checkForWin()
 	{
-		if ( this.board.redPieces === 0 )
+		if ( this.board.northPieces === 0 )
 		{
 			// black wins! :partying_face:
 		}
-		else if ( this.board.blkPieces === 0 )
+		else if ( this.board.southPieces === 0 )
 		{
 			// red wins! :partying_face:
 		} else
@@ -460,9 +469,9 @@ function getPrompt()
 }
 
 // set our starting player
-let player = blkChecker;
+let player = southPawn;
 // set the opponent to the opposite player
-let opponent = redChecker;
+let opponent = northPawn;
 
 const game = new Game();
 game.start();
@@ -480,7 +489,7 @@ if (typeof describe === 'function')
 		});
 		it('board should have 24 checkers', () =>
 		{
-			assert.equal(game.board.blkPieces + game.board.redPieces, 24);
+			assert.equal(game.board.southPieces + game.board.northPieces, 24);
 		});
 	});
 
@@ -501,7 +510,7 @@ if (typeof describe === 'function')
 			game.moveChecker('30', '52');
 			assert(game.board.grid[5][2]);
 			assert(!game.board.grid[4][1]);
-			assert.equal(game.board.blkPieces, 11);
+			assert.equal(game.board.southPieces, 11);
 		});
 	});
 }
