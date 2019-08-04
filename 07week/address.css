@@ -1,0 +1,10 @@
+body {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Jacob_Wrestling_with_the_Angel.jpg/220px-Jacob_Wrestling_with_the_Angel.jpg);
+  background-color: aliceblue;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: 800px;
+}
+footer {
+  margin-top: 61rem;
+}
