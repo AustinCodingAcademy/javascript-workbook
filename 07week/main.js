@@ -50,12 +50,12 @@ function getAPI(){
                 </ul>
             `
         }))
-        document.getElementById('container').innerHTML = output;
+        document.getElementById('container').innerHTML = output
     })
     .catch(function(err){
         console.log('Error');
         console.log(err);
     })
-}
+};
 
 
