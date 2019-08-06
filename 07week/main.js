@@ -26,9 +26,18 @@ let arrayOfUsers;
 //   })
 // }
 
+let checkFetch = function(response) {
+    if (!response.ok) {
+        throw Error(response.statusText + ' - ' + response.url);
+    }
+    return response;
+}
+
 
 function getAPI(){
-    fetch('https://randomuser.me/api/?results=500').then((result) => result.json())
+    fetch('https://randomuser.me/api/?results=50')
+    .then(checkFetch)
+    .then((result) => result.json())
     .then((data) => {
         let output = `<h2>Friends</h2>`
         data.results.forEach((function(user){
@@ -42,6 +51,10 @@ function getAPI(){
             `
         }))
         document.getElementById('container').innerHTML = output;
+    })
+    .catch(function(err){
+        console.log('Error');
+        console.log(err);
     })
 }
 
