@@ -1,17 +1,21 @@
 function getUsers() {
     console.log('working');
     fetch('https://randomuser.me/api/')
-        .then((resolution) => resolution.text())
+        .then((resolution) => resolution.json())
         .then((data) => {
             const randomUser = document.getElementById('random-user');
             const li = document.createElement('li');
-            const text = document.createTextNode(`${data.name}`)
+            // const text = document.createTextNode(`${data.name}`)
+            data.results.forEach(function(user) {
+                const text = document.createTextNode(`${user.name}`)
+                li.append(text);
+                randomUser.append(li);
+            })
             
-            li.append(text);
-            randomUser.append(li);
-
-
+            // li.append(text);
+            // randomUser.append(li);
         });
+
 }
 
 
