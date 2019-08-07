@@ -57,5 +57,3 @@ function getAPI(){
         console.log(err);
     })
 };
-
-
