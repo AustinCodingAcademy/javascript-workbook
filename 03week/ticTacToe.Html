@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./TicTacToe.css">
+    <title>TicTacToe-GUI</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="player-selection">
+        <button class="player-btn player-x" onclick="selectX()">Player 1</button>
+        <button class="player-btn player-o" onclick="selectO()">Player 2</button>
+    </div>
+    <div class="game-board">
+        <div class="game-board-row">
+        <div class="game-board-cell" id="0,0" onclick="ticTacToe(this)"></div>
+        <div class="game-board-cell" id="0,1" onclick="ticTacToe(this)"></div>
+        <div class="game-board-cell" id="0,2" onclick="ticTacToe(this)"></div>
+        </div>
+        <div class="game-board-row">
+        <div class="game-board-cell" id="1,0" onclick="ticTacToe(this)"></div>
+        <div class="game-board-cell" id="1,1" onclick="ticTacToe(this)"></div>
+        <div class="game-board-cell" id="1,2" onclick="ticTacToe(this)"></div>
+        </div>
+        <div class="game-board-row">
+        <div class="game-board-cell" id="2,0" onclick="ticTacToe(this)"></div>
+        <div class="game-board-cell" id="2,1" onclick="ticTacToe(this)"></div>
+        <div class="game-board-cell" id="2,2" onclick="ticTacToe(this)"></div>
+        </div>
+    </div>
+    </div>
+    <script src="./ticTacToe.js"></script>
+</body>
+</html>

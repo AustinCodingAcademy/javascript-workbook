@@ -1,0 +1,51 @@
+body {
+    margin: 10px;
+  }
+  
+  .main-container {
+    border: 1px solid rgb(3, 34, 119);
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .player-selection {
+    border: 2px solid black;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .game-board {
+    border: 1px solid rgb(0, 255, 242);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .game-board-row {
+    height: 33.3%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .game-board-cell {
+    width: 33%;
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: rgb(0, 2, 139);
+    background-color: rgb(221, 133, 17);
+  }
+  
+  button {
+    color: black;
+    background-color: rgb(255, 60, 0);
+    height: 30px;
+    margin-top: 10px;
+  }
+  

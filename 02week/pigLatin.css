@@ -1,0 +1,16 @@
+* {
+    margin: 1em;
+  }
+  
+  label {
+    display: block;
+  }
+  
+  textarea {
+    display: block;
+    width: 30em;
+  }
+  
+  input {
+    padding: .25em;
+  }
