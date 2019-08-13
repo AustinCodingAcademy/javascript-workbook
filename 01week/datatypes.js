@@ -1,4 +1,7 @@
 // Write a JavaScript program to display the current day and time.
+console.log('----------------------');
+console.log('----------------------');
+
 let date = new Date();
 
 function showDate() {
@@ -88,7 +91,7 @@ let y = 'seven';
 
 function makeNotNumber(not) {
   if(isNaN(not)) {
-    console.log(`The string ${not} is Not a Number.`);
+    console.log(`The string \"${not}\" is Not a Number.`);
   }
 }
 
@@ -122,14 +125,14 @@ console.log('----------------------');
 
 // Write a JavaScript program that runs only when 2 things are true.
 
-let player1 = 'jake';
-let player2 = 'john';
+let player1 = 'Jake';
+let player2 = 'John';
 
 function nameLength(name1, name2) {
-  if(name1.length === name2.length) {
-    console.log(`${name1} has the same amount of letters as ${name2}.`);
+  if(name1.length === name2.length && name1.charAt(0) === name2.charAt(0)) {
+    console.log(`${name1} has the same amount of letters as ${name2}. Also, ${name1} and ${name2} start with the same letter.`);
   } else {
-    console.log(`${name1} is not the same length as ${name2}.`);
+    console.log(`${name1} is not the same length as ${name2}, or the names start with a different letter.`);
   }
 }
 
@@ -141,7 +144,37 @@ console.log('----------------------');
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
 
+let abc = '6';
+let def = 6;
+
+function isSame(first, second) {
+  if(first == second || first === second) {
+    console.log(`${abc} and ${def} look the same to JavaScript with the == comparison, even though one is a string and one is a number. Bad JavaScript. ;)`);
+  } else {
+    console.log(`${abc} and ${def} are anything other than the same number in string or number form.`)
+  }
+}
+
+isSame(abc, def);
+
+
 console.log('----------------------');
 console.log('----------------------');
 
-// Write a JavaScript program that runs when both things are not true.`
+// Write a JavaScript program that runs when both things are not true.
+
+let pigs = 'oink';
+let cats = 'meow';
+
+function animalSounds(first, second) {
+  if(pigs !== 'fly' && cats !== 'bark') {
+    console.log('The world makes sense.')
+  } else {
+    console.log('uh oh.')
+  }
+}
+
+animalSounds(pigs, cats);
+
+console.log('----------------------');
+console.log('----------------------');
