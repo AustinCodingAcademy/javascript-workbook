@@ -22,7 +22,7 @@ console.log(typeof Boolean);
 console.log(typeof Null);
 console.log(typeof Undefined);
 console.log(typeof Number);
-console.log(typeof notNumber);
+console.log(isNaN(notNumber)); //console.log() "true" if the value equates to "NaN."
 console.log(typeof String); 
 
 //Add two numbers together
