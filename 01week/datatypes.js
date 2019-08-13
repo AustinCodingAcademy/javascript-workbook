@@ -129,7 +129,7 @@ let player1 = 'Jake';
 let player2 = 'John';
 
 function nameLength(name1, name2) {
-  if(name1.length === name2.length && name1.charAt(0) === name2.charAt(0)) {
+  if(!!name1.length === !!name2.length && !!name1.charAt(0) === !!name2.charAt(0)) {
     console.log(`${name1} has the same amount of letters as ${name2}. Also, ${name1} and ${name2} start with the same letter.`);
   } else {
     console.log(`${name1} is not the same length as ${name2}, or the names start with a different letter.`);
