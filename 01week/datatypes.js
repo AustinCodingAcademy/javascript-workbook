@@ -88,7 +88,7 @@ let y = 'seven';
 
 function makeNotNumber(not) {
   if(isNaN(not)) {
-  console.log(`The string ${not} is Not a Number.`);
+    console.log(`The string ${not} is Not a Number.`);
   }
 }
 
@@ -129,7 +129,7 @@ function nameLength(name1, name2) {
   if(name1.length === name2.length) {
     console.log(`${name1} has the same amount of letters as ${name2}.`);
   } else {
-      console.log(`${name1} is not the same length as ${name2}.`);
+    console.log(`${name1} is not the same length as ${name2}.`);
   }
 }
 
@@ -144,4 +144,4 @@ console.log('----------------------');
 console.log('----------------------');
 console.log('----------------------');
 
-// Write a JavaScript program that runs when both things are not true.
+// Write a JavaScript program that runs when both things are not true.`
