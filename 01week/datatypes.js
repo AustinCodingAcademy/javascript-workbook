@@ -22,6 +22,42 @@ function isTypeOf(data) {
 
 isTypeOf(myBool);
 
+// null
+var myNull = null;
+
+function isTypeOf(data) {
+  return console.log(typeof data);
+}
+
+isTypeOf(myNull);
+
+// undefined
+var myUndefined = undefined;
+
+function isTypeOf(data) {
+  return console.log(typeof data);
+}
+
+isTypeOf(myUndefined);
+
+// number
+var myNum = 100;
+
+function isTypeOf(data) {
+  return console.log(typeof data);
+}
+
+isTypeOf(myNum);
+
+// NaN
+var myNaN = 0/0;
+
+function isTypeOf(data) {
+  return console.log(typeof data);
+}
+
+isTypeOf(myNaN);
+
 // string
 var myString = "false";
 
@@ -31,13 +67,9 @@ function isTypeOf(data) {
 
 isTypeOf(myString);
 
-var myNull = null;
-
-function isTypeOf(data) {
-  return console.log(typeof data);
-}
-
-isTypeOf(myNull);
+// var  = null;
+// var  = undefined;
+// var num = 13
 
 
 var num1 = 92;
@@ -65,7 +97,8 @@ oneArgumentIsTrue(true, false);
 
 function neitherAreTrue(arg1,arg2){
   if(arg1 || arg2){
-return 'neither are true';
+console.log ('neither are true');
 }
 }
 
+neitherAreTrue(true, true);
