@@ -14,13 +14,13 @@ function rockPaperScissors(hand1, hand2) {
    var p2 = hand2.toLowerCase().trim();
 
    if ((hand1 === "rock" && hand2 === "scissors") || (hand1 === "paper" && hand2 === "rock") || (hand1 === "scissors" && hand2 === "paper")) {
-   return "hand1 wins";
+   return "Hand one wins!";
   }
    else if ((hand1 === "paper" && hand2 === "scissors") || (hand1 === "scissors" && hand2 === "rock") || (hand1 === "rock" && hand2 === "paper")) { 
-   return "hand2 wins";
+   return "Hand two wins!";
   }
    else {
-    return "this is a tie"
+    return "It's a tie!"
    }
   
 }
