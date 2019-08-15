@@ -15,12 +15,13 @@ function rockPaperScissors(hand1, hand2) {
 let h1 = hand1.toLowerCase().trim();
 let h2 = hand2.toLowerCase().trim();
 
-console.log('Hand 1 is: ' + h1 + ' '  + 'and Hand 2 is: ' + h2);
+//console.log('Hand 1 is: ' + h1 + ' '  + 'and Hand 2 is: ' + h2);
 
   if (h1===h2) {
-    console.log("It is a tie!")
+    console.log("It's a tie!")
+    return "It's a tie!"
   }
-  else if (h1==="rock"&&h2==="paper"){
+  /*else if (h1==="rock"&&h2==="paper"){
     console.log("Hand 2 wins!")
   }
   else if (h1==="rock"&&h2==="scissors"){
@@ -37,8 +38,16 @@ console.log('Hand 1 is: ' + h1 + ' '  + 'and Hand 2 is: ' + h2);
   }
   else if (h1==="scissors"&&h2==="rock"){
     console.log("Hand 2 wins!")
-  }
+  }*/
 
+  if(h1==="scissors" && h2==="paper"|| h1==="paper" && h2==="rock"|| h1==="rock" && h2==="scissors"){
+    console.log("Hand one wins!")
+    return "Hand one wins!"
+  }else if (h1==="paper" && h2==="scissors"||h1==="rock" && h2==="paper" || h1==="scissors" && h2==="rock"){
+    console.log("Hand two wins!")
+    return "Hand two wins!"
+  }
+  
 }
 
 function getPrompt() {
