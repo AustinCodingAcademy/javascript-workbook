@@ -10,35 +10,48 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
+  let p1 = hand1.toLowerCase().trim();
+  let p2 = hand2.toLowerCase().trim();
+
+  console.log(p1, p2)
+
+
+  if (p1 === p2) {
+    // console.log('Its a tie!')
+    return 'its a tie'
+  }
+  
   //Hand1 Win
-  if (hand1 === hand2) {
-    console.log('Its a tie!')
+  if (p1 === 'rock' && p2 === 'scissors') {
+    // console.log(rock)
+    return 'hand1 wins'
   }
 
-  if (hand1 == 'rock' && hand2 == 'scissors') {
-    console.log('hand1 Wins!')
+  if (p1 === 'paper' && p2 === 'rock'){
+    // console.log(paper)
+    return 'hand1 wins'
   }
 
-  if (hand1 == 'paper' && hand2 == 'rock'){
-    console.log('hand1 Wins!')
-  }
-
-  if (hand1 == 'scissors' && hand2 == 'paper') {
-    console.log('hand1 Wins!')
+  if (p1 === 'scissors' && p2 === 'paper') {
+    // console.log(scissors)
+    return 'hand1 wins'
   }
 
 
   //Hand2 Win
-  if (hand2 == 'rock' && hand1 == 'scissors') {
-    console.log('hand2 Wins!')
+  if (p2 === 'rock' && p1 === 'scissors') {
+    // console.log(rock)
+    return 'hand2 wins'
   }
 
-  if (hand2 == 'paper' && hand1 == 'rock'){
-    console.log('hand2 Wins!')
+  if (p2 === 'paper' && p1 === 'rock'){
+    // console.log(paper)
+    return 'hand2 wins'
   }
 
-  if (hand2 == 'scissors' && hand1 == 'paper') {
-    console.log('hand2 Wins!')
+  if (hand2 === 'scissors' && hand1 === 'paper') {
+    // console.log(scissors)
+    return 'hand2 wins'
   }
 
 
@@ -54,6 +67,16 @@ function getPrompt() {
     });
   });
 }
+
+
+
+
+
+
+
+
+
+
 
 // Tests
 
