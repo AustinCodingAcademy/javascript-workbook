@@ -10,18 +10,18 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
   let p1 = hand1.toLowerCase().trim();
   let p2 = hand2.toLowerCase().trim();
-  
+
   // Tie games
   if (
     (p1 === "rock" && p2 === "scissors") ||
     (p1 === "paper" && p2 === "rock") ||
     (p1 === "scissors" && p2 === "paper")
-  )
-    return 'Hand one wins!';
-  else if (p1 === p2) {
-    return 'It\'s a tie!';
+  ) {
+    return "Hand one wins!";
+  } else if (p1 === p2) {
+    return "It's a tie!";
   } else {
-    return 'Hand two wins!';
+    return "Hand two wins!";
   }
 }
 
