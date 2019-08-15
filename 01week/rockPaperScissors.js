@@ -13,12 +13,15 @@ function rockPaperScissors(hand1, hand2) {
   let h2 = hand2.toLowerCase().trim();
   if(h1 == h2) {
     console.log("It's a tie!");
+    return "It's a tie!";
   }
   //h1 enters rock
   else if ((h1 === 'rock' && h2 === 'paper') || (h1 === 'paper' && h2 === 'scissors') || (h1 === 'scissors' && h2 === 'rock')) {
     console.log('Hand 2 wins!');
+    return "Hand two wins!";
   }else if ((h1 === 'rock' && h2 === 'scissors') || (h1 === 'paper' && h2 === 'rock') || (h1 == 'scissors' && h2 == 'paper')) {
     console.log('Hand 1 wins!');
+    return "Hand one wins!";
   } 
   // any other statement
   else {
