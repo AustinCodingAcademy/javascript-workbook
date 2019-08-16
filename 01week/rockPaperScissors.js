@@ -12,15 +12,24 @@ function rockPaperScissors(hand1, hand2) {
   let p1 = hand1.toLowerCase().trim();
   let p2 = hand2.toLowerCase().trim();
 
+
+  // Hide Input for fair play
+  // Input Variables
+  // let input1 = p1;
+  // let input2 = p2;
+
+    // Event Listener for Keystroke
+  // input1.addEventListener('keydown', logKey);
+  // input2.addEventListener('keydown', logKey);
+
+  // function logKey(e) {
+    
+  // }
+
   // Input Rules
   if (
-    (p1 !== "rock") &&
-    (p1 !== "paper") && 
-    (p1 !== 'scissors')
-    || 
-    (p2 !== "rock") &&
-    (p2 !== "paper") && 
-    (p2 !== 'scissors') 
+    (p1 !== "rock" && p1 !== "paper" && p1 !== "scissors") ||
+    (p2 !== "rock" && p2 !== "paper" && p2 !== "scissors")
   ) {
     return "Please enter: Rock, Paper, or Scissors to play.";
   }
