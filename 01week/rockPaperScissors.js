@@ -8,11 +8,25 @@ const rl = readline.createInterface({
 });
 
 function rockPaperScissors(hand1, hand2) {
+  // Player Variables
   let p1 = hand1.toLowerCase().trim();
   let p2 = hand2.toLowerCase().trim();
 
-  // Tie games
+  // Input Rules
   if (
+    (p1 !== "rock") &&
+    (p1 !== "paper") && 
+    (p1 !== 'scissors')
+    || 
+    (p2 !== "rock") &&
+    (p2 !== "paper") && 
+    (p2 !== 'scissors') 
+  ) {
+    return "Please enter: Rock, Paper, or Scissors to play.";
+  }
+
+  // Game Win, Lose, Draw Rules
+  else if (
     (p1 === "rock" && p2 === "scissors") ||
     (p1 === "paper" && p2 === "rock") ||
     (p1 === "scissors" && p2 === "paper")
@@ -35,7 +49,6 @@ function getPrompt() {
 }
 
 // Tests
-
 if (typeof describe === "function") {
   describe("#rockPaperScissors()", () => {
     it("should detect a tie", () => {
