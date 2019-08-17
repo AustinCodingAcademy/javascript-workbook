@@ -12,7 +12,7 @@ function rockPaperScissors(hand1, hand2) {
   let p1 = hand1.toLowerCase().trim();
   let p2 = hand2.toLowerCase().trim();
 
-
+  
   // Input Rules
   if (
     (p1 !== "rock" && p1 !== "paper" && p1 !== "scissors") ||
