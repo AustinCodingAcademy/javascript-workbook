@@ -11,6 +11,54 @@ let jobTypes = {
 
 // Your code here
 
+/**
+  Defines a new crew member
+*/
+class CrewMember {
+  /**
+    @param name Name of the member
+    @param job Job of the member
+    @param skills Special skills of the member
+    @param ship The ship owned by this crew member
+  */
+  constructor(name, job, skills, ship) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = skills;
+    this.ship = ship;
+  }
+
+  /**
+  Method to enter into a ship
+  @param ship The ship which the member should enter
+  */
+  enterShip(ship) {
+    this.ship = ship;
+    ship.crew.push(this);
+  }
+}
+
+/**
+  Defines a new mission ship!
+*/
+class Ship {
+  /**
+    @param name The name of the ship
+    @param type The type of the ship
+    @param ability Special abilities of the ship
+  */
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+
+  missionStatement() {
+    return this.crew.length === 0 ? "Can't perform a mission yet." : this.ability;        
+  }
+}
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
