@@ -17,36 +17,25 @@ let h2 = hand2.toLowerCase().trim();
 
 //console.log('Hand 1 is: ' + h1 + ' '  + 'and Hand 2 is: ' + h2);
 
-  if (h1===h2) {
-    console.log("It's a tie!")
+  //if h1 or h2 is blank ask player to input hand
+  if(h1===""||h2===""){
+    return "Please input your hand(s) in the terminal."
+  }
+  //if h1 is the same as hand 2 state that it is a tie.
+  else if (h1===h2){
     return "It's a tie!"
   }
-  /*else if (h1==="rock"&&h2==="paper"){
-    console.log("Hand 2 wins!")
-  }
-  else if (h1==="rock"&&h2==="scissors"){
-    console.log("Hand 1 wins!")
-  }
-  else if (h1==="paper"&&h2==="rock"){
-    console.log("Hand 1 wins!")
-  }
-  else if (h1==="paper"&&h2==="scissors"){
-    console.log("Hand 2 wins!")
-  }
-  else if (h1==="scissors"&&h2==="paper"){
-    console.log("Hand 1 wins!")
-  }
-  else if (h1==="scissors"&&h2==="rock"){
-    console.log("Hand 2 wins!")
-  }*/
-
+  
+  //h1 victory conditions
   if(h1==="scissors" && h2==="paper"|| h1==="paper" && h2==="rock"|| h1==="rock" && h2==="scissors"){
-    console.log("Hand one wins!")
     return "Hand one wins!"
-  }else if (h1==="paper" && h2==="scissors"||h1==="rock" && h2==="paper" || h1==="scissors" && h2==="rock"){
-    console.log("Hand two wins!")
+  }
+  
+  //h2 victory conditions
+  else if (h1==="paper" && h2==="scissors"||h1==="rock" && h2==="paper" || h1==="scissors" && h2==="rock"){
     return "Hand two wins!"
   }
+
   
 }
 
