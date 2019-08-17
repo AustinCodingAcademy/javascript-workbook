@@ -7,12 +7,29 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// Hide Input for P1 and P2
+// rl.stdoutMuted = true;
+
+// rl._writeToOutput = function _writeToOutput(stringToWrite) {
+//   if (rl.stdoutMuted) {
+//     rl.output.write("**");
+//   } else if (rl.output === "hand1: ") {
+//     rl.stdoutMuted = false;
+//   }
+// };
+
+// OR Via JScript
+// p1 function capture keypress 
+// as capture happens convert to array with JSON parse
+// copy array then run forEach on array and convert letters to asterisks
+// send unmutated array to rockPaperScissors()
+// send mutated array to rl.output.
+
 function rockPaperScissors(hand1, hand2) {
   // Player Variables
   let p1 = hand1.toLowerCase().trim();
   let p2 = hand2.toLowerCase().trim();
 
-  
   // Input Rules
   if (
     (p1 !== "rock" && p1 !== "paper" && p1 !== "scissors") ||
