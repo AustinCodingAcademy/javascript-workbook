@@ -11,11 +11,10 @@ const rl = readline.createInterface({
 // rl.stdoutMuted = true;
 
 // rl._writeToOutput = function _writeToOutput(stringToWrite) {
-//   if (rl.stdoutMuted) {
-//     rl.output.write("**");
-//   } else if (rl.output === "hand1: ") {
-//     rl.stdoutMuted = false;
-//   }
+//   if (rl.stdoutMuted)
+//     rl.output.write("***");
+//   else
+//     rl.output.write(stringToWrite);
 // };
 
 // OR Via JScript
@@ -29,6 +28,8 @@ function rockPaperScissors(hand1, hand2) {
   // Player Variables
   let p1 = hand1.toLowerCase().trim();
   let p2 = hand2.toLowerCase().trim();
+
+  // rl.p1.stdoutMuted = true;
 
   // Input Rules
   if (
