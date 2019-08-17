@@ -24,23 +24,34 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  for (let row of board) {
+    if (row[0] === playerTurn && row[1] === playerTurn && row[2] === playerTurn) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function verticalWin() {
-  // Your code here
+  for (let col in board) {
+    if (board[0][col] === playerTurn && board[1][col] === playerTurn && board[2][col] === playerTurn) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function diagonalWin() {
-  // Your code here
+  return (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) || (board[2][0] === playerTurn && board[1][1] === playerTurn && board[0][2] === playerTurn);
 }
 
 function checkForWin() {
-  // Your code here
+  return horizontalWin() || verticalWin() || diagonalWin();
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  playerTurn = playerTurn == "X" ? "O" : "X";
 }
 
 function getPrompt() {
