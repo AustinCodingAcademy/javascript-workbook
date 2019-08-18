@@ -12,22 +12,54 @@ function rockPaperScissors(hand1, hand2) {
 
 //Type Code Here...
 
-let h1 = hand1.toLowerCase().trim();
-let h2 = hand2.toLowerCase().trim();
+const h1 = hand1.toLowerCase().trim();
+const h2 = hand2.toLowerCase().trim();
+
 
 //console.log('Hand 1 is: ' + h1 + ' '  + 'and Hand 2 is: ' + h2);
 
-  //if h1 or h2 is blank ask player to input hand
-  if(h1===""||h2===""){
-    return "Please input your hand(s) in the terminal."
+  
+function hasInput() {
+  if (h1===""||h2===""){
+    return 'invalid';
+  }else{ return 'valid',
+  handOneValid()}
+}
+hasInput()
+
+//console.log notice to have player enter a value for the appropriate hand as needed.
+if (h1==="") {console.log('Please enter a correct value for Hand 1.')}
+
+if (h2==="") {console.log('Please enter a correct value for Hand 2.')}
+
+
+//Create a function to validate input for hand 1
+function handOneValid () {
+  if (h1==='rock'||h1==='paper'||h1==='scissors'){
+    return 'valid', handTwoValid()
+  }else{
+    return 'invalid', console.log("Please type one of the following for Hand 1: Rock, Paper, Scissors.")
   }
+}
+
+//create a function to validate input for hand 2
+function handTwoValid () {
+  if (h2==='rock'||h2==='paper'||h2==='scissors'){
+    return 'valid', victoryConditions()
+  }else{
+    return 'invalid', console.log("Please type one of the following for Hand 2: Rock, Paper, Scissors.")
+  }
+}
+
+//create a function to check for victory condtions:
+  function victoryConditions(){
   //if h1 is the same as hand 2 state that it is a tie.
-  else if (h1===h2){
+  if (h1===h2 && h1 !=='' && h2 !==''){
     return "It's a tie!"
   }
   
   //h1 victory conditions
-  if(h1==="scissors" && h2==="paper"|| h1==="paper" && h2==="rock"|| h1==="rock" && h2==="scissors"){
+  else if(h1==="scissors" && h2==="paper"|| h1==="paper" && h2==="rock"|| h1==="rock" && h2==="scissors"){
     return "Hand one wins!"
   }
   
@@ -36,8 +68,12 @@ let h2 = hand2.toLowerCase().trim();
     return "Hand two wins!"
   }
 
+  }
   
+  let result =  victoryConditions()
+  return result, console.log(result)
 }
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
