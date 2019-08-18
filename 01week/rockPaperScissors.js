@@ -70,8 +70,7 @@ function handTwoValid () {
 
   }
   
-  let result =  victoryConditions()
-  return result, console.log(result)
+  return victoryConditions();
 }
 
 
