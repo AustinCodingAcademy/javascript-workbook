@@ -15,7 +15,6 @@ function rockPaperScissors(hand1, hand2) {
 const h1 = hand1.toLowerCase().trim();
 const h2 = hand2.toLowerCase().trim();
 
-
 //console.log('Hand 1 is: ' + h1 + ' '  + 'and Hand 2 is: ' + h2);
 
   
@@ -49,6 +48,7 @@ function handTwoValid () {
   }else{
     return 'invalid', console.log("Please type one of the following for Hand 2: Rock, Paper, Scissors.")
   }
+  
 }
 
 //create a function to check for victory condtions:
@@ -68,11 +68,12 @@ function handTwoValid () {
     return "Hand two wins!"
   }
 
+  else {return ''}
+
   }
   
   return victoryConditions();
 }
-
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
