@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// Hide Input for P1 and P2
+// // Hide Input for P1 and P2
 // rl.stdoutMuted = true;
 
 // rl._writeToOutput = function _writeToOutput(stringToWrite) {
@@ -17,7 +17,7 @@ const rl = readline.createInterface({
 //     rl.output.write(stringToWrite);
 // };
 
-// OR Via JScript
+// OR Via JScript maybe:
 // p1 function capture keypress 
 // as capture happens convert to array with JSON parse
 // copy array then run forEach on array and convert letters to asterisks
