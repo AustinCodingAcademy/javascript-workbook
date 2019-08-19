@@ -1,14 +1,16 @@
+//current date and time
 var today = new Date();
 var date = today.getFullYear()+ '-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours()+19 + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date + ' ' + time;
 console.log(dateTime);
 
+//convert a number to a string
 var num = 24;
 var xx = num.toString();
 console.log(xx)
 
-
+//convert a string to a number
 var text = '42px';
 var integer = parseInt(text, 10);
 console.log(integer);
@@ -51,12 +53,9 @@ isTypeOf(myNum);
 
 // NaN
 var myNaN = 0/0;
+var myNaN2 = myNaN + myNum
 
-function isTypeOf(data) {
-  return console.log(typeof data);
-}
-
-isTypeOf(myNaN);
+console.log(myNaN)
 
 // string
 var myString = "false";
@@ -67,17 +66,13 @@ function isTypeOf(data) {
 
 isTypeOf(myString);
 
-// var  = null;
-// var  = undefined;
-// var num = 13
-
-
+//add 2 numbers together
 var num1 = 92;
 var num2 = 93;
-var total = num1++;
+var total = num1+ num;
 console.log(num1 + num2)
    
-
+//runs when 2 things are true
 function bothAreTrue(true1,true2){
   if(true1 && true2){
 console.log ('both are true');
@@ -86,13 +81,13 @@ console.log ('both are true');
 
 bothAreTrue(true, true);
 
-
+//runs when 1 of 2 things are true
 function oneArgumentIsTrue(arg1,arg2){
   if(arg1 || arg2){
 console.log ('one is true');
 }
 }
-
+//runs when both things are true
 oneArgumentIsTrue(true, false);
 
 function neitherAreTrue(arg1,arg2){
@@ -102,3 +97,4 @@ console.log ('neither are true');
 }
 
 neitherAreTrue(true, true);
+
