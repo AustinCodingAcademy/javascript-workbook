@@ -27,9 +27,9 @@ function hasInput() {
 hasInput()
 
 //console.log notice to have player enter a value for the appropriate hand as needed.
-if (h1==="") {console.log('Please enter a correct value for Hand 1.')}
+if (h1==="") {console.log('Please enter a value for Hand 1.')}
 
-if (h2==="") {console.log('Please enter a correct value for Hand 2.')}
+if (h2==="") {console.log('Please enter a value for Hand 2.')}
 
 
 //Create a function to validate input for hand 1
@@ -68,7 +68,7 @@ function handTwoValid () {
     return "Hand two wins!"
   }
 
-  else {return ''}
+  else {return 'Please follow the directions above to continue playing.'}
 
   }
   
