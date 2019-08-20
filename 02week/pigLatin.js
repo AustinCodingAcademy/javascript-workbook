@@ -9,14 +9,20 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
   // Your code here
-
+    let words = word.toLowerCase().trim()
+    let firstVowel = words.match(/[aeiou]/);
+    let firstVowelPosition = words.indexOf(firstVowel)
+  
+    if (firstVowelPosition > 0){
+      return words.slice(firstVowelPosition) + words.slice(0, firstVowelPosition) + "ay"
+    }else{return words + "yay"}
+  
 }
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+  rl.question('Word: ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
