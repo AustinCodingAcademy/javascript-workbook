@@ -12,21 +12,21 @@ function pigLatin(word) {
   const vowels = ["a", "e", "i", "o", "u"];
   const splitWord = word.split("");
 
-  const newSplitArr = [...splitWord];
-
-  const something = newSplitArr.forEach(function(wordLetters) {
-    return wordLetters;
-  });
-
-  vowels.forEach(function(vowelLetters) {
-    if (vowelLetters === something) {
-      console.log(true);
-    } else {
-      console.log(false);
+  // Slice Word at first Vowel
+  function firstPart(param1, param2) {
+    for (let v = 0; v < vowels.length; v++) {
+      for (let w = 0; w < splitWord.length; w++) {
+        if (vowels[w] === splitWord[v]) {
+          return splitWord.slice(v, splitWord.length);
+        }
+      }
     }
-  });
+  }
+  console.log(firstPart(vowels, splitWord));
+  console.log(splitWord);
 }
 
+// Console
 function getPrompt() {
   rl.question("word ", answer => {
     console.log(pigLatin(answer));
