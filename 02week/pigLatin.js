@@ -10,8 +10,20 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+  var text = word.split('')
+  // console.log(text)
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  // console.log(vowels)
 
+  function main(word) {
+    for(let i = 0; i < vowels.length; i++) {
+      if(vowels[i] === word[0]){
+        console.log(word[0])
+      }
+    }
+  }
+  main(text);
+  // return 
 }
 
 
