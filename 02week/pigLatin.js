@@ -10,10 +10,13 @@ const rl = readline.createInterface({
 function pigLatin(word) {
   // Global variables
   const vowels = ["a", "e", "i", "o", "u"];
-  let splitWord = word
+  const splitWord = word
     .toLowerCase()
     .trim()
     .split("");
+
+  // add must be letters
+  // add logic for one letter words / directions to type in more letters
 
   // Slice Word at first Vowel to end
   function firstPart(param1, param2) {
@@ -47,7 +50,7 @@ function pigLatin(word) {
     return `${param1}${param2}`;
   }
 
-  combine(result1, result2);
+  console.log(combine(result1, result2));
 }
 
 // Console
