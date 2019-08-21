@@ -14,7 +14,7 @@ function pigLatin(word) {
   // console.log(text)
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   // console.log(vowels)
-
+ 
   function main(word) {
     for(let i = 0; i < vowels.length; i++) {
       if(vowels[i] === word[0]){
@@ -25,7 +25,6 @@ function pigLatin(word) {
   main(text);
   // return 
 }
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
