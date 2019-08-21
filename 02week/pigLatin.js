@@ -10,8 +10,10 @@ const rl = readline.createInterface({
 function pigLatin(word) {
   // Global variables
   const vowels = ["a", "e", "i", "o", "u"];
-  const splitWord = word.split("");
-  const copySplitWord = [...splitWord];
+  let splitWord = word
+    .toLowerCase()
+    .trim()
+    .split("");
 
   // Slice Word at first Vowel to end
   function firstPart(param1, param2) {
@@ -29,9 +31,9 @@ function pigLatin(word) {
     for (let v = 0; v < vowels.length; v++) {
       for (let w = 0; w < splitWord.length; w++) {
         if (vowels[w] === splitWord[0]) {
-          return `-${splitWord.slice([0], [v]).join("")}yay`;
+          return `${splitWord.slice([0], [v]).join("")}yay`;
         } else if (vowels[w] === splitWord[v]) {
-          return `-${splitWord.slice([0], [v]).join("")}ay`;
+          return `${splitWord.slice([0], [v]).join("")}ay`;
         }
       }
     }
@@ -45,7 +47,7 @@ function pigLatin(word) {
     return `${param1}${param2}`;
   }
 
-  console.log(combine(result1, result2));
+  combine(result1, result2);
 }
 
 // Console
