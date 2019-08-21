@@ -11,19 +11,31 @@ function pigLatin(word) {
   // Global variables
   const vowels = ["a", "e", "i", "o", "u"];
   const splitWord = word.split("");
+  const copySplitWord = [...splitWord];
 
-  // Slice Word at first Vowel
+  // Slice Word at first Vowel to end
   function firstPart(param1, param2) {
     for (let v = 0; v < vowels.length; v++) {
       for (let w = 0; w < splitWord.length; w++) {
         if (vowels[w] === splitWord[v]) {
-          return splitWord.slice(v, splitWord.length);
+          return `${splitWord.slice(v, splitWord.length).join("")}`;
         }
       }
     }
   }
+
+  function secondPart(param1, param2) {
+    for (let v = 0; v < vowels.length; v++) {
+      for (let w = 0; w < splitWord.length; w++) {
+        if (vowels[w] === splitWord[v]) {
+          return `${splitWord.slice([0], [v]).join("")}ay`;
+        }
+      }
+    }
+  }
+
   console.log(firstPart(vowels, splitWord));
-  console.log(splitWord);
+  console.log(secondPart(vowels, splitWord));
 }
 
 // Console
