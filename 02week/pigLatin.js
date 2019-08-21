@@ -24,18 +24,28 @@ function pigLatin(word) {
     }
   }
 
+  // Slice word from First Letter to Vowel & if first letter is vowel
   function secondPart(param1, param2) {
     for (let v = 0; v < vowels.length; v++) {
       for (let w = 0; w < splitWord.length; w++) {
-        if (vowels[w] === splitWord[v]) {
-          return `${splitWord.slice([0], [v]).join("")}ay`;
+        if (vowels[w] === splitWord[0]) {
+          return `-${splitWord.slice([0], [v]).join("")}yay`;
+        } else if (vowels[w] === splitWord[v]) {
+          return `-${splitWord.slice([0], [v]).join("")}ay`;
         }
       }
     }
   }
 
-  console.log(firstPart(vowels, splitWord));
-  console.log(secondPart(vowels, splitWord));
+  // Combine returns from firstPart and secondPart
+  const result1 = firstPart(vowels, splitWord);
+  const result2 = secondPart(vowels, splitWord);
+
+  function combine(param1, param2) {
+    return `${param1}${param2}`;
+  }
+
+  console.log(combine(result1, result2));
 }
 
 // Console
