@@ -20,7 +20,8 @@ if (hand1 === 'paper' && hand2 === 'rock' || hand1 === 'rock' && hand2 === 'scis
 if (hand1 === 'rock' && hand2 === 'paper' || hand1 === 'scissors' && hand2 === 'rock' || hand1 === 'paper' && hand2 === 'scissors') {
   return ('Hand2 Wins')
 }
- 
+if (hand1.toLowercase().trim() && hand2.toLowercase().trim())
+
 }
 
 function getPrompt() {
