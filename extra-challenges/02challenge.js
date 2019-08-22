@@ -26,6 +26,7 @@ var alwaysTrue = function () {
 // argument1 is equal to argument2
 
 function equals(argument1, argument2) {
+  return argument1 == argument2;
 }
 
 // Problem 2:
@@ -34,17 +35,24 @@ function equals(argument1, argument2) {
 // parameter1 is less than or equal to parameter2
 
 function lessThanOrEqualTo(parameter1, parameter2) {
+  return parameter1 <= parameter2;
 }
 
 // Problem 3:
 // write a function named add(number1, number2)
 // add will add two numbers and return the result
 
+function add(n1, n2) {
+  return n1 + n2;
+}
+
 // Problem 4:
 // write a function named addThree(number1, number2, number3)
 // this function will add three numbers
 // you must call your function add() in addThree()
-
+function addThree(n1, n2, n3) {
+  return add(n3, add(n1, n2));
+}
 
 // ****
 // Concept Checkpoint
@@ -54,22 +62,28 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // What is a function? How do you define a function in Javascript?
 //
 // Your Answer Goes Here:
-//
+// Function in js is a set of instructions that can be run with different arguments in runtime. They can have return values or not. Functions are declared using function FUNCTION-NAME(args) {content} and they can be called like FUNCTION-NAME(args)
 //
 // What is a return value?
-//
 // Your Answer Goes Here:
+// Return value is a value that gives out from a function. It can be any value or nothing (ie return;). This return value can be stored in a variable for future reference also.
+// eg: In the function add above, it returns the some of the 2 arguments specified
+// var sum = add(1,2)
+// console.log(sum) // Output: 3
 //
 //
 // How do you define a named function?
 //
 // Your Answer Goes Here:
-//
+// Named function can be defined according to the following syntax
+// function FUNCTION_NAME(arg1, arg2, ...) {
+//  // TODO goes here
+//  return arg1; //*optional*
 //
 // What is a parameter? What is an argument? Is there a difference between the two?
 //
 // Your Answer Goes Here:
-//
+// TODO: Learn the differnece
 // ****
 
 
@@ -84,6 +98,7 @@ function lessThanOrEqualTo(parameter1, parameter2) {
 // complete isEven() by returning a boolean expression
 
 function isEven(number) {
+  return !(number % 2);
 }
 
 // Problem 6:
@@ -93,6 +108,7 @@ function isEven(number) {
 // complete isDivisibleByThree() by returning a boolean expression
 
 function isDivisibleByThree(number) {
+  return !(number % 3);
 }
 
 // ****
@@ -108,6 +124,16 @@ function isDivisibleByThree(number) {
 // should return false if character is anything else
 
 function whichSpecies(character) {
+  switch (character) {
+  case 'scooby':
+    return 'dog';
+  case 'garfield':
+    return 'cat';
+  case 'nemo':
+    return 'fish';
+  default:
+    return false;
+  }
 }
 
 // Problem 8:
@@ -117,7 +143,17 @@ function whichSpecies(character) {
 // return the string "divisible by 2" when number % 2 === 0
 // return the string "divisible by 3" when number % 3 === 0
 // return the string "divisible by 5" when number % 5 === 0
-
+function testNumber(number) {
+  if (number % 4 === 0) {
+    return "divisible by 4";
+  } else if (number % 2 === 0) {
+    return "divisible by 2";
+  } else if (number % 3 === 0) {
+    return "divisible by 3";
+  } else if (number % 5 === 0) {
+    return "divisible by 5";
+  }
+}
 
 // ****
 // Concept Checkpoint
@@ -127,7 +163,7 @@ function whichSpecies(character) {
 // In your own words, explain what conditionals do.
 //
 // Your Answer Goes Here:
-//
+// Conditionals are statements specified in program to execute statements if some conditions meet. Conditionals in js are if-else chains and switch. In 'if-else'  if the condition inside the if statement is true, the instructions in that if block will be executed. Switch statement also acts like that. But with more additional features.
 //
 // ****
 
