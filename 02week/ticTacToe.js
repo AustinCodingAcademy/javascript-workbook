@@ -23,28 +23,58 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin(row, column) {
-  let row = [0, 1, 2];
+function horizontalWin(x, o) {
+  if ((board[0][0] == x && board[0][1] == x && board[0][2] == x) || 
+      (board[1][0] == x && board[1][1] == x && board[1][2] == x) || 
+      (board[2][0] == x && board[2][1] == x && board[2][2] == x) || 
+      (board[0][0] == o && board[0][1] == o && board[0][2] == o) || 
+      (board[1][0] == o && board[1][1] == o && board[1][2] == o) || 
+      (board[2][0] == o && board[2][1] == o && board[2][2] == o)) {
+      return true;
+      }
+}
+
+function verticalWin(x, o) {
+  if ((board[0][0] == x && board[1][0] == x && board[2][0] == x) || 
+      (board[0][1] == x && board[1][1] == x && board[2][1] == x) || 
+      (board[0][2] == x && board[1][2] == x && board[2][2] == x) || 
+      (board[0][0] == o && board[1][0] == o && board[2][0] == o) || 
+      (board[0][1] == o && board[1][1] == o && board[2][1] == o) || 
+      (board[0][2] == o && board[1][2] == o && board[2][2] == o)){
+      return true;
+      }
+}
+
+function diagonalWin(x, o) {
+  if ((board[0][0] == x && board[1][1] == x && board[2][2] == x) || 
+      (board[0][2] == x && board[1][1] == x && board[2][0] == x) ||
+      (board[0][0] == o && board[1][1] == o && board[2][2] == o) || 
+      (board[0][2] == o && board[1][1] == o && board[2][0] == o)) {
+      return true;
+  }
+}
+
+function checkForWin(board) {
   
-
-  // Your code here
-}
-
-function verticalWin() {
-  // Your code here
-}
-
-function diagonalWin() {
-  // Your code here
-}
-
-function checkForWin() {
-  // Your code here
+    if(horizontalWin || verticalWin || diagonalWin) {
+      return "winner!"
+    }
 }
 
 function ticTacToe(row, column) {
   // Your code here
-}
+  //let Player1 = "x";
+  //let Player2 = "o";
+  //let row = [0, 1, 2];
+  //let column = [0, 1, 2];
+  //if (row === 0, column === 0) {
+    //return Player1.board[0][0];
+  
+    if(playerTurn === x) {
+      return playerTurn == o
+    }
+  }  
+
 
 function getPrompt() {
   printBoard();
