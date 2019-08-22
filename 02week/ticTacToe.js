@@ -37,10 +37,14 @@ function diagonalWin() {
 
 function checkForWin() {
   // Your code here
+  
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  if (playerTurn == playerTurn){
+    board[row][column] = playerTurn;
+    }
+  
 }
 
 function getPrompt() {
