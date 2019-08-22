@@ -7,24 +7,32 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+const vowels = "aeiou";
+
+
+
 
 function pigLatin(word) {
-
-  var text = word.split('')
-  // console.log(text)
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
-  // console.log(vowels)
- 
-  function main(word) {
-    for(let i = 0; i < vowels.length; i++) {
-      if(vowels[i] === word[0]){
-        console.log(word[0])
-      }
+//   if(typeof word !== String){
+//   return("Please enter a valid word")
+// }
+function detectVowel(word) {
+  for(let i = 0; i < word.length; i++) {
+    if(vowels.indexOf(word[i] !== -1)){
+      return(i)
     }
   }
-  main(text);
-  // return 
 }
+
+const firstLetterType = detectVowel(word)
+  if(firstLetterType > 0){
+  return word.slice(firstLetterType) + word.slice(0, firstLetterType) + "ay"
+  }
+  return word + "way"
+}
+
+// detectVowel(word)
+
 
 function getPrompt() {
   rl.question('word ', (answer) => {
