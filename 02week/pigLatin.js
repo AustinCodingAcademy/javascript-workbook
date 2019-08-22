@@ -10,13 +10,28 @@ const rl = readline.createInterface({
 function pigLatin(word) {
   // Global variables
   const vowels = ["a", "e", "i", "o", "u"];
+  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   const splitWord = word
     .toLowerCase()
     .trim()
     .split("");
+ 
 
-  // add must be letters
-  // add logic for one letter words / directions to type in more letters
+  
+  // Input Rules
+  // for (let n = 0; n < numbers.length; n++) {
+  //   for (let w = 0; w < splitWord.length; w++) {
+  //     if (numbers[w] === splitWord[n]) {
+  //       return `Please enter words only. Try again.`;
+  //     }
+  //   }
+  // }
+
+  // if (splitWord.length === 0) {
+  //   return `Please enter a word. Try again.`;
+  // } else if (splitWord === "a") {
+  //   return "ayay";
+  // }
 
   // Slice Word at first Vowel to end
   function firstPart(param1, param2) {
@@ -34,9 +49,9 @@ function pigLatin(word) {
     for (let v = 0; v < vowels.length; v++) {
       for (let w = 0; w < splitWord.length; w++) {
         if (vowels[w] === splitWord[0]) {
-          return `${splitWord.slice([0], [v]).join("")}yay`;
+          return `${splitWord.splice([0], [v]).join("")}yay`;
         } else if (vowels[w] === splitWord[v]) {
-          return `${splitWord.slice([0], [v]).join("")}ay`;
+          return `${splitWord.splice([0], [v]).join("")}ay`;
         }
       }
     }
@@ -51,7 +66,9 @@ function pigLatin(word) {
   }
 
   console.log(combine(result1, result2));
+
 }
+
 
 // Console
 function getPrompt() {
