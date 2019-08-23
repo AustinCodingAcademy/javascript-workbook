@@ -19,10 +19,11 @@ const detectVowel = word => {
   }
 }
   const firstLetterType = detectVowel(word);
+  // const trimmedWord = word.toLowercase().trim();
   if(firstLetterType > 0){
   return word.slice(firstLetterType) + word.slice(0, firstLetterType) + "ay"
   }
-  return word + ("way");
+  return word + ("yay");
 }
 
   
