@@ -7,31 +7,27 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const vowels = "aeiou";
 
 
+const pigLatin = word => {
 
-
-function pigLatin(word) {
-//   if(typeof word !== String){
-//   return("Please enter a valid word")
-// }
-function detectVowel(word) {
+const detectVowel = word => {
   for(let i = 0; i < word.length; i++) {
-    if(vowels.indexOf(word[i] !== -1)){
+    if("aeiou".indexOf(word[i]) !== -1){
       return(i)
     }
   }
 }
-
-const firstLetterType = detectVowel(word)
+  const firstLetterType = detectVowel(word);
   if(firstLetterType > 0){
   return word.slice(firstLetterType) + word.slice(0, firstLetterType) + "ay"
   }
-  return word + "way"
+  return word + ("way");
 }
 
-// detectVowel(word)
+  
+  
+
 
 
 function getPrompt() {
