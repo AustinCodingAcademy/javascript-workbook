@@ -24,7 +24,13 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+  if((board[0][0] === board[0][1] && board[0][2])
+  || (board[1][0] === board[1][1] && board[1][2])
+  || (board[2][0] === board[2][1] && board[2][2]))
+
+  console.log("Horizontal Win!");
+
+  return true;
 }
 
 function verticalWin() {
@@ -36,16 +42,31 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin())
+
+  console.log("You Win!");
+
+  return true;
+
   
 }
 
 function ticTacToe(row, column) {
-  if (playerTurn == playerTurn){
+  if (playerTurn === playerTurn){
     board[row][column] = playerTurn;
     }
+    
+  checkForWin();
   
+    if (playerTurn === "X"){
+    playerTurn = "O";
+    }
+
+  else if (playerTurn === "O"){
+    playerTurn = "X";
+  }
 }
+
 
 function getPrompt() {
   printBoard();
@@ -58,7 +79,6 @@ function getPrompt() {
   });
 
 }
-
 
 
 // Tests
