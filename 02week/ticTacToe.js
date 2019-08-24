@@ -13,6 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let counter = 0;
 
 function printBoard() {
   console.log('   0  1  2');
@@ -23,57 +24,83 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin(x, o) {
-  if ((board[0][0] == x && board[0][1] == x && board[0][2] == x) || 
-      (board[1][0] == x && board[1][1] == x && board[1][2] == x) || 
-      (board[2][0] == x && board[2][1] == x && board[2][2] == x) || 
-      (board[0][0] == o && board[0][1] == o && board[0][2] == o) || 
-      (board[1][0] == o && board[1][1] == o && board[1][2] == o) || 
-      (board[2][0] == o && board[2][1] == o && board[2][2] == o)) {
-      return true;
-      }
-}
-
-function verticalWin(x, o) {
-  if ((board[0][0] == x && board[1][0] == x && board[2][0] == x) || 
-      (board[0][1] == x && board[1][1] == x && board[2][1] == x) || 
-      (board[0][2] == x && board[1][2] == x && board[2][2] == x) || 
-      (board[0][0] == o && board[1][0] == o && board[2][0] == o) || 
-      (board[0][1] == o && board[1][1] == o && board[2][1] == o) || 
-      (board[0][2] == o && board[1][2] == o && board[2][2] == o)){
-      return true;
-      }
-}
-
-function diagonalWin(x, o) {
-  if ((board[0][0] == x && board[1][1] == x && board[2][2] == x) || 
-      (board[0][2] == x && board[1][1] == x && board[2][0] == x) ||
-      (board[0][0] == o && board[1][1] == o && board[2][2] == o) || 
-      (board[0][2] == o && board[1][1] == o && board[2][0] == o)) {
-      return true;
+function horizontalWin() {
+  if (board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") {
+    return true
+  } else if (board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X") {
+    return true
+  } else if (board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X") {
+    return true
+  } else if (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O") {
+    return true
+  } else if (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O") {
+    return true
+  } else if (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O") {
+    return true
+  } else {
+    return false
   }
 }
 
-function checkForWin(board) {
+function verticalWin() {
+  if (board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") {
+    return true
+  } else if (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") {
+    return true
+  } else if (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") {
+    return true
+  } else if (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O") {
+    return true
+  } else if (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O") {
+    return true
+  } else if (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O") {
+    return true
+  } else {
+    return false
+  }
+}
+
+function diagonalWin() {
+  if (board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") {
+    return true
+  } else if (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") {
+    return true
+  } else if (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") {
+    return true
+  } else if (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") {
+    return true;
+  }
+}
+
+function checkForWin() {
   
-    if(horizontalWin || verticalWin || diagonalWin) {
-      return "winner!"
+    if(horizontalWin() || verticalWin() || diagonalWin()) {
+      console.log("winner")
+    } else {
+      console.log("") 
     }
 }
 
-function ticTacToe(row, column) {
-  // Your code here
-  //let Player1 = "x";
-  //let Player2 = "o";
-  //let row = [0, 1, 2];
-  //let column = [0, 1, 2];
-  //if (row === 0, column === 0) {
-    //return Player1.board[0][0];
+
+function switchPlayer() {
+  if (playerTurn == "X") {
+  playerTurn = "O"
+  }
+ else {
+   playerTurn = "X";
+}
+}
+
+function ticTacToe(row, column) {]
+  board[row][column] = playerTurn;
+  switchPlayer();
+  checkForWin();
   
-    if(playerTurn === x) {
-      return playerTurn == o
-    }
-  }  
+  }
+  
+ 
+  
+  
 
 
 function getPrompt() {
