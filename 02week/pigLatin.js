@@ -16,17 +16,17 @@ function pigLatin(string) {
     .split("");
   const words = string.split(" ");
 
-  for (let w = 0; w < words.length; w++) {
-    const splitWords = words[w]
-      .toLowerCase()
-      .trim()
-      .split("");
-    console.log(Object.prototype.toString.call(splitWords), splitWords, w);
-    splitWords.forEach(function(element) {
-      for (let e = 0; e < element.length; e++)
-        for (let v = 0; v < vowels.length; v++) {
-          if (element[0] === vowels[v]) {
-            console.log(element[0], vowels);
+  // for (let w = 0; w < words.length; w++) {
+  //   const splitWords = words[w]
+  //     .toLowerCase()
+  //     .trim()
+  //     .split("");
+  //   console.log(Object.prototype.toString.call(splitWords), splitWords, w);
+  //   splitWords.forEach(function(element) {
+  //     for (let e = 0; e < element.length; e++)
+  //       for (let v = 0; v < vowels.length; v++) {
+  //         if (element[0] === vowels[v]) {
+  //           console.log(element[0], vowels);
           }
           // if (element[e] === vowels[v]) {
           //   return `${splitWords[element].join("")}yay`;
