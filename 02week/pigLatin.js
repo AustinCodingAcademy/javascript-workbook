@@ -16,6 +16,20 @@ function pigLatin(string) {
     .split("");
   const words = string.split(" ");
 
+  // for (let w = 0; w < words.length; w++) {
+  //   const splitWords = words[w]
+  //     .toLowerCase()
+  //     .trim()
+  //     .split("");
+  //   for (let s = 0; s < splitWords.length; s++) {
+  //     for (let v = 0; v < vowels.length; v++) {
+  //       if (splitWords[0] === vowels[v]) {
+  //         return `${splitWords.join("")}yay`;
+  //       }
+  //     }
+  //   }
+  // }
+
   for (let v = 0; v < vowels.length; v++) {
     if (splitWord[0] === vowels[v]) {
       return `${splitWord.join("")}yay`;
