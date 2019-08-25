@@ -27,16 +27,16 @@ function pigLatin(string) {
   //       for (let v = 0; v < vowels.length; v++) {
   //         if (element[0] === vowels[v]) {
   //           console.log(element[0], vowels);
-          }
+          // }
           // if (element[e] === vowels[v]) {
           //   return `${splitWords[element].join("")}yay`;
           // }
           // if (element[0] === vowels[v]) {
           //   return `${splitWord.join("")}yay`;
-        }
+        // }
       // }
-    });
-  }
+    // });
+  // }
 
   for (let v = 0; v < vowels.length; v++) {
     if (splitWord[0] === vowels[v]) {
