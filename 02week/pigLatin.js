@@ -21,13 +21,17 @@ function pigLatin(string) {
   //     .toLowerCase()
   //     .trim()
   //     .split("");
-  //   for (let s = 0; s < splitWords.length; s++) {
+  //   console.log(Object.prototype.toString.call(splitWords), splitWords, w);
+  //   splitWords.forEach(function(element) {
   //     for (let v = 0; v < vowels.length; v++) {
-  //       if (splitWords[0] === vowels[v]) {
-  //         return `${splitWords.join("")}yay`;
+  //       if(splitWords.element === vowels[v]) {
+  //         return `${splitWords[0].join("")}yay`;
   //       }
+  //       // if (element[0] === vowels[v]) {
+  //       //   return `${splitWord.join("")}yay`;
   //     }
-  //   }
+  //     // }
+  //   });
   // }
 
   for (let v = 0; v < vowels.length; v++) {
