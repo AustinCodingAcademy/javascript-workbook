@@ -7,68 +7,31 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-function pigLatin(word) {
+function pigLatin(string) {
   // Global variables
   const vowels = ["a", "e", "i", "o", "u"];
-  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  const splitWord = word
+  const splitWord = string
     .toLowerCase()
     .trim()
     .split("");
- 
+  const words = string.split(" ");
 
-  
-  // Input Rules
-  // for (let n = 0; n < numbers.length; n++) {
-  //   for (let w = 0; w < splitWord.length; w++) {
-  //     if (numbers[w] === splitWord[n]) {
-  //       return `Please enter words only. Try again.`;
-  //     }
-  //   }
-  // }
-
-  // if (splitWord.length === 0) {
-  //   return `Please enter a word. Try again.`;
-  // } else if (splitWord === "a") {
-  //   return "ayay";
-  // }
-
-  // Slice Word at first Vowel to end
-  function firstPart(param1, param2) {
-    for (let v = 0; v < vowels.length; v++) {
-      for (let w = 0; w < splitWord.length; w++) {
-        if (vowels[w] === splitWord[v]) {
-          return `${splitWord.slice(v, splitWord.length).join("")}`;
-        }
-      }
+  for (let v = 0; v < vowels.length; v++) {
+    if (splitWord[0] === vowels[v]) {
+      return `${splitWord.join("")}yay`;
     }
   }
 
-  // Slice word from First Letter to Vowel & if first letter is vowel
-  function secondPart(param1, param2) {
+  for (let w = 0; w < splitWord.length; w++) {
     for (let v = 0; v < vowels.length; v++) {
-      for (let w = 0; w < splitWord.length; w++) {
-        if (vowels[w] === splitWord[0]) {
-          return `${splitWord.splice([0], [v]).join("")}yay`;
-        } else if (vowels[w] === splitWord[v]) {
-          return `${splitWord.splice([0], [v]).join("")}ay`;
-        }
+      if (splitWord[w] === vowels[v]) {
+        let firstPart = `${splitWord.slice(w).join("")}`;
+        let secondPart = `${splitWord.slice([0], w).join("")}ay`;
+        return `${firstPart}${secondPart}`;
       }
     }
   }
-
-  // Combine returns from firstPart and secondPart
-  const result1 = firstPart(vowels, splitWord);
-  const result2 = secondPart(vowels, splitWord);
-
-  function combine(param1, param2) {
-    return `${param1}${param2}`;
-  }
-
-  console.log(combine(result1, result2));
-
 }
-
 
 // Console
 function getPrompt() {
