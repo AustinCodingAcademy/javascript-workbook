@@ -23,25 +23,31 @@ function horizontalWin() {
   for (let r = 0; r < board.length; r++) {
     // for (let c = 0; c < board.length; c++) {
     let horizontalResult = board[r];
-    let xWin = ["X", "X", "X"];
-    let oWin = ["O", "O", "O"];
+    // console.log(horizontalResult);
+    let horizontalWin = [playerTurn, playerTurn, playerTurn];
 
     function equal(arr1, arr2) {
+      // Comapring to see if both arguments are arrays
       if (!Array.isArray(arr1) && !Array.isArray(arr2)) {
         return arr1 === arr2;
       }
+      // Comparing to see if both arrays are the same length
       if (arr1.length !== arr2.length) {
         return false;
       }
+      // Comparing to see if the arrays contain the same data
       for (let i = 0; i < arr1.length; i++) {
         if (!equal(arr1[i], arr2[i])) {
           return false;
         }
       }
+      return true;
     }
-    
-    equal(horizontalResult, xWin);
-    equal(horizontalResult, oWin);
+
+    if (equal(horizontalResult, horizontalWin)) {
+      console.log(`Player ${playerTurn} wins`);
+    }
+    // equal(horizontalResult, oWin);
 
     // console.log(horizontalResult);
     // console.log(Object.prototype.toString.call(horizontalResult));
@@ -49,8 +55,17 @@ function horizontalWin() {
     // }
   }
 }
+
 function verticalWin() {
-  // Your code here
+  // for (let r = 0; r < board.length; r++) {
+  //   let arrayRows = board[r];
+  let verticalWin = [playerTurn, playerTurn, playerTurn];
+
+  if (board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
+    console.log(`Player ${playerTurn} wins.`);
+    return true;
+  }
+  // console.log(`Player ${playerTurn} wins`);
 }
 
 function diagonalWin() {
@@ -58,7 +73,10 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log(`Player ${playerTurn} wins.`);
+    return true;
+  }
 }
 
 // Parent Function
@@ -66,6 +84,11 @@ function checkForWin() {
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   horizontalWin();
+
+  if (verticalWin()) {
+    console.log(`Player ${playerTurn} wins.`);
+  }
+
   if (playerTurn === "X") {
     playerTurn = "O";
   } else {
