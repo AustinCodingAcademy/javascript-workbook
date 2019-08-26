@@ -35,20 +35,18 @@ function horizontalWin() {
       if (arr1.length !== arr2.length) {
         return false;
       }
-      // Comparing to see if the arrays contain the same data
+      // Comparing to see if the arrays contain the same data elements
       for (let i = 0; i < arr1.length; i++) {
         if (!equal(arr1[i], arr2[i])) {
           return false;
         }
       }
+      return true;
     }
 
     if (equal(horizontalResult, horizontalWin)) {
-      // console.log(`Player ${playerTurn} wins`);
       return true;
     }
-    // equal(horizontalResult, oWin);
-
     // console.log(horizontalResult);
     // console.log(Object.prototype.toString.call(horizontalResult));
     // console.log(board[0], board[1], board[2]);
@@ -62,10 +60,8 @@ function verticalWin() {
     (board[0][1] === board[1][1] && board[1][1] === board[2][1]) ||
     (board[0][2] === board[1][2] && board[1][2] === board[2][2])
   ) {
-    // return true;
+    return true;
   }
-  return true;
-  // console.log(`Player ${playerTurn} wins`);
 }
 
 function diagonalWin() {
@@ -75,29 +71,16 @@ function diagonalWin() {
   ) {
     return true;
   }
-  // console.log(`Player ${playerTurn} wins`);
 }
 
 function checkForWin() {
-  if (horizontalWin()) {
-    console.log(`Player ${playerTurn} wins.`);
-    return true;
-  }
-
-  // verticalWin();
-  if (verticalWin()) {
-    console.log(`Player ${playerTurn} wins.`);
-    return true;
-  }
-
-  if (diagonalWin()) {
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log(`Player ${playerTurn} wins.`);
     return true;
   }
 }
 
 // Parent Function
-// Run Check for Win here.
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   checkForWin();
