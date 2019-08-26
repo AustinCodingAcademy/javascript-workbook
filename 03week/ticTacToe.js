@@ -21,19 +21,34 @@ function printBoard() {
 
 function horizontalWin() {
   for (let r = 0; r < board.length; r++) {
-    for (let c = 0; c < board[r].length; c++) {
-      if (board[r].includes("0") !== true && board[r].includes(" ") !== true) {
-        console.log(`Player X Wins!`);
-      } else if (
-        board[r].includes("X") !== true &&
-        board[r].includes(" ") !== true
-      ) {
-        console.log(`Player O Wins!`);
+    // for (let c = 0; c < board.length; c++) {
+    let horizontalResult = board[r];
+    let xWin = ["X", "X", "X"];
+    let oWin = ["O", "O", "O"];
+
+    function equal(arr1, arr2) {
+      if (!Array.isArray(arr1) && !Array.isArray(arr2)) {
+        return arr1 === arr2;
+      }
+      if (arr1.length !== arr2.length) {
+        return false;
+      }
+      for (let i = 0; i < arr1.length; i++) {
+        if (!equal(arr1[i], arr2[i])) {
+          return false;
+        }
       }
     }
+    
+    equal(horizontalResult, xWin);
+    equal(horizontalResult, oWin);
+
+    // console.log(horizontalResult);
+    // console.log(Object.prototype.toString.call(horizontalResult));
+    // console.log(board[0], board[1], board[2]);
+    // }
   }
 }
-
 function verticalWin() {
   // Your code here
 }
