@@ -11,25 +11,27 @@ const rl = readline.createInterface({
 
 const pigLatin = word => {
 
-const detectVowel = word => {
-  for(let i = 0; i < word.length; i++) {
-    if("aeiou".indexOf(word[i]) !== -1){
-      return(i)
-    }
-  }
-}
+  word = word.toLowerCase();
+  word = word.trim();
+
   const firstLetterType = detectVowel(word);
-  // const trimmedWord = word.toLowercase().trim();
   if(firstLetterType > 0){
   return word.slice(firstLetterType) + word.slice(0, firstLetterType) + "ay"
+    }
+    return word + ("yay");
+  
   }
-  return word + ("yay");
-}
+  
+  const detectVowel = word => {
 
+    for(let i = 0; i < word.length; i++){
+      if("aeiou".indexOf(word[i]) !== -1){
+        return(i)
+      }
+    }
+  }
   
   
-
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
