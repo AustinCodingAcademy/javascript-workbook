@@ -21,9 +21,11 @@ function printBoard() {
 
 function horizontalWin() {
   for (let r = 0; r < board.length; r++) {
-    // for (let c = 0; c < board.length; c++) {
+    // create separate row arrays
     let horizontalResult = board[r];
     // console.log(horizontalResult);
+
+    // create win scenario for rows to compare with the row arrays
     let horizontalWin = [playerTurn, playerTurn, playerTurn];
 
     function equal(arr1, arr2) {
@@ -49,7 +51,6 @@ function horizontalWin() {
     }
     // console.log(horizontalResult);
     // console.log(Object.prototype.toString.call(horizontalResult));
-    // console.log(board[0], board[1], board[2]);
     // }
   }
 }
