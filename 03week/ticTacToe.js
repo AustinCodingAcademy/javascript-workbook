@@ -45,7 +45,8 @@ function horizontalWin() {
     }
 
     if (equal(horizontalResult, horizontalWin)) {
-      console.log(`Player ${playerTurn} wins`);
+      // console.log(`Player ${playerTurn} wins`);
+      return true;
     }
     // equal(horizontalResult, oWin);
 
@@ -59,13 +60,16 @@ function horizontalWin() {
 function verticalWin() {
   // for (let r = 0; r < board.length; r++) {
   //   let arrayRows = board[r];
-  let verticalWin = [playerTurn, playerTurn, playerTurn];
+  // let verticalWin = [playerTurn, playerTurn, playerTurn];
 
-  if (board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
-    console.log(`Player ${playerTurn} wins.`);
+  if (
+    (board[0][0] === board[1][0] && board[1][0] === board[2][0]) ||
+    (board[0][1] === board[1][1] && board[1][1] === board[2][1]) ||
+    (board[0][2] === board[1][2] && board[1][2] === board[2][2])
+  ) {
     return true;
   }
-  // console.log(`Player ${playerTurn} wins`);
+  console.log(`Player ${playerTurn} wins`);
 }
 
 function diagonalWin() {
@@ -73,10 +77,10 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  if (horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log(`Player ${playerTurn} wins.`);
-    return true;
-  }
+  // if (horizontalWin() || verticalWin() || diagonalWin()) {
+  //   console.log(`Player ${playerTurn} wins.`);
+  //   return true;
+  // }
 }
 
 // Parent Function
