@@ -8,11 +8,10 @@ const rl = readline.createInterface({
 });
 
 
-
 const pigLatin = word => {
 
-  word = word.toLowerCase();
-  word = word.trim();
+  word = word.toLowerCase().trim();
+  // word = word.toLowerCase();
 
   const firstLetterType = detectVowel(word);
   if(firstLetterType > 0){
