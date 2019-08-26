@@ -73,7 +73,13 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-  // Your code here
+  if (
+    (board[0][0] === board[1][1] && board[1][1] === board[2][2]) ||
+    (board[0][2] === board[1][1] && board[1][1] === board[2][0])
+  ) {
+    return true;
+  }
+  console.log(`Player ${playerTurn} wins`);
 }
 
 function checkForWin() {
@@ -89,9 +95,11 @@ function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   horizontalWin();
 
-  if (verticalWin()) {
-    console.log(`Player ${playerTurn} wins.`);
-  }
+  verticalWin();
+  // if (verticalWin()) {
+  //   console.log(`Player ${playerTurn} wins.`);
+  // }
+  diagonalWin();
 
   if (playerTurn === "X") {
     playerTurn = "O";
