@@ -63,21 +63,21 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  if (checkForWin() === true) {
-    // Check if there's a win.
-    console.log(`Player ${playerTurn} wins!`);
-    console.log(' ');
-    board = [
-          [' ', ' ', ' '],
-          [' ', ' ', ' '],
-          [' ', ' ', ' ']
-        ];
-  } else {
-    // Check to see that index in the board is empty.
-    if(board[row][column] === ' ') {
-      if (row <= 2 && column <= 2){
-        // Check to see that user input is less than or equal to 2.
-
+  
+  // Check to see that index in the board is empty.
+  if(board[row][column] === ' ') {
+    if (row <= 2 && column <= 2){
+      // Check to see that user input is less than or equal to 2.
+      if (checkForWin() === true) {
+        // Check if there's a win.
+        console.log(`Player ${playerTurn} wins!`);
+        console.log(' ');
+        board = [
+              [' ', ' ', ' '],
+              [' ', ' ', ' '],
+              [' ', ' ', ' ']
+            ];
+      } else {
         // assign X or Y to user input index
         board[row][column] = playerTurn;
         //switch user
@@ -86,46 +86,17 @@ function ticTacToe(row, column) {
         } else if(playerTurn === 'O') {
           playerTurn = 'X';
         } 
-        
-      }else {
-        // User input is not index between 0-2
-        console.log('Please enter a valid number.');
       }
-    } else {
-      // if index is not empty
-      console.log('This spot is taken.');
+      
+      
+    }else {
+      // User input is not index between 0-2
+      console.log('Please enter a valid number.');
     }
+  } else {
+    // if index is not empty
+    console.log('This spot is taken.');
   }
-  // if (checkForWin() === true) {
-  //   board[row][column] = playerTurn;
-  //   console.log(`Player ${playerTurn} wins.`);
-  //   console.log(board);
-  //   console.log(' ');
-  //   board = [
-  //     [' ', ' ', ' '],
-  //     [' ', ' ', ' '],
-  //     [' ', ' ', ' ']
-  //   ];
-  // }
-  // if (checkForWin() === false) {
-  //   if (board[row][column] === ' '){
-  //     if(row <= 2 && column <= 2){
-  //       board[row][column] = playerTurn;
-  //       console.log(board);
-  //       console.log(' ');
-  //       console.log(' ');
-  //       if (playerTurn === 'X') {
-  //         playerTurn = 'O';
-  //       } else if(playerTurn === 'O') {
-  //         playerTurn = 'X';
-  //       } 
-  //     } else {
-  //       console.log('Please enter a number between 0 & 2.');
-  //     }
-  //   } else if (board[row][column] === 'X' || board[row][column] === 'O'){
-  //     console.log(`That spot is taken by ${board[row][column]}`);
-  //   }
-  // }
 }
 
 function getPrompt() {
