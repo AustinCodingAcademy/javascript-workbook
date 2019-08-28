@@ -36,6 +36,13 @@ function horizontalWin() {
   //   }
   // }
 
+  if ((board[0][0] == playerTurn && board[0][1] == playerTurn && board[0][2] == playerTurn) ||
+    (board[1][0] == playerTurn && board[1][1] == playerTurn && board[1][2] == playerTurn) ||
+    (board[2][0] == playerTurn && board[2][1] == playerTurn && board[2][2] == playerTurn)) {
+      return true;
+  }
+
+
  }
 
 function verticalWin() {
@@ -44,7 +51,7 @@ function verticalWin() {
     (board[0][1] == playerTurn && board[1][1] == playerTurn && board[2][1] == playerTurn) ||
     (board[0][2] == playerTurn && board[1][2] == playerTurn && board[2][2] == playerTurn)) {
       return true;
-    }
+  }
 }
 
 function diagonalWin() {
@@ -57,11 +64,34 @@ function diagonalWin() {
 
 function checkForWin() {
   // Your code here
+  let HW = horizontalWin();
+  if (HW === true) {
+    // document.write(playerTurn + ' Wins!')
+    console.log(playerTurn + ' Wins!');
+    console.log(' ');
 
-  horizontalWin();
-  verticalWin();
-  diagonalWin();
+    // let board = [
+    //   [' ', ' ', ' '],
+    //   [' ', ' ', ' '],
+    //   [' ', ' ', ' ']
+    // ];
 
+  }
+  let VW = verticalWin();
+  if (VW === true) {
+    // document.write(playerTurn + ' Wins!')
+    console.log(playerTurn + ' Wins!');
+    console.log(' ');
+  }
+
+
+  let DW = diagonalWin();
+  if (DW === true) {
+    // document.write(playerTurn + ' Wins!')
+    console.log(' ');
+    console.log(playerTurn + ' Wins!');
+    console.log(' ');
+  }
 }
 
 function ticTacToe(row, column) {
