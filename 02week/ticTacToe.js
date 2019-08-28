@@ -24,6 +24,13 @@ function printBoard() {
 }
 
 
+function checkPlacement(r, c) {
+if (board[r][c] != ' '){
+  console.log('Invalid Row/Column');
+  return true;
+}
+
+}
 
 
 function horizontalWin() {
@@ -96,9 +103,13 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   // Your code here
+  let CP = checkPlacement(row, column)
+  if (CP != true) {
     board[row][column] = playerTurn;
     checkForWin();
     playerTurn = switchPlayer(playerTurn);
+  }
+
   
 
 }
