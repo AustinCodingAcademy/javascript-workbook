@@ -16,6 +16,23 @@ function pigLatin(string) {
     .split("");
   const words = string.split(" ");
 
+  // Multiple Words iteration
+  for (let i = 0; i < words.length; i++) {
+    const splitWords = words[i]
+      .toLowerCase()
+      .trim()
+      .split("");
+    console.log(splitWords);
+    for (let i = 0; i < splitWords.length; i++) {
+      for (let v = 0; v < vowels.length; v++) {
+        if (splitWords[i][0] === vowels[v]) {
+          console.log(splitWords[i]);
+          // return `${splitWords[i].join("")}yay`;
+        }
+      }
+    }
+  }
+
   // Dinh Way for multiple words: split entries into array at space. make variable words
   // Make for Loop to run through new array words.[i]. pass words[i] into piglatin function.
 
@@ -30,15 +47,15 @@ function pigLatin(string) {
   //       for (let v = 0; v < vowels.length; v++) {
   //         if (element[0] === vowels[v]) {
   //           console.log(element[0], vowels);
-          // }
-          // if (element[e] === vowels[v]) {
-          //   return `${splitWords[element].join("")}yay`;
-          // }
-          // if (element[0] === vowels[v]) {
-          //   return `${splitWord.join("")}yay`;
-        // }
-      // }
-    // });
+  // }
+  // if (element[e] === vowels[v]) {
+  //   return `${splitWords[element].join("")}yay`;
+  // }
+  // if (element[0] === vowels[v]) {
+  //   return `${splitWord.join("")}yay`;
+  // }
+  // }
+  // });
   // }
 
   for (let v = 0; v < vowels.length; v++) {
