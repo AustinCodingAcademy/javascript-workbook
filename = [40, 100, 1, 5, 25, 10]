@@ -1,0 +1,1695 @@
+[33mcommit 62184e6a6e65abd793b0e0b6eef65ff1b5f71ed7[m[33m ([m[1;36mHEAD -> [m[1;32mTowersOfH-CP[m[33m, [m[1;31morigin/arrayofcars[m[33m, [m[1;32marrayofcars[m[33m)[m
+Author: vincentnqc <vincentnqc92@gmail.com>
+Date:   Mon Aug 26 20:39:03 2019 -0500
+
+    final commit
+
+[33mcommit fc5f51866eaa1e6603be8f798bbc9a01db8b4211[m[33m ([m[1;31morigin/gh-pages[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mgh-pages[m[33m)[m
+Author: vincentnqc <vincentnqc92@gmail.com>
+Date:   Wed Aug 21 19:23:55 2019 -0500
+
+    new tictactoe
+
+[33mcommit d86fc17f77c36110eac0f9a1bdb87c3f8f1d5428[m
+Author: vincentnqc <vincentnqc92@gmail.com>
+Date:   Mon Aug 12 10:23:35 2019 -0500
+
+    initial commit
+
+[33mcommit c66b27b08e3504b5e6113d2dd0b632f7302436b1[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 16 17:30:35 2018 -0500
+
+    working on ci
+
+[33mcommit d0f2287977035161e4e6559130ded3a4469046f8[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Oct 15 23:26:30 2018 -0500
+
+    Create .eslintignore
+
+[33mcommit 9fddb6b42da72bd4c317b32364ee071fcfc5be97[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Jul 30 15:53:45 2018 -0500
+
+    Adding auto-generated CircleCI 2.0 config file
+
+[33mcommit fa9a76bab838f9954e49a21cc1aa01a3ad9b9195[m
+Merge: ca077ef 9bc2b82
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Feb 21 15:30:24 2018 -0600
+
+    Merge pull request #348 from HippErger/checkersUpdate
+    
+    Fix checkers: Function Factories to es6 syntax
+
+[33mcommit 9bc2b828788abecfce6e11cfb4c6f7e6eb5f1d64[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Feb 21 15:30:03 2018 -0600
+
+    Update checkers.js
+
+[33mcommit ca077efd75e79a2a0a58e552ff1b0bef95598d6a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Feb 21 15:26:12 2018 -0600
+
+    added back in towers test
+
+[33mcommit 938a9d376e83770352a2760bbfda75282fd83805[m
+Author: HippErger <berger.clayton@gmail.com>
+Date:   Tue Feb 20 20:54:54 2018 -0600
+
+    updated checkers to ES6 class syntax
+
+[33mcommit 92a373732c5f8c30e32dd66e55113c663e16a7de[m
+Author: HippErger <berger.clayton@gmail.com>
+Date:   Tue Feb 20 20:50:10 2018 -0600
+
+    Changed name in README
+
+[33mcommit 2ad421722d7a065abc4d747a1fa740aec5b69e4e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Feb 7 20:31:53 2018 -0600
+
+    updated deps
+
+[33mcommit 9634ffdba8ea9f06e082c3c8223fedcbb5fe3bd6[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Feb 7 20:26:05 2018 -0600
+
+    Create launch.json
+
+[33mcommit c7d738a27746709633ca88db87e984ce12255bd9[m
+Author: HippErger <berger.clayton@gmail.com>
+Date:   Sun Jan 14 19:19:09 2018 -0600
+
+    claimed my workbook
+
+[33mcommit 3f9f81d9fc1c6276f07e54083179ba15fd5fe396[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Oct 2 10:41:08 2017 -0500
+
+    Update towersOfHanoi.js
+
+[33mcommit 49a6d7f1a8848cce97a4be431ef9f858d6ce95a4[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Oct 2 10:40:03 2017 -0500
+
+    Update package.json
+
+[33mcommit d089edc1f92a62cd7bba266f073685706e4e813d[m
+Author: Chris Lofton <chrislofton@Chriss-MacBook-Pro.local>
+Date:   Fri Sep 29 17:47:27 2017 -0500
+
+    removed troubled line
+
+[33mcommit 626fa6c7ac04b54fd94bd86b25609d25640dea3c[m
+Author: Chris Lofton <chrislofton@Chriss-MacBook-Pro.local>
+Date:   Fri Sep 29 17:44:58 2017 -0500
+
+    commented out linter code line
+
+[33mcommit 02a86fea7435e96f6a8c2edc45d4a448c86ba866[m
+Author: Chris Lofton <chrislofton@Chriss-MacBook-Pro.local>
+Date:   Fri Sep 29 17:38:48 2017 -0500
+
+    updated
+
+[33mcommit 0536bbc5fffb0b5ab8c8e4fdb10e3d2190f2f394[m
+Author: Chris Lofton <chrislofton@Chriss-MacBook-Pro.local>
+Date:   Fri Sep 29 17:31:00 2017 -0500
+
+    updated npm
+
+[33mcommit 7382b5ec4b5101f299b4cc78f2fc3d85f99d15b7[m
+Author: Chris Lofton <chrislofton@Chriss-MacBook-Pro.local>
+Date:   Fri Sep 29 17:08:06 2017 -0500
+
+    updated based on new order of curriculum
+
+[33mcommit e972b51d66c1ef787fcff60cbe2f0fe684204104[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 17:19:41 2017 -0500
+
+    added mastermind folder
+
+[33mcommit 1894e8eabdce290c66d3863ac9c34d2da4bcf1c9[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 16:53:16 2017 -0500
+
+    Delete style.css
+
+[33mcommit 13461fcee8c0d70e404d9bc59c912818285b818f[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 16:52:38 2017 -0500
+
+    Update index.html
+
+[33mcommit ceec52df5462e819dad11506a12fe8217fcf80ba[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 10:35:12 2017 -0500
+
+    Update index.html
+
+[33mcommit 0ba05f5a69ddfe572889b46e33ec5724db166a91[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 10:34:56 2017 -0500
+
+    Update index.html
+
+[33mcommit fa7681a461cf5e52856f1948bf0b061304a91fb3[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 08:10:11 2017 -0500
+
+    Update .eslintrc.json
+
+[33mcommit 98ff68b1f0337b2d837b51000b1f18c0f341f47e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 08:02:31 2017 -0500
+
+    Update mastermind.js
+
+[33mcommit 3692c0615fa5af0cf6bc2a0d23175635b58d07a8[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 08:01:28 2017 -0500
+
+    Update mastermind.js
+
+[33mcommit 7730f014b857d8cc79bb14cd66f2cee14347ac5c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 07:52:53 2017 -0500
+
+    Update pigLatin.js
+
+[33mcommit e6089ff705626ad8e4bff65f178700df08c9e1c3[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jul 1 07:27:25 2017 -0500
+
+    Update rockPaperScissors.js
+
+[33mcommit afd77070ddf7602f5c280bcf1bc9a2ddf17d133b[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jun 30 10:55:42 2017 -0500
+
+    Update higherOrder.js
+
+[33mcommit 8512e2cdbd03c4d01329809fd7fd442f65faad67[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon May 29 01:32:15 2017 -0500
+
+    Update PULL_REQUEST_TEMPLATE.md
+
+[33mcommit 1667e04e4fee74c78cbf176b925f3910f1051801[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 11 17:21:19 2017 -0500
+
+    Rename 08week/purecss/script.js to 08week/bootstrap/script.js
+
+[33mcommit e62483d13bc68fc7edaff3da36197b0a0359f66d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 11 17:20:54 2017 -0500
+
+    Rename 08week/purecss/style.css to 08week/bootstrap/style.css
+
+[33mcommit 9b07c679a3b8ce971d3085b61231612159f617ed[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 11 17:20:35 2017 -0500
+
+    Update and rename 08week/purecss/index.html to 08week/bootstrap/index.html
+
+[33mcommit 32c4e549d4ab234796a36d7081504f6386323c2a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 11 17:19:05 2017 -0500
+
+    Update index.html
+
+[33mcommit 7673f1423bfb922ff83578920d2ebc7a49ef846a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 18:19:54 2017 -0500
+
+    Update algorithms.js
+
+[33mcommit 94847bdc4ad8e0b133876ed7dee9db895868a46a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 12:13:39 2017 -0500
+
+    Update algorithms.js
+
+[33mcommit 007bde7ae36d1d47549e331db708e3d30deba814[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 11:32:11 2017 -0500
+
+    Update README.md
+
+[33mcommit 19a657ab4ea75abcc585da5eff1e44733daceb32[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 11:31:41 2017 -0500
+
+    Update README.md
+
+[33mcommit 2c319e4fc19484bcce3473c809f7b3bdde37f4b9[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 11:19:27 2017 -0500
+
+    Update spaceTravelToMars.js
+
+[33mcommit 9904ffa63ac05120fb48966b46dcf2e1d4534c2c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 11:18:58 2017 -0500
+
+    Update spaceTravelToMars.js
+
+[33mcommit 2099c1a0ac38be3d8a146d9e0e0b6e72dca9fe0c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 11:17:42 2017 -0500
+
+    Update mastermind.js
+
+[33mcommit e5867c61e9114affee29f2b61bcd80e933c91eca[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 10 11:16:45 2017 -0500
+
+    Update algorithms.js
+
+[33mcommit 6c59180a4bfd35ff359320971766344577a0034a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 4 09:50:04 2017 -0500
+
+    Update mastermind.js
+
+[33mcommit 7fddcb57f909253c1213436dd367e49fb2f0e372[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 4 09:49:30 2017 -0500
+
+    Update mastermind.js
+
+[33mcommit eaa72b186686cade8854344c5e693a0655af0e7b[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu May 4 09:48:29 2017 -0500
+
+    Update mastermind.js
+
+[33mcommit a80813e4c6195ef366f2b9fab1e63e9ebcdd4424[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed May 3 15:15:04 2017 -0500
+
+    Update towersOfHanoi.js
+
+[33mcommit 1bb33638397a816be428bb9b3340ddd96a78984d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 26 19:15:59 2017 -0500
+
+    Update ticTacToe.js
+
+[33mcommit 5088c1f2fd2fc99b192c4b699df3a81ad1afae7f[m
+Author: Chris Lofton <lofton.chris@gmail.com>
+Date:   Mon Apr 17 12:03:36 2017 -0500
+
+    Update PULL_REQUEST_TEMPLATE.md
+
+[33mcommit 1c3e4a72603b026d804a854dbb77ef45adb36722[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 12 10:06:53 2017 -0500
+
+    capitalize
+
+[33mcommit e2c057eb419d24d002c5ff007d84fefb6163ea68[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 12 10:05:41 2017 -0500
+
+    indent
+
+[33mcommit 8d3f42b7e099449c7325ce58b3e9937ca32609cb[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 12 10:05:08 2017 -0500
+
+    indent
+
+[33mcommit 4fe221d52d51887a3f60743766e0263efb4285ac[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 12 10:04:24 2017 -0500
+
+    indent
+
+[33mcommit 38dc1c85f3947c6c350112907dca8480d1368ab0[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 12 10:03:27 2017 -0500
+
+    updated readme
+
+[33mcommit cd71a690d835a78437bc15d848be770649d6f973[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Apr 11 15:49:45 2017 -0500
+
+    fixed linter
+
+[33mcommit 4719bd17eb3ca3ab75a8f65392c7c5f2ebe3ad21[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Apr 11 15:38:07 2017 -0500
+
+    added in functional-javascript
+
+[33mcommit 70819f5fbf164823810768bcb6069551adc44f47[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Apr 11 15:31:51 2017 -0500
+
+    added last few projects
+
+[33mcommit 2f470ce9a83a1413d19ad33b1e3f984382bff1b1[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Apr 11 14:53:51 2017 -0500
+
+    added react and challenges
+
+[33mcommit 6ff6d7533a758568c1e9f2e91de0db18ef3a0d85[m
+Author: Chris Lofton <lofton.chris@gmail.com>
+Date:   Mon Jan 9 16:47:07 2017 -0600
+
+    Create PULL_REQUEST_TEMPLATE.md
+
+[33mcommit c76d1519de5bc5582fcbcaea7c6c21fe8cc192ab[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Jan 3 22:32:23 2017 -0600
+
+    added styleint
+
+[33mcommit b076077ad089e66b925b3a8ca6dbcd2a8ebe93df[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Jan 2 10:49:07 2017 -0600
+
+    removed extra files
+
+[33mcommit 6a48ba9b32c5a8c2193e4c5a6f1af7dd51a5cf36[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Jan 2 10:47:51 2017 -0600
+
+    updated csslint command
+
+[33mcommit 83eb0f1e707e1f41f0dc0551123c98aff6cb0d48[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Jan 2 10:38:41 2017 -0600
+
+    added csslint and eslint
+
+[33mcommit ebd8cc42187125a873c487244173941e095064ac[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Jan 2 07:57:24 2017 -0600
+
+    Update .htmllintrc
+
+[33mcommit e03c8e6480565d527a1ab4caf672eea85e422760[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sun Jan 1 20:31:07 2017 -0600
+
+    Create .htmllintrc
+
+[33mcommit 7a5527590df2dfa8a9f55632b21ff9ffff12eed2[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sun Jan 1 20:28:37 2017 -0600
+
+    Update package.json
+
+[33mcommit a3f22978d73ac981af2248097aa529636be71814[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sun Jan 1 20:25:15 2017 -0600
+
+    Create circle.yml
+
+[33mcommit 5d2e61a33c28c16300eb81df3180ade6deb4a66c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sun Jan 1 20:18:49 2017 -0600
+
+    Update README.md
+
+[33mcommit 88b9ed855a0b3362d06cd7e99d747234d43ca6e3[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 13 21:55:15 2016 -0500
+
+    Update index.html
+
+[33mcommit f1ba4803221723b697e3767e6801ea0a0f676c85[m
+Merge: aea1589 116a5e2
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Oct 12 13:18:35 2016 -0500
+
+    Merge pull request #122 from MaterialFuture/readmefix
+    
+    Added a new note to the readme file
+
+[33mcommit 116a5e2dab78e541d042747a1d0a5275342a18c8[m
+Merge: e6c7cba aea1589
+Author: materialfuture <materialfuture@gmail.com>
+Date:   Wed Oct 12 12:31:45 2016 -0500
+
+    Fixed merge conflict | Added a new note to the readme file to let the students know they need to cd into the cloned directory
+
+[33mcommit e6c7cba0a57a3ad90495fae16811cdf0760c0585[m
+Author: materialfuture <materialfuture@gmail.com>
+Date:   Wed Oct 12 12:19:09 2016 -0500
+
+    Added a new note to the readme file to let the students know they need to cd into the cloned directory
+
+[33mcommit aea15890d4b81f0fb583089231ccd7b6cd92eb43[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Oct 8 13:32:18 2016 -0500
+
+    added more gitignores
+
+[33mcommit 1f74c523a5ab2638622e366af71260d2e741f4a6[m
+Merge: 5d791d2 f46e1ee
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Oct 8 11:54:17 2016 -0500
+
+    Merge pull request #106 from AustinCodingAcademy/add_jsdom_branch
+    
+    Add jsdom branch
+
+[33mcommit f46e1ee7a9ea0d4799045fba1937051dbbffed45[m
+Merge: 5d791d2 dbb383a
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Oct 8 11:53:34 2016 -0500
+
+    removing sample todo from test
+
+[33mcommit 5d791d280d7246a7873693be1e9b194231e96340[m
+Merge: 268fe12 5e60332
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Oct 8 11:48:28 2016 -0500
+
+    Merge branch 'gh-pages' of github.com:AustinCodingAcademy/javascript-workbook into gh-pages
+
+[33mcommit 268fe12a1acf1d0d48596758bf31c1e38bce4aed[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Oct 8 11:48:21 2016 -0500
+
+    removing symlink
+
+[33mcommit 5e6033267db0364d8452dafbccb3da5b1ab37ac0[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 12:21:53 2016 -0500
+
+    Update README.md
+
+[33mcommit 0c83761003b4c77eb550f6fb1381baefcec097e1[m
+Merge: 8e6df05 be05972
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 12:21:07 2016 -0500
+
+    Merge branch 'gh-pages' of github.com:AustinCodingAcademy/javascript-workbook into gh-pages
+
+[33mcommit 8e6df050f894a97247a7a7848a0f8ee2887f2d28[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 12:18:46 2016 -0500
+
+    added codacy badge
+
+[33mcommit be05972503d80fb8448c976146b4541eb4776c9e[m
+Merge: 3c1c6f3 e508f3c
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 12:14:30 2016 -0500
+
+    Merge pull request #95 from tjefferson08/gh-pages
+    
+    Add relativity to hw 8 (may cause conflicts)
+
+[33mcommit 3c1c6f33a16bff3b305dd9bde00f00c912233d3a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 12:12:55 2016 -0500
+
+    another semicolon
+
+[33mcommit d6ef319d2b3a46a9ae0370d2908d809756ce8ec9[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 12:06:20 2016 -0500
+
+    missed semicolon
+
+[33mcommit 616f352c9137ccf663f92d8aac61ed73c8aa80c4[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 11:57:18 2016 -0500
+
+    more code style issues
+
+[33mcommit ca0e851d6b717f03defcfcc6dabfb2689a7e59ec[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Oct 6 10:21:32 2016 -0500
+
+    making codacy happy
+
+[33mcommit 392b447550885d0fe3c1ef44316c0dce497d25cd[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 18:48:32 2016 -0500
+
+    updated to version 2
+
+[33mcommit 148e2dd2e798729f6f0de60744a7f43e39bda075[m
+Merge: 8f11eb9 fe2bd1c
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 18:07:36 2016 -0500
+
+    Merge pull request #105 from AustinCodingAcademy/v2
+    
+    Version 2
+
+[33mcommit fe2bd1c91cb1ed9f0ac87a04e68aa69650a590d9[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 18:00:50 2016 -0500
+
+    removed prompt
+
+[33mcommit 8c2462d41dc6e158e5110f96edfcfc51aed2aee6[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 17:58:48 2016 -0500
+
+    replaced localhost with 127.0.0.q
+
+[33mcommit 6715fdf91be54f41de0d6b13f901bbfe42778ba6[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 17:58:37 2016 -0500
+
+    Indented everything to 2 spaces
+
+[33mcommit 7e59e5041d377d7befdafddfe270657483e07727[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 17:35:32 2016 -0500
+
+    added back in prompt for now
+
+[33mcommit 0691f46a495d56f3c7c34eb93159745e260e3b62[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Tue Oct 4 17:32:03 2016 -0500
+
+    added symlink creation
+
+[33mcommit 8f11eb9e65c6ea66584ace2a0908fc3802b7064f[m
+Merge: 11d7eba fee4320
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Oct 3 21:16:52 2016 -0500
+
+    Merge pull request #103 from tjefferson08/lesson_zero
+    
+    Readme improvements for Lesson Zero support
+
+[33mcommit fee4320541c1cf6a811881e2038a7d1fb58c54e7[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Mon Oct 3 19:14:16 2016 -0500
+
+    Readme improvements for Lesson Zero support
+
+[33mcommit 11d7eba5f6a9dd35a4d82f149b7ffacb0e952bbe[m
+Merge: fe86caa af018d4
+Author: Jon Woo <jw56578@gmail.com>
+Date:   Sun Oct 2 17:14:18 2016 -0500
+
+    Merge pull request #101 from jw56578/issue-99
+    
+    Issue 99
+
+[33mcommit fe86caa67e21a2217e4ff3fb2904deee0a99bbd2[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Sep 28 19:01:18 2016 -0500
+
+    Update gists.json
+
+[33mcommit 9f5d6dd9a644704a472ddde19d5950224c6b6873[m
+Merge: c3114e6 b4e9359
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Wed Sep 28 18:26:09 2016 -0500
+
+    Merge pull request #102 from tjefferson08/fix_final_project
+    
+    Update gist api content
+
+[33mcommit b4e93593156ba27527ce2395e674408c80976e79[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Wed Sep 28 18:13:44 2016 -0500
+
+    Update gist api content
+
+[33mcommit dbb383a7b68f80cf58bcf315c03c5cab4bc1e5a1[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Mon Sep 26 20:17:30 2016 -0500
+
+    Remove temp/placeholder markup in tests
+
+[33mcommit c3114e680667d8df8b4119c32507e500da668c09[m
+Merge: 0a3d223 a1ceaef
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Mon Sep 26 20:02:01 2016 -0500
+
+    Merge pull request #98 from tjefferson08/add_jsdom_tests
+    
+    app 10 tests
+
+[33mcommit af018d4a0ba566c37b73f7100edab0812d9b7898[m
+Author: Jon Woo <jw56578@gmail.com>
+Date:   Mon Sep 26 13:42:41 2016 -0500
+
+    Add native readline to apps 2-6.1
+
+[33mcommit fb1b59930aefdb331e888ed31c6e1707d039d876[m
+Author: Jon Woo <jw56578@gmail.com>
+Date:   Mon Sep 26 13:12:59 2016 -0500
+
+    Replace prompt with readline
+
+[33mcommit a1ceaefae550357c72b7a4701dbe5222df1ee24b[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Sun Sep 25 22:08:44 2016 -0500
+
+    app 10 tests
+
+[33mcommit 0a3d223d14e1701de1e3f6efd0fd1276278fc281[m
+Merge: 6be89dc 314fd4f
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sun Sep 25 17:49:57 2016 -0500
+
+    Merge pull request #97 from tjefferson08/add_jsdom_tests
+    
+    Add mocha tests for app 09
+
+[33mcommit 314fd4fadbff4b63d3f6e4d3850dd802786868bb[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Sun Sep 25 13:25:35 2016 -0500
+
+    Add mocha tests for app 09
+
+[33mcommit 6be89dc283997d4799cec00b18fd0a3921373ce7[m
+Merge: b12328f 030350f
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Wed Sep 14 18:40:17 2016 -0500
+
+    Merge pull request #87 from tjefferson08/add_more_jsdom
+    
+    Add more jsdom test: hanoi this time
+
+[33mcommit e508f3c629aaeada17f4437b273f32bf015e6578[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Tue Sep 13 21:42:29 2016 -0500
+
+    Add relativity to hw 8 (may cause conflicts)
+
+[33mcommit b12328faa479fb814f4e145c4fdd06980494d3bc[m
+Merge: 9bdce56 237b1ce
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Mon Sep 12 15:29:19 2016 -0500
+
+    Merge pull request #94 from paulrenenichols/gh-pages
+    
+    Lesson 8 Homework
+
+[33mcommit 237b1ce7bce01bd62b5fb78b349fa5898328147b[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Mon Sep 12 15:25:27 2016 -0500
+
+    homework 8, vendor jquery
+
+[33mcommit 61ed68f2937f16c5c852e28e6ab4e8e2a0bcae41[m
+Merge: 444fb83 9bdce56
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Mon Sep 12 15:06:38 2016 -0500
+
+    Merge branch 'gh-pages' of github.com:AustinCodingAcademy/intermediate-workbook into gh-pages
+
+[33mcommit 444fb832ba0b2a4c75d22ab8d17da5b16356e79c[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Mon Sep 12 15:06:13 2016 -0500
+
+    homework lesson 8
+
+[33mcommit 9bdce56956e0da07258da167ffb18f617288452f[m
+Merge: e02114a 2ca842a
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Tue Sep 6 16:21:06 2016 -0500
+
+    Merge pull request #92 from tjefferson08/gh-pages
+    
+    Link to homeworks from root index.html... a good idea?
+
+[33mcommit 2ca842ad3bdcf39c6d849ad0844bbdd434d763e1[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Thu Sep 1 13:39:55 2016 -0500
+
+    Link to homeworks from root index.html
+    
+    Also disable caching on http-server
+
+[33mcommit 030350ff92224a9af723b994dfa79d7134919a13[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Wed Aug 31 18:55:31 2016 -0500
+
+    Update jquery src, add hanoi tests
+
+[33mcommit e02114ac572708d4059ed56d2d3c73aff82cda33[m
+Merge: e1dff8c 4765a09
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Aug 31 18:31:36 2016 -0500
+
+    Merge pull request #91 from tjefferson08/add_jsdom_tests
+    
+    Tweak relative links to work with http-server
+
+[33mcommit 4765a0977148507d3976c6b15041531937d05227[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Wed Aug 31 17:44:46 2016 -0500
+
+    Tweak relative links to work with http-server
+
+[33mcommit e1dff8cb8ead34959bcbc15de8ff07ac07f18af8[m
+Merge: cfe430e e868fa5
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 31 17:29:05 2016 -0500
+
+    Merge pull request #90 from tjefferson08/add_jsdom_tests
+    
+    Back to vendored jquery
+
+[33mcommit e868fa5e32b0106f924f054709468f563e1c7cab[m
+Author: Travis Jefferson <traviscjefferson@gmail.com>
+Date:   Wed Aug 31 17:25:03 2016 -0500
+
+    Back to vendored jquery
+
+[33mcommit cfe430ecf87de850e86797e5bcc45073df862959[m
+Merge: 2e511ca d19f791
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Wed Aug 31 17:06:14 2016 -0500
+
+    Merge pull request #89 from paulrenenichols/gh-pages
+    
+    homework-0009
+
+[33mcommit d19f7912be7a98b9cc127b0cf8d2a84bee466709[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 31 16:46:25 2016 -0500
+
+    homework-0011
+    
+    * more fixes for codacy
+    * missing if braces
+    * codacy wants es2015 object short hand syntax
+
+[33mcommit b76c4959954b2917e7999950f615bb0ea8ec147a[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 31 16:38:05 2016 -0500
+
+    homework-0010
+    
+    * replacing single quotes with double quotes
+
+[33mcommit d222861e53d5fccefed2d587a8d3708b4e5ee913[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 31 16:25:51 2016 -0500
+
+    homework-0009
+    
+    * adding lesson 7 homework
+
+[33mcommit 2e511ca20e8f59bfacea608b2e391c0481e6fe94[m
+Merge: 8c471f3 559a541
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Mon Aug 29 20:45:27 2016 -0500
+
+    Merge pull request #84 from tjefferson08/add_jsdom_tests
+    
+    Install jsdom, add test file to 07 app directory
+
+[33mcommit 559a54190b0bdf4382a1c0e5e8d56eb1a1bbce03[m
+Author: Travis Jefferson <travis@Travis-MBP.local>
+Date:   Mon Aug 29 20:10:21 2016 -0500
+
+    test on lowercased win text
+
+[33mcommit 0d1a6dd7dfea8109c0966e029b9fb94669e62477[m
+Author: Travis Jefferson <travis@Travis-MBP.local>
+Date:   Sun Aug 28 21:35:01 2016 -0500
+
+    Fix win text, add missing assertion
+
+[33mcommit eccd88605a8f69b81f2b9e3a84c890a8b728befb[m
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Mon Aug 22 19:48:03 2016 -0500
+
+    Install jsdom, add test file to 07 app directory
+
+[33mcommit 8c471f3e1bb34b47030fc085ac84df9293f9c902[m[33m ([m[1;31morigin/codacy-test[m[33m)[m
+Merge: 5fd7c47 606a407
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 24 17:22:08 2016 -0500
+
+    Merge pull request #85 from paulrenenichols/gh-pages
+    
+    Homework Lesson 6
+
+[33mcommit 606a407f94b01b58e1666ec455809386624ebdb3[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 24 14:39:30 2016 -0500
+
+    homework-0008
+    
+    * homework for lesson 6
+
+[33mcommit 5fd7c4783840b2f82b326e978f25978a9bd2d308[m
+Merge: 3d7c515 c4bcb8f
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 17 14:34:03 2016 -0500
+
+    Merge pull request #82 from paulrenenichols/gh-pages
+    
+    homework-0007
+
+[33mcommit c4bcb8f05b1b0da649f13518f5c6e06d4d28ef92[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 17 09:50:03 2016 -0500
+
+    homework-0007
+    
+    * homework lesson 5
+
+[33mcommit 3d7c515ad4a72f63cd304227b2f596d024b6346b[m
+Merge: 22acaa3 c220d6c
+Author: CLofton <lofton.chris@gmail.com>
+Date:   Sun Aug 7 16:30:37 2016 -0500
+
+    Merge pull request #81 from paulrenenichols/gh-pages
+    
+    homework-0006
+
+[33mcommit c220d6ccfd14d00fae2b7a7c39fe5da91efd57aa[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Sun Aug 7 14:55:18 2016 -0500
+
+    homework-0006
+    
+    * lesson 4 homework
+
+[33mcommit 22acaa38b70104ea6bcfe77fb27f179fb3dcb8a2[m
+Merge: 668caed c747c6c
+Author: CLofton <lofton.chris@gmail.com>
+Date:   Wed Aug 3 12:17:17 2016 -0500
+
+    Merge pull request #79 from paulrenenichols/gh-pages
+    
+    Lesson 3 Homework
+
+[33mcommit c747c6c0d95f7264f5116b8a182eb3e24a12086f[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Wed Aug 3 01:15:45 2016 -0500
+
+    homework-0005
+    
+    * lesson 3 homework
+
+[33mcommit 668caeddd4ec90bdfc743e1da78671c79e809986[m
+Merge: 22e7416 f45cdad
+Author: CLofton <lofton.chris@gmail.com>
+Date:   Thu Jul 28 00:45:13 2016 -0500
+
+    Merge pull request #75 from tjefferson08/gh-pages
+    
+    Use SSH urls/setup in README (not HTTPS)
+
+[33mcommit f45cdadb284f2166b00077e5cd84b58a23c77146[m
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Wed Jul 27 19:19:47 2016 -0500
+
+    Use SSH urls/setup in README (not HTTPS)
+
+[33mcommit 22e74162f5da9d60e30b9914688693752c5be964[m
+Merge: 135b0ba 31ead40
+Author: CLofton <lofton.chris@gmail.com>
+Date:   Tue Jul 26 10:52:25 2016 -0500
+
+    Merge pull request #71 from tjefferson08/gh-pages
+    
+    Fix bad filename in readme
+
+[33mcommit 31ead400bd93cce6e783780670a1ca2c64528763[m
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Mon Jul 25 22:02:02 2016 -0500
+
+    Fix bad filename in readme
+
+[33mcommit 135b0ba3b948f3989a82a225d590fc2b26e4ea36[m
+Author: Travis Jefferson <tjefferson@signpost.com>
+Date:   Mon Jul 25 20:55:16 2016 -0500
+
+    Fix bad filename in readme
+
+[33mcommit b155826ccca26bd7b6200f45e1a54b92826e67ea[m
+Merge: 3fa14ed 16f5f28
+Author: CLofton <lofton.chris@gmail.com>
+Date:   Mon Jul 25 16:42:50 2016 -0500
+
+    Merge pull request #50 from paulrenenichols/gh-pages
+    
+    Homework: Lesson 1 and Lesson 2
+
+[33mcommit 16f5f287d7d770b4a9e1a4f3945d4387c5bc0d71[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Sun Jul 24 23:25:14 2016 -0500
+
+    homework-0004
+    
+    * typo fix
+
+[33mcommit 4ae977d97263dd6b96472177d9a38f03ac868c93[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Sun Jul 24 22:12:53 2016 -0500
+
+    homework-0003
+    
+    * adding unsolved lesson 2 homework
+
+[33mcommit 4802c9cae36ac1c28dad72124a2d94671a566ff9[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Sun Jul 24 22:08:19 2016 -0500
+
+    homework-0002
+    
+    * file rename for clarity
+
+[33mcommit 6345618a18a18d658e21a542986d4ceefa3787d6[m
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Sun Jul 24 20:21:17 2016 -0500
+
+    homework-0001
+    
+    * adding unsolved lesson 1 homework
+
+[33mcommit 208874f5b9e7b39e201c0cd15f46e13b24e71d1c[m
+Merge: 10a4568 3fa14ed
+Author: Paul Rene Nichols <paul.rene.nichols@gmail.com>
+Date:   Sun Jul 17 22:21:48 2016 -0500
+
+    Merge pull request #1 from AustinCodingAcademy/gh-pages
+    
+    worked on questions for lessons 1 and 2
+
+[33mcommit 3fa14ed48324ed010d7b2296b83f2a6142b72365[m
+Author: Chris Lofton <lofton.chris@gmail.com>
+Date:   Thu Jul 14 01:06:36 2016 -0500
+
+    worked on questions for lessons 1 and 2
+
+[33mcommit 10a4568c570921a7fda2b6ea6d2fb8d021769c2e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Apr 28 19:42:44 2016 -0500
+
+    Update index.html
+
+[33mcommit a8ad4e5431c3d5bd3c36435b91765e1b5e6c6401[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Apr 28 18:24:55 2016 -0500
+
+    Added mocha dependency
+
+[33mcommit 96108bfa26694671a247913d918fcee694ad5acc[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Apr 27 17:05:48 2016 -0500
+
+    Reverted app order
+
+[33mcommit b7c8a5fac60d7125b7410766b0bcef2165d4101d[m
+Author: CLofton <lofton.chris@gmail.com>
+Date:   Sun Apr 24 21:06:58 2016 -0500
+
+    Update README.md
+
+[33mcommit 4a9af91ff5b67aef7ae848fc9831f287ceae5950[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Mon Apr 18 19:12:22 2016 -0500
+
+    Rename 08.1Checkers.js (optional) to 08.1Checkers(optional).js
+
+[33mcommit c9fc69fca3852b6109ffa2f463c931ef482727a1[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:57:20 2016 -0500
+
+    Rename 06.1Checkers.js (optional) to 08.1Checkers.js (optional)
+
+[33mcommit e798a92146a0841ed7964f5369a5943cb89ca6c0[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:57:08 2016 -0500
+
+    Rename 06SpaceTravelToMars.js to 08SpaceTravelToMars.js
+
+[33mcommit e5a28e59afe1f73b713093330d54afc3b65c742e[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:56:45 2016 -0500
+
+    Rename 05Mastermind.js to 07Mastermind.js
+
+[33mcommit 2f9bdc6d03c159c1bf679cb3698e5ca5034555f6[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:55:59 2016 -0500
+
+    Rename apps/08towers-of-hanoi/style.css to apps/06jquery-towers-of-hanoi/style.css
+
+[33mcommit 1bbf66578f1e60933ba0bf7127045f5d8384311c[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:55:28 2016 -0500
+
+    Rename apps/08towers-of-hanoi/script.js to apps/06jquery-towers-of-hanoi/script.js
+
+[33mcommit 60b15a02fb624419473ce37ae65127b395360fcb[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:54:59 2016 -0500
+
+    Rename apps/08towers-of-hanoi/index.html to apps/06jquery-towers-of-hanoi/index.html
+
+[33mcommit 855acca969b9f9010da3ea72510ea87d4388ca5f[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:54:03 2016 -0500
+
+    Rename 04TowersOfHanoi.js to 05TowersOfHanoi.js
+
+[33mcommit 025a2b1fabd7c66e0638b282a7ce56a543c865d3[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:52:57 2016 -0500
+
+    Rename apps/07tic-tac-toe/style.css to apps/04jquery-tic-tac-toe/style.css
+
+[33mcommit 9f5cb43a31de9c34647cbf0381716a1255338b67[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:52:28 2016 -0500
+
+    Rename apps/07tic-tac-toe/script.js to apps/04jquery-tic-tac-toe/script.js
+
+[33mcommit 47fe6ae82238b4b06183f415129917e343af921c[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sun Apr 17 10:51:45 2016 -0500
+
+    Rename apps/07tic-tac-toe/index.html to apps/04jquery-tic-tac-toe/index.html
+
+[33mcommit 990913265c5f2e0838567868a4947f0ea7466bf6[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sat Apr 16 20:05:48 2016 -0500
+
+    Rename 06Checkers.js to 06.1Checkers.js (optional)
+    
+    made checkers lab optional
+
+[33mcommit 52750f9e7f8b2640210627874d37a34745ce0941[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sat Apr 16 20:05:14 2016 -0500
+
+    Rename SpaceTravelToMars.js to 06SpaceTravelToMars.js
+
+[33mcommit 4e2e3aba78bb2f595aad4e3a5c2716ef87053ce8[m
+Merge: 05ac54f 47d46e8
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sat Apr 16 20:04:09 2016 -0500
+
+    Merge pull request #25 from yangc5/patch-1
+    
+    Create SpaceTravelToMars.js
+
+[33mcommit 47d46e81bc7c9bb2e7b08b91d0714e52918da1c1[m
+Author: Chen Yang <yangc5@users.noreply.github.com>
+Date:   Sat Apr 16 15:58:19 2016 -0500
+
+    Create SpaceTravelToMars.js
+
+[33mcommit 05ac54ff5a5ea3ed5a47241172a5145a8dfb4674[m
+Merge: 0fbe0d5 dbd7374
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Mar 3 18:04:45 2016 -0600
+
+    Merge pull request #23 from yangc5/gh-pages
+    
+    added tests for generateHint()
+
+[33mcommit dbd737484eac808c688a8675bb12730ccd5ebeaf[m
+Author: Chen Yang <yangc5@mail.uc.edu>
+Date:   Thu Mar 3 17:40:05 2016 -0600
+
+    added tests for generateHint()
+
+[33mcommit 0fbe0d577034a3a52e8b9956404bf9b5bf17f747[m
+Merge: 6e79404 b86e88d
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Feb 24 20:13:58 2016 -0600
+
+    Merge pull request #22 from yangc5/gh-pages
+    
+    fixed an error in 04TowersOfHanoi
+
+[33mcommit b86e88d4ba30616e53f4951117d562d7ba12be50[m
+Author: Chen Yang <yangc5@mail.uc.edu>
+Date:   Wed Feb 24 19:28:37 2016 -0600
+
+    fixed an error in 04TowersOfHanoi
+
+[33mcommit 6e79404260830a7df9db4491a3287a147314be0e[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Jan 24 00:15:19 2016 -0600
+
+    added lesson six test
+
+[33mcommit 005db94a84b63989f0edc88f3d5f440866e0f3a9[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 23 23:29:39 2016 -0600
+
+    Update gists.json
+
+[33mcommit 3ba4575235050bdd5deebed170d2ce79207a63ae[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Jan 23 23:23:01 2016 -0600
+
+    updated api
+
+[33mcommit 7e792cee9cdb8cb61b3e1024f3a8b00a17be400f[m
+Merge: 70af4ee 631349c
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Jan 23 22:02:43 2016 -0600
+
+    Merge branch 'gh-pages' of github.com:AustinCodingAcademy/frontend-intermediate-workbook into gh-pages
+
+[33mcommit 70af4ee8beb92a938326a648d25f91b3e36b49a2[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Jan 23 22:02:28 2016 -0600
+
+    switched gists order
+
+[33mcommit 631349ceadab32b7d734b6dfb3c8b414dd5a3b4f[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 23 21:44:00 2016 -0600
+
+    Update index.html
+
+[33mcommit fdcd79be806b88cff5d22b55485dd99f9de0a408[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 23 10:31:51 2016 -0600
+
+    Update README.md
+
+[33mcommit df87e29f77c16942f6dfe8d6e61714a16d8d5ba9[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 23 10:31:42 2016 -0600
+
+    Update README.md
+
+[33mcommit 36e75507af2b7806202518fad2fffe40a21f2be3[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 23 10:31:05 2016 -0600
+
+    Update README.md
+
+[33mcommit 4f87dbd717ec8759cc84a403e26e1fa6efa7e45f[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 23 10:30:02 2016 -0600
+
+    Update README.md
+
+[33mcommit ca7b1e5cbc4459531a019be9f94ddfadd6d79319[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 19:06:06 2016 -0600
+
+    Update README.md
+
+[33mcommit 72dfac213aafefeae9241a20e4c9522be9e74f7a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 19:04:48 2016 -0600
+
+    Update README.md
+
+[33mcommit 9d266134f80f7c8c2449c68ac2728ce640e9d829[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 19:03:58 2016 -0600
+
+    Delete README.md
+
+[33mcommit 3cc459ffc1cbb1f9778023fefd0ac607d6551e3a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 19:03:53 2016 -0600
+
+    Update README.md
+
+[33mcommit 4a2b14071e8ca52b11352a9dd237a92f104cde2d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 19:02:09 2016 -0600
+
+    Update README.md
+
+[33mcommit 5578e819ae2f03bd8bb5e928f0711d4c9026d5d2[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:53:24 2016 -0600
+
+    changed tsts to test
+
+[33mcommit 5630d4871a6cc22bab583bd91a5d016b4e36e217[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:51:54 2016 -0600
+
+    renamed test files
+
+[33mcommit 575a4ea372dc4be2cac090ccb6a4aebb0e810e3c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:50:20 2016 -0600
+
+    Rename 00LessonZerotest.js to 00LessonZero_test.js
+
+[33mcommit 7f5da7fd78dbda9babeccdb47e418d1a649d36e8[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:49:59 2016 -0600
+
+    Rename 00LessonZeroTest.js to 00LessonZerotest.js
+
+[33mcommit d1704dd7f7e87ceea57c3b1d61ee476e42f51baa[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:47:38 2016 -0600
+
+    Rename 00LessonZero.js to 00LessonZeroTest.js
+
+[33mcommit a64dbcc9dcab5228408f4138e9c8a98b886a73e0[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:45:11 2016 -0600
+
+    Create README.md
+
+[33mcommit 619ec3196e9001a18076141b13e3e41f1ad6eeeb[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:44:11 2016 -0600
+
+    Update README.md
+
+[33mcommit eb75d97fe298fa351f3bc9fbe67c9524d4d6e927[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:43:57 2016 -0600
+
+    Create README.md
+
+[33mcommit 0150c120bc14671669c33934177d337d19531520[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:36:09 2016 -0600
+
+    Update index.html
+
+[33mcommit 76825a839b935d42d0fddcf848bb024f1442062b[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:35:21 2016 -0600
+
+    Update index.html
+
+[33mcommit e2e5210d5947282793c8abf1f163beac0c3d82cd[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Jan 22 18:32:51 2016 -0600
+
+    Create index.html
+
+[33mcommit 0ee018c8294f5934e85c9b3d4dd6ce83d10d2e34[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Wed Jan 20 22:48:54 2016 -0600
+
+    switched up some comments
+
+[33mcommit a1eaa2e022f9fe81dae71afbe17d1bd476a059c4[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Wed Jan 20 22:36:50 2016 -0600
+
+    moved gists into gist folder
+
+[33mcommit 1b32068d7c45b7fe40769e97d337d8b31d96d4b1[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Wed Jan 20 22:22:08 2016 -0600
+
+    added comment
+
+[33mcommit 8ae359d7d3175d1cdfcae6e4cbf9a811bf9b59cb[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Wed Jan 20 22:21:47 2016 -0600
+
+    added mini gist api
+
+[33mcommit e03f935450f9bad4c7b85c0044a15ca231917e4c[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Jan 16 17:02:51 2016 -0600
+
+    added json files
+
+[33mcommit 2c56d4b837bfccc249daefaf0a194bc4dbb7d59b[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Sat Jan 16 16:10:56 2016 -0600
+
+    Update index.html
+
+[33mcommit d7b28af857c9c02c77cc1c85ff394d298dd76a40[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Jan 13 16:28:07 2016 -0600
+
+    Update index.html
+
+[33mcommit 9f11a351b231b424d67a89552de70c663ca91858[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Jan 9 23:10:37 2016 -0600
+
+    added gist blog
+
+[33mcommit d641fe5cc1436393afdc7bd743ba7718ebdc99da[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Jan 9 23:05:51 2016 -0600
+
+    updated apps
+
+[33mcommit 1d8858c13614ff0f52ccaed60df3296dcbdfc8e9[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Dec 13 15:29:25 2015 -0600
+
+    removed parsing integers from tictactoe
+
+[33mcommit e8db77c6a65d08e1515e34f69fc3479a0211267e[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Dec 13 15:24:42 2015 -0600
+
+    added row/column numbers
+
+[33mcommit 76005b1a814cc252d122217db6e9f9cdfbc50ee9[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Wed Dec 9 20:42:32 2015 -0600
+
+    added address book exersize
+
+[33mcommit e955e0ea2e424c3cf79ec3cb21d771603edd464b[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Nov 29 21:16:51 2015 -0600
+
+    checkers shell
+
+[33mcommit 63908d20a6af8accfeec56fb012486df2506ee40[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Mon Nov 23 11:13:37 2015 -0600
+
+    mastermind
+
+[33mcommit b4fe9198bf2b4d268a0d37adf8bbee735fe902ad[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Nov 22 23:33:11 2015 -0600
+
+    updated filenames, testing towers of hanoi
+
+[33mcommit 6706c8c7724fcf7ae111af5d121f2e9cb953f3c0[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Nov 15 18:04:50 2015 -0600
+
+    Added Tic Tac Toe
+
+[33mcommit 423b5c0ff7943840fcbfad4bcf37e18ccf23f60a[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Nov 15 14:52:36 2015 -0600
+
+    updated Rock Paper Scissors
+
+[33mcommit 1def86da30ac9ddf1b384085c2c71fb8098d7728[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Nov 15 13:40:15 2015 -0600
+
+    added indentation to tests
+
+[33mcommit a253d96ce540e82dd19269817a637abbe9e173a6[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sun Nov 15 13:37:12 2015 -0600
+
+    updated Pig Latin with tests
+
+[33mcommit 84da9738111e4de8a33f1135353f15252fb7bf93[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Nov 14 21:32:58 2015 -0600
+
+    added todo-backbone
+
+[33mcommit 4d28cf985d90454d3027067e49ae8282cce669b8[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Nov 14 15:50:09 2015 -0600
+
+    added todo backbone gulp
+
+[33mcommit ff1b5f57dd018501367de083055ca6916ce75d59[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Nov 14 15:28:11 2015 -0600
+
+    added test kata
+
+[33mcommit 63934e453bbd43811379a4b97d2ed94ec1e454b6[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Nov 14 15:23:51 2015 -0600
+
+    added another kata
+
+[33mcommit d2b4d1e4dad0f50279c4694dabaed5a810a6f0e8[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Nov 14 14:43:59 2015 -0600
+
+    fixed test bugs
+
+[33mcommit 6bc9a0c28499a6f72b04c22278e547d9c01dd0c5[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Sat Nov 14 14:41:26 2015 -0600
+
+    organized tests
+
+[33mcommit 00d87c7dd9c3bfcaafe36bd05211ea632ee9c81d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 22:13:20 2015 -0600
+
+    Create 00KataOne.js
+
+[33mcommit d766a40b8dcd4ed4b7b1b9df5b362b87528e4850[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:46:04 2015 -0600
+
+    Update 05ProblemFive.js
+
+[33mcommit 2c4a496011a8106efcaa9f0f79347a0ff1026f04[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:45:13 2015 -0600
+
+    Create 10ProblemTen.js
+
+[33mcommit 3d92a61a8f78d799e62681843d89d7b4a23dadb7[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:44:14 2015 -0600
+
+    Update 08ProblemEight.js
+
+[33mcommit f26d00bc162a5453a244df266cfd7f19faa6791e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:43:58 2015 -0600
+
+    Create 09ProblemNine.js
+
+[33mcommit 1222f055f9f056bec6578fd7b13f3ed2dd24d4d6[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:42:37 2015 -0600
+
+    Create 08ProblemEight.js
+
+[33mcommit 2d596aa0d7bba8c579b3168b19213d07ce05114e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:40:08 2015 -0600
+
+    Create 07ProblemSeven.js
+
+[33mcommit a729adf5c4bee1fe3c4dabc258a87fdcd3b9fc9a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 10:39:15 2015 -0600
+
+    Create 06ProblemSix.js
+
+[33mcommit d28fcaad97ddb6e5f03211c0acf76cae56cc2839[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:38:27 2015 -0600
+
+    Update 05ProblemFive.js
+
+[33mcommit c50bb6be03cd6f174e9e7be8410ca04730ea29ff[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:38:14 2015 -0600
+
+    Create 05ProblemFive.js
+
+[33mcommit 374e41d7b86ea0b479da8ebddbe95e88a76d76e6[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:37:00 2015 -0600
+
+    Create 04ProblemFour.js
+
+[33mcommit 20e5f1946af0ab6839afc4a24a3f26099816d201[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:36:18 2015 -0600
+
+    Create 03ProblemThree.js
+
+[33mcommit 1afa2bd08f2f200e4e48830e7e372126d2fdad20[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:34:42 2015 -0600
+
+    Update 02ProblemTwo.js
+
+[33mcommit 32fdef80097eea3c92360a272ce6b39f1ed248c4[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:32:54 2015 -0600
+
+    Update 01ProblemOne.js
+
+[33mcommit 9c873d74aaba9c26e49ba440213d91bbe12da90e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:32:26 2015 -0600
+
+    Create 00ProblemZero.js
+
+[33mcommit 7b49c0b5a2cce6a40b6232a3bcbcddb68f834719[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:14:34 2015 -0600
+
+    Create 02ProblemTwo.js
+
+[33mcommit f515fb6af19f4a1e22af160b6da170df1efc715d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Fri Nov 13 09:13:13 2015 -0600
+
+    Create 01ProblemOne.js
+
+[33mcommit 2a7464eca275fc83f9c963c37bbe71480942aa3c[m
+Author: mistakevin <kevincolten@gmail.com>
+Date:   Thu Nov 12 14:16:01 2015 -0600
+
+    added in tests
+
+[33mcommit d8a9f6f0aa5eda94421768639be64c284f9364a7[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 13:44:06 2015 -0600
+
+    Create script.js
+
+[33mcommit 99d6c7e5452576a0cda1f6dbba98982e5ab6dcef[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 13:43:19 2015 -0600
+
+    Create style.css
+
+[33mcommit 421ac853a22c78104d72856ff16bdae681a8717c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 13:42:57 2015 -0600
+
+    Create index.html
+
+[33mcommit d3e7f766f33444788b5ee83d6cc1fe900ed05d3e[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 13:39:41 2015 -0600
+
+    Rename apps/TicTacToe/style.css to apps/tic-tac-toe/style.css
+
+[33mcommit d97f7c152164bfb22d7c0beccb6e01ed82ac5976[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 13:39:24 2015 -0600
+
+    Rename apps/TicTacToe/script.js to apps/tic-tac-toe/script.js
+
+[33mcommit 3b0cadbd92809ebaea78e4417bd59c933c1ebd74[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 13:38:48 2015 -0600
+
+    Rename apps/TicTacToe/index.html to apps/tic-tac-toe/index.html
+
+[33mcommit 5c9faec69454f5887cb8dd1f8342fdca39de6867[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:55:29 2015 -0600
+
+    Rename apps/TowersOfHanoi/script.js to apps/towers-of-hanoi/script.js
+
+[33mcommit 9766c20b4f5db69d87ee6af4787e82f9882013d0[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:55:06 2015 -0600
+
+    Rename apps/TowersOfHanoi/style.css to apps/towers-of-hanoi/style.css
+
+[33mcommit c3d6141a17c56df6864c37c4c146306ca76faf6c[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:54:29 2015 -0600
+
+    Rename apps/TowersOfHanoi/index.html to apps/towers-of-hanoi/index.html
+
+[33mcommit 3e2c5973e6e71193875b036713be17a0c39ff92b[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:53:03 2015 -0600
+
+    Create script.js
+
+[33mcommit 835d0059e6bb26d1eaad173146c02eefbd4a0492[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:52:08 2015 -0600
+
+    Create style.css
+
+[33mcommit ecc0f7bb393e96d17d02f7908dd974e3d084355a[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:51:42 2015 -0600
+
+    Update index.html
+
+[33mcommit 38945c9c8da796870eee6596924803f44a28f2f5[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 12:51:23 2015 -0600
+
+    Create index.html
+
+[33mcommit 874428b3dfc5c33c4933c56e093c636f873a73aa[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:47:12 2015 -0600
+
+    Create script.js
+
+[33mcommit 8154b180ce279d3aa61ab880b62868092d37801d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:46:04 2015 -0600
+
+    Create style.css
+
+[33mcommit 54a972b50d9e4585e64a0ecbd3b335b1c78c83eb[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:45:31 2015 -0600
+
+    Create index.html
+
+[33mcommit 654c246fb078e137dd286e7055f5d6cbacb08008[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:42:59 2015 -0600
+
+    Create TowersOfHanoi.js
+
+[33mcommit e0aa26000812cc1833789544cbaa63357236342d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:42:27 2015 -0600
+
+    Create RockPaperScissors.js
+
+[33mcommit 3f7bb9b9ff8bad0b7a8132faf27debb4fd3782db[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:40:27 2015 -0600
+
+    Create Checkers.js
+
+[33mcommit 385a681a8a04a379897132c1907ffdb9edd99ae3[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:40:05 2015 -0600
+
+    Create Mastermind.js
+
+[33mcommit d5f6fe780a28b81267fb0024086949e93dbd0cf4[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:39:49 2015 -0600
+
+    Create TicTacToe.js
+
+[33mcommit 23155f84788c475d16a8bcd3da711d020c3a5b7f[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Thu Nov 12 10:39:23 2015 -0600
+
+    Create PigLatin.js
+
+[33mcommit 0b89861752f470e7df205396588a5f8edcb9674d[m
+Author: Kevin Colten <kevincolten@gmail.com>
+Date:   Wed Nov 4 22:24:51 2015 -0600
+
+    Initial commit
