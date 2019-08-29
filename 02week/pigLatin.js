@@ -16,6 +16,9 @@ function pigLatin(string) {
     .split("");
   const words = string.split(" ");
 
+  // Dinh Way for multiple words: split entries into array at space. make variable words
+  // Make for Loop to run through new array words.[i]. pass words[i] into piglatin function.
+
   // for (let w = 0; w < words.length; w++) {
   //   const splitWords = words[w]
   //     .toLowerCase()
