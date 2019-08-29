@@ -10,12 +10,15 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 
 let playerTurn = "X";
 
-// function inputRules(playerTurn) {
-//   if (playerTurn !== board[0][0]) {
-//     return 
+function inputRules(playerTurn) {
+
+  // change input into Number
+  // row =< 0 >= 2
+  if (playerTurn !== board[0][0]) {
+    getPrompt();
     
-//   }
-// }
+  }
+}
 
 function printBoard() {
   console.log("   0  1  2");
@@ -101,7 +104,6 @@ function checkForWin() {
 // Parent Function
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  // inputRules();
   checkForWin();
   if (playerTurn === "X") {
     playerTurn = "O";
