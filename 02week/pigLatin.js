@@ -17,7 +17,7 @@ function pigLatin(word) {
   //temp variable to make word lowercase
   var temp_word = word.toLowerCase();
   //create an extra variable to put the letters back 
-  var temp2_word = '';
+  var newWord = '';
 
   //word loop
   for(var y = 0; y < word.length-1; y++) {
@@ -37,12 +37,12 @@ function pigLatin(word) {
 
       }
     }
-
+    
   }
+  
+  console.log(newWord);
 
-
-
-
+  
 
 
 
