@@ -46,18 +46,22 @@ function isValid(startStack, endStack) {
 function isLegal(startStack, endStack) {
   const moveFrom = startStack.toLowerCase().trim();
   const moveTo = endStack.toLowerCase().trim();
-  const lastElement = stacks[moveFrom].pop();
-  const secondToLastElement = stacks[moveTo].length - 1;
+  const lastElementIndex = stacks[moveFrom].length - 1;
+  const secondToLastElementIndex = stacks[moveTo].length - 2;
+  const lastElement = stacks[moveFrom][lastElementIndex];
+  const secondToLastElement = stacks[moveTo][secondToLastElementIndex];
 
-  console.log(secondToLastElement.valueOf());
-  console.log(lastElement.valueOf());
+  console.log(lastElement);
+  console.log(secondToLastElement);
 
-  if (
-    secondToLastElement.valueOf() === -1 ||
-    secondToLastElement.valueOf() > lastElement.valueOf()
-  ) {
+  // Value of is getting Index number.  Need to get the value of the dyanmic index.
+
+  if (secondToLastElement === undefined || secondToLastElement > lastElement) {
     return true;
   } else {
+    console.log(
+      `You attempted to move ${lastElement} on top of ${secondToLastElement}. The stack must go from largest to smallest. Try again`
+    );
     return false;
   }
 }
@@ -67,8 +71,6 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
   if (isValid(startStack, endStack) && isLegal(startStack, endStack)) {
     console.log("is ValidHere and isLegalHere");
     movePiece(startStack, endStack);
