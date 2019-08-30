@@ -51,16 +51,21 @@ function isLegal(startStack, endStack) {
   const lastElement = stacks[moveFrom][lastElementIndex];
   const secondToLastElement = stacks[moveTo][secondToLastElementIndex];
 
-  console.log(lastElement);
-  console.log(secondToLastElement);
+  console.log(stacks[moveTo][0], lastElement);
+  console.log(stacks[moveTo][1], lastElement);
+ 
 
   // Value of is getting Index number.  Need to get the value of the dyanmic index.
 
-  if (secondToLastElement === undefined || secondToLastElement > lastElement) {
+  if (
+    stacks[moveTo][0] > lastElement ||
+    stacks[moveTo][0] === undefined ||
+    secondToLastElement > lastElement
+  ) {
     return true;
   } else {
     console.log(
-      `You attempted to move ${lastElement} on top of ${secondToLastElement}. The stack must go from largest to smallest. Try again`
+      `You attempted to move ${lastElement} on top of a smaller number. The stack must go from largest to smallest. Try again.`
     );
     return false;
   }
