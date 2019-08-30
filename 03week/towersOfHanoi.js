@@ -19,33 +19,44 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+  console.log("in movePiece");
+  const moveFrom = startStack.toLowerCase().trim();
+  const moveTo = endStack.toLowerCase().trim();
+  const lastElement = stacks[moveFrom].pop();
+
+  stacks[moveTo].push(lastElement);
+}
+
+function isValid(startStack, endStack) {
+  const moveFrom = startStack.toLowerCase().trim();
+  const moveTo = endStack.toLowerCase().trim();
+  const validInput = ["a", "b", "c"];
+
+  if (validInput.includes(moveFrom) && validInput.includes(moveTo)) {
+    console.log(`Item moved from stack ${moveFrom} to ${moveTo}.`);
+    console.log("true");
+    return true;
+  } else {
+    console.log("false");
+    console.log(
+      `You entered ${moveFrom}, ${moveTo}. Please enter: a, b, or c. Try again.`
+    );
+    return false;
+  }
 }
 
 function isLegal(startStack, endStack) {
-  function inputRules() {
-    let stackOne = startStack
-      .toLowerCase()
-      .trim()
-      .split(" ");
-    let stackTwo = endStack
-      .toLowerCase()
-      .trim()
-      .split(" ");
-    const validInput = ["a", "b", "c"];
+  /* 
+  
+  if (stacks[moveTo].length - 1 > lastElement
+  get the values @ above indexes to compare. )
+  return true
+  else 
+  return false
 
-    if (validInput.includes(startStack) && validInput.includes(endStack)) {
-      console.log(`Item moved from stack ${stackOne} to ${stackTwo}.`);
-    } else {
-      console.log(
-        `You entered ${stackOne}, ${stackTwo}. Please enter: a, b, or c. Try again.`
-      );
-    }
-  }
-  inputRules();
-  // Possible Reset depending on game flow.
-  getPrompt();
+  create variables for these items to clarify what is happening.
+  */
 }
 
 function checkForWin() {
@@ -54,7 +65,11 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  isLegal(startStack, endStack);
+  if (isValid(startStack, endStack)) {
+    movePiece(startStack, endStack);
+  } else {
+  }
+  return false;
 }
 
 function getPrompt() {
