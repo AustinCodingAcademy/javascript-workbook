@@ -20,7 +20,6 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  console.log("in movePiece");
   const moveFrom = startStack.toLowerCase().trim();
   const moveTo = endStack.toLowerCase().trim();
   const lastElement = stacks[moveFrom].pop();
@@ -35,10 +34,8 @@ function isValid(startStack, endStack) {
 
   if (validInput.includes(moveFrom) && validInput.includes(moveTo)) {
     console.log(`Item moved from stack ${moveFrom} to ${moveTo}.`);
-    console.log("true");
     return true;
   } else {
-    console.log("false");
     console.log(
       `You entered ${moveFrom}, ${moveTo}. Please enter: a, b, or c. Try again.`
     );
@@ -47,16 +44,21 @@ function isValid(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  /* 
-  
-  if (stacks[moveTo].length - 1 > lastElement
-  get the values @ above indexes to compare. )
-  return true
-  else 
-  return false
+  const moveFrom = startStack.toLowerCase().trim();
+  const moveTo = endStack.toLowerCase().trim();
+  const lastElement = stacks[moveFrom].pop();
+  const secondToLastElement = stacks[moveTo].length - 1;
 
-  create variables for these items to clarify what is happening.
-  */
+  console.log(secondToLastElement.valueOf());
+  console.log(lastElement.valueOf());
+
+  if (secondToLastElement.valueOf() === -1) {
+    return true;
+  } else if (secondToLastElement.valueOf() > lastElement.valueOf()) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function checkForWin() {
@@ -65,11 +67,18 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-  if (isValid(startStack, endStack)) {
-    movePiece(startStack, endStack);
+
+  // if (isValid(startStack, endStack)) {
+  //   console.log('isValidHere');
+  //   return true;
+  // }
+  if (isLegal(startStack, endStack)) {
+    console.log('isLegalHere');
+    return true;
+    // movePiece(startStack, endStack);
   } else {
+    return false;
   }
-  return false;
 }
 
 function getPrompt() {
