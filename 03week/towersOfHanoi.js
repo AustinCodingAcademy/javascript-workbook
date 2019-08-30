@@ -20,23 +20,20 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+  // Your code here. Why do we need this function though???
 }
 
-function isLegal() {
-  // Your code here
-
+function isLegal(start, end) {
+  return stacks[start][stacks[start].length] < stacks[end][0] || stacks[end].length === 0;
 }
 
 function checkForWin() {
-  // Your code here
-
+  return stacks["b"].length === 4 || stacks["b"].length === 4;
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  stacks[endStack].unshift(stacks[startStack].pop());
+  return stacks;
 }
 
 function getPrompt() {

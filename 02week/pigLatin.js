@@ -2,16 +2,26 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const vowels = ["a", "e", "i", "o", "u"];
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-
+/**
+  @param word Input word
+*/
 function pigLatin(word) {
-
-  // Your code here
-
+  word = word.toLowerCase().trim();
+  // should attach 'yay' if the word begins with vowel
+  if (vowels.indexOf(word.charAt(0)) !== -1) {
+    return `${word}yay`;
+  } else {
+    while (vowels.indexOf(word.charAt(0)) === -1) {
+      word = word.substring(1) + word.charAt(0);
+    }
+  }
+  return word + "ay";
 }
 
 

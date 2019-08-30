@@ -12,6 +12,67 @@ var assert = require('assert');
 
 // Your code here
 
+/**
+  Class to create cars
+  @property color {string} The color of the car
+*/
+class Car {
+
+  /**
+    The constructor of the class Car
+    @param color {string} The color of the car to be set
+  */
+  constructor(color) {
+    this.color = color;
+  }
+}
+
+/**
+  Defines properties and methods to implement Garage objects
+  @property size {number} The number of cars that the garage can hold
+  @property cars {Car[]} Cars the are parked in the garage
+*/
+class Garage {
+
+  /**
+    The default constructor of the class
+    @param size {number} The size of the garage to be set
+  */
+  constructor(size) {
+    this.size = size;
+    this.cars = [];
+  }
+
+  /**
+    Adds a new car to the garage.
+    @param car {Car} The car to be added
+    @returns {string} 'Not enough space' if the park is full
+  */
+  add(car) {
+    if (this.cars.length < this.size) {
+      this.cars.push(car);
+    } else {
+      return 'Not enough space!';
+    }
+  }
+
+  /**
+    Removes a car from the garage
+    @param car {Car} The car to be removed
+    @returns {Cars[]|string} Returns the  list of cars parked if successfully removed. Otherwise returns a message telling 'That car isn't here!'
+  */
+  remove(car) {
+    for (let i in this.cars) {
+      if (car === this.cars[i]) {
+        this.cars.splice(i, 1);
+        return this.cars;
+      }
+    }
+    return "That car isn't here!";
+  }
+
+}
+
 // Tests
 
 var redCar, blueCar, greenCar, yellowCar, twoCarGarage, threeCarGarage;

@@ -7,12 +7,21 @@ function whichSpecies(character) {
   // should return "cat" when character is 'garfield'
   // should return "fish" when character is 'nemo'
   // should return false if character is anything else
-  
+  switch (character) {
+  case 'scooby':
+    return 'dog';
+  case 'garfield':
+    return 'cat';
+  case 'nemo':
+    return 'fish';
+  default:
+    return false;
+  }
 }
 
 function isEven(number) {
   // should return true is number is even (divisible by 2)
-
+  return !(number % 2);
 }
 
 
