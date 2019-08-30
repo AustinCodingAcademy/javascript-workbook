@@ -52,9 +52,10 @@ function isLegal(startStack, endStack) {
   console.log(secondToLastElement.valueOf());
   console.log(lastElement.valueOf());
 
-  if (secondToLastElement.valueOf() === -1) {
-    return true;
-  } else if (secondToLastElement.valueOf() > lastElement.valueOf()) {
+  if (
+    secondToLastElement.valueOf() === -1 ||
+    secondToLastElement.valueOf() > lastElement.valueOf()
+  ) {
     return true;
   } else {
     return false;
@@ -68,14 +69,9 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   // Your code here
 
-  // if (isValid(startStack, endStack)) {
-  //   console.log('isValidHere');
-  //   return true;
-  // }
-  if (isLegal(startStack, endStack)) {
-    console.log('isLegalHere');
-    return true;
-    // movePiece(startStack, endStack);
+  if (isValid(startStack, endStack) && isLegal(startStack, endStack)) {
+    console.log("is ValidHere and isLegalHere");
+    movePiece(startStack, endStack);
   } else {
     return false;
   }
