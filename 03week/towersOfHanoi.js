@@ -22,22 +22,18 @@ function printStacks() {
 function movePiece(start, end) {
   var toMove = start.pop();
   end.push(toMove);
- 
-  // first move is now the third index of stack a
   
 
 }
 
 function isLegal(startStack, endStack) {
-var popOff = startStack[startStark.length - 1];
+var popOff = startStack[startStack.length - 1];
 var pushOn = endStack[endStack.length - 1];
-if (pushOn = null){
-  console.log(valueOf(popOff));
-return true;}
-else if (valueOf(popOff) < valueOf(pushOn)){
 
-return true;}
-else return false; 
+  console.log(valueOf(popOff));
+  if (valueOf(popOff) < valueOf(pushOn)){
+  return true;}
+  else return false; 
 
 }
 
