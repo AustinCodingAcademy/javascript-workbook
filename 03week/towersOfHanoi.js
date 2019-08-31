@@ -29,8 +29,8 @@ function movePiece(start, end) {
 }
 
 function isLegal(startStack, endStack) {
-var popOff = startStack.peek();
-var pushOn = endStack.peek();
+var popOff = startStack[startStark.length - 1];
+var pushOn = endStack[endStack.length - 1];
 if (pushOn = null){
   console.log(valueOf(popOff));
 return true;}
@@ -49,7 +49,7 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   var end = stacks[endStack];
   var start = stacks[startStack];
-  if (isLegal() = true) 
+  if (isLegal(start, end)) 
   {movePiece(start, end);}
 
 }
