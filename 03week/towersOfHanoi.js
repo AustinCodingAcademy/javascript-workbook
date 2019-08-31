@@ -52,8 +52,7 @@ function isLegal(startStack, endStack) {
   const secondToLastElement = stacks[moveTo][secondToLastElementIndex];
 
   console.log(stacks[moveTo][0], lastElement);
-  console.log(stacks[moveTo][1], lastElement);
- 
+  // console.log(stacks[moveTo][1], lastElement);
 
   // Value of is getting Index number.  Need to get the value of the dyanmic index.
 
@@ -72,7 +71,14 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  // Your code here
+  const arrB = stacks.b;
+  const arrC = stacks.c;
+
+  if (arrB.length === 4 || arrC.length === 4) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
@@ -82,6 +88,7 @@ function towersOfHanoi(startStack, endStack) {
   } else {
     return false;
   }
+  checkForWin();
 }
 
 function getPrompt() {
@@ -125,6 +132,8 @@ if (typeof describe === "function") {
   describe("#checkForWin()", () => {
     it("should detect a win", () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      assert.equal(checkForWin(), true);
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
