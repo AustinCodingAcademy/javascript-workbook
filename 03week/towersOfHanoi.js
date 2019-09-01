@@ -19,13 +19,45 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+function validInput(input1, input2) {
+  // Check that input is leter a, b, or c
+  let valid = ["a", "b", "c"];
+
+  for (let i = 0; i < 3; i++) {
+    if (input1 !== valid[i] || input2 !== valid[i]) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+}
+
 function movePiece() {
   // Your code here
 
 }
 
-function isLegal() {
+function isLegal(start, end) {
   // Your code here
+  // If starting stack is not empty
+  // Pop last element of stack
+  // If end stack is not empty then compare the last element of that stack with popped element
+  // If it is empty then it's a legal move automatically
+  // If the popped element is bigger than the last element then the move is illegal.
+  console.log(stacks.${end});
+  if (stacks.start.length !== 0) {
+    let hand = stacks.start.pop();
+    if(stacks.end.length === 0) {
+      return true;
+    }else {
+      if (hand > stacks.end[this.length]){
+        //Something
+      }
+    }
+  }else {
+    return false;
+  }
 
 }
 
@@ -36,6 +68,11 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  let start = startStack.toLowerCase();
+  let end = endStack.toLowerCase();
+
+  isLegal(start, end);
+
 
 }
 

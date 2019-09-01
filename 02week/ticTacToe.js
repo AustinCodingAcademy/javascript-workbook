@@ -63,7 +63,8 @@ function checkForWin() {
 }
 
 function ticTacToe(row, column) {
-  
+  row = row*1;
+  column = column*1;
   // Check to see that index in the board is empty.
   if(board[row][column] === ' ') {
     if (row <= 2 && column <= 2){
