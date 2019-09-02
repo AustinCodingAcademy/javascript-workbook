@@ -68,22 +68,23 @@ function isLegal(start, end) {
 
 function checkForWin() {
   // If b or c stack contain [4, 3, 2, 1] then return true
-  let win = [4, 3, 2, 1];
-  let winDetected = true;
-  // console.log(`${stacks.b} vs ${win}`);
-  // if(stacks.b == win || stacks.c == win) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-  for (let i = 0; i < 3; i++) {
-    if(stacks.b[i] === win[i] || stacks.b[i] === win[i]){
-
-    }else {
-      winDetected = false;
-    }
-    return winDetected;
+  let win = "4,3,2,1";
+  // let winDetected = true;
+  console.log(`${stacks.b.join()} vs ${win}`);
+  if(stacks.b.join() == win || stacks.c.join() == win) {
+    return true;
+  } else {
+    return false;
   }
+  // for (let i = 0; i <= 3; i++) {
+  //   console.log(`${stacks.b[i]} or ${stacks.c[i]} is ${win[i]}`)
+  //   if(stacks.b[i] === win[i] || stacks.c[i] === win[i]){
+      
+  //   }else {
+  //     winDetected = false;
+  //   }
+  //   return winDetected;
+  // }
 }
 
 function clearBoard() {
