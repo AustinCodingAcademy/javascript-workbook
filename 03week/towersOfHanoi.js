@@ -27,25 +27,28 @@ function movePiece(start, end) {
 }
 
 function isLegal(startStack, endStack) {
-var popOff = startStack[startStack.length - 1];
-var pushOn = endStack[endStack.length - 1];
+let startArr = stacks[startStack]
+let endArr = stacks[endStack]
 
-  console.log(valueOf(popOff));
-  if (valueOf(popOff) < valueOf(pushOn)){
+var popOff = startArr[startArr.length - 1];
+var pushOn = endArr[endArr.length - 1];
+  if (endArr.length === 0 || popOff < pushOn){
   return true;}
   else return false; 
+
 
 }
 
 function checkForWin() {
-  // Your code here
-
+  if(stacks['b'].length === 4 || stacks['c'].length === 4){
+  return true;}
+  else return false;
 }
 
 function towersOfHanoi(startStack, endStack) {
   var end = stacks[endStack];
   var start = stacks[startStack];
-  if (isLegal(start, end)) 
+  if (isLegal(startStack, endStack)) 
   {movePiece(start, end);}
 
 }
