@@ -8,12 +8,29 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+const pigLatin = word => {
 
-  // Your code here
+  word = word.toLowerCase().trim();
+  // word = word.toLowerCase();
 
-}
+  const firstLetterType = detectVowel(word);
+  if(firstLetterType > 0){
+  return word.slice(firstLetterType) + word.slice(0, firstLetterType) + "ay"
+    }
+    return word + ("yay");
+  
+  }
+  
+  const detectVowel = word => {
 
+    for(let i = 0; i < word.length; i++){
+      if("aeiou".indexOf(word[i]) !== -1){
+        return(i)
+      }
+    }
+  }
+  
+  
 
 function getPrompt() {
   rl.question('word ', (answer) => {
