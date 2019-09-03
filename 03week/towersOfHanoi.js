@@ -7,11 +7,18 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//Create game board
+
+//Object of arrays.
+//Key value pairs.
+
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
+
+//print
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -19,7 +26,10 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+//To movePiece
 
+//We want to remove or pop() the last index from stacks, startStack, whichever is the last in that stack.
+//Then, store the function/call the function, and push() what we pop() from stacks, startStack to stacks, endStack.
 
 function movePiece(startStack, endStack) {
 
@@ -27,8 +37,20 @@ let remove = stacks[startStack].pop()
 
 stacks[endStack].push(remove)
 
-
 }
+
+//Check to see if move isLegal?
+
+//No larger value may be placed on top of a smaller value. 
+//Create a function to access the board: stacks, startStack, 
+//Compare the .length of stacks, startStack (object = {property or key : a, b, c}, which is inputed by the user) to stacks, endStack. 
+//The stacks, startStack .length must be less than < the .length of stacks, endStack. 
+//Must be less than, cannot be equal to in order for movePiece() to run, or return true.
+// Use -1 to create the 0 index.
+
+//If the stack, endStack is empty or the .length of stacks, endStack is equal to 0 then allow movePiece() to run, or return true
+
+//If neither of these apply the move is not legal, or false and will return "Not A Valid Move"
 
 function isLegal(startStack, endStack) {
 
@@ -43,25 +65,40 @@ else if (stacks[endStack].length === 0){
 else return false
 }
 
+//Check for win 
+
+//Win can only occur in endStack
+//First create a winning stack array = [4, 3, 2, 1]
+//winStack can only happen in stacks. 'b' || 'c'
+//Create a for loop, to compare [i] to winStack.length
+//If stack, endStack [i] is not equal to winStack return false or movePiece()
+//If stack, endStack [i] does equal winStack return true
+
 function checkForWin(endStack) {
   let winStack = [4, 3, 2, 1]
-
-  // console.log(endStack)
 
   if (endStack === 'b' || 'c'){
 
     for(let i = 0; i < winStack.length; i++){
 
-      // console.log(winStack[i], stacks[endStack][i])
       if(stacks[endStack][i] !== winStack[i]){
         return false
       }
     }
-
       return true
   }
-
 }
+
+//Play towersOfHanoi
+
+//Using the readlines startStack, and endStack
+//Create a function to see if move isLegal(startStack, endStack) by comparing integers.
+//movePiece by using pop() to remove the last index from startStack.
+//Then push() what we pop() to endStack.
+//checkForWin by comparing [i] to winStack.length using a for loop.
+//If stack, endStack length of [i] is equal to winStack.length console.log "We've Got A Winner!".
+
+//else, if move was not legal, console.log "Not A Valid Move". 
 
 function towersOfHanoi(startStack, endStack) {
 if (isLegal(startStack, endStack)){
@@ -70,11 +107,18 @@ if(checkForWin(endStack)){
   console.log("We've Got A Winner!")
 }
 }
+
 else {
   console.log('Not A Valid Move')
 }
-}
 
+let restart = reset() {
+  let stacks = {
+  a: [4, 3, 2, 1],
+  b: [],
+  c: []
+}
+}
 
 
 function getPrompt() {
