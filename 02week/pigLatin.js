@@ -9,10 +9,28 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  word = word.toLowerCase();
+  word = word.trim();
+  const vowels = ["a", "e", "i", "o", "u"];
+  let vowelIndex = 0;
+  if (vowels.includes(word[0])) {
+    return word + "yay";
+  } else {
+  
+  
+    for (let char of word) {
+     
+      if (vowels.includes(char)) {
+        vowelIndex = word.indexOf(char);
+        break;
+      }
+    }
+     
+    return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  }
 }
+
+
 
 
 function getPrompt() {
