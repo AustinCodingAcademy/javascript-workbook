@@ -25,22 +25,27 @@ function validInput(input1, input2) {
   let found = false;
 
   for (let i = 0; i < 3; i++) {
-    if (input1 !== valid[i] && input2 !== valid[i]) {
-      // return found;
-    } else {
+    if (input1 === valid[i]) {
+      // console.log(`${input1} is equal to ${valid[i]} `);
       found = true;
-      return found;
+      for (let i = 0; i < 3; i++) {
+        if (input2 === valid[i]){
+          // console.log(`${input2} is equal to ${valid[i]} `);
+          found = true;
+        } else { 
+        }
+      }
+    } else {
     }
-    return found;
   }
-
+  return found;
 }
 
 function movePiece(start, end) {
   // Your code here
   let hand = stacks[start].pop();
   stacks[end].push(hand);
-  console.log(`${hand} popped from ${start} and pushed to ${end}`);
+  // console.log(`${hand} popped from ${start} and pushed to ${end}`);
 }
 
 function isLegal(start, end) {
@@ -50,27 +55,28 @@ function isLegal(start, end) {
   // If end stack is not empty then compare the last element of that stack with read element
   // If it is empty then it's a legal move automatically
   // If the read element is bigger than the last element then the move is illegal.
+  let legal = true;
   
   if (stacks[start].length !== 0) {
-    let hand = stacks[start].length-1;
+    let hand = stacks[start][stacks[start].length-1];
+    // console.log(hand)
     if(stacks[end].length === 0) {
-      return true;
-    }else {
-      if (hand > stacks[end][stacks[end].length-1]){
-        return false;
-      }
+      legal = true;
+    }else if (hand > stacks[end][stacks[end].length-1]) {
+      // console.log(`${hand} > ${stacks[end][stacks[end].length-1]}`);
+      legal = false;
     }
   }else {
-    return false;
+    // console.log(">> Igual a zero...")
+    legal = false;
   }
 
+  return legal
 }
 
 function checkForWin() {
   // If b or c stack contain [4, 3, 2, 1] then return true
   let win = "4,3,2,1";
-  // let winDetected = true;
-  console.log(`${stacks.b.join()} vs ${win}`);
   if(stacks.b.join() == win || stacks.c.join() == win) {
     return true;
   } else {
@@ -103,19 +109,19 @@ function towersOfHanoi(startStack, endStack) {
     if (isLegal(start, end)) {
       if(checkForWin() !== true) {
         movePiece(start, end);
-        return false;
+        // return false;
       } else {
         console.log("You win!");
         clearBoard();
-        return true;
+        // return true;
       }
     }else {
       console.log("That move is not legal.");
-      return false;
+      // return false;
     }
   }else {
-    console.log("The input was invalid");
-    return false;
+    console.log("The input was invalid.");
+    // return false;
   }
 
 
