@@ -82,15 +82,6 @@ function checkForWin() {
   } else {
     return false;
   }
-  // for (let i = 0; i <= 3; i++) {
-  //   console.log(`${stacks.b[i]} or ${stacks.c[i]} is ${win[i]}`)
-  //   if(stacks.b[i] === win[i] || stacks.c[i] === win[i]){
-      
-  //   }else {
-  //     winDetected = false;
-  //   }
-  //   return winDetected;
-  // }
 }
 
 function clearBoard() {
@@ -109,19 +100,19 @@ function towersOfHanoi(startStack, endStack) {
     if (isLegal(start, end)) {
       if(checkForWin() !== true) {
         movePiece(start, end);
-        // return false;
+        return false;
       } else {
         console.log("You win!");
         clearBoard();
-        // return true;
+        return true;
       }
     }else {
       console.log("That move is not legal.");
-      // return false;
+      return false;
     }
   }else {
     console.log("The input was invalid.");
-    // return false;
+    return false;
   }
 
 
