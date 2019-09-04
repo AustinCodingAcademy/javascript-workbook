@@ -117,7 +117,6 @@ movePiece (startStack, endStack)
 if(checkForWin()){
   console.log("We've Got A Winner!");
 
-  
   stacks = {
     a: [4, 3, 2, 1],
     b: [],
