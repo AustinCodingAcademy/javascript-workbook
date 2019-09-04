@@ -60,11 +60,6 @@ function isLegal(startStack, endStack) {
   const fromLastElement = stacks[moveFrom][fromLastElementIndex];
   const toLastElement = stacks[moveTo][toLastElementIndex];
 
-  // console.log(stacks[moveTo][0], lastElement);
-  // console.log(stacks[moveTo][1], lastElement);
-
-  // Value of is getting Index number.  Need to get the value of the dyanmic index.
-
   if (
     // First Element is Undefined (Because there is no element in the array)
     stacks[moveTo][0] === undefined ||
