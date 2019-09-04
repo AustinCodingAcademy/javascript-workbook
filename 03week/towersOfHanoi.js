@@ -68,11 +68,13 @@ else return false
 //Check for win 
 
 //Win can only occur in endStack
-//First create a winning stack array = [4, 3, 2, 1]
+//Create a winning stack array = [4, 3, 2, 1]
 //winStack can only happen in stacks. 'b' || 'c'
+//Create two boolean variables to be true, winB and winC
 //Create a for loop, to compare [i] to winStack.length
-//If stack, endStack [i] is not equal to winStack return false or movePiece()
-//If stack, endStack [i] does equal winStack return true
+//If stacks.b is not equal to winStack return false or movePiece()
+//If stacks.c is not equal to winStack return false or movePiece()
+//But if stacks.b || stacks.c does equal winStack in either if statement return true or checkForWin()
 
 function checkForWin() {
   let winStack = [4, 3, 2, 1]
@@ -90,6 +92,9 @@ function checkForWin() {
   }
       if (winB || winC){
       return true
+      }
+      else {
+        return false
       }
   }
 
