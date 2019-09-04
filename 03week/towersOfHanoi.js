@@ -74,20 +74,25 @@ else return false
 //If stack, endStack [i] is not equal to winStack return false or movePiece()
 //If stack, endStack [i] does equal winStack return true
 
-function checkForWin(endStack) {
+function checkForWin() {
   let winStack = [4, 3, 2, 1]
-
-  if (endStack === 'b' || 'c'){
+  let winB= true
+  let winC = true
 
     for(let i = 0; i < winStack.length; i++){
 
-      if(stacks[endStack][i] !== winStack[i]){
-        return false
+      if(stacks['b'][i] !== winStack[i]){
+        winB = false
       }
+      if(stacks['c'][i] !== winStack[i]){
+        winC = false
     }
-      return true
   }
-}
+      if (winB || winC){
+      return true
+      }
+  }
+
 
 //Play towersOfHanoi
 
@@ -103,7 +108,7 @@ function checkForWin(endStack) {
 function towersOfHanoi(startStack, endStack) {
 if (isLegal(startStack, endStack)){
 movePiece (startStack, endStack) 
-if(checkForWin(endStack)){
+if(checkForWin()){
   console.log("We've Got A Winner!")
 }
 }
@@ -111,15 +116,7 @@ if(checkForWin(endStack)){
 else {
   console.log('Not A Valid Move')
 }
-
-let restart = reset() {
-  let stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
 }
-}
-
 
 function getPrompt() {
   printStacks();
