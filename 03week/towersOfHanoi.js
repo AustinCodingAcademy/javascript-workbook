@@ -27,18 +27,19 @@ function movePiece(start, end) {
 }
 
 function isLegal(startStack, endStack) {
-let startArr = stacks[startStack]
-let endArr = stacks[endStack]
-// the only way the move was possible was if the value of the peice moved was less than the value of the existing item in that stack's array or if the stack was empty
-var popOff = startArr[startArr.length - 1];
-var pushOn = endArr[endArr.length - 1];
-  if (endArr.length === 0 || popOff < pushOn){
-  return true;}
-  else return false; 
+  let startArr = stacks[startStack]
+  let endArr = stacks[endStack]
+  // the only way the move was possible was if the value of the peice moved was less than the value of the existing item in that stack's array or if the stack was empty
+  var popOff = startArr[startArr.length - 1];
+  var pushOn = endArr[endArr.length - 1];
+  if (endArr.length === 0 || popOff < pushOn) {
+    return true;
+  }
+  else return false;
 }
 
 function checkForWin() {
-  if(stacks['b'].length === 4 || stacks['c'].length === 4){
+  if (stacks['b'].length === 4 || stacks['c'].length === 4) {
     console.log("You Won!");
     let stacks = {
       a: [4, 3, 2, 1],
@@ -46,7 +47,8 @@ function checkForWin() {
       c: []
     };
     // resets the array after you win
-  return true;}
+    return true;
+  }
   else return false;
   // basically I just set the function to check if stacks b or c had an array with a length of 4
 }
@@ -54,9 +56,10 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   var end = stacks[endStack];
   var start = stacks[startStack];
-  if (isLegal(startStack, endStack)) 
-  {movePiece(start, end);
-  checkForWin();}
+  if (isLegal(startStack, endStack)) {
+    movePiece(start, end);
+    checkForWin();
+  }
   // simply made it possible to move the piece from stack a to stack b or c when prompted if the move is legal.
 }
 
