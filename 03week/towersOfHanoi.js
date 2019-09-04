@@ -21,7 +21,9 @@ function printStacks() {
 
 function movePiece(start, end) {
   var toMove = start.pop();
+  // removes last element from array
   end.push(toMove);
+  // adds item to the end of the array
   
 
 }
@@ -29,7 +31,7 @@ function movePiece(start, end) {
 function isLegal(startStack, endStack) {
 let startArr = stacks[startStack]
 let endArr = stacks[endStack]
-
+// the only way the move was possible was if the value of the peice moved was less than the value of the existing item in that stack's array or if the stack was empty
 var popOff = startArr[startArr.length - 1];
 var pushOn = endArr[endArr.length - 1];
   if (endArr.length === 0 || popOff < pushOn){
@@ -43,6 +45,7 @@ function checkForWin() {
   if(stacks['b'].length === 4 || stacks['c'].length === 4){
   return true;}
   else return false;
+  // basically I just set the function to check if stacks b or c had an array with a length of 4
 }
 
 function towersOfHanoi(startStack, endStack) {
