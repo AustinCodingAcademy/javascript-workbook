@@ -66,15 +66,17 @@ function isLegal(startStack, endStack) {
   // Value of is getting Index number.  Need to get the value of the dyanmic index.
 
   if (
-    // First moveTo element is greater than lastElement
-    stacks[moveTo][0] > lastElement ||
     // First Element is Undefined (Because there is no element in the array)
     stacks[moveTo][0] === undefined ||
-    // If there are two or more elements in the moveTo array, 
+    // First moveTo element is greater than lastElement
+    stacks[moveTo][1] > lastElement ||
+    // If there are two or more elements in the moveTo array,
     // this comparison weights that value against the moveFrom lastElement value
     secondToLastElement > lastElement
   ) {
-    console.log(`*** ${lastElement} moved from stack ${moveFrom} to stack ${moveTo}.***`);
+    console.log(
+      `*** ${lastElement} moved from stack ${moveFrom} to stack ${moveTo}.***`
+    );
     return true;
   } else {
     console.log(
