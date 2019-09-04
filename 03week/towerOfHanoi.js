@@ -42,9 +42,9 @@ function isLegal(startMove,endMove) {
   console.log('end',endMove);
   
   var lastBlock = endMove[endMove.length - 1];
-  console.log(startMove[startMove.length -1] < lastBlock || lastBlock === undefined)
+  console.log(startMove[startMove.length - 1] < lastBlock || lastBlock === undefined)
   
-  if(startMove[startMove.length -1] < lastBlock || lastBlock === undefined) {
+  if(startMove[startMove.length - 1] < lastBlock || lastBlock === undefined) {
 
     console.log(lastBlock);
     
@@ -80,7 +80,7 @@ function towersOfHanoi(startStack, endStack) {
   }
   else {
     //illegal move
-    console.log('Oops! You cant do that!');
+    console.log('Illegal Move!');
     return false;
   }
 }
