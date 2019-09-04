@@ -23,7 +23,7 @@ function movePiece(start, end) {
   var toMove = start.pop();
   // removes last element from array
   end.push(toMove);
-  // adds item to the end of the array
+  // adds item to the end of a different array
   
 
 }
@@ -46,6 +46,7 @@ function checkForWin() {
   return true;}
   else return false;
   // basically I just set the function to check if stacks b or c had an array with a length of 4
+  // console.log(You Won!);
 }
 
 function towersOfHanoi(startStack, endStack) {
@@ -53,6 +54,7 @@ function towersOfHanoi(startStack, endStack) {
   var start = stacks[startStack];
   if (isLegal(startStack, endStack)) 
   {movePiece(start, end);}
+  // simply be able to move the piece from stack a to stack b or c when prompted if the move is legal.
 
 }
 
