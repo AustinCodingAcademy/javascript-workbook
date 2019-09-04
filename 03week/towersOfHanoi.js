@@ -108,6 +108,7 @@ function checkForWin() {
 //Then push() what we pop() to endStack.
 //checkForWin by comparing [i] to winStack.length using a for loop.
 //If stack, endStack length of [i] is equal to winStack.length console.log "We've Got A Winner!".
+//Reset back to original array, to start new game.
 
 //else, if move was not legal, console.log "Not A Valid Move". 
 
