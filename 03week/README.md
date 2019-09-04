@@ -6,4 +6,4 @@ isLegal Strat - I just made it so that the only way the move was possible was if
 
 checkForWin Strat - From the start i knew that I just need to to check if stacks b or c had 4 items in the array.
 
-towersOfHanoi - Just set it up so that items from the starting stack could move to the specified ending stack, but only if the move was legal.
+towersOfHanoi Strat - Just set it up so that items from the starting stack could move to the specified ending stack, but only if the move was legal.
