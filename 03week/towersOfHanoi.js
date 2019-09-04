@@ -91,12 +91,13 @@ function checkForWin() {
     }
   }
       if (winB || winC){
-      return true
+      return true;
       }
+
       else {
         return false
-      }
-  }
+      }      
+    }
 
 
 //Play towersOfHanoi
@@ -114,7 +115,15 @@ function towersOfHanoi(startStack, endStack) {
 if (isLegal(startStack, endStack)){
 movePiece (startStack, endStack) 
 if(checkForWin()){
-  console.log("We've Got A Winner!")
+  console.log("We've Got A Winner!");
+
+  
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+
 }
 }
 
