@@ -53,12 +53,12 @@ function isLegal(startStack, endStack) {
   const moveTo = endStack.toLowerCase().trim();
 
   // Getting the last index, and second to last index of moveFrom array and moveTo array respectively.
-  const lastElementIndex = stacks[moveFrom].length - 1;
-  const secondToLastElementIndex = stacks[moveTo].length - 2;
+  const fromLastElementIndex = stacks[moveFrom].length - 1;
+  const toLastElementIndex = stacks[moveTo].length - 1;
 
   // creating a variable that is the lastElement and secondToLastElement in moveFrom and moveTo arrays.
-  const lastElement = stacks[moveFrom][lastElementIndex];
-  const secondToLastElement = stacks[moveTo][secondToLastElementIndex];
+  const fromLastElement = stacks[moveFrom][fromLastElementIndex];
+  const toLastElement = stacks[moveTo][toLastElementIndex];
 
   // console.log(stacks[moveTo][0], lastElement);
   // console.log(stacks[moveTo][1], lastElement);
@@ -68,19 +68,16 @@ function isLegal(startStack, endStack) {
   if (
     // First Element is Undefined (Because there is no element in the array)
     stacks[moveTo][0] === undefined ||
-    // First moveTo element is greater than lastElement
-    stacks[moveTo][1] > lastElement ||
-    // If there are two or more elements in the moveTo array,
-    // this comparison weights that value against the moveFrom lastElement value
-    secondToLastElement > lastElement
+    // Ensuring that the last element of the endStack array is larger than the popped element from the start stack array.
+    toLastElement > fromLastElement
   ) {
     console.log(
-      `*** ${lastElement} moved from stack ${moveFrom} to stack ${moveTo}.***`
+      `*** ${fromLastElement} moved from stack ${moveFrom} to stack ${moveTo}.***`
     );
     return true;
   } else {
     console.log(
-      `You attempted to move ${lastElement} on top of a smaller number. The stack must go from largest to smallest. Try again.`
+      `You attempted to move ${fromLastElement} on top of ${toLastElement}. The stack must go from largest to smallest. Try again.`
     );
     return false;
   }
