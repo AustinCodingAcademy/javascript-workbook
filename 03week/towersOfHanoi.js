@@ -76,7 +76,7 @@ function checkForWin() {
 
   // A win is having 4 valid and legal values in stacks.b or stacks.c **I changed the win test to include C**
   if (arrB.length === 4 || arrC.length === 4) {
-    console.log("!!!You Win!!!");
+    console.log("!!!You Win!!! The Board has been reset!");
     return true;
   } else {
     return false;
@@ -85,7 +85,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   const moveFrom = startStack.toLowerCase().trim();
-  const moveTo = endStack.toLowerCase().trim()
+  const moveTo = endStack.toLowerCase().trim();
 
   // Checks Valid Input logic and Legal Move logic.
   if (isValid(moveFrom, moveTo) && isLegal(moveFrom, moveTo)) {
@@ -97,7 +97,13 @@ function towersOfHanoi(startStack, endStack) {
     return false;
   }
   // Check for Win is called for array B & C. I altered the win scenario in tests.
-  checkForWin();
+  if (checkForWin()) {
+    return stacks = {
+      a: [4, 3, 2, 1],
+      b: [],
+      c: []
+    };
+  }
 }
 
 function getPrompt() {
