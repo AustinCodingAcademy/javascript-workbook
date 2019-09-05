@@ -19,11 +19,7 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(startStack, endStack) {
-  // Ensuring input is all lower case and with no spaces. Created from (array) to to (array) variables.
-  const moveFrom = startStack.toLowerCase().trim();
-  const moveTo = endStack.toLowerCase().trim();
-
+function movePiece(moveFrom, moveTo) {
   // Created variable that represents the startStack array input from user. Pop takes last element from that array and removes it.
   const lastElement = stacks[moveFrom].pop();
 
@@ -31,9 +27,7 @@ function movePiece(startStack, endStack) {
   stacks[moveTo].push(lastElement);
 }
 
-function isValid(startStack, endStack) {
-  const moveFrom = startStack.toLowerCase().trim();
-  const moveTo = endStack.toLowerCase().trim();
+function isValid(moveFrom, moveTo) {
   // Defines what inputs are acceptable.
   const validInput = ["a", "b", "c"];
 
@@ -48,10 +42,7 @@ function isValid(startStack, endStack) {
   }
 }
 
-function isLegal(startStack, endStack) {
-  const moveFrom = startStack.toLowerCase().trim();
-  const moveTo = endStack.toLowerCase().trim();
-
+function isLegal(moveFrom, moveTo) {
   // Getting the last index, and second to last index of moveFrom array and moveTo array respectively.
   const fromLastElementIndex = stacks[moveFrom].length - 1;
   const toLastElementIndex = stacks[moveTo].length - 1;
@@ -93,11 +84,14 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
+  const moveFrom = startStack.toLowerCase().trim();
+  const moveTo = endStack.toLowerCase().trim()
+
   // Checks Valid Input logic and Legal Move logic.
-  if (isValid(startStack, endStack) && isLegal(startStack, endStack)) {
+  if (isValid(moveFrom, moveTo) && isLegal(moveFrom, moveTo)) {
     // console.log("is ValidHere and isLegalHere");
     // If Valid and Legal, movePiece function is called.
-    movePiece(startStack, endStack);
+    movePiece(moveFrom, moveTo);
   } else {
     // If not legal and valid, no move is allowed.
     return false;
