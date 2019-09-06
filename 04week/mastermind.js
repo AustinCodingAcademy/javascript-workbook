@@ -29,23 +29,31 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(uInput) {
-  console.log('hint: ', solution);
   let guessArray = uInput.split("");
   let solutionArray = solution.split("");
   let correctLetterLocations = 0;
+  let correctLetters = 0;
 
   for (let i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
       console.log(solutionArray[i], guessArray[i]);
-      correctLetterLocations =+ 1;
-      console.log(correctLetterLocations);
+      correctLetterLocations = +1;
+      console.log('hint correctLocation" ', correctLetterLocations);
       solutionArray[i] = null;
       // console.log(solutionArray)
     }
   }
 
+  for (let i = 0; i < solutionArray.length; i++) {
+    let targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1) {
+      correctLetters = +1;
+      solutionArray[i] = null;
+    }
+  }
+
   console.log("hint - guessArray: ", guessArray);
-  console.log("hint solutionArray: ", solutionArray);
+  console.log("hint - solutionArray: ", solutionArray);
 }
 
 function mastermind(guess) {
