@@ -28,14 +28,67 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+
+//Create a function that compares the users input to the solution.
+//Run through the array, and compare each index.
+//console.log or generate hint to output how many letters are correct, and if location is correct. 
+//Example 2-2
+
+function generateHint(guess) {
+
+  let solutionArray = solution.split("");
+  let guessArray = guess.split("");
+
+  let correctLetterLocations = 0;
+
+  for(let i=0; i<solutionArray.length; i++){
+    if(solutionArray[i] === guessArray[i]){
+     correctLetterLocations++;
+     solutionArray[i] = null 
+    }
+  }
+  let correctLetters = 0;
+
+  for(let i=0; i<solutionArray.length; i++){
+   let targetIndex = solutionArray.indexOf(guessArray[i]);
+   if(targetIndex > -1){
+     console.log(targetIndex)
+     correctLetters++;
+     solutionArray[targetIndex] = null 
+   }
+  }
+  return `${correctLetterLocations}-${correctLetters}`
 }
 
+// // function isValid(guess) {
+// //   let guessArray = guess.split("").trim().toLowerCase()
+// //   if(guessArray.length === 4){
+// //     return guess
+// //   } else {
+// //     console.log("Please Enter Valid Guess")
+// //   }
+// }
+
+//Detect a win by all letters, and indexes match up.
+
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  // solution = 'abcd'; // Comment this out to generate a random solution
+
+if(guess === solution){
+  console.log("You guessed it!")
+  return "You guessed it!"
+}   else{
+  let hint = generateHint(guess);
+  board.push(`${guess} ${hint}`)
+  console.log(board.length) 
+  console.log("Try Again")
 }
+
+
+
+
+}
+
 
 
 function getPrompt() {
