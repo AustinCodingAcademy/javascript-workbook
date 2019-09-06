@@ -52,6 +52,10 @@ function generateHint(uInput) {
     }
   }
 
+  console.log(
+    `You have this many correct letters in the wrong location: ${correctLetters}. You have this many correct letters in the correct location: ${correctLetterLocations}`
+  );
+
   console.log("hint - guessArray: ", guessArray);
   console.log("hint - solutionArray: ", solutionArray);
 }
