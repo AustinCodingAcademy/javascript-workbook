@@ -28,17 +28,19 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint(uInput, solution) {
+function generateHint(uInput) {
+  console.log('hint: ', solution);
   let guessArray = uInput.split("");
   let solutionArray = solution.split("");
   let correctLetterLocations = 0;
 
   for (let i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
+      console.log(solutionArray[i], guessArray[i]);
       correctLetterLocations =+ 1;
       console.log(correctLetterLocations);
       solutionArray[i] = null;
-      console.log(solutionArray)
+      // console.log(solutionArray)
     }
   }
 
@@ -48,12 +50,11 @@ function generateHint(uInput, solution) {
 
 function mastermind(guess) {
   solution = "abcd"; // Comment this out to generate a random solution
-  // your code here
-
+  // your code her
   const uInput = guess.trim().toLowerCase();
 
   // generateSolution();
-  generateHint(uInput, solution);
+  generateHint(uInput);
 
   if (solution === guess) {
     console.log("You guessed it!");
