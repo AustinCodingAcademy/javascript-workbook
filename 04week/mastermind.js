@@ -14,6 +14,11 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
+    if (board.length = 10) {
+      return `You ran out of turns! The solution was ${solution}.`
+    } else {
+      return `Guess again.`
+    }
   }
 }
 
