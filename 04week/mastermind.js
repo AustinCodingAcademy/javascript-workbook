@@ -14,10 +14,11 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
-    if (board.length = 10) {
-      return `You ran out of turns! The solution was ${solution}.`
+
+    if (board.length === 10) {
+      console.log(`You ran out of turns! The solution was ${solution}`);
     } else {
-      return `Guess again.`
+      console.log(`Guess again.`);
     }
   }
 }
@@ -46,22 +47,22 @@ function generateHint(uInput) {
   for (let i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
       // console.log(solutionArray[i], guessArray[i]);
-      correctLetterLocations = +1;
+      correctLetterLocations += 1;
       // console.log('hint correctLocation" ', correctLetterLocations);
       solutionArray[i] = null;
       // console.log(solutionArray)
-      return `You have this many correct letters in the correct location: ${correctLetterLocations}`;
     }
   }
   // Compare Guess / Solution Array - Count Correct Letter & Declare this location index Null.
   for (let i = 0; i < solutionArray.length; i++) {
     let targetIndex = solutionArray.indexOf(guessArray[i]);
     if (targetIndex > -1) {
-      correctLetters = +1;
-      solutionArray[i] = null;
-      return `You have this many correct letters in the wrong location: ${correctLetters}.`;
+      correctLetters += 1;
+      solutionArray[targetIndex] = null;
     }
+    // console.log(correctLetters);
   }
+  return `${correctLetterLocations}-${correctLetters}`;
 
   // console.log("hint - guessArray: ", guessArray);
   // console.log("hint - solutionArray: ", solutionArray);
