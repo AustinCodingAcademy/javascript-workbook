@@ -29,45 +29,52 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(uInput) {
+  // Create Arrays of Guesses and Solution
   let guessArray = uInput.split("");
   let solutionArray = solution.split("");
+
+  // Correct Guess Counters
   let correctLetterLocations = 0;
   let correctLetters = 0;
 
+  // Compare Guess / Solution Array - Count Correct Letter Locations & Declare this location index Null.
   for (let i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
-      console.log(solutionArray[i], guessArray[i]);
+      // console.log(solutionArray[i], guessArray[i]);
       correctLetterLocations = +1;
-      console.log('hint correctLocation" ', correctLetterLocations);
+      // console.log('hint correctLocation" ', correctLetterLocations);
       solutionArray[i] = null;
       // console.log(solutionArray)
+      return `You have this many correct letters in the correct location: ${correctLetterLocations}`;
     }
   }
-
+  // Compare Guess / Solution Array - Count Correct Letter & Declare this location index Null.
   for (let i = 0; i < solutionArray.length; i++) {
     let targetIndex = solutionArray.indexOf(guessArray[i]);
     if (targetIndex > -1) {
       correctLetters = +1;
       solutionArray[i] = null;
+      return `You have this many correct letters in the wrong location: ${correctLetters}.`;
     }
   }
 
-  console.log(
-    `You have this many correct letters in the wrong location: ${correctLetters}. You have this many correct letters in the correct location: ${correctLetterLocations}`
-  );
-
-  console.log("hint - guessArray: ", guessArray);
-  console.log("hint - solutionArray: ", solutionArray);
+  // console.log("hint - guessArray: ", guessArray);
+  // console.log("hint - solutionArray: ", solutionArray);
 }
 
 function mastermind(guess) {
+  // Board Solution
   solution = "abcd"; // Comment this out to generate a random solution
-  // your code her
+  // generateSolution();
+
+  // Simple Sanitize Input
   const uInput = guess.trim().toLowerCase();
 
-  // generateSolution();
-  generateHint(uInput);
+  // Run Generate Hint. Capture and Print Results to Board
+  let hint = generateHint(uInput);
+  board.push(`Attempt 1: [${guess}] ${hint}`);
 
+  // Win Logic
   if (solution === guess) {
     console.log("You guessed it!");
     return `You guessed it!`;
