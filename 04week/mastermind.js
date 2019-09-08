@@ -37,10 +37,11 @@ function getRandomInt(min, max) {
 function isLegal(uInput) {
   let uInputValid = uInput.split("");
   for (let i = 0; i < uInputValid.length; i++) {
-    let legalIndex = letters.indexOf(uInputValid[i])
-    if (legalIndex === -1) {
+    let legalIndex = letters.indexOf(uInputValid[i]);
+    // console.log(legalIndex);
+    if (legalIndex === -1 || uInputValid.length !== 4) {
       return false;
-    } 
+    }
   }
   return true;
 }
@@ -88,15 +89,15 @@ function mastermind(guess) {
   const uInput = guess.trim().toLowerCase();
 
   // Run isLegal
-  if(isLegal(uInput)) {  
+  if (isLegal(uInput)) {
     // Run Generate Hint. Capture and Print Results to Board
     let hint = generateHint(uInput);
-    board.push(`Attempt 1: ${guess} ${hint}`);
+    board.push(`Attempt ${board.length + 1}: ${guess} ${hint}`);
   } else {
-    `You entered ${guess}, please enter one of these letters: ${letters}`
+    console.log(
+      `You entered ${guess}, please enter four of these letters: ${letters}`
+    );
   }
-
-
 
   // Win Logic
   if (solution === guess) {
