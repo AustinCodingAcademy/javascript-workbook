@@ -36,17 +36,13 @@ function getRandomInt(min, max) {
 
 function isLegal(uInput) {
   let uInputValid = uInput.split("");
-  for (let i = 0; i < letters.length; i++) {
-    let legalIndex = letters.indexOf[uInputValid[i]]
-    if (legalIndex > -1) {
-      return true;
-    } else {
-      console.log(
-        `Available guess letters are only a thru h. You entered ${uInput}`
-      );
+  for (let i = 0; i < uInputValid.length; i++) {
+    let legalIndex = letters.indexOf(uInputValid[i])
+    if (legalIndex === -1) {
       return false;
-    }
+    } 
   }
+  return true;
 }
 
 function generateHint(uInput) {
@@ -92,11 +88,15 @@ function mastermind(guess) {
   const uInput = guess.trim().toLowerCase();
 
   // Run isLegal
-  isLegal(uInput);
+  if(isLegal(uInput)) {  
+    // Run Generate Hint. Capture and Print Results to Board
+    let hint = generateHint(uInput);
+    board.push(`Attempt 1: ${guess} ${hint}`);
+  } else {
+    `You entered ${guess}, please enter one of these letters: ${letters}`
+  }
 
-  // Run Generate Hint. Capture and Print Results to Board
-  let hint = generateHint(uInput);
-  board.push(`Attempt 1: ${guess} ${hint}`);
+
 
   // Win Logic
   if (solution === guess) {
