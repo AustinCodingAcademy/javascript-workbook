@@ -28,13 +28,63 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(prediction) {
   // your code here
+
+  // set up an array of the guess 
+  let guessArray = prediction.split("");
+  // set up an array of the solution
+  let solutionArray = solution.split("");
+  // counter for letters in the solution
+  let answer = 0;
+  // counter for correct placement AND letter
+  let position = 0;
+
+
+  // this for each loop will check if there is a letter in the right place
+  guessArray.forEach((letter, index) =>{
+
+    if(letter === solutionArray[index]){
+      solutionArray[index] = null;
+      position++;
+
+    }
+  })
+  // this for each loop will check if there are any letters in the right place
+  guessArray.forEach((letter, index) =>{
+    let piece = solutionArray.indexOf(letter);
+    if (piece !== -1){
+      solutionArray[piece] = null;
+      answer++;
+
+    }
+
+  })
+
+  // print statements
+  if(position == 4){
+    console.log("You Guessed It!")
+  }
+  else {
+    console.log(position + " letters are in the right spot")
+    console.log(answer + " are in the solution")
+
+  }
 }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+
+  //pass the guess to generateHint
+  generateHint(guess);
+
+
+
+  
+
+
+
 }
 
 
