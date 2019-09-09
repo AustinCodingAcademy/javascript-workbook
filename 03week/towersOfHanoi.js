@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let stacks = {
+var stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
@@ -19,35 +19,87 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack, endStack) {
+  //define start stack
+  var start = stacks[startStack];
+  //define end stack
+  var end = stacks[endStack];
+  //grab last peice in the stack
+  var lastTower = start.pop();
+  console.log(lastTower);
+  //add peice to stack
+end.push(lastTower);
+console.log(end);
+checkForWin();
+
+
+ 
 
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startMove,endMove) {
+  console.log('start',startMove);
+  console.log('end',endMove);
+  
+  var lastBlock = endMove[endMove.length - 1];
+  console.log(startMove[startMove.length - 1] < lastBlock || lastBlock === undefined)
+  
+  if(startMove[startMove.length - 1] < lastBlock || lastBlock === undefined) {
 
+    console.log(lastBlock);
+    
+    return true;
+  } else {
+    
+    return false;
+  }
 }
+
+
 
 function checkForWin() {
-  // Your code here
+  let winGame = stacks.b.length || stacks.c.length;
+  if (winGame > 3){
+    console.log('Game over, You Win!');
+    return true;
+  }
+  else{
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  var startMove = stacks[startStack];
+  //define starting stack
+  var endMove = stacks[endStack];
+  //define ending stack
+  if (isLegal(startMove, endMove)) {
+      movePiece(startStack, endStack);
+  //allow the piece to be moved if legal  
+  }
+  else {
+    //illegal move
+    console.log('Illegal Move!');
+    return false;
+  }
 }
+
+
 
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
+  //ask for starting stack
     rl.question('end stack: ', (endStack) => {
+    //ask for ending stack
       towersOfHanoi(startStack, endStack);
+      //then run the parent function
       getPrompt();
     });
   });
 }
+
 
 // Tests
 
