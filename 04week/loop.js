@@ -20,9 +20,14 @@ person = {
   gender: "female"
 };
 
+// RegEx for the Year (YYYY)
+let regexYear = /\d{4,}/g;
+
+// For Loop for the 
 for (key in person) {
-  // if (person.birthDate[0] % 2) {
-  console.log(person.birthDate);
+  if (person.birthDate[regexYear] % 2 !== true) {
+    console.log(`${person.birthDate}`);
+  } break;
+  // }
+  // console.log(person);
 }
-// }
-// console.log(person);
