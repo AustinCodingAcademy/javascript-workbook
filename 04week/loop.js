@@ -23,11 +23,37 @@ person = {
 // RegEx for the Year (YYYY)
 let regexYear = /\d{4,}/g;
 
-// For Loop for the 
+// For Loop for the
 for (key in person) {
-  if (person.birthDate[regexYear] % 2 !== true) {
+  if (person.birthDate[regexYear] % 2 !== 1) {
     console.log(`${person.birthDate}`);
-  } break;
-  // }
-  // console.log(person);
+  }
+  break;
 }
+
+console.log("==================================================");
+
+arrayOfPersons = [
+  {
+    firstName: "Jane",
+    lastName: "Doe",
+    birthDate: "Jan 5, 1925",
+    gender: "female"
+  },
+
+  {
+    firstName: "Sara",
+    lastName: "Wolf",
+    birthDate: "Mar 3, 1932",
+    gender: "female"
+  },
+
+  {
+    firstName: "Reid",
+    lastName: "Scott",
+    birthDate: "Jan 5, 1941",
+    gender: "male"
+  }
+];
+
+console.log(arrayOfPersons);
