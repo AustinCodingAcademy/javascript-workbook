@@ -30,7 +30,7 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
-  console.log(`${rightLetter()-2}-${rightPosition()-2}`);
+  console.log(`${rightLetter()} letters correct - ${rightPosition()} are in the right spot.`);
 }
 
 // Check that input is valid
