@@ -9,8 +9,24 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
+  let h1 = hand1.toLowerCase().trim();
+  let h2 = hand2.toLowerCase().trim();
+  if(h1 == h2) {
+    console.log("It's a tie!");
+    return "It's a tie!";
+  }
+  //h1 enters rock
+  else if ((h1 === 'rock' && h2 === 'paper') || (h1 === 'paper' && h2 === 'scissors') || (h1 === 'scissors' && h2 === 'rock')) {
+    console.log('Hand 2 wins!');
+    return "Hand two wins!";
+  }else if ((h1 === 'rock' && h2 === 'scissors') || (h1 === 'paper' && h2 === 'rock') || (h1 == 'scissors' && h2 == 'paper')) {
+    console.log('Hand 1 wins!');
+    return "Hand one wins!";
+  } 
+  // any other statement
+  else {
+    console.log('Please enter proper values (rock, paper, scissors).');
+  }
 
 }
 

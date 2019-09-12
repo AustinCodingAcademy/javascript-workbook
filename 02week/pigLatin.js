@@ -9,9 +9,42 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  let fltrdWord = word.toLowerCase().trim();
+  // Split word into array
+  const yay = ['y','a', 'y'];
+  const ay = ['a', 'y']
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const wordArray = fltrdWord.split('');
+  for (let v = 0; v <= vowels.length; v++) {
+    if(wordArray[0] === vowels[v]){
+      // If it starts with a vowel
+      let concated = wordArray.concat(yay);
+      let strConct = concated.join('');
+      return strConct;
+    }
+  }
+  // If it does not start with a vowel.
+  let preVowel = [];
+  let ifVowel = false;
+  
+  for (let i = 0; i < wordArray.length; i++){
+    while(ifVowel === false){
+      let shifted = wordArray.shift(i);
+      preVowel.push(shifted);
+      // console.log(`>>> ${shifted} was pushed.`);
+      for (let v = 0; v < vowels.length; v++){
+        if (wordArray[i] === vowels[v]) {
+          ifVowel = true;
+          // console.log('Vowel hit. Base case reached.');
+          break;
+        }
+      }
+    }
+    
+  }
+  let concated = wordArray.concat(preVowel, ay);
+  let strConct = concated.join('');
+  return strConct;
 }
 
 
