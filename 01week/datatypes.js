@@ -14,6 +14,15 @@ function convertAgain() {
   var numA = parseInt("64 72 81");
   console.log(numA);
 }
+
+//add two numbers
+let addition = function(num1, num2) {
+  let added = num1 + num2;
+  return added;
+};
+let sum = addition(5, 5);
+console.log(sum);
+
 //Conditional Variables
 var val1 = "5";
 var val2 = "10";
