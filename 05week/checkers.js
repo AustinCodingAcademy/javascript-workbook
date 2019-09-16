@@ -89,6 +89,10 @@ class Game {
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
     const toWhereSplit = toWhere.trim().split("");
+    let inputRow = whichPiece[0];
+    let inputColumn = whichPiece[1];
+    let newRow = toWhereSplit[0];
+    let newColumn = toWhereSplit[1];
 
     // Set toWhereSplit = WhichPieceSplit in Grid
     this.board.grid[toWhereSplit[0]][toWhereSplit[1]] = this.board.grid[
