@@ -18,6 +18,7 @@ let stacks = {
   c: []
 };
 
+
 //print
 
 function printStacks() {
