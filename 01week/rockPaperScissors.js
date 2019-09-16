@@ -10,7 +10,52 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
+  let p1 = hand1.toLowerCase().trim();
+  let p2 = hand2.toLowerCase().trim();
+
+  console.log(p1, p2)
+
+
+  if (p1 === p2) {
+    // console.log('Its a tie!')
+    return 'its a tie'
+  }
+  
+  //Hand1 Win
+  if (p1 === 'rock' && p2 === 'scissors') {
+    // console.log(rock)
+    return 'hand1 wins'
+  }
+
+  if (p1 === 'paper' && p2 === 'rock'){
+    // console.log(paper)
+    return 'hand1 wins'
+  }
+
+  if (p1 === 'scissors' && p2 === 'paper') {
+    // console.log(scissors)
+    return 'hand1 wins'
+  }
+
+
+  //Hand2 Win
+  if (p2 === 'rock' && p1 === 'scissors') {
+    // console.log(rock)
+    return 'hand2 wins'
+  }
+
+  if (p2 === 'paper' && p1 === 'rock'){
+    // console.log(paper)
+    return 'hand2 wins'
+  }
+
+  if (hand2 === 'scissors' && hand1 === 'paper') {
+    // console.log(scissors)
+    return 'hand2 wins'
+  }
+
+
+
 
 }
 
@@ -22,6 +67,16 @@ function getPrompt() {
     });
   });
 }
+
+
+
+
+
+
+
+
+
+
 
 // Tests
 
@@ -49,3 +104,10 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+
+
+
+
+
+
