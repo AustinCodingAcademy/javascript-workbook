@@ -89,18 +89,28 @@ class Game {
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
     const toWhereSplit = toWhere.trim().split("");
-    let inputRow = whichPiece[0];
-    let inputColumn = whichPiece[1];
+    let inputRow = whichPieceSplit[0];
+    let inputColumn = whichPieceSplit[1];
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
     // Set toWhereSplit = WhichPieceSplit in Grid
-    this.board.grid[toWhereSplit[0]][toWhereSplit[1]] = this.board.grid[
-      whichPieceSplit[0]
-    ][whichPieceSplit[1]];
+    this.board.grid[newRow][newColumn] = this.board.grid[inputRow][inputColumn];
+    // Set WhichPieceSplit to null
+    this.board.grid[inputRow][inputColumn] = null;
 
-    // Set WhichPieceSPlit to null
-    this.board.grid[whichPieceSplit[0]][whichPieceSplit[1]] = null;
+    // console.log(
+    //   `inputRow: `,
+    //   inputRow,
+    //   `| inputColumn: `,
+    //   inputColumn,
+    //   `| newRow: `,
+    //   newRow,
+    //   `| newColumn: `,
+    //   newColumn
+    // );
+    // console.log(`checkers: `, this.board.checkers);
+    // console.log(`checker: `, CheckerPiece.checker);
   }
 }
 
