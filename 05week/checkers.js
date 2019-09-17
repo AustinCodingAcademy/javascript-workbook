@@ -26,11 +26,11 @@ class Board {
     this.redPiece = 'R',
     this.blackPiece = 'B',
     this.checkers = []
-    this.selectChecker(row, column) {
-      return this.grid[][];
-    }
   }
-  
+  selectChecker(row, column) {
+    return this.grid[row][column];
+    
+  }
 
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -101,6 +101,27 @@ class Game {
   start() {
     this.board.createGrid();
     this.board.initializeGrid(); 
+  }
+  moveChecker(start, end) {
+    if(this.validInput(start, end)) {
+      let startArray = start.split("");
+      let selectedPiece = this.board.selectChecker(startArray[0], startArray[1])
+      console.log(selectedPiece)
+      let endArray = end.split("");
+      this.board.grid[endArray[0]][endArray[1]] = selectedPiece
+      this.board.grid[startArray[0]][startArray[1]] = null
+  }
+}
+  validInput(start, end) {
+    let startArray = start.split(""); 
+    let endArray = end.split("");
+ 
+    if(startArray.length === 2 && endArray.length === 2) {
+      if(startArray[0] >= 0 && startArray[0] <= 7 && startArray[1] >= 0 && startArray[1] <= 7 && endArray[0] >= 0 && endArray[0] <= 7 && endArray[1] >= 0 && endArray[1] <= 7) {
+        return true
+      }
+    }console.log("Invalid Input")
+     return false 
   }
 }
 
