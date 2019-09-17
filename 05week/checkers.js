@@ -8,14 +8,30 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
+function checkers() {
   // Your code here
+
+
 }
 
+// // class Checkers {
+// //   constructor(symbol) {
+// //     this.symbol = symbol
+// //   }
+// }
+
 class Board {
-  constructor() {
-    this.grid = []
+  constructor(grid, checkers) {
+    this.grid = [],
+    this.redPiece = 'R',
+    this.blackPiece = 'B',
+    this.checkers = []
+    this.selectChecker(row, column) {
+      return this.grid[][];
+    }
   }
+  
+
   // method that creates an 8x8 array, filled with null values
   createGrid() {
     // loop to create the 8 rows
@@ -38,12 +54,15 @@ class Board {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfCheckers.push(this.grid[row][column]);
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
         }
       }
+
+      
+
       // join the rowOfCheckers array to a string, separated by a space
       string += rowOfCheckers.join(' ');
       // add a 'new line'
@@ -52,7 +71,27 @@ class Board {
     console.log(string);
   }
 
-  // Your code here
+  initializeGrid () {
+    for (let row1 = 0; row1 < 3; row1++) {
+      for(let col1 = 0; col1 < 8; col1++) {
+        if(row1 % 2 == 0 & col1 % 2 == 1) {
+          this.grid[row1][col1] = this.redPiece;
+        } if(row1 % 2 == 1 & col1 % 2 == 0) {
+          this.grid[row1][col1] = this.redPiece;
+        }
+      }
+    }
+    for (let row2 = 5; row2 < 8; row2++) {
+      for(let col2 = 0; col2 < 8; col2++) {
+        if(row2 % 2 == 0 & col2 % 2 == 1) {
+          this.grid[row2][col2] = this.blackPiece;
+        }if(row2 % 2 == 1 & col2 % 2 == 0) {
+          this.grid[row2][col2] = this.blackPiece;
+        }
+      }
+    }
+  }
+
 }
 
 class Game {
@@ -61,6 +100,7 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.initializeGrid(); 
   }
 }
 
