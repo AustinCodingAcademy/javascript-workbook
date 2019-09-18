@@ -86,6 +86,32 @@ class Game {
     this.board.populateBoard();
   }
 
+  isLegal(inputRow, inputColumn, newRow, newColumn) {
+    if (this.board.grid[inputRow][inputColumn] === null) {
+      console.log(
+        `There is no piece in the location you have provided. check your GPS.`
+      );
+      return false;
+    }
+
+    if (
+      this.board.grid[newRow][newColumn] !== undefined &&
+      this.board.grid[newRow][newColumn] !== null
+    ) {
+      console.log(
+        `There is a piece in the location you are attempting to move to. Check your Radar.`
+      );
+      return false;
+    }
+
+    if (newRow < 0 || newRow > 7 || (newColumn < 0 || newColumn > 7)) {
+      console.log(`Stay on the board!`);
+      return false;
+    }
+
+    return true;
+  }
+
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
     const toWhereSplit = toWhere.trim().split("");
@@ -94,10 +120,14 @@ class Game {
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
-    // Set toWhereSplit = WhichPieceSplit in Grid
-    this.board.grid[newRow][newColumn] = this.board.grid[inputRow][inputColumn];
-    // Set WhichPieceSplit to null
-    this.board.grid[inputRow][inputColumn] = null;
+    if (this.isLegal(inputRow, inputColumn, newRow, newColumn)) {
+      // Set toWhereSplit = WhichPieceSplit in Grid
+      this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
+        inputColumn
+      ];
+      // Set WhichPieceSplit to null
+      this.board.grid[inputRow][inputColumn] = null;
+    }
 
     // console.log(
     //   `inputRow: `,
