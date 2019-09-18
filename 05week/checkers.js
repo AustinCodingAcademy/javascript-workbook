@@ -38,7 +38,6 @@ function switchPlayer() {
 class Board {
   constructor(grid, checkers) {
     this.grid = [],
-
     this.checkers = []
   }
   selectChecker(row, column) {
@@ -119,7 +118,7 @@ class Game {
     if(this.validInput(whichPiece, toWhere)) {
       let whichPieceArray = whichPiece.split("");
       let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
-      console.log(selectedPiece)
+      // console.log(selectedPiece)
       let toWhereArray = toWhere.split("");
       this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece
       this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null
@@ -140,13 +139,20 @@ class Game {
 
     legalMove(whichPiece, toWhere) {
 
-      let whichPieceNumber = whichPiece.split("").map(Number); 
-      let toWhereNumber = toWhere.split("").map(Number);
+      let toWhereNumber = toWhere.split("").map(Number);//turn the end string into an array of numbers
 
+      let row = toWhereNumber[0];
+      let column = toWhereNumber[1];
+      let endPosition = this.board.grid[row][column];
+
+      console.log(endPosition, "end position")
+
+      //making sure move is legal by being able to move only by 9 or 11
       if(Number(whichPiece) - 9 === Number(toWhere) || Number(whichPiece) - 11 === Number(toWhere)) {
       console.log("not a legal move")
-        if(whichPiece[0][toWhere][1] === null){
-        console.log("not a legal move")
+    
+        if(endPosition === null){
+        console.log("not null")
         return true 
         }else {
           return false
@@ -159,9 +165,9 @@ function getPrompt() {
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
-      // if (game.legalMove(whichPiece, toWhere)) {
+      if (game.legalMove(whichPiece, toWhere)) {
         game.moveChecker(whichPiece, toWhere);
-      // };
+      };
       getPrompt();
     });
   });
