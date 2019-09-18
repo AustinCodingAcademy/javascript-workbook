@@ -1,5 +1,4 @@
 'use strict';
-
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -14,17 +13,32 @@ function checkers() {
 
 }
 
-// // class Checkers {
-// //   constructor(symbol) {
-// //     this.symbol = symbol
-// //   }
-// }
+class Checker {
+  constructor(color, symbol) {
+    this.color = color;
+    this.symbol = symbol;
+  }
+}
+
+const blackPiece = new Checker('black', 'B')
+const redPiece = new Checker('red', 'R')
+
+let playerTurn = blackPiece;
+
+function switchPlayer() {
+  if(playerTurn == blackPiece) {
+    playerTurn = redPiece 
+  } else {
+    playerTurn = blackPiece
+  }
+}
+
+
 
 class Board {
   constructor(grid, checkers) {
     this.grid = [],
-    this.redPiece = 'R',
-    this.blackPiece = 'B',
+
     this.checkers = []
   }
   selectChecker(row, column) {
@@ -47,7 +61,7 @@ class Board {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
-      // we start with our row number in our array
+      // we whichPiece with our row number in our array
       const rowOfCheckers = [row];
       // a loop within a loop
       for (let column = 0; column < 8; column++) {
@@ -75,53 +89,69 @@ class Board {
     for (let row1 = 0; row1 < 3; row1++) {
       for(let col1 = 0; col1 < 8; col1++) {
         if(row1 % 2 == 0 & col1 % 2 == 1) {
-          this.grid[row1][col1] = this.redPiece;
+          this.grid[row1][col1] = redPiece.symbol;
         } if(row1 % 2 == 1 & col1 % 2 == 0) {
-          this.grid[row1][col1] = this.redPiece;
+          this.grid[row1][col1] = redPiece.symbol;
         }
       }
     }
     for (let row2 = 5; row2 < 8; row2++) {
       for(let col2 = 0; col2 < 8; col2++) {
         if(row2 % 2 == 0 & col2 % 2 == 1) {
-          this.grid[row2][col2] = this.blackPiece;
+          this.grid[row2][col2] = blackPiece.symbol;
         }if(row2 % 2 == 1 & col2 % 2 == 0) {
-          this.grid[row2][col2] = this.blackPiece;
+          this.grid[row2][col2] = blackPiece.symbol;
         }
       }
     }
   }
-
 }
 
 class Game {
   constructor() {
     this.board = new Board;
   }
-  start() {
+  whichPiece() {
     this.board.createGrid();
     this.board.initializeGrid(); 
   }
-  moveChecker(start, end) {
-    if(this.validInput(start, end)) {
-      let startArray = start.split("");
-      let selectedPiece = this.board.selectChecker(startArray[0], startArray[1])
+  moveChecker(whichPiece, toWhere) {
+    if(this.validInput(whichPiece, toWhere)) {
+      let whichPieceArray = whichPiece.split("");
+      let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
       console.log(selectedPiece)
-      let endArray = end.split("");
-      this.board.grid[endArray[0]][endArray[1]] = selectedPiece
-      this.board.grid[startArray[0]][startArray[1]] = null
+      let toWhereArray = toWhere.split("");
+      this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece
+      this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null
+      switchPlayer();
   }
 }
-  validInput(start, end) {
-    let startArray = start.split(""); 
-    let endArray = end.split("");
+  validInput(whichPiece, toWhere) {
+    let whichPieceArray = whichPiece.split(""); 
+    let toWhereArray = toWhere.split("");
  
-    if(startArray.length === 2 && endArray.length === 2) {
-      if(startArray[0] >= 0 && startArray[0] <= 7 && startArray[1] >= 0 && startArray[1] <= 7 && endArray[0] >= 0 && endArray[0] <= 7 && endArray[1] >= 0 && endArray[1] <= 7) {
+    if(whichPieceArray.length === 2 && toWhereArray.length === 2) {
+      if(whichPieceArray[0] >= 0 && whichPieceArray[0] <= 7 && whichPieceArray[1] >= 0 && whichPieceArray[1] <= 7 && toWhereArray[0] >= 0 && toWhereArray[0] <= 7 && toWhereArray[1] >= 0 && toWhereArray[1] <= 7) {
         return true
       }
     }console.log("Invalid Input")
      return false 
+  }
+
+    legalMove(whichPiece, toWhere) {
+
+      let whichPieceNumber = whichPiece.split("").map(Number); 
+      let toWhereNumber = toWhere.split("").map(Number);
+
+      if(Number(whichPiece) - 9 === Number(toWhere) || Number(whichPiece) - 11 === Number(toWhere)) {
+      console.log("not a legal move")
+        if(whichPiece[0][toWhere][1] === null){
+        console.log("not a legal move")
+        return true 
+        }else {
+          return false
+      }
+    }
   }
 }
 
@@ -129,14 +159,16 @@ function getPrompt() {
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
-      game.moveChecker(whichPiece, toWhere);
+      // if (game.legalMove(whichPiece, toWhere)) {
+        game.moveChecker(whichPiece, toWhere);
+      // };
       getPrompt();
     });
   });
 }
 
 const game = new Game();
-game.start();
+game.whichPiece();
 
 
 // Tests
