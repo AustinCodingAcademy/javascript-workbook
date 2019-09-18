@@ -87,6 +87,11 @@ class Game {
   }
 
   isLegal(inputRow, inputColumn, newRow, newColumn) {
+    // Make variables for user input = integer for move algo.
+    let inputInfo = parseInt(inputRow + inputColumn);
+    let moveToInfo = parseInt(newRow + newColumn);
+    // console.log(inputInfo, moveToInfo);
+
     if (this.board.grid[inputRow][inputColumn] === null) {
       console.log(
         `There is no piece in the location you have provided. check your GPS.`
@@ -106,6 +111,28 @@ class Game {
 
     if (newRow < 0 || newRow > 7 || (newColumn < 0 || newColumn > 7)) {
       console.log(`Stay on the board!`);
+      return false;
+    }
+
+    if (
+      (this.board.grid[inputRow][inputColumn].symbol === "r" &&
+        inputInfo - moveToInfo !== 9) &&
+      inputInfo - moveToInfo !== 11
+    ) {
+      console.log(
+        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
+      );
+      return false;
+    }
+
+    if (
+      (this.board.grid[inputRow][inputColumn].symbol === "b" &&
+        moveToInfo - inputInfo !== 9) &&
+      moveToInfo - inputInfo !== 11
+    ) {
+      console.log(
+        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
+      );
       return false;
     }
 
