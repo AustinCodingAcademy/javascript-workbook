@@ -87,43 +87,49 @@ class Game {
   }
 
   isLegal(inputRow, inputColumn, newRow, newColumn) {
-    // Make variables for user input = integer for move algo.
-    const startPositionRow = parseInt(inputRow);
-    const startPositionColumn = parseInt(inputColumn);
-    const inputInfo = parseInt(inputRow + inputColumn);
-    const moveToInfo = parseInt(newRow + newColumn);
+    // Make variables for user input = integer for move algo + jumped piece location.
+    // const startPositionRow = parseInt(inputRow);
+    // const startPositionColumn = parseInt(inputColumn);
+    let inputInfo = parseInt(inputRow + inputColumn);
+    let moveToInfo = parseInt(newRow + newColumn);
 
-    
-
-    console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn)
-
-    console.log(Object.prototype.toString.call(inputInfo));
+    console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn);
 
     // Variables to create Jumped Checker
-    const inputRowJumpedRed = (startPositionRow - 1);
-    console.log(`inputRowJumpedRed: `, inputRowJumpedRed)
+    // const inputRowJumpedRed = startPositionRow - 1;
+    // console.log(`inputRowJumpedRed: `, inputRowJumpedRed);
 
-    const inputRowJumpedBlack = (startPositionRow + 1);
-    console.log(`inputRowJumpedBlack: `, inputRowJumpedBlack)
+    // const inputRowJumpedBlack = startPositionRow + 1;
+    // console.log(`inputRowJumpedBlack: `, inputRowJumpedBlack);
 
-    const inputColumnJumpedEast = (startPositionColumn + 1);
-    console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast)
+    // const inputColumnJumpedEast = startPositionColumn + 1;
+    // console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast);
 
-    const inputColumnJumpedWest = (startPositionColumn - 1);
-    console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest)
+    // const inputColumnJumpedWest = startPositionColumn - 1;
+    // console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest);
 
-    console.log(Object.prototype.toString.call(inputRowJumpedRed));
-    console.log(Object.prototype.toString.call(inputRowJumpedBlack)); 
-    console.log(Object.prototype.toString.call(inputColumnJumpedEast));
-    console.log(Object.prototype.toString.call(inputColumnJumpedWest));
+    // console.log(Object.prototype.toString.call(inputRowJumpedRed));
+    // console.log(Object.prototype.toString.call(inputRowJumpedBlack));
+    // console.log(Object.prototype.toString.call(inputColumnJumpedEast));
+    // console.log(Object.prototype.toString.call(inputColumnJumpedWest));
 
-    // Variables for all colors / directions for normal jump
-    const redJumpedEast = `${inputRowJumpedRed}${inputColumnJumpedEast}`;
-    const redJumpedWest = `${inputRowJumpedRed}${inputColumnJumpedWest}`; 
-    const blackJumpedEast = `${inputRowJumpedBlack}${inputColumnJumpedEast}`;
-    const blackJumpedWest = `${inputRowJumpedBlack}${inputColumnJumpedWest}`;
-    console.log(`redJumpedEast: `, redJumpedEast, `redJumpedWest: `, redJumpedWest);
-    console.log(`blackJumpedEast: `, blackJumpedEast, `blackJumpedWest: `, blackJumpedWest);
+    // Variables for jumping logic - All colors and direction
+    // const redJumpedEast = `${inputRowJumpedRed}${inputColumnJumpedEast}`;
+    // const redJumpedWest = `${inputRowJumpedRed}${inputColumnJumpedWest}`;
+    // const blackJumpedEast = `${inputRowJumpedBlack}${inputColumnJumpedEast}`;
+    // const blackJumpedWest = `${inputRowJumpedBlack}${inputColumnJumpedWest}`;
+    // console.log(
+    //   `redJumpedEast: `,
+    //   redJumpedEast,
+    //   `redJumpedWest: `,
+    //   redJumpedWest
+    // );
+    // console.log(
+    //   `blackJumpedEast: `,
+    //   blackJumpedEast,
+    //   `blackJumpedWest: `,
+    //   blackJumpedWest
+    // );
 
     if (this.board.grid[inputRow][inputColumn] === null) {
       console.log(
@@ -171,8 +177,65 @@ class Game {
     return true;
   }
 
-  // killMove(inputRow, inputColumn, newRow, newColumn) {
-  //   let inputInfo = parseInt(inputRow + inputColumn);
+  killMove(inputRow, inputColumn, newRow, newColumn) {
+    let startPositionRow = parseInt(inputRow);
+    let startPositionColumn = parseInt(inputColumn);
+    let inputInfo = parseInt(inputRow + inputColumn);
+    let moveToInfo = parseInt(newRow + newColumn);
+
+    // console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn);
+
+    // Variables to create Jumped Checker
+    let inputRowJumpedRed = startPositionRow - 1;
+    console.log(`inputRowJumpedRed: `, inputRowJumpedRed);
+    console.log(
+      `startpos - 1: `,
+      startPositionRow - 1,
+      Object.prototype.toString.call(inputRowJumpedRed)
+    );
+
+    let inputRowJumpedBlack = startPositionRow + 1;
+    console.log(`inputRowJumpedBlack: `, inputRowJumpedBlack);
+
+    let inputColumnJumpedEast = startPositionColumn + 1;
+    console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast);
+
+    let inputColumnJumpedWest = startPositionColumn - 1;
+    console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest);
+
+    // Variables for jumping logic - All colors and direction
+    let redJumpedEast = `${inputRowJumpedRed}${inputColumnJumpedEast}`;
+    let redJumpedWest = `${inputRowJumpedRed}${inputColumnJumpedWest}`;
+    let blackJumpedEast = `${inputRowJumpedBlack}${inputColumnJumpedEast}`;
+    let blackJumpedWest = `${inputRowJumpedBlack}${inputColumnJumpedWest}`;
+    console.log(
+      `redJumpedEast: `,
+      redJumpedEast,
+      `redJumpedWest: `,
+      redJumpedWest
+    );
+    console.log(
+      `blackJumpedEast: `,
+      blackJumpedEast,
+      `blackJumpedWest: `,
+      blackJumpedWest
+    );
+    console.log(
+      `Set to Null Location`,
+      this.board.grid[inputRowJumpedRed][inputColumnJumpedEast]
+    );
+    if (
+      this.board.grid[inputRow][inputColumn].symbol === "r" &&
+      inputInfo - moveToInfo === 18 &&
+      this.board.grid[inputRowJumpedRed][inputColumnJumpedEast].symbol === "b"
+    ) {
+      this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] = null;
+      this.board.grid[newRow][newColumn] = this.board.grid[inputRow][inputColumn];
+      this.board.grid[inputRow][inputColumn] = null;
+    }
+  }
+
+  // let inputInfo = parseInt(inputRow + inputColumn);
   //   let moveToInfo = parseInt(newRow + newColumn);
   //   console.log(`inputInfo: `, inputInfo, `moveToInfo: `, moveToInfo)
 
@@ -217,6 +280,8 @@ class Game {
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
+    this.killMove(inputRow, inputColumn, newRow, newColumn);
+
     if (this.isLegal(inputRow, inputColumn, newRow, newColumn)) {
       // Set toWhereSplit = WhichPieceSplit in Grid
       this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
@@ -225,8 +290,6 @@ class Game {
       // Set WhichPieceSplit to null
       this.board.grid[inputRow][inputColumn] = null;
     }
-
-    // this.killMove();
 
     // console.log(
     //   `inputRow: `,
