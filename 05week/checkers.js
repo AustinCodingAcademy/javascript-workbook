@@ -90,7 +90,14 @@ class Game {
     // Make variables for user input = integer for move algo.
     let inputInfo = parseInt(inputRow + inputColumn);
     let moveToInfo = parseInt(newRow + newColumn);
-    // console.log(inputInfo, moveToInfo);
+    let inputRowJumpedRed = (inputRow - 1);
+    // console.log(`inputRowJumpedRed: `, inputRowJumpedRed)
+    let inputRowJumpedBlack = (inputRow + 1);
+    let inputColumnJumpedEast = (inputColumn / 10 + 1);
+    // console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast)
+    let inputColumnJumpedWest = (inputColumn / 10 - 1);
+    let jumpedCheckerEast = `${inputRowJumpedRed}${inputColumnJumpedEast}`
+    console.log(`jumpedCheckerEast: `, jumpedCheckerEast);
 
     if (this.board.grid[inputRow][inputColumn] === null) {
       console.log(
@@ -120,7 +127,7 @@ class Game {
       inputInfo - moveToInfo !== 11
     ) {
       console.log(
-        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
+        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map for directions.`
       );
       return false;
     }
@@ -131,39 +138,51 @@ class Game {
       moveToInfo - inputInfo !== 11
     ) {
       console.log(
-        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
+        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map for directions.`
       );
       return false;
     }
     return true;
   }
 
-  killMove(inputRow, inputColumn, newRow, newColumn) {
-    let inputInfo = parseInt(inputRow + inputColumn);
-    let moveToInfo = parseInt(newRow + newColumn);
+  // killMove(inputRow, inputColumn, newRow, newColumn) {
+  //   let inputInfo = parseInt(inputRow + inputColumn);
+  //   let moveToInfo = parseInt(newRow + newColumn);
+  //   console.log(`inputInfo: `, inputInfo, `moveToInfo: `, moveToInfo)
+  
 
-    if (
-      this.board.grid[inputRow][inputColumn].symbol === "r" &&
-      inputInfo - moveToInfo !== 18 &&
-      inputInfo - moveToInfo !== 22
-    ) {
-      console.log(
-        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
-      );
-      return false;
-    } 
+    // if (
+    //   this.board.grid[inputRow][inputColumn].symbol === "r" &&
+    //   inputInfo - moveToInfo === 18
+    // ) {
+    //   jumpedChecker = null;
+    // }
 
-    if (
-      this.board.grid[inputRow][inputColumn].symbol === "b" &&
-      moveToInfo - inputInfo !== 18 &&
-      moveToInfo - inputInfo !== 22
-    ) {
-      console.log(
-        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
-      );
-      return false;
-    }
-  }
+    //   ];
+    //   // Set WhichPieceSplit to null
+    //   this.board.grid[inputRow][inputColumn] = null
+    //   moveToInfo - 9 = null;
+    // }
+
+    // inputInfo - moveToInfo !== 22
+    // ) {
+    //   console.log(
+    //     `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
+    //   );
+    //   return false;
+    // }
+
+    // if (
+    //   this.board.grid[inputRow][inputColumn].symbol === "b" &&
+    //   moveToInfo - inputInfo !== 18 &&
+    //   moveToInfo - inputInfo !== 22
+    // ) {
+    //   console.log(
+    //     `Illegal move. Only Move diagonally toward your opponent's end row. Check your map.`
+    //   );
+    //   return false;
+    // }
+  // }
 
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
@@ -182,9 +201,7 @@ class Game {
       this.board.grid[inputRow][inputColumn] = null;
     }
 
-    if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
-      
-    }
+    // this.killMove();
 
     // console.log(
     //   `inputRow: `,
