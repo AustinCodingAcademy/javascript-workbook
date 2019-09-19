@@ -8,7 +8,10 @@ const rl = readline.createInterface({
 });
 
 //npm test 01week/rockPaperScissors.js
+
 function rockPaperScissors(hand1, hand2) {
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
   //test for tie
   if (hand1 == hand2) {
     return "It's a tie!";
