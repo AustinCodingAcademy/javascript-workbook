@@ -10,30 +10,30 @@ const rl = readline.createInterface({
 function checkers() {
   // Your code here
 
-
 }
 
-class Checker {
+//checkers class to define key value pairs, color and symbol to create black and red piece
+class Checkers {
   constructor(color, symbol) {
     this.color = color;
     this.symbol = symbol;
   }
 }
 
-const blackPiece = new Checker('black', 'B')
-const redPiece = new Checker('red', 'R')
+//new instances of Checkers class
+const blackPiece = new Checkers('black', 'b')
+const redPiece = new Checkers('red', 'r')
 
+//switch player
 let playerTurn = blackPiece;
 
 function switchPlayer() {
   if(playerTurn == blackPiece) {
-    playerTurn = redPiece 
+    playerTurn = redPiece; 
   } else {
-    playerTurn = blackPiece
+    playerTurn = blackPiece;
   }
 }
-
-
 
 class Board {
   constructor(grid, checkers) {
@@ -42,7 +42,6 @@ class Board {
   }
   selectChecker(row, column) {
     return this.grid[row][column];
-    
   }
 
   // method that creates an 8x8 array, filled with null values
@@ -74,8 +73,6 @@ class Board {
         }
       }
 
-      
-
       // join the rowOfCheckers array to a string, separated by a space
       string += rowOfCheckers.join(' ');
       // add a 'new line'
@@ -84,23 +81,30 @@ class Board {
     console.log(string);
   }
 
+  //push red pieces to board
   initializeGrid () {
     for (let row1 = 0; row1 < 3; row1++) {
       for(let col1 = 0; col1 < 8; col1++) {
         if(row1 % 2 == 0 & col1 % 2 == 1) {
           this.grid[row1][col1] = redPiece.symbol;
+          this.checkers.push(this.redPiece)
         } if(row1 % 2 == 1 & col1 % 2 == 0) {
           this.grid[row1][col1] = redPiece.symbol;
-        }
+          this.checkers.push(this.redPiece);
+        } 
       }
     }
+
+    //push black pieces to board
     for (let row2 = 5; row2 < 8; row2++) {
       for(let col2 = 0; col2 < 8; col2++) {
         if(row2 % 2 == 0 & col2 % 2 == 1) {
           this.grid[row2][col2] = blackPiece.symbol;
+          this.checkers.push(this.blackPiece);
         }if(row2 % 2 == 1 & col2 % 2 == 0) {
           this.grid[row2][col2] = blackPiece.symbol;
-        }
+          this.checkers.push(this.blackPiece);
+        } 
       }
     }
   }
@@ -115,20 +119,23 @@ class Game {
     this.board.initializeGrid(); 
   }
   moveChecker(whichPiece, toWhere) {
-    if(this.validInput(whichPiece, toWhere)) {
-      let whichPieceArray = whichPiece.split("");
+      let whichPieceArray = whichPiece.split("");//start; create variable and turn a string into an array
+
       let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
-      // console.log(selectedPiece)
-      let toWhereArray = toWhere.split("");
-      this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece
-      this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null
+      //create new variable to pick up a piece to move
+
+      let toWhereArray = toWhere.split(""); //end;
+
+      this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
+      this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
       switchPlayer();
-  }
 }
+
+   //input can only be 2 numbers. and between 0 & 7.
   validInput(whichPiece, toWhere) {
     let whichPieceArray = whichPiece.split(""); 
     let toWhereArray = toWhere.split("");
- 
+
     if(whichPieceArray.length === 2 && toWhereArray.length === 2) {
       if(whichPieceArray[0] >= 0 && whichPieceArray[0] <= 7 && whichPieceArray[1] >= 0 && whichPieceArray[1] <= 7 && toWhereArray[0] >= 0 && toWhereArray[0] <= 7 && toWhereArray[1] >= 0 && toWhereArray[1] <= 7) {
         return true
@@ -136,37 +143,46 @@ class Game {
     }console.log("Invalid Input")
      return false 
   }
-
+    //only diagonal moves are allowed, space must be empty, forward move do not allow backward move.
     legalMove(whichPiece, toWhere) {
-
       let toWhereNumber = toWhere.split("").map(Number);//turn the end string into an array of numbers
 
-      let row = toWhereNumber[0];
-      let column = toWhereNumber[1];
-      let endPosition = this.board.grid[row][column];
+      let row1 = toWhereNumber[0];
+      let column1 = toWhereNumber[1];
 
-      console.log(endPosition, "end position")
+      let endPosition = this.board.grid[row1][column1];//end postion equals end row, and end column 
 
-      //making sure move is legal by being able to move only by 9 or 11
-      if(Number(whichPiece) - 9 === Number(toWhere) || Number(whichPiece) - 11 === Number(toWhere)) {
-      console.log("not a legal move")
-    
-        if(endPosition === null){
-        console.log("not null")
-        return true 
-        }else {
+        //when black piece moves, it can only move up the board (-) 9 or 11, and end pos. must be empty
+        if(playerTurn.symbol == "b") {
+          if(Number(whichPiece) - 9 === Number(toWhere) || Number(whichPiece) - 11 === Number(toWhere)) {
+            if(endPosition === null){
+            console.log("Not a Legal Move")
+            return true 
+            }
+          }
+       }
+
+        //when red piece moves, it can only move down the board (+) 9 or 11, and end pos. must be empty
+        if(playerTurn.symbol == "r") {
+        if(Number(whichPiece) + 9 === Number(toWhere) || Number(whichPiece) + 11 === Number(toWhere)) {
+          if(endPosition === null){
+          console.log("Not a Legal Move")
+          return true 
+          }
+        }
+     }
           return false
-      }
-    }
-  }
+     }
 }
 
 function getPrompt() {
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
+      if(game.validInput(whichPiece, toWhere)) {
       if (game.legalMove(whichPiece, toWhere)) {
         game.moveChecker(whichPiece, toWhere);
+      };
       };
       getPrompt();
     });
