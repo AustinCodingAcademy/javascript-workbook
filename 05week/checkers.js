@@ -88,16 +88,42 @@ class Game {
 
   isLegal(inputRow, inputColumn, newRow, newColumn) {
     // Make variables for user input = integer for move algo.
-    let inputInfo = parseInt(inputRow + inputColumn);
-    let moveToInfo = parseInt(newRow + newColumn);
-    let inputRowJumpedRed = inputRow - 1;
-    // console.log(`inputRowJumpedRed: `, inputRowJumpedRed)
-    let inputRowJumpedBlack = inputRow + 1;
-    let inputColumnJumpedEast = inputColumn / 10 + 1;
-    // console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast)
-    let inputColumnJumpedWest = inputColumn / 10 - 1;
-    let jumpedCheckerEast = `${inputRowJumpedRed}${inputColumnJumpedEast}`;
-    console.log(`jumpedCheckerEast: `, jumpedCheckerEast);
+    const startPositionRow = parseInt(inputRow);
+    const startPositionColumn = parseInt(inputColumn);
+    const inputInfo = parseInt(inputRow + inputColumn);
+    const moveToInfo = parseInt(newRow + newColumn);
+
+    
+
+    console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn)
+
+    console.log(Object.prototype.toString.call(inputInfo));
+
+    // Variables to create Jumped Checker
+    const inputRowJumpedRed = (startPositionRow - 1);
+    console.log(`inputRowJumpedRed: `, inputRowJumpedRed)
+
+    const inputRowJumpedBlack = (startPositionRow + 1);
+    console.log(`inputRowJumpedBlack: `, inputRowJumpedBlack)
+
+    const inputColumnJumpedEast = (startPositionColumn + 1);
+    console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast)
+
+    const inputColumnJumpedWest = (startPositionColumn - 1);
+    console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest)
+
+    console.log(Object.prototype.toString.call(inputRowJumpedRed));
+    console.log(Object.prototype.toString.call(inputRowJumpedBlack)); 
+    console.log(Object.prototype.toString.call(inputColumnJumpedEast));
+    console.log(Object.prototype.toString.call(inputColumnJumpedWest));
+
+    // Variables for all colors / directions for normal jump
+    const redJumpedEast = `${inputRowJumpedRed}${inputColumnJumpedEast}`;
+    const redJumpedWest = `${inputRowJumpedRed}${inputColumnJumpedWest}`; 
+    const blackJumpedEast = `${inputRowJumpedBlack}${inputColumnJumpedEast}`;
+    const blackJumpedWest = `${inputRowJumpedBlack}${inputColumnJumpedWest}`;
+    console.log(`redJumpedEast: `, redJumpedEast, `redJumpedWest: `, redJumpedWest);
+    console.log(`blackJumpedEast: `, blackJumpedEast, `blackJumpedWest: `, blackJumpedWest);
 
     if (this.board.grid[inputRow][inputColumn] === null) {
       console.log(
