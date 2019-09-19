@@ -231,6 +231,7 @@ class Game {
     let newColumn = toWhereSplit[1];
 
     if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
+      game.board.checkers.pop();
       return false;
     }
 
