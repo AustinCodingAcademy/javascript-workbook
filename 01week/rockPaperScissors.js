@@ -7,7 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
@@ -45,7 +44,6 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-
   getPrompt();
 
 }
