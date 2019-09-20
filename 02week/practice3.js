@@ -17,4 +17,4 @@ console.log("whole hours = ", wholeHours);
 
 remainingSeconds = remainingSeconds % secondsPerHour;
 
-var wholeMins = Math.floor(remainingSeconds / )
+var wholeMins = Math.floor(remainingSeconds / secondsPerMinute);
