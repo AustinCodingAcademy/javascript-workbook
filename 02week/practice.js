@@ -1,6 +1,7 @@
 let word = "mead";
 
 // write some code 
+// man this was a fun assignment
 let firstVowel = 1;
 
 
