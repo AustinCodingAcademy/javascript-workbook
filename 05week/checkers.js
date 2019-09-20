@@ -44,6 +44,16 @@ class Board {
     return this.grid[row][column];
   }
 
+  //Find the index of that checker in the this.checkers array. then remove it by .splice()ing it out
+  killChecker(position) {
+    let checkerToKill = selectChecker(position[0],position[1]);
+    let checkerIndex = this.checkers.indexOf(checkerToKill);
+
+    this.checkers.splice(checkerIndex, 1);
+
+    this.board.grid[position[0]][position[1]] = null;   
+  }
+
   // method that creates an 8x8 array, filled with null values
   createGrid() {
     // loop to create the 8 rows
@@ -123,12 +133,23 @@ class Game {
 
       let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
       //create new variable to pick up a piece to move
-
       let toWhereArray = toWhere.split(""); //end;
 
       this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
       this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
       switchPlayer();
+
+      //
+      if(Math.abs(toWhereArray - whichPieceArray === 2)) {
+
+        let killPosition1 = [toWhereArray[0]] + [whichPieceArray[0]]
+        let killPosition1A = killPosition1/2;
+        let killPosition2 = [toWhereArray[1]] + [whichPieceArray[1]]
+        let killPosition2A = killPosition2/2;
+        
+        this.board.killChecker([killPosition1A][killPosition2A]) = null;
+        this.board.checkers.pop();
+      }
 }
 
    //input can only be 2 numbers. and between 0 & 7.
@@ -166,7 +187,7 @@ class Game {
         if(playerTurn.symbol == "r") {
         if(Number(whichPiece) + 9 === Number(toWhere) || Number(whichPiece) + 11 === Number(toWhere)) {
           if(endPosition === null){
-          console.log("Not a Legal Move")
+          // console.log("Not a Legal Move")
           return true 
           }
         }
