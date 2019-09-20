@@ -77,6 +77,8 @@ class Board {
   }
 }
 
+// Game class - Makes calls to create and populate board.
+// Contains Legal Moves logic, jump and kill piece logic and move Piece Logic
 class Game {
   constructor() {
     this.board = new Board();
@@ -91,8 +93,19 @@ class Game {
     let inputInfo = parseInt(inputRow + inputColumn);
     let moveToInfo = parseInt(newRow + newColumn);
 
+    // User input for of piece must be on the board.
+    if (inputRow < 0 || inputRow > 7 || inputColumn < 0 || inputColumn > 7) {
+      console.log(`Enter a number from the board!`);
+      return false;
+    }
+
+    if (newRow < 0 || newRow > 7 || (newColumn < 0 || newColumn > 7)) {
+      console.log(`Stay on the board!`);
+      return false;
+    }
     console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn);
 
+    // User input for a starting position must match to a piece on the board.
     if (this.board.grid[inputRow][inputColumn] === null) {
       console.log(
         `There is no piece in the location you have provided. check your GPS.`
@@ -100,6 +113,7 @@ class Game {
       return false;
     }
 
+    // User input for end position must be on the board (defined) and empty.
     if (
       this.board.grid[newRow][newColumn] !== undefined &&
       this.board.grid[newRow][newColumn] !== null
@@ -107,11 +121,6 @@ class Game {
       console.log(
         `There is a piece in the location you are attempting to move to. Check your Radar.`
       );
-      return false;
-    }
-
-    if (newRow < 0 || newRow > 7 || (newColumn < 0 || newColumn > 7)) {
-      console.log(`Stay on the board!`);
       return false;
     }
 
@@ -165,61 +174,58 @@ class Game {
     let inputColumnJumpedWest = startPositionColumn - 1;
     console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest);
 
-    if (
-      this.board.grid[inputRow][inputColumn].symbol === "r" &&
-      inputInfo - moveToInfo === 18 &&
-      this.board.grid[inputRowJumpedRed][inputColumnJumpedEast].symbol === "b"
-    ) {
-      this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] = null;
-      this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
-        inputColumn
-      ];
-      this.board.grid[inputRow][inputColumn] = null;
-      return true;
+    //  Because the number of Input Rows are the same length of Input Columns the if wrapper keeps all inputs between 0 and 7
+    if (this.board.grid[inputRow] && this.board.grid[inputColumn] && this.board.grid[inputRow][inputColumn].symbol) {
+      if (
+        this.board.grid[inputRow][inputColumn].symbol === "r" &&
+        inputInfo - moveToInfo === 18 &&
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedEast].symbol === "b"
+      ) {
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] = null;
+        this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
+          inputColumn
+        ];
+        this.board.grid[inputRow][inputColumn] = null;
+        return true;
+      } else if (
+        this.board.grid[inputRow][inputColumn].symbol === "r" &&
+        inputInfo - moveToInfo === 22 &&
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedWest].symbol === "b"
+      ) {
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedWest] = null;
+        this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
+          inputColumn
+        ];
+        this.board.grid[inputRow][inputColumn] = null;
+        return true;
+      } else if (
+        this.board.grid[inputRow][inputColumn].symbol === "b" &&
+        moveToInfo - inputInfo === 18 &&
+        this.board.grid[inputRowJumpedBlack][inputColumnJumpedWest].symbol ===
+          "r"
+      ) {
+        this.board.grid[inputRowJumpedBlack][inputColumnJumpedWest] = null;
+        this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
+          inputColumn
+        ];
+        this.board.grid[inputRow][inputColumn] = null;
+        return true;
+      } else if (
+        this.board.grid[inputRow][inputColumn].symbol === "b" &&
+        moveToInfo - inputInfo === 22 &&
+        this.board.grid[inputRowJumpedBlack][inputColumnJumpedEast].symbol ===
+          "r"
+      ) {
+        this.board.grid[inputRowJumpedBlack][inputColumnJumpedEast] = null;
+        this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
+          inputColumn
+        ];
+        this.board.grid[inputRow][inputColumn] = null;
+        return true;
+      } else {
+        return false;
+      }
     }
-
-    else if (
-      this.board.grid[inputRow][inputColumn].symbol === "r" &&
-      inputInfo - moveToInfo === 22 &&
-      this.board.grid[inputRowJumpedRed][inputColumnJumpedWest].symbol === "b"
-    ) {
-      this.board.grid[inputRowJumpedRed][inputColumnJumpedWest] = null;
-      this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
-        inputColumn
-      ];
-      this.board.grid[inputRow][inputColumn] = null;
-      return true;
-    }
-
-
-    else if (
-      this.board.grid[inputRow][inputColumn].symbol === "b" &&
-      moveToInfo - inputInfo === 18 &&
-      this.board.grid[inputRowJumpedBlack][inputColumnJumpedWest].symbol === "r"
-    ) {
-      this.board.grid[inputRowJumpedBlack][inputColumnJumpedWest] = null;
-      this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
-        inputColumn
-      ];
-      this.board.grid[inputRow][inputColumn] = null;
-      return true;
-    }
-
-    else if (
-      this.board.grid[inputRow][inputColumn].symbol === "b" &&
-      moveToInfo - inputInfo === 22 &&
-      this.board.grid[inputRowJumpedBlack][inputColumnJumpedEast].symbol === "r"
-    ) {
-      this.board.grid[inputRowJumpedBlack][inputColumnJumpedEast] = null;
-      this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
-        inputColumn
-      ];
-      this.board.grid[inputRow][inputColumn] = null;
-      return true;
-    } else {
-      return false;
-    }
-
   }
 
   moveChecker(whichPiece, toWhere) {
