@@ -175,8 +175,13 @@ class Game {
     console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest);
 
     //  Because the number of Input Rows are the same length of Input Columns the if wrapper keeps all inputs between 0 and 7
-    if (this.board.grid[inputRow] && this.board.grid[inputColumn] && this.board.grid[inputRow][inputColumn].symbol) {
+    if (
+      this.board.grid[inputRow] &&
+      this.board.grid[inputColumn] &&
+      this.board.grid[inputRow][inputColumn].symbol
+    ) {
       if (
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] !== null &&
         this.board.grid[inputRow][inputColumn].symbol === "r" &&
         inputInfo - moveToInfo === 18 &&
         this.board.grid[inputRowJumpedRed][inputColumnJumpedEast].symbol === "b"
@@ -189,6 +194,7 @@ class Game {
         return true;
       } else if (
         this.board.grid[inputRow][inputColumn].symbol === "r" &&
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedWest] !== null &&
         inputInfo - moveToInfo === 22 &&
         this.board.grid[inputRowJumpedRed][inputColumnJumpedWest].symbol === "b"
       ) {
@@ -201,6 +207,7 @@ class Game {
       } else if (
         this.board.grid[inputRow][inputColumn].symbol === "b" &&
         moveToInfo - inputInfo === 18 &&
+        this.board.grid[inputRowJumpedBlack][inputColumnJumpedWest] !== null &&
         this.board.grid[inputRowJumpedBlack][inputColumnJumpedWest].symbol ===
           "r"
       ) {
@@ -213,6 +220,7 @@ class Game {
       } else if (
         this.board.grid[inputRow][inputColumn].symbol === "b" &&
         moveToInfo - inputInfo === 22 &&
+        this.board.grid[inputRowJumpedBlack][inputColumnJumpedEast] !== null &&
         this.board.grid[inputRowJumpedBlack][inputColumnJumpedEast].symbol ===
           "r"
       ) {
