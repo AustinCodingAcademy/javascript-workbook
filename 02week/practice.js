@@ -1,7 +1,7 @@
 let word = "mead";
 
 // write some code 
-// man this was a fun assignment
+// man this was not fun, ignore the first message
 let firstVowel = 1;
 
 
