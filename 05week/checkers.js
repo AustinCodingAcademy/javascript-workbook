@@ -240,23 +240,6 @@ class Game {
     }
   }
 
-  // If a checker gets to the opponets last row, then it becomes a king.
-  kingMaker(inputRow, inputColumn, newRow, newColumn) {
-    if (
-      this.board.grid[inputRow][inputColumn].symbol === "r" &&
-      this.board.grid[newRow] === 0
-    ) {
-      console.log(`king me`);
-    }
-
-    if (
-      this.board.grid[inputRow][inputColumn].symbol === "b" &&
-      this.board.grid[newRow] === 7
-    ) {
-      console.log(`king me`);
-    }
-  }
-
   // takes user input and defines variables that can access locations on the grid
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
@@ -284,8 +267,6 @@ class Game {
       // Set WhichPieceSplit to null
       this.board.grid[inputRow][inputColumn] = null;
     }
-    // Runs King Maker
-    this.kingMaker(inputRow, inputColumn, newRow, newColumn);
   }
 }
 
