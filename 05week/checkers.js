@@ -130,11 +130,11 @@ class Game {
       inputInfo - moveToInfo !== 11
     ) {
       console.log(
-        `Illegal move. Only Move diagonally toward your opponent's end row. Check your map for directions.`
+        `Illegal move. Diagonal moves only. If attempting to jump a square...only jump when opponets checker is adjacent.`
       );
       return false;
     }
-    
+
     // Logic ensuring moves are legal for red pieces.
     if (
       this.board.grid[inputRow][inputColumn].symbol === "b" &&
@@ -179,9 +179,9 @@ class Game {
     if (
       this.board.grid[inputRow] &&
       this.board.grid[inputColumn] &&
-      this.board.grid[inputRow][inputColumn].symbol
+      this.board.grid[inputRow][inputColumn] !== null
     ) {
-      // Looks for checker symbol 'r' or 'b'. if move is a jump, and there is a checker 
+      // Looks for checker symbol 'r' or 'b'. if move is a jump, and there is a checker
       // in the position under the jumping checker, and that checker is the other players
       // the checker jumps and sets that square to null.
       if (
@@ -239,6 +239,24 @@ class Game {
       }
     }
   }
+
+  // If a checker gets to the opponets last row, then it becomes a king.
+  kingMaker(inputRow, inputColumn, newRow, newColumn) {
+    if (
+      this.board.grid[inputRow][inputColumn].symbol === "r" &&
+      this.board.grid[newRow] === 0
+    ) {
+      console.log(`king me`);
+    }
+
+    if (
+      this.board.grid[inputRow][inputColumn].symbol === "b" &&
+      this.board.grid[newRow] === 7
+    ) {
+      console.log(`king me`);
+    }
+  }
+
   // takes user input and defines variables that can access locations on the grid
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
@@ -266,6 +284,8 @@ class Game {
       // Set WhichPieceSplit to null
       this.board.grid[inputRow][inputColumn] = null;
     }
+    // Runs King Maker
+    this.kingMaker(inputRow, inputColumn, newRow, newColumn);
   }
 }
 
