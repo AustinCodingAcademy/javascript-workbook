@@ -46,10 +46,10 @@ class Board {
 
   //Find the index of that checker in the this.checkers array. then remove it by .splice()ing it out
   killChecker(position) {
-    let checkerToKill = selectChecker(position[0],position[1]);
-    let checkerIndex = this.checkers.indexOf(checkerToKill);
+    // let checkerToKill = this.selectChecker(position[0],position[1]);
+    // let checkerIndex = this.checkers.indexOf(checkerToKill);
 
-    this.checkers.splice(checkerIndex, 1);
+    // this.checkers.splice(checkerIndex, 1);
 
     this.board.grid[position[0]][position[1]] = null;   
   }
@@ -129,27 +129,58 @@ class Game {
     this.board.initializeGrid(); 
   }
   moveChecker(whichPiece, toWhere) {
-      let whichPieceArray = whichPiece.split("");//start; create variable and turn a string into an array
+    let whichPieceArray = whichPiece.split("");//start; create variable and turn a string into an array
+
+    let toWhereArray = toWhere.split("");//end;
+
+    if (this.legalMove(whichPiece, toWhere)) {
 
       let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
       //create new variable to pick up a piece to move
-      let toWhereArray = toWhere.split(""); //end;
 
       this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
       this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
       switchPlayer();
+      console.log("condition", toWhereArray[0], whichPieceArray[0])
+    };
+    
+    let toWhereNumber = toWhere.split("").map(Number);//turn the end string into an array of numbers
 
-      //
-      if(Math.abs(toWhereArray - whichPieceArray === 2)) {
+    let row1 = toWhereNumber[0];
+    let column1 = toWhereNumber[1];
 
-        let killPosition1 = [toWhereArray[0]] + [whichPieceArray[0]]
-        let killPosition1A = killPosition1/2;
-        let killPosition2 = [toWhereArray[1]] + [whichPieceArray[1]]
-        let killPosition2A = killPosition2/2;
-        
-        this.board.killChecker([killPosition1A][killPosition2A]) = null;
-        this.board.checkers.pop();
-      }
+    let endPosition = this.board.grid[row1][column1];//end postion equals end row, and end column 
+
+        if(playerTurn.symbol == "b") {
+          if(Number(whichPiece) - 18 === Number(toWhere) || Number(whichPiece) - 22 === Number(toWhere)) {
+            if(endPosition === null){
+              let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
+
+              this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
+              this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
+
+              this.board.grid[Number(whichPieceArray[0]) - 1][Number(whichPieceArray[1]) + 1] = null;
+              this.board.checkers.pop();
+              console.log(this.board.checkers.length)
+            }     
+          }
+       }
+
+       if(playerTurn.symbol == "r") {
+        if(Number(whichPiece) + 18 === Number(toWhere) || Number(whichPiece) + 22 === Number(toWhere)) {
+          if(endPosition === null){
+            let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
+            //create new variable to pick up a piece to move
+      
+            this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
+            this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
+
+            this.board.grid[Number(whichPieceArray[0]) + 1][Number(whichPieceArray[1]) +1] = null;
+            this.board.checkers.pop()
+            console.log(this.board.checkers.length)
+          }           
+        }
+     }
 }
 
    //input can only be 2 numbers. and between 0 & 7.
@@ -177,9 +208,10 @@ class Game {
         if(playerTurn.symbol == "b") {
           if(Number(whichPiece) - 9 === Number(toWhere) || Number(whichPiece) - 11 === Number(toWhere)) {
             if(endPosition === null){
-            console.log("Not a Legal Move")
+            console.log("Legal Move")
             return true 
-            }
+            }     
+            console.log("Not a Legal Move")
           }
        }
 
@@ -187,9 +219,10 @@ class Game {
         if(playerTurn.symbol == "r") {
         if(Number(whichPiece) + 9 === Number(toWhere) || Number(whichPiece) + 11 === Number(toWhere)) {
           if(endPosition === null){
-          // console.log("Not a Legal Move")
+          console.log("Legal Move")
           return true 
-          }
+          }           
+          console.log("Not a Legal Move")
         }
      }
           return false
@@ -201,9 +234,7 @@ function getPrompt() {
   rl.question('which piece?: ', (whichPiece) => {
     rl.question('to where?: ', (toWhere) => {
       if(game.validInput(whichPiece, toWhere)) {
-      if (game.legalMove(whichPiece, toWhere)) {
         game.moveChecker(whichPiece, toWhere);
-      };
       };
       getPrompt();
     });
