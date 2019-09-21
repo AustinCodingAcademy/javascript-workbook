@@ -141,7 +141,7 @@ class Game {
       this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
       this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
       switchPlayer();
-      console.log("condition", toWhereArray[0], whichPieceArray[0])
+      // console.log("condition", toWhereArray[0], whichPieceArray[0])
     };
     
     let toWhereNumber = toWhere.split("").map(Number);//turn the end string into an array of numbers
@@ -161,7 +161,7 @@ class Game {
 
               this.board.grid[Number(whichPieceArray[0]) - 1][Number(whichPieceArray[1]) + 1] = null;
               this.board.checkers.pop();
-              console.log(this.board.checkers.length)
+              // console.log(this.board.checkers.length)
             }     
           }
        }
@@ -177,7 +177,7 @@ class Game {
 
             this.board.grid[Number(whichPieceArray[0]) + 1][Number(whichPieceArray[1]) +1] = null;
             this.board.checkers.pop()
-            console.log(this.board.checkers.length)
+            // console.log(this.board.checkers.length)
           }           
         }
      }
