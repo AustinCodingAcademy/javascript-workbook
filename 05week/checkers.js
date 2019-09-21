@@ -183,7 +183,8 @@ class Game {
     if (
       this.board.grid[inputRow] &&
       this.board.grid[inputColumn] &&
-      this.board.grid[inputRow][inputColumn] !== null
+      this.board.grid[inputRow][inputColumn] !== null &&
+      this.board.grid[newRow][newColumn] === null
     ) {
       // Looks for checker symbol 'r' or 'b'. if move is a jump, and there is a checker
       // in the position under the jumping checker, and that checker is the other players
@@ -244,17 +245,44 @@ class Game {
     }
   }
 
-  kingMaker(inputRow, inputColumn, newRow, newColumn) {
+  kingMakerRed(inputRow, inputColumn, newRow, newColumn) {
     if (
-      this.board.grid[inputRow] &&
-      this.board.grid[inputColumn] &&
-      this.board.grid[inputRow][inputColumn] !== null
+      this.board.grid[newRow] &&
+      this.board.grid[newColumn] &&
+      this.board.grid[newRow][newColumn] !== null
     ) {
-      if (
-        this.board.grid[inputRow] === 0 &&
-        this.board.grid[newRow][newColumn].symbol === "r"
-      ) {
-        return true;
+      console.log(
+        `location: kingmaker first if`,
+        `New Row string: `,
+        newRow == 0, `checker: `,
+        this.board.grid[newRow][newColumn]
+      );
+      // new Row is a string so... == instead of ===. grabbing the 'r' @ king row
+      if (newRow == 0 && this.board.grid[newRow][newColumn].symbol === "r") {
+        console.log(`kingmaker: 2nd if`);
+        this.board.grid[newRow][newColumn].symbol = 'R';
+        console.log()
+      }
+    }
+  }
+
+  kingMakerBlack(inputRow, inputColumn, newRow, newColumn) {
+    if (
+      this.board.grid[newRow] &&
+      this.board.grid[newColumn] &&
+      this.board.grid[newRow][newColumn] !== null
+    ) {
+      console.log(
+        `location: kingmaker first if`,
+        `New Row string: `,
+        newRow == 7, `checker: `,
+        this.board.grid[newRow][newColumn]
+      );
+      // new Row is a string so... == instead of ===. grabbing the 'r' @ king row
+      if (newRow == 7 && this.board.grid[newRow][newColumn].symbol === "b") {
+        console.log(`kingmaker: 2nd if`);
+        this.board.grid[newRow][newColumn].symbol = 'B';
+        console.log()
       }
     }
   }
@@ -268,17 +296,15 @@ class Game {
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
-    // kills a checker function
     if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
       // removes checker from checkers array
       game.board.checkers.pop();
       // if killMove runs, exits logic and starts again with new player (would have to have
       // new logic for double jump)
-      return false;
     }
 
     // runs logic to ensure that moves are legal
-    if (this.isLegal(inputRow, inputColumn, newRow, newColumn)) {
+    else if (this.isLegal(inputRow, inputColumn, newRow, newColumn)) {
       // Set toWhereSplit = WhichPieceSplit in Grid
       this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
         inputColumn
@@ -287,8 +313,13 @@ class Game {
       this.board.grid[inputRow][inputColumn] = null;
     }
 
-    if(this.kingMaker(inputRow, inputColumn, newRow, newColumn)) {
-      console.log(`king me`);
+    // kills a checker function
+    if (this.kingMakerRed(inputRow, inputColumn, newRow, newColumn)) {
+      console.log(`KING ME!`);
+    }
+
+    if (this.kingMakerBlack(inputRow, inputColumn, newRow, newColumn)) {
+      console.log(`KING ME!`);
     }
   }
 }
