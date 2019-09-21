@@ -46,11 +46,6 @@ class Board {
 
   //Find the index of that checker in the this.checkers array. then remove it by .splice()ing it out
   killChecker(position) {
-    // let checkerToKill = this.selectChecker(position[0],position[1]);
-    // let checkerIndex = this.checkers.indexOf(checkerToKill);
-
-    // this.checkers.splice(checkerIndex, 1);
-
     this.board.grid[position[0]][position[1]] = null;   
   }
 
@@ -134,9 +129,8 @@ class Game {
     let toWhereArray = toWhere.split("");//end;
 
     if (this.legalMove(whichPiece, toWhere)) {
-
-      let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
       //create new variable to pick up a piece to move
+      let selectedPiece = this.board.selectChecker(whichPieceArray[0], whichPieceArray[1])
 
       this.board.grid[toWhereArray[0]][toWhereArray[1]] = selectedPiece//place selectedPiece and move those coordinates
       this.board.grid[whichPieceArray[0]][whichPieceArray[1]] = null//remove selectedPiece that moved from those coordinates
