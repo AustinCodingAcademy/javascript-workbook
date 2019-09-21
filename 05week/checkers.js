@@ -123,7 +123,7 @@ class Game {
       );
       return false;
     }
-
+    // Logic ensuring moves are legal for red pieces.
     if (
       this.board.grid[inputRow][inputColumn].symbol === "r" &&
       inputInfo - moveToInfo !== 9 &&
@@ -134,7 +134,8 @@ class Game {
       );
       return false;
     }
-
+    
+    // Logic ensuring moves are legal for red pieces.
     if (
       this.board.grid[inputRow][inputColumn].symbol === "b" &&
       moveToInfo - inputInfo !== 9 &&
@@ -180,10 +181,13 @@ class Game {
       this.board.grid[inputColumn] &&
       this.board.grid[inputRow][inputColumn].symbol
     ) {
+      // Looks for checker symbol 'r' or 'b'. if move is a jump, and there is a checker 
+      // in the position under the jumping checker, and that checker is the other players
+      // the checker jumps and sets that square to null.
       if (
-        this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] !== null &&
         this.board.grid[inputRow][inputColumn].symbol === "r" &&
         inputInfo - moveToInfo === 18 &&
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] !== null &&
         this.board.grid[inputRowJumpedRed][inputColumnJumpedEast].symbol === "b"
       ) {
         this.board.grid[inputRowJumpedRed][inputColumnJumpedEast] = null;
@@ -194,8 +198,8 @@ class Game {
         return true;
       } else if (
         this.board.grid[inputRow][inputColumn].symbol === "r" &&
-        this.board.grid[inputRowJumpedRed][inputColumnJumpedWest] !== null &&
         inputInfo - moveToInfo === 22 &&
+        this.board.grid[inputRowJumpedRed][inputColumnJumpedWest] !== null &&
         this.board.grid[inputRowJumpedRed][inputColumnJumpedWest].symbol === "b"
       ) {
         this.board.grid[inputRowJumpedRed][inputColumnJumpedWest] = null;
@@ -235,7 +239,7 @@ class Game {
       }
     }
   }
-
+  // takes user input and defines variables that can access locations on the grid
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
     const toWhereSplit = toWhere.trim().split("");
@@ -244,11 +248,16 @@ class Game {
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
+    // kills a checker function
     if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
+      // removes checker from checkers array
       game.board.checkers.pop();
+      // if killMove runs, exits logic and starts again with new player (would have to have
+      // new logic for double jump)
       return false;
     }
 
+    // runs logic to ensure that moves are legal
     if (this.isLegal(inputRow, inputColumn, newRow, newColumn)) {
       // Set toWhereSplit = WhichPieceSplit in Grid
       this.board.grid[newRow][newColumn] = this.board.grid[inputRow][
