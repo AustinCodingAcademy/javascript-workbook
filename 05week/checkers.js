@@ -103,9 +103,13 @@ class Game {
       console.log(`Stay on the board!`);
       return false;
     }
-    console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn);
+    // console.log(`inputRow: `, inputRow, `inputColumn: `, inputColumn);
 
     // User input for a starting position must match to a piece on the board.
+    if (inputRow === undefined || inputColumn === undefined) {
+      console.log(`Please enter a valid board loaction`);
+      return false;
+    }
     if (this.board.grid[inputRow][inputColumn] === null) {
       console.log(
         `There is no piece in the location you have provided. check your GPS.`
@@ -159,21 +163,21 @@ class Game {
 
     // Variables to create Jumped Checker
     let inputRowJumpedRed = startPositionRow - 1;
-    console.log(`inputRowJumpedRed: `, inputRowJumpedRed);
-    console.log(
-      `startpos - 1: `,
-      startPositionRow - 1,
-      Object.prototype.toString.call(inputRowJumpedRed)
-    );
+    // console.log(`inputRowJumpedRed: `, inputRowJumpedRed);
+    // console.log(
+    //   `startpos - 1: `,
+    //   startPositionRow - 1,
+    //   Object.prototype.toString.call(inputRowJumpedRed)
+    // );
 
     let inputRowJumpedBlack = startPositionRow + 1;
-    console.log(`inputRowJumpedBlack: `, inputRowJumpedBlack);
+    // console.log(`inputRowJumpedBlack: `, inputRowJumpedBlack);
 
     let inputColumnJumpedEast = startPositionColumn + 1;
-    console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast);
+    // console.log(`inputColumnJumpedEast: `, inputColumnJumpedEast);
 
     let inputColumnJumpedWest = startPositionColumn - 1;
-    console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest);
+    // console.log(`inputColumnJumpedWest: `, inputColumnJumpedWest);
 
     //  Because the number of Input Rows are the same length of Input Columns the if wrapper keeps all inputs between 0 and 7
     if (
@@ -240,6 +244,21 @@ class Game {
     }
   }
 
+  kingMaker(inputRow, inputColumn, newRow, newColumn) {
+    if (
+      this.board.grid[inputRow] &&
+      this.board.grid[inputColumn] &&
+      this.board.grid[inputRow][inputColumn] !== null
+    ) {
+      if (
+        this.board.grid[inputRow] === 0 &&
+        this.board.grid[newRow][newColumn].symbol === "r"
+      ) {
+        return true;
+      }
+    }
+  }
+
   // takes user input and defines variables that can access locations on the grid
   moveChecker(whichPiece, toWhere) {
     const whichPieceSplit = whichPiece.trim().split("");
@@ -266,6 +285,10 @@ class Game {
       ];
       // Set WhichPieceSplit to null
       this.board.grid[inputRow][inputColumn] = null;
+    }
+
+    if(this.kingMaker(inputRow, inputColumn, newRow, newColumn)) {
+      console.log(`king me`);
     }
   }
 }
