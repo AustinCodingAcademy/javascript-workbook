@@ -88,6 +88,26 @@ class Game {
     this.board.populateBoard();
   }
 
+  playerTurn(inputRow, inputColumn) {
+    let playerTurn = this.board.grid[inputRow][inputColumn].symbol;
+    if (playerTurn === 'r') {
+      playerTurn = 'Black Turn'
+    } else {
+      playerTurn = 'Red Turn'
+    }
+    console.log(playerTurn)
+    return true
+  }
+
+  // Player Turn non-functioning logic.
+      // if (inputRow === undefined) {
+    //   return `Red Player Starts: `;
+    // } else if (this.board.grid[inputRow][inputColumn].symbol === "r") {
+    //   return `Black Turn`;
+    // } else {
+    //   return `Red Turn;`;
+    // }
+
   isLegal(inputRow, inputColumn, newRow, newColumn) {
     // Make variables for user input = integer for move algo + jumped piece location.
     let inputInfo = parseInt(inputRow + inputColumn);
@@ -251,17 +271,18 @@ class Game {
       this.board.grid[newColumn] &&
       this.board.grid[newRow][newColumn] !== null
     ) {
-      console.log(
-        `location: kingmaker first if`,
-        `New Row string: `,
-        newRow == 0, `checker: `,
-        this.board.grid[newRow][newColumn]
-      );
+      // console.log(
+      //   `location: kingmaker first if`,
+      //   `New Row string: `,
+      //   newRow == 0,
+      //   `checker: `,
+      //   this.board.grid[newRow][newColumn]
+      // );
       // new Row is a string so... == instead of ===. grabbing the 'r' @ king row
       if (newRow == 0 && this.board.grid[newRow][newColumn].symbol === "r") {
-        console.log(`kingmaker: 2nd if`);
-        this.board.grid[newRow][newColumn].symbol = 'R';
-        console.log()
+        // console.log(`kingmaker: 2nd if`);
+        this.board.grid[newRow][newColumn].symbol = "R";
+        // console.log();
       }
     }
   }
@@ -272,17 +293,18 @@ class Game {
       this.board.grid[newColumn] &&
       this.board.grid[newRow][newColumn] !== null
     ) {
-      console.log(
-        `location: kingmaker first if`,
-        `New Row string: `,
-        newRow == 7, `checker: `,
-        this.board.grid[newRow][newColumn]
-      );
+      // console.log(
+      //   `location: kingmaker first if`,
+      //   `New Row string: `,
+      //   newRow == 7,
+      //   `checker: `,
+      //   this.board.grid[newRow][newColumn]
+      // );
       // new Row is a string so... == instead of ===. grabbing the 'r' @ king row
       if (newRow == 7 && this.board.grid[newRow][newColumn].symbol === "b") {
-        console.log(`kingmaker: 2nd if`);
-        this.board.grid[newRow][newColumn].symbol = 'B';
-        console.log()
+        // console.log(`kingmaker: 2nd if`);
+        this.board.grid[newRow][newColumn].symbol = "B";
+        // console.log();
       }
     }
   }
@@ -295,6 +317,8 @@ class Game {
     let inputColumn = whichPieceSplit[1];
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
+
+    this.playerTurn(inputRow, inputColumn);
 
     if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
       // removes checker from checkers array
@@ -326,6 +350,7 @@ class Game {
 
 function getPrompt() {
   game.board.viewGrid();
+  console.log(game.playerTurn);
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
       game.moveChecker(whichPiece, toWhere);
