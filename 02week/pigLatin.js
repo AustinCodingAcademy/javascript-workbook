@@ -13,7 +13,7 @@ function pigLatin(word) {
   let vowels = "aeiou";
 
   function vowelsDetected(newWord) {
-    for (let i = 0; i < newWord.lenth; i++) {
+    for (let i = 0; i < newWord.length; i++) {
       if (vowels.indexOf(newWord[i]) !== -1) {
         return i;
       }
