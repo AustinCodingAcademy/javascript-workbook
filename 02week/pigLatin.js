@@ -7,7 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function pigLatin(word) {
 
   // Your code here
