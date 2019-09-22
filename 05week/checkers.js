@@ -90,23 +90,23 @@ class Game {
 
   playerTurn(inputRow, inputColumn) {
     let playerTurn = this.board.grid[inputRow][inputColumn].symbol;
-    if (playerTurn === 'r') {
-      playerTurn = 'Black Turn'
+    if (playerTurn === "r") {
+      playerTurn = "Black Turn";
     } else {
-      playerTurn = 'Red Turn'
+      playerTurn = "Red Turn";
     }
-    console.log(playerTurn)
-    return true
+    console.log(playerTurn);
+    return true;
   }
 
   // Player Turn non-functioning logic.
-      // if (inputRow === undefined) {
-    //   return `Red Player Starts: `;
-    // } else if (this.board.grid[inputRow][inputColumn].symbol === "r") {
-    //   return `Black Turn`;
-    // } else {
-    //   return `Red Turn;`;
-    // }
+  // if (inputRow === undefined) {
+  //   return `Red Player Starts: `;
+  // } else if (this.board.grid[inputRow][inputColumn].symbol === "r") {
+  //   return `Black Turn`;
+  // } else {
+  //   return `Red Turn;`;
+  // }
 
   isLegal(inputRow, inputColumn, newRow, newColumn) {
     // Make variables for user input = integer for move algo + jumped piece location.
@@ -318,8 +318,6 @@ class Game {
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
-    this.playerTurn(inputRow, inputColumn);
-
     if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
       // removes checker from checkers array
       game.board.checkers.pop();
@@ -345,6 +343,7 @@ class Game {
     if (this.kingMakerBlack(inputRow, inputColumn, newRow, newColumn)) {
       console.log(`KING ME!`);
     }
+    this.playerTurn(inputRow, inputColumn);
   }
 }
 
