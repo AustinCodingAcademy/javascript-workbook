@@ -27,6 +27,34 @@ class Board {
       }
     }
   }
+  setPiece() {
+    for (let row = 0; row < 3; row++) {
+      for (let column = 0; column < 8; column++) {
+        if(column % 2==0 && row % 2==1) {
+          this.grid[row][column] = "b"
+        
+        }
+        if(column % 2==1 && row % 2==0) {
+          this.grid[row][column] = "b"
+        
+        }
+    
+
+     }
+    }
+    for (let row = 5; row < 8; row++) {
+      for (let column = 0; column < 8; column++) {
+        if(column % 2==0 && row % 2==1) {
+          this.grid[row][column] = "r"
+        
+        }
+        if(column % 2==1 && row % 2==0) {
+          this.grid[row][column] = "r"
+        
+        }
+     }
+    }
+  }
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -38,7 +66,7 @@ class Board {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfCheckers.push(this.grid[row][column]);
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -61,7 +89,19 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.setPiece();
   }
+  moveChecker(whichPiece, toWhere) {
+    let whichPiecetop = whichPiece.split("")
+        this.board.grid [whichPiecetop [0]][whichPiecetop [1]] 
+   let toWherePiece = toWhere.split("")
+       this.board.grid [toWherePiece [0]][toWherePiece [1]] = this.board.grid [whichPiecetop [0]][whichPiecetop [1]]
+       this.board.grid [whichPiecetop [0]][whichPiecetop [1]] = null
+  
+
+
+  }
+
 }
 
 function getPrompt() {
