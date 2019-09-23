@@ -82,22 +82,26 @@ class Board {
 class Game {
   constructor() {
     this.board = new Board();
+    this.playerTurn = 'r'
   }
   start() {
     this.board.createGrid();
     this.board.populateBoard();
   }
 
-  // playerTurn(inputRow, inputColumn) {
-  //   let playerTurn = this.board.grid[inputRow][inputColumn].symbol;
-  //   if (playerTurn === "r") {
-  //     playerTurn = "Black Turn";
-  //   } else {
-  //     playerTurn = "Red Turn";
-  //   }
-  //   console.log(playerTurn);
-  //   return true;
+  //  if moverChecker() {
+  // playerTurn
   // }
+
+  playerFunc(inputRow, inputColumn) {
+    if (this.playerTurn === "r") {
+      this.playerTurn = "b";
+    } else {
+      this.playerTurn = "r";
+    }
+    console.log(`${this.playerTurn}'s Turn`);
+    return true;
+  }
 
   // Player Turn non-functioning logic.
   // if (inputRow === undefined) {
@@ -318,6 +322,13 @@ class Game {
     let newRow = toWhereSplit[0];
     let newColumn = toWhereSplit[1];
 
+    if(this.playerTurn === this.board.grid[inputRow][inputColumn].symbol) {
+      console.log(`Next Move`)
+    } else {
+      console.log(`Not your turn`)
+      return false
+    }
+
     if (this.killMove(inputRow, inputColumn, newRow, newColumn)) {
       // removes checker from checkers array
       game.board.checkers.pop();
@@ -343,15 +354,17 @@ class Game {
     if (this.kingMakerBlack(inputRow, inputColumn, newRow, newColumn)) {
       console.log(`KING ME!`);
     }
-    // this.playerTurn(inputRow, inputColumn);
+   
+    this.playerFunc();
+
   }
 }
 
 function getPrompt() {
   game.board.viewGrid();
-  console.log(game.playerTurn);
   rl.question("which piece?: ", whichPiece => {
     rl.question("to where?: ", toWhere => {
+      // console.log(game.playerTurn());
       game.moveChecker(whichPiece, toWhere);
       getPrompt();
     });
