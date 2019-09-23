@@ -88,16 +88,16 @@ class Game {
     this.board.populateBoard();
   }
 
-  playerTurn(inputRow, inputColumn) {
-    let playerTurn = this.board.grid[inputRow][inputColumn].symbol;
-    if (playerTurn === "r") {
-      playerTurn = "Black Turn";
-    } else {
-      playerTurn = "Red Turn";
-    }
-    console.log(playerTurn);
-    return true;
-  }
+  // playerTurn(inputRow, inputColumn) {
+  //   let playerTurn = this.board.grid[inputRow][inputColumn].symbol;
+  //   if (playerTurn === "r") {
+  //     playerTurn = "Black Turn";
+  //   } else {
+  //     playerTurn = "Red Turn";
+  //   }
+  //   console.log(playerTurn);
+  //   return true;
+  // }
 
   // Player Turn non-functioning logic.
   // if (inputRow === undefined) {
@@ -343,7 +343,7 @@ class Game {
     if (this.kingMakerBlack(inputRow, inputColumn, newRow, newColumn)) {
       console.log(`KING ME!`);
     }
-    this.playerTurn(inputRow, inputColumn);
+    // this.playerTurn(inputRow, inputColumn);
   }
 }
 
