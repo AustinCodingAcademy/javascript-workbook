@@ -9,40 +9,51 @@ const rl = readline.createInterface({
 
 
 function Checker(color) {
+  //create checker symbols
+  this.color = color;
   if(color === 'white'){
     this.symbol = String.fromCharCode(0x125CB)
  }
  else{
-   this.symbol === String.fromCharCode(0x125CF)
+   this.symbol = String.fromCharCode(0x125CF)
  }
 }
 
+
 class Board {
   constructor(grid,checkers){
-
     this.grid = [],
     this.checkers = [],
-    this.createCheckers = ()=>{
-      let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
-      [1, 0], [1, 2], [1, 4], [1, 6],
-      [2, 1], [2, 3], [2, 5], [2, 7]];
-      
-      let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
-      [6, 1], [6, 3], [6, 5], [6, 7],
-      [7, 0], [7, 2], [7, 4], [7, 6]];
-      //define positions
-    for(let p = 0; p <= 11; p++){
-      let whiteChecker = new Checker('white');
-      this.checkers.push(whiteChecker);
+    this.playerTurn = this.whiteChecker;
     
-      let blackChecker = new Checker('black');
-      this.checkers.push(blackChecker);
+
+      this.createCheckers = () => {
+        let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+        [1, 0], [1, 2], [1, 4], [1, 6],
+        [2, 1], [2, 3], [2, 5], [2, 7]];
+        
+        let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+        [6, 1], [6, 3], [6, 5], [6, 7],
+        [7, 0], [7, 2], [7, 4], [7, 6]];
+        //define positions
+        for(let p = 0; p <= 11; p++){
+          let whiteChecker = new Checker('white');
+          this.checkers.push(whiteChecker);
+          let position = whitePositions[p];
+          this.grid[position[0]][position[1]] = whiteChecker;
+          
+          let blackChecker = new Checker('black');
+          this.checkers.push(blackChecker);
+          let position2 = blackPositions[p];
+          this.grid[position2[0]][position2[1]] = blackChecker;
+        }
+      }
+
+    legalMove(whichPiece,toWhere) {
+
     }
-  }
-  this.selectChecker = (row,column)=>{
-    return this.grid[row][column];
-  }
-  }
+    };
+    
   
 
 
@@ -83,30 +94,64 @@ class Board {
       string += "\n";
     }
     console.log(string);
-  }
+  }}
+  
+  // initializeGrid(){
+    //   row1 needs to be even
+    //   col1 needs to be odd
+    //   for(let row1 = 0; row1 < 3; row1++){
+      //     for(let col1 = 0; col1 < 8; col1++){
+        //       if(row1 % 2 ===0 && col1 % 2 === 1){
+          //         this.grid[row1][col1] = this.whiteChecker;
+          //       }
+          //     }
+          
+          //   }
+          // }
+          // Your code here
+          
+          
+          //check for valid input
+          //has to be a number
+          //has to be 2 numbers
+          
+          //valid move
+          //check for proper color movement
+          //has to be going to empty spot
+          //goes from even to odd
+          
+          
+          
+          class Game {
+            constructor() {
+              this.board = new Board;
+              }
+          
+            start() {
+              this.board.createGrid();
+              this.board.createCheckers();
 
-  // Your code here
+              this.moveChecker = (whichPiece,toWhere) => {
+                let which = whichPiece.split('')
+                let where = toWhere.split('')
+
+if (this.board.legalMove(whichPiece,toWhere) == true){
+                this.board.grid[where[0]][where[1]] = this.board.grid[which[0]][which[1]];
+                this.board.grid[which[0]][which[1]] = null;
 }
-
-class Game {
-  constructor() {
-    this.board = new Board;
-  }
-  start() {
-    this.board.createGrid();
-    this.board.createCheckers();
-  }
-  this.moveChecker = (start,end)=>{
-
-  }
-}
-
-function getPrompt() {
-  game.board.viewGrid();
-  rl.question('which piece?: ', (whichPiece) => {
-    rl.question('to where?: ', (toWhere) => {
-      game.moveChecker(whichPiece, toWhere);
-      getPrompt();
+              } 
+            }
+            
+          }
+          
+          
+          
+          function getPrompt() {
+            game.board.viewGrid();
+            rl.question('which piece?: ', (whichPiece) => {
+              rl.question('to where?: ', (toWhere) => {
+                game.moveChecker(whichPiece, toWhere);
+                getPrompt();
     });
   });
 }
