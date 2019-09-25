@@ -14,47 +14,150 @@ function Checker(color) {
   if(color === 'white'){
     this.symbol = String.fromCharCode(0x125CB)
  }
- else{
+ if(color === 'black'){
    this.symbol = String.fromCharCode(0x125CF)
- }
+  }
 }
+//switches players
 
+
+
+let player = 'white'
 
 class Board {
+  playerTurn(){
+    if (player === 'white'){
+      player = 'black'
+      console.log('black player turn')
+    }
+    
+    else if(player === 'black') {
+      player = 'white'
+    console.log('white player turn')
+    }}
+
   constructor(grid,checkers){
     this.grid = [],
     this.checkers = [],
-    this.playerTurn = this.whiteChecker;
+   
     
-
-      this.createCheckers = () => {
-        let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
-        [1, 0], [1, 2], [1, 4], [1, 6],
-        [2, 1], [2, 3], [2, 5], [2, 7]];
+    
+    this.createCheckers = () => {
+      let whitePositions = [[0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]];
+      
+      let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]];
+      //define positions
+      for(let p = 0; p <= 11; p++){
+        let whiteChecker = new Checker('white');
+        this.checkers.push(whiteChecker);
+        let position = whitePositions[p];
+        this.grid[position[0]][position[1]] = whiteChecker;
         
-        let blackPositions = [[5, 0], [5, 2], [5, 4], [5, 6],
-        [6, 1], [6, 3], [6, 5], [6, 7],
-        [7, 0], [7, 2], [7, 4], [7, 6]];
-        //define positions
-        for(let p = 0; p <= 11; p++){
-          let whiteChecker = new Checker('white');
-          this.checkers.push(whiteChecker);
-          let position = whitePositions[p];
-          this.grid[position[0]][position[1]] = whiteChecker;
-          
-          let blackChecker = new Checker('black');
-          this.checkers.push(blackChecker);
-          let position2 = blackPositions[p];
-          this.grid[position2[0]][position2[1]] = blackChecker;
-        }
+        let blackChecker = new Checker('black');
+        this.checkers.push(blackChecker);
+        let position2 = blackPositions[p];
+        this.grid[position2[0]][position2[1]] = blackChecker;
       }
-
-    legalMove(whichPiece,toWhere) {
-
     }
-    };
     
+  };
+  legalMove(which,where) {
+   
+    console.log(which,where);
+    
+    if(which.length !== 2 || which[0] > 7 || which[1] > 7){
+      console.log('Please enter numbers less than 8')
+      return false;
+    }
+    if(where.length !== 2 || where[0] > 7 || where[1] > 7){
+      console.log('Please enter numbers less than 8')
+      return false;
+    }
+    
+    else{
+      return true;
+    }
+    
+  }
+  validMove(whichPiece,toWhere){
+      // white moves
+var start = parseInt(whichPiece);
+var end = parseInt(toWhere);
+
+console.log(start,end);
+      if(player == 'white'){
+        if(end - start !==9 && end - start !== 11){
+          console.log("Invalid Move");
+          return false
+        }
+        }
+        // if(start - end !== 18 || start - end !== 22){
   
+        //   return false
+        // }
+      
+      //black moves
+      if(player == 'black'  ){
+        //flip start and end so the value's not negative
+        if(start - end !== 9 && start - end !==11 ){
+          console.log("Invalid Move");
+          return false
+        }
+      //  if(start - end !== 18 && start - end !== 22){
+      //    return false
+      //  }
+  }
+      return true
+    }
+    
+  killChecker(whichPiece,toWhere){
+    var start = parseInt(whichPiece);
+    var end = parseInt(toWhere);
+    var jumpRightWhite = this.board.grid[((start)[0]) +1][((start)[1]) +1] 
+    var jumpLeftWhite = this.board.grid[((start)[0]) +1][((start)[1]) -1]
+    var jumpRightBlack = this.board.grid[((start)[0]) -1][((start)[1]) +1]
+    var jumpLeftBlack = this.board.grid[((start)[0]) -1][((start)[1]) -1]
+    
+    if(player == 'white'){
+       if(start - end !== 18 && start - end !== 22){
+         return false
+       }else{
+        if(jumpRightWhite === 'white' && whichPiece - toWhere === 18){
+          this.board.grid[(start[0]) -1][(start[1]) +1] = null
+          return true;
+       }
+       if(jumpLeftWhite === 'white' && whichPiece - toWhere === 18){
+        this.board.grid[(start[0]) -1][(start[1]) -1] = null
+        return true;
+     }
+     else{
+       return false
+     }
+    }}
+
+
+       if(player == 'black'  ){
+       if(start - end !== 18 && start - end !== 22){
+         return false
+       }else{
+        if(jumpRightBlack === 'black' && whichPiece - toWhere === 18){
+          this.board.grid[(start[0]) +1][(start[1]) +1] = null
+          return true;
+       }
+       if(jumpLeftBlack === 'black' && whichPiece - toWhere === 18){
+        this.board.grid[(start[0]) +1][(start[1]) -1] = null
+        return true;
+     }
+     else{
+       return false
+     }
+  }
+      
+  }}
 
 
 
@@ -96,19 +199,7 @@ class Board {
     console.log(string);
   }}
   
-  // initializeGrid(){
-    //   row1 needs to be even
-    //   col1 needs to be odd
-    //   for(let row1 = 0; row1 < 3; row1++){
-      //     for(let col1 = 0; col1 < 8; col1++){
-        //       if(row1 % 2 ===0 && col1 % 2 === 1){
-          //         this.grid[row1][col1] = this.whiteChecker;
-          //       }
-          //     }
-          
-          //   }
-          // }
-          // Your code here
+ 
           
           
           //check for valid input
@@ -122,6 +213,7 @@ class Board {
           
           
           
+          
           class Game {
             constructor() {
               this.board = new Board;
@@ -132,16 +224,17 @@ class Board {
               this.board.createCheckers();
 
               this.moveChecker = (whichPiece,toWhere) => {
-                let which = whichPiece.split('')
-                let where = toWhere.split('')
-
-if (this.board.legalMove(whichPiece,toWhere) == true){
-                this.board.grid[where[0]][where[1]] = this.board.grid[which[0]][which[1]];
-                this.board.grid[which[0]][which[1]] = null;
-}
+                let which = whichPiece.split('');
+                let where = toWhere.split('');
+             
+                if (this.board.legalMove(which,where) === true && this.board.validMove(whichPiece,toWhere) === true){
+                    this.board.grid[where[0]][where[1]] = this.board.grid[which[0]][which[1]];
+                    this.board.grid[which[0]][which[1]] = null;
+                  } this.board.playerTurn();
+                }
+                
+                
               } 
-            }
-            
           }
           
           
