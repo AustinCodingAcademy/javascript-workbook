@@ -7,26 +7,31 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-function pigLatin(word) {
-  let positionA = word.indexOf("a");
-  let positionE = word.indexOf("e");
-  let positionI = word.indexOf("i");
-  let positionO = word.indexOf("o");
-  let positionU = word.indexOf("u");
+// function pigLatin(word) {
+//   let positionA = word.indexOf("a");
+//   let positionE = word.indexOf("e");
+//   let positionI = word.indexOf("i");
+//   let positionO = word.indexOf("o");
+//   let positionU = word.indexOf("u");
+
+  //make an array
+  const vowels = ["a", "e", "i", "o", "u"];
+  //only add to the array values greater than -1
+  //math.min
+
   //sets all the words to lowercase and trims them
   word = word.trim().toLowerCase();
   //splitting word into indivudual letters
   var splitWord = word.split("");
-  if (positionA || positionE || positionI || positionO || positionU === 0) {
+  let filtered = splitWord.filter(letter => vowels.indexOf(letter) > -1);
+  console.log(filtered);
+  const indexFirstVowel = word.indexOf(filtered[0]);
+  if (indexFirstVowel == 0) {
     return word + "yay";
   } else {
     return (
-      splitWord
-        .slice(positionA || positionE || positionI || positionO || positionU)
-        .join("") +
-      splitWord
-        .slice(0, positionA || positionE || positionI || positionO || positionU)
-        .join("") +
+      splitWord.slice(indexFirstVowel).join("") +
+      splitWord.slice(0, indexFirstVowel).join("") +
       "ay"
     );
   }
