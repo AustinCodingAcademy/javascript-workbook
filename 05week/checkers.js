@@ -80,7 +80,6 @@ class Board {
     console.log(string);
   }
 
-  // Your code here
 }
 
 class Game {
@@ -98,7 +97,7 @@ class Game {
        this.board.grid [toWherePiece [0]][toWherePiece [1]] = this.board.grid [whichPiecetop [0]][whichPiecetop [1]]
        this.board.grid [whichPiecetop [0]][whichPiecetop [1]] = null
   
-
+//
 
   }
 
