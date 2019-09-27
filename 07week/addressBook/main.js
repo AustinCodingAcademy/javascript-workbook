@@ -48,14 +48,14 @@ const displayUsers = () => {
     let newInfoDiv = document.createElement("DIV");
     let buttonPlace = document.getElementById("buttonId");
     const newButton = document.createElement("button");
-
-    newButton.innerHTML =
-      "<button class='button' onclick='about()'>About</button>";
-    buttonPlace.appendChild(newButton);
     
     const about = () => {
       newInfoDiv.appendChild(moreText);
     };
+
+    newButton.innerHTML =
+      "<button class='button' onclick='about()'>About</button>";
+    buttonPlace.appendChild(newButton);
   }
 };
 
