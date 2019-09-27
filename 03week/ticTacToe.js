@@ -75,6 +75,9 @@ function checkForWin() {
 function ticTacToe(row, column) {
   if (board[row][column] == " ") {
     board[row][column] == playerTurn;
+    if (checkForWin()) {
+      board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+    }
   } else {
     if (playerTurn == "X") {
       playerTurn == "O";
