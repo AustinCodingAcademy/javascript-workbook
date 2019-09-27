@@ -40,6 +40,16 @@
   align-items: center;
 }
 
+#buttonId {
+  border: 1px solid red;
+  height: 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+
+
 /* 
 .pBox {
   width: 100%;

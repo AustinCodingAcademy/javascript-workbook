@@ -28,6 +28,9 @@ const displayUsers = () => {
     const text = document.createTextNode(
       `${userObj.results[i].name.first} ${userObj.results[i].name.last}`
     );
+    const moreText = document.createTextNode(
+      `DOB: ${userObj.results[i].dob} || Phone: ${userObj.results[i].phone}`
+    );
 
     // Placing new paragram into #name div
     nameDiv.appendChild(newParagraph);
@@ -40,12 +43,22 @@ const displayUsers = () => {
     let newImg = document.createElement("IMG");
     newImg.src = userObj.results[i].picture.large;
     imgDiv.append(newImg);
-    
-    // Make Buttons
-    document.getElementById("buttonId").innerHTML =
-      '<button class="button" onclick="about()">About</button>';
-  }
 
+    // Make Buttons
+    let newInfoDiv = document.createElement("DIV");
+    let buttonPlace = document.getElementById("buttonId");
+    const newButton = document.createElement("button");
+
+
+    function about(){
+      newInfoDiv.appendChild(moreText);
+    }
+
+    newButton.innerHTML =
+      "<button class='button' onclick='about()'>About</button>";
+    buttonPlace.appendChild(newButton);
+    
+  }
 };
 
 // getUseUsers
