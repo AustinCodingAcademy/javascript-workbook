@@ -14,16 +14,33 @@
 }
 
 .allBox {
-  width: 75%;
+  width: 75vw;
   height: 50vh;
   margin: 0px auto;
   margin-top: 75px;
   background-color: mistyrose;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+#img {
+  border: 1px solid red;
+  width: 75vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+#name {
+  border: 1px solid red;
+  height: 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 
 .pBox {
   width: 100%;
   height: 100%;
@@ -31,9 +48,9 @@
   justify-content: center;
   align-items: center;
   border: 1px solid red;
-}
+} */
 
-#person { 
+/* #person { 
   width: 100%;
   height: 100%;
   display: flex;
@@ -45,10 +62,10 @@
 #person p {
   border: 1px solid green;
   height: 90px;
-  width: 120px;
+  width: 120px; 
   display: flex;
   flex-direction: column;
-}
+} */
 
 .button {
   height: 5vh;
