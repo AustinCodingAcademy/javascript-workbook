@@ -7,12 +7,12 @@ window.onload = function() {
 const getUsers = () => {
   fetch("https://randomuser.me/api/?results=5")
     .then(res => res.json())
-    .then(user => (userObj = user));
+    .then(user => (userObj = user))
 };
 
 const consoleUsers = () => {
   console.log(userObj.results);
-  console.log(userObj.results[0].name);
+  console.log(userObj.results[0].name.first);
   console.log(userObj.results[0].picture.large);
 };
 
@@ -29,7 +29,7 @@ const displayUsers = () => {
       `${userObj.results[i].name.first} ${userObj.results[i].name.last}`
     );
     const moreText = document.createTextNode(
-      `DOB: ${userObj.results[i].dob} || Phone: ${userObj.results[i].phone}`
+      `DOB: ${userObj.results[i].dob.date} || Phone: ${userObj.results[i].phone}`
     );
 
     // Placing new paragram into #name div
@@ -45,17 +45,17 @@ const displayUsers = () => {
     imgDiv.append(newImg);
 
     // Make Buttons
-    let newInfoDiv = document.createElement("DIV");
+    let newInfoDiv = document.getElementById("newInfo");
     let buttonPlace = document.getElementById("buttonId");
     const newButton = document.createElement("button");
-    
-    const about = () => {
-      newInfoDiv.appendChild(moreText);
-    };
-
-    newButton.innerHTML =
-      "<button class='button' onclick='about()'>About</button>";
+    newButton.innerHTML = "About";
+    newButton.classList.add("button");
     buttonPlace.appendChild(newButton);
+
+    newButton.addEventListener("click", function() {
+      newInfoDiv.appendChild(moreText);
+      console.log("hi");
+    });
   }
 };
 
