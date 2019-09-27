@@ -13,7 +13,7 @@ const getUsers = () => {
 const consoleUsers = () => {
   console.log(userObj.results);
   console.log(userObj.results[0].name);
-  console.log(userObj.results[0].picture.large)
+  console.log(userObj.results[0].picture.large);
 };
 
 const displayUsers = () => {
@@ -36,11 +36,16 @@ const displayUsers = () => {
     newParagraph.appendChild(text);
 
     // Make Image Place and Append
-    let imgDiv = document.getElementById('img');
+    let imgDiv = document.getElementById("img");
     let newImg = document.createElement("IMG");
     newImg.src = userObj.results[i].picture.large;
     imgDiv.append(newImg);
+    
+    // Make Buttons
+    document.getElementById("buttonId").innerHTML =
+      '<button class="button" onclick="about()">About</button>';
   }
+
 };
 
 // getUseUsers

@@ -14,7 +14,7 @@
 }
 
 .allBox {
-  width: 75vw;
+  width: 90vw;
   height: 50vh;
   margin: 0px auto;
   margin-top: 75px;
@@ -27,7 +27,7 @@
 
 #img {
   border: 1px solid red;
-  width: 75vw;
+  width: 90vw;
   display: flex;
   justify-content: space-around;
 }
