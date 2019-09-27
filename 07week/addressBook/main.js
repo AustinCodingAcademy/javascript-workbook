@@ -7,7 +7,7 @@ window.onload = function() {
 const getUsers = () => {
   fetch("https://randomuser.me/api/?results=5")
     .then(res => res.json())
-    .then(user => (userObj = user))
+    .then(user => (userObj = user));
 };
 
 const consoleUsers = () => {
