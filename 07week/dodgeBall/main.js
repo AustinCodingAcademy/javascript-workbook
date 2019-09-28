@@ -1,7 +1,7 @@
 // -Checkpoint 2 Dodge Ball!
 // 20pts - Code Plan - Include this in a README.md file in your folder with comment in your code.
 
-// 20pts - Can add People to Players - When clicked the people are added to the Players column and removed from the People list while getting new values of a player added to them.
+// 20pts - Can add People to Players - When clicked the people are added to the Players column and removed from the People list while getting new values of a
 
 // ABOVE - USE makePlayer() to get ID. let clickedPlayer = arrOfPeople.splice(i + 2, 1) THEN listOfPlayers.push(clickedPlayer).
 
@@ -80,9 +80,21 @@ const listOfPlayers = [];
 const blueTeam = [];
 const redTeam = [];
 
-class player {
-  constructor() {}
+class Player {
+  constructor(person) {
+    this.name = person.name;
+    this.age = person.age;
+    this.id = person.id;
+    this.skillSet = person.skillSet;
+    this.placeBorn = person.placeBorn;
+    this.canThrowBall = true;
+    this.canDodgeBall = true;
+    this.hasPaid = true;
+    this.isHealthy = true;
+    this.yearsExperience = true;
+  }
 }
+
 class blueTeammate {
   constructor() {}
 }
@@ -121,8 +133,12 @@ const makePlayer = id => {
     if (arrOfPeople[i].id === numId) {
       // remove the object element that contains that id
       let splicedPerson = arrOfPeople.splice(i, 1);
+
+      let temp = new Player(splicedPerson[0])
+      listOfPlayers.push(temp)
+
       // push the first element of the new array splicedPerson into listOfPlayers.
-      listOfPlayers.push(splicedPerson[0]);
+      // listOfPlayers.push(splicedPerson[0]);
     }
   }
 
@@ -165,7 +181,6 @@ const makePlayer = id => {
       document.createTextNode(`${person.name} - ${person.skillSet}`)
     );
   });
-
 
   console.log(`arrayOfPeople: `, arrOfPeople);
   console.log(`listOfPlayers: `, listOfPlayers);
