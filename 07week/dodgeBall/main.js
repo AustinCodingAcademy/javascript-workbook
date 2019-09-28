@@ -108,30 +108,64 @@ const listPeopleChoices = () => {
 };
 
 const makePlayer = id => {
-  // const listElement = document.getElementById("people");
-  // let clickedPlayer = arrOfPeople.splice(`${id} - 2`, 1);
-  // let arrPosition = parseInt(`${id}` - 2);
-  // console.log(arrPosition);
-  // listOfPlayers.push(clickedPlayer);
-  // console.log(clickedPlayer);
-  // listElement.removeChild(listElement.childNodes[arrPosition])
+  const listPeopleElement = document.getElementById("people");
+  const listPlayerElement = document.getElementById("players");
 
+  // Set the variable id to a number
   let numId = parseInt(`${id}`);
   // console.log(`numId: `, numId, Object.prototype.toString.call(numId));
 
-  // console.log(
-  //   `arrOfPeople[0].id: `,
-  //   arrOfPeople[0].id,
-  //   Object.prototype.toString.call(arrOfPeople[0].id)
-  // );
-
+  // Iterate through arrOfPeople and look for each object element key: id.
   for (let i = 0; i < arrOfPeople.length; i++) {
+    // If that id === above numId
     if (arrOfPeople[i].id === numId) {
+      // remove the object element that contains that id
       let splicedPerson = arrOfPeople.splice(i, 1);
+      // push the first element of the new array splicedPerson into listOfPlayers.
       listOfPlayers.push(splicedPerson[0]);
     }
   }
-  // console.log(`id ${id} was clicked!`);
+
+  listPeopleElement.innerHTML = "";
+
+  arrOfPeople.map(person => {
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    button.innerHTML = "Make Player";
+    button.addEventListener("click", function() {
+      makePlayer(person.id);
+    });
+    li.appendChild(button);
+    li.appendChild(
+      document.createTextNode(person.name + " - " + person.skillSet)
+    );
+    listPeopleElement.append(li);
+  });
+
+  listPlayerElement.innerHTML = "";
+
+  listOfPlayers.map(person => {
+    const redButton = document.createElement("button");
+    const blueButton = document.createElement("button");
+    const li = document.createElement("li");
+
+    redButton.innerHTML = "Red Team";
+    redButton.addEventListener("click", function() {
+      redTeam(person.id);
+    });
+    li.appendChild(redButton);
+    listPlayerElement.append(li);
+
+    blueButton.innerHTML = "Blue Team";
+    blueButton.addEventListener("click", function() {
+      blueTeam(person.id);
+    });
+    li.appendChild(blueButton);
+    li.appendChild(
+      document.createTextNode(`${person.name} - ${person.skillSet}`)
+    );
+  });
+
 
   console.log(`arrayOfPeople: `, arrOfPeople);
   console.log(`listOfPlayers: `, listOfPlayers);
