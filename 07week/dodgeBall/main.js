@@ -3,8 +3,7 @@
 
 // 20pts - Can add People to Players - When clicked the people are added to the Players column and removed from the People list while getting new values of a player added to them.
 
-// ABOVE - USE makePlayer() to get ID. let clickedPlayer = arrOfPeople.splice(i + 2, 1) THEN listOfPlayers.push(clickedPlayer). 
-
+// ABOVE - USE makePlayer() to get ID. let clickedPlayer = arrOfPeople.splice(i + 2, 1) THEN listOfPlayers.push(clickedPlayer).
 
 // 20pts - Can add Players to different Teams - When we click on the blue button the Player is added to the blue team and removed from the Player list while also getting the keys color and mascot extended to them when they are moved to a team.
 
@@ -109,14 +108,31 @@ const listPeopleChoices = () => {
 };
 
 const makePlayer = id => {
-  const listElement = document.getElementById("people");
-  let clickedPlayer = arrOfPeople.splice(`${id} - 2`, 1);
+  // const listElement = document.getElementById("people");
+  // let clickedPlayer = arrOfPeople.splice(`${id} - 2`, 1);
   // let arrPosition = parseInt(`${id}` - 2);
   // console.log(arrPosition);
   // listOfPlayers.push(clickedPlayer);
   // console.log(clickedPlayer);
   // listElement.removeChild(listElement.childNodes[arrPosition])
-  // console.log(`id ${id} was clicked!`); 
-};
 
-console.log(listOfPlayers);
+  let numId = parseInt(`${id}`);
+  // console.log(`numId: `, numId, Object.prototype.toString.call(numId));
+
+  // console.log(
+  //   `arrOfPeople[0].id: `,
+  //   arrOfPeople[0].id,
+  //   Object.prototype.toString.call(arrOfPeople[0].id)
+  // );
+
+  for (let i = 0; i < arrOfPeople.length; i++) {
+    if (arrOfPeople[i].id === numId) {
+      let splicedPerson = arrOfPeople.splice(i, 1);
+      listOfPlayers.push(splicedPerson[0]);
+    }
+  }
+  // console.log(`id ${id} was clicked!`);
+
+  console.log(`arrayOfPeople: `, arrOfPeople);
+  console.log(`listOfPlayers: `, listOfPlayers);
+};
