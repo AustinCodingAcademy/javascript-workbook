@@ -20,19 +20,16 @@ fetch('https://randomuser.me/api/?results=10')
       age.innerText = data.results[i].dob.age;
       const ageButton = document.createElement("button");
       ageButton.innerHTML = "Age";
-      ageButton.classList.add("button");
       const cell = document.createElement('li');
       cell.innerText = data.results[i].cell;
       const cellButton = document.createElement('button'); 
-      cellButton.innerHTML = 'cell';
+      cellButton.innerHTML = 'Cell Phone';
 
 
-   
-     
-     
-      
       document.body.appendChild(newDiv);
       document.body.appendChild(newPic);
+   
+      
       
       let name = document.getElementById('name')
       name.appendChild(newDiv);
@@ -50,11 +47,13 @@ fetch('https://randomuser.me/api/?results=10')
       cellButton.addEventListener('click', function(){
         cellDiv.appendChild(cell);
       })
+     
+     
       
       
      //change the age button to the data value 
     //  if (newButton is clicked){
-    //  newButton = newInfoDiv
+    // ageButton = ageDiv
     //     }
       
       
