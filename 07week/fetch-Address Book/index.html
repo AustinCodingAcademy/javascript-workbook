@@ -8,12 +8,15 @@
 <body>
   <h1>Address Book</h1>
 
-    <div class=wrapButton>
-    <button onclick="getUsers()">Display Users</button>
-    </div>
-
-    <main id="users"></main>
+  <button id="apiButton" onclick="getUsers()">Display Users</button>
   
+  <div id="main-container">
+    <div id="users">
+      <div id="more-info"></div>
+    </div>
+    
+  </div>  
+ 
+  <script src="./main.js"></script>
 </body>
-<script src="./main.js"></script>
 </html>
