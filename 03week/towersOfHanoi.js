@@ -20,8 +20,8 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+const jack = stacks.a.length;
+endStack = 
 }
 
 function isLegal() {
