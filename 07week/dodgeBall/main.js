@@ -95,11 +95,64 @@ class Player {
   }
 }
 
-class blueTeammate {
-  constructor() {}
+class blueTeammate extends Player {
+  constructor(
+    name,
+    age,
+    id,
+    skillSet,
+    placeBorn,
+    canThrowBall,
+    canDodgeBall,
+    hasPaid,
+    isHealthy,
+    yearsExperience
+  ) {
+    super(
+      name,
+      age,
+      id,
+      skillSet,
+      placeBorn,
+      canThrowBall,
+      canDodgeBall,
+      hasPaid,
+      isHealthy,
+      yearsExperience
+    );
+    this.mascot = "Dolphins";
+    this.color = "Blue";
+  }
 }
-class redTeammate {
-  constructor() {}
+
+class redTeammate extends Player {
+  constructor(
+    name,
+    age,
+    id,
+    skillSet,
+    placeBorn,
+    canThrowBall,
+    canDodgeBall,
+    hasPaid,
+    isHealthy,
+    yearsExperience
+  ) {
+    super(
+      name,
+      age,
+      id,
+      skillSet,
+      placeBorn,
+      canThrowBall,
+      canDodgeBall,
+      hasPaid,
+      isHealthy,
+      yearsExperience
+    );
+    this.mascot = "Devils";
+    this.color = "Fire Red";
+  }
 }
 
 const listPeopleChoices = () => {
@@ -133,17 +186,16 @@ const makePlayer = id => {
     if (arrOfPeople[i].id === numId) {
       // remove the object element that contains that id
       let splicedPerson = arrOfPeople.splice(i, 1);
-
-      let temp = new Player(splicedPerson[0])
-      listOfPlayers.push(temp)
-
-      // push the first element of the new array splicedPerson into listOfPlayers.
-      // listOfPlayers.push(splicedPerson[0]);
+      // Create temporary variable to hold instantiated Player while passing in current key/value pairs through the Player constructor.
+      let temp = new Player(splicedPerson[0]);
+      // Output the new Player with new key value pairs + old key value pairs into listOfPlayers Array
+      listOfPlayers.push(temp);
     }
   }
-
+  // Resets the <ul> in List of People to blank so that the below map prints with out duplicating the map from listPeopleChoices()
   listPeopleElement.innerHTML = "";
 
+  // Prints updated List of People on page
   arrOfPeople.map(person => {
     const li = document.createElement("li");
     const button = document.createElement("button");
@@ -158,8 +210,10 @@ const makePlayer = id => {
     listPeopleElement.append(li);
   });
 
+  // Clears printed Player List so no duplicates are made
   listPlayerElement.innerHTML = "";
 
+  // Prints update player list
   listOfPlayers.map(person => {
     const redButton = document.createElement("button");
     const blueButton = document.createElement("button");
