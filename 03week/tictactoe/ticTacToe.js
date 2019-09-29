@@ -2,7 +2,7 @@
 
 const assert = require("assert");
 const readline = require("readline");
-const rl = readline.createInterface({  //<heh???
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -11,7 +11,7 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 let playerTurn = "X";
 
 function printBoard() {
-  console.log("   0  1  2");//<have on clue
+  console.log("   0  1  2");
   console.log("0 " + board[0].join(" | "));//join board sub so input doesn't misalign rest
   console.log("  ---------");
   console.log("1 " + board[1].join(" | "));
@@ -168,7 +168,7 @@ function getPrompt() {
   });
 }
 
-// Tests
+
 
 if (typeof describe === "function") {
   describe("#ticTacToe()", () => {
