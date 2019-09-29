@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 function rockPaperScissors(hand1, hand2) {
-  if (hand1 == "rock" && hand2 == "rock") {
+  if (hand1 === hand2) {
     return "It's a tie!";
   } else if (hand1 == "rock" && hand2 == "paper") {
     return "Paper beats rock, hand 2 wins!";
@@ -35,6 +35,14 @@ function getPrompt() {
 }
 
 // Tests
+if (hand1 == 'sciss') {
+  return false;
+} else if (hand2 == 'pap') {
+  return false;
+} else if (hand1 == 'r') {
+  (hand1 === 'rock')
+}
+
 
 if (typeof describe === "function") {
   describe("#rockPaperScissors()", () => {
