@@ -217,14 +217,17 @@ const makePlayer = id => {
   listOfPlayers.map(person => {
     const blueButton = document.createElement("button");
     const redButton = document.createElement("button");
+    const removePlayerButton = document.createElement("button");
     const li = document.createElement("li");
 
+    // Blue Team Button Setup
     blueButton.innerHTML = "Blue Team";
     blueButton.addEventListener("click", function() {
       blueTeamPlayer(person.id);
     });
     li.appendChild(blueButton);
 
+    // Red Team Button Setup
     redButton.innerHTML = "Red Team";
     redButton.addEventListener("click", function() {
       redTeamPlayer(person.id);
@@ -233,10 +236,94 @@ const makePlayer = id => {
     listPlayerElement.append(li);
     li.appendChild(
       document.createTextNode(
-        ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall}`
+        ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall} `
       )
     );
+
+    // Remove From List Of Players Button Setup
+    removePlayerButton.innerHTML = " Remove";
+    removePlayerButton.addEventListener("click", function() {
+      removePlayerToPeople(person.id);
+    });
+    li.appendChild(removePlayerButton);
   });
+
+  const removePlayerToPeople = id => {
+    // Set the variable id to a number
+    let numId = parseInt(`${id}`);
+    // console.log(`numId: `, numId, Object.prototype.toString.call(numId));
+
+    // Iterate through listOfPlayers and look for each object element key: id.
+    for (let i = 0; i < listOfPlayers.length; i++) {
+      // If that id === above numId
+      if (listOfPlayers[i].id === numId) {
+        // remove the object element that contains that id
+        let splicedPerson = listOfPlayers.splice(i, 1);
+        // Create temporary variable to hold instantiated Player while passing in current key/value pairs through the teammate constructor.
+        // let temp = new blueTeammate(splicedPerson[0]);
+        // console.log(temp);
+        // Output the new Player with new key value pairs + old key value pairs into appropriate teammate Array
+        arrOfPeople.push(splicedPerson[0]);
+      }
+    }
+
+    // Clears printed Player List so no duplicates are made
+    listPlayerElement.innerHTML = "";
+
+    // Prints update player list
+    listOfPlayers.map(person => {
+      const listPlayerElement = document.getElementById("players");
+      const blueButton = document.createElement("button");
+      const redButton = document.createElement("button");
+      const removePlayerButton = document.createElement("button");
+      const li = document.createElement("li");
+
+      // Blue Team Button Setup
+      blueButton.innerHTML = "Blue Team";
+      blueButton.addEventListener("click", function() {
+        blueTeamPlayer(person.id);
+      });
+      li.appendChild(blueButton);
+
+      // Red Team Button Setup
+      redButton.innerHTML = "Red Team";
+      redButton.addEventListener("click", function() {
+        redTeamPlayer(person.id);
+      });
+      li.appendChild(redButton);
+      listPlayerElement.append(li);
+      li.appendChild(
+        document.createTextNode(
+          ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall} `
+        )
+      );
+
+      // Remove From List Of Players Button Setup
+      removePlayerButton.innerHTML = " Remove";
+      removePlayerButton.addEventListener("click", function() {
+        removePlayerToPeople(person.id);
+      });
+      li.appendChild(removePlayerButton);
+    });
+
+    // Updates map of Array of people on DOM.
+    const listElement = document.getElementById("people");
+    listElement.innerHTML = ''
+
+    arrOfPeople.map(person => {
+      const li = document.createElement("li");
+      const button = document.createElement("button");
+      button.innerHTML = "Make Player";
+      button.addEventListener("click", function() {
+        makePlayer(person.id);
+      });
+      li.appendChild(button);
+      li.appendChild(
+        document.createTextNode(person.name + " - " + person.skillSet)
+      );
+      listElement.append(li);
+    });
+  };
 
   const blueTeamPlayer = id => {
     const listPlayerElement = document.getElementById("players");
@@ -291,7 +378,7 @@ const makePlayer = id => {
       const removeBlueButton = document.createElement("button");
       const li = document.createElement("li");
 
-      removeBlueButton.innerHTML = "FIRE!";
+      removeBlueButton.innerHTML = "Remove!";
       removeBlueButton.addEventListener("click", function() {
         removeFromBlue(person.id);
       });
@@ -357,7 +444,7 @@ const makePlayer = id => {
       const removeRedButton = document.createElement("button");
       const li = document.createElement("li");
 
-      removeRedButton.innerHTML = "FIRE!";
+      removeRedButton.innerHTML = "Remove!";
       removeRedButton.addEventListener("click", function() {
         removeFromRed(person.id);
       });
@@ -424,7 +511,7 @@ const makePlayer = id => {
       const removeBlueButton = document.createElement("button");
       const li = document.createElement("li");
 
-      removeBlueButton.innerHTML = "FIRE!";
+      removeBlueButton.innerHTML = "Remove!";
       removeBlueButton.addEventListener("click", function() {
         removeFromBlue(person.id);
       });
@@ -491,7 +578,7 @@ const makePlayer = id => {
       const removeRedButton = document.createElement("button");
       const li = document.createElement("li");
 
-      removeRedButton.innerHTML = "FIRE!";
+      removeRedButton.innerHTML = "Remove!";
       removeRedButton.addEventListener("click", function() {
         removeFromRed(person.id);
       });
