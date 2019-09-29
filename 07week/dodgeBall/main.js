@@ -192,7 +192,7 @@ const makePlayer = id => {
       listOfPlayers.push(temp);
     }
   }
-  // Resets the <ul> in List of People to blank so that the below map prints with out duplicating the map from listPeopleChoices()
+  // Resets the <ul> in List of People to blank so that the following map prints with out duplicating the map from listPeopleChoices()
   listPeopleElement.innerHTML = "";
 
   // Prints updated List of People on page
@@ -215,27 +215,72 @@ const makePlayer = id => {
 
   // Prints update player list
   listOfPlayers.map(person => {
-    const redButton = document.createElement("button");
     const blueButton = document.createElement("button");
+    const redButton = document.createElement("button");
     const li = document.createElement("li");
 
-    redButton.innerHTML = "Red Team";
-    redButton.addEventListener("click", function() {
-      redTeam(person.id);
-    });
-    li.appendChild(redButton);
-    listPlayerElement.append(li);
+    const blueButtonPackage = () => {
+      blueButton.innerHTML = "Blue Team";
+      blueButton.addEventListener("click", function() {
+        blueTeamPlayer(person.id);
+      });
+      li.appendChild(blueButton);
+    };
 
-    blueButton.innerHTML = "Blue Team";
-    blueButton.addEventListener("click", function() {
-      blueTeam(person.id);
-    });
-    li.appendChild(blueButton);
-    li.appendChild(
-      document.createTextNode(`${person.name} - ${person.skillSet}`)
-    );
+    blueButtonPackage();
+
+    const redButtonPackage = () => {
+      redButton.innerHTML = "Red Team";
+      redButton.addEventListener("click", function() {
+        redTeamPlayer(person.id);
+      });
+      li.appendChild(redButton);
+      listPlayerElement.append(li);
+      li.appendChild(
+        document.createTextNode(
+          ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall}`
+        )
+      );
+    };
+
+    redButtonPackage();
   });
+
+  const blueTeamPlayer = id => {
+    const listPlayerElement = document.getElementById("players");
+    const redTeamElement = document.getElementById("blue");
+
+    // Set the variable id to a number
+    let numId = parseInt(`${id}`);
+    // console.log(`numId: `, numId, Object.prototype.toString.call(numId));
+
+    // Iterate through listOfPlayers and look for each object element key: id.
+    for (let i = 0; i < listOfPlayers.length; i++) {
+      // If that id === above numId
+      if (listOfPlayers[i].id === numId) {
+        // remove the object element that contains that id
+        let splicedPerson = listOfPlayers.splice(i, 1);
+        // Create temporary variable to hold instantiated Player while passing in current key/value pairs through the teammate constructor.
+        let temp = new blueTeammate(splicedPerson[0]);
+        console.log(temp);
+        // Output the new Player with new key value pairs + old key value pairs into appropriate teammate Array
+        blueTeam.push(temp);
+      }
+    }
+
+    listPlayerElement.innerHTML = "";
+
+    listOfPlayers.map(person => {
+      const blueButton = document.createElement("button");
+      const redButton = document.createElement("button");
+      const li = document.createElement("li");
+
+      blueButtonPackage(blueButton, li);
+      redButtonPackage(redButton, li);
+    });
+  };
 
   console.log(`arrayOfPeople: `, arrOfPeople);
   console.log(`listOfPlayers: `, listOfPlayers);
+  console.log(`blueTeam array: `, blueTeam);
 };
