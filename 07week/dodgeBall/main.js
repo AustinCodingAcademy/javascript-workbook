@@ -308,7 +308,7 @@ const makePlayer = id => {
 
     // Updates map of Array of people on DOM.
     const listElement = document.getElementById("people");
-    listElement.innerHTML = ''
+    listElement.innerHTML = "";
 
     arrOfPeople.map(person => {
       const li = document.createElement("li");
@@ -352,6 +352,7 @@ const makePlayer = id => {
     listOfPlayers.map(person => {
       const blueButton = document.createElement("button");
       const redButton = document.createElement("button");
+      const removePlayerButton = document.createElement("button");
       const li = document.createElement("li");
 
       blueButton.innerHTML = "Blue Team";
@@ -371,6 +372,12 @@ const makePlayer = id => {
           ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall}`
         )
       );
+      // Remove From List Of Players Button Setup
+      removePlayerButton.innerHTML = " Remove";
+      removePlayerButton.addEventListener("click", function() {
+        removePlayerToPeople(person.id);
+      });
+      li.appendChild(removePlayerButton);
     });
 
     blueTeamElement.innerHTML = "";
@@ -418,6 +425,7 @@ const makePlayer = id => {
     listOfPlayers.map(person => {
       const blueButton = document.createElement("button");
       const redButton = document.createElement("button");
+      const removePlayerButton = document.createElement("button");
       const li = document.createElement("li");
 
       blueButton.innerHTML = "Blue Team";
@@ -437,6 +445,12 @@ const makePlayer = id => {
           ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall}`
         )
       );
+      // Remove From List Of Players Button Setup
+      removePlayerButton.innerHTML = " Remove";
+      removePlayerButton.addEventListener("click", function() {
+        removePlayerToPeople(person.id);
+      });
+      li.appendChild(removePlayerButton);
     });
 
     redTeamElement.innerHTML = "";
@@ -484,6 +498,7 @@ const makePlayer = id => {
     listOfPlayers.map(person => {
       const blueButton = document.createElement("button");
       const redButton = document.createElement("button");
+      const removePlayerButton = document.createElement("button");
       const li = document.createElement("li");
 
       blueButton.innerHTML = "Blue Team";
@@ -503,6 +518,12 @@ const makePlayer = id => {
           ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall}`
         )
       );
+      // Remove From List Of Players Button Setup
+      removePlayerButton.innerHTML = " Remove";
+      removePlayerButton.addEventListener("click", function() {
+        removePlayerToPeople(person.id);
+      });
+      li.appendChild(removePlayerButton);
     });
 
     blueTeamElement.innerHTML = "";
@@ -551,6 +572,7 @@ const makePlayer = id => {
     listOfPlayers.map(person => {
       const blueButton = document.createElement("button");
       const redButton = document.createElement("button");
+      const removePlayerButton = document.createElement("button");
       const li = document.createElement("li");
 
       blueButton.innerHTML = "Blue Team";
@@ -570,6 +592,12 @@ const makePlayer = id => {
           ` Name: ${person.name} | Can Dodge: ${person.canDodgeBall}`
         )
       );
+      // Remove From List Of Players Button Setup
+      removePlayerButton.innerHTML = " Remove";
+      removePlayerButton.addEventListener("click", function() {
+        removePlayerToPeople(person.id);
+      });
+      li.appendChild(removePlayerButton);
     });
 
     redTeamElement.innerHTML = "";
