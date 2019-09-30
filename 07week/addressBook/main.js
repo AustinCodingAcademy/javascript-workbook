@@ -29,7 +29,7 @@ const displayUsers = () => {
       `${userObj.results[i].name.first} ${userObj.results[i].name.last}`
     );
     const moreText = document.createTextNode(
-      `DOB: ${userObj.results[i].dob.date} || Phone: ${userObj.results[i].phone}`
+      `${userObj.results[i].name.first} was born: ${userObj.results[i].dob.date} || Their Phone is: ${userObj.results[i].phone}`
     );
 
     // Placing new paragram into #name div
@@ -53,6 +53,7 @@ const displayUsers = () => {
     buttonPlace.appendChild(newButton);
 
     newButton.addEventListener("click", function() {
+      newInfoDiv.innerHTML = "";
       newInfoDiv.appendChild(moreText);
       console.log("hi");
     });
