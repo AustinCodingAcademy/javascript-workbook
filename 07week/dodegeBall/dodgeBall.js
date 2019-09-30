@@ -55,7 +55,12 @@ const blueTeam = []
 const redTeam = []
 
 class player {
-  constructor(canThrowBall,canDodgeBall,hasPaid,isHealthy,yearsExperience){
+  constructor(player){
+    this.id = id;
+    this.name = name;
+    this.age = age;
+    this.skillSet = skillSet;
+    this.placeBorn = placeBorn;
     this.canThrowBall = canThrowBall;
     this.canDodgeBall = canDodgeBall;
     this.hasPaid = hasPaid;
@@ -64,17 +69,18 @@ class player {
 
   }
 }
+
 class blueTeammate extends player{
   constructor(canThrowBall,canDodgeBall,hasPaid,isHealthy,yearsExperience,mascot,teamColor){
     super(canThrowBall,canDodgeBall,hasPaid,isHealthy,yearsExperience);
-    this.mascot = mascot;
+    this.mascot = BlueDevils;
     this.teamColor = teamColor;
   }
 }
 class redTeammate extends player{
   constructor(canThrowBall,canDodgeBall,hasPaid,isHealthy,yearsExperience,mascot,teamColor){
     super(canThrowBall,canDodgeBall,hasPaid,isHealthy,yearsExperience);
-    this.mascot = mascot;
+    this.mascot = RedRaiders;
     this.teamColor = teamColor;
 }
 }
@@ -84,14 +90,60 @@ const listPeopleChoices = () => {
   arrOfPeople.map(person => {
     const li = document.createElement("li")
     const button = document.createElement("button")
+    button.setAttribute('id','remove')
     button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(person.id)} )
+    button.addEventListener('click', function() {makePlayer(person.name)}, {once:true})
     li.appendChild(button)
     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
     listElement.append(li)
   })
 }
+//pass person.name through player
+const makePlayer = (player) => {
+  console.log(`li ${player} was clicked!`)
+  
+  //set variables to html elements
+  const players = document.querySelector('#players')
+  const redRaiders = document.createElement('button')
+  redRaiders.innerHTML = 'Red Raiders'
+  redRaiders.setAttribute('id','removeRaider')
+  const blueDevils = document.createElement('button')
+  blueDevils.innerHTML = 'Blue Devils'
+  blueDevils.setAttribute('id','removeBlue')
+  redRaiders.addEventListener('click', function() {addToRaiders(player)});
+  blueDevils.addEventListener('click',function() {addToBlueD(player)});
+  //append buttons to players ul
+  players.appendChild(redRaiders)
+  players.appendChild(blueDevils)
 
-const makePlayer = (id,name,age,skillSet,placeBorn) => {
-  console.log(`li ${id} was clicked!`)
-}
+  }
+  //removes blue and red team buttons after click
+  function removeButts(){
+    removeRaider.remove()
+    removeBlue.remove()
+    
+  }
+
+  const addToRaiders = player =>{
+  
+    redTeam.push(player);
+    var redPlayer = document.querySelector('#red');
+    const li2 = document.createElement('li')
+    li2.appendChild(document.createTextNode(player));
+    redPlayer.appendChild(li2);
+    removeButts();
+
+    
+
+  }
+
+  const addToBlueD = player =>{
+    //grab blue id element
+    blueTeam.push(player);
+    var bluePlayer = document.querySelector('#blue');
+    const li3 = document.createElement('li');
+    li3.appendChild(document.createTextNode(player));
+    bluePlayer.appendChild(li3);
+    removeButts();
+    
+  }
