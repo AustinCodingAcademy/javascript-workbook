@@ -62,11 +62,11 @@ class player {
   this.age = age;
   this.skillSet = skillSet;
   this.placeBorn = placeBorn;
-  this.canThrowBall = canThrowBall;
-  this.canDodgeBall = canDodgeBall;
-  this.hasPaid = hasPaid;
-  this.isHealthy = isHealthy;
-  this.yearsExperience = yearsExperience;
+  this.canThrowBall = true;
+  this.canDodgeBall = true;
+  this.hasPaid = true;
+  this.isHealthy = true;
+  this.yearsExperience = Math.floor(Math.random() * 10);
   }
 }
 class blueTeammate {
@@ -112,7 +112,12 @@ const makePlayer = (id) => {
     findPlayer.name,
     findPlayer.age,
     findPlayer.skillSet,
-    findPlayer.placeBorn
+    findPlayer.placeBorn,
+    findPlayer.canDodgeBall,
+    findPlayer.canThrowBall,
+    findPlayer.hasPaid,
+    findPlayer.isHealthy,
+    findPlayer.yearsExperience
     );
   console.log(newPlayer)
   listOfPlayers.push(newPlayer)//add new player to list of players
@@ -124,6 +129,7 @@ const makePlayer = (id) => {
   redButton.style.background = "red"
   redButton.addEventListener('click', function() {
     addToRedTeam(newPlayer)
+    listPlayers.removeChild(li)
   })
 
   const blueButton = document.createElement("button")
@@ -131,6 +137,7 @@ const makePlayer = (id) => {
   blueButton.style.background = "blue"
   blueButton.addEventListener('click', function() {
     addToBlueTeam(newPlayer)
+    listPlayers.removeChild(li)
   })
 
   li.appendChild(redButton)
@@ -138,3 +145,51 @@ const makePlayer = (id) => {
   li.appendChild(document.createTextNode(newPlayer.name))
   listPlayers.append(li)
 }
+
+function addToRedTeam(newPlayer) {
+redTeam.push(newPlayer)//add new player to list of players
+
+let indexOfPlayer = listOfPlayers.indexOf(newPlayer)//find index of player
+listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
+
+let listElement = document.getElementById('red')
+listElement.innerHTML = null;
+
+redTeam.map(player => {
+  const li = document.createElement("li")
+  const button = document.createElement("button")
+  button.innerHTML = "Red Team"
+  button.style.background = "red"
+  button.addEventListener('click', function() {
+    makePlayer(player.id);
+    listElement.removeChild(li)
+  })
+  li.appendChild(button)
+  li.appendChild(document.createTextNode(player.name + " - " + player.skillSet))
+  listElement.append(li)
+})
+}
+
+function addToBlueTeam(newPlayer) {
+  blueTeam.push(newPlayer)//add new player to list of players
+  
+  let indexOfPlayer = listOfPlayers.indexOf(newPlayer)//find index of player
+  listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
+  
+  let listElement = document.getElementById('blue')
+  listElement.innerHTML = null;
+
+  blueTeam.map(player => {
+    const li = document.createElement("li")
+    const button = document.createElement("button")
+    button.innerHTML = "Blue Team"
+    button.style.background = "blue"
+    button.addEventListener('click', function() {
+      makePlayer(player.id);
+      listElement.removeChild(li)
+    })
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(player.name + " - " + player.skillSet))
+    listElement.append(li)
+  })
+  }
