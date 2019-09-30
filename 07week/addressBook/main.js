@@ -28,8 +28,13 @@ const displayUsers = () => {
     const text = document.createTextNode(
       `${userObj.results[i].name.first} ${userObj.results[i].name.last}`
     );
+
+    // Crop date to a more legible format
+    let isoDate = userObj.results[i].dob.date
+    let newDate = isoDate.substring(0, 10);
+    
     const moreText = document.createTextNode(
-      `${userObj.results[i].name.first} was born: ${userObj.results[i].dob.date} || Their Phone is: ${userObj.results[i].phone}`
+      `${userObj.results[i].name.first} was born: ${newDate} || Their Phone is: ${userObj.results[i].phone}`
     );
 
     // Placing new paragram into #name div
