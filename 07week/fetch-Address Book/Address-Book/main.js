@@ -13,6 +13,7 @@ function getUsers() {
   fetch('https://randomuser.me/api/?results=10')
     .then(res => res.json())
     .then(data => {
+      console.log(data.results)
       //map through array of users and push users into array
       data.results.map(user => {
         arrayOfUsers.push(user)
