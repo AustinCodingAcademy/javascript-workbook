@@ -1,16 +1,24 @@
 "use strict"
+
+window.onload = function() {
+  getUsers();
+};
+
 console.log("hello")
 
-document.getElementById('apiButton').addEventListener('onclick', getUsers);
-document.getElementById('infoButton').addEventListener('onclick', displayInfo);
+// document.getElementById('apiButton').addEventListener('onclick', getUsers);
 
-let arrayOfUsers;
+let arrayOfUsers = [];
 
 function getUsers() {
   fetch('https://randomuser.me/api/?results=10')
     .then(res => res.json())
     .then(data => {
       console.log(data.results)
+
+      data.results.map(user => {
+        arrayOfUsers.push(user)
+      })
 
       let output = "<h2>Contacts</h2>";
       data.results.forEach(function(results){
@@ -23,11 +31,14 @@ function getUsers() {
         `
       })
       document.getElementById("users").innerHTML=output
+      document.getElementById('infoButton').addEventListener('onclick', displayInfo);
       })
 };
 
+
+
 function displayInfo() {
-  fetch('https://randomuser.me/api/?results=3')
+  fetch('https://randomuser.me/api/?results=10')
   .then(res => res.json())
   .then(data => {
     console.log(data.results)
