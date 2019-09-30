@@ -10,15 +10,26 @@ window.onload = function() {
 // this function is going to make a fetch request to the url inside it's parameter brackets (). Then it will turn the response (data it's getting back), saved here as res. The res.json will not be saved as posts and saved into the variable, arrayOfPosts
 const getPosts = () => {
   fetch("http://jsonplaceholder.typicode.com/posts")
-    .then(res => res.json())
-    .then(posts => (arrayOfPosts = posts));
+    .then(res => {
+      if (!res.ok) {
+        throw Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then(posts => (arrayOfPosts = posts))
+    .catch(err => console.log(`Error, ${err}`));
 };
 
 // Fetch Comments
 const getComments = () => {
   fetch("http://jsonplaceholder.typicode.com/comments")
-    .then(res => res.json())
-    .then(comments => (arrayOfComments = comments));
+    .then(res => {
+      if(!res.ok) {
+        throw Error(res.statusText);
+      } return res.json()
+    })
+    .then(comments => (arrayOfComments = comments))
+    .catch(err => console.log(`Error, ${err}`));
 };
 
 // Update a post with PUT
@@ -34,8 +45,13 @@ fetch("https://jsonplaceholder.typicode.com/posts/1", {
     "Content-type": "application/json; charset=UTF-8"
   }
 })
-  .then(res => res.json())
-  .then(json => console.log(json));
+  .then(res => {
+    if(!res.ok) {
+      throw Error(res.statusText)
+    } return res.json()
+  })
+    .then(json => console.log(json, `hi`))
+    .catch(err => console.log(`Error, ${err}`));
 
 // this function logs the results in your browsers console
 const consolePosts = () => {
