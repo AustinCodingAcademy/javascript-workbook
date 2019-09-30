@@ -32,7 +32,7 @@ const displayUsers = () => {
     // Crop date to a more legible format
     let isoDate = userObj.results[i].dob.date
     let newDate = isoDate.substring(0, 10);
-    
+
     const moreText = document.createTextNode(
       `${userObj.results[i].name.first} was born: ${newDate} || Their Phone is: ${userObj.results[i].phone}`
     );
@@ -45,8 +45,10 @@ const displayUsers = () => {
 
     // Make Image Place and Append
     let imgDiv = document.getElementById("img");
+    
     let newImg = document.createElement("IMG");
     newImg.src = userObj.results[i].picture.large;
+
     imgDiv.append(newImg);
 
     // Make Buttons
