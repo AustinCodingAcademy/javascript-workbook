@@ -1,42 +1,78 @@
-.backdrop {
-  display: none;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  background: white;
-  padding: 10px;
-  width: 260px;
-  top: 100px;
-  left: calc(50% - 140px);
-  z-index: 1;    
-}
-
-.modal h1 {
+* {
   margin: 0;
-}
-
-.modal button {
-  background: #fa923f;
-  color: white;
-  border: 1px solid #521751;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
   font: inherit;
-  font-size: 12px;
-  cursor: pointer;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
 
-.modal button:hover,
-.modal button:active {
-  background: #521751;
+
+#person { 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ 
 }
 
-.modal button:focus {
-  outline: none;
+#cell{
+  border: 1px solid black;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+#age{
+  border: 1px solid black;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+.box {
+  width: 90vw;
+  height: 60vh;
+  margin: 0px auto;
+  margin-top: 10%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#ageButton {
+  border: 1px solid black;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+#cellButton{
+  border: 1px solid black;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+#name {
+  border: 1px solid black;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#img {
+  border: 1px solid black;
+  width: 95vw;
+  display: flex;
+  justify-content: space-around;
 }

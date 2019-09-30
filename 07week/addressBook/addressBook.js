@@ -8,69 +8,73 @@ fetch('https://randomuser.me/api/?results=10')
   })
   .then(data => {
     // Work with JSON data here
-    console.log(data);
-    console.log(data.results[0].name.first);
-    console.log(data.results[0].picture.thumbnail)
-    console.log(data.results);
+   
     var i;
     for(i = 0; i < data.results.length; i++ ){
      
-      var newDiv = document.createElement('li');
-      newDiv.id = i;
+      var newDiv = document.createElement('div');
       newDiv.innerText = data.results[i].name.first;
       var newPic = document.createElement('img');
-      newPic.id = i;
-      newPic.src = data.results[i].picture.thumbnail;
-      var newButton = document.createElement('button');
-      newButton.id = i;
-      newButton.innerText = 'click for more info'
-      newButton.addEventListener('click',openModal)
-      newButton.src = data.results[i] //NOT WORKING
- 
-     
-      
-      
+      newPic.src = data.results[i].picture.medium;
+      const age = document.createElement('li');
+      age.innerText = data.results[i].dob.age;
+      const ageButton = document.createElement("button");
+      ageButton.innerHTML = "Age";
+      const cell = document.createElement('li');
+      cell.innerText = data.results[i].cell;
+      const cellButton = document.createElement('button'); 
+      cellButton.innerHTML = 'Cell Phone';
+
+
       document.body.appendChild(newDiv);
       document.body.appendChild(newPic);
-      document.body.appendChild(newButton);
-      
-      
-      
-      function openModal() {
-        newButton.src = data.results[i]
-        authors.style.display = 'block';
-        modal.style.display = 'block';
-    }
-
-
-    }
    
+      
+      
+      let name = document.getElementById('name')
+      name.appendChild(newDiv);
+      let pic = document.getElementById('img')
+      pic.appendChild(newPic)
+      let ageDiv = document.getElementById("age");
+      let buttonPlace = document.getElementById("ageButton");
+      buttonPlace.appendChild(ageButton);
+      let cellDiv = document.getElementById('cell')
+      let buttonPlace1 = document.getElementById('cellButton')
+      buttonPlace1.appendChild(cellButton)
+      ageButton.addEventListener("click",()=> {
+      ageDiv.appendChild(age);
+      });
+      cellButton.addEventListener('click',()=> {
+        cellDiv.appendChild(cell);
+      })
+     
+     
+    }
     
-}
-    
-  )
-
-  .then(results => {
-
   })
+  
+  .then(results => {
+    
+  })
+  // Do something for an error here
   .catch(err => {
     console.log(err)
     console.log('err')
-    // Do something for an error here
   })
+      
+      
+     //change the age button to the data value 
+    //  if (newButton is clicked){
+    // ageButton = ageDiv
+    //     }
+      
+      
+      
+      
+      
+      
+  
+        
 
-// function getInfo(){
-// document.getElementById("button").innerText = dataName;
-// }
-
-
-// var modal = document.querySelectorAll('.modal')
-// function openModal(){
-// backdrop.style.display = 'block'
-// modal.style.display = 'block'
-// }
-
-// button.onclick = openModal()
-    // document.getElementsByTagName('button').addEventListener('click',newInfo
-
-    // })
+        
+    
