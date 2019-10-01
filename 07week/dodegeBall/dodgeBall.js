@@ -106,9 +106,11 @@ const makePlayer = (player) => {
   const players = document.querySelector('#players')
   const redRaiders = document.createElement('button')
   redRaiders.innerHTML = 'Red Raiders'
+  //gives the redRaiders button an id so it can be manipulated in the removeButts function
   redRaiders.setAttribute('id','removeRaider')
   const blueDevils = document.createElement('button')
   blueDevils.innerHTML = 'Blue Devils'
+  //gives the blueDevils button an id so it can be manipulated in the removeButts function
   blueDevils.setAttribute('id','removeBlue')
   redRaiders.addEventListener('click', function() {addToRaiders(player)});
   blueDevils.addEventListener('click',function() {addToBlueD(player)});
@@ -125,7 +127,7 @@ const makePlayer = (player) => {
   }
 
   const addToRaiders = player =>{
-  
+    //pushes the player argument to the empty redTeam array
     redTeam.push(player);
     var redPlayer = document.querySelector('#red');
     const li2 = document.createElement('li')
@@ -138,8 +140,9 @@ const makePlayer = (player) => {
   }
 
   const addToBlueD = player =>{
-    //grab blue id element
+    //pushes the player argument to the empty blueTeam array
     blueTeam.push(player);
+    //grab blue id element
     var bluePlayer = document.querySelector('#blue');
     const li3 = document.createElement('li');
     li3.appendChild(document.createTextNode(player));
