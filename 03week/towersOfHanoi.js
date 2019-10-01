@@ -18,22 +18,29 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+//remove last array umber of start stack and push to end stack
 function movePiece() {
-const jack = stacks.a.length;
-endStack = 
+  var x = Object.keys(stacks[startStack.pop]);
+  endStack.push(x);
 }
 
+//if last number of start stack is equal to or less than last number in end stack, it's legal
 function isLegal() {
-  // Your code here
+  if (endStack[endStack.pop] <= startStack[startStack.pop]) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
-
+//if number was moved to a stack and that now has four numbers in array, player wins
 function checkForWin() {
-  // Your code here
+  if (endStack.length == 4) {
+    console.log("you win");
+  }
 
 }
-
+//not sure what this is
 function towersOfHanoi(startStack, endStack) {
   // Your code here
 
