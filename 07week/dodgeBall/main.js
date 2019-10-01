@@ -453,8 +453,8 @@ const makePlayer = id => {
   // Removes Player from Red & Update Blue Team list and Play List
   removeFromRed();
 
-  console.log(`arrayOfPeople: `, arrOfPeople);
-  console.log(`listOfPlayers: `, listOfPlayers);
-  console.log(`blueTeam array: `, blueTeam);
-  console.log(`redTeam array: `, redTeam);
+  // console.log(`arrayOfPeople: `, arrOfPeople);
+  // console.log(`listOfPlayers: `, listOfPlayers);
+  // console.log(`blueTeam array: `, blueTeam);
+  // console.log(`redTeam array: `, redTeam);
 };
