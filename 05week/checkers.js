@@ -1,5 +1,7 @@
 'use strict';
 
+var colors = require('colors');
+// Initial commit 
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -8,13 +10,19 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker {
+  
 }
+
+
 
 class Board {
   constructor() {
     this.grid = []
+    this.checkers = [];
+    this.redPiece = 'R';
+    this.blackPiece = 'B';
+    this.playerTurn = this.blackPiece;
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -38,7 +46,8 @@ class Board {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          // rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfCheckers.push(this.grid[row][column])
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -51,9 +60,78 @@ class Board {
     }
     console.log(string);
   }
+  initializeGrid() {
+    for(let row1 = 0; row1 < 3; row1 ++) {
+      for(let col1 = 0; col1 < 8; col1 ++) {
+        if(col1 % 2 === 1 && row1 % 2 === 0) {
+          this.grid[row1][col1] = this.redPiece;
+          this.checkers.push(this.redPiece);
+        }
+        else if(col1 % 2 === 0 && row1 % 2 === 1) {
+          this.grid[row1][col1] = this.redPiece;
+          this.checkers.push(this.redPiece);
+        }
+      } 
+    }
+    for(let row2 = 5; row2 < 8; row2 ++) {
+      for(let col2 = 0; col2 < 8; col2 ++) {
+        if(col2 % 2 === 1 && row2 % 2 === 0) {
+          this.grid[row2][col2] = this.blackPiece;
+          this.checkers.push(this.redPiece);
+        }
+        else if(col2 % 2 === 0 && row2 % 2 === 1) {
+          this.grid[row2][col2] = this.blackPiece;
+          this.checkers.push(this.blackPiece);
+        }
+      }
+    }
+  }
 
-  // Your code here
+  selectChecker() {
+
+  }
+
+ 
+
+  // isValidInput(whichPiece, toWhere) {
+  //   let start = whichPiece.split('');
+  //   let end = toWhere.split('');
+  //   let startX = start[0];
+  //   let startY = start[1];
+  //   let endX = end[0];
+  //   let endY = end[1];
+
+  //   const is07 = () => {
+  //     if (startX <= 7 && startX >= 0 && startY <= 7 && startY >= 0) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  
+  //   const isOdd = () => {
+  //     if (startX + startY && endX + endY % 2 !== 0) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+
+  //   const isEmpty = () => {
+  //     if (this.board.grid[endX][endY] === null) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  //   if (is07 && isOdd && isEmpty) {
+  //     return true;
+  //   }
+  // }
+
 }
+
+
 
 class Game {
   constructor() {
@@ -61,11 +139,70 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.initializeGrid();
+
   }
+
+  isValidInput(whichPiece, toWhere) {
+    let start = whichPiece.split('');
+    let end = toWhere.split('');
+    let startX = start[0];
+    let startY = start[1];
+    let endX = end[0];
+    let endY = end[1];
+
+    const is07 = () => {
+      if (startX <= 7 && startX >= 0 && startY <= 7 && startY >= 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  
+    const isOdd = () => {
+      if (startX + startY && endX + endY % 2 !== 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    const isEmpty = () => {
+      if (this.board.grid[endX][endY] === null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    if (is07 && isOdd && isEmpty) {
+      return true;
+    }
+  }
+  
+  moveChecker(whichPiece, toWhere) {
+    // Splitting the string whichPiece and toWhere into an array
+    this.board.grid[whichPiece[0]][whichPience[1]] = null;
+    this.board.grid[toWhere[0]][toWhere[1]] = playerTurn;
+    switchPlayer();
+    
+
+  }
+  
 }
 
 
+// Do not modify this
+function getPrompt() {
+  game.board.viewGrid();
+  rl.question('which piece?: ', (whichPiece) => {
+    rl.question('to where?: ', (toWhere) => {
+      game.moveChecker(whichPiece, toWhere);
+      getPrompt();
+    });
+  });
+}
 
+// Runs first
 const game = new Game();
 game.start();
 
