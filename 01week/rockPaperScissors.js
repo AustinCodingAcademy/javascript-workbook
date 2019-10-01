@@ -34,7 +34,7 @@ function getPrompt() {
   });
 }
 
-// Tests
+
 if (hand1 == 'sciss') {
   return false;
 } else if (hand2 == 'pap') {
