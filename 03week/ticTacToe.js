@@ -71,7 +71,7 @@ function checkForWin() {
     return true;
   }
 }
-
+//done
 function ticTacToe(row, column) {
   if (checkForWin()) {
     board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
