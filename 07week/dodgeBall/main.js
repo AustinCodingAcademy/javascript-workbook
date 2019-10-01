@@ -162,6 +162,7 @@ const listPeopleChoices = () => {
     const li = document.createElement("li");
     const button = document.createElement("button");
     button.innerHTML = "Make Player";
+    button.classList.add("personButton")
     button.addEventListener("click", function() {
       makePlayer(person.id);
     });
@@ -188,6 +189,7 @@ const playerOptions = () => {
 
     // Blue Team Button Setup
     blueButton.innerHTML = "Blue Team";
+    blueButton.classList.add('blueButton')
     blueButton.addEventListener("click", function() {
       blueTeamPlayer(person.id);
     });
@@ -195,6 +197,7 @@ const playerOptions = () => {
 
     // Red Team Button Setup
     redButton.innerHTML = "Red Team";
+    redButton.classList.add("redButton")
     redButton.addEventListener("click", function() {
       redTeamPlayer(person.id);
     });
@@ -208,6 +211,7 @@ const playerOptions = () => {
 
     // Remove From List Of Players Button Setup
     removePlayerButton.innerHTML = " Remove";
+    removePlayerButton.classList.add("removePlayerButton")
     removePlayerButton.addEventListener("click", function() {
       removePlayerToPeople(person.id);
     });
@@ -272,6 +276,7 @@ const blueTeamPlayer = id => {
     const li = document.createElement("li");
 
     removeBlueButton.innerHTML = "Remove!";
+    removeBlueButton.classList.add("removePlayerButton")
     removeBlueButton.addEventListener("click", function() {
       removeFromBlue(person.id);
     });
@@ -316,6 +321,7 @@ const removeFromBlue = id => {
     const li = document.createElement("li");
 
     removeBlueButton.innerHTML = "Remove!";
+    removeBlueButton.classList.add("removePlayerButton")
     removeBlueButton.addEventListener("click", function() {
       removeFromBlue(person.id);
     });
@@ -359,6 +365,7 @@ const redTeamPlayer = id => {
     const li = document.createElement("li");
 
     removeRedButton.innerHTML = "Remove!";
+    removeRedButton.classList.add("removePlayerButton")
     removeRedButton.addEventListener("click", function() {
       removeFromRed(person.id);
     });
@@ -404,6 +411,7 @@ const removeFromRed = id => {
     const li = document.createElement("li");
 
     removeRedButton.innerHTML = "Remove!";
+    removeRedButton.classList.add("removePlayerButton")
     removeRedButton.addEventListener("click", function() {
       removeFromRed(person.id);
     });
