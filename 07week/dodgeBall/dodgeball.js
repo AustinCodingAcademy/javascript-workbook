@@ -3,49 +3,49 @@ const arrOfPeople = [
     id: 1,
     name: "Charles Young",
     age: 55,
-    skillSet: "welding",
+    skillSet: "Welding",
     placeBorn: "Omaha, Nebraska"
   },
   {
     id: 2,
     name: "Judy Twilight",
     age: 35,
-    skillSet: "fishing",
+    skillSet: "Fishing",
     placeBorn: "Louisville, Kentucky"
   },
   {
     id: 3,
     name: "Cynthia Doolittle",
     age: 20,
-    skillSet: "tic tac toe",
+    skillSet: "Tic-Tac-Toe",
     placeBorn: "Pawnee, Texas"
   },
   {
     id: 4,
     name: "John Willouby",
     age: 28,
-    skillSet: "pipe fitting",
+    skillSet: "Pipe Fitting",
     placeBorn: "New York, New York"
   },
   {
     id: 5,
     name: "Stan Honest",
     age: 20,
-    skillSet: "boom-a-rang throwing",
+    skillSet: "Boom-a-Rang Throwing",
     placeBorn: "Perth, Australia"
   },
   {
     id: 6,
     name: "Mia Watu",
     age: 17,
-    skillSet: "acrobatics",
+    skillSet: "Acrobatics",
     placeBorn: "Los Angeles, California"
   },
   {
     id: 7,
     name: "Walter Cole",
     age: 32,
-    skillSet: "jump rope",
+    skillSet: "Jump Rope",
     placeBorn: "New Orleans, Louisiana"
   },
 ]
@@ -56,27 +56,29 @@ const blueTeam = []
 const redTeam = []
 
 class player {
-  constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
+  constructor(id, name, age, skillSet, placeBorn){
   this.id = id;
   this.name = name;
   this.age = age;
   this.skillSet = skillSet;
   this.placeBorn = placeBorn;
-  this.canThrowBall = true;
-  this.canDodgeBall = true;
-  this.hasPaid = true;
-  this.isHealthy = true;
-  this.yearsExperience = Math.floor(Math.random() * 10);
+  // this.canThrowBall = true;
+  // this.canDodgeBall = true;
+  // this.hasPaid = true;
+  // this.isHealthy = true;
+  // this.yearsExperience = Math.floor(Math.random() * 10);
   }
 }
-class blueTeammate {
-  constructor(color, mascot){
+class blueTeammate extends player{
+  constructor(color, mascot, id, name, age, skillSet, placeBorn){
+    super(id, name, age, skillSet, placeBorn);
     this.color = color;
     this.mascot = mascot;
   }
 }
-class redTeammate {
-  constructor(color, mascot){
+class redTeammate extends player{
+  constructor(color, mascot, id, name, age, skillSet, placeBorn){
+    super(id, name, age, skillSet, placeBorn);
     this.color = color;
     this.mascot = mascot;
   }
@@ -113,11 +115,13 @@ const makePlayer = (id) => {
     findPlayer.age,
     findPlayer.skillSet,
     findPlayer.placeBorn,
-    findPlayer.canDodgeBall,
-    findPlayer.canThrowBall,
-    findPlayer.hasPaid,
-    findPlayer.isHealthy,
-    findPlayer.yearsExperience
+    findPlayer.color,
+    findPlayer.mascot,
+    // findPlayer.canDodgeBall,
+    // findPlayer.canThrowBall,
+    // findPlayer.hasPaid,
+    // findPlayer.isHealthy,
+    // findPlayer.yearsExperience
     );
   console.log(newPlayer)
   listOfPlayers.push(newPlayer)//add new player to list of players
@@ -158,14 +162,14 @@ listElement.innerHTML = null;
 redTeam.map(player => {
   const li = document.createElement("li")
   const button = document.createElement("button")
-  button.innerHTML = "Red Team"
+  button.innerHTML = "Remove Player"
   button.style.background = "red"
   button.addEventListener('click', function() {
     makePlayer(player.id);
     listElement.removeChild(li)
   })
   li.appendChild(button)
-  li.appendChild(document.createTextNode(player.name + " - " + player.skillSet))
+  li.appendChild(document.createTextNode(player.name))
   listElement.append(li)
 })
 }
@@ -182,14 +186,38 @@ function addToBlueTeam(newPlayer) {
   blueTeam.map(player => {
     const li = document.createElement("li")
     const button = document.createElement("button")
-    button.innerHTML = "Blue Team"
+    button.innerHTML = "Remove Player"
     button.style.background = "blue"
     button.addEventListener('click', function() {
       makePlayer(player.id);
       listElement.removeChild(li)
     })
     li.appendChild(button)
-    li.appendChild(document.createTextNode(player.name + " - " + player.skillSet))
+    li.appendChild(document.createTextNode(player.name))
     listElement.append(li)
   })
+  }
+
+  function removePlayer() {
+    listOfPlayers.push(newPlayer)//add new player to list of players
+  
+    let indexOfPlayer = listOfPlayers.indexOf(newPlayer)//find index of player
+    listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
+    
+    let remove = document.getElementById("team")
+    remove.innerHTML = null;
+  
+    blueTeam.map(player => {
+      const li = document.createElement("li")
+      const button = document.createElement("button")
+      button.innerHTML = "Remove Player"
+      button.style.background = "blue"
+      button.addEventListener('click', function() {
+        removePlayer(player.id);
+        remove.removeChild(li)
+      })
+      li.appendChild(button)
+      li.appendChild(document.createTextNode(player.name))
+      remove.append(li)
+    })
   }
