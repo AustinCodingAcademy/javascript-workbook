@@ -1,29 +1,3 @@
-// -Checkpoint 2 Dodge Ball!
-// 20pts - Code Plan - Include this in a README.md file in your folder with comment in your code.
-
-// 20pts - Can add People to Players - When clicked the people are added to the Players column and removed from the People list while getting new values of a
-
-// ABOVE - USE makePlayer() to get ID. let clickedPlayer = arrOfPeople.splice(i + 2, 1) THEN listOfPlayers.push(clickedPlayer).
-
-// 20pts - Can add Players to different Teams - When we click on the blue button the Player is added to the blue team and removed from the Player list while also getting the keys color and mascot extended to them when they are moved to a team.
-
-// 20pts - Uses Class - This is not a hack job. You should use class to add the new properties you need and extend when you need.
-
-// 20pts - Make a button to remove Players from Teams and back to the Players list.
-// Make a button to remove Player from the Players List and move them into the People List.
-
-// --------------------------------------------------------------------------------------------
-
-// Use the class keyword to create a template of a dodgeBallPlayer that requires canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience
-
-// Push these new dodge ball Player objects into a new array and then display them in the DOM as available players to pick. (listOfPlayers)
-
-// Add a button to each new player that will allow each one to be selected for either Blue Team or Read Team and now has mascot and teamColor (Button - Red Team) (Button Blue Team)
-
-// Use the this keyword to assign each player to a team with an onclick. Either Blue Team or Red Team.
-
-// Display the two teams in a new list in the DOM with appropriate titles.
-
 const arrOfPeople = [
   {
     id: 2,
@@ -80,6 +54,7 @@ const listOfPlayers = [];
 const blueTeam = [];
 const redTeam = [];
 
+// Passed in person from listOfPeople() / arrOfPeople
 class Player {
   constructor(person) {
     this.name = person.name;
@@ -95,6 +70,7 @@ class Player {
   }
 }
 
+// Extended Player and added blue Team properties
 class blueTeammate extends Player {
   constructor(
     name,
@@ -125,6 +101,7 @@ class blueTeammate extends Player {
   }
 }
 
+// Extended Player and extended Red Team Properties
 class redTeammate extends Player {
   constructor(
     name,
@@ -155,14 +132,19 @@ class redTeammate extends Player {
   }
 }
 
+// Deals with the arrOfPeople array and hooks + creates DOM elements associated with that array.
 const listPeopleChoices = () => {
   const listElement = document.getElementById("people");
+  // Clears the HTML for listElement. Stops duplicate elements from being posted on the DOM.
   listElement.innerHTML = "";
+  // Iterates through arrOfPeople
   arrOfPeople.map(person => {
+    // For Each person in the array the below tasks are performed.
     const li = document.createElement("li");
     const button = document.createElement("button");
     button.innerHTML = "Make Player";
     button.classList.add("personButton")
+    // On click, the makePlayer function is called and it passes the person.id for a hook
     button.addEventListener("click", function() {
       makePlayer(person.id);
     });
@@ -176,10 +158,10 @@ const listPeopleChoices = () => {
 
 // Dodge Ball Players Build and Refresh
 const playerOptions = () => {
-  // Clears printed Player List so no duplicates are made
   const listPlayerElement = document.getElementById("players");
+  // Clears printed Player List so no duplicates are made
   listPlayerElement.innerHTML = "";
-  // Prints update player list
+  // Prints update player list and builds the buttons
   listOfPlayers.map(person => {
     console.log(person, `hi`);
     const blueButton = document.createElement("button");
@@ -219,6 +201,7 @@ const playerOptions = () => {
   });
 };
 
+// Moves a player to the people Array
 const removePlayerToPeople = id => {
   // Set the variable id to a number
   let numId = parseInt(`${id}`);
@@ -245,6 +228,7 @@ const removePlayerToPeople = id => {
   listPeopleChoices();
 };
 
+// Moves a player from listOfPlayers to Blue Team with correct Class info
 const blueTeamPlayer = id => {
   const listPlayerElement = document.getElementById("players");
   const blueTeamElement = document.getElementById("blue");
@@ -270,6 +254,7 @@ const blueTeamPlayer = id => {
   // UPDATES player list
   playerOptions();
 
+  // Creates a Remove Button and calls the removeFromBlue() onclick
   blueTeamElement.innerHTML = "";
   blueTeam.map(person => {
     const removeBlueButton = document.createElement("button");
@@ -290,6 +275,7 @@ const blueTeamPlayer = id => {
   });
 };
 
+// Action of removing from Blue Team
 const removeFromBlue = id => {
   const listPlayerElement = document.getElementById("players");
   const blueTeamElement = document.getElementById("blue");
@@ -314,6 +300,7 @@ const removeFromBlue = id => {
 
   playerOptions();
 
+  // Creates Remove from Team Button
   blueTeamElement.innerHTML = "";
 
   blueTeam.map(person => {
@@ -335,6 +322,7 @@ const removeFromBlue = id => {
   });
 };
 
+// Moves player from list of players to red team and adds Red Team class properties
 const redTeamPlayer = id => {
   const listPlayerElement = document.getElementById("players");
   const redTeamElement = document.getElementById("red");
@@ -351,7 +339,7 @@ const redTeamPlayer = id => {
       let splicedPerson = listOfPlayers.splice(i, 1);
       // Create temporary variable to hold instantiated Player while passing in current key/value pairs through the teammate constructor.
       let temp = new redTeammate(splicedPerson[0]);
-      console.log(temp);
+      // console.log(temp);
       // Output the new Player with new key value pairs + old key value pairs into appropriate teammate Array
       redTeam.push(temp);
     }
@@ -359,6 +347,7 @@ const redTeamPlayer = id => {
 
   playerOptions();
 
+  // Creates a remove from Red Team button, and calls removeFromRed() onclick
   redTeamElement.innerHTML = "";
   redTeam.map(person => {
     const removeRedButton = document.createElement("button");
@@ -379,6 +368,7 @@ const redTeamPlayer = id => {
   });
 };
 
+// Removes a player from Red Team and moves them to listOfPlayers with player Class properties.
 const removeFromRed = id => {
   const listPlayerElement = document.getElementById("players");
   const redTeamElement = document.getElementById("red");
@@ -401,9 +391,10 @@ const removeFromRed = id => {
     }
   }
 
-  // UPDATES things
+  // UPDATES listOfPlayers
   playerOptions();
 
+  // Makes new remove Button
   redTeamElement.innerHTML = "";
 
   redTeam.map(person => {
@@ -425,6 +416,9 @@ const removeFromRed = id => {
   });
 };
 
+// The heart of the program. Is called in listPeopleChoices() and takes an id. It is able to grab the id 
+// from the object of each person and pass it into the other functions that move players from array to array, while the functions refresh the DOM
+// by remapping on a button click.
 const makePlayer = id => {
   // Set the variable id to a number
   let numId = parseInt(`${id}`);
@@ -449,16 +443,16 @@ const makePlayer = id => {
   // UPDATES Player List
   playerOptions();
 
-  // Populates Blue Team / Updates Blue Team list and Play List
+  // Populates Blue Team / Updates Blue Team list and Player List
   blueTeamPlayer();
 
-  // Populates Blue Team / Updates Blue Team list and Play List
+  // Populates Blue Team / Updates Blue Team list and Player List
   redTeamPlayer();
 
-  // Removes Player from Blue & Update Blue Team list and Play List
+  // Removes Player from Blue & Update Blue Team list and Player List
   removeFromBlue();
 
-  // Removes Player from Red & Update Blue Team list and Play List
+  // Removes Player from Red & Update Blue Team list and Player List
   removeFromRed();
 
   // console.log(`arrayOfPeople: `, arrOfPeople);
