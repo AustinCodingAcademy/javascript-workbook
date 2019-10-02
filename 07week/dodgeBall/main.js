@@ -163,7 +163,7 @@ const playerOptions = () => {
   listPlayerElement.innerHTML = "";
   // Prints update player list and builds the buttons
   listOfPlayers.map(person => {
-    console.log(person, `hi`);
+    // console.log(person, `hi`);
     const blueButton = document.createElement("button");
     const redButton = document.createElement("button");
     const removePlayerButton = document.createElement("button");
