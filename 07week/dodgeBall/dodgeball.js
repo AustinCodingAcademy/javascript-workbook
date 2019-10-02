@@ -69,14 +69,14 @@ class player {
   // this.yearsExperience = Math.floor(Math.random() * 10);
   }
 }
-class blueTeammate extends player{
+class BlueTeammate extends player{
   constructor(color, mascot, id, name, age, skillSet, placeBorn){
     super(id, name, age, skillSet, placeBorn);
     this.color = color;
     this.mascot = mascot;
   }
 }
-class redTeammate extends player{
+class RedTeammate extends player{
   constructor(color, mascot, id, name, age, skillSet, placeBorn){
     super(id, name, age, skillSet, placeBorn);
     this.color = color;
@@ -103,6 +103,8 @@ const listPeopleChoices = () => {
 //
 const makePlayer = (id) => {
   const listPlayers = document.getElementById('players')
+  const listElement = document.getElementById('people')
+
   let findPlayer = arrOfPeople.find(player => {
     return player.id == id;//find the key values of the player clicked on 
   })
@@ -144,10 +146,37 @@ const makePlayer = (id) => {
     listPlayers.removeChild(li)
   })
 
+  const removeButton = document.createElement("button")
+  removeButton.innerHTML = "Remove Player";
+  removeButton.style.background = "yellow"
+  removeButton.addEventListener('click', function() {
+    removeFromList(findPlayer.id)
+    console.log(findPlayer.id)
+    listPlayers.removeChild(li)
+    listElement.append(li)
+  })
+
   li.appendChild(redButton)
   li.appendChild(blueButton)
+  li.appendChild(removeButton)
   li.appendChild(document.createTextNode(newPlayer.name))
   listPlayers.append(li)
+}
+
+function removeFromList(id) {
+  const placeBackInList = document.getElementById('people')
+  const li = document.createElement("li")
+
+  let findPlayer = listOfPlayers.find(player => {
+    return player.id == id;//find the key values of the player clicked on 
+  })
+  // console.log(findPlayer)
+  let indexOfPlayer = listOfPlayers.indexOf(findPlayer)
+  arrOfPeople.push(findPlayer)//add new player to list of players
+  listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
+  console.log(listOfPlayers)
+
+  placeBackInList.append(li)
 }
 
 function addToRedTeam(newPlayer) {
@@ -156,6 +185,7 @@ redTeam.push(newPlayer)//add new player to list of players
 let indexOfPlayer = listOfPlayers.indexOf(newPlayer)//find index of player
 listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
 
+const listPlayers = document.getElementById('players')
 let listElement = document.getElementById('red')
 listElement.innerHTML = null;
 
@@ -165,8 +195,9 @@ redTeam.map(player => {
   button.innerHTML = "Remove Player"
   button.style.background = "red"
   button.addEventListener('click', function() {
-    makePlayer(player.id);
+    removeFromRed(player.id);
     listElement.removeChild(li)
+    listPlayers.append(li)
   })
   li.appendChild(button)
   li.appendChild(document.createTextNode(player.name))
@@ -176,10 +207,13 @@ redTeam.map(player => {
 
 function addToBlueTeam(newPlayer) {
   blueTeam.push(newPlayer)//add new player to list of players
-  
+
   let indexOfPlayer = listOfPlayers.indexOf(newPlayer)//find index of player
   listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
   
+
+
+  const listPlayers = document.getElementById('players')
   let listElement = document.getElementById('blue')
   listElement.innerHTML = null;
 
@@ -189,8 +223,9 @@ function addToBlueTeam(newPlayer) {
     button.innerHTML = "Remove Player"
     button.style.background = "blue"
     button.addEventListener('click', function() {
-      makePlayer(player.id);
+      removeFromBlue(player.id);
       listElement.removeChild(li)
+      listPlayers.append(li)
     })
     li.appendChild(button)
     li.appendChild(document.createTextNode(player.name))
@@ -198,26 +233,23 @@ function addToBlueTeam(newPlayer) {
   })
   }
 
-  function removePlayer() {
-    listOfPlayers.push(newPlayer)//add new player to list of players
-  
-    let indexOfPlayer = listOfPlayers.indexOf(newPlayer)//find index of player
-    listOfPlayers.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
-    
-    let remove = document.getElementById("team")
-    remove.innerHTML = null;
-  
-    blueTeam.map(player => {
-      const li = document.createElement("li")
-      const button = document.createElement("button")
-      button.innerHTML = "Remove Player"
-      button.style.background = "blue"
-      button.addEventListener('click', function() {
-        removePlayer(player.id);
-        remove.removeChild(li)
-      })
-      li.appendChild(button)
-      li.appendChild(document.createTextNode(player.name))
-      remove.append(li)
+  function removeFromRed(id) {
+    let findPlayer = redTeam.find(player => {
+      return player.id == id;//find the key values of the player clicked on 
     })
+    // console.log(findPlayer)
+    let indexOfPlayer = redTeam.indexOf(findPlayer)
+    listOfPlayers.push(findPlayer)//add new player to list of players
+    redTeam.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
+  }
+
+
+  function removeFromBlue(id) {
+    let findPlayer = blueTeam.find(player => {
+      return player.id == id;//find the key values of the player clicked on 
+    })
+    
+    let indexOfPlayer = blueTeam.indexOf(findPlayer)
+    listOfPlayers.push(findPlayer)//add new player to list of players
+    blueTeam.splice(indexOfPlayer, 1)//remove from lists of people and add to dodgeball players
   }
