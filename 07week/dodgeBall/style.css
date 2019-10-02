@@ -128,7 +128,7 @@ h4 {
 
 .blueButton {
   width: 4em;
-  height: 2.5em;
+  height: 3em;
   border: 1px solid white;
   background-color: rgb(117, 121, 180);
   color: black;
@@ -139,7 +139,7 @@ h4 {
 
 .redButton {
   width: 4em;
-  height: 2.5em;
+  height: 3em;
   border: 1px solid white;
   background-color: rgb(189, 132, 132);
   color: black;
@@ -149,7 +149,7 @@ h4 {
 }
 
 .removePlayerButton {
-  width: 4em;
+  width: 5em;
   height: 2.5em;
   border: 1px solid white;
   background-color: rgb(216, 213, 183);
