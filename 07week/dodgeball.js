@@ -55,13 +55,27 @@ const blueTeam = []
 const redTeam = []
 
 class player {
-  constructor(){}
+  constructor(listOfPlayers, arrOfPeople){
+    // let x = document.getElementById(players)
+    var lis = document.getElementById("players").getElementsByTagName("li");
+    
+  }
+      pickPlayer(){
+        console.log('picked player')
+      }
+      
 }
 class blueTeammate {
-  constructor(){}
+  constructor(blueTeam, listOfPlayers){
+
+  }
+
 }
 class redTeammate {
-  constructor(){}
+  constructor(redTeam, listOfPlayers){
+
+  }
+
 }
 
 const listPeopleChoices = () => {
@@ -79,4 +93,6 @@ const listPeopleChoices = () => {
 
 const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
+  var p = new player(id)
+  console.log(arrOfPeople[id])
 }
