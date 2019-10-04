@@ -19,14 +19,22 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 //remove last array umber of start stack and push to end stack
-function movePiece() {
-  var x = Object.keys(stacks[startStack.pop]);
-  endStack.push(x);
+function movePiece(startStack, endStack) {
+  var x = stacks[startStack].pop();
+  stacks[endStack].push(x);
 }
 
 //if last number of start stack is equal to or less than last number in end stack, it's legal
-function isLegal() {
-  if (endStack[endStack.pop] <= startStack[startStack.pop]) {
+function isLegal(startStack, endStack) {
+  let end = stacks[endStack]
+  let start = stacks[startStack]
+  if (end[end.length - 1] <= start[start.length - 1]) {
+    return false;
+  } else if (startStack == 'a' && endStack == 'b' || endStack == 'c') {
+    return true;
+  } else if (startStack == 'b' && endStack == 'a' || endStack == 'c') {
+    return true;
+  } else if (startStack == 'c' && endStack == 'b' || endStack == 'a') {
     return true;
   } else {
     return false;
@@ -34,6 +42,7 @@ function isLegal() {
 
 }
 //if number was moved to a stack and that now has four numbers in array, player wins
+
 function checkForWin() {
   if (endStack.length == 4) {
     console.log("you win");
@@ -42,7 +51,9 @@ function checkForWin() {
 }
 //not sure what this is
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+  }
 
 }
 
