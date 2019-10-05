@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+#each{
+  border: 1px solid red;
+}
+
+#person { 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+
+#cell{
+  border: 1px solid red;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+#age{
+  border: 1px solid red;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+.allBox {
+  width: 90vw;
+  height: 60vh;
+  margin: 0px auto;
+  margin-top: 10%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#ageButton {
+  border: 1px solid red;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+#cellButton{
+  border: 1px solid red;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+#name {
+  border: 1px solid red;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#img {
+  border: 1px solid red;
+  width: 95vw;
+  display: flex;
+  justify-content: space-around;
+}
