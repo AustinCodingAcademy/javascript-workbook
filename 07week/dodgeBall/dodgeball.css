@@ -1,0 +1,30 @@
+
+* {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding: 0px;
+  margin: 5px;
+  box-sizing: border-box;
+}
+.grid-container {
+  display: grid;
+  grid-template-rows: 80% 20%;
+  grid-template-columns: 50% 50%
+}
+h1, h2 {
+  text-decoration: underline;
+}
+li {
+  list-style: none;
+}
+.blue {
+  color: darkblue;
+  text-shadow: 1px 1px 4px grey;
+}
+.red {
+  color: rgb(177, 16, 16);
+  text-shadow: 1px 1px 4px grey;
+}
+button {
+  font-size: 16px;
+}
