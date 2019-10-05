@@ -47,6 +47,40 @@ const arrOfPeople = [
     age: 32,
     skillSet: "jump rope",
     placeBorn: "New Orleans, Louisiana"
+  },
+]
+
+const listOfPlayers = []
+const blueTeam = []
+const redTeam = []
+
+class player {
+  constructor(){}
+}
+class blueTeammate {
+  constructor(){}
+}
+class redTeammate {
+  constructor(){}
+}
+
+const listPeopleChoices = () => {
+  const listElement = document.getElementById('people')
+  arrOfPeople.map(person => {
+    const li = document.createElement("li")
+    const button = document.createElement("button")
+    button.innerHTML = "Make Player"
+    button.addEventListener('click', function() {makePlayer(person.id)} )
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    listElement.append(li)
+  })
+}
+
+const makePlayer = (id) => {
+  console.log(`li ${id} was clicked!`)
+}
+=======
   }
 ];
 
