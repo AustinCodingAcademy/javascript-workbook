@@ -19,7 +19,6 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-
 function movePiece(startStack, endStack) {
   //define start stack
   var start = stacks[startStack];
