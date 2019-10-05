@@ -8,3 +8,6 @@ npm-debug.log*
 
 # OS artifacts
 *.DS_Store
+
+# Files
+.env
