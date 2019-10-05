@@ -1,0 +1,14 @@
+* {
+  padding: 0px;
+  margin: 10px;
+  box-sizing: border-box;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+/* #users {
+  flex-direction: column;
+} */
+
