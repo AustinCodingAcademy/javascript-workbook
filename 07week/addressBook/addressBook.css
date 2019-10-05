@@ -7,9 +7,6 @@
   vertical-align: baseline;
   box-sizing: border-box;
 }
-#each{
-  border: 1px solid red;
-}
 
 #person { 
   width: 100%;
@@ -21,7 +18,7 @@
 }
 
 #cell{
-  border: 1px solid red;
+  border: 1px solid black;
   height: 65px;
   display: flex;
   justify-content: space-around;
@@ -29,14 +26,14 @@
 }
 
 #age{
-  border: 1px solid red;
+  border: 1px solid black;
   height: 65px;
   display: flex;
   justify-content: space-around;
   align-items: center; 
 }
 
-.allBox {
+.box {
   width: 90vw;
   height: 60vh;
   margin: 0px auto;
@@ -50,7 +47,7 @@
 
 
 #ageButton {
-  border: 1px solid red;
+  border: 1px solid black;
   height: 65px;
   display: flex;
   justify-content: space-around;
@@ -58,7 +55,7 @@
 }
 
 #cellButton{
-  border: 1px solid red;
+  border: 1px solid black;
   height: 65px;
   display: flex;
   justify-content: space-around;
@@ -66,14 +63,14 @@
 }
 
 #name {
-  border: 1px solid red;
+  border: 1px solid black;
   height: 65px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 #img {
-  border: 1px solid red;
+  border: 1px solid black;
   width: 95vw;
   display: flex;
   justify-content: space-around;

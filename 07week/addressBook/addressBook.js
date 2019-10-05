@@ -29,8 +29,6 @@ fetch('https://randomuser.me/api/?results=10')
       document.body.appendChild(newDiv);
       document.body.appendChild(newPic);
    
-      
-      
       let name = document.getElementById('name')
       name.appendChild(newDiv);
       let pic = document.getElementById('img')
@@ -41,40 +39,29 @@ fetch('https://randomuser.me/api/?results=10')
       let cellDiv = document.getElementById('cell')
       let buttonPlace1 = document.getElementById('cellButton')
       buttonPlace1.appendChild(cellButton)
-      ageButton.addEventListener("click", function() {
+      ageButton.addEventListener("click",()=> {
       ageDiv.appendChild(age);
       });
-      cellButton.addEventListener('click', function(){
+      cellButton.addEventListener('click',()=> {
         cellDiv.appendChild(cell);
       })
      
      
+    }
+    
+  })
+  
+  .then(results => {
+    
+  })
+  // Do something for an error here
+  .catch(err => {
+    console.log(err)
+    console.log('err')
+  })
       
       
      //change the age button to the data value 
     //  if (newButton is clicked){
     // ageButton = ageDiv
     //     }
-      
-      
-      
-      
-      
-      
-  
-        
-        
-      }
-      
-    })
-    
-    .then(results => {
-      
-    })
-    // Do something for an error here
-    .catch(err => {
-      console.log(err)
-      console.log('err')
-    })
-    
-    
