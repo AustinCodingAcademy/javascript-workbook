@@ -8,9 +8,27 @@ let jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name,
+    this.job = job, 
+    this.specialSkill = specialSkill, 
+    this.ship = ship //mav
+  }
+  enterShip(shipName) {
+    this.ship = shipName;
+    shipName.crew.push(this)
+  }
+}
 
-// Your code here
-
+class ship {
+ constructor(name, type, ablility, crew){
+    this.name = name
+    this.type = type
+    this.ability = ability
+    this.crew = [] //crewMember1
+  }
+}
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
