@@ -1,11 +1,11 @@
 "use strict";
-
+/*
 const assert = require("assert");
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
+});*/
 //study this//
 function pigLatin(word) {
   let newWord = word.trim().toLowerCase();
@@ -57,5 +57,20 @@ if (typeof describe === "function") {
     });
   });
 } else {
-  getPrompt();
+  /* getPrompt();*/
+}
+
+function handleTranslate() {
+  console.log("I am inside handleTranslate");
+  var inputBox = document.getElementById("plainText");
+  console.log(inputBox);
+  var englishWord = inputBox.value;
+  console.log("english word", englishWord);
+
+  var pigLatinWord = pigLatin(englishWord);
+  console.log("pig latin word", pigLatinWord);
+
+  var spanElement = document.getElementById("pigLatinText");
+  console.log("span element", spanElement);
+  spanElement.innerText = pigLatinWord;
 }

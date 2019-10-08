@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "graffiti_cheecks_style_-_urRg";
+  src: url(../piglatin02/pigLatinfonts/graffiti_cheecks_style-webfont.woff2)
+      format("woff2"),
+    url(../piglatin02/pigLatinfonts/graffiti_cheecks_style-webfont.woff)
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  position: relative;
+  background-image: url(../piglatin02/pigLatinimg/pig.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.container1 {
+  position: absolute;
+  margin-left: 300px;
+  background-color: rgba(252, 164, 179, 0.671);
+  border: 25px solid rgba(66, 129, 245, 0.719);
+  border-radius: 20px;
+  height: 250px;
+  width: 300px;
+}
+
+.instruction {
+  color: rgb(127, 229, 255);
+  font-size: 25px;
+  text-shadow: 1px 3px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 rgb(166, 8, 240);
+  font-family: "graffiti_cheecks_style_-_urRg";
+}
+
+#pigLatinText {
+  position: absolute;
+  margin-top: 400px;
+  margin-left: 360px;
+  background-color: rgba(252, 164, 179, 0.925);
+  border: 15px solid rgba(66, 129, 245, 0.719);
+  border-radius: 8px;
+  font-size: 20px;
+  text-shadow: 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 rgb(127, 229, 255);
+  color: rgb(166, 8, 240);
+}
