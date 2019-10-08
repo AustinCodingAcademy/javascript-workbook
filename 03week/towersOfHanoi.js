@@ -49,7 +49,7 @@ function checkForWin() {
   }
 
 }
-//not sure what this is
+//function/ call/ recieve/ navigation
 function towersOfHanoi(startStack, endStack) {
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack);
@@ -67,7 +67,7 @@ function getPrompt() {
   });
 }
 
-// Tests
+// Test driven application process
 
 if (typeof describe === 'function') {
 
