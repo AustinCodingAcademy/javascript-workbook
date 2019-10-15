@@ -27,42 +27,42 @@ function forInLoop() {
 
 forInLoop();
 
-const arrayOfPersons = [
+const dosPeeps = [
     {
-        firstName: "Jane",
-        lastName: "Doe",
-        birthDate: "Jan 5, 1925",
+        firstName: "Jack",
+        lastName: "Jacob",
+        birthDate: "Jun 5, 1967",
+        gender: "male"
+    },
+
+    {
+        firstName: "Daniel",
+        lastName: "Don",
+        birthDate: "Aug 19, 2000",
+        gender: "male"
+    },
+
+    {
+        firstName: "Jill",
+        lastName: "Fair",
+        birthDate: "Apr 9, 1989",
         gender: "female"
     },
 
     {
-        firstName: "Jane",
-        lastName: "Doe",
-        birthDate: "Jan 5, 1925",
-        gender: "female"
-    },
-
-    {
-        firstName: "Jane",
-        lastName: "Doe",
-        birthDate: "Jan 5, 1925",
-        gender: "female"
-    },
-
-    {
-        firstName: "Jane",
-        lastName: "Doe",
-        birthDate: "Jan 5, 1925",
+        firstName: "Lexi",
+        lastName: "Chirp",
+        birthDate: "Oct 12, 1990",
         gender: "female"
     }
 ]
 
-arrayOfPersons.map(function (items) {
+dosPeeps.map(function (items) {
     console.log(items);
 })
 
 function checkGender() {
-    arrayOfPersons.filter(function (person) {
+    dosPeeps.filter(function (person) {
         if (person.gender === 'male') {
             //coment note console.log(person)
         }
@@ -72,7 +72,7 @@ function checkGender() {
 checkGender();
 
 function checkAge() {
-    arrayOfPersons.filter(function (person) {
+    dosPeeps.filter(function (person) {
         var lastIndex = person.birthDate.length - 1;
         var date = person.birthDate.slice(lastIndex - 4, lastIndex + 1)
         if (date <= 1990) {
