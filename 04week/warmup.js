@@ -1,7 +1,7 @@
 
 let myArray = [3, 8, 5, 9, 6];
 for (var i = 0; i < myArray.length; i++) {
-    myArray[i] = myArray[i] * 5;
+    myArray[i] = myArray[i];
 
     console.log(myArray);
 }
