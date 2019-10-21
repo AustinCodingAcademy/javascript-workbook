@@ -1,19 +1,13 @@
 'use strict';
-
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
-
 function rockPaperScissors(hand1, hand2) {
-
   // Write code here
-
 }
-
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
@@ -22,9 +16,7 @@ function getPrompt() {
     });
   });
 }
-
 // Tests
-
 if (typeof describe === 'function') {
 
   describe('#rockPaperScissors()', () => {
@@ -39,13 +31,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
-      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rock', ' paper'), "Hand two wins!");
+      assert.equal(rockPaperScissors('Paper', 'scissors'), "Hand two wins!");
+      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
   });
 } else {
-
   getPrompt();
-
 }
