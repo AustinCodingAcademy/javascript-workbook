@@ -32,9 +32,7 @@ if (1 > 10 || 1 < 20) {
 };
 
 // Task 8
-let test5 = 5;
-let test6 = 5;
-if (test5===10 && test6===20) {
+if (1===10 && 1===20) {
   console.log("Failure!")
 } else {
   console.log("Both are falsey!")
