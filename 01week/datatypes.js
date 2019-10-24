@@ -18,27 +18,37 @@ console.log(Num);
 //Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 
   //Boolean
-    let myBoolVariable = false;
-    console.log(myBoolVariable);
+  let myBool = false;
 
-  //Null
-    let myCuteNullVariable = null;
-    console.log(myCuteNullVariable);
+  function isTypeOf(data) {
+  return console.log(typeof data);
+  }
+  
+  isTypeOf(myBool);
+
+    //Null
+let a = null;
+console.log(a);
 
   //Undefined
-  //Reserved for computer use only
+let a;
+console.log(a);
 
   //Number
-  let myNeatoNumber = 13;
-  console.log(myNeatoNumber);
+  let myNeatoNumber = (.234);
+console.log(myNeatoNumber);
+console.log(typeof myNeatoNumber);
 
   //NaN
-  //^^ another one for computer use only
+  function myNumber(x) {
+    if (isNaN(x))
+    return x * 1000;
+  }
+  console.log(myNumber('100F'));
 
   //String
-  let myCoolStringVariable = "Hello Chazee, how are you?";
-  console.log(myCoolStringVariable);
-
+  let myString = "Hello there!";
+  console.log(typeof myString);
 
 //Write a JavaScript program that adds 2 numbers together.
 let myFirstNumber=36;
