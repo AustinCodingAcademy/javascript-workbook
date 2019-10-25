@@ -2,7 +2,7 @@
 //option + up (or down)- move line up or down
 //command + | - split editor
 //command + W - close current tab
-//command + tab - navigate between files (open up mutliple files to show)
+//control + tab - navigate between files (open up mutliple files to show)
 //command + KT- for funsies!
 //command + shift + P - ultimate shortcut shortcut
 
