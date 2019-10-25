@@ -24,7 +24,9 @@ if (hand1 === 'rock' && hand2 === 'scissors') {
 } else if (hand1 === 'paper' && hand2 === 'scissors') {
   return "Hand two wins!";
 } else if  (hand1 === 'scissors' && hand2 === 'paper') {
-  return 
+  return "Hand one wins!";
+} else if (hand1 === 'scissors' && hand2 === 'rock') {
+  return "Hand two wins!";
 }
 
 
