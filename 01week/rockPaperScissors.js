@@ -10,64 +10,40 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-//-----Detects tie-----
-
-if (hand1 === hand2) {
-  return "It's a tie!";
-}
-
-
-
-//-----Detects hand won-----
-
-if (hand1 === 'rock') {
-  if (hand2 === 'scissors') {
-    return "Hand one wins!";
-  } else if (hand2 === 'paper') {
-    return "Hand two wins!";
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  } else if (hand1 === 'rock') {
+    if (hand2 === 'paper') {
+      return "Hand two wins!";
+    } else if (hand2 === 'scissors') {
+      return "Hand one wins!";
+    } 
   }
-}
 
- if (hand1 === 'paper') {
-  if (hand2 === 'rock') {
-    return "Hand one wins!";
-  } else if (hand2 === 'scissors') {
-    return "Hand two wins!";
+  if (hand1 === 'paper') {
+    if (hand2 === 'rock') {
+      return "Hand one wins!";
+    } else if (hand2 === 'scissors') {
+      return "Hand two wins!";
+    }
   }
-}
 
- if (hand1 === 'scissors') {
-  if (hand2 === 'paper') {
-    return "Hand one wins!";
-  } else if (hand2 === 'rock') {
-    return "Hand two wins!";
+  if (hand1 === 'scissors') {
+    if (hand2 === 'paper') {
+      return "Hand one wins!";
+    } else if (hand2 === 'rock') {
+      return "Hand two wins!";
+    }
   }
-}
 
 
-
-//-----scrub input-----
-
-if (hand1 === 'rOcK') {
-  if (hand2 === ' paper ') {
-    return "Hand two wins!";
-  }
-}
-
-if (hand1 === 'Paper') {
-  if (hand2 === 'SCISSORS') {
-    return "Hand two wins!";
-  }
-}
-
-if (hand1 === 'rock ') {
-  if (hand2 === 'sCiSsOrs') {
-    return "Hand one wins!";
-  }
-}
 
 
 }
+
+
+
+
 
 
 
