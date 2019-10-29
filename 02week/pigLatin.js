@@ -10,10 +10,8 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Convert string to lowercase
-  word = word.toLowerCase()
-  //remove white space
-  word = word.trim()
+  // Convert string to lowercase and remove white space
+  word = word.toLowerCase().trim()
   // Initialize array of vowels
   const vowels = ["a", "e", "i", "o", "u"];
   // Initialize vowel index to 0
