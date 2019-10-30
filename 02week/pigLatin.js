@@ -19,11 +19,12 @@ function pigLatin(word) {
   if (vowels.includes(firstLetter))  {
     return word + 'yay';
   } else {
+    //Or else let the vowel of the word
     for (let vow of word) {
       if (vowels.includes(vow)) {
         vowelIndex = word.indexOf(vow);
         break;
-      }
+      }  //let the vowel index starting at 0 go through the word and split the word at the first vowel
     }
     return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
   }
