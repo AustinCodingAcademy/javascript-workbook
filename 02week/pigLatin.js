@@ -9,9 +9,41 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let vowelIndex;
+  let newWord;
+  word = word.trim().toLowerCase();
 
-  // Your code here
+  let firstLetter = word[0];
 
+  //Check if the word begins with a vowel.
+  //If so, make that word
+
+  if(vowels.includes(firstLetter)) {
+    newWord = word + 'yay';
+  } else {
+
+    // find the first vowel 
+    for(let i = 0 ; i < word.length ; i++ ) {
+    // For each letter from the beginning, if this letter is a vowel return the index of the first vowel
+      if(vowels.includes(word[i])){
+        vowelIndex = i;
+        break;
+      // If word = chocolate, i = 2, letters to delete equals 2;
+      }
+    }
+  }
+
+  //target the consonants before the first vowel:
+  let firstConsonants = word.slice(0, vowelIndex);
+  //target the end of the word after first consnants:
+  let endOfWord = word.slice((word.length*(-1) + vowelIndex));
+
+  newWord = endOfWord + firstConsonants + 'ay';
+  
+
+  return newWord;
 }
 
 
