@@ -12,6 +12,21 @@ function pigLatin(word) {
 
   // Your code here
 
+  word = word.toLowerCase().trim();
+
+  const vowels = ['a', 'e', 'i,','o', 'u', 'y']
+  const firstLetter = word[0];
+
+  if (vowels.includes(firstLetter)) {
+    return word + 'yay';
+  }
+  else {
+    for (let i = 0; i < word.length; i++) {
+      if(vowels.includes(word[i])) {
+        return word.slice(i) + word.slice(0, i) + "ay";
+      }
+    }
+  }
 }
 
 
