@@ -9,9 +9,31 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
+const vowels = ['a','e','i','o','u','y'];
+const end = 'ay';
   // Your code here
 
+  //  eg ex 
+  // if (word[0] === 'a'|| 'e' || 'i' || 'o' || 'u') {
+  //   return word + 'yay';
+  // }
+  // Most basic case where the word starts with a vowel
+  // Just return the word with 'yay' on the end
+  if (vowels.includes(firstLetter)) {
+    return word + 'yay';
+  }
+
+  // create variables with possible endings
+
+  // test each letter until you find a vowel
+
+  // remove everything before the vowel and store
+
+  // put the removed letters at the end of the word
+
+  // add ay
+
+  // if word begins with a vowel, add 'yay' to the end
 }
 
 
