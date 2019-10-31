@@ -26,13 +26,13 @@ function printBoard() {
 function horizontalWin() {
   // Your code here
 if (board [0][0] === board [0][1] && board [0][1] === board [0][2]){
-  console.log (playerTurn + 'wins')
+  console.log (playerTurn + ' wins')
   return true
 } else if (board [1][0] === board [1][1] && board [1][1] === board [1][2]){
-  console.log (playerTurn + 'wins')
+  console.log (playerTurn + ' wins')
   return true
 } else if (board [2][0] === board [2][1] && board [2][1] === board [2][2]){
-  console.log (playerTurn + 'wins')
+  console.log (playerTurn + ' wins')
   return true
 }
 }
@@ -40,13 +40,13 @@ if (board [0][0] === board [0][1] && board [0][1] === board [0][2]){
 function verticalWin() {
   // Your code here
   if (board [0][0] === board [1][0] && board [1][0] === board [2][0]){
-    console.log (playerTurn + 'wins')
+    console.log (playerTurn + ' wins')
     return true
   } else if (board [0][1] === board [1][1] && board [1][1] === board [2][1]){
-    console.log (playerTurn + 'wins')
+    console.log (playerTurn + ' wins')
     return true
   } else if (board [0][2] === board [1][2] && board [1][2] === board [2][2]){
-    console.log (playerTurn + 'wins')
+    console.log (playerTurn + ' wins')
     return true
   }
 }
@@ -54,19 +54,21 @@ function verticalWin() {
 function diagonalWin() {
   // Your code here
   if (board [0][0] === board [1][1] && board [1][1] === board [2][2]){
-    console.log (playerTurn + 'wins')
+    console.log (playerTurn + ' wins')
     return true
   } else if (board [0][2] === board [1][1] && board [1][1] === board [0][2]){
-    console.log (playerTurn + 'wins')
+    console.log (playerTurn + ' wins')
     return true
   }
 }
 
 function checkForWin() {
   // Your code here
-  horizontalWin()
-  verticalWin()
-  diagonalWin()
+  if (horizontalWin() || verticalWin() || diagonalWin()){
+    return true; 
+  } else {
+    return false;
+  }
 }
 
 function ticTacToe(row, column) {
