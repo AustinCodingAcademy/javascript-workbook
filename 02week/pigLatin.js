@@ -9,8 +9,51 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  //define vowel and first letter
+  word = word.toLowerCase().trim();
+  const wordArray = word.split('');
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+  const firstLetter = wordArray[0];
+  //check first letter is not a vowel
 
-  // Your code here
+  // if word[0] === 'a' || 'e' || 'i' || 'o' || "u" {
+  //   return word + 'yay';
+  // } else {
+  // }
+
+  if (vowels.includes(firstLetter)) {
+    return word + 'yay';
+  }
+
+    // for (let i = 0; i < word.length; i++) {
+    //   console.log(word[i]);
+    //   if (i === 0 && vowels.includes(word[i])) {
+    //     return word + 'yay';
+    //   }
+
+    let pigLatin = '';
+    let cutWord = '';
+    let wordString = '';
+    let cutWordString = '';
+
+    for (let i = 0; i < wordArray.length; i++) {
+      if (i > 0 && vowels.includes(wordArray[i])) {
+
+        cutWord = wordArray.splice(i)
+        wordString = wordArray.join('')
+        cutWordString = cutWord.join('')
+        return cutWordString + wordString + 'ay'
+      }
+    }
+    return word + 'ay'
+  // const checkEach = (word) => { 
+    
+  // }
+
+  //check second letter is not a vowel
+  //check... letter not a vowel
+  //if starts with a vowel add "yay"
+  
 
 }
 
