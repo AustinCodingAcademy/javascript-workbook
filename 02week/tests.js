@@ -6,7 +6,13 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
+function validateForm() {
+  var x = document.forms["rock"]["papaer"]["scissors"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
 
 function rockPaperScissors(hand1, hand2) {
 
