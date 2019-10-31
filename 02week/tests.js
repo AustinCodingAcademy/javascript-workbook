@@ -8,6 +8,9 @@ const rl = readline.createInterface({
 });
 
 function rockPaperScissors(hand1, hand2) {
+    hand1 = hand1.toLowerCase().trim();
+    hand2 = hand2.toLowerCase().trim();
+
     if (hand1 === hand2) {
         return "It's a tie!";
     }
