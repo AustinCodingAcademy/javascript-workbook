@@ -16,6 +16,9 @@ function validateForm() {
 
 function rockPaperScissors(hand1, hand2) {
 
+  const hand1 = hand1.toLowerCase();
+  const hand2 = hand2.toLowerCase();
+
   // Write code here
   if (hand1 === hand2) {
     return "It's a tie!";
