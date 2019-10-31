@@ -10,9 +10,24 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  if (word[0] === 'a' || 'e' || 'i' || 'o' || 'u') {
-    return word + 'yay';
-  }
+  word=word.toLowerCase();
+
+    // for words that start with a vowel:
+    if (["a", "e", "i", "o", "u"].indexOf(word[0]) > -1) {
+        return word=word+"yay";
+    }
+
+    // for words that start with one or more consonants
+   else {
+   //check for multiple consonants
+       for (var i = 0; i<word.length; i++){
+           if (["a", "e", "i", "o", "u"].indexOf(word[i]) > -1){
+               var firstcons = word.slice(0, i);
+               var middle = word.slice(i, word.length);
+               word = middle+firstcons+"ay";
+               break;}
+            }
+    return word;}
 
   
 
