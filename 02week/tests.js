@@ -13,6 +13,12 @@ function rockPaperScissors(hand1, hand2) {
   hand2 = hand2.toLowerCase().trim();
 
   // Write code here
+  if (
+    hand1 && hand2 !== 'rock' && 
+    hand1 && hand2 !== 'scissors' && 
+    hand1 && hand2 !== 'paper') {
+    return "Invalid input!"
+  }
   if (hand1 === hand2) {
     return "It's a tie!"
   } else if (hand1 === 'rock' && hand2 === 'scissors') {
@@ -67,7 +73,7 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
     it('should ensure correct input', () => {
-      assert.equal(rockPaperScissors())
+      assert.equal(rockPaperScissors('dog', 'cat'), "Invalid input!");
     })
   });
 } else {
