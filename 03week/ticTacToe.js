@@ -34,9 +34,7 @@ function horizontalWin() {
       board[i][2] === playerTurn
       ) {
       return true
-    } else {
-      return false
-    }
+    } 
   }
 }
 
@@ -45,23 +43,40 @@ function verticalWin() {
   // board[0][1] board[1][1] board[2][1]
   for(let i = 0 ; i < board.length ; i++) {
     if (
-      board[0][i] && 
-      board[1][i] && 
-      board[2][i] 
+      board[0][i] === playerTurn && 
+      board[1][i] === playerTurn && 
+      board[2][i] === playerTurn
     ) {
       return true;
-    } else {
-      return false;
     }
   }
 }
 
 function diagonalWin() {
   // Your code here
+  if(
+    board[0][0] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][2] === playerTurn
+  ) {
+    return true
+  } else if (
+    board[0][3] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][0] === playerTurn
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 function checkForWin() {
   // Your code here
+  if( verticalWin || horizontalWin || diagonalWin ) {
+    return true;
+  }
 }
 
 function ticTacToe(row, column) {
