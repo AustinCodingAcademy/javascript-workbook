@@ -50,37 +50,70 @@ function horizontalWin() {
 function verticalWin() {
   // Your code here
   //check columns of the board for a match
+  if (board[0][0] === playerTurn &&
+    board[1][0] === playerTurn &&
+    board[2][0] === playerTurn
+  ) {
+    return true;
+  } else if (
+    board[0][1] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][1] === playerTurn
+  ) {
+    return true;
+  } else if (
+    board[0][2] === playerTurn &&
+    board[1][2] === playerTurn &&
+    board[2][2] === playerTurn
+  ) {
+    return true;
+  }
+  return false;
 }
+  
 
 function diagonalWin() {
   // Your code here
   //check for an line pattern top left to bottom right on the board
   //check for an line pattern top right to bottom left on the board
+  if (board[0][0] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][2] === playerTurn
+  ) {
+    return true;
+  } else if (
+    board[2][0] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[0][2] === playerTurn
+  ) {
+    return true;
+  }
+  return false;
 }
+
 
 function checkForWin() {
   // Your code here
   //check for horizonal, vertical, and diagnonal wins
   //return true if any of those checks return true
+  if(horizontalWin() || verticalWin() || diagonalWin()) {
+    printBoard();
+    console.log("Player " + playerTurn + " won!");
+    board = [
+      [' ', ' ', ' '],
+      [' ', ' ', ' '],
+      [' ', ' ', ' ']
+    ];
+    return true;
+  }
+  return false;
 }
 
 function ticTacToe(row, column) {
   // Your code here
-  //manipulate the board array (place an X orO)based on thr user input (row,col)
-  //manupulate the playerTUrn variable and switch from either X to O or O to X
-  // let row1 = board[0];
-  // let row2 = board[1];
-  // let row3 = board[2];
-  let selectedRow = board[row];
-  //[" "," "," "]
-  selectedRow[column] = playerTurn;
-
-  //manupulate the playerTUrn variable and switch from either X to O or O to X
-  if (playerTurn === 'X') {
-    playerTurn = 'O';
-  } else if (playerTurn === 'O') {
-    playerTurn = 'X';
-  }
+  board[row][column] = playerTurn;
+  checkForWin();
+  playerTurn = playerTurn === 'X' ? 'O' : 'X';
 }
 
 function getPrompt() {
