@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -25,6 +26,18 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+
+  for (let i = 0 ; i < board.length ; i++) {
+    if (
+      board[i][0] === playerTurn &&
+      board[i][1] === playerTurn &&
+      board[i][2] === playerTurn
+      ) {
+      return true
+    } else {
+      return false
+    }
+  }
 }
 
 function verticalWin() {
