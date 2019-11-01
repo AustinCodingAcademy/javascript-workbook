@@ -27,58 +27,54 @@ function horizontalWin() {
   // Your code here
   // Check the rows of the board for a match
   if (
-      board[0][0] === playerTurn && 
-      board[0][1] === playerTurn && 
-      board[0][2] === playerTurn
-      ) {
-        return true;
+    board[0][0] && board[0][1] && board[0][2] === playerTurn
+    ) {
+      return true;
   } else if (
-      board[1][0] === playerTurn && 
-      board[1][1] === playerTurn && 
-      board[1][2] === playerTurn
-      ) {
-        return true;
+    board[1][0] && board[1][1] && board[1][2] === playerTurn
+    ) {
+      return true;
   } else if (
-      board[3][0] === playerTurn && 
-      board[3][1] === playerTurn && 
-      board[3][2] === playerTurn
-      ) {
-        return true;
-  } 
-        return false;
+    board[3][0] && board[3][1] && board[3][2] === playerTurn
+    ) {
+      return true;
+    } 
+      return false;
 }
 
 function verticalWin() {
   // Your code here
   // Check the columns of the board for a match
   if (
-    board[0][0] === playerTurn && 
-    board[1][0] === playerTurn && 
-    board[2][0] === playerTurn
+    board[0][0] && board[1][0] && board[2][0] === playerTurn
     ) {
       return true;
 } else if (
-    board[1][0] === playerTurn && 
-    board[1][1] === playerTurn && 
-    board[1][2] === playerTurn
+    board[0][1] && board[1][1] && board[2][1] === playerTurn
     ) {
       return true;
 } else if (
-    board[3][0] === playerTurn && 
-    board[3][1] === playerTurn && 
-    board[3][2] === playerTurn
+    board[0][2] && board[1][2] && board[2][2] === playerTurn
     ) {
       return true;
 } 
       return false;
-}
 }
 
 function diagonalWin() {
   // Your code here
   // Check for an diagonal pattern/line from top left to bottom right
   // Check for an diagonal pattern/line from top right to bottom left
-
+  if (
+    board[0][0] && board[1][1] && board[2][2] === playerTurn
+    ) {
+      return true;
+} else if (
+    board[0][2] && board[1][1] && board[2][0] === playerTurn
+    ) {
+      return true;
+} 
+      return false;
 }
 
 function checkForWin() {
@@ -86,8 +82,10 @@ function checkForWin() {
   // Call horizontal, vertical, and diagonal wins
   // Return true or false
   // Return true if any of those checks return true
-
-  
+  if (horizontalWin || verticalWin || diagonalWin === true) {
+    return true;
+  }
+    return false;
 }
 
 function ticTacToe(row, column) {
