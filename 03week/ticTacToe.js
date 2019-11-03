@@ -53,13 +53,47 @@ function horizontalWin() {
 function verticalWin() {
   // Your code here
   // check the columns of the board for a match
+
+  if (
+    board [0] [0] === playerTurn && 
+    board [1] [0] === playerTurn &&
+    board [2] [0] === playerTurn
+    ) {
+      return true;
+    } else if (
+      board [0] [1] === playerTurn && 
+      board [1] [1] === playerTurn &&
+      board [2] [1] === playerTurn 
+    ) {
+      return true;
+    } else if (
+      board [0] [2] === playerTurn && 
+      board [1] [2] === playerTurn &&
+      board [2] [2] === playerTurn 
+    ) {
+      return true;
+    } 
+      return false;
 }
 
 function diagonalWin() {
   // Your code here
   // check for an line pattern on the board top left to bottom right
   // check for a line pattern  top right to bottom left on board
-
+  if (
+    board [0] [0] === playerTurn && 
+    board [1] [1] === playerTurn &&
+    board [2] [2] === playerTurn
+    ) {
+      return true;
+    } else if (
+      board [0] [2] === playerTurn && 
+      board [1] [1] === playerTurn &&
+      board [2] [0] === playerTurn 
+    ) {
+      return true;
+    } 
+      return false;
 }
 
 function checkForWin() {
