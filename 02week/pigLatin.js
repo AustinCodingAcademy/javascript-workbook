@@ -9,34 +9,30 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+  // trim and make everything lowercase
+  word = word.toLowerCase().trim();
+  // define vowels with an array
 const vowels = ['a','e','i','o','u','y'];
-const end = 'ay';
-  // Your code here
-
-  //  eg ex 
-  // if (word[0] === 'a'|| 'e' || 'i' || 'o' || 'u') {
-  //   return word + 'yay';
-  // }
-  // Most basic case where the word starts with a vowel
-  // Just return the word with 'yay' on the end
+  // define first letter to determine vowel position
+const firstLetter = word[0];
+  // define a variable for loop to find vowels
+let vowelPos = 0;
+  // if a word befins with vowel, add 'yay'
   if (vowels.includes(firstLetter)) {
     return word + 'yay';
+  } else {
+    // if not, find the first vowel and move consonants to the end
+    for (let char of word) {
+      if (vowels.includes(char)) {
+        vowelPos = word.indexOf(char);
+        break;
+      }
+    }
+    // return the correct word in pig latin
+    return word.slice(vowelPos) + word.slice(0, vowelPos) + 'ay';
   }
-
-  // create variables with possible endings
-
-  // test each letter until you find a vowel
-
-  // remove everything before the vowel and store
-
-  // put the removed letters at the end of the word
-
-  // add ay
-
-  // if word begins with a vowel, add 'yay' to the end
 }
-
-
+  
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
