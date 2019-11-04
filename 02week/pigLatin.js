@@ -10,6 +10,8 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
+  word = word.trim().toLowerCase();
+
   word=word.toLowerCase();
 
     // for words that start with a vowel:
@@ -28,7 +30,6 @@ function pigLatin(word) {
                break;}
             }
     return word;}
-
   
 
 }
