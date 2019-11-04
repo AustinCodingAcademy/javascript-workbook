@@ -100,7 +100,7 @@ function checkForWin() {
   // Your code here
   // check for horizontal, vertical, and diagonol wins
   // return true if any of those checks return true
-
+  
 }
 
 function ticTacToe(row, column) {
