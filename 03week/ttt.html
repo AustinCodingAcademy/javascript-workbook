@@ -10,144 +10,209 @@
             }
         </style>
     </head>
-    <body>
+    <body onload="startGame();"> 
+      
         <table>
             <tr>
-                <td date-row="0" data-col="0" class="board-square">-</td>
-                <td data-row="0" data-col="1" class="board-square">-</td>
-                <td data-row="0" data-col="2" class="board-square">-</td>
+                <td id="b1"  class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b2"  class="board-square" onclick = "markPiece(this)" >-</td>                
+                <td id="b3"  class="board-square" onclick = "markPiece(this)">-</td>
             </tr>
             <tr>
-                <td date-row="1" data-col="0"class="board-square">-</td>
-                <td date-row="1" data-col="1"class="board-square">-</td>
-                <td date-row="1" data-col="2"class="board-square">-</td>
+                <td id="b4" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b5" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b6" class="board-square" onclick = "markPiece(this)">-</td>
             </tr>
             <tr>
-                <td date-row="2" data-col="0"class="board-square">-</td>
-                <td date-row="2" data-col="1"class="board-square">-</td>
-                <td date-row="2" data-col="2"class="board-square">-</td>
+                <td id="b7" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b8" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b9" class="board-square" onclick = "markPiece(this)">-</td>
             </tr>
         </table>
+        <div id="message"></div>
     </body>
 </html>
 
 <script>
-  const squares = document.querySelectorAll('.board-square');
 
-  squares.forEach(function(item) {
-      item.addEventListener("click", test);
-  });
-
-  function handleClick (event) {
-    console.log({target: event.target});
-  
-  let square = event.targert;
-  square.textContent = playerTurn
-
-  let squareCol=square.dataset.col;
-  let squareRow = square.dataset.row;
-
-  //console.log(squareCol, squareRow)
-
-  ticTacToe(squareCol, squareRow);
-  }
-
-
-
-  
-  function test (event) {
-    // console.log(event);
-  }
-let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
-
-let playerTurn = 'X';
-
-function printBoard() {
-  console.log('   0  1  2');
-  console.log('0 ' + board[0].join(' | '));
-  console.log('  ---------');
-  console.log('1 ' + board[1].join(' | '));
-  console.log('  ---------');
-  console.log('2 ' + board[2].join(' | '));
+const startGame = () => {
+for (let i = 1; i <= 9; i++){
+clearGame(i)
+}
+document.turn = "X"
+setMessage("Lets Start the Game!")
 }
 
-function horizontalWin() {
-  // Your code here
-if (board [0][0] === board [0][1] && board [0][1] === board [0][2]){
-  console.log (playerTurn + ' wins')
-  return true
-} else if (board [1][0] === board [1][1] && board [1][1] === board [1][2]){
-  console.log (playerTurn + ' wins')
-  return true
-} else if (board [2][0] === board [2][1] && board [2][1] === board [2][2]){
-  console.log (playerTurn + ' wins')
-  return true
-}
-}
 
-function verticalWin() {
-  // Your code here
-  if (board [0][0] === board [1][0] && board [1][0] === board [2][0]){
-    console.log (playerTurn + ' wins')
-    return true
-  } else if (board [0][1] === board [1][1] && board [1][1] === board [2][1]){
-    console.log (playerTurn + ' wins')
-    return true
-  } else if (board [0][2] === board [1][2] && board [1][2] === board [2][2]){
-    console.log (playerTurn + ' wins')
-    return true
+
+const markPiece = (box) => {
+  if (box.innerText === ""){
+    box.innerText = document.turn;
+    switchTurn()
+    console.log (this)
   }
 }
 
-function diagonalWin() {
-  // Your code here
-  if (board [0][0] === board [1][1] && board [1][1] === board [2][2]){
-    console.log (playerTurn + ' wins')
-    return true
-  } else if (board [0][2] === board [1][1] && board [1][1] === board [0][2]){
-    console.log (playerTurn + ' wins')
-    return true
-  }
+const setMessage = (msg) => {
+  document.getElementById("message").innerText = msg;
 }
 
-function checkForWin() {
-  // Your code here
-  if (horizontalWin() || verticalWin() || diagonalWin()){
-    return true; 
+const switchTurn = () => {
+  if (checkForWinner(document.turn)){
+    setMessage(`${document.turn}  You win!`);
+  }
+  else if (document.turn === "X"){
+    document.turn = "O"
   } else {
-    return false;
+    document.turn = "X"
   }
 }
 
-function ticTacToe(row, column) {
-  // Your code here
-  console.log (row, column)
-  if (playerTurn === 'X'){
-  board [row][column]='X'
-  checkForWin()
-  playerTurn = 'O'
-}else{
-  board [row][column]='O'
-  checkForWin()
-  playerTurn = 'X'
-}
+const checkForWinner = (piece) => {
+  if (threeInaRow(1, 2, 3, piece) ||
+      threeInaRow(4, 5, 6, piece) ||
+      threeInaRow(7, 8, 9, piece) ||
+      threeInaRow(1, 4, 7, piece) ||
+      threeInaRow(2, 5, 8, piece) ||
+      threeInaRow(3, 6, 9, piece) ||
+      threeInaRow(1, 5, 9, piece) ||
+      threeInaRow(3, 5, 7, piece)){
+        return true;
+      }   
 
 }
 
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
+const threeInaRow = (a, b, c, piece) => {
+if (getBox(a) === piece && getBox(b) === piece && getBox(c) === piece){
+  return true;
+}
 
 }
+const getBox = (num) => {
+  return document.getElementById ("b" + num).innerText
+}
+const clearGame = (num) => {
+  return document.getElementById ("b" + num).innerText = ""
+}
+  // const squares = document.querySelectorAll('.board-square');
+
+  // let playerTurn = 'X';
+
+  // squares.forEach(function(item) {
+  //     item.addEventListener("click", playerTurn);
+  //     console.log("clicked")
+  // });
+
+  // function handleClick (event) {
+  //   console.log({target: event.target});
+  
+  // let square = event.targert;
+  // square.textContent = playerTurn
+
+  // let squareCol= square.dataset.col;
+  // let squareRow = square.dataset.row;
+
+  // //console.log(squareCol, squareRow)
+
+  // ticTacToe(squareCol, squareRow);
+  // }
+
+
+  
+  
+//   function test (event) {
+//     console.log(event);
+//   }
+// let board = [
+//   [' ', ' ', ' '],
+//   [' ', ' ', ' '],
+//   [' ', ' ', ' ']
+// ];
+
+
+
+// function printBoard() {
+//   console.log('   0  1  2');
+//   console.log('0 ' + board[0].join(' | '));
+//   console.log('  ---------');
+//   console.log('1 ' + board[1].join(' | '));
+//   console.log('  ---------');
+//   console.log('2 ' + board[2].join(' | '));
+// }
+
+// function horizontalWin() {
+//   // Your code here
+// if (board [0][0] === board [0][1] && board [0][1] === board [0][2]){
+//   console.log (playerTurn + ' wins')
+//   return true
+// } else if (board [1][0] === board [1][1] && board [1][1] === board [1][2]){
+//   console.log (playerTurn + ' wins')
+//   return true
+// } else if (board [2][0] === board [2][1] && board [2][1] === board [2][2]){
+//   console.log (playerTurn + ' wins')
+//   return true
+// }
+// }
+
+// function verticalWin() {
+//   // Your code here
+//   if (board [0][0] === board [1][0] && board [1][0] === board [2][0]){
+//     console.log (playerTurn + ' wins')
+//     return true
+//   } else if (board [0][1] === board [1][1] && board [1][1] === board [2][1]){
+//     console.log (playerTurn + ' wins')
+//     return true
+//   } else if (board [0][2] === board [1][2] && board [1][2] === board [2][2]){
+//     console.log (playerTurn + ' wins')
+//     return true
+//   }
+// }
+
+// function diagonalWin() {
+//   // Your code here
+//   if (board [0][0] === board [1][1] && board [1][1] === board [2][2]){
+//     console.log (playerTurn + ' wins')
+//     return true
+//   } else if (board [0][2] === board [1][1] && board [1][1] === board [0][2]){
+//     console.log (playerTurn + ' wins')
+//     return true
+//   }
+// }
+
+// function checkForWin() {
+//   // Your code here
+//   if (horizontalWin() || verticalWin() || diagonalWin()){
+//     return true; 
+//   } else {
+//     return false;
+//   }
+// }
+
+// function ticTacToe(row, column) {
+//   // Your code here
+//   console.log (row, column)
+//   if (playerTurn === 'X'){
+//   board [row][column]='X'
+//   checkForWin()
+//   playerTurn = 'O'
+// }else{
+//   board [row][column]='O'
+//   checkForWin()
+//   playerTurn = 'X'
+// }
+
+// }
+
+// function getPrompt() {
+//   printBoard();
+//   console.log("It's Player " + playerTurn + "'s turn.");
+//   rl.question('row: ', (row) => {
+//     rl.question('column: ', (column) => {
+//       ticTacToe(row, column);
+//       getPrompt();
+//     });
+//   });
+
+// }
 </script>
 
