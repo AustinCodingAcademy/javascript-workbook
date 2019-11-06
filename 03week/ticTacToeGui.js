@@ -1,11 +1,4 @@
-'use strict';
-
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+console.log('Tic Tac Tow GUI here')
 
 let board = [
   [' ', ' ', ' '],
@@ -15,14 +8,22 @@ let board = [
 
 let playerTurn = 'X';
 
-function printBoard() {
-  console.log('   0  1  2');
-  console.log('0 ' + board[0].join(' | '));
-  console.log('  ---------');
-  console.log('1 ' + board[1].join(' | '));
-  console.log('  ---------');
-  console.log('2 ' + board[2].join(' | '));
+function test (event) {
+  console.log(event)
 }
+
+function changeDom(event) {
+  event.target.textContent = playerTurn;
+  const row = event.target.dataset.row;
+  const col = event.target.dataset.col;
+  ticTacToe(row, col);
+}
+
+const squares = document.querySelectorAll('.board-square');
+
+squares.forEach(item => {item.addEventListener('click', changeDom)});
+
+
 
 function horizontalWin() {
   // Your code here
@@ -84,17 +85,3 @@ function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   (playerTurn === 'X') ? playerTurn = 'O' : playerTurn = 'X';
 }
-
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question('row: ', (row) => {
-    rl.question('column: ', (column) => {
-      ticTacToe(row, column);
-      getPrompt();
-    });
-  });
-
-}
-
-
