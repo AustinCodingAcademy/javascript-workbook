@@ -10,10 +10,12 @@
             }
         </style>
     </head>
-    <body onload="startGame();"> 
+    <body onload="startGame();">  
+      <!-- startgame function starts game when window loads -->
       
         <table>
             <tr>
+              <!-- markPiece function marks board when box is clicked -->
                 <td id="b1"  class="board-square" onclick = "markPiece(this)">-</td>
                 <td id="b2"  class="board-square" onclick = "markPiece(this)" >-</td>                
                 <td id="b3"  class="board-square" onclick = "markPiece(this)">-</td>
@@ -30,25 +32,28 @@
             </tr>
         </table>
         <div id="message"></div>
+        <!-- this prints message in dom -->
     </body>
 </html>
 
 <script>
 
 const startGame = () => {
-for (let i = 1; i <= 9; i++){
-clearGame(i)
+  //this loops through all 9 boxes
+  for (let i = 1; i <= 9; i++){
+  clearGame(i) //clears the game for fresh start
+  }
+  document.turn = "X" //game starts with X
+  setMessage("Lets Start the Game!") //sets message to start new game
 }
-document.turn = "X"
-setMessage("Lets Start the Game!")
-}
 
 
-
+//this is the onclick function for each box
 const markPiece = (box) => {
+  //if box is empty then mark with X (document.turn) first
   if (box.innerText === ""){
     box.innerText = document.turn;
-    switchTurn()
+    switchTurn() 
     console.log (this)
   }
 }
@@ -69,6 +74,7 @@ const switchTurn = () => {
 }
 
 const checkForWinner = (piece) => {
+  //using the for loop we created to check for all winning positions
   if (threeInaRow(1, 2, 3, piece) ||
       threeInaRow(4, 5, 6, piece) ||
       threeInaRow(7, 8, 9, piece) ||
@@ -94,125 +100,6 @@ const getBox = (num) => {
 const clearGame = (num) => {
   return document.getElementById ("b" + num).innerText = ""
 }
-  // const squares = document.querySelectorAll('.board-square');
-
-  // let playerTurn = 'X';
-
-  // squares.forEach(function(item) {
-  //     item.addEventListener("click", playerTurn);
-  //     console.log("clicked")
-  // });
-
-  // function handleClick (event) {
-  //   console.log({target: event.target});
   
-  // let square = event.targert;
-  // square.textContent = playerTurn
-
-  // let squareCol= square.dataset.col;
-  // let squareRow = square.dataset.row;
-
-  // //console.log(squareCol, squareRow)
-
-  // ticTacToe(squareCol, squareRow);
-  // }
-
-
-  
-  
-//   function test (event) {
-//     console.log(event);
-//   }
-// let board = [
-//   [' ', ' ', ' '],
-//   [' ', ' ', ' '],
-//   [' ', ' ', ' ']
-// ];
-
-
-
-// function printBoard() {
-//   console.log('   0  1  2');
-//   console.log('0 ' + board[0].join(' | '));
-//   console.log('  ---------');
-//   console.log('1 ' + board[1].join(' | '));
-//   console.log('  ---------');
-//   console.log('2 ' + board[2].join(' | '));
-// }
-
-// function horizontalWin() {
-//   // Your code here
-// if (board [0][0] === board [0][1] && board [0][1] === board [0][2]){
-//   console.log (playerTurn + ' wins')
-//   return true
-// } else if (board [1][0] === board [1][1] && board [1][1] === board [1][2]){
-//   console.log (playerTurn + ' wins')
-//   return true
-// } else if (board [2][0] === board [2][1] && board [2][1] === board [2][2]){
-//   console.log (playerTurn + ' wins')
-//   return true
-// }
-// }
-
-// function verticalWin() {
-//   // Your code here
-//   if (board [0][0] === board [1][0] && board [1][0] === board [2][0]){
-//     console.log (playerTurn + ' wins')
-//     return true
-//   } else if (board [0][1] === board [1][1] && board [1][1] === board [2][1]){
-//     console.log (playerTurn + ' wins')
-//     return true
-//   } else if (board [0][2] === board [1][2] && board [1][2] === board [2][2]){
-//     console.log (playerTurn + ' wins')
-//     return true
-//   }
-// }
-
-// function diagonalWin() {
-//   // Your code here
-//   if (board [0][0] === board [1][1] && board [1][1] === board [2][2]){
-//     console.log (playerTurn + ' wins')
-//     return true
-//   } else if (board [0][2] === board [1][1] && board [1][1] === board [0][2]){
-//     console.log (playerTurn + ' wins')
-//     return true
-//   }
-// }
-
-// function checkForWin() {
-//   // Your code here
-//   if (horizontalWin() || verticalWin() || diagonalWin()){
-//     return true; 
-//   } else {
-//     return false;
-//   }
-// }
-
-// function ticTacToe(row, column) {
-//   // Your code here
-//   console.log (row, column)
-//   if (playerTurn === 'X'){
-//   board [row][column]='X'
-//   checkForWin()
-//   playerTurn = 'O'
-// }else{
-//   board [row][column]='O'
-//   checkForWin()
-//   playerTurn = 'X'
-// }
-
-// }
-
-// function getPrompt() {
-//   printBoard();
-//   console.log("It's Player " + playerTurn + "'s turn.");
-//   rl.question('row: ', (row) => {
-//     rl.question('column: ', (column) => {
-//       ticTacToe(row, column);
-//       getPrompt();
-//     });
-//   });
-
-// }
 </script>
 
