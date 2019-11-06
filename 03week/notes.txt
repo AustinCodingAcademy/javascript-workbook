@@ -1,0 +1,7 @@
+Some things that could be improved:
+
+better fonts.
+
+make a game reset function.
+
+keep score.

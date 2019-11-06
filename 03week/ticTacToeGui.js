@@ -13,9 +13,17 @@ function test (event) {
 }
 
 function changeDom(event) {
+
+  //places x or o on the board
   event.target.textContent = playerTurn;
+
+  //removes event listener so same board piece can't be played:
+  event.target.removeEventListener('click', changeDom);
+
   const row = event.target.dataset.row;
   const col = event.target.dataset.col;
+
+  //function to change the board array:
   ticTacToe(row, col);
 }
 
@@ -35,7 +43,7 @@ function horizontalWin() {
       board[i][2] === playerTurn
       ) {
       return true
-    } 
+    }
   }
 }
 
@@ -70,18 +78,46 @@ function diagonalWin() {
   } else {
     return false;
   }
-
 }
 
 function checkForWin() {
   // Your code here
-  if( verticalWin || horizontalWin || diagonalWin ) {
+  if( verticalWin() || horizontalWin() || diagonalWin() ) {
     return true;
   }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  //changes the board array:
+  const turnTeller = document.querySelector('.turn-teller');
   board[row][column] = playerTurn;
-  (playerTurn === 'X') ? playerTurn = 'O' : playerTurn = 'X';
+
+  //checks for win:
+  if(checkForWin()) {
+    declareWinner();
+  }
+
+  if(playerTurn === 'X') {
+    playerTurn = 'O';
+    turnTeller.style.left = "630px";
+    turnTeller.style.backgroundColor = "lightseagreen";
+    //background-color: palevioletred;
+  } else {
+    playerTurn = 'X';
+    turnTeller.style.left = "0px";
+    turnTeller.style.backgroundColor = "palevioletred";
+    //background-color: lightseagreen;
+  }
+  //left: 630px;
 }
+
+function declareWinner(){
+  console.log(console.log(`Player ${playerTurn} Wins!`));
+  //makes squares not clickable:
+  squares.forEach(item => {item.removeEventListener('click', changeDom)});
+  winnerText = document.createElement('p');
+  winnerText.textContent = `Winner ${playerTurn} Wins!`;
+  textContainer = document.querySelector('.winner-container');
+  textContainer.appendChild(winnerText);
+};
