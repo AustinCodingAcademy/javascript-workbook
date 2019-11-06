@@ -6,28 +6,148 @@
             td { 
                 border: 1px solid black;
                 padding: 40px;
+                
             }
         </style>
     </head>
     <body>
         <table>
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
+                <td date-row="0" data-col="0" class="board-square">-</td>
+                <td data-row="0" data-col="1" class="board-square">-</td>
+                <td data-row="0" data-col="2" class="board-square">-</td>
             </tr>
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
+                <td date-row="1" data-col="0"class="board-square">-</td>
+                <td date-row="1" data-col="1"class="board-square">-</td>
+                <td date-row="1" data-col="2"class="board-square">-</td>
             </tr>
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
+                <td date-row="2" data-col="0"class="board-square">-</td>
+                <td date-row="2" data-col="1"class="board-square">-</td>
+                <td date-row="2" data-col="2"class="board-square">-</td>
             </tr>
         </table>
     </body>
 </html>
 
+<script>
+  const squares = document.querySelectorAll('.board-square');
+
+  squares.forEach(function(item) {
+      item.addEventListener("click", test);
+  });
+
+  function handleClick (event) {
+    console.log({target: event.target});
+  
+  let square = event.targert;
+  square.textContent = playerTurn
+
+  let squareCol=square.dataset.col;
+  let squareRow = square.dataset.row;
+
+  //console.log(squareCol, squareRow)
+
+  ticTacToe(squareCol, squareRow);
+  }
+
+
+
+  
+  function test (event) {
+    // console.log(event);
+  }
+let board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+
+let playerTurn = 'X';
+
+function printBoard() {
+  console.log('   0  1  2');
+  console.log('0 ' + board[0].join(' | '));
+  console.log('  ---------');
+  console.log('1 ' + board[1].join(' | '));
+  console.log('  ---------');
+  console.log('2 ' + board[2].join(' | '));
+}
+
+function horizontalWin() {
+  // Your code here
+if (board [0][0] === board [0][1] && board [0][1] === board [0][2]){
+  console.log (playerTurn + ' wins')
+  return true
+} else if (board [1][0] === board [1][1] && board [1][1] === board [1][2]){
+  console.log (playerTurn + ' wins')
+  return true
+} else if (board [2][0] === board [2][1] && board [2][1] === board [2][2]){
+  console.log (playerTurn + ' wins')
+  return true
+}
+}
+
+function verticalWin() {
+  // Your code here
+  if (board [0][0] === board [1][0] && board [1][0] === board [2][0]){
+    console.log (playerTurn + ' wins')
+    return true
+  } else if (board [0][1] === board [1][1] && board [1][1] === board [2][1]){
+    console.log (playerTurn + ' wins')
+    return true
+  } else if (board [0][2] === board [1][2] && board [1][2] === board [2][2]){
+    console.log (playerTurn + ' wins')
+    return true
+  }
+}
+
+function diagonalWin() {
+  // Your code here
+  if (board [0][0] === board [1][1] && board [1][1] === board [2][2]){
+    console.log (playerTurn + ' wins')
+    return true
+  } else if (board [0][2] === board [1][1] && board [1][1] === board [0][2]){
+    console.log (playerTurn + ' wins')
+    return true
+  }
+}
+
+function checkForWin() {
+  // Your code here
+  if (horizontalWin() || verticalWin() || diagonalWin()){
+    return true; 
+  } else {
+    return false;
+  }
+}
+
+function ticTacToe(row, column) {
+  // Your code here
+  console.log (row, column)
+  if (playerTurn === 'X'){
+  board [row][column]='X'
+  checkForWin()
+  playerTurn = 'O'
+}else{
+  board [row][column]='O'
+  checkForWin()
+  playerTurn = 'X'
+}
+
+}
+
+function getPrompt() {
+  printBoard();
+  console.log("It's Player " + playerTurn + "'s turn.");
+  rl.question('row: ', (row) => {
+    rl.question('column: ', (column) => {
+      ticTacToe(row, column);
+      getPrompt();
+    });
+  });
+
+}
+</script>
 
