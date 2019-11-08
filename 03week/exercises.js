@@ -55,6 +55,7 @@ console.log(carsInReverse);
 // slice
 // Use the slice method to remove Ford and Honda from the carsInReverse array and move them into a new array called removedCars.
 
+//Slice does not remove items. Splice should be used here:
 const removedCars = carsInReverse.splice(2, 2);
 
 console.log('removed Cars : ', removedCars);
