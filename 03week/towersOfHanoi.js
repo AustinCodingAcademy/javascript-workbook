@@ -21,6 +21,12 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
+  // move a piece from one stack to another
+  // check to make sure a piece can move
+  // return an error message if not allowed
+  // check to see if the game is won
+  // If stack 1 or 2 have the pyramid
+  
 
 }
 
