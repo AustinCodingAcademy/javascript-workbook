@@ -1,17 +1,22 @@
+//for testing
 console.log('pigLatinGui Here!')
 
+//target submit button
 const submit = document.querySelector('.input-section__submit');
 
+//When submit button is clicked, render translation
 submit.addEventListener('click', renderTranslation);
 
 function renderTranslation() {
+  //save content in the text area as input
   textArea = document.querySelector('.input-section__textarea');
   let input = textArea.value;
 
-  //If there is text in the quote, clear text.
+  //If there is text in the quote from previous translation, clear text.
   if(document.querySelector('.pig-section__quote-div__p')) {
     clearQuote();
   }
+
   //make the quote bubble appear
   const renderArea = document.querySelector('.pig-section__quote-div');
   renderArea.classList.remove('hidden');
@@ -19,14 +24,20 @@ function renderTranslation() {
   //translation holds returned logic from pigLatin()
   const translation = pigLatin(input);
 
+  //make p element
   const translationText = document.createElement('p');
 
+  //insert translation into p element
   translationText.textContent = translation;
+
+  //add class to p element so it can be detected for additional translations
   translationText.classList.add('pig-section__quote-div__p');
 
+  //add <p> with translation to the renderArea
   renderArea.appendChild(translationText);
+
+  //clear textArea
   clearInput();
-  console.log(translation);
 }
 
 function clearInput() {
