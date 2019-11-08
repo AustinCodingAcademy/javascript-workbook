@@ -62,8 +62,14 @@
 .input-section__textarea {
   width: 300px;
   height: 71px;
+  border: none;
 }
 
 .input-section__submit {
   margin: 10px;
+  background: coral;
+  border: none;
+  padding: 7px 32px;
+  font-family: 'Dosis', sans-serif;
+  box-shadow: 0px 2px 4px #222;
 }

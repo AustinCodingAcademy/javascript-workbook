@@ -2,12 +2,12 @@ console.log('pigLatinGui Here!')
 
 const submit = document.querySelector('.input-section__submit');
 
-submit.addEventListener('click', ()=>{
-  let input = event.target.parentElement.children[0].value;
-  renderTranslation(input);
-});
+submit.addEventListener('click', renderTranslation);
 
-function renderTranslation(input) {
+function renderTranslation() {
+  textArea = document.querySelector('.input-section__textarea');
+  let input = textArea.value;
+
   //If there is text in the quote, clear text.
   if(document.querySelector('.pig-section__quote-div__p')) {
     clearQuote();
@@ -21,9 +21,8 @@ function renderTranslation(input) {
 
   const translationText = document.createElement('p');
 
-  translationText.classList.add('pig-section__quote-div__p');
-  
   translationText.textContent = translation;
+  translationText.classList.add('pig-section__quote-div__p');
 
   renderArea.appendChild(translationText);
   clearInput();
