@@ -1,0 +1,69 @@
+.header-section {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-section__h1 {
+  font-size: 6em;
+  font-family: 'Crete Round', serif;
+}
+
+.header-section__h2 {
+  font-family: 'Dosis', sans-serif;
+}
+
+.pig-section {
+  height:200px;
+  display: flex;
+  justify-content: center;
+}
+
+.pig-section__pig-img {
+  height: 100%;
+}
+
+.pig-section__spacer-div {
+  height: 50%;
+  width: 160px;
+}
+
+.pig-section__quote-div {
+  background-image: url(./img/quote.png);
+  height: 50%;
+  width: 160px;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pig-section__quote-div__p {
+  font-family: 'Dosis', sans-serif;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  height: 200px;  
+  justify-content: center;
+  align-items: center;
+  background-color: darkseagreen;
+}
+
+.input-section__textarea {
+  width: 300px;
+  height: 71px;
+}
+
+.input-section__submit {
+  margin: 10px;
+}
