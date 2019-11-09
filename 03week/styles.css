@@ -1,5 +1,5 @@
 body {
-  background-color:#2aaf4b;
+  background-color:black;
   font:16px normal normal "Open Sans",Helvetica,sans-serif;
 }
 
@@ -7,7 +7,6 @@ body {
 .title h1 {
   font:80px normal normal "Bevan",sans-serif;
   color:#fff;
-  text-shadow:2px 2px 0px rgba(255,255,255,0.5),4px 4px 0px rgba(255,255,255,0.5);
   padding-bottom:5px;
   border-bottom:5px solid rgba(255,255,255,0.5);
   width:900px;
@@ -34,7 +33,7 @@ body {
   padding:5px 10px;
   font-size:50px;
   vertical-align:middle;
-  background-color:rgba(42, 175, 75, 1);
+  background-color: royalblue;
   border-radius:10px;
 } 
 
@@ -49,11 +48,11 @@ body {
 
 .input-controls .button-submit {
   cursor:pointer;
-  background-color:#168832;
+  background-color: royalblue'
 }
 
 .input-controls .button-submit:active {
-  background-color:#094E1A;
+  background-color: white;
 }
 
 
