@@ -1,0 +1,75 @@
+body {
+  background-color:#2aaf4b;
+  font:16px normal normal "Open Sans",Helvetica,sans-serif;
+}
+
+.title {text-align:center;}
+.title h1 {
+  font:80px normal normal "Bevan",sans-serif;
+  color:#fff;
+  text-shadow:2px 2px 0px rgba(255,255,255,0.5),4px 4px 0px rgba(255,255,255,0.5);
+  padding-bottom:5px;
+  border-bottom:5px solid rgba(255,255,255,0.5);
+  width:900px;
+  margin:20px auto;
+  margin-top:0px;
+}
+
+.project-cont {
+  width:900px;
+  margin:0px auto;
+  background-color:rgba(255, 255, 255, 0.27);
+  padding:20px 0px;
+  color:#fff;
+}
+
+.project-cont .inner {padding:0px 20px;}
+
+/* Input Area */
+.input-controls {
+  text-align:center;
+}
+.input-controls .inp-control {
+  display:inline-block;
+  padding:5px 10px;
+  font-size:50px;
+  vertical-align:middle;
+  background-color:rgba(42, 175, 75, 1);
+  border-radius:10px;
+} 
+
+.input-controls .input-word {
+  max-width:600px;
+  min-width:400px;
+}
+.input-controls .input-word:focus {
+  outline:none;
+}
+
+
+.input-controls .button-submit {
+  cursor:pointer;
+  background-color:#168832;
+}
+
+.input-controls .button-submit:active {
+  background-color:#094E1A;
+}
+
+
+.rules {text-align:center;}
+
+.results-pane {
+  font-size:90px;
+  text-align:center;
+  font-family:Bevan;
+  text-shadow:1px 1px 0px #eee;
+  margin:30px auto;
+  width:800px;
+  border-radius:20px;
+  color:#fff;
+  border:5px dashed #fff;
+}
+
+
+.tpsect {text-align:center;border-radius:20px;}
