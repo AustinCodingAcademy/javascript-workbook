@@ -1,14 +1,45 @@
 <html>
     <head>
         <style type="text/css">
-            table { border: 1px solid black }
+            body {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            table { 
+              border: 2px solid darkslateblue;
+              justify-self: center;
+               }
             td { 
-                border: 1px solid black;
-                padding: 40px;
+              border: 1px solid darkslategray;
+              padding: 40px;
+              background-color: darkslateblue;
+              color: white;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 16px;
+            }
+            #title {
+              margin: 20px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 25px;
+            }
+            h2 {
+              font-size: 22px;
+              font-family: Cambria, sans-serif;
+            }
+            #newGame {
+              border: 1.2px solid darkslateblue;
+              padding: 6px;
+              background-color: #eee;
+              border-radius: 5px;
+              font-size: 12px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-weight: 600;
             }
         </style>
     </head>
     <body>
+        <div id="title">Tic Tac Toe</div>
         <table>
             <tr>
                 <td data-row="0" data-col="0" class="board-square">-</td>
@@ -27,26 +58,58 @@
             </tr>
         </table>
 
+        <h2 id="win"></h2>
+        <button id="newGame">
+            <div>New Game</div>
+        </button>
+  
 
+      </body>
   <script>
     const squares = document.querySelectorAll('.board-square');
-
+   
     squares.forEach(function(item) {
       item.addEventListener("click", handleClick);
     });
-
+    
     function handleClick (event) {
-      // console.log({target: event.target});
-      console.log(event.target);
+      console.log({target: event.target});
+      // console.log(event.target);
       let square = event.target;
       square.textContent = playerTurn;
+      square.removeEventListener('click', handleClick);
 
       let squareCol = square.dataset.col;
       let squareRow = square.dataset.row;
-      ticTacToe(squareCol, squareRow);
+      ticTacToe(squareRow, squareCol);
     }
-          
-          function horizontalWin() {
+
+    const button = document.querySelector('#newGame');
+      button.addEventListener('click', newGame);
+
+      function newGame(event) {
+        window.location.reload(true);
+      }
+    
+
+
+    let board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+    let playerTurn = 'X';
+
+    function printBoard() {
+  console.log('   0  1  2');
+  console.log('0 ' + board[0].join(' | '));
+  console.log('  ---------');
+  console.log('1 ' + board[1].join(' | '));
+  console.log('  ---------');
+  console.log('2 ' + board[2].join(' | '));
+}
+   
+    function horizontalWin() {
   if (
     board[0][0] === playerTurn &&
     board[0][1] === playerTurn &&
@@ -110,20 +173,28 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  if (horizontalWin || verticalWin || diagonalWin === true) {
+  if (horizontalWin() || verticalWin() || diagonalWin() === true) {
+    if (playerTurn === 'X') {
+      document.getElementById('win').innerText = 'You win!!';
+  } else {
+    document.getElementById('win').innerText = 'O kicked yo booty';
+    }
     return true;
-  }
-}
+    }
+  } 
 
 function ticTacToe(row, column) {
-  let selectedRow = board[row];
-  selectedRow[column] = playerTurn;
-  if (playerTurn === 'X') {
-    playerTurn = 'O';
-  } else if (playerTurn === 'O') {
-    playerTurn = 'X';
-  }
-}       
+  board[row][column] = playerTurn;
+  checkForWin();
+  
+if (playerTurn === 'X') {
+  playerTurn = 'O';
+} else {
+  playerTurn = 'X';
+}
+} 
+
+
         </script>
-    </body>
+    
 </html>
