@@ -9,12 +9,30 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
+  // trim and make everything lowercase
+  word = word.toLowerCase().trim();
+  // define vowels with an array
+const vowels = ['a','e','i','o','u','y'];
+  // define first letter to determine vowel position
+const firstLetter = word[0];
+  // define a variable for loop to find vowels
+let vowelPos = 0;
+  // if a word befins with vowel, add 'yay'
+  if (vowels.includes(firstLetter)) {
+    return word + 'yay';
+  } else {
+    // if not, find the first vowel and move consonants to the end
+    for (let char of word) {
+      if (vowels.includes(char)) {
+        vowelPos = word.indexOf(char);
+        break;
+      }
+    }
+    // return the correct word in pig latin
+    return word.slice(vowelPos) + word.slice(0, vowelPos) + 'ay';
+  }
 }
-
-
+  
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
