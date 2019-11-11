@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #input {
+    width: 70%;
+    height: 150px;
+    margin: 15px;
+    border: 1px solid #222;
+    background-color: rgba(212, 192, 4, 0.3);
+    padding: 8px;
+  }
+  #process {
+    width: 70px;
+    /* height: 30px; */
+    font: arial;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+  }
+  #pigLatin {
+    border: 1px solid #222;
+    width: 70%;
+    height: 150px; 
+    margin: 15px;
+    padding: 8px;
+    background-color: rgba(2, 192, 27, 0.3);
+    display: flex;
+    align-items: center;
+  }
+</style>
+
+  <title>Pig Latin</title>
+
+</head>
+
+<body>
+  <h2 class="title">Pig Latin Translator</h2>
+  <input id="input" type="text" placeholder="Enter Word">
+  <button id="process">Get it!</button>
+  <div id="pigLatin"></div>
+  
+</body>
+
+<script>
+
+  document.getElementById('process').addEventListener('click', take)
+
+  function take () {
+  let word = document.getElementById('input').value;
+  document.getElementById('pigLatin').innerHTML=(pigLatin(word));
+  }
+  
+  function pigLatin(word) {
+  // trim and make everything lowercase
+  word = word.toLowerCase().trim();
+  // define vowels with an array
+const vowels = ['a','e','i','o','u','y'];
+  // define first letter to determine vowel position
+const firstLetter = word[0];
+  // define a variable for loop to find vowels
+let vowelPos = 0;
+  // if a word befins with vowel, add 'yay'
+  if (vowels.includes(firstLetter)) {
+    return word + 'yay';
+    // document.getElementById('pigLatin').innerHTML = word + 'yay';
+  } else {
+    // if not, find the first vowel and move consonants to the end
+    for (let char of word) {
+      if (vowels.includes(char)) {
+        vowelPos = word.indexOf(char);
+        break;
+      }
+    }
+    // return the correct word in pig latin
+    return word.slice(vowelPos) + word.slice(0, vowelPos) + 'ay'; 
+    // let answer = word.slice(vowelPos) + word.slice(0, vowelPos) + 'ay';
+    // document.getElementById('pigLatin').innerHTML = answer;
+  }
+}
+
+</script>
+</html>
