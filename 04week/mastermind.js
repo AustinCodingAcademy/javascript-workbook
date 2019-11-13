@@ -28,8 +28,36 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
+  const solutionArray = solution.split('');
+  //should be [ 'a', 'b', 'c', 'd' ]
+
+  const guessArray = guess.split('');
+  //if guess was 'abdc'
+  //should be [ 'a', 'b', 'd', 'c' ]
+
+  let redPegs = 0;
+  let whitePegs = 0;
+
+  for (let i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      redPegs++;
+      solutionArray[i] = null;
+    }
+  }
+
+  let targetIndex = null;
+  for (let i = 0; i < guessArray.length; i++) {
+    let targetIndex = solutionArray.indexOf(guessArray[i]);
+    
+    if (targetIndex > -1) {
+      whitePegs++;
+      solutionArray[targetIndex] = null;
+    }
+  }
+  //return a string representation of red pegs and white pegs vars
+  return `${redPegs}-${whitePegs}`;
 }
 
 function mastermind(guess) {
