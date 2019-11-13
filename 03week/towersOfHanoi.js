@@ -32,15 +32,15 @@ function isLegal(startStack, endStack) {
   if (chosenPiece < chosenDest || chosenDest == undefined) {
     return true;
   } else {
-    console.log("Illegal Move!");
+    console.log("\n Illegal Move! \n");
   }
 }
 
 function checkForWin() {
   // Your code here 
-  if (stacks['a'][3] === 1)
+  if ((stacks['b'][3] === 1) || (stacks['c'][3] === 1))
   {
-    console.log("You win!");
+    console.log(" \n You win! \n");
     return true
   }
 } 
@@ -56,7 +56,7 @@ function towersOfHanoi(startStack, endStack) {
     movePiece(startStack, endStack);
     checkForWin();
   } else {
-    return "Illegal Move!";
+    return "\n Illegal Move! \n";
   }
 }
 
