@@ -19,36 +19,36 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece (startStack, endStack){
-return stacks[endStack].push(stacks[startStack].pop())
+function movePiece(startStack, endStack) {
+  return stacks[endStack].push(stacks[startStack].pop())
 }
 
-function isValid (startStack, endStack) {
+function isValid(startStack, endStack) {
   // test to make sure user enters A, B, or C
-  if (startStack === "a" && (endStack === "b" || endStack === "c")){
+  if (startStack === "a" && (endStack === "b" || endStack === "c")) {
     return true
-  } else if (startStack === "b" && (endStack === "a" || endStack === "c")){
+  } else if (startStack === "b" && (endStack === "a" || endStack === "c")) {
     return true
-  } else if (startStack === "c" && (endStack === "a" || endStack === "b")){
+  } else if (startStack === "c" && (endStack === "a" || endStack === "b")) {
     return true
-  } else{
+  } else {
     return false;
   }
-  }
-  
+}
+
 
 
 function isLegal(startStack, endStack) {
   if (isValid(startStack, endStack)) {
-    let startPiece = stacks[startStack] [stacks[startStack].length -1];
-    let endPiece = stacks[endStack] [stacks[endStack].length -1];
+    let startPiece = stacks[startStack][stacks[startStack].length - 1];
+    let endPiece = stacks[endStack][stacks[endStack].length - 1];
     // console.log (`${startPiece},${endPiece}`)
 
     if (startPiece < endPiece || stacks[endStack].length === 0) {
       return true;
-    } else{
+    } else {
       return false;
-      console.log ("Invalid Move!")
+      console.log("Invalid Move!")
     }
   }
 }
@@ -64,13 +64,14 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  if (isLegal(startStack, endStack)){
+  if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack)
   }
 
-if (checkForWin()){
-  console.log ("You Win!")
-}
+  if (checkForWin()) {
+    console.log("You Win!")
+  }
+  towersOfHanoi()
 }
 
 function getPrompt() {
