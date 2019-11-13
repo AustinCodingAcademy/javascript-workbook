@@ -56,13 +56,27 @@ function generateHint(guess) {
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
-  if (guess === solution) {
-    return 'You guessed it!';
+
+  if(checkWin(guess, solution)){
+    console.log(checkWin(guess, solution));
+    return checkWin(guess, solution);
   }
 
   let hint = generateHint(guess);
   board.push(`${guess} ${hint}`);
-  if(board.length === 10) {
+  console.log(`turn: ${board.length}`);
+  console.log(checkLoss(solution));
+}
+
+function checkWin(guess, solution) {
+  if(guess === solution) {
+    return `You guessed it!`
+  }
+}
+
+function checkLoss(solution) {
+  let turn = board.length;
+  if(turn > 9) {
     return `You ran out of turns! The solution was ${solution}`
   } else {
     return 'Guess Again.'
