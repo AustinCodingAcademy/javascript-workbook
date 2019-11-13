@@ -28,9 +28,36 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
-}
+  const solutionArray = solution.split('');
+
+  const guessArray = guess.split('');
+
+  let redPegs = 0;
+  let whitePegs = 0;
+
+  for (let i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      redPegs++;
+      solutionArray[i] = null;
+    }
+  }
+
+  let targetIndex = null;
+
+  for (let i = 0; i < guessArray.length; i++) {
+    targetIndex = solutionArray.indexOf(guessArray[i]); 
+      
+      if (targetIndex > -1) {
+      whitePegs++;
+      solutionArray[targetIndex] = null;
+    }
+  }
+
+  return `${redPegs}-${whitePegs}`;
+
+  }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
@@ -75,3 +102,4 @@ if (typeof describe === 'function') {
   generateSolution();
   getPrompt();
 }
+
