@@ -33,6 +33,7 @@ function isLegal(startStack, endStack) {
     return true;
   } else {
     console.log("\n Illegal Move! \n");
+    return false;
   }
 }
 
