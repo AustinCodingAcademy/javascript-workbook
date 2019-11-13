@@ -40,39 +40,73 @@ function generateHint(guess) {
   let whitePegs = 0;
 
 // checking for redPegs
-  for (let i = 0; i < solutionArray.length; i++){
-    if (solutionArray[i] === guessArray[i]) {
-      redPegs++;
-      solutionArray[i] = null;
+  // for (let i = 0; i < solutionArray.length; i++){
+  //   if (solutionArray[i] === guessArray[i]) {
+  //     redPegs++;
+  //     solutionArray[i] = null;
+  //   }
+    for (let i = 0; i < 4; i++){
+      if (solutionArray[i] === guessArray[i]){
+        redPegs++;
+        solutionArray[i] = null;
+      }
+    }
+
+    for (let i = 0; i < 4; i++){
+      let targetIndex = solutionArray.indexOf (guessArray[i]);
+      if (targetIndex > -1) {
+        whitePegs = whitePegs + 1;
+        solutionArray[targetIndex] = null;
+      }
     }
     // solutionArray[i]
     // guessArray [i]
-  }
+  
 
-  let targetIndex = null;
-  // checking for whitePegs
-  for (let i = 0; i < guessArray.length; i++){
-    targetIndex = solutionArray.indexOf(guessArray[i]);
+  // let targetIndex = null;
+  // // checking for whitePegs
+  // for (let i = 0; i < guessArray.length; i++){
+  //   targetIndex = solutionArray.indexOf(guessArray[i]);
    
-    if (targetIndex > -1) {
-      whitePegs++;
-      solutionArray[targetIndex]=null;
-    }
-    }
+  //   if (targetIndex > -1) {
+  //     whitePegs++;
+  //     solutionArray[targetIndex]=null;
+  //   }
+  //   }
 
 
     // return a string representation of redPegs and whitePegs variables
-    return `${redPegs}-${whitePegs}`;
+    return redPegs + "-" + whitePegs;
   }
   
   // return a string representation of redPegs and whitePegs variables
   // return 'x-x';
+  function provideHint(guess){
+    let hint = generateHint(guess);
+    board.push(hint);
+  }
 
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
-}
+  if (guess.length === 4 && guess !== solution){
+    generateHint(guess);
+  } 
+  else if (guess === solution){
+    console.log("Winner!");
+    return ("You guessed it!");
+  }
+  if(guess > board.length){
+    return "Out of turns. Solution is " + solution
+  }
+  else if (guess.length < 4){
+    return "Guess must be only 4 letters"
+  } else {
+    provideHint(guess)
+    return "Guess again"
+  }
+  }
 
 
 function getPrompt() {
