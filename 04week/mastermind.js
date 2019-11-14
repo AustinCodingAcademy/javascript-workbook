@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 let board = [];
-let solution = '';
+let solution = 'abcd';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
@@ -47,7 +47,6 @@ function generateHint(guess) {
     }
   }
 
-  let targetIndex = null;
   for (let i = 0; i < guessArray.length; i++) {
     let targetIndex = solutionArray.indexOf(guessArray[i]);
     
@@ -60,15 +59,34 @@ function generateHint(guess) {
   return `${redPegs}-${whitePegs}`;
 }
 
-function mastermind(guess) {
+function addHint(guess) {
+  let hint = generateHint(guess);
+  board.push(hint);
+}
+
+function mastermind(guess, solution) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+  if (guess.length === 4 && guess !== solution) {
+    generateHint(guess);
+  } else if (guess == solution) {
+    console.log("You guessed it!")
+    return "You guessed it!";} 
+    if (board.length === 10) {
+    console.log(`Game over! ${solution}`);
+    return "Game over!" + solution;
+  } else if (guess.length < 4) {
+    console.log("Must enter 4 letters!");
+    return "Must enter 4 letters!"
+  } else {
+    addHint(guess);
+  }
 }
 
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
-    mastermind(guess);
+    mastermind(guess, solution);
     printBoard();
     getPrompt();
   });
