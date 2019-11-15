@@ -1,16 +1,20 @@
-let arr1 = ['a', 'b', 'c']
+let arr = ['a', 'b', 'c']
 
-function forEachFromScratch (arr, fn) {
   // your code here
+  function forEachFromScratch (arr, fn) {
+    for(let i = 0; i<arr.length; i++) {
+    fn(arr[i], i , arr);
+    }
+  }
   // use for loop to iterate over the array parameter
   // for every iteration call the function parameter with the current value in the array, 
   // the current index in the array, and the current array
-  }
   
   // syntax on how we will call our custom function
-  forEachFromScratch(arr1, function (element, i, arr) {
+  forEachFromScratch(arr, function (element, i, arr) {
     console.log(element, i);
     console.log(arr);
+  });
   
     /* 
     expected output:
@@ -22,4 +26,3 @@ function forEachFromScratch (arr, fn) {
     > "c" 2
     > Array ["a", "b", "c"]
     */
-  })
