@@ -30,12 +30,13 @@ function getRandomInt(min, max) {
 
 function generateHint(guess) {
   // your code here
+  // split guess and solution arrays for comparison
   const solutionArray = solution.split('');
   const guessArray = guess.split('');
 
   let redPegs = 0;
   let whitePegs = 0;
-
+  // if matching return red
   for (let i = 0; i < solutionArray.length; i++) {
     if (solutionArray[i] === guessArray[i]) {
       redPegs++;
@@ -44,7 +45,7 @@ function generateHint(guess) {
   }
 
   let targetIndex = null;
-
+  // if matching but index does not match return white pegs
   for (let i = 0; i < guessArray.length; i++) {
     targetIndex = solutionArray.indexOf(guessArray[i]); 
       
@@ -71,8 +72,11 @@ function mastermind(guess) {
   // solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
   const guessArray = guess.split('');
+  // when guess is complete
     if (guessArray.length === 4) {
+      // check to see if guess is correct, return response
       if (guess === solution) {
+
         console.log('You guessed it!');
         return 'You guessed it!';
       } else if (validInput(guessArray)) {
