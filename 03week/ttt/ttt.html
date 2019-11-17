@@ -1,0 +1,200 @@
+<html>
+    <head>
+        <style type="text/css">
+            body {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            table { 
+              border: 2px solid darkslateblue;
+              justify-self: center;
+               }
+            td { 
+              border: 1px solid darkslategray;
+              padding: 40px;
+              background-color: darkslateblue;
+              color: white;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 16px;
+            }
+            #title {
+              margin: 20px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 25px;
+            }
+            h2 {
+              font-size: 22px;
+              font-family: Cambria, sans-serif;
+            }
+            #newGame {
+              border: 1.2px solid darkslateblue;
+              padding: 6px;
+              background-color: #eee;
+              border-radius: 5px;
+              font-size: 12px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="title">Tic Tac Toe</div>
+        <table>
+            <tr>
+                <td data-row="0" data-col="0" class="board-square">-</td>
+                <td data-row="0" data-col="1" class="board-square">-</td>
+                <td data-row="0" data-col="2" class="board-square">-</td>
+            </tr>
+            <tr>
+                <td data-row="1" data-col="0" class="board-square">-</td>
+                <td data-row="1" data-col="1" class="board-square">-</td>
+                <td data-row="1" data-col="2" class="board-square">-</td>
+            </tr>
+            <tr>
+                <td data-row="2" data-col="0" class="board-square">-</td>
+                <td data-row="2" data-col="1" class="board-square">-</td>
+                <td data-row="2" data-col="2" class="board-square">-</td>
+            </tr>
+        </table>
+
+        <h2 id="win"></h2>
+        <button id="newGame">
+            <div>New Game</div>
+        </button>
+  
+
+      </body>
+  <script>
+    const squares = document.querySelectorAll('.board-square');
+   
+    squares.forEach(function(item) {
+      item.addEventListener("click", handleClick);
+    });
+    
+    function handleClick (event) {
+      console.log({target: event.target});
+      // console.log(event.target);
+      let square = event.target;
+      square.textContent = playerTurn;
+      square.removeEventListener('click', handleClick);
+
+      let squareCol = square.dataset.col;
+      let squareRow = square.dataset.row;
+      ticTacToe(squareRow, squareCol);
+    }
+
+    const button = document.querySelector('#newGame');
+      button.addEventListener('click', newGame);
+
+      function newGame(event) {
+        window.location.reload(true);
+      }
+    
+
+
+    let board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+    let playerTurn = 'X';
+
+    function printBoard() {
+  console.log('   0  1  2');
+  console.log('0 ' + board[0].join(' | '));
+  console.log('  ---------');
+  console.log('1 ' + board[1].join(' | '));
+  console.log('  ---------');
+  console.log('2 ' + board[2].join(' | '));
+}
+   
+    function horizontalWin() {
+  if (
+    board[0][0] === playerTurn &&
+    board[0][1] === playerTurn &&
+    board[0][2] === playerTurn 
+  ) {
+    return true;
+  } else if (
+    board[1][0] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[1][2] === playerTurn 
+  ) {
+    return true;
+  } else if (
+    board[2][0] === playerTurn &&
+    board[2][1] === playerTurn &&
+    board[2][2] === playerTurn 
+  ) {
+    return true;
+  }  
+  return false;
+}
+
+function verticalWin() {
+  if (
+    board[0][0] === playerTurn &&
+    board[1][0] === playerTurn &&
+    board[2][0] === playerTurn 
+  ) {
+    return true;
+  } else if (
+    board[0][1] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][1] === playerTurn 
+  ) {
+    return true;
+  } else if (
+    board[0][2] === playerTurn &&
+    board[1][2] === playerTurn &&
+    board[2][2] === playerTurn 
+  ) {
+    return true;
+  }  
+  return false;
+}
+
+function diagonalWin() {
+  if (
+    board[0][0] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][2] === playerTurn 
+  ) {
+    return true;
+  } else if (
+    board[0][2] === playerTurn &&
+    board[1][1] === playerTurn &&
+    board[2][0] === playerTurn 
+  ) {
+    return true;
+  }  
+  return false;
+}
+
+function checkForWin() {
+  if (horizontalWin() || verticalWin() || diagonalWin() === true) {
+    if (playerTurn === 'X') {
+      document.getElementById('win').innerText = 'You win!!';
+  } else {
+    document.getElementById('win').innerText = 'O kicked yo booty';
+    }
+    return true;
+    }
+  } 
+
+function ticTacToe(row, column) {
+  board[row][column] = playerTurn;
+  checkForWin();
+  
+if (playerTurn === 'X') {
+  playerTurn = 'O';
+} else {
+  playerTurn = 'X';
+}
+} 
+
+
+        </script>
+    
+</html>
