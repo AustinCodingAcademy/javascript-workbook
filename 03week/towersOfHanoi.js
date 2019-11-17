@@ -40,22 +40,26 @@ function movePiece(startStack, endStack) {
 
       if((startTop < endTop) || (endTop === undefined)) {
         return true;
-      } else {
-      // return an error message if not allowed
+      } else 
+      {
         return false;
       }
     }
   }
     // check to see if the game is won
   // If stack 1 or 2 have the pyramid
-    function checkForWin() {
-      if (stacks.c.length === 4)
- {
-        return true;
-      } else {
-        return false;
-      }
-    }
+function checkForWin() {
+  // Your code here
+  if(stacks.b.length === 4) {
+    console.log("You win");
+    return true;
+  } else if (stacks.c.length === 4){
+    console.log("You win");
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // function checkForWin() {
 //   // Your code here
@@ -72,6 +76,7 @@ function towersOfHanoi(startStack, endStack) {
       stacks = newStacks; 
     }
   } else {
+  // return an error message if not allowed
     console.log('Not a valid move. Do it right')
   }
 
