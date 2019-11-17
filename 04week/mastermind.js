@@ -31,7 +31,6 @@ function getRandomInt(min, max) {
 function generateHint(guess) {
   // your code here
   const solutionArray = solution.split('');
-
   const guessArray = guess.split('');
 
   let redPegs = 0;
@@ -59,9 +58,33 @@ function generateHint(guess) {
 
   }
 
+  function validInput(guessArray) {
+    for (let i=0; i< guessArray.length; i++) {
+      if (!letters.includes(guessArray[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+  // solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+  const guessArray = guess.split('');
+    if (guessArray.length === 4) {
+      if (guess === solution) {
+        console.log('You guessed it!');
+        return 'You guessed it!';
+      } else if (validInput(guessArray)) {
+        board.unshift(`${guess}: ${generateHint(guess)}`)
+      } else {
+        console.log('Not a valid entry');
+      }
+    } else if (guessArray.length < 4) {
+      console.log('Take another guess');
+    } else {
+      console.log('Too many letters');
+    }
 }
 
 
