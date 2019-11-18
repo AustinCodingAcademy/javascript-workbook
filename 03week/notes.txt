@@ -1,0 +1,11 @@
+Ideas for improvement.
+
+Make it so it is upper camelcase -- hello translates to ElloHay
+
+remove any punctuation if there is any, and add it to the end.
+
+add punction to the end.
+
+hello. translates to ElloHay.
+HellO! translates to ElloHay!
+
