@@ -1,11 +1,8 @@
-Ideas for improvement.
 
-Make it so it is upper camelcase -- hello translates to ElloHay
+Some things that could be improved:
 
-remove any punctuation if there is any, and add it to the end.
+better fonts.
 
-add punction to the end.
+make a game reset function.
 
-hello. translates to ElloHay.
-HellO! translates to ElloHay!
-
+keep score.

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main>
+      <h1>Tic Tac Toe</h1>
+      <table>
+        <tr>
+          <td data-row="0" data-col="0" class='board-square'>-</td>
+          <td data-row="0" data-col="1" class='board-square'>-</td>
+          <td data-row="0" data-col="2" class='board-square'>-</td>
+        </tr>
+        <tr>
+          <td data-row="1" data-col="0" class='board-square'>-</td>
+          <td data-row="1" data-col="1" class='board-square'>-</td>
+          <td data-row="1" data-col="2" class='board-square'>-</td>
+        </tr>
+        <tr>
+          <td data-row="2" data-col="0" class='board-square'>-</td>
+          <td data-row="2" data-col="1" class='board-square'>-</td>
+          <td data-row="2" data-col="2" class='board-square'>-</td>
+        </tr>
+      </table>
+      <div class="turn-indicator">
+        <div class="turn-teller"></div>
+      </div>
+      <div class = info-container>
+        <div class="info-container__player"> <p class="info-container__player--p">Player X</p> </div>
+        <div class="winner-container">
+        </div>
+        <div class="info-container__player"> <p class="info-container__player--p">Player O</p> </div>
+      </div>
+    </main>
+    <script src='./ticTacToeGui.js'></script>
+  </body>
+</html>

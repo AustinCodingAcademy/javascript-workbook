@@ -1,0 +1,79 @@
+main {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px red solid; */
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-block-start: 1.3em;
+  margin-block-end: 1.3em;
+}
+
+p {
+  margin-block-start: 0px;
+  margin-block-end: 0;
+  font-size: 2.6em;
+}
+
+.turn-indicator{
+  height: 20px;
+  width: 100%;
+  /* border: 1px red solid; */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.turn-teller {
+  position: relative;
+  /* border: 1px blue solid; */
+  width: 200px;
+  margin: 0 30px;
+  transition: 600ms;
+  left: 0;
+  background-color: lightseagreen;
+  background-color: palevioletred;
+}
+
+.info-container {
+  display: flex;
+  /* border: 1px blue solid; */
+  width: 100%;
+  justify-content: space-around;
+}
+
+.info-container__player--p {
+  font-size: 2em;
+  padding: 10px;
+}
+
+.winner-container {
+  display: flex;
+  height: 107px;
+  width: 330px;
+  /* border: 1px red solid; */
+  align-items: center;
+  justify-content: center;
+}
+
+td { 
+  border: 3px solid black;
+  padding: 40px;
+}
+
+td[data-row="0"]{
+  border-top: none;
+}
+
+td[data-col="0"] {
+  border-left: none;
+}
+
+td[data-col="2"] {
+  border-right: none;
+}
+
+td[data-row="2"] {
+  border-bottom: none;
+}
