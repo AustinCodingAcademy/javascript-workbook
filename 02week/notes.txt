@@ -1,0 +1,10 @@
+Write new tests for Rock Paper Scissors in the javascript-workbook 02week/test.js:
+
+
+Test for all possible scenarios in which "Hand one wins!".
+
+
+Test for all possible scenarios in which "Hand two wins!".
+
+
+Test to make sure user must input a valid entry (e.g. 'rock', 'paper', or 'scissors')

@@ -1,12 +1,55 @@
-'use strict';
+//for testing
+console.log('pigLatinGui Here!')
 
-const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+//target submit button
+const submit = document.querySelector('.input-section__submit');
 
+//When submit button is clicked, render translation
+submit.addEventListener('click', renderTranslation);
+
+function renderTranslation() {
+  //save content in the text area as input
+  textArea = document.querySelector('.input-section__textarea');
+  let input = textArea.value;
+
+  //If there is text in the quote from previous translation, clear text.
+  if(document.querySelector('.pig-section__quote-div__p')) {
+    clearQuote();
+  }
+
+  //make the quote bubble appear
+  const renderArea = document.querySelector('.pig-section__quote-div');
+  renderArea.classList.remove('hidden');
+
+  //translation holds returned logic from pigLatin()
+  const translation = pigLatin(input);
+
+  //make p element
+  const translationText = document.createElement('p');
+
+  //insert translation into p element
+  translationText.textContent = translation;
+
+  //add class to p element so it can be detected for additional translations
+  translationText.classList.add('pig-section__quote-div__p');
+
+  //add <p> with translation to the renderArea
+  renderArea.appendChild(translationText);
+
+  //clear textArea
+  clearInput();
+}
+
+function clearInput() {
+  const textArea = document.querySelector('.input-section__textarea');
+  textArea.value = "";
+};
+
+function clearQuote() {
+  const quoteChild = document.querySelector('.pig-section__quote-div__p')
+  
+  quoteChild.parentNode.removeChild(quoteChild);
+}
 
 function pigLatin(input) {
 
@@ -74,50 +117,4 @@ function pigLatin(input) {
   let finalTranslation = translatedWords.join(' ');
 
   return finalTranslation;
-}
-
-
-function getPrompt() {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
-  });
-}
-
-// Tests
-
-if (typeof describe === 'function') {
-
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
-    });
-    //'Should separate two words and return them together' 'Hop Fest' => 'Ophay Estfay'
-
-    it('should separate two words and return them together', ()=>{
-      assert.equal(pigLatin('hop fest'), 'ophay estfay');
-      assert.equal(pigLatin('bright bird'), 'ightbray irdbay');
-      assert.equal(pigLatin('eek yikes'), 'eekyay ikesyay');
-    })
-
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
-
-
-    });
-  });
-} else {
-
-  getPrompt();
-
 }
