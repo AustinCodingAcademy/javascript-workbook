@@ -49,7 +49,7 @@ class Ship  {
   const lewis = new CrewMember('Commander Lewis', 'commander', 'geology');
   const mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
   const hermes = new Ship ('Hermes', 'Main Ship', 'Interplanetary Space Travel');
-
+  
 
   console.log (rick);
   console.log (lewis);
