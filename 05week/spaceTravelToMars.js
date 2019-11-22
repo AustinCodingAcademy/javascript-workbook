@@ -10,6 +10,36 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember {
+  constructor(name, job, specialSkill, ship) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+
+    this.enterShip = function(Ship) {
+      this.ship = Ship;
+    }
+
+  }
+}
+
+class Ship {
+  constructor(name, type, specialAbility, crew) {
+    this.name = name;
+    this.type = type;
+    this.specialAbility = specialAbility;
+    this.crew = [null];
+
+    this.addCrew = function(CrewMember) {
+      this.crew.push(CrewMember);
+    };
+
+    // shipCrew = new CrewMember("1");
+
+  }
+}
+
 
 //tests
 if (typeof describe === 'function'){
