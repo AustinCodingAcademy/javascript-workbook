@@ -11,9 +11,9 @@ const rl = readline.createInterface({
 class Checker {
 constructor (color){
   if (color === 'white'){
-    this.symbol = 'w'
+    this.symbol = String.fromCharCode(0x125CC)
   } else if (color === 'black'){
-    this.symbol = 'b'
+    this.symbol = String.fromCharCode(0x125CF)
   }
 
   }
@@ -96,8 +96,14 @@ class Board {
 selectChecker(row, column){
   return this.grid[row][column]
 }
-killChecker(){
-
+killChecker(position){
+  let kill = selectChecker (position[0], position[1])
+  let checkerindex = this.checkers.indexOf(checker)
+  this.checkers.splice(checkerindex, 1)
+  this.grid[position[0]] [position[1]] = null
+  if (kill){
+    return true;
+  }
 }
 
 }
@@ -111,7 +117,23 @@ class Game {
     this.board.createCheckers();
   }
   moveChecker(start, end){
+    const startRow = parseInt(start[0])
+    const startCol = parseInt(start[1])
+    const endRow = parseInt (end[0])
+    const endCol = parseInt (end [1])
     const checker = this.board.selectChecker(start[0], start[1])
+
+    this.board.grid[startRow][startCol] = null
+    this.board.grid[endRow][endCol] = checker
+
+    if (Math.abs(endRow - startRow) == 2){
+      const killRow = endRow - startRow > 0 ? startRow + 1 : endRow + 1 
+      const killCol = endCol - startCol > 0 ? startCol + 1 : endCol + 1
+
+      this.board.grid[killRow][killCol] = null
+
+      this.board.checkers.pop()
+    }
         }
 }
 
