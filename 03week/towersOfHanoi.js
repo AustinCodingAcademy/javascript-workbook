@@ -71,7 +71,7 @@ function towersOfHanoi(startStack, endStack) {
   if (checkForWin()) {
     console.log("You Win!")
   }
-  towersOfHanoi()
+
 }
 
 function getPrompt() {
