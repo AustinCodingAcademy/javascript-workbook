@@ -7,27 +7,30 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function Checker() {
-  // Your code here
-}
+// function Checker() {
+//   // Your code here
+// }
 
 class Checker {
   constructor(color) {
-    // 
-    // String.fromCharCode(0x125CF)
     if (color === 'white') {
-      this.color = String.fromCharCode(0x125CB);
+      this.color = 'white';
+      this.symbol = String.fromCharCode(0x125CB);
     } else if (color === 'black') {
+      this.color = 'black';
       this.symbol = String.fromCharCode(0x125CF);
     }
   }
-}
+};
+
+let whiteChecker = new Checker('white');
+let blackChecker = new Checker('black');
 
 class Board {
   constructor() {
     this.grid = []
-    this.checkers = []
+    this.whiteCheckers = [];
+    this.blackCheckers = [];
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -66,20 +69,33 @@ class Board {
   }
 
   createCheckers() {
-    let whitePositions = [
+    let whitePositions = 
+    [
         [0, 1], [0, 3], [0, 5], [0, 7],
       [1, 0], [1, 2], [1, 4], [1, 6],
         [2, 1], [2, 3], [2, 5], [2, 7]
     ];
+    this.addWhite(row,column);
+
     let blackPositions = [
       [5, 0], [5, 2], [5, 4], [5, 6],
         [6, 1], [6, 3], [6, 5], [6, 7],
       [7, 0], [7, 2], [7, 4], [7, 6]
     ];
-
-    const whiteChecker;
-    const blackChecker;
+    this.addBlack(row,column);
   }
+      // instantiate a white checker
+      // Place that checker on the grid at the position corresponding with the index in the positions array
+      // Push the checker into your this.checkers array
+     addWhite(row,column) {
+       this.grid[row][column] = whiteChecker;
+       this.whiteCheckers++;
+     }
+     addBlack(row,column) {
+       this.grid[row][column] = blackChecker;
+       this.blackCheckers++;
+     }
+    
 
   selectChecker() {
 
