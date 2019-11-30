@@ -75,7 +75,9 @@ class Board {
       [1, 0], [1, 2], [1, 4], [1, 6],
         [2, 1], [2, 3], [2, 5], [2, 7]
     ];
-    this.addWhite(row,column);
+    for (let value of whitePositions) {
+      this.addWhite(row,column);
+    }
 
     let blackPositions = [
       [5, 0], [5, 2], [5, 4], [5, 6],
