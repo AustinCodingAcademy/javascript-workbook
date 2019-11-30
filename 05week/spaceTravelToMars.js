@@ -16,27 +16,28 @@ class CrewMember {
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = ship;
-
-    this.enterShip = function(Ship) {
-      this.ship = Ship;
-    }
+  }
+    enterShip(shipToEnter) {
+      this.ship = shipToEnter;
+      shipToEnter.crew.push(this)
+    } 
 
   }
-}
+
 
 class Ship {
-  constructor(name, type, specialAbility, crew) {
+  constructor(name, type, ability, crew) {
     this.name = name;
     this.type = type;
-    this.specialAbility = specialAbility;
-    this.crew = [null];
-
-    this.addCrew = function(CrewMember) {
-      this.crew.push(CrewMember);
-    };
-
-    // shipCrew = new CrewMember("1");
-
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement() {
+    if (this.crew.length !== 0) {
+      return this.ability
+    } else {
+      return "Can't perform a mission yet."
+    }
   }
 }
 
