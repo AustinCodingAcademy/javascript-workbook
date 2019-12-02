@@ -7,6 +7,9 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+function difference(a, b) {
+return Math.abs(a - b);
+}
 // function Checker() {
 //   // Your code here
 // }
@@ -102,18 +105,28 @@ class Board {
     };
   }
   // r Board class, write a method this.selectChecker that takes two arguments row, colum
-  selectChecker(row,col) {
+  selectChecker(row,column) {
+    // use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker
     let checker = this.grid[row][column];
     // return the checker at that particular spot on this.grid
     return checker;
   }
 
-  killChecker() {
-
+  killChecker(position) 
+  {
+    // let posRow = Number(position[0]);
+    // let posColumn = Number(position[1]);
+    let victim = this.selectChecker(position[0],position[1]);
+    // Find the index of that checker in the this.checkers array.
+    let dead = this.checkers.indexOf(victim);
+    // then remove it by .splice()ing it out.
+    this.checkers.splice(dead, 1);
+    // assign the position on this.grid to null
+    this.grid[position[0]][position[1]] = null;
   }
   // Your code here
 }
-
+ 
 class Game {
   constructor() {
     this.board = new Board;
@@ -122,11 +135,28 @@ class Game {
     this.board.createGrid();
     // n your Game class, in the this.start method, add this.board.createCheckers()
     this.board.createCheckers();
-    // Next, in your Game class, create a this.moveChecker method that takes two parameters start, end
-    // this.moveChecker(start,end);
-    // use your board helper method selectChecker to select the checker at your starting rowcolumncoordinates and set it to a local variable checker
   }
-  // Then set that spot on the grid to null and set the spot at the end rowcolumn coordinate to the checker
+    // Next, in your Game class, create a this.moveChecker method that takes two parameters start, end
+    moveChecker(start,end) 
+    {
+      let startRow = Number(start[0]);
+      let startColumn = Number(start[1]);
+      let endRow = Number(end[0]);
+      let endColumn = Number(end[1]);
+      const checker = this.board.selectChecker(startRow, startColumn);
+       // Then set that spot on the grid to null and set the spot at the end rowcolumn coordinate to the checker
+      this.board.grid[start[0]][start[1]] = null;
+      this.board.grid[end[0]][end[1]] = checker;
+
+      // In the Game class, in the moveChecker method, after you have moved the checker, check to see if the distance of the start row and the end row is 2 by finding the absolute value of the difference between the rows
+      
+      let distance = difference(start[0], end[0]);
+      if (distance === 2) {
+        let killRow = (startRow + endRow) / 2;
+        let killColumn = (startColumn + endColumn) / 2;
+        this.board.killChecker([killRow, killColumn]);
+      }
+  }
 }
 
 function getPrompt() {
