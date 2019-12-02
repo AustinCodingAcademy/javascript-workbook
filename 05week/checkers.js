@@ -17,13 +17,14 @@ return Math.abs(a - b);
 class Checker {
   constructor(color) {
     if (color === 'white') {
-
       this.symbol = String.fromCharCode(0x125CB);
     } else if (color === 'black') {
       this.symbol = String.fromCharCode(0x125CF);
     }
   }
 }
+
+
 
 // let whiteChecker = new Checker('white');
 // let blackChecker = new Checker('black');
@@ -32,6 +33,8 @@ class Board {
   constructor() {
     this.grid = []
     this.checkers = [];
+    this.blackCheckers = [];
+    this.whiteCheckers = [];
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -157,6 +160,17 @@ class Game {
         this.board.killChecker([killRow, killColumn]);
       }
   }
+  checkForWin() {
+    if (Checker.color('black') === 0) {
+      console.log('White Wins!!');
+      newGame()
+    } else if (Checker.color('white') === 0) {
+      console.log('Black Wins!!!')
+      newGame()
+    } else {
+      return false
+    }
+  };
 }
 
 function getPrompt() {
