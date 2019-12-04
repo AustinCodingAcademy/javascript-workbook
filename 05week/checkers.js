@@ -196,9 +196,9 @@ class Board
     // let posColumn = Number(position[1]);
     let victim = this.selectChecker(position[0],position[1]);
     if (victim === blackChecker) {
-      blackCheckers--;
+      this.blackCheckers--;
     } else {
-      whiteCheckers--;
+      this.whiteCheckers--;
     }
     // Find the index of that checker in the this.checkers array.
     let dead = this.checkers.indexOf(victim);
