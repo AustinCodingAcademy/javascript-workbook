@@ -17,24 +17,31 @@ return Math.abs(a - b);
 class Checker {
   constructor(color) {
     if (color === 'white') {
-      this.symbol = String.fromCharCode(0x125CB);
+      this.player = 'white';
+      this.symbol = String.fromCharCode('\u25CB');
+     
     } else if (color === 'black') {
-      this.symbol = String.fromCharCode(0x125CF);
+      this.player = 'black';
+      this.symbol = String.fromCharCode('\u25CF');
     }
   }
 }
 
 
 
-// let whiteChecker = new Checker('white');
-// let blackChecker = new Checker('black');
+let whiteChecker = new Checker('white');
+let blackChecker = new Checker('black');
 
-class Board {
-  constructor() {
-    this.grid = []
+
+
+class Board 
+{
+  constructor() 
+  {
+    this.grid = [];
     this.checkers = [];
-    this.blackCheckers = [];
-    this.whiteCheckers = [];
+    this.blackCheckers = 0;
+    this.whiteCheckers = 0;
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -91,9 +98,12 @@ class Board {
       // let space = i[row][column];
       let newRow = whitePositions[i][0];
       let newCol = whitePositions[i][1];
-      this.grid[newRow][newCol] = checkerPiece;
+      // add pawn checker
+      this.grid[newRow][newCol] = whiteChecker;
 
       this.checkers.push(checkerPiece);
+      // add count to team pieces
+      this.whiteCheckers++;
     };
     for (let j = 0; j < 12; j++) {
       // instantiate a black checker
@@ -102,9 +112,11 @@ class Board {
         // Place that checker on the grid at the position corresponding with the index in the positions array
       let newRow = blackPositions[j][0];
       let newCol = blackPositions[j][1];
-      this.grid[newRow][newCol] = checkerPiece;
+      this.grid[newRow][newCol] = blackChecker;
        // Push the checker into your this.checkers array
       this.checkers.push(checkerPiece);
+      // add count to team pieces
+      this.blackCheckers++;
     };
   }
   // r Board class, write a method this.selectChecker that takes two arguments row, colum
@@ -115,21 +127,91 @@ class Board {
     return checker;
   }
 
+  playerTurn(start, end)
+  {
+      let startRow = Number(start[0]);
+      let startColumn = Number(start[1]);
+      let endRow = Number(end[0]);
+      let endColumn = Number(end[1]);
+      const move = 'move';
+      const jump = 'jump';
+
+      if (this.grid[startRow][startColumn] !== player)
+      {
+        console.log("Not your checker");
+      }
+
+      if (this.grid[endRow][endColumn] !== null)
+        {
+          console.log("Spot's occupied.")
+        }
+
+      
+      if (playerTurn !== 'white') {
+        playerTurn = 'white';
+      } else {
+        playerTurn = 'black';
+      }
+      switch (this.grid[startRow][endRow])
+      {
+        case whitePawn:
+          if (start > end)
+          {
+            if (start - end === 9 || start - end === 11) 
+            {
+              return move;
+            } else if ((start - end === 18 || start - end === 22) && this.checkForJump(start))
+            {
+              return jump;
+            } else {
+              console.log('Not a valid move')
+            }
+          } else {
+            console.log('Wrong way')
+          }
+
+          case blackPawn:
+          if (end < start)
+          {
+            if (end - start === 9 || end - start === 11) 
+            {
+              return move;
+
+            } else if ((end - start === 18 || end - start === 22) && this.checkForJump(start))
+            {
+              return jump;
+            } else {
+              console.log('Not a valid move')
+            }
+          } else {
+            console.log('Wrong way')
+          }
+      }
+  }
+
+
   killChecker(position) 
   {
     // let posRow = Number(position[0]);
     // let posColumn = Number(position[1]);
     let victim = this.selectChecker(position[0],position[1]);
+    if (victim === blackChecker) {
+      blackCheckers--;
+    } else {
+      whiteCheckers--;
+    }
     // Find the index of that checker in the this.checkers array.
     let dead = this.checkers.indexOf(victim);
     // then remove it by .splice()ing it out.
     this.checkers.splice(dead, 1);
     // assign the position on this.grid to null
     this.grid[position[0]][position[1]] = null;
+
   }
   // Your code here
 }
- 
+
+
 class Game {
   constructor() {
     this.board = new Board;
@@ -146,6 +228,8 @@ class Game {
       let startColumn = Number(start[1]);
       let endRow = Number(end[0]);
       let endColumn = Number(end[1]);
+
+
       const checker = this.board.selectChecker(startRow, startColumn);
        // Then set that spot on the grid to null and set the spot at the end rowcolumn coordinate to the checker
       this.board.grid[start[0]][start[1]] = null;
@@ -161,10 +245,10 @@ class Game {
       }
   }
   checkForWin() {
-    if (Checker.color('black') === 0) {
+    if (this.blackCheckers === 0) {
       console.log('White Wins!!');
       newGame()
-    } else if (Checker.color('white') === 0) {
+    } else if (this.whiteCheckers === 0) {
       console.log('Black Wins!!!')
       newGame()
     } else {
