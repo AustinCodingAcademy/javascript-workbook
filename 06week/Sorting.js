@@ -26,7 +26,7 @@ for(let i = 0; i < numberArray.length; i++) {
 }
 
 console.log(sumEvens);
-/*
+
 // Find the index of the first value when added to it's index = 512 (#ATX!!)
 const atxIdx;
 
@@ -107,4 +107,3 @@ console.log(weatherStates)
 
 const idealTemp =
 console.log(idealTemp)
-*/
