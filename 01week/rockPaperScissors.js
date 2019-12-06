@@ -11,6 +11,13 @@ const rl = readline.createInterface({
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
+  // the first hand
+  // the second hand
+
+  // if hand 1 is equal to hand 2 print "its a tie"
+  // if hand 1 is the winning hand, return "Hand one wins"
+  // if hand 2 is the winning hand, return "Hand two wins"
+
 
 }
 
