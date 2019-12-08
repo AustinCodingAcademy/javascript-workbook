@@ -2,25 +2,51 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
-}
+// function forEach(arr, callback) {
+//   // Your code here
+// }
 
-function map(arr, callback) {
-  // Your code here
-}
+function map (arr, callback) {
+  let output = [];
+  for(let i = 0; i < arr.length; i++) {
+    output.push(callback(arr[i]));
+  }
+  return output;
+};
 
-function filter(arr, callback) {
-  // Your code here
+function filter (arr, callback) {
+  let filtered = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+    filtered.push(arr[i]);
+  }
 }
+  return filtered
+};
 
-function some(arr, callback) {
-  // Your code here
-}
 
-function every(arr, callback) {
-  // Your code here
-}
+
+function reduce(arr, callback, currentValue) {
+  if(currentValue) {
+    for(let i = 0; i < arr.length; i++) {
+      currentValue = callback(arr[i], currentValue);
+    }
+  } else {
+  currentValue = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+   currentValue = callback(arr[i], currentValue);
+    }
+  }
+  return [currentValue];
+};
+
+// function some(arr, callback) {
+//   // Your code here
+// }
+
+// function every(arr, callback) {
+//   // Your code here
+// }
 
 if (typeof describe === 'function') {
 
@@ -33,6 +59,7 @@ if (typeof describe === 'function') {
   //     assert.equal(count, 3);
   //   });
   // });
+
 
   describe('#map()', () => {
     const arr = [1, 2, 3];
