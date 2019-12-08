@@ -11,7 +11,26 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 
   // Your code here
+  word = word.toLowerCase().trim();
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+  const firstLetter = word [0];
+  let vowelIndex = 0;
 
+  if (vowels.includes(firstLetter))  {
+    return word + 'yay';
+  } else {
+    //If the first letter isn't a vowel, i.e is a consonant
+    for (let char of word) {
+      //loop through until the first vowel is found
+      if (vowels.includes(char)) {
+        //Store the index at which the first vowel exists
+        vowelIndex = word.indexOf(char);
+        break;
+      }  
+    }
+    //Compose final string
+    return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+  }
 }
 
 

@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>pigLatin</title>
+</head>
+    <body>
+  
+        <div class='title'>
+        <h1>Pig Latin Translator</h1>
+        </div>
+        
+        <section class='project-cont'>
+          
+          <div class='inner'>
+          <form id="english">
+            <input id="first" type ="text" placeholder="enter..">
+            <button class='button-submit inp-control'>Submit</button>
+          </form>
+          <div id ='result-text'>result</div>  
+
+            <!-- <div class='input-controls in-sec'>
+            <div class='input-word inp-control' contenteditable='true'>enter..</div> <div class='button-submit inp-control'>Submit</div>
+          </div>
+            <div class='rules'>Enter a word. Must not contain characters other than alphabets.</div>
+          
+          <div class='results-pane in-sec'>
+            <div class='result-text'>result</div>  
+          </div> -->
+    </div>
+  </section> 
+</body>
+</html>
+
+<script>
+
+
+
+
+window.onload = function(){
+  function pigLatin(word) {
+
+    // Your code here
+    word = word.toLowerCase().trim();
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+    const firstLetter = word [0];
+    let vowelIndex = 0;
+
+    if (vowels.includes(firstLetter))  {
+      return word + 'yay';
+    } else {
+      //If the first letter isn't a vowel, i.e is a consonant
+      for (let char of word) {
+        //loop through until the first vowel is found
+        if (vowels.includes(char)) {
+          //Store the index at which the first vowel exists
+          vowelIndex = word.indexOf(char);
+          break;
+        }  
+      }
+      //Compose final string
+      return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
+    }
+  }
+    document.getElementById("english").onsubmit = function(e){
+      e.preventDefault();
+    const pigversion = document.getElementById("result-text");
+    pigversion.innerHTML = pigLatin(document.getElementById("first").value)
+    }
+  
+}
+</script>

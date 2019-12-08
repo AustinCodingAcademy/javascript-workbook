@@ -1,0 +1,105 @@
+<!-- TicTacToe -->
+<html>
+    <head>
+        <style type="text/css">
+            table { border: 1px solid black }
+            td { 
+                border: 1px solid black;
+                padding: 40px;
+                
+            }
+        </style>
+    </head>
+    <body onload="startGame();">  
+      <!-- startgame function starts game when window loads -->
+      
+        <table>
+            <tr>
+              <!-- markPiece function marks board when box is clicked -->
+                <td id="b1"  class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b2"  class="board-square" onclick = "markPiece(this)" >-</td>                
+                <td id="b3"  class="board-square" onclick = "markPiece(this)">-</td>
+            </tr>
+            <tr>
+                <td id="b4" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b5" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b6" class="board-square" onclick = "markPiece(this)">-</td>
+            </tr>
+            <tr>
+                <td id="b7" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b8" class="board-square" onclick = "markPiece(this)">-</td>
+                <td id="b9" class="board-square" onclick = "markPiece(this)">-</td>
+            </tr>
+        </table>
+        <div id="message"></div>
+        <!-- this prints message in dom -->
+    </body>
+</html>
+
+<script>
+
+const startGame = () => {
+  //this loops through all 9 boxes
+  for (let i = 1; i <= 9; i++){
+  clearGame(i) //clears the game for fresh start
+  }
+  document.turn = "X" //game starts with X
+  setMessage("Lets Start the Game!") //sets message to start new game
+}
+
+
+//this is the onclick function for each box
+const markPiece = (box) => {
+  //if box is empty then mark with X (document.turn) first
+  if (box.innerText === ""){
+    box.innerText = document.turn;
+    switchTurn() 
+    console.log (this)
+  }
+}
+
+const setMessage = (msg) => {
+  document.getElementById("message").innerText = msg;
+}
+
+const switchTurn = () => {
+  if (checkForWinner(document.turn)){
+    setMessage(`${document.turn}  You win!`);
+  }
+  else if (document.turn === "X"){
+    document.turn = "O"
+  } else {
+    document.turn = "X"
+  }
+}
+
+const checkForWinner = (piece) => {
+  //using the for loop we created to check for all winning positions
+  if (threeInaRow(1, 2, 3, piece) ||
+      threeInaRow(4, 5, 6, piece) ||
+      threeInaRow(7, 8, 9, piece) ||
+      threeInaRow(1, 4, 7, piece) ||
+      threeInaRow(2, 5, 8, piece) ||
+      threeInaRow(3, 6, 9, piece) ||
+      threeInaRow(1, 5, 9, piece) ||
+      threeInaRow(3, 5, 7, piece)){
+        return true;
+      }   
+
+}
+
+const threeInaRow = (a, b, c, piece) => {
+if (getBox(a) === piece && getBox(b) === piece && getBox(c) === piece){
+  return true;
+}
+
+}
+const getBox = (num) => {
+  return document.getElementById ("b" + num).innerText
+}
+const clearGame = (num) => {
+  return document.getElementById ("b" + num).innerText = ""
+}
+  
+</script>
+
