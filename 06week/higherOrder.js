@@ -7,32 +7,41 @@ const assert = require('assert');
 // }
 
 function map (arr, callback) {
+  // define a new array
   let output = [];
-  for(let i = 0; i < arr.length; i++) {
+  // create loop to iterate through array
+  for (let i = 0; i < arr.length; i++) {
+    // push the matching array items to the new array
     output.push(callback(arr[i]));
   }
+  // return the new array
   return output;
 };
 
 function filter (arr, callback) {
+  // define a new desitnation array
   let filtered = [];
+  // create loop to iterate through array
   for (let i = 0; i < arr.length; i++) {
+    // check to see if the array item fits in the callback array
     if (callback(arr[i])) {
+      // if so, push index to new array
     filtered.push(arr[i]);
   }
 }
   return filtered
 };
 
-
-
 function reduce(arr, callback, currentValue) {
+  // determine the current value, if none given it is 0, or just start at the first array[i]
   if(currentValue) {
     for(let i = 0; i < arr.length; i++) {
+    // run the index item and current value through the function applied
       currentValue = callback(arr[i], currentValue);
     }
   } else {
   currentValue = arr[0];
+  // if no currrent value provided, first item in array will start. begin loop on the next array index
   for (let i = 1; i < arr.length; i++) {
    currentValue = callback(arr[i], currentValue);
     }
