@@ -1,3 +1,4 @@
+
 const arrOfPeople = [
     {
       id: 2,
@@ -54,14 +55,51 @@ const arrOfPeople = [
   const blueTeam = []
   const redTeam = []
   
-  class player {
-    constructor(){}
+  class DodgeballPlayer {
+    constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.skillSet = skillSet;
+        this.placeBorn = placeBorn;
+        this.canThrowBall = canThrowBall;
+        this. canDodgeBall = canDodgeBall;
+        this.hasPaid = hasPaid;
+        this.isHealthy = isHealthy;
+        this.yearsExperience = yearsExperience;
+    }
   }
   class blueTeammate {
-    constructor(){}
+    constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, mascot, teamColor){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.skillSet = skillSet;
+        this.placeBorn = placeBorn;
+        this.canThrowBall = canThrowBall;
+        this. canDodgeBall = canDodgeBall;
+        this.hasPaid = hasPaid;
+        this.isHealthy = isHealthy;
+        this.yearsExperience = yearsExperience;
+        this.mascot = mascot;
+        this.teamColor = teamColor;
+    }
   }
   class redTeammate {
-    constructor(){}
+    constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, mascot, teamColor){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.skillSet = skillSet;
+        this.placeBorn = placeBorn;
+        this.canThrowBall = canThrowBall;
+        this. canDodgeBall = canDodgeBall;
+        this.hasPaid = hasPaid;
+        this.isHealthy = isHealthy;
+        this.yearsExperience = yearsExperience;
+        this.mascot = mascot;
+        this.teamColor = teamColor;
+    }
   }
   
   const listPeopleChoices = () => {
@@ -70,7 +108,10 @@ const arrOfPeople = [
       const li = document.createElement("li")
       const button = document.createElement("button")
       button.innerHTML = "Make Player"
-      button.addEventListener('click', function() {makePlayer(person.id)} )
+      button.addEventListener('click', function() {
+          makePlayer(person.id)
+            listElement.removeChild(li)
+        } )
       li.appendChild(button)
       li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
       listElement.append(li)
@@ -78,5 +119,37 @@ const arrOfPeople = [
   }
   
   const makePlayer = (id) => {
-    console.log(`li ${id} was clicked!`)
+    const listElement = document.getElementById('players')
+    // identify which id was clicked on
+    // find the position(index) of the id that was clicked
+    // remove person from one array and push them into another array
+    const found = arrOfPeople.find(person => person.id == id);
+    const personIndex = arrOfPeople.indexOf(found);
+    arrOfPeople.splice(personIndex, 1)
+    const newPlayer = new DodgeballPlayer 
+        (found.id, found.name, found.age, found.skillSet, found.placeBorn, found.canThrowBall, found.canDodgeBall, found.hasPaid, found.isHealthy, found.yearsExperience)
+        listOfPlayers.push(newPlayer)
+        const li = document.createElement("li")
+        const redbutton = document.createElement("button")
+        redbutton.innerHTML = "red Team"
+        redbutton.addEventListener('click', function() {
+            makeredPlayer(newPlayer.id)
+              listElement.removeChild(li)
+          } )
+        li.appendChild(redbutton)
+        const bluebutton = document.createElement("button")
+        bluebutton.innerHTML = "blue Team"
+        bluebutton.addEventListener('click', function() {
+            makebluePlayer(newPlayer.id)
+              listElement.removeChild(li)
+          } )
+        li.appendChild(bluebutton)
+        li.appendChild(document.createTextNode(newPlayer.name + " - " + newPlayer.skillSet))
+        listElement.append(li)
+  }
+  const makeredPlayer = id => {
+
+  }
+  const makebluePlayer = id => {
+
   }
