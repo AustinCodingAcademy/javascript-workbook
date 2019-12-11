@@ -7,23 +7,20 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-function rockPaperScissors(
-  hand1 = ["rock", "paper", "scissors"],
-  hand2 = ["rock", "paper", "scissors"]
-) {
+function rockPaperScissors(hand1,hand2) {
   if (hand1 === hand2) {
     console.log("the game is a tie");
-  } else if (hand1 === rock && hand2 === paper) {
+  } else if (hand1 === "rock" && hand2 === "paper") {
     console.log("hand2 wins");
-  } else if (hand1 === rock && hand2 === scissors) {
+  } else if (hand1 === "rock" && hand2 === "scissors") {
     console.log("hand1 wins");
-  } else if (hand1 === paper && hand2 === rock) {
+  } else if (hand1 === "paper" && hand2 === "rock") {
     console.log("hand1 wins");
-  } else if (hand1 === paper && hand2 === scissors) {
+  } else if (hand1 === "paper" && hand2 === "scissors") {
     console.log("hand2 wins");
-  } else if (hand1 === scissors && hand2 === rock) {
+  } else if (hand1 === "scissors" && hand2 === "rock") {
     console.log("hand2 wins");
-  } else (hand1 === scissors && hand2 === paper) {
+  } else if (hand1 === "scissors" && hand2 === "paper") {
     console.log("hand1 wins");
   }
 }
