@@ -6,6 +6,7 @@
 ## JavaScript Workbook
 
 ### Claiming your workbook
+
 1. Click the 'Fork' button (choose your account if prompted).
 1. Copy HTTPS URL from your forked repository
 1. In your terminal (or in git bash, for Windows people), navigate (using `cd`)
@@ -29,6 +30,7 @@ upstream    git@github.com:AustinCodingAcademy/javascript-workbook.git (push)
 ```
 
 ### Push to Github and create a PR
+
 1. From your project directory, run `npm install` to tell NPM to install all the
 node modules we use in this class
 1. Use Atom (or another editor) to make the change to the `index.html` file in
@@ -52,6 +54,7 @@ GitHub using the following commands:
 update. No need to do it more than once.
 
 #### Get latest workbook updates
+
 1. To get the latest code/homework/test updates, be sure to have a "clean
 working directory" by committing or removing all of your changes. You check for
 a "clean working environment" by running `git status` and making sure no files

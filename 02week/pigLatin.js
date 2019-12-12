@@ -8,14 +8,14 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+const pigLatin = (word)  => {
 
   // Your code here
 
 }
 
 
-function getPrompt() {
+const getPrompt = () => {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
