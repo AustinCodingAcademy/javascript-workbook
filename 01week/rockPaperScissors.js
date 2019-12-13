@@ -9,19 +9,19 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1,hand2) {
   if (hand1 === hand2) {
-    console.log("the game is a tie");
+    console.log("It's a tie!");
   } else if (hand1 === "rock" && hand2 === "paper") {
-    console.log("hand2 wins");
+    console.log("Hand two wins!");
   } else if (hand1 === "rock" && hand2 === "scissors") {
-    console.log("hand1 wins");
+    console.log("Hand one wins!");
   } else if (hand1 === "paper" && hand2 === "rock") {
-    console.log("hand1 wins");
+    console.log("Hand one wins!");
   } else if (hand1 === "paper" && hand2 === "scissors") {
-    console.log("hand2 wins");
+    console.log("Hand two wins!");
   } else if (hand1 === "scissors" && hand2 === "rock") {
-    console.log("hand2 wins");
+    console.log("Hand two wins!");
   } else if (hand1 === "scissors" && hand2 === "paper") {
-    console.log("hand1 wins");
+    console.log("Hand one wins!");
   }
 }
 
