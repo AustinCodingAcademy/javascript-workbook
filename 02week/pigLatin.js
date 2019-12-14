@@ -8,17 +8,61 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(oldWord) {
 
-  // Your code here
-  let word = "elephant";
+  var word = oldWord.trim().toLowerCase();
 
-  let firstHalf = word.substring(3,5);
-  let secondHalf = word.substring(2);
-
-  console.log("first half = ", firstHalf);
   console.log("the original word is", word);
-  console.log("the position of the firs vowel is", positionOfVowel);
+
+
+  const vowel = ["a", "e", "i", "o", "u"];
+  let firstVowel, firstHalf, secondHalf, switchedWord, finalSuffix, finalWord;
+
+  for (var i=0;i<vowel.length;i++){
+
+    var wordIndex = word.indexOf(vowel[i]);
+
+    if (wordIndex > -1 && (wordIndex <= firstVowel || !firstVowel )) {
+      firstVowel = wordIndex;
+    }
+  }
+
+  console.log(firstVowel);
+
+  firstHalf = word.substring(0, firstVowel);
+  console.log(firstHalf);
+  secondHalf = word.substring(firstVowel, word.length);
+  console.log(secondHalf);
+  switchedWord = secondHalf + firstHalf;
+  console.log(switchedWord);
+  
+
+
+  if (firstVowel !== 0) {
+    return switchedWord+"ay";  
+  } else  {
+    return switchedWord+"yay";
+  }
+
+
+
+  // word.indexOf(vowel, 0)
+    // let firstHalf = word.substring(0, word.indexOf(vowel[i]));
+    // console.log("first half = ", firstHalf);
+
+
+  
+  // let secondHalf = word.substring(5,8);
+
+  // console.log("second half = ", secondHalf);
+
+
+  // then word.split(separator, limit)
+
+  // console.log("The index of the first vowel is",  (word));
+
+
+  // console.log("the position of the firs vowel is", positionOfVowel);
 
 }
 
