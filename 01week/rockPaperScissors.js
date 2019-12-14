@@ -8,20 +8,22 @@ const rl = readline.createInterface({
 });
 
 function rockPaperScissors(hand1,hand2) {
-  if (hand1 === hand2) {
-    console.log("It's a tie!");
-  } else if (hand1 === "rock" && hand2 === "paper") {
-    console.log("Hand two wins!");
-  } else if (hand1 === "rock" && hand2 === "scissors") {
-    console.log("Hand one wins!");
-  } else if (hand1 === "paper" && hand2 === "rock") {
-    console.log("Hand one wins!");
-  } else if (hand1 === "paper" && hand2 === "scissors") {
-    console.log("Hand two wins!");
-  } else if (hand1 === "scissors" && hand2 === "rock") {
-    console.log("Hand two wins!");
-  } else if (hand1 === "scissors" && hand2 === "paper") {
-    console.log("Hand one wins!");
+  
+  
+  if (hand1.toLowerCase().trim() === hand2.toLowerCase().trim()) {
+    return "It's a tie!";
+  } else if (hand1.toLowerCase().trim() === "rock" && hand2.toLowerCase().trim() === "paper") {
+    return "Hand two wins!";
+  } else if (hand1.toLowerCase().trim() === "rock" && hand2.toLowerCase().trim() === "scissors") {
+    return "Hand one wins!";
+  } else if (hand1.toLowerCase().trim() === "paper" && hand2.toLowerCase().trim() === "rock") {
+    return"Hand one wins!";
+  } else if (hand1.toLowerCase().trim() === "paper" && hand2.toLowerCase().trim() === "scissors") {
+    return"Hand two wins!";
+  } else if (hand1.toLowerCase().trim() === "scissors" && hand2.toLowerCase().trim() === "rock") {
+    return"Hand two wins!";
+  } else if (hand1.toLowerCase().trim() === "scissors" && hand2.toLowerCase().trim() === "paper") {
+    return "Hand one wins!";
   }
 }
 
