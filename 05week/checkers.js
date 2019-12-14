@@ -126,10 +126,6 @@ class Board
 				}
 			}
 		}
-		////////////////////////////
-		// this.grid[0][7] = northKing;
-		// this.grid[5][2] = southKing;
-		////////////////////////////
     }
 
 	addRedPiece( row, col )
