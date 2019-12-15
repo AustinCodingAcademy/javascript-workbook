@@ -148,8 +148,89 @@ const arrOfPeople = [
         listElement.append(li)
   }
   const makeredPlayer = id => {
+    const listElement = document.getElementById('red')
+    const findPerson = listOfPlayers.find(person => person.id == id)
+      const personIndex = listOfPlayers.indexOf(findPerson)
+        listOfPlayers.splice(personIndex,1)
+        const redPlayer = new redTeammate(
+          findPerson.id,
+         findPerson.name,
+         findPerson.age,
+         findPerson.skillSet,
+         findPerson.placeBorn,
+         findPerson.canThrowBall,
+         findPerson.canDodgeBall,
+         findPerson.hasPaid,
+         findPerson.isHealthy,
+         findPerson.yearsExperience,
+         findPerson.mascot =
+         'Rats', 
+         'Red'
+        )
+        console.log(redPlayer)
+        redTeam.push(redPlayer)
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(`${redPlayer.name} Mascot: ${redPlayer.mascot}`))
+        listElement.append(li)
 
   }
   const makebluePlayer = id => {
+    const listElement = document.getElementById('blue')
+    const findPerson = listOfPlayers.find(person => person.id == id)
+      const personIndex = listOfPlayers.indexOf(findPerson)
+        listOfPlayers.splice(personIndex,1)
+        const bluePlayer = new blueTeammate(
+          findPerson.id,
+          findPerson.name,
+          findPerson.age,
+          findPerson.skillSet,
+          findPerson.placeBorn,
+          findPerson.canThrowBall,
+          findPerson.canDodgeBall,
+          findPerson.hasPaid,
+          findPerson.isHealthy,
+          findPerson.yearsExperience,
+          findPerson.mascot =
+         'Chickens', 
+         'Blue'
+        )
+        blueTeam.push(bluePlayer)
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(`${bluePlayer.name} Mascot: ${bluePlayer.mascot}`))
+        listElement.append(li)
+
+        
+        //tests
+        // const assert = require('assert');
+
+
+
+
+// if (typeof describe === 'function') {
+
+  
+//   describe('addToTeam()', () => {
+//     it('should create a teammate and set mascot', () => {
+//       const blueGal = new Player(1);
+//       const blueGuy = new Teammate(blueGal, 'blue');
+//       assert.equal(blueGuy.mascot, 'chickens');
+//     });
+
+  
+//     it('should assign correct team color', () => {
+//       const redGal = new Player(1);
+//       const redGuy = new Teammate(redGal, 'red');
+//       assert.equal(redGuy.color, 'red')
+//     });
+//   });
+
+  
+//   describe('makePlayer()', () => {
+//     it('should create a player and extend player traits to the object', () => {
+//       const newGuy = new Player(1, 'Jackson', 91, 'making sushi', 'Rome, Italy', 'Yes', 'Yes', 'Yes', 'Yes', 100)
+//       assert.equal(newGuy.canThrowBall, 'Yes');
+//     });
+//   });
+// }
 
   }
