@@ -1,6 +1,6 @@
-import { AssertionError } from "assert";
 
-const assert = require('assert');
+
+// const assert = require('assert');
 
 const arrOfPeople = [
   // arr of available people
@@ -318,4 +318,4 @@ if (typeof describe === 'function') {
         assert.equal(davidteamColor, 'Blue');
     });
   });
-  
+}
