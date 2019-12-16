@@ -1,3 +1,7 @@
+import { AssertionError } from "assert";
+
+const assert = require('assert');
+
 const arrOfPeople = [
   // arr of available people
   {
@@ -272,11 +276,46 @@ const makePlayer = (id) => {
 
 // TESTS
 if (typeof describe === 'function') {
-  describe(object, callback);
-  it('should);
 
-  describe(object, callback);
-  it('should);
+  describe('makePlayer', function() {
+    it('should move person to player class', function() {
+      makePlayer(1);
+      assert.equal(listOfPlayers[0].name, "Phil Spector");
+  })
+  });
 
-  describe(object, callback);
-  it('should);
+  describe('makePlayer', function() {
+    it('should have an id, name, etc.', function() {
+      let david = new player (12, 'David Livingston', 29, 'Sleeping', 'Texas', true, true, true, true, 2);
+        assert.equal(david.id, 12);
+        assert.equal(david.name, 'David Livingston');
+        assert.equal(david.age, 29);
+        assert.equal(david.skillSet, 'Sleeping');
+        assert.equal(david.placeBorn, 'Texas');
+        assert.equal(david.canThrowBall, true);
+        assert.equal(david.canDodgeBall, true);
+        assert.equal(david.hasPaid, true);
+        assert.equal(david.isHealthy, true);
+        assert.equal(david.yearsExperience, 2);
+        assert.equal(david.mascot, 'Blues');
+        assert.equal(davidteamColor, 'Blue');
+    });
+  });
+  describe('turnBlue', function() {
+    it('should have an id, name, mascot, and teamColor', function() {
+      let david = new bluePlayer (12, 'David Livingston', 29, 'Sleeping', 'Texas', true, true, true, true, 2, 'Blues', 'Blue');
+        assert.equal(david.id, 12);
+        assert.equal(david.name, 'David Livingston');
+        assert.equal(david.age, 29);
+        assert.equal(david.skillSet, 'Sleeping');
+        assert.equal(david.placeBorn, 'Texas');
+        assert.equal(david.canThrowBall, true);
+        assert.equal(david.canDodgeBall, true);
+        assert.equal(david.hasPaid, true);
+        assert.equal(david.isHealthy, true);
+        assert.equal(david.yearsExperience, 2);
+        assert.equal(david.mascot, 'Blues');
+        assert.equal(davidteamColor, 'Blue');
+    });
+  });
+  
