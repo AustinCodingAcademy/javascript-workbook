@@ -192,15 +192,15 @@ if (typeof describe === "function") {
   describe("DodgeballPlayer", function() {
     it("should have a id, name, age, skillSet, placeBorn upon instantiation", function() {
       var player1 = new DodgeBallPlayer(
-        8,
-        "Rick Martinez",
-        35,
-        "jump rope",
-        "austin texas"
+        6,
+        "Mia Watu",
+        17,
+        "acrobatics",
+        "Los Angeles, California"
       );
-      assert.equal(player1.name, "Rick Martinez");
-      assert.equal(player1.age, 35);
-      assert.equal(player1.skillset, "jump rope");
+      assert.equal(player1.name, "Mia Watu");
+      assert.equal(player1.age, 17);
+      assert.equal(player1.skillSet, "acrobatics");
     });
   });
 
@@ -233,8 +233,8 @@ if (typeof describe === "function") {
         "red"
       );
       assert.equal(redPlayer.name, "charles young");
-      assert.equal(bluePlayer.age, 35);
-      assert.equal(bluePlayer.skillSet, "welder");
+      assert.equal(redPlayer.age, 35);
+      assert.equal(redPlayer.skillSet, "welder");
     });
   });
 }
