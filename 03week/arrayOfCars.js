@@ -32,6 +32,8 @@
 // reverse
     // Use the reverse method to create an array carsInReverse which is the array totalCars in reverse.
     let carsInReverse = totalCars.reverse();
+    // console.log(totalCars);
+    // cant figure out how to make this one work......
     console.log(carsInReverse);
 
 // sort
