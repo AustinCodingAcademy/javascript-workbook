@@ -26,14 +26,12 @@
 
 // split
     // Use the split method to convert stringOfCars back intro an array called totalCars.
-    totalCars = stringOfCars.split();
+    totalCars = stringOfCars.split(",");
     console.log(totalCars);
 
 // reverse
     // Use the reverse method to create an array carsInReverse which is the array totalCars in reverse.
     let carsInReverse = totalCars.reverse();
-    // console.log(totalCars);
-    // cant figure out how to make this one work......
     console.log(carsInReverse);
 
 // sort
@@ -41,10 +39,12 @@
     carsInReverse.sort();
     console.log(carsInReverse);
     // Based on the types of cars you used, predict which item in the array should be at index 0.
-    // Use the following code to confirm or reject your prediction:
-    // alert(carsInReverse.indexOf('yourPrediction'));
+    let yourPrediction = "Buick"
+    // Use the following code to confirm or reject your prediction: 
+    alert(carsInReverse.indexOf(['Buick']));
 // slice
     // Use the slice method to remove Ford and Honda from the carsInReverse array and move them into a new array called removedCars.
+    carsInReverse.slice();
 // splice
     // Use the splice method to remove the 2nd and 3rd items in the array carsInReverse and add Ford and Honda in their place.
 // push
