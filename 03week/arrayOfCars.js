@@ -41,7 +41,7 @@
     // Based on the types of cars you used, predict which item in the array should be at index 0.
     let yourPrediction = "Buick"
     // Use the following code to confirm or reject your prediction: 
-    alert(carsInReverse.indexOf(['Buick']));
+    // alert(carsInReverse.indexOf(['Buick']));
 // slice
     // Use the slice method to remove Ford and Honda from the carsInReverse array and move them into a new array called removedCars.
     carsInReverse.slice();
