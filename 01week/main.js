@@ -7,7 +7,7 @@ let myDate = new Date();
 // get the span from the page/document
 let mySpan = document.getElementById("theTime");
 // change inner text of the span
-mySpan.innerText = myDate.toString();
+mySpan.innerText = myDate.toDateString() + " | " + myDate.getHours() + ":" + myDate.getMinutes();
 
 
 // progam to add two numnbers
@@ -19,19 +19,17 @@ myParagraph.innerText = mySum;
 let myNumber = 24;
 let myNewString = myNumber.toString();
 let anotherParagraph = document.getElementById("number-to-string");
-anotherParagraph.innerText = myNewString;
 let myStringType = typeof(myNewString);
-let variablePar = document.getElementById("var-type");
-variablePar.innerText = myStringType;
+anotherParagraph.innerText = myNewString + " - " + myStringType;
+
 
 // progam to convert a string to a number.
 let myString = "11";
 let myNewNum = parseInt(myString);
 let lastParagraph = document.getElementById("string-to-number");
-lastParagraph.innerText = myNewNum;
 let myNumType = typeof(myNewNum);
-let myNewType = document.getElementById("new-var-type");
-myNewType.innerText = myNumType;
+lastParagraph.innerText = myNewNum +  " - " + myNumType;
+
 
 
 
