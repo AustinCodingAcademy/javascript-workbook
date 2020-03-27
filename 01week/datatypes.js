@@ -4,4 +4,4 @@ console.log ('date and time', now)
 const theNumber = 5;
 const theString = theNumber.toString();
 const theOtherString = parseInt(theNumber);
-console.log (theString, theOtherString)
+console.log ('string', theString, 'number', theOtherString)
