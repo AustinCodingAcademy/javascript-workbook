@@ -42,9 +42,13 @@ const rockPaperScissors = (hand1, hand2) => {
 }
 
 
-  // Use the unit test to see what is expected
+//scrub input to ensure lowercse with trimmed whitespace
 
+  function toLowerCase(rockPaperScissors) {
+    strInput.value=strInput.value.toLowerCase();
+}
 
+  
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
