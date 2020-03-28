@@ -41,22 +41,13 @@ const rockPaperScissors = (hand1, hand2) => {
   }
 }
 
-
-//scrub input to ensure lowercse with trimmed whitespace
-
-  function toLowerCase(rockPaperScissors) {
-    strInput.value=strInput.value.toLowerCase();
-}
-
-  
-
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log( rockPaperScissors.trim().toLowerCase()(answer1, answer2) );
       getPrompt();
     });
   });
