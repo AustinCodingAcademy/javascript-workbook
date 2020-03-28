@@ -47,7 +47,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors.trim().toLowerCase()(answer1, answer2) );
+      console.log( rockPaperScissors(answer1.trim().toLowerCase(), answer2.trim().toLowerCase) );
       getPrompt();
     });
   });
