@@ -11,6 +11,11 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// const newInput = rl.trim().toLowerCase()
+
+//ABOVE IS MY GUESS. I DO NOT KNOW HOW TO MANIPULATE A CALLED MODULE...YET. I WOULD THEN REPLACE THE rl with newInput in the getPrompt function to get answers trimmed and cased properly.
+//I'm switching it back so I pass steps 1 and 2. I feel like im so close, hopefully you will explain. 
+
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
   if (hand1 === hand2) {
@@ -47,7 +52,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
   rl.question('hand2: ', (answer2) => {
-    console.log( rockPaperScissors(answer1.trim().toLowerCase(), answer2.trim().toLowerCase()));
+    console.log( rockPaperScissors(answer1, answer2));
   getPrompt();
   });
   });
