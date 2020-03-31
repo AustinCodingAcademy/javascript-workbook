@@ -12,7 +12,25 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
+
+
+
 const rockPaperScissors = (hand1, hand2) => {
+  
+ 
+  if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')){
+    return "Hand 1 wins!";
+  }
+  else if ((hand1 === 'rock' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'rock')){
+    return "Hand 2 wins!";
+  }
+  else if (hand1 === hand2){
+    return "It's a tie!";
+  }
+  else{
+    return "You do not know how this game works..."
+  }
+
 
   // Write code here
   // Use the unit test to see what is expected
