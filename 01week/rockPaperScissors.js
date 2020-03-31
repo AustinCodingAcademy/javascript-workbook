@@ -17,7 +17,7 @@ const rl = readline.createInterface({
 //I'm switching it back so I pass steps 1 and 2. I feel like im so close, hopefully you will explain. 
 
 // the function that will be called by the unit test below
-const rockPaperScissors = (newAnswer, newAnswer2) => {
+const rockPaperScissors = (hand1, hand2) => {
   if (hand1 === hand2) {
     return "It's a tie!"
   }
