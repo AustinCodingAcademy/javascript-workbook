@@ -17,7 +17,7 @@ const rl = readline.createInterface({
 //I'm switching it back so I pass steps 1 and 2. I feel like im so close, hopefully you will explain. 
 
 // the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
+const rockPaperScissors = (newAnswer, newAnswer2) => {
   if (hand1 === hand2) {
     return "It's a tie!"
   }
@@ -57,6 +57,10 @@ function getPrompt() {
   });
   });
   }
+
+  // let newAnswer =  answer1.trim().toLowerCase()
+  // let newAnswer2 = answer2.trim().toLowerCase()
+  // ANOTHER ATTEMPT - FAIL. YOU SURE DID PICK A TRICKY ONE FOR THE FIRST TIME LOL.
 
 // Unit Tests
 // You use them run the command: npm test main.js
