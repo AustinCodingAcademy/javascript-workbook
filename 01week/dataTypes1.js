@@ -1,5 +1,4 @@
 'use strict'
-<<<<<<< HEAD
 let now = new Date();
 console.log('Date and Time',now);
 const theNumber = 5;
@@ -24,11 +23,3 @@ if (jeans <= balance || shorts >= balance) {
 if (jeans != balance && shorts != balance) {
   console.log("This is a statement!");
 }
-=======
-let now = new Date ();
-console.log ('date and time', now)
-const theNumber = 5;
-const theString = theNumber.toString();
-const theOtherString = parseInt(theNumber);
-console.log ('string', theString, 'number', theOtherString)
->>>>>>> 134ad09047ca1f5b1b2726449f024a5cad50b0dd
