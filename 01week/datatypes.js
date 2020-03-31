@@ -5,6 +5,12 @@
 let now = new Date();
 console.log("the current date and time is: " + now);
 
+
+let myButton = document.getElementById("theTime");
+myButton.addEventListener('click', function(){
+ myButton.innerText = now.toString();
+});
+
 // Write a JavaScript program to convert a number to a string.
 
 const theNumber = 5;
@@ -43,6 +49,9 @@ console.log(typeof myString);
 // Write a JavaScript program that adds 2 numbers together.
 const mySum = 2+3;
 console.log(mySum);
+
+let displaySum = document.getElementById("Sum");
+displaySum.innerText = mySum.toString();
 // Write a JavaScript program that runs only when 2 things are true.
 const num1 = true;
 const num2 = true;
