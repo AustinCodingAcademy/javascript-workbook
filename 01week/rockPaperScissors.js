@@ -16,15 +16,16 @@ const rl = readline.createInterface({
 
 
 const rockPaperScissors = (hand1, hand2) => {
-  
+  const hand1trim = hand1.trim().toLowerCase();
+  const hand2trim = hand2.trim().toLowerCase();
  
-  if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')){
+  if ((hand1trim === 'rock' && hand2trim === 'scissors') || (hand1trim === 'paper' && hand2trim === 'rock') || (hand1trim === 'scissors' && hand2trim === 'paper')){
     return "Hand 1 wins!";
   }
-  else if ((hand1 === 'rock' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'rock')){
+  else if ((hand1trim === 'rock' && hand2trim === 'paper') || (hand1trim === 'paper' && hand2trim === 'scissors') || (hand1trim === 'scissors' && hand2trim === 'rock')){
     return "Hand 2 wins!";
   }
-  else if (hand1 === hand2){
+  else if (hand1trim === hand2trim){
     return "It's a tie!";
   }
   else{
