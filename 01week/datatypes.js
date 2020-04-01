@@ -5,7 +5,6 @@
 let now = new Date();
 console.log("the current date and time is: " + now);
 
-
 let myButton = document.getElementById("theTime");
 myButton.addEventListener('click', function(){
  myButton.innerText = now.toString();
