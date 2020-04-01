@@ -11,40 +11,41 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// const newInput = rl.trim().toLowerCase()
-
-//ABOVE IS MY GUESS. I DO NOT KNOW HOW TO MANIPULATE A CALLED MODULE...YET. I WOULD THEN REPLACE THE rl with newInput in the getPrompt function to get answers trimmed and cased properly.
-//I'm switching it back so I pass steps 1 and 2. I feel like im so close, hopefully you will explain. 
-
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
-  if (hand1 === hand2) {
+  let scrubHandOne = hand1.trim().toLowerCase()
+  let scrubHandTwo = hand2.trim().toLowerCase()
+  
+  
+  if (scrubHandOne === scrubHandTwo) {
     return "It's a tie!"
   }
   
-  else if (hand1 === "rock") {
-    if (hand2 === "paper") {
+  else if (scrubHandOne === "rock") {
+    if (scrubHandTwo === "paper") {
       return "Hand two wins!"
     }
     else {
       return "Hand one wins!"
     }
   }
-  else if (hand1 === "paper") {
-    if (hand2 === "rock"){
+  else if (scrubHandOne === "paper") {
+    if (scrubHandTwo === "rock"){
       return "Hand one wins!"
     }
     else {
       return "Hand two wins!"
     }
   }
-  if (hand2 === "rock"){
+  if (scrubHandTwo === "rock"){
     return "Hand two wins!"
   }
   else {
     return "Hand one wins!"
   }
 }
+
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -57,10 +58,6 @@ function getPrompt() {
   });
   });
   }
-
-  // let newAnswer =  answer1.trim().toLowerCase()
-  // let newAnswer2 = answer2.trim().toLowerCase()
-  // ANOTHER ATTEMPT - FAIL. YOU SURE DID PICK A TRICKY ONE FOR THE FIRST TIME LOL.
 
 // Unit Tests
 // You use them run the command: npm test main.js
