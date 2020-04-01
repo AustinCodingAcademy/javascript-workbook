@@ -64,12 +64,11 @@ console.log(amount, typeof amount);
 const a = parseFloat(amount);
 console.log(a, typeof a);
 
-
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // * Boolean
-let f = false;
-//console.log(f, typeof f)
-document.getElementById("false").innerText = typeof f;
+let untrue = false;
+//console.log(a, typeof a)
+document.getElementById("booleanTest").innerText = typeof a;
 
 
 // * Null
@@ -81,10 +80,11 @@ let c;
 console.log(c, typeof c)
 
 // * Number
+document.getElementById("numDataType").addEventListener("click", function(){
 const number = 5;
-//console.log(number, typeof number)
-document.getElementById("numDataType").innerText = typeof number;
- 
+  document.getElementById("typeOfNum").innerHTML = typeof number;
+});
+
 // * NaN
 const NotANum = NaN;
 console.log(NotANum, typeof NotANum)
@@ -96,19 +96,26 @@ console.log(greeting, typeof greeting)
 
   
 // Write a JavaScript program that adds 2 numbers together.
+const displaySum = () => {
 const num1 = 5;
 const num2 = 11;
+
 const total = num1 + num2;
-document.getElementById("sum").innerText = total;
+/*document.getElementById("sum").addEventListener("click", function(){
+  const num1 = 5;
+  const num2 = 11;
+  const total = num1 + num2;
+  document.getElementById("sumOfTwoNum").innerHTML = total;
+});*/
 
-
-
+document.getElementById("sum").innerHTML = total;
+}
 
 // Write a JavaScript program that runs only when 2 things are true.
 const value1 = 10;
 const value2 = 20;
 
-const truth = (arg1, arg2) => {
+const bothAretrue = (arg1, arg2) => {
   if (arg1 && arg2){
     return true
   } else {
@@ -139,7 +146,7 @@ oneIsTrue(numeroUno, numeroDos)
 const empty = " ";
 const zero = 0;
 
-const oneIsFalse = (argument1, argument2) => {
+const bothAreFalse = (argument1, argument2) => {
   if (argument1 && argument2){
     return true
   } else {
