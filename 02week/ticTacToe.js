@@ -22,25 +22,66 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-
+//should return true if the player won on any row
 function horizontalWin() {
-  // Your code here
+  // Your code here //use loop
+  for(i = 0; i <=2; i++){
+  if(board[i][0] === 'X' && board[i][1] === 'X' && borard[i][2]==='X'){
+    return true;
+  }else if(board[i][0] === 'O' && board[i][1]=== 'O' && board[i][2]=== 'O'){
+    return true;
+  }
+  
 }
-
+}
+//should return true, if the player won on any column
 function verticalWin() {
-  // Your code here
+  for(i = 0; i <= 2; i++){
+  if(board[0][i] ==='X' && board[1][i] ==='X' && board[2][i] === 'X'){
+    return true;
+  }else if(board[0][i] === 'O' && board[1][i] ==='O' && board[2][i] === 'O'){
+    return true;
+  }
+  // Your code here //use loop
 }
-
+}
+//should return true if the player won diagnol
 function diagonalWin() {
+  if(board[0][0]==='X' && board[1][1]==='X' && board[2][2]==='X'){
+    return true;
+  }else if(board[0][0]==='O' && board[1][1]==='O' && board[2][2]==='O'){
+    return true;
+  }else if(board[0][2]==='X' && board[1][1]==='X' && board[2][0]==='X'){
+    return true;
+  }else if(board[0][2]==='0' && board[1][1]==='O' && board[2][0]==='O'){
+    return true;
+  }else{
+    return false;//????????
+  }
   // Your code here
 }
-
+//should return true if any of the top three functions return true
 function checkForWin() {
+  //may need if/else if... 
+  horizontalWin();
+  verticalWin();
+  diagonalWin();
+  
+  //} else { 
+    return draw;
+  //}
+  }
+  //call the functions inside here
   // Your code here
-}
+
 
 function ticTacToe(row, column) {
   // Your code here
+//set the value on the box 
+//check if the player won
+//if they did (say congrats!!)
+//switch out the variable for the other player
+
 }
 
 function getPrompt() {
