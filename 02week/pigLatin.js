@@ -13,7 +13,7 @@ const pigLatin = (word)  => {
   let vowels = "AEIOUaeiou";
   let pigged = "";
     for( let i = 0; i < word.length; i++) {
-        if(vowels.includes(word[0])){
+        if(vowels.includes(word[0])) {
             pigged = word + "yay";
         }else if (vowels.includes(word[i])) {
             let part1 = word.slice(0, i);
