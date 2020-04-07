@@ -40,10 +40,10 @@ function horizontalWin() {
     return  "Player two wins!";
 } 
   if(board[1][0] === 'O' && board [1][1] === 'O' && board[1][2] === 'O') {
-    return  "Player two wins!';
+    return  "Player two wins!";
 }  
   if(board[2][0] === 'O' && board [2][1] === 'O' && board[2][2] === 'O') {
-    return  "Player two wins!';
+    return  "Player two wins!";
 }
 }
 
@@ -51,21 +51,42 @@ function horizontalWin() {
 function verticalWin() {
   // Your code here
   if(board[0][0] === 'X' && board [1][0] === 'X' && board[2][0] === 'X') {
-    return true;
+    return 'player one wins!';
 } 
-  if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
-    return true;
+  if(board[0][1] === 'X' && board [1][1] === 'X' && board[2][1] === 'X') {
+    return 'player one wins!';
 }  
-  if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
-    return true;
+  if(board[0][2] === 'X' && board [1][2] === 'X' && board[2][2] === 'X') {
+    return 'player one wins!';
 }
+  if (board[0][0] === 'O' && board [1][0] === 'O' && board[2][0] === 'O') {
+    return 'player two wins!'
+}
+  if (board[0][1] === 'O' && board[1][1] === 'O' && board[2][1] === 'O' ) {
+    return 'player two wins!'
+}
+  if (board[2][0] === 'O' && board[1][2] === 'O' && board[2][2] === 'O') {
+    return 'player two wins!'
+  }
 
 }
 
 
 function diagonalWin() {
   // Your code here
-}
+  if(board[0][0] === 'X' && board [1][1] === 'X' && board[2][2] === 'X') {
+    return "Player one wins!";
+} 
+  if(board[0][2] === 'X' && board [1][1] === 'X' && board[2][0] === 'X') {
+    return "Player one wins!";
+} 
+if(board[0][0] === 'O' && board [1][1] === 'O' && board[2][2] === 'O') {
+  return "Player two wins!";
+} 
+if(board[0][2] === 'O' && board [1][1] === 'O' && board[2][0] === 'O') {
+  return "Player two wins!";
+}  
+  
 
 function checkForWin() {
   // Your code here
