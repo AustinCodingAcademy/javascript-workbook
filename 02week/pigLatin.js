@@ -1,47 +1,48 @@
-'use strict';
+/*'use strict';
 
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
+});*/
+
 
 
 const pigLatin = (word)  => {
  word = word.toLowerCase().trim();
-//const vowels = ['a', 'e', 'i', 'o', 'u'];
-//for(let i = 0; i <= word; i++){
-
-  if(checkWord.charAt(word[0]) != -1){
-    word.concat("yay"); 
-}
-  else if(checkWord(word.indexOf[1]) //???? May just be able to use the checkWord function inside the else if... 
-  {
-  part1 = word;
-  part2 = 
-  part3 = part2 + part1;
-    part3.concat("ay");
-  //for(let i = 0; i <= vowels.length; i++){}
-}else{
-  //if no vowel
-}
+  if(checkWord(word.charAt(0))){
+    return word + "yay"; 
+  }else if(checkWord(word.charAt(1))){
+  //else if(checkWord(word.indexOf[1]))
+    return word.slice(1) + word.charAt(0) + 'ay';
+  }
+  else if(checkWord(word.charAt(2))){//?? two word slice methods below???
+    return word.slice(2) + word.slice(0, 2) + 'ay';
+  }
+  else if(checkWord(word.charAt(3))){
+    return word.slice(3) + word.slice(0,3) + 'ay';
+  }
+  else
+    return "Invalid input" 
 };
 
 const checkWord = (word) =>{
   //go through the word and 
   //the if statement checks the word for the vowel
     if(word === 'a' || word === 'e' || word === 'i' || word === 'o' || word === 'u'){
-              
+      return true;        
       //seperate the word where the vowel is found, and implement the part1, part2,part3 values  
     }
     else{
         return false;
     }
 
-}
-console.log(checkword(tourist));
-pigLatin( ,);
+};
+console.log(checkWord('dog'));
+console.log(pigLatin('valley'));
+console.log("Hello");
+//pigLatin( ,);
 //??????
 //vowelCheck = word.match(/aeiou/gi);
 //use a for loop to find tne position of the first vowel
@@ -98,4 +99,4 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
-}
+};
