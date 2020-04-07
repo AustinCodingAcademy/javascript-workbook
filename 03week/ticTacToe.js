@@ -30,18 +30,38 @@ function horizontalWin() {
     if(board[0][0] === 'X' && board [0][1] === 'X' && board[0][2] === 'X') {
       return true;
   } 
-    if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+    if(board[1][0] === 'X' && board [1][1] === 'X' && board[1][2] === 'X') {
       return true;
   }  
-    if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+    if(board[2][0] === 'X' && board [2][1] === 'X' && board[2][2] === 'X') {
       return true;
   }
+  if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+    return true;
+} 
+  if(board[1][0] === 'O' && board [1][1] === 'O' && board[1][2] === 'O') {
+    return true;
+}  
+  if(board[2][0] === 'O' && board [2][1] === 'O' && board[2][2] === 'O') {
+    return true;
+}
 }
 
 
 function verticalWin() {
   // Your code here
+  if(board[0][0] === 'X' && board [1][0] === 'X' && board[2][0] === 'X') {
+    return true;
+} 
+  if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+    return true;
+}  
+  if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+    return true;
 }
+
+}
+
 
 function diagonalWin() {
   // Your code here
