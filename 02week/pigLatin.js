@@ -9,10 +9,24 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word)  => {
+// Your code here
+  let vowels = "AEIOUaeiou";
+  let pigged = "";
+    for( let i = 0; i < word.length; i++) {
+        if(vowels.includes(word[0])) {
+            pigged = word + "yay";
+        }else if (vowels.includes(word[i])) {
+            let part1 = word.slice(0, i);
+            let part2 = word.slice(i);
+            pigged = part2 + part1 + "yay"
+            break;
+        } 
+    }
+    return pigged; 
+}  
 
-  // Your code here
+  
 
-}
 
 
 const getPrompt = () => {
