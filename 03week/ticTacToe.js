@@ -13,6 +13,8 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let playerTurn2 = 'O';
+
 
 function printBoard() {
   console.log('   0  1  2');
@@ -25,7 +27,16 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+    if(board[0][0] === 'X' && board [0][1] === 'X' && board[0][2] === 'X') {
+      return true;
+  } 
+    if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+      return true;
+  }  
+    if(board[0][0] === 'O' && board [0][1] === 'O' && board[0][2] === 'O') {
+      return true;
 }
+
 
 function verticalWin() {
   // Your code here
@@ -41,6 +52,7 @@ function checkForWin() {
 
 function ticTacToe(row, column) {
   // Your code here
+
 }
 
 function getPrompt() {
