@@ -21,10 +21,12 @@
 
       //create a delete button
       let deleteButton = document.createElement('button');
+      //add the size if the button but thanks to google i figured it out
+      deleteButton.style.width = 'fit-content';
       //update the inner text of the delete button
-      deleteButton.innerHTMl = 'delete';
+      deleteButton.innerText = "delete";
       //add a class to the delete button
-      deleteButton.classList.add('delete');
+      deleteButton.classList.add("delete");
 
       //add the li to the button of the ul element
       let ul = document.querySelector('ul');
@@ -51,15 +53,33 @@
 
     function setupDeleteEvent(deleteButton){
       deleteButton.addEventListener('click', function(){
-        console.log('Delete got clicked, parent li is' , deleteButton.parentElement) ;
+        console.log('Delete got clicked, parent li is', deleteButton.parentElement) ;
         let parentLi = deleteButton.parentElement;
         parentLi.remove();
-        let parentUl = parentLi.parentElement;
-        console.log('The parent UL:', parentUl);
-        parentUl.removeChild(parentLi);
+        // let parentUl = parentLi.parentElement;
+        // console.log('The parent UL:', parentUl);
+        // parentUl.removeChild(parentLi);
 
       });
     }
 
-    
+    //when the span is clicked
+    //class done should be added to it
+
+    let allSpans = document.querySelectorAll("span") ;
+    //console.log("Alls spans:", allSpans);
+    for(let i = 0; i < allSpans.length; i++) {
+        let span = allSpans[i];
+        setupSpanEvent(span);
+
+    }
+
+    //this function add a click event to the span
+    function setupSpanEvent(span) {
+      span.addEventListener('click', function() {
+        console.log("this span got clicked", span);
+        span.classList.toggle ("done");
+      })
+    }
+  
 
