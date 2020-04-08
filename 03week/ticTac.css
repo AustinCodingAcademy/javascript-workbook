@@ -1,0 +1,36 @@
+.main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  .board {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+  }
+  .row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  }
+  .clickBox {
+  height: 100%;
+  width: 100%;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  .clickBox:hover {
+  cursor: pointer;
+  }
+  .clickBox h1 {
+  color: purple;
+  font-size: 55px;
+  }
