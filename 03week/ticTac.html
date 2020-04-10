@@ -1,32 +1,28 @@
-`<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Tic-Tac-Toe</title>
-<link rel="stylesheet" href="./ticTac.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ticTac.css">
+  <script src="./ticTacGUI.js" defer></script>
+  <title>ticTacToeGUI</title>
 </head>
 <body>
-
-<div class="main-container">
-  <div class="board">
-  <div class="row">
-      <div class="clickBox" onclick="addGamePiece(this)"></>
-      <div class="clickBox" onclick="addGamePiece(this)"></div>
-      <div class="clickBox" onclick="addGamePiece(this)"></div>
+  <div class="board" id="board">
+    <div class="cell x" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
   </div>
-  <div class="row">
-    <div class="clickBox" onclick="addGamePiece(this)"></div>
-    <div class="clickBox" onclick="addGamePiece(this)"></div>
-    <div class="clickBox" onclick="addGamePiece(this)"></div>
+  <div class="winning-message" id="winning-message">
+    <div data-winning-message-text></div>
+    <button id="restartButton"Restart></button>
   </div>
-<div class="row">
-  <div class="clickBox" onclick="addGamePiece(this)"></div>
-  <div class="clickBox" onclick="addGamePiece(this)"></div>
-  <div class="clickBox" onclick="addGamePiece(this)"></div>
-</div>
-</div>
-</div>
-<script src="./ticTacGUI.js"></script>
+  
 </body>
-</html>`
+</html>

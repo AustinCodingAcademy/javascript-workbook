@@ -1,36 +1,66 @@
-.main-container {
-  height: 100%;
-  width: 100%;
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * .9);
+
+}
+body {
+  margin: 0;
+
+}
+.board {
+  width: 100vh;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+
+  grid-template-columns: repeat(3, auto)
+}
+
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size); 
+  border: 1px solid black;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  }
-  .board {
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  height: 500px;
-  width: 500px;
-  }
-  .row {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  }
-  .clickBox {
-  height: 100%;
-  width: 100%;
-  border: 1px solid blue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  }
-  .clickBox:hover {
-  cursor: pointer;
-  }
-  .clickBox h1 {
-  color: purple;
-  font-size: 55px;
-  }
+
+
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: none;
+}
+
+.cell.x::before,
+.cell.x::after {
+content: '';
+width: calc(var(--mark-size) * 1.5);
+height: var(--mark-size);
+
+}
