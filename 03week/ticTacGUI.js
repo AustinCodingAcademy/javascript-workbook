@@ -10,9 +10,10 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ]
-const cellElements = document.querySelectorAll('[data-cell]')
+const winningMessageElement = document.getElementById('winningMessage')
+const cellElements = document.querySelectorAll(`[data-cell]`)
 const board = document.getElementById('board')
-const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
+const winningMessageTextElement = document.querySelector(`[data-winning-message-text]`)
 let circleTurn 
 
 startGame()
@@ -46,10 +47,11 @@ function handleClick(e) {
 
 function endGame(draw) {
   if (draw) {
-    
+
   } else {
-    winningMessageTextElement.innerText = '${circleTurn ? "Os" :
-  "Xs"} Wins!'
+    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
+}
+    winningMessageElement.classList.add('show')
 }
 
  function placeMark(cell, currentClass){
