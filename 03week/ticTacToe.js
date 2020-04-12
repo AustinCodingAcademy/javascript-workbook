@@ -21,10 +21,7 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-  
-  if(checkForWin() === true){
-    console.log("congrats");
-  }
+
 }
 //should return true if the player won on any row
 function horizontalWin() {
@@ -68,7 +65,7 @@ function diagonalWin() {
 function checkForWin() {
   //may need if/else if... 
  if (horizontalWin() ||  verticalWin() || diagonalWin()){
-      return true;
+  return true;
  }else {
     return false;
  }
@@ -88,14 +85,27 @@ function ticTacToe(row, column) {
   // Your code here
 //set the value on the box 
 //check if the player won
-//if they did (say congrats!!)
+//if they did (say congrats!!
 //switch out the variable for the other player
 
 }
 
+/*function filledSpace(row, column){
+  if(board[row][column] === 'X' || 'O'){
+    console.log("Try another position")
+  }; 
+  //check to see if space is filled
+  //if position is filled choose another column, row
+}*/
+
 function getPrompt() {
   printBoard();
+  if(checkForWin() === true){
+    return console.log("Congrats, you win");
+  }else {
   console.log("It's Player " + playerTurn + "'s turn.");
+  }
+  filledSpace();
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
