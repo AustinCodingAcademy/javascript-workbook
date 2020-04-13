@@ -19,23 +19,27 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+let 
+
+function movePiece(startStack, endStack) {
+  // Your code here
+
+
+}
+
+function isLegal(startStack, endStack) {
   // Your code here
 
 }
 
-function isLegal() {
-  // Your code here
-
-}
-
-function checkForWin() {
+function checkForWin(startStack, endStack) {
   // Your code here
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  
 
 }
 
