@@ -113,6 +113,10 @@ console.log(sortAges);
 //for descending order b - a
 
 //<<<====== REDUCE =======>>>
+//reduces the array to one single value, an iteration method. Uses a callback function that
+//you provide to iterate through elements in the array and gradually combine their values into 
+// a final return value.
+
 /*let ageSum = 0;
 for(let i = 0; i < ages.length; i++){
 ageSum = ageSum + ages[i];

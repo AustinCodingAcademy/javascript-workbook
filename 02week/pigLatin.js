@@ -7,6 +7,19 @@ const rl = readline.createInterface({
   output: process.stdout
 });*/
 
+var userInput = document.getElementById("Input");
+var userOutput = document.getElementById("Output");
+
+/*document.getElementById("Translate").onlick = function(){
+  userOutput.value = pigLatin(userInput.value);
+  console.log("I got clicked");
+};
+*/
+
+document.getElementById("btn").onclick = function(){
+  userOutput.value = pigLatin(userInput.value);
+}
+
 
 
 const pigLatin = (word)  => {
