@@ -18,7 +18,7 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+//act
 function movePiece() {
   // Your code here
 
@@ -35,7 +35,8 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  let fromStack = stacks[startStack];
+  let toStack = stacks[endStack];
 
 }
 
