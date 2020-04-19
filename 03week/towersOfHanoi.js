@@ -19,24 +19,67 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+
+function movePiece(startStack, endStack) {
+  // Your code here, gives the move a variable 
+  let currentPiece = stacks[startStack].pop();
+  // add current piece to end stack
+    stacks[endStack].push(currentPiece)
+}
+
+function isLegal(startStack, endStack) {
+  // need to add something it can check
+  const legalMove = ["a", "b", "c"];
+
+  if(legalMove.includes(startStack) == false || legalMove.includes(endStack) == false)
+  {
+    return false;
+  }
+
+  //empty stack means move is legal
+  if(stacks[endStack].length == 0)
+  {
+    return true;
+  }
+
+  //if piece is larger move is legal
+  else if(stacks[startStack].slice(-1) < stacks[endStack].slice(-1))
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 
 }
 
-function isLegal() {
-  // Your code here
-
-}
-
-function checkForWin() {
-  // Your code here
+function checkForWin(startStack, endStack) {
+  // checking to win
+  if( stacks.b.length === 4 || stacks.c.length === 4)
+  {
+    console.log("You've won!!!!")
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-
+  if(isLegal(startStack, endStack) == true)
+  {
+    movePiece(startStack, endStack)
+  }
+  else
+  {
+    console.log("YOU SHALL NOT PASS!!")
+  }
+  checkForWin();
+  
 }
 
 function getPrompt() {
