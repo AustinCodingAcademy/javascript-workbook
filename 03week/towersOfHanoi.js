@@ -7,6 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -18,24 +19,44 @@ function printStacks() {
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
-function movePiece() {
-  // Your code here
+//act
+function movePiece(A, B) {
+  if (isLegal(A,B)) {
+  let temp = A[A.length -1];
+  B.push(temp);
+  A.pop();
+  }
+  checkForWin(stacks.a,stacks.b,stacks.c);
 
 }
-
-function isLegal() {
-  // Your code here
-
+// source has to be less than the destination
+function isLegal(A, B) {
+  if ((A || B) == null) {
+    return false;
+  }
+  if (B.length == 0){
+  return true;
+  }
+  if (A[A.length -1]< B[B.length -1]) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function checkForWin() {
-  // Your code here
+function checkForWin(A, B, C) {
+  if (A.length == 0 && (B.length == 0 || C.length == 0)) {
+    console.log('You win!');
+    process.exit(0);
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  let fromStack = stacks[startStack];
+  let toStack = stacks[endStack];
+  console.log(movePiece(fromStack, toStack));
+
 
 }
 
@@ -43,7 +64,7 @@ function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
-      towersOfHanoi(startStack, endStack);
+      towersOfHanoi(startStack.toLowerCase().trim(), endStack.toLowerCase().trim());
       getPrompt();
     });
   });
@@ -87,7 +108,8 @@ if (typeof describe === 'function') {
     });
   });
 
-} else {
+}
+ else {
 
   getPrompt();
 
