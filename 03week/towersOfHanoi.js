@@ -53,7 +53,7 @@ function isLegal(startStack, endStack) {
   let lastPieceTo = toStack[toStack.length-1];
 
   
-  //checks if startStack is empty
+  //checks if startStack is empty of doesnt exist
   if (fromStack.length == 0 || fromStack == undefined) {
     return false;
   //check if startStack is larger than endStack
@@ -73,6 +73,7 @@ function checkForWin() {
 
   let arrayLengthA = stacks.a.length ;
   let arrayLengthC = stacks.c.length;
+  // checks if tower B is fully populated
   if( arrayLengthA == 0 &&  arrayLengthC == 0){
     return true;
   } else {
@@ -82,6 +83,7 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  
   
   if (checkForWin() == true) {
     console.log("You've Won!");
