@@ -11,6 +11,44 @@ let jobTypes = {
 
 // Your code here
 
+//you wnat CrewMember class
+// constructor should take in as input: name, their job, their specialSkill
+// have an attribute "ship", this is the ship they are in
+
+class CrewMember {
+  constructor(){
+
+  }
+//this method should ass THIS crewmember to the ship being passed in
+//NOTE: an entire ship instance is passed in, not just the name
+//NOTE: the entire crewmember iS ADDED 
+  enterShip(someShip){
+
+  }
+}
+
+class Ship {
+  constructor(){
+
+  }
+//this method should return the ship's ability if there is a crew 
+//whose jon matches up with the ships type
+//otherwise should return "Cant perform a mission statement yet."
+  missionStatement(){
+
+  }
+}
+
+
+//you want a ship class
+//constructor should take in as input: name, type, ability
+//have a list of crew, that starts out empty
+//ship should have a "missionStatement()",
+//if there is a crew member that can activate it, it should return the ships ability 
+//otherwise it should return "Can't perform a mission statement yet."
+
+
+
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
