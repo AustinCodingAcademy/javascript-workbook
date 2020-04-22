@@ -19,23 +19,82 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+//actually move the pieces
+function movePiece(startStack, endStack) {
   // Your code here
+
+  //grabs array from user startStack
+  let fromStack = stacks[startStack];
+  //grabs array from user endStack
+  let toStack = stacks[endStack];
+  
+  // pop from startStack
+  let popped = fromStack.pop();
+  // push to endStack
+  toStack.push(popped);
+  
+
+
 
 }
 
-function isLegal() {
+//should return true or false dependiong on if move is legal
+function isLegal(startStack, endStack) {
   // Your code here
+
+  //grabs array from user startStack
+  let fromStack = stacks[startStack];
+  //grabs array from user endStack
+  let toStack = stacks[endStack];
+
+  //grabs value of last item in user startStack
+  let lastPieceFrom = fromStack[fromStack.length-1];
+  //grabs value of last item in user endStack
+  let lastPieceTo = toStack[toStack.length-1];
+
+  
+  //checks if startStack is empty of doesnt exist
+  if (fromStack.length == 0 || fromStack == undefined) {
+    return false;
+  //check if startStack is larger than endStack
+  } else if (lastPieceFrom>lastPieceTo){
+    return false;
+  } else {
+    return true;
+  }
+  
 
 }
 
+// return true if player won
+//if moved all discs to another tower
 function checkForWin() {
   // Your code here
 
+  let arrayLengthA = stacks.a.length ;
+  let arrayLengthC = stacks.c.length;
+  // checks if tower B is fully populated
+  if( arrayLengthA == 0 &&  arrayLengthC == 0){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  
+  
+  if (checkForWin() == true) {
+    console.log("You've Won!");
+  } else if (isLegal(startStack, endStack) == false){
+    console.log("Enter a valid move");
+  } else {
+    movePiece(startStack, endStack);
+  }
+  
+
+  
 
 }
 
