@@ -35,20 +35,21 @@ function getRandomInt(min, max) {
 function generateHint(guess) {
   let guessArray = guess.split('');
   let solutionArray = solution.split('');
-
   let correctLetterLocations= 0;
   let correctLetters = 0;
 
+// find correct letters that are also in the correct location and store them in correctLetterLocations
   for (let i=0; i < solutionArray.length; i++) {
     if (solutionArray[i] == guessArray[i]) {
       correctLetterLocations++
       solutionArray[i] = null
-      //console.log("correct letter and location")
+      //console.log("correct letter and location") 
     } else {
       //console.log("no letter + location match found")
     }
   }
 
+// find correct letters that are NOT in the correct location and store them in correctLetters
   for (let i=0; i < solutionArray.length; i++) {
     let targetIndex = solutionArray.indexOf(guessArray[i]); 
     if (targetIndex > -1) {
@@ -59,36 +60,32 @@ function generateHint(guess) {
     }
   };
 
+// uncomment lines 64-67 for colorful fancy game play****
 //hint = `
-// ****Correct Location: ${correctLetterLocations}`.red
-// +`\n******Correct Letter: ${correctLetters}`.white
-// +`\n**********Your Guess: ${guess}`.blue
+//****Correct Location: ${correctLetterLocations}`.red
+//+`\n******Correct Letter: ${correctLetters}`.white 
+//+`\n**********Your Guess: ${guess}`.blue
 
-hint = `${correctLetters}-${correctLetterLocations}`;
-return hint;
-//console.log(hint);
-
-//   console.log(`
-// ****Correct Location Count: ${correctLetterLocations}
-// ****Correct Letter Count: ${correctLetters}
-// ****Your Guess: ${guess}
-// ******Solution: ${solution}
-// `)
+// comment out lines 70-71 for colorful fancy game play (neeeded to pass tests)
+hint = `${correctLetterLocations}-${correctLetters}`; 
+return hint 
 }
 
-
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+  //solution = 'abcd'; // Comment this out to generate a random solution
 
+  //check to see if the player has guessed the solution and alerts them
+  //if the player did not guess correctly a hint is generated
+  //the players incorrect guess + the hint are displayed on the "board"
   if (guess == solution) {
     console.log("You guessed it!".america)
     return `You guessed it!`;
   } else {
     generateHint(guess);
-    board.push(`${hint} ${guess}`);
+    board.push(`${hint} ${guess}`); // comment this out for colorful fancy game play (neeeded to pass tests)
+    //console.log(hint); // uncomment this for colorful fancy game play
   }
 }
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
