@@ -40,32 +40,26 @@ function generateHint(guess) {
       correctLetterLocations++
       solutionArray[i] = null
       console.log("correct letter and location")
-    } else{
+    } else {
       console.log("no letter + location match found")
-      }
     }
+  }
 
-    for (let i=0; i < solutionArray.length; i++) {
-      if (guessArray.indexOf(i) > -1) {
-        correctLetters++
-        console.log("correct letter")
-      } else {
-        console.log("no letter match found")
-      }
+  for (let i=0; i < solutionArray.length; i++) {
+    let targetIndex = solutionArray.indexOf(guessArray[i]); 
+    if (targetIndex > -1) {
+      correctLetters++
+      solutionArray[targetIndex] = null
+    } else {
+      console.log("no letter match found")
     }
-      // Set a variable correctLetters equal to 0, 
-      // In a for loop, again iterate over the solutionArray. 
-      // Using .indexOf, determine if the item at the current index in guessArray 
-      // appears inside of solutionArray. Save that index in a variable called targetIndex. 
-      // Now, if targetIndex is greater that -1, 
-      // increment correctLetters and set the item in solutionArray at that index equal to null.
-   
-//return count;
+  };
+  
   console.log(`
 ****Correct Location Count: ${correctLetterLocations}
 ****Correct Letter Count: ${correctLetters}
 ****Your Guess: ${guess}
-****Solution: ${solution}
+******Solution: ${solution}
 `);
 }
 
