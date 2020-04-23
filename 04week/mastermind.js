@@ -11,6 +11,7 @@ let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
+
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -28,13 +29,36 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(guess) {
+  let guessArray = guess.split('');
+  let solutionArray = solution.split('');
+  let correctLetterLocations= 0;
+  let correctLetters = 0;
+
+  for (let i=0; i < solutionArray.length; i++) {
+    if (solutionArray[i] == guessArray[i]) {
+      correctLetterLocations++
+      solutionArray[i] = null
+      console.log("correct")
+    } else{
+      //return false;
+      console.log("incorrect");
+    }
+  }
+  //return count;
+  console.log(' correct count: ' + correctLetterLocations + ' guess: ' + guess + ' solution: ' + solution);
 }
 
+
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  //solution = 'abcd'; // Comment this out to generate a random solution
+
+  if (solution == guess) {
+    console.log("You guessed it!")
+  } else{
+    generateHint(guess);
+  }
+
 }
 
 
