@@ -58,13 +58,13 @@ function generateHint(guess) {
       //console.log("no letter match found")
     //}
   };
-  // uncomment lines 64-67 for colorful fancy game play****
+  // uncomment lines 62-65 for colorful fancy game play****
   //hint = `
   //****Correct Location: ${correctLetterLocations}`.red
   //+`\n******Correct Letter: ${correctLetters}`.white 
   //+`\n**********Your Guess: ${guess}`.blue
 
-  // comment out lines 70-71 for colorful fancy game play (neeeded to pass tests)
+  // comment out lines 68-69 for colorful fancy game play (neeeded to pass tests)
   hint = `${correctLetterLocations}-${correctLetters}`; 
   return hint; 
 }
@@ -83,7 +83,7 @@ function mastermind(guess) {
     return `You guessed it!`; // this is needed to pass the unit test
   } else if (board.length <=8 ) {
     generateHint(guess);
-    board.push(`${hint} ${guess}`); // comment this out for colorful fancy game play (neeeded to pass tests)
+    board.push(`${hint} ${guess}`); // comment this out for colorful fancy game play
     //console.log(hint); // uncomment this for colorful fancy game play
     return console.log("Guess again.");
   } else {
