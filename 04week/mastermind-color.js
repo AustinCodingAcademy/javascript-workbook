@@ -44,7 +44,7 @@ function generateHint(guess) {
       correctLetterLocations++
       solutionArray[i] = null
       //console.log("correct letter and location") 
-    } //else { //lines 46-48 used for testing
+    } //else { //lines 47-49 used for testing
       //console.log("no letter + location match found")
     //}
   }
@@ -55,24 +55,27 @@ function generateHint(guess) {
     if (targetIndex > -1) {
       correctLetters++
       solutionArray[targetIndex] = null
-    } //else { //lines 57-59 used for testing
+    } //else { //lines 58-60 used for testing
       //console.log("no letter match found")
     //}
   };
-  // uncomment lines 62-65 for colorful fancy game play****
-  //hint = `
-  //****Correct Location: ${correctLetterLocations}`.red
-  //+`\n******Correct Letter: ${correctLetters}`.white 
-  //+`\n**********Your Guess: ${guess}`.blue
+  // uncomment lines 63-67 for colorful fancy game play****
+  hint = `
+                                  \n`.blue.underline+
+`|******Turn Count: ${turnCount}             |\n`.america.underline+
+`|********Your Guess: ${guess}        |\n`.red.underline +
+`|**********Correct Letter: ${correctLetters}     |\n`.white.underline+
+`|************Correct Location: ${correctLetterLocations} |`.blue.underline
+  
 
-  // comment out lines 68-69 for colorful fancy game play (neeeded to pass tests)
-  hint = `${correctLetterLocations}-${correctLetters}`; 
-  return hint; 
+  // comment out lines 70-71 for colorful fancy game play (use to pass tests)
+  //hint = `${correctLetterLocations}-${correctLetters}`; 
+  //return hint; 
 }
 
 function mastermind(guess) {
   //solution = 'abcd'; // Comment this out to generate a random solution
-  let turnCount = board.length+1
+  
   //check to see if the player has guessed the solution
   //if the player won, they receive a notification, and the game board is reset for a new game to begin;
   //if the player did not guess correctly a hint is generated
@@ -81,13 +84,12 @@ function mastermind(guess) {
     console.log("You cracked the code!".america) // altered text will not pass the unit test
     console.log("***Let's play again!***".rainbow)
     board = [];
-    return `You guessed it!`; // this is needed to pass the unit test
+   // return `You guessed it!`; // this is needed to pass the unit test
   } else if (board.length <=8 ) {
     generateHint(guess);
-    board.push(`${hint} ${guess}`); // comment this out for colorful fancy game play
-    //console.log(hint); // uncomment this for colorful fancy game play
-    console.log(`Turn: ${turnCount}`);
-    return console.log("Guess again."); 
+    //board.push(`${hint} ${guess}`); // comment this out for colorful fancy game play
+    console.log(hint); // uncomment this for colorful fancy game play
+    return console.log("Guess again.");
   } else {
     board = [];
     return console.log("You ran out of turns! ╚(ಠ_ಠ)=┐".america + "\nThe solution was: ".zebra + solution.zebra + "\n***Let's play again!***".america);
