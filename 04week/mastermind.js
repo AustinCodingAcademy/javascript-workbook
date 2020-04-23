@@ -10,6 +10,9 @@ const rl = readline.createInterface({
 let board = [];
 let solution = '';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let hint;
+let colors = require('colors');
+colors.enable();
 
 
 function printBoard() {
@@ -32,6 +35,7 @@ function getRandomInt(min, max) {
 function generateHint(guess) {
   let guessArray = guess.split('');
   let solutionArray = solution.split('');
+
   let correctLetterLocations= 0;
   let correctLetters = 0;
 
@@ -39,9 +43,9 @@ function generateHint(guess) {
     if (solutionArray[i] == guessArray[i]) {
       correctLetterLocations++
       solutionArray[i] = null
-      console.log("correct letter and location")
+      //console.log("correct letter and location")
     } else {
-      console.log("no letter + location match found")
+      //console.log("no letter + location match found")
     }
   }
 
@@ -51,28 +55,38 @@ function generateHint(guess) {
       correctLetters++
       solutionArray[targetIndex] = null
     } else {
-      console.log("no letter match found")
+      //console.log("no letter match found")
     }
   };
-  
-  console.log(`
-****Correct Location Count: ${correctLetterLocations}
-****Correct Letter Count: ${correctLetters}
-****Your Guess: ${guess}
-******Solution: ${solution}
-`);
+
+//hint = `
+// ****Correct Location: ${correctLetterLocations}`.red
+// +`\n******Correct Letter: ${correctLetters}`.white
+// +`\n**********Your Guess: ${guess}`.blue
+
+hint = `${correctLetters}-${correctLetterLocations}`;
+return hint;
+//console.log(hint);
+
+//   console.log(`
+// ****Correct Location Count: ${correctLetterLocations}
+// ****Correct Letter Count: ${correctLetters}
+// ****Your Guess: ${guess}
+// ******Solution: ${solution}
+// `)
 }
 
 
 function mastermind(guess) {
-  //solution = 'abcd'; // Comment this out to generate a random solution
+  solution = 'abcd'; // Comment this out to generate a random solution
 
-  if (solution == guess) {
-    console.log("You guessed it!")
+  if (guess == solution) {
+    console.log("You guessed it!".america)
+    return `You guessed it!`;
   } else {
     generateHint(guess);
+    board.push(`${hint} ${guess}`);
   }
-
 }
 
 
