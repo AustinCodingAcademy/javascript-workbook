@@ -14,7 +14,6 @@ let hint;
 let colors = require('colors');
 colors.enable();
 
-
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
     console.log(board[i]);
@@ -44,9 +43,9 @@ function generateHint(guess) {
       correctLetterLocations++
       solutionArray[i] = null
       //console.log("correct letter and location") 
-    } else {
+    } //else { //lines 46-48 used for testing
       //console.log("no letter + location match found")
-    }
+    //}
   }
 
 // find correct letters that are NOT in the correct location and store them in correctLetters
@@ -55,36 +54,43 @@ function generateHint(guess) {
     if (targetIndex > -1) {
       correctLetters++
       solutionArray[targetIndex] = null
-    } else {
+    } //else { //lines 57-59 used for testing
       //console.log("no letter match found")
-    }
+    //}
   };
+  // uncomment lines 64-67 for colorful fancy game play****
+  //hint = `
+  //****Correct Location: ${correctLetterLocations}`.red
+  //+`\n******Correct Letter: ${correctLetters}`.white 
+  //+`\n**********Your Guess: ${guess}`.blue
 
-// uncomment lines 64-67 for colorful fancy game play****
-//hint = `
-//****Correct Location: ${correctLetterLocations}`.red
-//+`\n******Correct Letter: ${correctLetters}`.white 
-//+`\n**********Your Guess: ${guess}`.blue
-
-// comment out lines 70-71 for colorful fancy game play (neeeded to pass tests)
-hint = `${correctLetterLocations}-${correctLetters}`; 
-return hint 
+  // comment out lines 70-71 for colorful fancy game play (neeeded to pass tests)
+  hint = `${correctLetterLocations}-${correctLetters}`; 
+  return hint; 
 }
 
 function mastermind(guess) {
-  //solution = 'abcd'; // Comment this out to generate a random solution
-
-  //check to see if the player has guessed the solution and alerts them
+  solution = 'abcd'; // Comment this out to generate a random solution
+  
+  //check to see if the player has guessed the solution
+  //if the player won, they receive a notification, and the game board is reset for a new game to begin;
   //if the player did not guess correctly a hint is generated
   //the players incorrect guess + the hint are displayed on the "board"
   if (guess == solution) {
-    console.log("You guessed it!".america)
-    return `You guessed it!`;
-  } else {
+    console.log("You cracked the code!".america) // altered text will not pass the unit test
+    console.log("***Let's play again!***".rainbow)
+    board = [];
+    return `You guessed it!`; // this is needed to pass the unit test
+  } else if (board.length <=8 ) {
     generateHint(guess);
     board.push(`${hint} ${guess}`); // comment this out for colorful fancy game play (neeeded to pass tests)
     //console.log(hint); // uncomment this for colorful fancy game play
+    return console.log("Guess again.");
+  } else {
+    board = [];
+    return console.log("You ran out of turns! ╚(ಠ_ಠ)=┐".america + "\nThe solution was: ".zebra + solution.zebra + "\n***Let's play again!***".america);
   }
+
 }
 
 function getPrompt() {
