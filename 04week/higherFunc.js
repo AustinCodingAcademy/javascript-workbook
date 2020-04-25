@@ -72,12 +72,7 @@ do {
   gender: "female"
  }
 
- for (const birth in person) {
-  console.log(`${person['birthDate']}`);
+ for (let x in person) {
+  console.log(`${person[x]}`);
 }
- if(person.birthDate == false) {
-  
-  return  person.birthDate
- }
- console.log(person.birthDate)
 
