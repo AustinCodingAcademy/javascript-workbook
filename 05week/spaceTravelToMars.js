@@ -16,38 +16,39 @@ let jobTypes = {
 // have an attribute "ship", this is the ship they are in
 
 class CrewMember {
-  constructor(name, job, specialSkill, /*ship??*/){
+  constructor(name, job, specialSkill){
       this.name = name;
       this.job = job;
       this.specialSkill = specialSkill;
+      this.ship = null;
   }
+
 //this method should ass THIS crewmember to the ship being passed in
 //NOTE: an entire ship instance is passed in, not just the name
 //NOTE: the entire crewmember iS ADDED 
   enterShip(someShip){
-        constructor(){
-        super(){
-
-        }
+        this.ship = someShip;
+        someShip.crew.push(this);
+    }
   }
-}
 
 class Ship {
   constructor(name, type, ability){
     this.name = name;
     this.type = type;
     this.ability = ability;
-//have a list of crew that starts out empty "listOfCrew = [];"
+    this.crew = [];
+//have a list of crew that starts out empty "crew = [];"
   }
 //this method should return the ship's ability if there is a crew 
-//whose jon matches up with the ships type
+//whose job matches up with the ships type
 //otherwise should return "Cant perform a mission statement yet."
   missionStatement(){
-    if(/*crew member can activate it*/){
-      return Ship.ability;
+    if(this.crew.length === 0){
+      return "Can't perform a mission yet."
     }
-    else if {
-      return "Can't perform a mission statement yet."
+    else {
+      return this.ability;
     }
   }
 }
@@ -58,7 +59,7 @@ class Ship {
 //have a list of crew, that starts out empty
 //ship should have a "missionStatement()",
 //if there is a crew member that can activate it, it should return the ships ability 
-//otherwise it should return "Can't perform a mission statement yet."
+//otherwise it should return "Can't perform a mission yet."
 
 
 

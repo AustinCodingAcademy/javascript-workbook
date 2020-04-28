@@ -1,0 +1,21 @@
+i = 0;
+do{
+i++;
+console.log(i)
+}while(i >= 0 && i <= 1000)
+
+const Person = {
+  firstName: "Jane",
+  lastName: "Doe",
+  birthDate: "Jan 5, 1925",
+  gender: "female"
+};
+
+//Use a for...in loop and if statement to console.log the value associated 
+//with the key birthDate if the birth year is an odd number.
+          
+for (const property in Person){
+    if(Person.birthDate % 3 === 0){
+      console.log(Person.birthDate);
+    }
+}

@@ -16,24 +16,37 @@
 */
 
 class BankAccount {
-  constructor(accountNumber, owner, transactions){
+  constructor(accountNumber, owner){
     this.accountNumber = accountNumber;
     this.owner = owner;
-    //this.transactions = transactions; ((not sure if i should use))
+		this.transactions = [];
+		this.accountBalance = 0; 
+		
     //NOTE: that the when an account is created, you should initialize the transactions array to be an empty array.  
   }
     balance(){
-
+			return this.accountBalance;
     }
 
     deposit(amt){
-
-    }
+				if(amt >= 0){
+					this.accountBalance = this.accountBalance + amt
+					return this.transactions.push(this.accountBalance);
+					}	else {
+					return false;
+		}	
+	}
 
     charge(payee, amt){
-
-    }
-  }
+			if(amt < this.accountBalance){
+				this.accountBalance = this.accountBalance - amt;
+				return this.transactions.push(payee, amt);
+				}	else {
+				return false;
+		}
+	}
+}
+  
 /*
 3. The class should have the following 3 methods:
 	a. balanace() - this method does not take any input, and returns the current balance on the account. The balance is computed 
@@ -63,9 +76,24 @@ class BankAccount {
 class Transaction {
   constructor(amount, payee){
       this.amount = amount;
-      this.payee = payee;
+			this.payee = payee;
+			this.date = Date();
   }
 }
+
+class SavingsAccount extends BankAccount {
+	constructor(accountNumber, owner, interestRate){
+		super(accountNumber, owner, interestRate)
+			this.interestRate = .4;
+		}
+	
+	
+	accrueInterest(){
+		let interest = balance() * this.interestRate;
+		return this.transactions.push(interest);
+	}
+}
+
 /*
 Stretch Goal: SavingsAccount Class - This class should extend the BankAccount Class
 ----------------------------------
