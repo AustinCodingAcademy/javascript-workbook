@@ -11,7 +11,7 @@ let jobTypes = {
 
 // Your code here
 class CrewMember {
-  constructor(name, job, specialSkill) {
+  constructor(name, job, specialSkill,ship) {
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
@@ -30,14 +30,10 @@ class CrewMember {
 
 
 }
- 
-  
    
- 
-  
-enterShip(ship) {
-  this.ship = ship;
-  ship.crew.push(this);
+enterShip(currentShip) {
+  this.ship = currentShip;
+  currentShip.crew.push(this);
   
   //crewMember1.assignedShip = mav
   //mav.crew.push(crewMember1);
@@ -63,15 +59,17 @@ class Ship {
 // whose job matches up with the ship's type
 
   missionStatement() {
-    if(this.crew.length == 0 && this.crew.job == this.ship.ability) {
-      return this.ability;
-    } else {
+    // if the length of the crew is equal to zero
+    if(this.crew.length == 0) {
+      //then return cannot perfrom
       return "Can't perform a mission yet."
-    }
-
-
-  }
+      //now need to compare job vs ability 
+    } else if (this.job == this.ability){
+      //need to return it ability
+      return "this thing is working"
   
+  } 
+}
 }
 //created first crew member 
 let rick = new CrewMember('Rick Martinez', 'pilot', 'Ascend into low orbit');
@@ -107,7 +105,7 @@ console.log(hermes.missionStatement());
 // wanted to test the get in ship method
 //console.log(crewMember1.description());
 // shows that crew member one isn't assigned to a ship..... yet
-console.log(rick.description());
+//console.log(rick.description());
 //console.log(mav);
 
 
