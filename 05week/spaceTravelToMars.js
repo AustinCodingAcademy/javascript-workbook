@@ -10,6 +10,109 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember {
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  
+  //this method should add THIS crew member to the ship being passed in
+  //note: an entire ship instance is passed in, not just the name
+  //note: the entire crew member is added to the ships array of crew
+  description (){
+    if(this.ship == null) {
+      return `${this.name} is a ${this.job} and isn't assign too a ship`; 
+    } else {
+      return `${this.name} is a ${this.job} and is assign to ${this.ship}`;
+    }
+
+
+}
+ 
+  
+   
+ 
+  
+enterShip(ship) {
+  this.ship = ship;
+  ship.crew.push(this);
+  
+  //crewMember1.assignedShip = mav
+  //mav.crew.push(crewMember1);
+
+}
+}
+
+
+
+
+
+
+
+
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+// this method should return the ship's ability if there is a crew member
+// whose job matches up with the ship's type
+
+  missionStatement() {
+    if(this.crew.length == 0 && this.crew.job == this.ship.ability) {
+      return this.ability;
+    } else {
+      return "Can't perform a mission yet."
+    }
+
+
+  }
+  
+}
+//created first crew member 
+let rick = new CrewMember('Rick Martinez', 'pilot', 'Ascend into low orbit');
+//console.log(crewMember1);
+//created second crew member
+let lewis = new CrewMember('Commander Lewis', 'commander', 'geology');
+//console.log(crewMember2)
+//created third crew member
+let chris = new CrewMember('Chris Trevino', 'programmer', 'geology');
+//created fourth crew member
+let hitzel = new CrewMember('Hitzel Betts', 'mechanic', 'biology');
+
+// ship one was created
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+//console.log(mav);
+//ship two was created
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+//console.log(hermes);
+// console logged the input below to make sure mission statement works
+// put crew members into ship
+rick.enterShip(mav)
+lewis.enterShip(hermes)
+chris.enterShip(mav)
+//console.log(mav.missionStatement());
+
+//now need to test PUSH for adding a crew member to ship
+//mav.crew.push(crewMember1);
+// Testing the output with console log
+console.log(mav.missionStatement());
+console.log(hermes.missionStatement());
+// Putting crewMember1 into MAV
+//crewMember1.assignedShip = mav
+// wanted to test the get in ship method
+//console.log(crewMember1.description());
+// shows that crew member one isn't assigned to a ship..... yet
+console.log(rick.description());
+//console.log(mav);
+
+
+
+
 
 //tests
 if (typeof describe === 'function'){
