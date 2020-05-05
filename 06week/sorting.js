@@ -6,7 +6,7 @@ const strNums = ["1", "4", "1", "5", "9", "2", "6", "5", "3", "5", "8", "9", "7"
 const stringsToNumbs = (numbers) => {
   let numsArray = [];
   //loop through array
-  for (i = 0; i < strNums.length; i++) {
+  for (let i = 0; i < strNums.length; i++) {
     let newNum = parseInt(strNums[i]);
     //convert the string to array
     numsArray.push(newNum);
@@ -19,7 +19,7 @@ const stringsToNumbs = (numbers) => {
 let sumEvens = 0;
 let myNumArray = stringsToNumbs(strNums);
 //loop through array
-for (i = 0; i < myNumArray.length; i++) {
+for (let i = 0; i < myNumArray.length; i++) {
   //find even numbers
   if (myNumArray[i] % 2 == 0) {
     //add to the total sum
@@ -33,7 +33,7 @@ console.log(sumEvens);
 let atxIdx;
 
 function findIndex(someArray) {
-  for (i = 0; i < myNumArray.length; i++) {
+  for (let i = 0; i < myNumArray.length; i++) {
     if (i + myNumArray[i] == 512) {
       atxIdx = i;
       return atxIdx;
@@ -129,7 +129,9 @@ console.log(weatherStates);
 
 let idealTemp = weather.reduce(function (prev, curr, index) {
   
-    return weather.id;
+    if(curr.min_temp == 15.915 ){
+      return curr.id;
+    }
   
 });
 
