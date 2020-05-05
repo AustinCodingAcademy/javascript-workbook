@@ -30,9 +30,19 @@ for (i = 0; i < myNumArray.length; i++) {
 console.log(sumEvens);
 
 // Find the index of the first value when added to it's index = 512 (#ATX!!)
-const atxIdx;
+let atxIdx;
 
-console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+function findIndex(someArray) {
+  for (i = 0; i < myNumArray.length; i++) {
+    if (i + myNumArray[i] == 512) {
+      atxIdx = i;
+      return atxIdx;
+    }
+  }
+}
+let myAtxIdx = findIndex(myNumArray);
+
+console.log(`index: ${myAtxIdx}, value: ${myNumArray[myAtxIdx]}`);
 
 const weather = [
   {
@@ -103,13 +113,24 @@ const weather = [
     visibility: 11.14056410562316,
     predictability: 71
   },
-],
+];
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-const weatherStates =
-  console.log(weatherStates)
+
+let findStateName = function(element, index) {
+  return element.weather_state_name;
+}
+
+let weatherStates = weather.map(findStateName);
+
+console.log(weatherStates);
 
 //find the id of the object in weather that has a min_temp of 15.915
 
-const idealTemp =
-  console.log(idealTemp)
+let idealTemp = weather.reduce(function (prev, curr, index) {
+  
+    return weather.id;
+  
+});
+
+console.log(idealTemp);
