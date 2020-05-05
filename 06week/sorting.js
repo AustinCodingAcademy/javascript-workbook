@@ -16,7 +16,16 @@ const stringsToNumbs = (numbers) => {
 }
 
 // With the same numbers, find the sum of the even values
-const sumEvens;
+let sumEvens = 0;
+let myNumArray = stringsToNumbs(strNums);
+//loop through array
+for (i = 0; i < myNumArray.length; i++) {
+  //find even numbers
+  if (myNumArray[i] % 2 == 0) {
+    //add to the total sum
+    sumEvens += myNumArray[i];
+  }
+}
 
 console.log(sumEvens);
 
