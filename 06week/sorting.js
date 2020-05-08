@@ -117,7 +117,7 @@ const weather = [
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
 
-let findStateName = function(element, index) {
+let findStateName = function(element, index) { //still need to sort for duplicates
   return element.weather_state_name;
 }
 
