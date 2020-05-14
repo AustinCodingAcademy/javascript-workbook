@@ -3,33 +3,35 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
 //use map function
 const stringsToNumbs = (numbers) => {
-  numbers.map
+  const toNum = parseInt(strNums[numbers]);
 }
-console.log(stringsToNumbs);
+console.log(stringsToNumbs());
 // With the same numbers, find the sum of the even values
 //use reduce and filter hi order functions
 const sumEvens = (numbers) => {
- let total = 0;
-  if (strNums[i] % 2 === 0){
-    total += strNums[i];
-  }
+    let strToInt = numbers.map(x => parseInt(x))
+    let evenArray = strToInt.filter(x => x % 2 === 0);
+    let total = evenArray.reduce((t, n) => t + n)
+     return total
+   }
 
-};
-
-console.log(sumEvens);
+console.log(sumEvens(strNums));
 
 // Find the index of the first value when added to it's index = 512 (#ATX!!)
-const atxIdx = (numbers) => {
-  let total = 0;
-if(total + strNums[i] < 512){
-  total += strNums[i];
-}
-  else if (total + strNums[i] === 512){
-    return true;
-  }
-};
-
-console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+const num = (numbers) => {
+  let strToInt = numbers.map(x => parseInt(x))
+ //return strToInt
+ strToInt.forEach(function(item, index, array){
+   //console.log(item, index)
+   if(item + index === 512){
+     console.log("item: " + item, "index: " + index)
+     console.log(item + index)
+     }else{
+       return false;
+     }
+ })
+ }
+ console.log(num(strNums));
 
 const weather = [
   { id: 5743823523151872,
@@ -96,14 +98,25 @@ const weather = [
     visibility: 11.14056410562316,
     predictability: 71
   },
-],
+];
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. 
 //Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-const weatherStates = weather.forEach(function(element, index){
-  console.log(element.weather_state_name);
+let weatherArray = [];
+const weatherStates = weather.forEach(function(element){
+  if(weatherArray.includes(element.weather_state_name)){
+    //do nothing
+    //access the weather_state_name using the new array??
+  }else {
+    weatherArray.push(element.weather_state_name)
+    //return weatherArray
+  }
+ //console.log(weatherArray)
+  //console.log(element.weather_state_name);
+  //ran in repl.it without console.log////
 })
-console.log(weatherStates)
+//put in new array and if it already exist in new array 
+console.log(weatherArray)
 
 //find the id of the object in weather that has a min_temp of 15.915
 

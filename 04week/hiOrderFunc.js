@@ -22,6 +22,7 @@ const Person = {
 
 //Use a for...in loop and if statement to console.log the value associated 
 //with the key birthDate if the birth year is an odd number.
+//find diff way to find odd values
           
 for (const property in Person){
     if(property.birthDate % 3 === 0){
