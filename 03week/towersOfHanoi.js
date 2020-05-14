@@ -19,23 +19,50 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+function movePiece(startStack, endStack) {
   // Your code here
+  let elem = stacks[startStack].pop();
+  stacks[endStack].push(elem);
 
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
+//is position greater or less than what peice you're trying to put on top of other
+let elem1 = [stacks[startStack].length-1];
+//if element 1(startstack) is greater than zero, and element2(endstack)
+//is equal to zero return true
+let elem2 = stacks[endStack];
+//if element 1 has value and element 2 has no value, you can place a value there
+  if(elem1 > 0 && elem2.length == 0){
+    return true;
 
+  }if (elem2 > elem1){
+    return true;
+
+  } else{
+    return false;
+  }
 }
 
-function checkForWin() {
+function checkForWin(startStack, endStack) {
   // Your code here
-
+  //if numbers are in descending order then you win
+ //if stack b is full return true
+ //if length of stack b is equal to number of pieces expected, you win
+ if(stacks.b.length === 4){
+   console.log("Winner!!")
+   return true;
+ }else {
+   return false;
+ }
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // Your code here]
+  movePiece(startStack, endStack);
+  //isLegal(startStack, endStack);
+  //checkForWin(startStack, endStack);
 
 }
 

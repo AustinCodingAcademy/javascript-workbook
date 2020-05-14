@@ -21,31 +21,91 @@ function printBoard() {
   console.log('1 ' + board[1].join(' | '));
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
-}
 
+}
+//should return true if the player won on any row
 function horizontalWin() {
-  // Your code here
+  // Your code here //use loop
+  for(let i = 0; i <=2; i++){
+  if(board[i][0] === 'X' && board[i][1] === 'X' && board[i][2]==='X'){
+    return true;
+   }else if(board[i][0] === 'O' && board[i][1]=== 'O' && board[i][2]=== 'O'){
+    return true;
+  }
+  
 }
-
+}
+//should return true, if the player won on any column
 function verticalWin() {
-  // Your code here
+  for(let i = 0; i <= 2; i++){
+  if(board[0][i] ==='X' && board[1][i] ==='X' && board[2][i] === 'X'){
+    return true;
+  }else if(board[0][i] === 'O' && board[1][i] ==='O' && board[2][i] === 'O'){
+    return true;
+  }
+  // Your code here //use loop
 }
-
+}
+//should return true if the player won diagnol
 function diagonalWin() {
+  if(board[0][0]==='X' && board[1][1]==='X' && board[2][2]==='X'){
+    return true;
+  }else if(board[0][0]==='O' && board[1][1]==='O' && board[2][2]==='O'){
+    return true;
+  }else if(board[0][2]==='X' && board[1][1]==='X' && board[2][0]==='X'){
+    return true;
+  }else if(board[0][2]==='O' && board[1][1]==='O' && board[2][0]==='O'){
+    return true;
+  }else{
+    return false;//????????
+  }
   // Your code here
 }
-
+//should return true if any of the top three functions return true
 function checkForWin() {
+  //may need if/else if... 
+ if (horizontalWin() ||  verticalWin() || diagonalWin()){
+  return true;
+ }else {
+    return false;
+ }
   // Your code here
 }
 
 function ticTacToe(row, column) {
+  board[row][column] = playerTurn;
+ if(playerTurn === 'X'){
+    playerTurn = 'O';
+  //then assign playerturn to O after X is assigned to a square
+ }else {
+    playerTurn = 'X';
+ }
+  // if playerturn O is found assign playerTurn to X
+
   // Your code here
+//set the value on the box 
+//check if the player won
+//if they did (say congrats!!
+//switch out the variable for the other player
+
 }
+
+/*function filledSpace(row, column){
+  if(board[row][column] === 'X' || 'O'){
+    console.log("Try another position")
+  }; 
+  //check to see if space is filled
+  //if position is filled choose another column, row
+}*/
 
 function getPrompt() {
   printBoard();
+  if(checkForWin() === true){
+    return console.log("Congrats, you win");
+  }else {
   console.log("It's Player " + playerTurn + "'s turn.");
+  }
+  filledSpace();
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);

@@ -31,55 +31,30 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(guess) {
-  // your code here
-  let correctLetters = 0;
-  let correctLetterLocations = 0;
-  let solutionArray = solution.split('');
-  let guessArray = guess.split('');
-  //splitting on empting string for solution and guess
-  
-  //console.log(solutionArray);
-  //for(let i = 0; i < solutionArray.length; i++){
-    guessArray.forEach((item, index) => {
-      if(item === solutionArray[index]){
-        correctLetterLocations += 1;
-        solutionArray[index] = null;
+  let correctLetterLocations = 0,
+    correctLetters = 0;
+  let solutionArray = solution.split("");
+  let guessArray = guess.split("");
+  guessArray.forEach((item, index) => {
+    if (item === solutionArray[index]) {
+      correctLetterLocations += 1;
+      solutionArray[index] = null;
+      guessArray[index] = null;
+    }
+  });
+  guessArray.forEach((item, index) => {
+    if (item === null) {
+      let findIndex = solutionArray.indexOf(item);
+      if (findIndex > -1) {
+        correctLetters += 1;
+        solutionArray[findIndex] = null;
         guessArray[index] = null;
       }
-    });
-    //if(solutionArray[i] === guessArray[i]){
-      //if solutionArray index is equal to guessArray index  
-      //correctLetterLocations +=1;
-      //incremenet correctLetterLocations (comparing solution against guess)
-      //solutionArray[i] = null;
-      //guessArray[i] = null; 
-      //set solutionArray index to null (if solution and guess match set to "null")
-    
-  
-  //console.log(solutionArray)
-
-  //for(let i = 0; i < solutionArray.length; i++){
-    guessArray.forEach((item, index) => {
-   // if(solutionArray[i] === null){
-     if(item === null){
-      //if null returns -1
-      let targetIndex = solutionArray.indexOf(item);
-     
-    //let targetIndex = guessArray.indexOf(solutionArray[i]);
-    //deteremine if current index in guessArray appears inside of solutionArray
-    //if you dont find correctLetter "if(targetIndex > -1)"
-    //console.log(targetIndex);
-    if(targetIndex > -1){
-      correctLetters += 1;
-      solutionArray[targetIndex] = null;
-      guessArray[index]= null;
     }
-  }
   });
-console.log(`${correctLetterLocations} - ${correctLetters}`)
-return `${correctLetterLocations}-${correctLetters}`;
-    }
-
+    console.log(`${correctLetterLocations}-${correctLetters}`);
+  return `${correctLetterLocations}-${correctLetters}`;
+}
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
