@@ -1,0 +1,13 @@
+h1 {
+    color: Green;
+    text-align: center;
+    
+}
+body {
+    background-color: grey;
+    color : whitesmoke
+}
+ul {
+    list-style-type: decimal;
+    display: none;
+}
