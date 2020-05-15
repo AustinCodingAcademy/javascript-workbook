@@ -1,0 +1,10 @@
+                                    Overview: 
+We are in need of a sorting and organizing app for our community dodge ball league. There are already 6 players signed up and we hope to get more! We need to select from our currently sign-up people to make them dodge ball players and from there we need to be able to select them to be on different teams. Please look over the Specs Checklist to make sure you understand the needs of this app.
+
+Starting out there is 4 arrays in the problem. One is the array of people we are given at the beginning, then there is the list of players array (which is empty), the blue team array (which is empty), and the red team array (which is empty). 
+                            Plan:
+If you load the webpage the first time the only thing is a button that says list people, when you click it, it creates and populates the list of people and their skill set shown in the DOM. Clicking this will also create a 'Make Player' button next to each persons name.
+
+My first step would be adding attributes to the different classes such as Player, and extending those attributes to the BlueTeammate and RedTeammate while also adding new attributes to the different teams such as color and mascot.
+
+My second step to creating this program is going to be giving the make player function, functionality. We need a few things to happen when the button is clicked. When the button is clicked we need it to add the persons name to the dodgeball players list and create 2 buttons next to their name that say "red team" or "blue team" while also taking the original name and button away in the list of people list. Then behind the scenes, when the button is clicked we want to take the player off of the arrOfPeople array and add them to the list of players array. We need to add functionality to the Red Team and Blue Team buttons, so that when they are clicked it will then add the player to the corresponding team list in the DOM while also taking them and the two team buttons off the list of dodgeball players in the DOM. Again behind the scenes we need to make sure the player is added to the corresponding array for the team they are selected onto.
