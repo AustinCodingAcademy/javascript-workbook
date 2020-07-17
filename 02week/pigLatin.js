@@ -11,7 +11,23 @@ const rl = readline.createInterface({
 const pigLatin = (word)  => {
 
   // Your code here
-
+  function transaltePiglatin(str) {
+    var firstPosition = findFirstVowelPosition(str);
+    if (firstPosition > 0) {
+      return str.slice(firstPosition) + str.slice(0, firstPosition) + 'ay';
+      }
+      return str + "way"; 
+      }
+      function findFirstVowelPosition(str) {
+        for (var i=0; i<str.length; i++) {
+          if ("aeiou".indexOf(str[i]) !== -1) {
+            return i;
+    
+          }
+        }
+      }
+    
+      transaltePiglatin("rOcket")
 }
 
 
