@@ -1,0 +1,32 @@
+{
+  "name": "JS211_Mission-To-Mars",
+  "version": "1.0.0",
+  "description": "Practicing classes and functions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AustinCodingAcademy/JS211_MissionToMarsProject.git"
+  },
+  "scripts": {
+    "lint": "htmllint {*.html,./**/*.html} && stylelint ./**/*.css && eslint .",
+    "test": "mocha --no-timeouts",
+    "start": "cd . && http-server -c-1",
+    "javascripting": "javascripting",
+    "functional-javascript": "functional-javascript"
+  },
+  "author": "Clayton Berger",
+  "bugs": {
+    "url": "https://github.com/AustinCodingAcademy/JS211_MissionToMarsProject/issues"
+  },
+  "homepage": "https://github.com/AustinCodingAcademy/JS211_MissionToMarsProject#readme",
+  "dependencies": {
+    "eslint": "^3.19.0",
+    "functional-javascript-workshop": "^1.0.6",
+    "htmllint-cli": "github:kevincolten/htmllint-cli",
+    "http-server": "^0.12.3",
+    "javascripting": "^2.6.1",
+    "jsdom": "^11.6.2",
+    "mocha": "^8.2.1",
+    "postcss-html": "^0.34.0",
+    "stylelint": "^13.7.2"
+  }
+}
