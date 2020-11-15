@@ -3,23 +3,27 @@ const BankAccount = class {
         this.accountNumber = inputNumber;
         this.owner = inputName;
         this.transactions = [];
+        //added an extra empty array for processed transactions
         this.processedTransactions = [];
         this.currentBalance = 0;
     }
-
+    //This method does not take any input, and returns the current balance on the account. 
+    //The balance is computed by summing up the amounts in the transactions array.
     balance(){
+        //this processes current transactions
         for (let i = 0; i < this.transactions.length; i){
             this.currentBalance = this.currentBalance + this.transactions[0].amount;
+            //once processed, the transaction is shifted to a new array
             this.processedTransactions = this.processedTransactions.concat(this.transactions.shift());
         }
     }
-    
+    //This method takes in a single input, the deposit amount. 
     deposit(amt){
         if (amt.amount >= 0){
             this.transactions.push(amt)
         } else (console.log("You cannot depost a negative amount"))
     }
-   
+    //This method takes in the payee and amount, 
     charge(payee, amt){
         this.balance();
         if (amt > this.currentBalance){
@@ -45,7 +49,7 @@ const transaction = class {
 
 
 
-let myAccount = new BankAccount(1234, "John Smith")
+let myAccount = new BankAccount(45789865, "Cody B")
 
 
 let firstTransaction = new transaction (50, "Target")
@@ -61,6 +65,7 @@ myAccount.deposit(secondTransaction)
 myAccount.deposit(thirdTransaction)
 
 myAccount.charge("John Smith", 450)
+
 
 myAccount.balance()
 console.log(myAccount)

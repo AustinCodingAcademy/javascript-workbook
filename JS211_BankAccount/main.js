@@ -51,7 +51,7 @@ class SavingsAccount extends BankAccount {
 
     accrueInterest(){
         const irPayment = this.balance()*this.interestrate;
-        let interestTrans = new Transaction (irPayment, "Interest Payment");
+        let interestTrans = new Transaction (irPayment, "Intrest Payment");
         this.transactions.push(irPayment);
         this.record.push (interestTrans);
 
@@ -63,16 +63,16 @@ class SavingsAccount extends BankAccount {
 if (typeof describe === 'function'){
     describe('BankAccount', function(){
       it('should have an accountNumber, a owner, and a Transaction.lenght of 0', function(){
-        const myAccount = new BankAccount('1234', 'John Smith');
-        assert.equal(myAccount.accountNumber, '1234');
-        assert.equal(myAccount.owner, 'John Smith');
+        const myAccount = new BankAccount('1234abc', 'Mark Pustejovsky');
+        assert.equal(myAccount.accountNumber, '1234abc');
+        assert.equal(myAccount.owner, 'Mark Pustejovsky');
         assert.equal(myAccount.transactions.length, 0);
         
       });});
 
       describe('BankAccount', function(){
         it('should create a several deposits and charges and then the correct balance', function(){
-            const myAccount = new BankAccount('1234', 'John Smith');
+            const myAccount = new BankAccount('1234abc', 'Mark Pustejovsky');
             myAccount.deposit(1000);
             myAccount.charge("Target",30);
             myAccount.charge("Amazon",23.4);
@@ -81,8 +81,8 @@ if (typeof describe === 'function'){
             myAccount.charge("Store",220);
             myAccount.deposit(100.77);
             console.log (myAccount.record)
-            assert.equal(myAccount.accountNumber, '1234');
-            assert.equal(myAccount.owner, 'John Smith');
+            assert.equal(myAccount.accountNumber, '1234abc');
+            assert.equal(myAccount.owner, 'Mark Pustejovsky');
             assert.equal(myAccount.balance(),597.07)
             assert.equal(myAccount.record.length, 6)
           
@@ -91,11 +91,11 @@ if (typeof describe === 'function'){
 
         describe('BankAccount', function(){
             it('should create a several deposits and ensure no charge greater than balance can occure', function(){
-                const myAccount = new BankAccount('1234', 'John Smith');
+                const myAccount = new BankAccount('1234abc', 'Mark Pustejovsky');
                 myAccount.deposit(20);
                 myAccount.charge("Walmart",30);
-                assert.equal(myAccount.accountNumber, '1234');
-                assert.equal(myAccount.owner, 'John Smith');
+                assert.equal(myAccount.accountNumber, '1234abc');
+                assert.equal(myAccount.owner, 'Mark Pustejovsky');
                 assert.equal(myAccount.transactions.length, 1);
                 assert.equal(myAccount.balance(),20)
             });});
@@ -103,19 +103,19 @@ if (typeof describe === 'function'){
 
         describe('BankAccount', function(){
             it('should create a several deposits and ensure no charge greater than balance can occure', function(){
-                const myAccount = new BankAccount('1234', 'John Smith');
+                const myAccount = new BankAccount('1234abc', 'Mark Pustejovsky');
                 myAccount.deposit(20);
                 myAccount.charge("Walmart",30);
                
-                assert.equal(myAccount.accountNumber, '1234');
-                assert.equal(myAccount.owner, 'John Smith');
+                assert.equal(myAccount.accountNumber, '1234abc');
+                assert.equal(myAccount.owner, 'Mark Pustejovsky');
                 assert.equal(myAccount.transactions.length, 1);
                 assert.equal(myAccount.balance(),20)
             });});
 
             describe('savingAccount', function(){
                 it('should create a several deposits and ensure no charge greater than balance can occure', function(){
-                    const myAccount2 = new SavingsAccount('1234666', 'John Smith',.1);
+                    const myAccount2 = new SavingsAccount('1234666', 'Mark Pustejovsky',.1);
                     myAccount2.deposit(20000);
                     myAccount2.charge("Walmart",10000);
                     myAccount2.accrueInterest();
@@ -124,4 +124,3 @@ if (typeof describe === 'function'){
     
 
   }
-  
