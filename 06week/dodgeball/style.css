@@ -1,0 +1,48 @@
+body {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./dodgeball.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#one {
+    padding: 50px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#two {
+    padding: 50px;
+    display: grid;
+    align-content: center;
+}
+
+#three {
+    padding: 50px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#four {
+    padding: 50px;
+    display: grid;
+    align-content: center;
+}
+
+.button {
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+h4 {
+    font-family: arial;
+    font-size: 30px;
+}
+
