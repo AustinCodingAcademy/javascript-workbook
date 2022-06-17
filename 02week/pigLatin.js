@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+const pigLatin = (word)  => {
 
 	// scrub the word and convert word to arry
 	word = word.trim().toLowerCase().split('');
@@ -58,7 +58,7 @@ function pigLatin(word) {
 }
 
 
-function getPrompt() {
+const getPrompt = () => {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
